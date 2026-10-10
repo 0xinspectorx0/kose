@@ -1,0 +1,675 @@
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mürekkep - Köşe Yazarları</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Lora"', 'serif'],
+          },
+          colors: {
+            ink: {
+              900: '#111418',
+              800: '#1e242b',
+              700: '#2b343e',
+              100: '#f4f6f8',
+              50: '#fafbfd',
+            },
+            parchment: '#FBF9F5',
+            accent: '#D9532F',
+            editorial: '#2E384D'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Hide scrollbar for clean app feel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .wave-bar {
+      animation: wave 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes wave {
+      0% { height: 4px; }
+      100% { height: 22px; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-0 sm:p-4 text-ink-900 font-sans selection:bg-accent/20">
+
+  <!-- Desktop Presentation Wrap / Mobile Viewport -->
+  <div class="w-full sm:max-w-[420px] h-[100dvh] sm:h-[880px] bg-parchment sm:rounded-[44px] shadow-2xl relative flex flex-col overflow-hidden sm:ring-8 sm:ring-slate-800">
+    
+    <!-- Android Top Status Bar -->
+    <header class="pt-3 px-6 pb-2 flex justify-between items-center text-xs font-semibold tracking-wide text-ink-800 select-none z-30">
+      <span id="current-clock">09:41</span>
+      <div class="flex items-center gap-1.5">
+        <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+        <i data-lucide="signal" class="w-3.5 h-3.5"></i>
+        <i data-lucide="battery-charging" class="w-4 h-4 text-emerald-600"></i>
+      </div>
+    </header>
+
+    <!-- App Header -->
+    <nav class="px-5 pt-1 pb-3 flex items-center justify-between z-20">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
+          <span class="text-[11px] uppercase tracking-widest text-slate-500 font-bold">Günün Kalemleri</span>
+        </div>
+        <h1 class="text-2xl font-serif font-semibold tracking-tight text-ink-900 mt-0.5">mürekkep.</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="refresh-feed-btn" title="Yazıları Yenile" class="p-2.5 rounded-full bg-stone-200/60 active:scale-90 transition-transform text-slate-700 hover:text-black">
+          <i data-lucide="rotate-cw" class="w-4 h-4 transition-transform duration-500" id="refresh-icon"></i>
+        </button>
+        <button id="search-toggle-btn" class="p-2.5 rounded-full bg-stone-200/60 active:scale-90 transition-transform text-slate-700">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Search Overlay Box (Collapsible) -->
+    <div id="search-container" class="hidden px-5 pb-3">
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
+        <input id="search-input" type="text" placeholder="Yazar, gazete veya konu ara..." 
+          class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-4 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+      </div>
+    </div>
+
+    <!-- Scrollable Body Content -->
+    <main class="flex-1 overflow-y-auto no-scrollbar relative" id="main-scroll">
+      
+      <!-- Top Authors Story/Avatar Bar -->
+      <section class="pl-5 mb-4">
+        <div class="flex items-center justify-between pr-5 mb-2.5">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Takip Edilenler</h2>
+          <span class="text-[11px] text-accent font-semibold cursor-pointer">Tümü</span>
+        </div>
+        <div id="authors-avatar-track" class="flex gap-3.5 overflow-x-auto no-scrollbar pr-5 py-1">
+          <!-- Dynamic author heads -->
+        </div>
+      </section>
+
+      <!-- Category Filter Chips -->
+      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2">
+        <button onclick="filterCategory('Tümü')" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm">
+          Tümü
+        </button>
+        <button onclick="filterCategory('Ekonomi')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
+          Ekonomi
+        </button>
+        <button onclick="filterCategory('Gündem')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
+          Gündem
+        </button>
+        <button onclick="filterCategory('Teknoloji')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
+          Teknoloji
+        </button>
+        <button onclick="filterCategory('Kültür-Sanat')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
+          Kültür-Sanat
+        </button>
+      </section>
+
+      <!-- Live Sync Status Banner -->
+      <div id="sync-banner" class="mx-5 mb-3 px-3 py-2 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-between text-xs text-emerald-800">
+        <div class="flex items-center gap-1.5 font-medium">
+          <i data-lucide="cloud-check" class="w-4 h-4 text-emerald-600"></i>
+          <span>Gazetelerden senkronize edildi</span>
+        </div>
+        <span class="text-[10px] text-emerald-600 font-mono" id="sync-time">Az önce</span>
+      </div>
+
+      <!-- Articles Stream Cards Container -->
+      <div id="articles-list" class="px-5 space-y-4 pb-20">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+
+    <!-- Reading Mode Modal (Full Slide-up Sheet) -->
+    <section id="article-reader" class="absolute inset-0 bg-[#FCFBF7] z-40 transform translate-y-full transition-transform duration-300 flex flex-col">
+      <!-- Reading View Header -->
+      <div class="px-5 py-3 border-b border-stone-200/60 flex items-center justify-between bg-[#FCFBF7]/90 backdrop-blur-md">
+        <button id="close-reader-btn" class="p-2 -ml-2 rounded-full hover:bg-stone-200/60">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-ink-800"></i>
+        </button>
+        <div class="flex items-center gap-1.5">
+          <button id="font-size-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700 text-xs font-bold">Aa</button>
+          <button id="listen-article-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
+            <i data-lucide="headphones" class="w-4 h-4"></i>
+          </button>
+          <button id="reader-bookmark-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
+            <i data-lucide="bookmark" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Reading Progress Line -->
+      <div class="w-full h-1 bg-stone-200">
+        <div id="reader-progress" class="w-0 h-full bg-accent transition-all duration-75"></div>
+      </div>
+
+      <!-- Article Detailed Content -->
+      <div id="reader-scrollable" class="flex-1 overflow-y-auto px-6 py-6 font-serif">
+        <div class="flex items-center gap-3 mb-4">
+          <img id="reader-author-img" class="w-12 h-12 rounded-full object-cover border border-stone-300" src="" alt="Yazar">
+          <div>
+            <h4 id="reader-author-name" class="font-sans font-bold text-base text-ink-900 leading-tight">Yazar Adı</h4>
+            <div class="flex items-center gap-2 text-xs font-sans text-stone-500 mt-0.5">
+              <span id="reader-source" class="font-semibold text-slate-800">Gazete</span>
+              <span>•</span>
+              <span id="reader-date">Tarih</span>
+              <span>•</span>
+              <span id="reader-time">5 dk okuma</span>
+            </div>
+          </div>
+        </div>
+
+        <h1 id="reader-title" class="text-2xl sm:text-3xl font-serif font-bold text-ink-900 leading-snug mb-4">
+          Makale Başlığı
+        </h1>
+
+        <!-- Audio Player Strip (Mini Player inside reader) -->
+        <div id="audio-player-strip" class="hidden mb-6 p-3 bg-stone-100 rounded-2xl flex items-center justify-between border border-stone-200 font-sans">
+          <div class="flex items-center gap-3">
+            <button id="mini-audio-toggle" class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center">
+              <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
+            </button>
+            <div>
+              <p class="text-xs font-semibold text-ink-900">Yapay Zeka Seslendirmesi</p>
+              <p class="text-[10px] text-stone-500">Ses: Berke (Doğal Türkçe)</p>
+            </div>
+          </div>
+          <!-- Animated Voice Waveform -->
+          <div id="waveform" class="flex items-center gap-1 h-6">
+            <span class="w-1 bg-accent rounded-full h-2"></span>
+            <span class="w-1 bg-accent rounded-full h-4"></span>
+            <span class="w-1 bg-accent rounded-full h-3"></span>
+            <span class="w-1 bg-accent rounded-full h-5"></span>
+            <span class="w-1 bg-accent rounded-full h-2"></span>
+          </div>
+        </div>
+
+        <div id="reader-body" class="space-y-4 text-base leading-relaxed text-stone-800 tracking-[0.01em]">
+          <!-- Injected paragraph text -->
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-stone-200 font-sans text-center">
+          <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak kurumun RSS beslemesinden derlenmiştir.</p>
+          <button id="external-link-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-stone-200/80 rounded-full hover:bg-stone-300">
+            <span>Orijinal Yazıya Git</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Android Bottom Navigation Bar -->
+    <nav class="h-16 bg-white/95 backdrop-blur-md border-t border-stone-200/70 px-6 flex items-center justify-between z-20 select-none">
+      <button class="nav-btn flex flex-col items-center gap-1 text-accent" data-tab="feed">
+        <i data-lucide="newspaper" class="w-5 h-5"></i>
+        <span class="text-[10px] font-bold">Akış</span>
+      </button>
+      <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="discover">
+        <i data-lucide="compass" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Keşfet</span>
+      </button>
+      <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="saved">
+        <i data-lucide="bookmarks" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Kaydedilen</span>
+      </button>
+      <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="settings">
+        <i data-lucide="sliders-horizontal" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Ayarlar</span>
+      </button>
+    </nav>
+
+    <!-- Android Bottom Gesture Indicator -->
+    <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-stone-300 rounded-full pointer-events-none z-30"></div>
+
+  </div>
+
+  <script>
+    // --- Mock Columnist & Newspaper Data (Simulating Real Turkish Editorial Feeds) ---
+    const initialArticles = [
+      {
+        id: 1,
+        author: "Mahfi Eğilmez",
+        source: "Kendime Yazılar",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+        category: "Ekonomi",
+        title: "Enflasyon Beklentileri, Reel Faiz ve Çıkış Yolu",
+        snippet: "Ekonomide en zor kırılan direnç, davranışsal enflasyondur. İnsanlar fiyatların durmayacağına inandığı müddetçe tüketimi öne çekerler...",
+        readTime: "4 dk",
+        date: "Bugün 08:30",
+        isBookmarked: false,
+        fullContent: `
+          <p>Ekonomide en zor kırılan direnç, matematiksel değil davranışsal enflasyondur. Fiyatların yarın daha yüksek olacağına dair genel kabul yerleştiğinde, bireyler tasarruf yerine tüketim refleksini devreye sokar. Bu durum talebin canlı kalmasına ve fiyat artışlarının bir kısırdöngüye evrilmesine zemin hazırlar.</p>
+          <p>Reel faiz tartışmalarının odağında çoğu zaman yalnızca bankaların mevduat faizleri yer alıyor. Oysa ki karar alıcıların güven endeksini düzeltmeden atacağı para politikası adımları yalnızca zaman kazandırır. Kalıcı istikrar için yapısal reformların, adil vergi sisteminin ve şeffaf bütçe yönetiminin aynı anda devreye alınması bir zorunluluktur.</p>
+          <p>Önümüzdeki çeyrekte küresel emtia ve enerji fiyatlarının seyri lehimize işlese dahi, içeride güven tesis edilmeden enflasyonda kalıcı tek haneleri konuşmak fazla iyimser bir yaklaşım olacaktır.</p>
+        `
+      },
+      {
+        id: 2,
+        author: "M. Serdar Kuzuloğlu",
+        source: "Trend Analiz",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+        category: "Teknoloji",
+        title: "Yapay Zeka Çağında 'Hatırlamak' Neden Bir Lüks Haline Geldi?",
+        snippet: "Her şeyi kaydeden makinelerle çevriliyiz ama hiçbir şeyi kendi hafızamızda saklayamaz olduk. Zihinlerimizin dış belleklere taşınması...",
+        readTime: "6 dk",
+        date: "Bugün 07:45",
+        isBookmarked: true,
+        fullContent: `
+          <p>Her anımızı buluta yedekleyen, konuşmalarımızı metne döken, fotoğraflarımızı yüz tanıma algoritmalarıyla tasnif eden aygıtların gölgesinde yaşıyoruz. Ancak tuhaf bir biçimde, kolektif ve bireysel hafızamız hiç olmadığı kadar kırılgan.</p>
+          <p>Bilişsel yükü algoritmalara devrettikçe, derin düşünme kabiliyetimizi ve olaylar arasında beklenmedik köprüler kurma yetimizi yitiriyoruz. Yapay zeka modelleri bizim adımıza özetliyor, derliyor ve sentezliyor. Peki ya öğrenme sürecinin asıl kıymeti o zahmetli sindirme sürecinde saklıysa?</p>
+          <p>Belki de geleceğin en büyük entelektüel ayrıcalığı, arama motoruna başvurmadan hatırında bir dizeyi, bir formülü ya da bir argümanı tutabilmek olacak.</p>
+        `
+      },
+      {
+        id: 3,
+        author: "Murat Yetkin",
+        source: "YetkinReport",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+        category: "Gündem",
+        title: "Diplomaside Perde Arkası: Doğu Akdeniz ve Yeni Enerji Hatları",
+        snippet: "Bölgesel dengeler sessizce yeniden inşa edilirken Ankara'nın attığı son stratejik adımlar, masadaki enerji kartlarını nasıl etkileyecek?",
+        readTime: "5 dk",
+        date: "Dün 21:15",
+        isBookmarked: false,
+        fullContent: `
+          <p>Ankara'nın son diplomatik temasları, dış basında tahmin edilenden çok daha derin bir karşılık buldu. Doğu Akdeniz'deki enerji koridorları yeniden dizayn edilirken, güvenlik eksenli yaklaşımlar yerini pragmatik ticaret anlaşmalarına bırakıyor.</p>
+          <p>Bölgesel aktörlerin birbiri ardına yaptıkları açıklamalar, kriz noktalarının geride kaldığı anlamına gelmiyor elbette. Ancak ekonomik zorunluluklar, ideolojik çekincelerin bir adım önüne geçmiş vaziyette. Bu durum masadaki kart dağıtımını kökten değiştirebilir.</p>
+        `
+      },
+      {
+        id: 4,
+        author: "Zülfü Livaneli",
+        source: "Oksijen",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+        category: "Kültür-Sanat",
+        title: "Edebiyatın İyileştirici Gücü ve Şehirlerin Belleği",
+        snippet: "Betonlaşan kentlerde ruhunu arayan insanın en kadim sığınağı yine romanlar ve şiirler oldu. Bir sokaktan geçerken bir yazarın izini aramak...",
+        readTime: "7 dk",
+        date: "Dün 14:00",
+        isBookmarked: false,
+        fullContent: `
+          <p>Tarih boyunca büyük krizlerden, savaşlardan ve dönüşümlerden geçen insanlık; en nihayetinde sözcüklerin şifalı sığınağına dönmüştür. Edebiyat yalnızca hoşça vakit geçirme aracı değil, aynı zamanda toplumların ortak vicdan ve hafıza kasıdır.</p>
+          <p>Büyük yazarların sokaklarını dolaştığınız kentler diğerlerinden farklıdır; onların bir ruhu, iç sesi ve mimariye sinmiş bir hüznü vardır. İşte bu yüzden sanatı korumak, aslında insanın kendi geleceğini koruması demektir.</p>
+        `
+      }
+    ];
+
+    let articles = [...initialArticles];
+    let currentFilteredCategory = 'Tümü';
+    let currentReadingArticle = null;
+    let isPlayingAudio = false;
+    let readerFontSize = 16;
+
+    // --- DOM Elements ---
+    const articlesListEl = document.getElementById('articles-list');
+    const authorsAvatarTrack = document.getElementById('authors-avatar-track');
+    const searchToggleBtn = document.getElementById('search-toggle-btn');
+    const searchContainer = document.getElementById('search-container');
+    const searchInput = document.getElementById('search-input');
+    const refreshBtn = document.getElementById('refresh-feed-btn');
+    const refreshIcon = document.getElementById('refresh-icon');
+    const syncTimeEl = document.getElementById('sync-time');
+    const articleReader = document.getElementById('article-reader');
+    const closeReaderBtn = document.getElementById('close-reader-btn');
+    const readerProgressBar = document.getElementById('reader-progress');
+    const readerScrollable = document.getElementById('reader-scrollable');
+    const listenArticleBtn = document.getElementById('listen-article-btn');
+    const audioStrip = document.getElementById('audio-player-strip');
+    const miniAudioToggle = document.getElementById('mini-audio-toggle');
+    const miniPlayIcon = document.getElementById('mini-play-icon');
+    const fontSizeBtn = document.getElementById('font-size-btn');
+    const readerBookmarkBtn = document.getElementById('reader-bookmark-btn');
+
+    // --- Update Device Time ---
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const mins = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('current-clock').textContent = `${hours}:${mins}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // --- Render Top Authors Avatar ---
+    function renderAuthorAvatars() {
+      authorsAvatarTrack.innerHTML = articles.map(art => `
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="quickOpenByAuthor('${art.author}')">
+          <div class="w-13 h-13 rounded-full p-0.5 bg-gradient-to-tr from-accent via-amber-500 to-orange-400 group-active:scale-95 transition-transform">
+            <img class="w-12 h-12 rounded-full object-cover border-2 border-parchment" src="${art.avatar}" alt="${art.author}">
+          </div>
+          <span class="text-[11px] font-medium text-slate-700 w-14 truncate text-center">${art.author.split(' ')[0]}</span>
+        </div>
+      `).join('');
+    }
+
+    // --- Render Article Cards ---
+    function renderArticles(items) {
+      if (items.length === 0) {
+        articlesListEl.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+            <p class="text-sm font-medium">Bu kriterde yazı bulunamadı.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      articlesListEl.innerHTML = items.map(art => `
+        <article class="bg-white rounded-3xl p-4 shadow-sm border border-stone-200/80 transition-all hover:shadow-md cursor-pointer group" onclick="openReader(${art.id})">
+          <!-- Card Header Info -->
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2.5">
+              <img src="${art.avatar}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${art.author}">
+              <div>
+                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${art.author}</h3>
+                <div class="flex items-center gap-1.5 text-[10px] text-stone-400">
+                  <span class="font-semibold text-stone-600">${art.source}</span>
+                  <span>•</span>
+                  <span>${art.date}</span>
+                </div>
+              </div>
+            </div>
+            <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
+          </div>
+
+          <!-- Card Title & Snippet -->
+          <h2 class="font-serif font-bold text-base text-ink-900 leading-snug mb-1.5 line-clamp-2">
+            ${art.title}
+          </h2>
+          <p class="text-xs text-stone-500 font-sans leading-relaxed line-clamp-2 mb-3">
+            ${art.snippet}
+          </p>
+
+          <!-- Card Footer Action Row -->
+          <div class="flex items-center justify-between pt-2.5 border-t border-stone-100 text-[11px] text-stone-400" onclick="event.stopPropagation()">
+            <div class="flex items-center gap-1.5 text-stone-500 font-medium">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span>${art.readTime}</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <button onclick="toggleAudioPreview(event, ${art.id})" class="p-1.5 rounded-full hover:bg-stone-100 text-stone-600 active:scale-90 transition-transform flex items-center gap-1 text-[11px]">
+                <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+                <span>Dinle</span>
+              </button>
+              <button onclick="toggleBookmark(event, ${art.id})" class="p-1.5 rounded-full hover:bg-stone-100 ${art.isBookmarked ? 'text-accent' : 'text-stone-400'} active:scale-90 transition-transform">
+                <i data-lucide="bookmark" class="w-4 h-4 ${art.isBookmarked ? 'fill-accent' : ''}"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    // --- Search Toggle & Filter ---
+    searchToggleBtn.addEventListener('click', () => {
+      searchContainer.classList.toggle('hidden');
+      if (!searchContainer.classList.contains('hidden')) {
+        searchInput.focus();
+      } else {
+        searchInput.value = '';
+        applyFilters();
+      }
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+
+    function filterCategory(cat) {
+      currentFilteredCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.textContent.trim() === cat) {
+          btn.className = "cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm";
+        } else {
+          btn.className = "cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all";
+        }
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const term = searchInput.value.toLowerCase().trim();
+      let filtered = articles;
+
+      if (currentFilteredCategory !== 'Tümü') {
+        filtered = filtered.filter(a => a.category === currentFilteredCategory);
+      }
+
+      if (term) {
+        filtered = filtered.filter(a => 
+          a.author.toLowerCase().includes(term) ||
+          a.title.toLowerCase().includes(term) ||
+          a.source.toLowerCase().includes(term) ||
+          a.snippet.toLowerCase().includes(term)
+        );
+      }
+
+      renderArticles(filtered);
+    }
+
+    // --- Bookmarking Logic ---
+    function toggleBookmark(e, id) {
+      e.stopPropagation();
+      const item = articles.find(a => a.id === id);
+      if (item) {
+        item.isBookmarked = !item.isBookmarked;
+        applyFilters();
+        if (currentReadingArticle && currentReadingArticle.id === id) {
+          updateReaderBookmarkIcon();
+        }
+      }
+    }
+
+    function updateReaderBookmarkIcon() {
+      if (currentReadingArticle && currentReadingArticle.isBookmarked) {
+        readerBookmarkBtn.innerHTML = `<i data-lucide="bookmark" class="w-4 h-4 text-accent fill-accent"></i>`;
+      } else {
+        readerBookmarkBtn.innerHTML = `<i data-lucide="bookmark" class="w-4 h-4 text-stone-700"></i>`;
+      }
+      lucide.createIcons();
+    }
+
+    readerBookmarkBtn.addEventListener('click', () => {
+      if (currentReadingArticle) {
+        currentReadingArticle.isBookmarked = !currentReadingArticle.isBookmarked;
+        updateReaderBookmarkIcon();
+        applyFilters();
+      }
+    });
+
+    // --- Open Reader Full Modal ---
+    function openReader(id) {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+      currentReadingArticle = art;
+
+      document.getElementById('reader-author-img').src = art.avatar;
+      document.getElementById('reader-author-name').textContent = art.author;
+      document.getElementById('reader-source').textContent = art.source;
+      document.getElementById('reader-date').textContent = art.date;
+      document.getElementById('reader-time').textContent = art.readTime;
+      document.getElementById('reader-title').textContent = art.title;
+      document.getElementById('reader-body').innerHTML = art.fullContent;
+
+      updateReaderBookmarkIcon();
+      resetAudio();
+      readerScrollable.scrollTop = 0;
+      readerProgressBar.style.width = '0%';
+
+      articleReader.classList.remove('translate-y-full');
+      lucide.createIcons();
+    }
+
+    function quickOpenByAuthor(authorName) {
+      const art = articles.find(a => a.author.includes(authorName));
+      if (art) openReader(art.id);
+    }
+
+    closeReaderBtn.addEventListener('click', () => {
+      articleReader.classList.add('translate-y-full');
+      resetAudio();
+    });
+
+    // --- Reading Progress Bar Indicator ---
+    readerScrollable.addEventListener('scroll', () => {
+      const maxScroll = readerScrollable.scrollHeight - readerScrollable.clientHeight;
+      if (maxScroll > 0) {
+        const percent = (readerScrollable.scrollTop / maxScroll) * 100;
+        readerProgressBar.style.width = `${percent}%`;
+      }
+    });
+
+    // --- Font Size Adjustment in Reader ---
+    fontSizeBtn.addEventListener('click', () => {
+      readerFontSize = readerFontSize >= 20 ? 15 : readerFontSize + 2;
+      document.getElementById('reader-body').style.fontSize = `${readerFontSize}px`;
+    });
+
+    // --- Audio Voiceover Simulation ---
+    function toggleAudioPreview(e, id) {
+      e.stopPropagation();
+      openReader(id);
+      setTimeout(() => {
+        showAndPlayAudio();
+      }, 350);
+    }
+
+    listenArticleBtn.addEventListener('click', () => {
+      if (audioStrip.classList.contains('hidden')) {
+        showAndPlayAudio();
+      } else {
+        togglePlayPause();
+      }
+    });
+
+    miniAudioToggle.addEventListener('click', togglePlayPause);
+
+    function showAndPlayAudio() {
+      audioStrip.classList.remove('hidden');
+      isPlayingAudio = true;
+      updateAudioUI();
+    }
+
+    function togglePlayPause() {
+      isPlayingAudio = !isPlayingAudio;
+      updateAudioUI();
+    }
+
+    function resetAudio() {
+      isPlayingAudio = false;
+      audioStrip.classList.add('hidden');
+      updateAudioUI();
+    }
+
+    function updateAudioUI() {
+      const bars = document.querySelectorAll('#waveform span');
+      if (isPlayingAudio) {
+        miniPlayIcon.outerHTML = `<i data-lucide="pause" id="mini-play-icon" class="w-4 h-4 fill-white"></i>`;
+        bars.forEach((b, i) => {
+          b.classList.add('wave-bar');
+          b.style.animationDelay = `${i * 0.2}s`;
+        });
+      } else {
+        miniPlayIcon.outerHTML = `<i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
+        bars.forEach(b => b.classList.remove('wave-bar'));
+      }
+      lucide.createIcons();
+    }
+
+    // --- Pull/Simulate Live Fetch from Internet ---
+    refreshBtn.addEventListener('click', () => {
+      refreshIcon.classList.add('rotate-180');
+      syncTimeEl.textContent = "Çekiliyor...";
+
+      // Mock network fetch delay
+      setTimeout(() => {
+        refreshIcon.classList.remove('rotate-180');
+        syncTimeEl.textContent = "1 dk önce";
+
+        // Add a newly fetched column to simulate dynamic web scrap/feed fetch
+        const newFetchedColumn = {
+          id: Date.now(),
+          author: "Fatih Altaylı",
+          source: "Kişisel Blog",
+          avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+          category: "Gündem",
+          title: "Elektrikli Araçlar, Şarj Altyapısı ve Geleceğin Otomotiv Politikası",
+          snippet: "Yollarda çoğalan elektrikli otomobiller heyecan verici ancak şebeke yükü ve batarya geri dönüşümü konularında henüz yolun başındayız...",
+          readTime: "3 dk",
+          date: "Az önce",
+          isBookmarked: false,
+          fullContent: `
+            <p>Elektrikli araç dönüşümü artık bir tercih değil, küresel ölçekte dayatılan bir zorunluluk haline geldi. Ne var ki Türkiye şartlarında bu dönüşüm yalnızca araba ithal etmekle sınırlı kalamaz.</p>
+            <p>Ana trafo merkezlerinin kapasitesi, yüksek hızlı şarj istasyonlarının şehirlerarası otobanlardaki dağılımı ve en önemlisi ömrünü tamamlayan lityum iyon pillerin akıbeti masaya yatırılmalıdır.</p>
+          `
+        };
+
+        // Prepend and render
+        articles.unshift(newFetchedColumn);
+        renderAuthorAvatars();
+        applyFilters();
+
+        // Subtle toast or glow animation
+        document.getElementById('sync-banner').classList.add('ring-2', 'ring-emerald-400');
+        setTimeout(() => {
+          document.getElementById('sync-banner').classList.remove('ring-2', 'ring-emerald-400');
+        }, 1200);
+
+      }, 800);
+    });
+
+    // --- Bottom Navigation Tab Switching ---
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.nav-btn').forEach(b => {
+          b.classList.remove('text-accent');
+          b.classList.add('text-stone-400');
+          b.querySelector('span').classList.replace('font-bold', 'font-medium');
+        });
+        this.classList.remove('text-stone-400');
+        this.classList.add('text-accent');
+        this.querySelector('span').classList.replace('font-medium', 'font-bold');
+
+        const tab = this.getAttribute('data-tab');
+        if (tab === 'saved') {
+          renderArticles(articles.filter(a => a.isBookmarked));
+        } else {
+          applyFilters();
+        }
+      });
+    });
+
+    // Initialize View
+    renderAuthorAvatars();
+    renderArticles(articles);
+    lucide.createIcons();
+  </script>
+</body>
+</html>
