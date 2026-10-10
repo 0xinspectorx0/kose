@@ -426,9 +426,12 @@
         applyFilters();
         return true;
       } catch (err) {
+        const label = document.getElementById('sync-label');
         if (isManual) {
           syncTimeEl.textContent = 'Çevrimdışı';
-          document.getElementById('sync-label').textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
+          label.textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
+        } else if (!articles.some(a => a.isLive)) {
+          label.textContent = 'Canlı veri bekleniyor — örnek yazılar gösteriliyor';
         }
         return false;
       }
