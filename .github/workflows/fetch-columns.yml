@@ -1,0 +1,46 @@
+name: Köşe Yazılarını Güncelle (Günlük)
+
+# Her gün sabah 07:00 TSİ (04:00 UTC) Türk gazetelerinin köşe yazar
+# sayfalarından yazıları çeker ve data/daily.json olarak commit'ler.
+# Not: `schedule` tetikleyicisi GitHub'da yalnızca varsayılan dalda (main)
+# çalışır; bu dosya main'e merge edildiğinde otomatik zamanlama başlar.
+# Herhangi bir dalda elle çalıştırmak için: Actions -> workflow -> Run workflow
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
+  workflow_dispatch: # elle tetikleme
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-columns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Bağımlılıkları kur
+        run: pip install requests beautifulsoup4
+
+      - name: Köşe yazılarını çek
+        run: python scripts/fetch_columns.py
+
+      - name: Sonucu commit'le
+        run: |
+          git config user.name "kose-bot"
+          git config user.email "kose-bot@users.noreply.github.com"
+          git add data/daily.json
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok, commit atlanıyor."
+          else
+            git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
+            git push
+          fi

@@ -134,7 +134,7 @@
       <div id="sync-banner" class="mx-5 mb-3 px-3 py-2 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-between text-xs text-emerald-800">
         <div class="flex items-center gap-1.5 font-medium">
           <i data-lucide="cloud-check" class="w-4 h-4 text-emerald-600"></i>
-          <span>Gazetelerden senkronize edildi</span>
+          <span id="sync-label">Gazetelerden senkronize edildi</span>
         </div>
         <span class="text-[10px] text-emerald-600 font-mono" id="sync-time">Az önce</span>
       </div>
@@ -214,7 +214,7 @@
         </div>
 
         <div class="mt-8 pt-6 border-t border-stone-200 font-sans text-center">
-          <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak kurumun RSS beslemesinden derlenmiştir.</p>
+          <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak gazetenin sayfasından otomatik olarak derlenmiştir.</p>
           <button id="external-link-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-stone-200/80 rounded-full hover:bg-stone-300">
             <span>Orijinal Yazıya Git</span>
             <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
@@ -264,8 +264,22 @@
         isBookmarked: false,
         fullContent: `
           <p>Ekonomide en zor kırılan direnç, matematiksel değil davranışsal enflasyondur. Fiyatların yarın daha yüksek olacağına dair genel kabul yerleştiğinde, bireyler tasarruf yerine tüketim refleksini devreye sokar. Bu durum talebin canlı kalmasına ve fiyat artışlarının bir kısırdöngüye evrilmesine zemin hazırlar.</p>
-          <p>Reel faiz tartışmalarının odağında çoğu zaman yalnızca bankaların mevduat faizleri yer alıyor. Oysa ki karar alıcıların güven endeksini düzeltmeden atacağı para politikası adımları yalnızca zaman kazandırır. Kalıcı istikrar için yapısal reformların, adil vergi sisteminin ve şeffaf bütçe yönetiminin aynı anda devreye alınması bir zorunluluktur.</p>
-          <p>Önümüzdeki çeyrekte küresel emtia ve enerji fiyatlarının seyri lehimize işlese dahi, içeride güven tesis edilmeden enflasyonda kalıcı tek haneleri konuşmak fazla iyimser bir yaklaşım olacaktır.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Beklenti: enflasyonun görünmeyen motoru</h3>
+          <p>Enflasyonla mücadelede en az para politikası kadar belirleyici olan unsur, ekonomideki aktörlerin geleceğe dair beklentileridir. Hane halkının beklenti anketleri, reel sektörün fiyatlama davranışları ve finans piyasalarının ima ettiği enflasyon primleri bir arada değerlendirildiğinde, beklentilerin uzun süredir yüksek ve kalıcı seyrettiği açıkça görülüyor. Beklenti yerleşik hale geldiğinde firmalar maliyet artışlarını daha erken ve daha yüksek oranda fiyatlara yansıtır; çalışanlar ise zam taleplerini bugünden yarına taşır. Böylece bugünkü enflasyon, yarının enflasyonunun gerekçesi haline gelir.</p>
+          <p>Bu kısırdöngünün bir başka ayağı da ücret-fiyat sarmalıdır. Asgari ücret ve memur maaşlarındaki artışlar hızla maliyetlere yansır; maliyet artışı ise yeni zam taleplerini doğurur. Üstelik ithal girdi bağımlılığı yüksek bir ekonomide, döviz kurundaki her hareketlenme raf etiketlerine neredeyse anında yansır. Kur oynaklığı azaldıkça ve kur uzun süre dengede kaldıkça, fiyatlama refleksindeki "hemen yansıtayım" paniği de yatışır.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Reel faiz: gösterge değil, algı meselesi</h3>
+          <p>Reel faiz tartışmalarının odağında çoğu zaman yalnızca bankaların mevduat faizleri yer alıyor. Oysa ki karar alıcıların güven endeksini düzeltmeden atılacak para politikası adımları yalnızca zaman kazandırır. Kalıcı istikrar için yapısal reformların, adil vergi sisteminin ve şeffaf bütçe yönetiminin aynı anda devreye alınması bir zorunluluktur.</p>
+          <p>Nominal faiz ile tasarrufçunun hissettiği reel getiri arasındaki fark, rakamların çoğu zaman sakladığı en kritik ayrıntıdır. Politika faizi düşürüldüğünde dahi, yüksek enflasyon beklentisi nedeniyle hane halkı mevduatta reel kayıp yaşadığı algısıyla harcamaya yönelir. "Faiz indi" haberi, beklentiler gevşemediği sürece krediye talebi canlandırmaz; tam tersine, tasarrufçuyu enflasyondan kaçmaya iter. Yani asıl belirleyici olan, kağıt üzerindeki oran değil; pazarda, kahvede, markette duyulan yarın endişesidir.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Para politikası tek başına yetmez</h3>
+          <p>Merkez bankasının tek başına enflasyonu kalıcı tek haneye indirmesi, bir maraton koşucusunun son kilometreyi tek başına koşmasına benzer. Koşucu yorulmadan mesafe kat etsin diye pistin kenarına birkaç engel daha dikmek, yarışı uzatmaktan başka bir işe yaramaz. Mali disiplinin gevşemesi, kamu harcamalarındaki kontrolsüz artışlar ve kayıt dışı ekonominin büyüklüğü, para politikasının attığı her adımı geriye çeken bir lastik işlevi görür.</p>
+          <p>Çıkış yolunun omurgası üç ayak üzerine kurulmalıdır. Birincisi, mali disiplinin kalıcı ve kurumsal hale getirilmesidir. İkincisi, ekonomi yönetiminde öngörülebilirlik ve şeffaflık; kurallı, önceden ilan edilmiş ve sapmadan uygulanan bir çerçeve. Üçüncüsü ise verimlilik odaklı yapısal dönüşüm: kayıt dışılığın daraltılması, vergi adaletinin sağlanması ve kamuda tasarruf bilincinin yerleşmesi. Bu üçlü olmadan, en sıkı para politikası bile kumdan bir kaleye dönüşür.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Dış rüzgârlar lehimize, ama...</h3>
+          <p>Önümüzdeki çeyrekte küresel emtia ve enerji fiyatlarının seyri lehimize işlese dahi, içeride güven tesis edilmeden enflasyonda kalıcı tek haneleri konuşmak fazla iyimser bir yaklaşım olacaktır. Dışarıdaki gevşeme bir pencere açar; o pencereden içeriye serin hava girmesi için içerideki perdeyi aralamak gerekir. Politika yapıcıların görevi, bu pencereyi zamanında ve cesurca kullanmaktır.</p>
+          <p>Sonuç olarak, enflasyonla mücadelede "tek hamleyle zafer" diye bir şey yoktur. Sabırlı, kararlı ve şeffaf bir ekonomi yönetimi; beklentileri önce yatıştırır, sonra aşağı çeker. Çıkış yolu, işte bu üç kelimenin ardında gizli: sabır, kararlılık, şeffaflık.</p>
         `
       },
       {
@@ -281,8 +295,23 @@
         isBookmarked: true,
         fullContent: `
           <p>Her anımızı buluta yedekleyen, konuşmalarımızı metne döken, fotoğraflarımızı yüz tanıma algoritmalarıyla tasnif eden aygıtların gölgesinde yaşıyoruz. Ancak tuhaf bir biçimde, kolektif ve bireysel hafızamız hiç olmadığı kadar kırılgan.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Dış bellek devrimi ve "Google etkisi"</h3>
+          <p>İnsanlık tarihi boyunca bilgi, hatırlanmak zorundaydı; çünkü ona erişmenin tek yolu hafızaydı. Kitaplar matbaanın, ansiklopediler kütüphanelerin, internet ise arama motorlarının icadıyla bu zorunluluk ortadan kalktı. Bugün cebimizdeki cihaz, binlerce kütüphanenin içeriğini taşır hale geldi. Araştırmacılar bu olguya "Google etkisi" adını veriyor: İnsanlar, bir bilgiyi saklamak yerine, nerede bulacaklarını hatırlamayı tercih ediyor. Hafızadan silinen bilgi, yerini "bir dokunuş uzağım" hissine bırakıyor.</p>
+          <p>Ama bu değişim bedelsiz değil. Dış belleğe taşınan her anı, zihnimizde kurduğumuz bağlardan birini daha gevşetir. Bir telefon numarasını ezberlemek yerine rehbere kaydetmek kolaydır; ama o numaranın sahibiyle kurduğumuz ilişki de aynı anda zayıflar. Hafıza, sadece bir veri deposu değildir; kim olduğumuzu özetleyen, yaşadıklarımızı anlamlandıran bir anlatıdır.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Bilişsel yükü algoritmalara devretmenin bedeli</h3>
           <p>Bilişsel yükü algoritmalara devrettikçe, derin düşünme kabiliyetimizi ve olaylar arasında beklenmedik köprüler kurma yetimizi yitiriyoruz. Yapay zeka modelleri bizim adımıza özetliyor, derliyor ve sentezliyor. Peki ya öğrenme sürecinin asıl kıymeti o zahmetli sindirme sürecinde saklıysa?</p>
-          <p>Belki de geleceğin en büyük entelektüel ayrıcalığı, arama motoruna başvurmadan hatırında bir dizeyi, bir formülü ya da bir argümanı tutabilmek olacak.</p>
+          <p>Bir roman okurken sayfayı çevirmek, bir önceki bölümü kafada toparlamak, kahramanın motivasyonunu tartmak gerekir. Yapay zeka "özet geç" dediğinde bu zahmet ortadan kalkar; ama romanın zihnimizde açtığı kapı da öylece kapanır. Derin okuma, bir kas gibidir: kullanılmadıkça zayıflar. Bugün pek çok gencin uzun bir metni sonuna kadar takip etmekte zorlanması, bu kasın körelmesinin somut bir göstergesidir.</p>
+          <p>Aynı şey yaratıcılık için de geçerlidir. Yeni bir fikir, çoğu zaman birbiriyle ilgisi olmayan iki anıyı yan yana getirmekle doğar. Hafızamız zayıfladıkça bu beklenmedik köprüler de seyrekleşir. Algoritmalar geçmiş veriden türetir; hayal gücü ise unutulmuşun içinden beklenmedik olanı çıkarır.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Öğrenme, hatırlamanın yerine geçmez</h3>
+          <p>Eğitim dünyası da bu dönüşümden nasibini alıyor. Ezber karşıtı söylem uzun yıllardır haklı bir zeminde; ama ezber ile hatırlama aynı şey değildir. Ezber, anlamadan depolamaktır; hatırlama ise yaşanmış ve sindirilmiş bilginin geri çağrılmasıdır. Yapay zeka çağında asıl tehlike, ikisini bir tutup ikisinden de vazgeçmektir.</p>
+          <p>Bir çocuğa bir şiir okutmak, ona yalnızca dizeler öğretmez; ritmi, ahengi ve duygusal dalgalanmayı da yaşatır. Bir formülü ezberlemek yerine arkasındaki mantığı kavramak, ömür boyu taşınacak bir sermayedir. Algoritma o formülle işlemi çözer; ama neden öyle çözüldüğünü ancak insan anlar. İşte bu "anlama", makinelerin henüz erişemediği, hatırlamanın bir adım ötesindeki yetidir.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Ne yapmalı?</h3>
+          <p>Teknolojiyi hayatımızdan çıkarmak çözüm değil; ama onu bilinçli kullanmak şart. Bilim insanlarının "kasıtlı unutma" dediği bir kavram var: bazı şeyleri bilerek hatırlamamayı seçmek. Tersini de seçebiliriz: bazı şeyleri bilerek hatırlamayı. Bir şiiri kâğıda yazmak, bir adresi kafaya kazımak, bir kitabı özetini okumak yerine ağır ağır sindirmek... Bu tercihler, dijital çağda küçük ama anlamlı direniş eylemleridir.</p>
+          <p>Belki de geleceğin en büyük entelektüel ayrıcalığı, arama motoruna başvurmadan hatırında bir dizeyi, bir formülü ya da bir argümanı tutabilmek olacak. Hatırlamak bir lüks değil; özen gösterilmesi gereken bir yetenektir. Ve her yetenek gibi, kullanılmadıkça körelir.</p>
         `
       },
       {
@@ -298,7 +327,20 @@
         isBookmarked: false,
         fullContent: `
           <p>Ankara'nın son diplomatik temasları, dış basında tahmin edilenden çok daha derin bir karşılık buldu. Doğu Akdeniz'deki enerji koridorları yeniden dizayn edilirken, güvenlik eksenli yaklaşımlar yerini pragmatik ticaret anlaşmalarına bırakıyor.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Gerilimden koridora: hattın değişimi</h3>
+          <p>Yakın tarihe kadar Doğu Akdeniz, tarafların birbirini caydırmaya çalıştığı bir güvenlik havzası olarak görülüyordu. Sismik araştırmalar, donanma tatbikatları ve karşılıklı sert açıklamalar, bölgeyi bir barut fıçısına dönüştürmüştü. Bugün ise aynı denizde boru hatları, LNG terminalleri ve denizaltı kabloları konuşuluyor. Bu dönüşüm bir gecede olmadı; yıllar süren sessiz temasların, kapalı kapılar ardında yapılan teknik görüşmelerin ve bölgesel aktörlerin değişen çıkar hesaplarının ürünü.</p>
+          <p>Bölgedeki doğalgaz keşifleri, kartları yeniden dağıtan asıl etken oldu. Mısır, İsrail ve Kıbrıs açıklarındaki rezervler, rafa kaldırılmış projeleri yeniden masaya getirdi. EastMed boru hattı gibi mega projeler hâlâ tartışmalı olsa da, LNG taşımacılığı üzerinden kurulacak esnek ticari bağlar taraflara somut kazanç vaat ediyor. Enerji, ideolojik kutuplaşmanın üzerine çıkabilecek kadar güçlü bir köprü.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Ekonomik zorunluluklar ideolojinin önüne geçti</h3>
           <p>Bölgesel aktörlerin birbiri ardına yaptıkları açıklamalar, kriz noktalarının geride kaldığı anlamına gelmiyor elbette. Ancak ekonomik zorunluluklar, ideolojik çekincelerin bir adım önüne geçmiş vaziyette. Bu durum masadaki kart dağıtımını kökten değiştirebilir.</p>
+          <p>Uzun yıllar keskin söylemlerle anılan komşular, şimdi hidrokarbon taşımacılığı ve yenilenebilir enerji işbirliği başlıklarında aynı masaya oturuyor. Bölgesel ilişkilerdeki yumuşama adımları, diplomatik hatların yeniden onarılması ve enerji alanındaki teknik işbirliği... Her biri tek başına küçük görünen bu adımlar, birlikte bölgenin kaderini değiştirebilecek bir mozaiğin parçaları.</p>
+          <p>Burada kritik soru şu: Türkiye bu denklemin neresinde duruyor? Ankara, bir yandan kendi deniz alanlarındaki haklarını kararlılıkla korurken, diğer yandan bölgedeki hiçbir enerji projesinin kendisi olmadan sürdürülemeyeceğini taraflara göstermiş durumda. "Oyun kurucu" olmak ile "dışarıda kalmak" arasındaki ince çizgi, bu diplomasinin ustalığında gizli.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Perde arkasındaki pazarlık</h3>
+          <p>Dışişleri koridorlarında haftalardır süren temaslar, kamuoyuna yansıyanlardan çok daha yoğun. Teknik heyetler, enerji idareleri ve ulusal petrol şirketleri bir araya geliyor; haritalar üzerinde senaryolar çiziliyor. Ankara'nın attığı son stratejik adımlar, bu temasların somut çıktılarından biri olarak görülüyor.</p>
+          <p>Ama diplomaside hiçbir şey bedelsiz değildir. Enerji koridorlarının güvenliği ve deniz yetki alanlarının belirlenmesi hâlâ hassas başlıklar. Taraflar "kazan-kazan" formülü üzerinde anlaşmaya çalışsa da, sahadaki her hamle karşı tarafın refleksini de tetikliyor. İşte bu yüzden perde arkasındaki bu diplomatik dans, sabır ve soğukkanlılık gerektiriyor.</p>
+          <p>Sonuç olarak bölgede yeni bir sayfa açılıyor. Eski kutuplaşmalar yerini çıkar hesaplarına bırakırken, Türkiye'nin eli eskisinden daha güçlü. Ama unutulmaması gereken bir şey var: Diplomasi, ancak içerideki istikrarla desteklendiğinde kalıcı olur. Dışarıdaki başarı, içerideki birliğin aynasıdır.</p>
         `
       },
       {
@@ -314,12 +356,92 @@
         isBookmarked: false,
         fullContent: `
           <p>Tarih boyunca büyük krizlerden, savaşlardan ve dönüşümlerden geçen insanlık; en nihayetinde sözcüklerin şifalı sığınağına dönmüştür. Edebiyat yalnızca hoşça vakit geçirme aracı değil, aynı zamanda toplumların ortak vicdan ve hafıza kasıdır.</p>
-          <p>Büyük yazarların sokaklarını dolaştığınız kentler diğerlerinden farklıdır; onların bir ruhu, iç sesi ve mimariye sinmiş bir hüznü vardır. İşte bu yüzden sanatı korumak, aslında insanın kendi geleceğini koruması demektir.</p>
+          <p>Bir romanın sayfalarında kendine benzeyen bir kahraman bulan bir çocuk, yalnız olmadığını hisseder. Bir şiirin dizelerinde kendi acısını bulan bir kalp, teselli bulur. Savaş yıllarında cephedeki askerin çantasında şiir kitabı çıkar; sürgündeki yazarın elinde kalem, umut olur. Edebiyat, insanın en karanlık anlarında ona "yalnız değilsin" diyen dosttur.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Şehirlerin belleği: bir yazarın izinde</h3>
+          <p>Büyük yazarların sokaklarını dolaştığınız kentler diğerlerinden farklıdır; onların bir ruhu, iç sesi ve mimariye sinmiş bir hüznü vardır. Petersburg'da Dostoyevski'nin, Paris'te Victor Hugo'nun, İstanbul'da Yahya Kemal'in izini sürmek, tarihin sayfalarında değil; kaldırım taşlarının üzerinde yürürsünüz. Bir pencereye bakar, "İşte burada yazmıştı" dersiniz. O an zaman çöker; mekanla insan arasında görünmez bir köprü kurulur.</p>
+          <p>Şehirler de tıpkı insanlar gibi hatırlar. Taş duvarlar yangınları, köprüler üzerinden geçen ayak seslerini, kahveler saatlerce oturan ve düşünenlerin fısıltılarını saklar. Edebiyat, bu mekanların ruhunu kelimelere döker; böylece şehirlerin belleği ölümsüzleşir. Bir kentin ruhunu anlamak istiyorsanız, önce onun yazarlarını okuyun.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Betonlaşan kentlerde şiirin sığınağı</h3>
+          <p>Ne yazık ki çağımızın kentleri hızla betonlaşıyor. Her yeni bina bir anıyı daha yerle bir ediyor; her yeni yol, bir bahçeyi daha ortadan kaldırıyor. İşte bu yüzden betonlaşan kentlerde ruhunu arayan insanın en kadim sığınağı yine romanlar ve şiirler oluyor. Bir sokaktan geçerken bir yazarın izini aramak, aslında kendi ruhunuzun izini aramaktır.</p>
+          <p>Şiir, bu arayışta özel bir yere sahip. Bir dize, bazen bin sayfalık bir raporun anlatamadığını bir anda anlatır. Ritim, nefes, ahenk... Şiir okumak, kalbinizin atışına kulak vermektir. Müzikle kardeş olan bu sanata, günün karmaşası içinde kısa bir mola vermek, ruhun dinlenmesi için aralanmış bir kapıdır.</p>
+
+          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Sanatı korumak, geleceği korumaktır</h3>
+          <p>Kütüphaneler kapanıyor, sanat dersleri müfredattan çıkarılıyor, yeni kuşaklar ekranların pırıltısında büyüyor. İşte bu yüzden sanatı korumak, aslında insanın kendi geleceğini koruması demektir. Çünkü sanat, insanın en insani yanını besler: hayal gücünü, empatisini, sorgulama cesaretini.</p>
+          <p>Edebiyatın iyileştirici gücü, bu yüzden güncelliğini yitirmiyor. Teknoloji değişir, kentler değişir; ama insanın kalbindeki o derin arayış değişmez. Ve bu arayışın en kadim, en sadık dostunun adı hâlâ edebiyat. Bir kitap elinize aldığınızda, aslında kendinize dönüyorsunuz. İşte bu dönüş, yapılabilecek en değerli yolculuktur.</p>
         `
       }
     ];
 
     let articles = [...initialArticles];
+
+    // --- Canlı Günlük Akış (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
+    const DAILY_FEED_URL = 'data/daily.json';
+    const todayKey = () => new Date().toLocaleDateString('tr-TR');
+
+    function mapLiveArticle(a, idx) {
+      const plain = (a.fullContent || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      return {
+        id: 100000 + idx,
+        author: a.author || 'Köşe Yazarı',
+        source: a.source || 'Gazete',
+        avatar: a.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(a.author || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`,
+        category: a.category || 'Gündem',
+        title: a.title || 'Köşe Yazısı',
+        snippet: a.snippet || (plain.slice(0, 180) + '…'),
+        readTime: a.readTime || '3 dk',
+        date: a.date || 'Bugün',
+        isBookmarked: false,
+        isLive: true,
+        url: a.url || '',
+        fullContent: a.fullContent || `<p>${plain}</p>`
+      };
+    }
+
+    function formatSyncTime(iso) {
+      if (!iso) return 'Az önce';
+      const then = new Date(iso);
+      const diffMin = Math.floor((Date.now() - then.getTime()) / 60000);
+      if (diffMin < 1) return 'Az önce';
+      if (diffMin < 60) return `${diffMin} dk önce`;
+      const diffH = Math.floor(diffMin / 60);
+      if (diffH < 24) return `${diffH} sa önce`;
+      return then.toLocaleDateString('tr-TR');
+    }
+
+    async function loadDailyFeed(isManual = false) {
+      try {
+        const res = await fetch(`${DAILY_FEED_URL}?v=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        if (!data || !Array.isArray(data.articles) || data.articles.length === 0) {
+          throw new Error('Boş veri');
+        }
+        const live = data.articles.map(mapLiveArticle);
+        articles = [...live, ...articles.filter(a => !a.isLive)];
+        localStorage.setItem('kose-feed-date', todayKey());
+        syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
+        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi · ${live.length} canlı yazı`;
+        renderAuthorAvatars();
+        applyFilters();
+        return true;
+      } catch (err) {
+        if (isManual) {
+          syncTimeEl.textContent = 'Çevrimdışı';
+          document.getElementById('sync-label').textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
+        }
+        return false;
+      }
+    }
+
+    // Her gün otomatik kontrol: takvim günü değiştiyse yeni günlük veriyi çek
+    function autoDailyCheck() {
+      if (localStorage.getItem('kose-feed-date') !== todayKey()) {
+        loadDailyFeed(false);
+      }
+    }
+    setInterval(autoDailyCheck, 60 * 60 * 1000); // açılıkken her saat başı gün değişimi kontrolü
+
     let currentFilteredCategory = 'Tümü';
     let currentReadingArticle = null;
     let isPlayingAudio = false;
@@ -336,6 +458,7 @@
     const syncTimeEl = document.getElementById('sync-time');
     const articleReader = document.getElementById('article-reader');
     const closeReaderBtn = document.getElementById('close-reader-btn');
+    const externalLinkBtn = document.getElementById('external-link-btn');
     const readerProgressBar = document.getElementById('reader-progress');
     const readerScrollable = document.getElementById('reader-scrollable');
     const listenArticleBtn = document.getElementById('listen-article-btn');
@@ -395,7 +518,10 @@
                 </div>
               </div>
             </div>
-            <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
+            <div class="flex items-center gap-1.5">
+              ${art.isLive ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>CANLI</span>' : ''}
+              <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
+            </div>
           </div>
 
           <!-- Card Title & Snippet -->
@@ -463,11 +589,12 @@
       }
 
       if (term) {
-        filtered = filtered.filter(a => 
+        filtered = filtered.filter(a =>
           a.author.toLowerCase().includes(term) ||
           a.title.toLowerCase().includes(term) ||
           a.source.toLowerCase().includes(term) ||
-          a.snippet.toLowerCase().includes(term)
+          a.snippet.toLowerCase().includes(term) ||
+          a.fullContent.toLowerCase().includes(term)
         );
       }
 
@@ -517,6 +644,13 @@
       document.getElementById('reader-time').textContent = art.readTime;
       document.getElementById('reader-title').textContent = art.title;
       document.getElementById('reader-body').innerHTML = art.fullContent;
+
+      if (art.url) {
+        externalLinkBtn.classList.remove('hidden');
+        externalLinkBtn.onclick = () => window.open(art.url, '_blank', 'noopener');
+      } else {
+        externalLinkBtn.classList.add('hidden');
+      }
 
       updateReaderBookmarkIcon();
       resetAudio();
@@ -603,19 +737,10 @@
       lucide.createIcons();
     }
 
-    // --- Pull/Simulate Live Fetch from Internet ---
-    refreshBtn.addEventListener('click', () => {
-      refreshIcon.classList.add('rotate-180');
-      syncTimeEl.textContent = "Çekiliyor...";
-
-      // Mock network fetch delay
-      setTimeout(() => {
-        refreshIcon.classList.remove('rotate-180');
-        syncTimeEl.textContent = "1 dk önce";
-
-        // Add a newly fetched column to simulate dynamic web scrap/feed fetch
-        const newFetchedColumn = {
-          id: Date.now(),
+    // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
+    // Çevrimdışı kalırsa gösterilecek örnek makale:
+    const offlineMockColumn = {
+          id: 900001,
           author: "Fatih Altaylı",
           source: "Kişisel Blog",
           avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
@@ -623,26 +748,46 @@
           title: "Elektrikli Araçlar, Şarj Altyapısı ve Geleceğin Otomotiv Politikası",
           snippet: "Yollarda çoğalan elektrikli otomobiller heyecan verici ancak şebeke yükü ve batarya geri dönüşümü konularında henüz yolun başındayız...",
           readTime: "3 dk",
-          date: "Az önce",
+          date: "Çevrimdışı",
           isBookmarked: false,
           fullContent: `
-            <p>Elektrikli araç dönüşümü artık bir tercih değil, küresel ölçekte dayatılan bir zorunluluk haline geldi. Ne var ki Türkiye şartlarında bu dönüşüm yalnızca araba ithal etmekle sınırlı kalamaz.</p>
-            <p>Ana trafo merkezlerinin kapasitesi, yüksek hızlı şarj istasyonlarının şehirlerarası otobanlardaki dağılımı ve en önemlisi ömrünü tamamlayan lityum iyon pillerin akıbeti masaya yatırılmalıdır.</p>
+            <p>Elektrikli araç dönüşümü artık bir tercih değil, küresel ölçekte dayatılan bir zorunluluk haline geldi. Ne var ki Türkiye şartlarında bu dönüşüm yalnızca araba ithal etmekle sınırlı kalamaz. Altyapı, şebeke ve geri dönüşüm üçgeni kurulmadan atılacak her adım, yarı yoldan dönmek zorunda kalacak bir serüvenin ilk adımıdır.</p>
+
+            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Şebeke: görünmeyen darboğaz</h3>
+            <p>Ana trafo merkezlerinin kapasitesi, yüksek hızlı şarj istasyonlarının şehirlerarası otobanlardaki dağılımı ve en önemlisi ömrünü tamamlayan lityum iyon pillerin akıbeti masaya yatırılmalıdır. Bugün İstanbul'dan Ankara'ya elektrikli bir araçla gitmek teoride mümkün; pratikte şarj kuyrukları ve arızalı istasyonlar bu yolculuğu maceraya dönüştürüyor. Şebeke yatırımı yapılmadan sadece araç satmak, yangına benzin dökmeye benzer.</p>
+            <p>Oysa akıllı şebeke ve "araçtan şebekeye" (V2G) teknolojisi bu denklemi tersine çevirebilir. Elektrikli araçlar geceleri düşük tarifeyle dolarken, gündüz pik saatlerde şebekeye geri enerji verebilir. Yani arabalar, tekerlekli birer bataryaya dönüşür. Bunu başaran ülkeler hem şebeke dengesini kurar hem de vatandaşına kazandırır.</p>
+
+            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Batarya mezarlığı kapıda</h3>
+            <p>İkinci ve en az konuşulan konu, pil geri dönüşümü. Önümüzdeki on yılda yollarda milyonlarca elektrikli araç olacak; bu da milyonlarca ton lityum, kobalt ve nikel demek. Bu madenlerin çıkarılması hem çevresel yıkım yaratıyor hem de stratejik bağımlılık doğuruyor. Hammadde başka ellerde işleniyor, bataryaya dönüşüyor. Türkiye bu zincirin neresinde? Bugün maalesef neredeyse hiçbir yerinde.</p>
+            <p>Pil geri dönüşüm tesisleri, kamunun öncülüğünde ve özel sektörün desteğiyle kurulmalı. Ömrünü tamamlamış araç pilleri hurdaya dönüşmeden önce "ikinci ömür" projelerinde — örneğin güneş enerjisi depolama ünitelerinde — yeniden değerlendirilmeli. Döngüsel ekonomi lafla olmaz; tesisle, mevzuatla, denetimle olur.</p>
+
+            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Politika: cesaret ve hazırlık</h3>
+            <p>Avrupa Birliği 2035'te içten yanmalı motorlu araç satışını yasaklayacak. Bu karar, Türkiye otomotiv sanayii için ya bir sıçrama tahtası olacak ya da bir bataklık. Yerli üretim, şarj altyapısı ve nitelikli iş gücü... bu üçlü, ayrışmanın anahtarıdır. Erken davranan kazanır; bekleyen, ithalatçı olur.</p>
+            <p>Sonuç basit: Elektrikli dönüşüm kaçınılmaz. Ama hazırlıksız yakalanırsak faturası ağır olur. Şebekeyi güçlendirin, istasyonları yayın, pilleri geri dönüştürün, insanı eğitin. Dört başlık, tek hedef: Geleceğin otomobil politikasını bugünden kurmak.</p>
           `
-        };
+    };
 
-        // Prepend and render
-        articles.unshift(newFetchedColumn);
-        renderAuthorAvatars();
-        applyFilters();
+    refreshBtn.addEventListener('click', async () => {
+      refreshIcon.classList.add('rotate-180');
+      syncTimeEl.textContent = "Çekiliyor...";
 
-        // Subtle toast or glow animation
-        document.getElementById('sync-banner').classList.add('ring-2', 'ring-emerald-400');
-        setTimeout(() => {
-          document.getElementById('sync-banner').classList.remove('ring-2', 'ring-emerald-400');
-        }, 1200);
+      const ok = await loadDailyFeed(true);
+      refreshIcon.classList.remove('rotate-180');
 
-      }, 800);
+      if (!ok) {
+        // Çevrimdışıysa örnek makaleyi göster
+        if (!articles.find(a => a.id === offlineMockColumn.id)) {
+          articles.unshift(offlineMockColumn);
+          renderAuthorAvatars();
+          applyFilters();
+        }
+      }
+
+      // Senkronizasyon ışığı efekti
+      document.getElementById('sync-banner').classList.add('ring-2', 'ring-emerald-400');
+      setTimeout(() => {
+        document.getElementById('sync-banner').classList.remove('ring-2', 'ring-emerald-400');
+      }, 1200);
     });
 
     // --- Bottom Navigation Tab Switching ---
@@ -670,6 +815,7 @@
     renderAuthorAvatars();
     renderArticles(articles);
     lucide.createIcons();
+    loadDailyFeed(false); // günlük canlı akışı çek (varsa en üste alır)
   </script>
 </body>
 </html>
