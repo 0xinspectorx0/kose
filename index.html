@@ -434,7 +434,9 @@
       }
     ];
 
-    let articles = [...initialArticles];
+    // Örnek yazılar (initialArticles) yalnızca canlı veriye ulaşılamazsa
+    // gösterilir; normal açılışta akış data/daily.json'dan gelir.
+    let articles = [];
 
     // --- Canlı Günlük Akış (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
     const DAILY_FEED_URL = 'data/daily.json';
@@ -485,7 +487,7 @@
         syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
         const papers = data.papers ? ` · ${data.papers} gazete` : '';
         const writers = data.writers ? ` · ${data.writers} yazar` : '';
-        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi ·${papers}${writers} · ${live.length} canlı yazı`;
+        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi${papers}${writers} · ${live.length} canlı yazı`;
         renderAuthorAvatars();
         applyFilters();
         return true;
@@ -496,6 +498,12 @@
           label.textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
         } else if (!articles.some(a => a.isLive)) {
           label.textContent = 'Canlı veri bekleniyor — örnek yazılar gösteriliyor';
+        }
+        // Ekranda hiç yazı yoksa örnek yazılarla doldur (boş kalmasın)
+        if (!articles.length) {
+          articles = [...initialArticles];
+          renderAuthorAvatars();
+          applyFilters();
         }
         return false;
       }
@@ -579,6 +587,7 @@
     // --- /WRITERS HELPERS ---
 
     // --- WRITERS VIEW (dom) ---
+    let expandedPapers = new Set(); // Keşfet'te açık olan gazeteler
     let writersData = null;
     let writersLoaded = false;
     let writersLoading = false;
@@ -630,6 +639,7 @@
         lucide.createIcons();
         return;
       }
+      const searching = normalizeTr(q).length > 0;
       writersListEl.innerHTML = groups.map(p => {
         const chips = p.writers.map(w => {
           const name = escapeHtml(w && w.name);
@@ -638,17 +648,35 @@
           }
           return `<span class="inline-block px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600">${name}</span>`;
         }).join('');
+        // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
+        const isOpen = searching || expandedPapers.has(p.key);
         return `
-          <div class="bg-white rounded-2xl p-3.5 border border-stone-200/80 shadow-sm">
-            <div class="flex items-center justify-between mb-2.5 px-1">
-              <h3 class="text-xs font-bold text-ink-900">${escapeHtml(p.name)}</h3>
-              <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
+          <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm overflow-hidden">
+            <button type="button" onclick="togglePaper('${escapeHtml(p.key)}')" aria-expanded="${isOpen}"
+              class="w-full flex items-center justify-between gap-2 px-3.5 py-3 text-left hover:bg-stone-50 active:bg-stone-100 transition-colors">
+              <span class="flex items-center gap-2 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                <h3 class="text-xs font-bold text-ink-900 truncate">${escapeHtml(p.name)}</h3>
+              </span>
+              <span class="flex items-center gap-2 flex-shrink-0">
+                <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-accent' : ''}"></i>
+              </span>
+            </button>
+            <div class="${isOpen ? 'px-3.5 pb-3.5' : 'hidden'}">
+              <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone-100 max-h-64 overflow-y-auto">${chips}</div>
             </div>
-            <div class="flex flex-wrap gap-1.5">${chips}</div>
           </div>
         `;
       }).join('');
       lucide.createIcons();
+    }
+
+    // Keşfet: gazete satırına tıklayınca aç/kapat
+    function togglePaper(key) {
+      if (expandedPapers.has(key)) expandedPapers.delete(key);
+      else expandedPapers.add(key);
+      renderWriters();
     }
 
     writersSearchInput.addEventListener('input', renderWriters);
@@ -1067,11 +1095,15 @@
       });
     });
 
-    // Initialize View
-    renderAuthorAvatars();
-    renderArticles(articles);
+    // Initialize View — akış doğrudan canlı veriden kurulur
+    articlesListEl.innerHTML = `
+      <div class="text-center py-14 text-slate-400">
+        <i data-lucide="rotate-cw" class="w-8 h-8 mx-auto mb-2 animate-spin opacity-60"></i>
+        <p class="text-sm font-medium">Yazılar yükleniyor…</p>
+      </div>
+    `;
     lucide.createIcons();
-    loadDailyFeed(false); // günlük canlı akışı çek (varsa en üste alır)
+    loadDailyFeed(false); // günlük canlı akışı çek (örnek yazılar sadece çevrimdışı yedeği)
   </script>
 </body>
 </html>
