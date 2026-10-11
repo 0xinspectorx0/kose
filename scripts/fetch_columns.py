@@ -23,6 +23,7 @@ otomatik çalıştırır. İstekler nazik tempodadır (aralarda gecikme vardır)
 """
 
 import argparse
+import copy
 import hashlib
 import html as html_lib
 import json
@@ -98,9 +99,12 @@ AUTHOR_CLASS_NAMES = [
 AUTHOR_PHOTO_HINTS = (
     "author", "yazar", "writer", "avatar", "profile", "portrait", "columnist",
 )
-AUTHOR_PHOTO_DENY = (
-    "logo", "icon", "sprite", "banner", "reklam", "ads", "advert",
-    "placeholder", "1x1", "blank", "loading", "share", "social",
+# Not: "ads" gibi kısa parçalar düz alt dizi olarak aranmaz; "uploads" gibi
+# meşru yolları elememek için desen yol ayracıyla birlikte aranır.
+AUTHOR_PHOTO_DENY_RX = re.compile(
+    r"logo|icon|sprite|banner|reklam|advert|placeholder|1x1|blank|loading|"
+    r"share|social|(^|[^a-z])ads?([^a-z]|$)",
+    re.I,
 )
 AUTHOR_PHOTO_MIN_SIZE = 40
 
@@ -593,8 +597,7 @@ def _has_photo_hint(text):
 
 
 def _is_denied_photo(src):
-    low = src.lower()
-    return any(d in low for d in AUTHOR_PHOTO_DENY)
+    return bool(AUTHOR_PHOTO_DENY_RX.search(src or ""))
 
 
 def _photo_from_jsonld(node):
@@ -622,6 +625,47 @@ def _photo_from_jsonld(node):
             if isinstance(val, str) and val.startswith("http"):
                 return val
     return ""
+
+
+def author_from_img_alts(soup):
+    """Künyede adı metin olarak değil, yazar görselinin alt metninde geçen
+    yazarı bulur (Posta: author-placeholder.svg alt="Mehmet Coşundeniz",
+    Takvim: class="authors-head-image" alt="Ekrem Kızıltaş" gibi)."""
+    for img in soup.find_all("img"):
+        alt = clean_author_name(img.get("alt") or "")
+        if not alt or len(alt.split()) > 5:
+            continue
+        parent = img.find_parent()
+        pattrs = ""
+        if parent is not None and getattr(parent, "get", None):
+            pattrs = " ".join([" ".join(parent.get("class") or []), parent.get("id") or ""])
+        hay = " ".join([
+            " ".join(img.get("class") or []), img.get("id") or "",
+            img.get("src") or "", pattrs,
+        ]).lower()
+        if _has_photo_hint(hay):
+            return alt
+    return ""
+
+
+def split_author_prefix(title):
+    """"ERHAN AFYONCU - Truva'nın intikamı" -> ("ERHAN AFYONCU", "Truva'nın...").
+
+    Yalnızca baş harfleri büyük (künye biçiminde) ve en az iki kelimelik
+    önekler yazar adı sayılır; "Fenerbahçe oyunu - hız sorunu" gibi normal
+    başlıklara dokunulmaz.
+    """
+    m = re.match(r"^\s*([A-ZÇĞİÖŞÜ][A-ZÇĞİÖŞÜ .'\-]{2,38})\s+[-–—]\s+(.{5,})$", title or "")
+    if not m:
+        return "", ""
+    name = m.group(1).strip(" .-")
+    rest = m.group(2).strip()
+    if not is_valid_author_name(name) or len(name.split()) < 2:
+        return "", ""
+    letters = [c for c in name if c.isalpha()]
+    if not letters or sum(1 for c in letters if c.isupper()) / len(letters) < 0.8:
+        return "", ""
+    return clean_author_name(name), rest
 
 
 def extract_author_photo(soup, author, base_url):
@@ -740,6 +784,17 @@ def parse_html_article(url, paper):
     if not html:
         return None
     soup = BeautifulSoup(html, "html.parser")
+
+    # Yazar adı ve portresi çoğu sitede <header>/<aside> içinde durur; bu
+    # yüzden künye bilgisi, bu etiketler silinmeden ÖNCE çıkarılır.
+    author = extract_author_from_soup(soup) or paper.get("author", "")
+    if not is_valid_author_name(author) or author.lower() == paper["name"].lower():
+        author = author_from_img_alts(soup)
+    try:
+        photo_soup = copy.copy(soup)
+    except Exception:
+        photo_soup = BeautifulSoup(html, "html.parser")
+
     for tag in soup(["script", "style", "noscript", "header", "footer", "nav", "aside", "form"]):
         tag.decompose()
 
@@ -764,8 +819,13 @@ def parse_html_article(url, paper):
         log(f"    ! başlık bulunamadı <- {url}")
         return None
 
-    author = extract_author_from_soup(soup) or paper.get("author", "")
-    photo = extract_author_photo(soup, author, url)
+    # tmgrup gazeteleri (Sabah/Takvim/Yeni Asır) yazarı başlığa gömer
+    if not author:
+        name, rest = split_author_prefix(title)
+        if name:
+            author, title = name, rest
+
+    photo = extract_author_photo(photo_soup, author, url)
 
     blocks = extract_blocks(soup)
     if len(blocks) < 2:
