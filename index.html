@@ -52,6 +52,10 @@
     .nav-btn.text-stone-400 .nav-icon-strong {
       color: #57534e; /* stone-600 */
     }
+    /* Sekme aktifken ayraç dolu (turuncu) görünür */
+    .nav-btn.text-accent .nav-icon-strong {
+      fill: currentColor;
+    }
 
     .wave-bar {
       animation: wave 1.2s ease-in-out infinite alternate;
@@ -295,7 +299,7 @@
         <span class="text-[10px] font-medium">Keşfet</span>
       </button>
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="saved">
-        <i data-lucide="bookmarks" class="nav-icon-strong w-[22px] h-[22px]"></i>
+        <i data-lucide="bookmark" class="nav-icon-strong w-[22px] h-[22px]"></i>
         <span class="text-[10px] font-medium">Kaydedilen</span>
       </button>
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="settings">
