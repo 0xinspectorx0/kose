@@ -1,15 +1,15 @@
 name: Köşe Yazılarını Güncelle (Günlük)
 
-# GEÇİCİ: çalışma dalına push edildiğinde de çalışır (sandbox'tan tetiklemek
-# için; schedule yalnızca varsayılan dalda çalışır). İş bitince main'deki
-# özgün hâline döndürülecek.
+# Her gün sabah 07:00 TSİ (04:00 UTC) Türk gazetelerinin köşe yazar
+# sayfalarından yazıları çeker ve data/daily.json olarak commit'ler.
+# Not: `schedule` tetikleyicisi GitHub'da yalnızca varsayılan dalda (main)
+# çalışır; bu dosya main'e merge edildiğinde otomatik zamanlama başlar.
+# Herhangi bir dalda elle çalıştırmak için: Actions -> workflow -> Run workflow
+
 on:
   schedule:
     - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
-  workflow_dispatch:
-  push:
-    branches:
-      - 'arena/d1241d9e-kose'
+  workflow_dispatch: # elle tetikleme
 
 permissions:
   contents: write

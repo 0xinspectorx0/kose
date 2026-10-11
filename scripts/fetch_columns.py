@@ -787,9 +787,17 @@ def parse_html_article(url, paper):
 
     # Yazar adı ve portresi çoğu sitede <header>/<aside> içinde durur; bu
     # yüzden künye bilgisi, bu etiketler silinmeden ÖNCE çıkarılır.
-    author = extract_author_from_soup(soup) or paper.get("author", "")
-    if not is_valid_author_name(author) or author.lower() == paper["name"].lower():
+    # Sıra: sayfadaki künye -> künye görselinin alt metni -> yapılandırılmış
+    # yazar (kişisel blog/RSS kaynaklarında gazete adı ile yazar adı aynıdır,
+    # o yüzden yapılandırılmış değer en sona bırakılır).
+    author = ""
+    page_author = extract_author_from_soup(soup)
+    if is_valid_author_name(page_author) and page_author.lower() != paper["name"].lower():
+        author = page_author
+    if not author:
         author = author_from_img_alts(soup)
+    if not author:
+        author = paper.get("author", "")
     try:
         photo_soup = copy.copy(soup)
     except Exception:
