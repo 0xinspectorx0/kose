@@ -699,6 +699,49 @@ def discover_writers(max_authors_per_paper):
     return {"papers": papers_out, "total": total}
 
 
+def fill_missing_authors(records, writers_data):
+    """Makale sayfasından yazarı okunamayan kayıtları, gazetenin keşfedilen
+    yazar listesindeki profil bağlantısıyla eşleştirerek tamamlar.
+
+    Örnek: https://www.cumhuriyet.com.tr/yazarlar/emre-kongar/odadaki-fil-2545467
+    adresi, roster'daki https://www.cumhuriyet.com.tr/yazarlar/emre-kongar
+    profilinin altında kaldığı için yazar adı "Emre Kongar" olarak atanır.
+    İsim üretilmez/tahmin edilmez; yalnızca roster'da gerçekten var olan
+    eşleşmeler kullanılır.
+    """
+    by_source = {}
+    for paper in writers_data.get("papers", []):
+        pairs = [
+            (w["url"].rstrip("/"), w["name"])
+            for w in paper.get("writers", [])
+            if w.get("url")
+        ]
+        if pairs:
+            # uzun profil adresi önce denensin (iç içe eşleşme riskine karşı)
+            by_source[paper["name"]] = sorted(pairs, key=lambda t: -len(t[0]))
+
+    fixed = 0
+    for rec in records:
+        if rec.get("author") and rec["author"] != "Köşe Yazarı":
+            continue
+        url = (rec.get("url") or "").rstrip("/")
+        if not url:
+            continue
+        for prof_url, name in by_source.get(rec.get("source"), []):
+            if url.startswith(prof_url):
+                rec["author"] = name
+                rec["avatar"] = (
+                    "https://ui-avatars.com/api/?name="
+                    + quote(name)
+                    + "&background=2E384D&color=fff&size=128&bold=true"
+                )
+                fixed += 1
+                break
+    if fixed:
+        log(f">> Yazar adı roster'dan tamamlandı: {fixed} kayıt")
+    return records
+
+
 def merge_article_authors(writers_data, records):
     """Makale sayfalarından bulunan yazar adlarını keşif listesine ekler."""
     by_key = {p["key"]: p for p in writers_data["papers"]}
@@ -845,7 +888,9 @@ def main():
         log(f">> {cfg['name']} (RSS)")
         records.extend(parse_feed(cfg, args.max_per_source))
 
+    # yazarı okunamayan kayıtları roster eşleşmesiyle tamamla, ardından
     # makale sayfalarındaki yazar adlarını keşif listesine işle
+    fill_missing_authors(records, writers_data)
     merge_article_authors(writers_data, records)
     save_writers(writers_data, args.writers_out)
 

@@ -10,11 +10,6 @@ on:
   schedule:
     - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
   workflow_dispatch: # elle tetikleme
-  # Geçici: çalışma dalına push edildiğinde de çalışsın (sandbox'tan tetiklemek için;
-  # schedule yalnızca varsayılan dalda çalıştığından buna ihtiyaç var). Merge öncesi kaldırılacak.
-  push:
-    branches:
-      - 'arena/d1241d9e-kose'
 
 permissions:
   contents: write
@@ -49,11 +44,3 @@ jobs:
             git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
             git push
           fi
-
-      - name: Verileri artefakt olarak sakla (yedek)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: kose-data
-          path: data/
-          if-no-files-found: warn
