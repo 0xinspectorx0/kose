@@ -1,0 +1,127 @@
+{
+  "fetchedAt": "2026-10-11T06:48:37.521164+00:00",
+  "date": "2026-10-11",
+  "total": 0,
+  "papers": [
+    {
+      "key": "hurriyet",
+      "name": "Hürriyet",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "sozcu",
+      "name": "Sözcü",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "milliyet",
+      "name": "Milliyet",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "sabah",
+      "name": "Sabah",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "cumhuriyet",
+      "name": "Cumhuriyet",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "yenisafak",
+      "name": "Yeni Şafak",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "karar",
+      "name": "Karar",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "birgun",
+      "name": "BirGün",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "haberturk",
+      "name": "Habertürk",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "aksam",
+      "name": "Akşam",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "takvim",
+      "name": "Takvim",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "posta",
+      "name": "Posta",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "yeniasir",
+      "name": "Yeni Asır",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "star",
+      "name": "Star",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "turkiye",
+      "name": "Türkiye Gazetesi",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "yenicag",
+      "name": "Yeniçağ",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "milligazete",
+      "name": "Milli Gazete",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "t24",
+      "name": "T24",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "duvar",
+      "name": "Gazete Duvar",
+      "count": 0,
+      "writers": []
+    },
+    {
+      "key": "diken",
+      "name": "Diken",
+      "count": 0,
+      "writers": []
+    }
+  ]
+}
