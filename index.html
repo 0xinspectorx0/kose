@@ -45,18 +45,6 @@
       scrollbar-width: none;
     }
     
-    /* Kaydedilen simgesi: daha kalın çizgi, sekme pasifken de koyu görünür */
-    .nav-icon-strong, svg.nav-icon-strong {
-      stroke-width: 2.5;
-    }
-    .nav-btn.text-stone-400 .nav-icon-strong {
-      color: #57534e; /* stone-600 */
-    }
-    /* Sekme aktifken ayraç dolu (turuncu) görünür */
-    .nav-btn.text-accent .nav-icon-strong {
-      fill: currentColor;
-    }
-
     .wave-bar {
       animation: wave 1.2s ease-in-out infinite alternate;
     }
@@ -273,6 +261,12 @@
       </section>
     </main>
 
+    <!-- Yukarı Çık (aşağı kaydırınca belirir) -->
+    <button id="scroll-top-btn" type="button" title="En üste çık" aria-label="En üste çık"
+      class="hidden absolute right-4 bottom-20 z-30 w-11 h-11 rounded-full bg-ink-900 text-white shadow-lg flex items-center justify-center hover:bg-ink-700 active:scale-90 transition-all">
+      <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
     <!-- Reading Mode Modal (Full Slide-up Sheet) -->
     <section id="article-reader" class="absolute inset-0 bg-[#FCFBF7] z-40 transform translate-y-full transition-transform duration-300 flex flex-col">
       <!-- Reading View Header -->
@@ -281,7 +275,8 @@
           <i data-lucide="arrow-left" class="w-5 h-5 text-ink-800"></i>
         </button>
         <div class="flex items-center gap-1.5">
-          <button id="font-size-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700 text-xs font-bold">Aa</button>
+          <button id="font-dec-btn" type="button" title="Yazıyı küçült" class="px-2 py-1.5 rounded-full hover:bg-stone-200/60 text-stone-700 text-xs font-bold">A-</button>
+          <button id="font-inc-btn" type="button" title="Yazıyı büyüt" class="px-2 py-1.5 rounded-full hover:bg-stone-200/60 text-stone-700 text-xs font-bold">A+</button>
           <button id="listen-article-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
             <i data-lucide="headphones" class="w-4 h-4"></i>
           </button>
@@ -362,7 +357,7 @@
         <span class="text-[10px] font-medium">Keşfet</span>
       </button>
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="saved">
-        <i data-lucide="bookmark" class="nav-icon-strong w-[22px] h-[22px]"></i>
+        <i data-lucide="bookmark" class="w-5 h-5"></i>
         <span class="text-[10px] font-medium">Kaydedilen</span>
       </button>
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="settings">
@@ -656,7 +651,10 @@
     const audioStrip = document.getElementById('audio-player-strip');
     const miniAudioToggle = document.getElementById('mini-audio-toggle');
     const miniPlayIcon = document.getElementById('mini-play-icon');
-    const fontSizeBtn = document.getElementById('font-size-btn');
+    const fontDecBtn = document.getElementById('font-dec-btn');
+    const fontIncBtn = document.getElementById('font-inc-btn');
+    const mainScrollEl = document.getElementById('main-scroll');
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
     const readerBookmarkBtn = document.getElementById('reader-bookmark-btn');
 
     const syncBannerEl = document.getElementById('sync-banner');
@@ -743,7 +741,11 @@
       writersEmptyEl.classList.add('hidden');
       writersMetaEl.textContent = `${summary.paperCount} gazete · ${summary.total} yazar`;
       const q = writersSearchInput.value;
-      const groups = filterWriters(writersData.papers, q);
+      // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; yazarların kendi
+      // sırasına dokunulmaz.
+      const groups = filterWriters(writersData.papers, q)
+        .slice()
+        .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
       if (!groups.length) {
         writersListEl.innerHTML = `
           <div class="text-center py-12 text-slate-400">
@@ -1059,7 +1061,10 @@
       document.getElementById('reader-date').textContent = art.date;
       document.getElementById('reader-time').textContent = art.readTime;
       document.getElementById('reader-title').textContent = art.title;
-      document.getElementById('reader-body').innerHTML = art.fullContent;
+      const readerBodyEl = document.getElementById('reader-body');
+      readerBodyEl.innerHTML = art.fullContent;
+      readerBodyEl.style.fontSize = `${Number(appSettings.readerFont) || 16}px`;
+      updateScrollTopBtn();
 
       if (art.url) {
         externalLinkBtn.classList.remove('hidden');
@@ -1098,13 +1103,29 @@
     });
 
     // --- Font Size Adjustment in Reader ---
-    fontSizeBtn.addEventListener('click', () => {
-      const fontSteps = [14, 16, 19];
-      readerFontSize = fontSteps[(fontSteps.indexOf(readerFontSize) + 1) % fontSteps.length];
+    // --- Okuyucu puntosu: A- / A+ ---
+    const READER_FONT_MIN = 13;
+    const READER_FONT_MAX = 24;
+    function applyReaderFont(px) {
+      readerFontSize = Math.min(READER_FONT_MAX, Math.max(READER_FONT_MIN, Math.round(px)));
       appSettings.readerFont = readerFontSize;
       saveSettings();
+      const body = document.getElementById('reader-body');
+      if (body) body.style.fontSize = `${readerFontSize}px`;
       renderSettings();
-      document.getElementById('reader-body').style.fontSize = `${readerFontSize}px`;
+      return readerFontSize;
+    }
+    fontDecBtn.addEventListener('click', () => applyReaderFont(readerFontSize - 1));
+    fontIncBtn.addEventListener('click', () => applyReaderFont(readerFontSize + 1));
+
+    // --- Yukarı çık düğmesi ---
+    function updateScrollTopBtn() {
+      const readerClosed = articleReader.classList.contains('translate-y-full');
+      scrollTopBtn.classList.toggle('hidden', !(readerClosed && mainScrollEl.scrollTop > 320));
+    }
+    mainScrollEl.addEventListener('scroll', updateScrollTopBtn, { passive: true });
+    scrollTopBtn.addEventListener('click', () => {
+      mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // --- Audio Voiceover Simulation ---
