@@ -337,12 +337,35 @@ def clean_title(t):
     return t
 
 
+CORPORATE_TAIL_RX = re.compile(r"gazete|gazetecilik|medya|yay\u0131n|haber|ajans|a\.?\u015f", re.I)
+
+
+def is_valid_author_name(name):
+    """Yazar adı olamayacak değerleri (URL, kurumsal ad) eler."""
+    if not name or len(name) < 3 or len(name) > 60:
+        return False
+    if re.search(r"https?://|www\.|\.(com|net|org|tr)\b|@", name, re.I):
+        return False
+    if re.search(r"\b(gazetecilik|gazetesi|yay\u0131nc\u0131l\u0131k|medya|ajans\u0131|holding)\b", name, re.I):
+        return False
+    if re.search(r"\ba\.?\u015f\.?$", name, re.I):
+        return False
+    return True
+
+
 def clean_author_name(t):
     if not t:
         return ""
     t = re.sub(r"\s+", " ", t).strip()
     t = re.sub(r"^(Tüm Yazıları|TÜM YAZILARI|Tüm yazıları)\s*", "", t).strip()
     t = t.rstrip("›»").strip()
+    # "Resul TOSUN, Star Gazetesi" -> "Resul TOSUN"
+    if "," in t:
+        head, _, tail = t.partition(",")
+        if CORPORATE_TAIL_RX.search(tail):
+            t = head.strip()
+    if not is_valid_author_name(t):
+        return ""
     return t
 
 
@@ -505,18 +528,24 @@ def extract_author_from_soup(soup):
         if key in AUTHOR_META_KEYS:
             val = el.get("content")
             if val and 2 <= len(val) <= 60:
-                return clean_author_name(val)
+                name = clean_author_name(val)
+                if name:
+                    return name
     el = soup.find(attrs={"itemprop": AUTHOR_ITEMPROP})
     if el is not None:
         val = el.get("content") or el.get_text(" ", strip=True)
         if val and 2 <= len(val) <= 60:
-            return clean_author_name(val)
+            name = clean_author_name(val)
+            if name:
+                return name
     for cls in AUTHOR_CLASS_NAMES:
         el = soup.find(class_=cls)
         if el is not None:
             val = el.get_text(" ", strip=True)
             if val and 2 <= len(val) <= 60:
-                return clean_author_name(val)
+                name = clean_author_name(val)
+                if name:
+                    return name
     return ""
 
 
@@ -621,6 +650,26 @@ def extract_author_photo(soup, author, base_url):
             if src and not _is_denied_photo(src):
                 return src
 
+    # 3) yazar adını içeren metnin yakınındaki görsel (künye bloğu, site-bağımsız)
+    if target:
+        for text in soup.find_all(string=True):
+            parent = text.parent
+            if parent is not None and parent.name in ("script", "style"):
+                continue
+            if _norm_name(text) != target:
+                continue
+            node = parent
+            for _ in range(3):
+                if node is None or not getattr(node, "find", None):
+                    break
+                img = node.find("img")
+                if img is not None and _img_size_ok(img):
+                    src = _abs_img_src(img, base_url)
+                    if src and not _is_denied_photo(src):
+                        return src
+                node = node.find_parent()
+
+    # 4) class/id/src içinde yazar ipucu geçen görsel
     for img in imgs:
         if not _img_size_ok(img):
             continue
