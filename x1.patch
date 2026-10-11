@@ -1,0 +1,1825 @@
+diff --git a/.github/workflows/fetch-columns.yml b/.github/workflows/fetch-columns.yml
+new file mode 100644
+index 0000000..999eaa3
+--- /dev/null
++++ b/.github/workflows/fetch-columns.yml
+@@ -0,0 +1,46 @@
++name: Köşe Yazılarını Güncelle (Günlük)
++
++# Her gün sabah 07:00 TSİ (04:00 UTC) Türk gazetelerinin köşe yazar
++# sayfalarından yazıları çeker ve data/daily.json olarak commit'ler.
++# Not: `schedule` tetikleyicisi GitHub'da yalnızca varsayılan dalda (main)
++# çalışır; bu dosya main'e merge edildiğinde otomatik zamanlama başlar.
++# Herhangi bir dalda elle çalıştırmak için: Actions -> workflow -> Run workflow
++
++on:
++  schedule:
++    - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
++  workflow_dispatch: # elle tetikleme
++
++permissions:
++  contents: write
++
++jobs:
++  fetch-columns:
++    runs-on: ubuntu-latest
++    timeout-minutes: 30
++    steps:
++      - name: Depoyu çek
++        uses: actions/checkout@v4
++
++      - name: Python kur
++        uses: actions/setup-python@v5
++        with:
++          python-version: '3.11'
++
++      - name: Bağımlılıkları kur
++        run: pip install requests beautifulsoup4
++
++      - name: Köşe yazılarını çek
++        run: python scripts/fetch_columns.py
++
++      - name: Sonuçları commit'le
++        run: |
++          git config user.name "kose-bot"
++          git config user.email "kose-bot@users.noreply.github.com"
++          git add data/daily.json data/writers.json || true
++          if git diff --cached --quiet; then
++            echo "Değişiklik yok, commit atlanıyor."
++          else
++            git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
++            git push
++          fi
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..556e89b
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,3 @@
++__pycache__/
++*.pyc
++data/daily.json.local
+diff --git a/index.html b/index.html
+index 4901b28..52a2b1f 100644
+--- a/index.html
++++ b/index.html
+@@ -101,7 +101,7 @@
+     <main class="flex-1 overflow-y-auto no-scrollbar relative" id="main-scroll">
+       
+       <!-- Top Authors Story/Avatar Bar -->
+-      <section class="pl-5 mb-4">
++      <section class="pl-5 mb-4" id="feed-authors-section">
+         <div class="flex items-center justify-between pr-5 mb-2.5">
+           <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Takip Edilenler</h2>
+           <span class="text-[11px] text-accent font-semibold cursor-pointer">Tümü</span>
+@@ -112,7 +112,7 @@
+       </section>
+ 
+       <!-- Category Filter Chips -->
+-      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2">
++      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2" id="feed-categories-section">
+         <button onclick="filterCategory('Tümü')" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm">
+           Tümü
+         </button>
+@@ -134,7 +134,7 @@
+       <div id="sync-banner" class="mx-5 mb-3 px-3 py-2 bg-emerald-50 border border-emerald-100 rounded-xl flex items-center justify-between text-xs text-emerald-800">
+         <div class="flex items-center gap-1.5 font-medium">
+           <i data-lucide="cloud-check" class="w-4 h-4 text-emerald-600"></i>
+-          <span>Gazetelerden senkronize edildi</span>
++          <span id="sync-label">Gazetelerden senkronize edildi</span>
+         </div>
+         <span class="text-[10px] text-emerald-600 font-mono" id="sync-time">Az önce</span>
+       </div>
+@@ -143,6 +143,49 @@
+       <div id="articles-list" class="px-5 space-y-4 pb-20">
+         <!-- Rendered by JS -->
+       </div>
++
++      <!-- Writers Explorer View (Keşfet Sekmesi — data/writers.json) -->
++      <section id="writers-view" class="hidden px-5 pb-24">
++        <div class="flex items-center justify-between mb-2.5">
++          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Köşe Yazarları</h2>
++          <span id="writers-meta" class="text-[11px] text-accent font-semibold"></span>
++        </div>
++
++        <div class="relative mb-4">
++          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
++          <input id="writers-search" type="text" placeholder="Yazar veya gazete ara…"
++            class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-4 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
++        </div>
++
++        <!-- Yükleniyor -->
++        <div id="writers-loading" class="hidden text-center py-12 text-slate-400">
++          <i data-lucide="rotate-cw" class="w-8 h-8 mx-auto mb-2 opacity-60 animate-spin"></i>
++          <p class="text-sm font-medium">Yazar kadrosu yükleniyor…</p>
++        </div>
++
++        <!-- Boş Durum (veri henüz yok) -->
++        <div id="writers-empty" class="hidden">
++          <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm px-6 py-10 text-center">
++            <i data-lucide="users" class="w-10 h-10 mx-auto mb-3 text-stone-300"></i>
++            <h3 class="font-serif font-semibold text-ink-900 text-base mb-1.5">Yazar kadrosu henüz hazır değil</h3>
++            <p class="text-xs text-stone-500 leading-relaxed mb-4">
++              Türkiye'deki aktif gazetelerin tüm köşe yazarları otomatik olarak keşfedilir ve
++              her gün <span class="font-semibold text-ink-700">07:00</span>'de (TSİ) güncellenir.
++              İlk senkronizasyon henüz çalışmadı.
++            </p>
++            <button id="writers-retry-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-ink-900 text-white rounded-full hover:bg-ink-700 active:scale-95 transition-all">
++              <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
++              <span>Tekrar Dene</span>
++            </button>
++          </div>
++          <p class="text-[11px] text-stone-400 text-center mt-3 leading-relaxed">
++            Hemen başlatmak için: GitHub → Actions → <span class="font-semibold">Köşe Yazılarını Güncelle</span> → <span class="font-semibold">Run workflow</span>
++          </p>
++        </div>
++
++        <!-- Gazete Bazlı Yazar Grupları -->
++        <div id="writers-list" class="space-y-3"></div>
++      </section>
+     </main>
+ 
+     <!-- Reading Mode Modal (Full Slide-up Sheet) -->
+@@ -214,7 +257,7 @@
+         </div>
+ 
+         <div class="mt-8 pt-6 border-t border-stone-200 font-sans text-center">
+-          <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak kurumun RSS beslemesinden derlenmiştir.</p>
++          <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak gazetenin sayfasından otomatik olarak derlenmiştir.</p>
+           <button id="external-link-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-stone-200/80 rounded-full hover:bg-stone-300">
+             <span>Orijinal Yazıya Git</span>
+             <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+@@ -264,8 +307,22 @@
+         isBookmarked: false,
+         fullContent: `
+           <p>Ekonomide en zor kırılan direnç, matematiksel değil davranışsal enflasyondur. Fiyatların yarın daha yüksek olacağına dair genel kabul yerleştiğinde, bireyler tasarruf yerine tüketim refleksini devreye sokar. Bu durum talebin canlı kalmasına ve fiyat artışlarının bir kısırdöngüye evrilmesine zemin hazırlar.</p>
+-          <p>Reel faiz tartışmalarının odağında çoğu zaman yalnızca bankaların mevduat faizleri yer alıyor. Oysa ki karar alıcıların güven endeksini düzeltmeden atacağı para politikası adımları yalnızca zaman kazandırır. Kalıcı istikrar için yapısal reformların, adil vergi sisteminin ve şeffaf bütçe yönetiminin aynı anda devreye alınması bir zorunluluktur.</p>
+-          <p>Önümüzdeki çeyrekte küresel emtia ve enerji fiyatlarının seyri lehimize işlese dahi, içeride güven tesis edilmeden enflasyonda kalıcı tek haneleri konuşmak fazla iyimser bir yaklaşım olacaktır.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Beklenti: enflasyonun görünmeyen motoru</h3>
++          <p>Enflasyonla mücadelede en az para politikası kadar belirleyici olan unsur, ekonomideki aktörlerin geleceğe dair beklentileridir. Hane halkının beklenti anketleri, reel sektörün fiyatlama davranışları ve finans piyasalarının ima ettiği enflasyon primleri bir arada değerlendirildiğinde, beklentilerin uzun süredir yüksek ve kalıcı seyrettiği açıkça görülüyor. Beklenti yerleşik hale geldiğinde firmalar maliyet artışlarını daha erken ve daha yüksek oranda fiyatlara yansıtır; çalışanlar ise zam taleplerini bugünden yarına taşır. Böylece bugünkü enflasyon, yarının enflasyonunun gerekçesi haline gelir.</p>
++          <p>Bu kısırdöngünün bir başka ayağı da ücret-fiyat sarmalıdır. Asgari ücret ve memur maaşlarındaki artışlar hızla maliyetlere yansır; maliyet artışı ise yeni zam taleplerini doğurur. Üstelik ithal girdi bağımlılığı yüksek bir ekonomide, döviz kurundaki her hareketlenme raf etiketlerine neredeyse anında yansır. Kur oynaklığı azaldıkça ve kur uzun süre dengede kaldıkça, fiyatlama refleksindeki "hemen yansıtayım" paniği de yatışır.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Reel faiz: gösterge değil, algı meselesi</h3>
++          <p>Reel faiz tartışmalarının odağında çoğu zaman yalnızca bankaların mevduat faizleri yer alıyor. Oysa ki karar alıcıların güven endeksini düzeltmeden atılacak para politikası adımları yalnızca zaman kazandırır. Kalıcı istikrar için yapısal reformların, adil vergi sisteminin ve şeffaf bütçe yönetiminin aynı anda devreye alınması bir zorunluluktur.</p>
++          <p>Nominal faiz ile tasarrufçunun hissettiği reel getiri arasındaki fark, rakamların çoğu zaman sakladığı en kritik ayrıntıdır. Politika faizi düşürüldüğünde dahi, yüksek enflasyon beklentisi nedeniyle hane halkı mevduatta reel kayıp yaşadığı algısıyla harcamaya yönelir. "Faiz indi" haberi, beklentiler gevşemediği sürece krediye talebi canlandırmaz; tam tersine, tasarrufçuyu enflasyondan kaçmaya iter. Yani asıl belirleyici olan, kağıt üzerindeki oran değil; pazarda, kahvede, markette duyulan yarın endişesidir.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Para politikası tek başına yetmez</h3>
++          <p>Merkez bankasının tek başına enflasyonu kalıcı tek haneye indirmesi, bir maraton koşucusunun son kilometreyi tek başına koşmasına benzer. Koşucu yorulmadan mesafe kat etsin diye pistin kenarına birkaç engel daha dikmek, yarışı uzatmaktan başka bir işe yaramaz. Mali disiplinin gevşemesi, kamu harcamalarındaki kontrolsüz artışlar ve kayıt dışı ekonominin büyüklüğü, para politikasının attığı her adımı geriye çeken bir lastik işlevi görür.</p>
++          <p>Çıkış yolunun omurgası üç ayak üzerine kurulmalıdır. Birincisi, mali disiplinin kalıcı ve kurumsal hale getirilmesidir. İkincisi, ekonomi yönetiminde öngörülebilirlik ve şeffaflık; kurallı, önceden ilan edilmiş ve sapmadan uygulanan bir çerçeve. Üçüncüsü ise verimlilik odaklı yapısal dönüşüm: kayıt dışılığın daraltılması, vergi adaletinin sağlanması ve kamuda tasarruf bilincinin yerleşmesi. Bu üçlü olmadan, en sıkı para politikası bile kumdan bir kaleye dönüşür.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Dış rüzgârlar lehimize, ama...</h3>
++          <p>Önümüzdeki çeyrekte küresel emtia ve enerji fiyatlarının seyri lehimize işlese dahi, içeride güven tesis edilmeden enflasyonda kalıcı tek haneleri konuşmak fazla iyimser bir yaklaşım olacaktır. Dışarıdaki gevşeme bir pencere açar; o pencereden içeriye serin hava girmesi için içerideki perdeyi aralamak gerekir. Politika yapıcıların görevi, bu pencereyi zamanında ve cesurca kullanmaktır.</p>
++          <p>Sonuç olarak, enflasyonla mücadelede "tek hamleyle zafer" diye bir şey yoktur. Sabırlı, kararlı ve şeffaf bir ekonomi yönetimi; beklentileri önce yatıştırır, sonra aşağı çeker. Çıkış yolu, işte bu üç kelimenin ardında gizli: sabır, kararlılık, şeffaflık.</p>
+         `
+       },
+       {
+@@ -281,8 +338,23 @@
+         isBookmarked: true,
+         fullContent: `
+           <p>Her anımızı buluta yedekleyen, konuşmalarımızı metne döken, fotoğraflarımızı yüz tanıma algoritmalarıyla tasnif eden aygıtların gölgesinde yaşıyoruz. Ancak tuhaf bir biçimde, kolektif ve bireysel hafızamız hiç olmadığı kadar kırılgan.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Dış bellek devrimi ve "Google etkisi"</h3>
++          <p>İnsanlık tarihi boyunca bilgi, hatırlanmak zorundaydı; çünkü ona erişmenin tek yolu hafızaydı. Kitaplar matbaanın, ansiklopediler kütüphanelerin, internet ise arama motorlarının icadıyla bu zorunluluk ortadan kalktı. Bugün cebimizdeki cihaz, binlerce kütüphanenin içeriğini taşır hale geldi. Araştırmacılar bu olguya "Google etkisi" adını veriyor: İnsanlar, bir bilgiyi saklamak yerine, nerede bulacaklarını hatırlamayı tercih ediyor. Hafızadan silinen bilgi, yerini "bir dokunuş uzağım" hissine bırakıyor.</p>
++          <p>Ama bu değişim bedelsiz değil. Dış belleğe taşınan her anı, zihnimizde kurduğumuz bağlardan birini daha gevşetir. Bir telefon numarasını ezberlemek yerine rehbere kaydetmek kolaydır; ama o numaranın sahibiyle kurduğumuz ilişki de aynı anda zayıflar. Hafıza, sadece bir veri deposu değildir; kim olduğumuzu özetleyen, yaşadıklarımızı anlamlandıran bir anlatıdır.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Bilişsel yükü algoritmalara devretmenin bedeli</h3>
+           <p>Bilişsel yükü algoritmalara devrettikçe, derin düşünme kabiliyetimizi ve olaylar arasında beklenmedik köprüler kurma yetimizi yitiriyoruz. Yapay zeka modelleri bizim adımıza özetliyor, derliyor ve sentezliyor. Peki ya öğrenme sürecinin asıl kıymeti o zahmetli sindirme sürecinde saklıysa?</p>
+-          <p>Belki de geleceğin en büyük entelektüel ayrıcalığı, arama motoruna başvurmadan hatırında bir dizeyi, bir formülü ya da bir argümanı tutabilmek olacak.</p>
++          <p>Bir roman okurken sayfayı çevirmek, bir önceki bölümü kafada toparlamak, kahramanın motivasyonunu tartmak gerekir. Yapay zeka "özet geç" dediğinde bu zahmet ortadan kalkar; ama romanın zihnimizde açtığı kapı da öylece kapanır. Derin okuma, bir kas gibidir: kullanılmadıkça zayıflar. Bugün pek çok gencin uzun bir metni sonuna kadar takip etmekte zorlanması, bu kasın körelmesinin somut bir göstergesidir.</p>
++          <p>Aynı şey yaratıcılık için de geçerlidir. Yeni bir fikir, çoğu zaman birbiriyle ilgisi olmayan iki anıyı yan yana getirmekle doğar. Hafızamız zayıfladıkça bu beklenmedik köprüler de seyrekleşir. Algoritmalar geçmiş veriden türetir; hayal gücü ise unutulmuşun içinden beklenmedik olanı çıkarır.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Öğrenme, hatırlamanın yerine geçmez</h3>
++          <p>Eğitim dünyası da bu dönüşümden nasibini alıyor. Ezber karşıtı söylem uzun yıllardır haklı bir zeminde; ama ezber ile hatırlama aynı şey değildir. Ezber, anlamadan depolamaktır; hatırlama ise yaşanmış ve sindirilmiş bilginin geri çağrılmasıdır. Yapay zeka çağında asıl tehlike, ikisini bir tutup ikisinden de vazgeçmektir.</p>
++          <p>Bir çocuğa bir şiir okutmak, ona yalnızca dizeler öğretmez; ritmi, ahengi ve duygusal dalgalanmayı da yaşatır. Bir formülü ezberlemek yerine arkasındaki mantığı kavramak, ömür boyu taşınacak bir sermayedir. Algoritma o formülle işlemi çözer; ama neden öyle çözüldüğünü ancak insan anlar. İşte bu "anlama", makinelerin henüz erişemediği, hatırlamanın bir adım ötesindeki yetidir.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Ne yapmalı?</h3>
++          <p>Teknolojiyi hayatımızdan çıkarmak çözüm değil; ama onu bilinçli kullanmak şart. Bilim insanlarının "kasıtlı unutma" dediği bir kavram var: bazı şeyleri bilerek hatırlamamayı seçmek. Tersini de seçebiliriz: bazı şeyleri bilerek hatırlamayı. Bir şiiri kâğıda yazmak, bir adresi kafaya kazımak, bir kitabı özetini okumak yerine ağır ağır sindirmek... Bu tercihler, dijital çağda küçük ama anlamlı direniş eylemleridir.</p>
++          <p>Belki de geleceğin en büyük entelektüel ayrıcalığı, arama motoruna başvurmadan hatırında bir dizeyi, bir formülü ya da bir argümanı tutabilmek olacak. Hatırlamak bir lüks değil; özen gösterilmesi gereken bir yetenektir. Ve her yetenek gibi, kullanılmadıkça körelir.</p>
+         `
+       },
+       {
+@@ -298,7 +370,20 @@
+         isBookmarked: false,
+         fullContent: `
+           <p>Ankara'nın son diplomatik temasları, dış basında tahmin edilenden çok daha derin bir karşılık buldu. Doğu Akdeniz'deki enerji koridorları yeniden dizayn edilirken, güvenlik eksenli yaklaşımlar yerini pragmatik ticaret anlaşmalarına bırakıyor.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Gerilimden koridora: hattın değişimi</h3>
++          <p>Yakın tarihe kadar Doğu Akdeniz, tarafların birbirini caydırmaya çalıştığı bir güvenlik havzası olarak görülüyordu. Sismik araştırmalar, donanma tatbikatları ve karşılıklı sert açıklamalar, bölgeyi bir barut fıçısına dönüştürmüştü. Bugün ise aynı denizde boru hatları, LNG terminalleri ve denizaltı kabloları konuşuluyor. Bu dönüşüm bir gecede olmadı; yıllar süren sessiz temasların, kapalı kapılar ardında yapılan teknik görüşmelerin ve bölgesel aktörlerin değişen çıkar hesaplarının ürünü.</p>
++          <p>Bölgedeki doğalgaz keşifleri, kartları yeniden dağıtan asıl etken oldu. Mısır, İsrail ve Kıbrıs açıklarındaki rezervler, rafa kaldırılmış projeleri yeniden masaya getirdi. EastMed boru hattı gibi mega projeler hâlâ tartışmalı olsa da, LNG taşımacılığı üzerinden kurulacak esnek ticari bağlar taraflara somut kazanç vaat ediyor. Enerji, ideolojik kutuplaşmanın üzerine çıkabilecek kadar güçlü bir köprü.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Ekonomik zorunluluklar ideolojinin önüne geçti</h3>
+           <p>Bölgesel aktörlerin birbiri ardına yaptıkları açıklamalar, kriz noktalarının geride kaldığı anlamına gelmiyor elbette. Ancak ekonomik zorunluluklar, ideolojik çekincelerin bir adım önüne geçmiş vaziyette. Bu durum masadaki kart dağıtımını kökten değiştirebilir.</p>
++          <p>Uzun yıllar keskin söylemlerle anılan komşular, şimdi hidrokarbon taşımacılığı ve yenilenebilir enerji işbirliği başlıklarında aynı masaya oturuyor. Bölgesel ilişkilerdeki yumuşama adımları, diplomatik hatların yeniden onarılması ve enerji alanındaki teknik işbirliği... Her biri tek başına küçük görünen bu adımlar, birlikte bölgenin kaderini değiştirebilecek bir mozaiğin parçaları.</p>
++          <p>Burada kritik soru şu: Türkiye bu denklemin neresinde duruyor? Ankara, bir yandan kendi deniz alanlarındaki haklarını kararlılıkla korurken, diğer yandan bölgedeki hiçbir enerji projesinin kendisi olmadan sürdürülemeyeceğini taraflara göstermiş durumda. "Oyun kurucu" olmak ile "dışarıda kalmak" arasındaki ince çizgi, bu diplomasinin ustalığında gizli.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Perde arkasındaki pazarlık</h3>
++          <p>Dışişleri koridorlarında haftalardır süren temaslar, kamuoyuna yansıyanlardan çok daha yoğun. Teknik heyetler, enerji idareleri ve ulusal petrol şirketleri bir araya geliyor; haritalar üzerinde senaryolar çiziliyor. Ankara'nın attığı son stratejik adımlar, bu temasların somut çıktılarından biri olarak görülüyor.</p>
++          <p>Ama diplomaside hiçbir şey bedelsiz değildir. Enerji koridorlarının güvenliği ve deniz yetki alanlarının belirlenmesi hâlâ hassas başlıklar. Taraflar "kazan-kazan" formülü üzerinde anlaşmaya çalışsa da, sahadaki her hamle karşı tarafın refleksini de tetikliyor. İşte bu yüzden perde arkasındaki bu diplomatik dans, sabır ve soğukkanlılık gerektiriyor.</p>
++          <p>Sonuç olarak bölgede yeni bir sayfa açılıyor. Eski kutuplaşmalar yerini çıkar hesaplarına bırakırken, Türkiye'nin eli eskisinden daha güçlü. Ama unutulmaması gereken bir şey var: Diplomasi, ancak içerideki istikrarla desteklendiğinde kalıcı olur. Dışarıdaki başarı, içerideki birliğin aynasıdır.</p>
+         `
+       },
+       {
+@@ -314,12 +399,98 @@
+         isBookmarked: false,
+         fullContent: `
+           <p>Tarih boyunca büyük krizlerden, savaşlardan ve dönüşümlerden geçen insanlık; en nihayetinde sözcüklerin şifalı sığınağına dönmüştür. Edebiyat yalnızca hoşça vakit geçirme aracı değil, aynı zamanda toplumların ortak vicdan ve hafıza kasıdır.</p>
+-          <p>Büyük yazarların sokaklarını dolaştığınız kentler diğerlerinden farklıdır; onların bir ruhu, iç sesi ve mimariye sinmiş bir hüznü vardır. İşte bu yüzden sanatı korumak, aslında insanın kendi geleceğini koruması demektir.</p>
++          <p>Bir romanın sayfalarında kendine benzeyen bir kahraman bulan bir çocuk, yalnız olmadığını hisseder. Bir şiirin dizelerinde kendi acısını bulan bir kalp, teselli bulur. Savaş yıllarında cephedeki askerin çantasında şiir kitabı çıkar; sürgündeki yazarın elinde kalem, umut olur. Edebiyat, insanın en karanlık anlarında ona "yalnız değilsin" diyen dosttur.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Şehirlerin belleği: bir yazarın izinde</h3>
++          <p>Büyük yazarların sokaklarını dolaştığınız kentler diğerlerinden farklıdır; onların bir ruhu, iç sesi ve mimariye sinmiş bir hüznü vardır. Petersburg'da Dostoyevski'nin, Paris'te Victor Hugo'nun, İstanbul'da Yahya Kemal'in izini sürmek, tarihin sayfalarında değil; kaldırım taşlarının üzerinde yürürsünüz. Bir pencereye bakar, "İşte burada yazmıştı" dersiniz. O an zaman çöker; mekanla insan arasında görünmez bir köprü kurulur.</p>
++          <p>Şehirler de tıpkı insanlar gibi hatırlar. Taş duvarlar yangınları, köprüler üzerinden geçen ayak seslerini, kahveler saatlerce oturan ve düşünenlerin fısıltılarını saklar. Edebiyat, bu mekanların ruhunu kelimelere döker; böylece şehirlerin belleği ölümsüzleşir. Bir kentin ruhunu anlamak istiyorsanız, önce onun yazarlarını okuyun.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Betonlaşan kentlerde şiirin sığınağı</h3>
++          <p>Ne yazık ki çağımızın kentleri hızla betonlaşıyor. Her yeni bina bir anıyı daha yerle bir ediyor; her yeni yol, bir bahçeyi daha ortadan kaldırıyor. İşte bu yüzden betonlaşan kentlerde ruhunu arayan insanın en kadim sığınağı yine romanlar ve şiirler oluyor. Bir sokaktan geçerken bir yazarın izini aramak, aslında kendi ruhunuzun izini aramaktır.</p>
++          <p>Şiir, bu arayışta özel bir yere sahip. Bir dize, bazen bin sayfalık bir raporun anlatamadığını bir anda anlatır. Ritim, nefes, ahenk... Şiir okumak, kalbinizin atışına kulak vermektir. Müzikle kardeş olan bu sanata, günün karmaşası içinde kısa bir mola vermek, ruhun dinlenmesi için aralanmış bir kapıdır.</p>
++
++          <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Sanatı korumak, geleceği korumaktır</h3>
++          <p>Kütüphaneler kapanıyor, sanat dersleri müfredattan çıkarılıyor, yeni kuşaklar ekranların pırıltısında büyüyor. İşte bu yüzden sanatı korumak, aslında insanın kendi geleceğini koruması demektir. Çünkü sanat, insanın en insani yanını besler: hayal gücünü, empatisini, sorgulama cesaretini.</p>
++          <p>Edebiyatın iyileştirici gücü, bu yüzden güncelliğini yitirmiyor. Teknoloji değişir, kentler değişir; ama insanın kalbindeki o derin arayış değişmez. Ve bu arayışın en kadim, en sadık dostunun adı hâlâ edebiyat. Bir kitap elinize aldığınızda, aslında kendinize dönüyorsunuz. İşte bu dönüş, yapılabilecek en değerli yolculuktur.</p>
+         `
+       }
+     ];
+ 
+     let articles = [...initialArticles];
++
++    // --- Canlı Günlük Akış (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
++    const DAILY_FEED_URL = 'data/daily.json';
++    const WRITERS_URL = 'data/writers.json';
++    const todayKey = () => new Date().toLocaleDateString('tr-TR');
++
++    function mapLiveArticle(a, idx) {
++      const plain = (a.fullContent || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
++      return {
++        id: 100000 + idx,
++        author: a.author || 'Köşe Yazarı',
++        source: a.source || 'Gazete',
++        avatar: a.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(a.author || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`,
++        category: a.category || 'Gündem',
++        title: a.title || 'Köşe Yazısı',
++        snippet: a.snippet || (plain.slice(0, 180) + '…'),
++        readTime: a.readTime || '3 dk',
++        date: a.date || 'Bugün',
++        isBookmarked: false,
++        isLive: true,
++        url: a.url || '',
++        fullContent: a.fullContent || `<p>${plain}</p>`
++      };
++    }
++
++    function formatSyncTime(iso) {
++      if (!iso) return 'Az önce';
++      const then = new Date(iso);
++      const diffMin = Math.floor((Date.now() - then.getTime()) / 60000);
++      if (diffMin < 1) return 'Az önce';
++      if (diffMin < 60) return `${diffMin} dk önce`;
++      const diffH = Math.floor(diffMin / 60);
++      if (diffH < 24) return `${diffH} sa önce`;
++      return then.toLocaleDateString('tr-TR');
++    }
++
++    async function loadDailyFeed(isManual = false) {
++      try {
++        const res = await fetch(`${DAILY_FEED_URL}?v=${Date.now()}`, { cache: 'no-store' });
++        if (!res.ok) throw new Error('HTTP ' + res.status);
++        const data = await res.json();
++        if (!data || !Array.isArray(data.articles) || data.articles.length === 0) {
++          throw new Error('Boş veri');
++        }
++        const live = data.articles.map(mapLiveArticle);
++        articles = [...live, ...articles.filter(a => !a.isLive)];
++        localStorage.setItem('kose-feed-date', todayKey());
++        syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
++        const papers = data.papers ? ` · ${data.papers} gazete` : '';
++        const writers = data.writers ? ` · ${data.writers} yazar` : '';
++        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi ·${papers}${writers} · ${live.length} canlı yazı`;
++        renderAuthorAvatars();
++        applyFilters();
++        return true;
++      } catch (err) {
++        const label = document.getElementById('sync-label');
++        if (isManual) {
++          syncTimeEl.textContent = 'Çevrimdışı';
++          label.textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
++        } else if (!articles.some(a => a.isLive)) {
++          label.textContent = 'Canlı veri bekleniyor — örnek yazılar gösteriliyor';
++        }
++        return false;
++      }
++    }
++
++    // Her gün otomatik kontrol: takvim günü değiştiyse yeni günlük veriyi çek
++    function autoDailyCheck() {
++      if (localStorage.getItem('kose-feed-date') !== todayKey()) {
++        loadDailyFeed(false);
++      }
++    }
++    setInterval(autoDailyCheck, 60 * 60 * 1000); // açılıkken her saat başı gün değişimi kontrolü
++
+     let currentFilteredCategory = 'Tümü';
+     let currentReadingArticle = null;
+     let isPlayingAudio = false;
+@@ -336,6 +507,7 @@
+     const syncTimeEl = document.getElementById('sync-time');
+     const articleReader = document.getElementById('article-reader');
+     const closeReaderBtn = document.getElementById('close-reader-btn');
++    const externalLinkBtn = document.getElementById('external-link-btn');
+     const readerProgressBar = document.getElementById('reader-progress');
+     const readerScrollable = document.getElementById('reader-scrollable');
+     const listenArticleBtn = document.getElementById('listen-article-btn');
+@@ -344,6 +516,152 @@
+     const miniPlayIcon = document.getElementById('mini-play-icon');
+     const fontSizeBtn = document.getElementById('font-size-btn');
+     const readerBookmarkBtn = document.getElementById('reader-bookmark-btn');
++    const syncBannerEl = document.getElementById('sync-banner');
++    const feedAuthorsSection = document.getElementById('feed-authors-section');
++    const feedCategoriesSection = document.getElementById('feed-categories-section');
++    const writersViewEl = document.getElementById('writers-view');
++    const writersListEl = document.getElementById('writers-list');
++    const writersMetaEl = document.getElementById('writers-meta');
++    const writersEmptyEl = document.getElementById('writers-empty');
++    const writersLoadingEl = document.getElementById('writers-loading');
++    const writersSearchInput = document.getElementById('writers-search');
++
++    // --- WRITERS HELPERS (pure) ---
++    function escapeHtml(s) {
++      return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
++    }
++
++    function normalizeTr(s) {
++      return String(s ?? '').toLocaleLowerCase('tr-TR').trim();
++    }
++
++    function writersSummary(data) {
++      if (!data || !Array.isArray(data.papers)) return { total: 0, paperCount: 0, fetchedAt: null };
++      const total = typeof data.total === 'number'
++        ? data.total
++        : data.papers.reduce((n, p) => n + (Array.isArray(p.writers) ? p.writers.length : 0), 0);
++      return { total, paperCount: data.papers.length, fetchedAt: data.fetchedAt || null };
++    }
++
++    function filterWriters(papers, query) {
++      const q = normalizeTr(query);
++      if (!Array.isArray(papers)) return [];
++      if (!q) return papers.filter(p => Array.isArray(p.writers) && p.writers.length > 0);
++      return papers
++        .map(p => {
++          if (!Array.isArray(p.writers)) return null;
++          if (normalizeTr(p.name).includes(q)) return p;
++          const writers = p.writers.filter(w => normalizeTr(w && w.name).includes(q));
++          return writers.length ? { ...p, writers } : null;
++        })
++        .filter(Boolean);
++    }
++    // --- /WRITERS HELPERS ---
++
++    // --- WRITERS VIEW (dom) ---
++    let writersData = null;
++    let writersLoaded = false;
++    let writersLoading = false;
++    let currentTab = 'feed';
++
++    async function loadWriters(force = false) {
++      if (writersLoading) return;
++      if (writersLoaded && !force) { renderWriters(); return; }
++      writersLoading = true;
++      writersLoadingEl.classList.remove('hidden');
++      writersEmptyEl.classList.add('hidden');
++      writersListEl.innerHTML = '';
++      writersMetaEl.textContent = '';
++      try {
++        const res = await fetch(`${WRITERS_URL}?v=${Date.now()}`, { cache: 'no-store' });
++        if (!res.ok) throw new Error('HTTP ' + res.status);
++        const data = await res.json();
++        const summary = writersSummary(data);
++        if (!summary.paperCount || !summary.total) throw new Error('Boş veri');
++        writersData = data;
++        writersLoaded = true;
++        renderWriters();
++      } catch (err) {
++        writersData = null;
++        writersLoaded = false;
++        writersLoadingEl.classList.add('hidden');
++        writersEmptyEl.classList.remove('hidden');
++        lucide.createIcons();
++      } finally {
++        writersLoading = false;
++      }
++    }
++
++    function renderWriters() {
++      if (!writersData) return;
++      const summary = writersSummary(writersData);
++      writersLoadingEl.classList.add('hidden');
++      writersEmptyEl.classList.add('hidden');
++      writersMetaEl.textContent = `${summary.paperCount} gazete · ${summary.total} yazar`;
++      const q = writersSearchInput.value;
++      const groups = filterWriters(writersData.papers, q);
++      if (!groups.length) {
++        writersListEl.innerHTML = `
++          <div class="text-center py-12 text-slate-400">
++            <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
++            <p class="text-sm font-medium">Aradığınız yazar bulunamadı.</p>
++          </div>
++        `;
++        lucide.createIcons();
++        return;
++      }
++      writersListEl.innerHTML = groups.map(p => {
++        const chips = p.writers.map(w => {
++          const name = escapeHtml(w && w.name);
++          if (w && w.url) {
++            return `<a href="${escapeHtml(w.url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 hover:bg-ink-900 hover:text-white transition-colors">${name}<i data-lucide="arrow-up-right" class="w-3 h-3 opacity-60"></i></a>`;
++          }
++          return `<span class="inline-block px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600">${name}</span>`;
++        }).join('');
++        return `
++          <div class="bg-white rounded-2xl p-3.5 border border-stone-200/80 shadow-sm">
++            <div class="flex items-center justify-between mb-2.5 px-1">
++              <h3 class="text-xs font-bold text-ink-900">${escapeHtml(p.name)}</h3>
++              <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
++            </div>
++            <div class="flex flex-wrap gap-1.5">${chips}</div>
++          </div>
++        `;
++      }).join('');
++      lucide.createIcons();
++    }
++
++    writersSearchInput.addEventListener('input', renderWriters);
++    document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
++
++    // --- Bottom Tab Router (Akış / Keşfet / Kaydedilen / Ayarlar) ---
++    function setTab(tab) {
++      currentTab = tab;
++      document.querySelectorAll('.nav-btn').forEach(b => {
++        const active = b.getAttribute('data-tab') === tab;
++        b.classList.toggle('text-accent', active);
++        b.classList.toggle('text-stone-400', !active);
++        b.querySelector('span').classList.toggle('font-bold', active);
++        b.querySelector('span').classList.toggle('font-medium', !active);
++      });
++
++      const isDiscover = tab === 'discover';
++      feedAuthorsSection.classList.toggle('hidden', isDiscover);
++      feedCategoriesSection.classList.toggle('hidden', isDiscover);
++      syncBannerEl.classList.toggle('hidden', isDiscover);
++      articlesListEl.classList.toggle('hidden', isDiscover);
++      writersViewEl.classList.toggle('hidden', !isDiscover);
++
++      if (isDiscover) {
++        if (!writersLoaded) loadWriters();
++        else renderWriters();
++      } else if (tab === 'saved') {
++        renderArticles(articles.filter(a => a.isBookmarked));
++      } else {
++        applyFilters();
++      }
++    }
++    // --- /WRITERS VIEW ---
+ 
+     // --- Update Device Time ---
+     function updateClock() {
+@@ -395,7 +713,10 @@
+                 </div>
+               </div>
+             </div>
+-            <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
++            <div class="flex items-center gap-1.5">
++              ${art.isLive ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>CANLI</span>' : ''}
++              <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
++            </div>
+           </div>
+ 
+           <!-- Card Title & Snippet -->
+@@ -463,11 +784,12 @@
+       }
+ 
+       if (term) {
+-        filtered = filtered.filter(a => 
++        filtered = filtered.filter(a =>
+           a.author.toLowerCase().includes(term) ||
+           a.title.toLowerCase().includes(term) ||
+           a.source.toLowerCase().includes(term) ||
+-          a.snippet.toLowerCase().includes(term)
++          a.snippet.toLowerCase().includes(term) ||
++          a.fullContent.toLowerCase().includes(term)
+         );
+       }
+ 
+@@ -518,6 +840,13 @@
+       document.getElementById('reader-title').textContent = art.title;
+       document.getElementById('reader-body').innerHTML = art.fullContent;
+ 
++      if (art.url) {
++        externalLinkBtn.classList.remove('hidden');
++        externalLinkBtn.onclick = () => window.open(art.url, '_blank', 'noopener');
++      } else {
++        externalLinkBtn.classList.add('hidden');
++      }
++
+       updateReaderBookmarkIcon();
+       resetAudio();
+       readerScrollable.scrollTop = 0;
+@@ -603,19 +932,10 @@
+       lucide.createIcons();
+     }
+ 
+-    // --- Pull/Simulate Live Fetch from Internet ---
+-    refreshBtn.addEventListener('click', () => {
+-      refreshIcon.classList.add('rotate-180');
+-      syncTimeEl.textContent = "Çekiliyor...";
+-
+-      // Mock network fetch delay
+-      setTimeout(() => {
+-        refreshIcon.classList.remove('rotate-180');
+-        syncTimeEl.textContent = "1 dk önce";
+-
+-        // Add a newly fetched column to simulate dynamic web scrap/feed fetch
+-        const newFetchedColumn = {
+-          id: Date.now(),
++    // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
++    // Çevrimdışı kalırsa gösterilecek örnek makale:
++    const offlineMockColumn = {
++          id: 900001,
+           author: "Fatih Altaylı",
+           source: "Kişisel Blog",
+           avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+@@ -623,46 +943,53 @@
+           title: "Elektrikli Araçlar, Şarj Altyapısı ve Geleceğin Otomotiv Politikası",
+           snippet: "Yollarda çoğalan elektrikli otomobiller heyecan verici ancak şebeke yükü ve batarya geri dönüşümü konularında henüz yolun başındayız...",
+           readTime: "3 dk",
+-          date: "Az önce",
++          date: "Çevrimdışı",
+           isBookmarked: false,
+           fullContent: `
+-            <p>Elektrikli araç dönüşümü artık bir tercih değil, küresel ölçekte dayatılan bir zorunluluk haline geldi. Ne var ki Türkiye şartlarında bu dönüşüm yalnızca araba ithal etmekle sınırlı kalamaz.</p>
+-            <p>Ana trafo merkezlerinin kapasitesi, yüksek hızlı şarj istasyonlarının şehirlerarası otobanlardaki dağılımı ve en önemlisi ömrünü tamamlayan lityum iyon pillerin akıbeti masaya yatırılmalıdır.</p>
++            <p>Elektrikli araç dönüşümü artık bir tercih değil, küresel ölçekte dayatılan bir zorunluluk haline geldi. Ne var ki Türkiye şartlarında bu dönüşüm yalnızca araba ithal etmekle sınırlı kalamaz. Altyapı, şebeke ve geri dönüşüm üçgeni kurulmadan atılacak her adım, yarı yoldan dönmek zorunda kalacak bir serüvenin ilk adımıdır.</p>
++
++            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Şebeke: görünmeyen darboğaz</h3>
++            <p>Ana trafo merkezlerinin kapasitesi, yüksek hızlı şarj istasyonlarının şehirlerarası otobanlardaki dağılımı ve en önemlisi ömrünü tamamlayan lityum iyon pillerin akıbeti masaya yatırılmalıdır. Bugün İstanbul'dan Ankara'ya elektrikli bir araçla gitmek teoride mümkün; pratikte şarj kuyrukları ve arızalı istasyonlar bu yolculuğu maceraya dönüştürüyor. Şebeke yatırımı yapılmadan sadece araç satmak, yangına benzin dökmeye benzer.</p>
++            <p>Oysa akıllı şebeke ve "araçtan şebekeye" (V2G) teknolojisi bu denklemi tersine çevirebilir. Elektrikli araçlar geceleri düşük tarifeyle dolarken, gündüz pik saatlerde şebekeye geri enerji verebilir. Yani arabalar, tekerlekli birer bataryaya dönüşür. Bunu başaran ülkeler hem şebeke dengesini kurar hem de vatandaşına kazandırır.</p>
++
++            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Batarya mezarlığı kapıda</h3>
++            <p>İkinci ve en az konuşulan konu, pil geri dönüşümü. Önümüzdeki on yılda yollarda milyonlarca elektrikli araç olacak; bu da milyonlarca ton lityum, kobalt ve nikel demek. Bu madenlerin çıkarılması hem çevresel yıkım yaratıyor hem de stratejik bağımlılık doğuruyor. Hammadde başka ellerde işleniyor, bataryaya dönüşüyor. Türkiye bu zincirin neresinde? Bugün maalesef neredeyse hiçbir yerinde.</p>
++            <p>Pil geri dönüşüm tesisleri, kamunun öncülüğünde ve özel sektörün desteğiyle kurulmalı. Ömrünü tamamlamış araç pilleri hurdaya dönüşmeden önce "ikinci ömür" projelerinde — örneğin güneş enerjisi depolama ünitelerinde — yeniden değerlendirilmeli. Döngüsel ekonomi lafla olmaz; tesisle, mevzuatla, denetimle olur.</p>
++
++            <h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">Politika: cesaret ve hazırlık</h3>
++            <p>Avrupa Birliği 2035'te içten yanmalı motorlu araç satışını yasaklayacak. Bu karar, Türkiye otomotiv sanayii için ya bir sıçrama tahtası olacak ya da bir bataklık. Yerli üretim, şarj altyapısı ve nitelikli iş gücü... bu üçlü, ayrışmanın anahtarıdır. Erken davranan kazanır; bekleyen, ithalatçı olur.</p>
++            <p>Sonuç basit: Elektrikli dönüşüm kaçınılmaz. Ama hazırlıksız yakalanırsak faturası ağır olur. Şebekeyi güçlendirin, istasyonları yayın, pilleri geri dönüştürün, insanı eğitin. Dört başlık, tek hedef: Geleceğin otomobil politikasını bugünden kurmak.</p>
+           `
+-        };
++    };
+ 
+-        // Prepend and render
+-        articles.unshift(newFetchedColumn);
+-        renderAuthorAvatars();
+-        applyFilters();
++    refreshBtn.addEventListener('click', async () => {
++      refreshIcon.classList.add('rotate-180');
++      syncTimeEl.textContent = "Çekiliyor...";
++
++      const ok = await loadDailyFeed(true);
++      refreshIcon.classList.remove('rotate-180');
++      if (currentTab === 'discover') loadWriters(true);
+ 
+-        // Subtle toast or glow animation
+-        document.getElementById('sync-banner').classList.add('ring-2', 'ring-emerald-400');
+-        setTimeout(() => {
+-          document.getElementById('sync-banner').classList.remove('ring-2', 'ring-emerald-400');
+-        }, 1200);
++      if (!ok) {
++        // Çevrimdışıysa örnek makaleyi göster
++        if (!articles.find(a => a.id === offlineMockColumn.id)) {
++          articles.unshift(offlineMockColumn);
++          renderAuthorAvatars();
++          applyFilters();
++        }
++      }
+ 
+-      }, 800);
++      // Senkronizasyon ışığı efekti
++      document.getElementById('sync-banner').classList.add('ring-2', 'ring-emerald-400');
++      setTimeout(() => {
++        document.getElementById('sync-banner').classList.remove('ring-2', 'ring-emerald-400');
++      }, 1200);
+     });
+ 
+     // --- Bottom Navigation Tab Switching ---
+     document.querySelectorAll('.nav-btn').forEach(btn => {
+       btn.addEventListener('click', function() {
+-        document.querySelectorAll('.nav-btn').forEach(b => {
+-          b.classList.remove('text-accent');
+-          b.classList.add('text-stone-400');
+-          b.querySelector('span').classList.replace('font-bold', 'font-medium');
+-        });
+-        this.classList.remove('text-stone-400');
+-        this.classList.add('text-accent');
+-        this.querySelector('span').classList.replace('font-medium', 'font-bold');
+-
+-        const tab = this.getAttribute('data-tab');
+-        if (tab === 'saved') {
+-          renderArticles(articles.filter(a => a.isBookmarked));
+-        } else {
+-          applyFilters();
+-        }
++        setTab(this.getAttribute('data-tab'));
+       });
+     });
+ 
+@@ -670,6 +997,7 @@
+     renderAuthorAvatars();
+     renderArticles(articles);
+     lucide.createIcons();
++    loadDailyFeed(false); // günlük canlı akışı çek (varsa en üste alır)
+   </script>
+ </body>
+ </html>
+\ No newline at end of file
+diff --git a/scripts/fetch_columns.py b/scripts/fetch_columns.py
+new file mode 100644
+index 0000000..61a8597
+--- /dev/null
++++ b/scripts/fetch_columns.py
+@@ -0,0 +1,885 @@
++#!/usr/bin/env python3
++# -*- coding: utf-8 -*-
++"""
++kose — Günlük Köşe Yazısı Toplayıcı (v2: tüm aktif gazeteler)
++=============================================================
++Piyasada aktif Türk gazetelerinin köşe yazarlarını OTOMATİK keşfeder ve
++günün köşe yazılarını çeker:
++
++  1. Keşif (discovery): Her gazetenin yazarlar dizininden TÜM aktif köşe
++     yazarları çıkarılır -> data/writers.json
++  2. Günlük çekim: Her gazetenin "bugünün yazıları" sayfasından makale
++     bağlantıları alınır, her makale sayfasından tam metin çekilir
++     -> data/daily.json
++  3. RSS kişisel kaynaklar (Blogger / WordPress) eklenir.
++
++Çalışma:
++    python scripts/fetch_columns.py                 # her şeyi çek
++    python scripts/fetch_columns.py --discover-only # sadece yazar listesi
++    python scripts/fetch_columns.py --max-per-paper 10
++
++GitHub Actions (.github/workflows/fetch-columns.yml) her gün 07:00 TSİ'de
++otomatik çalıştırır. İstekler nazik tempodadır (aralarda gecikme vardır).
++"""
++
++import argparse
++import hashlib
++import html as html_lib
++import json
++import os
++import re
++import sys
++import time
++from datetime import datetime, timedelta, timezone
++from email.utils import parsedate_to_datetime
++from urllib.parse import quote, urljoin, urlparse
++
++import requests
++import xml.etree.ElementTree as ET
++from bs4 import BeautifulSoup
++
++TR_TZ = timezone(timedelta(hours=3))  # Türkiye saati (UTC+3)
++USER_AGENT = "kose-kosebot/1.0 (+https://github.com/0xinspectorx0/kose; gunluk kose yazisi toplayici)"
++HEADERS = {
++    "User-Agent": USER_AGENT,
++    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
++    "Accept-Language": "tr-TR,tr;q=0.9,*;q=0.8",
++}
++TIMEOUT = 25
++REQUEST_DELAY = 1.2  # istekler arası nazik gecikme (saniye)
++MIN_TITLE_LEN = 3  # çok kısa başlıklar (örn. "Esra") geçerlidir
++
++TURKISH_MONTHS = [
++    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
++    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
++]
++
++# Sayfa gövdesindeki, yazıya ait olmayan kısa kırıntılar (filtrelenir)
++NOISE_FRAGMENTS = [
++    "Yazarın Tüm Yazıları", "Tüm Yazıları", "Tüm yazıları için tıklayın",
++    "TÜM YAZILARI", "Köşe Yazarları", "Yorum Yaz", "İlgili Haberler",
++    "Abone Ol", "Bizi Takip Edin", "Bizi takibe alın", "Diğer Yazıları",
++    "Önceki Yazı", "Sonraki Yazı", "Haberi Paylaş", "Linki kopyala",
++    "Son Dakika", "Tüm Yazarlar", "Yazarlar",
++]
++
++# Makale gövdesi için aday konteynerler (bs4 find_all kwargs; öncelik sırasıyla)
++# Not: CSS select() kullanılmaz — soupsieve sürüm uyumsuzluklarına karşı
++# bs4'in native find/find_all eşleşmesi tercih edilir.
++BODY_SELECTORS = [
++    {"name": "article"},
++    {"attrs": {"itemprop": "articleBody"}},
++    {"class_": "article-body"},
++    {"class_": "articleBody"},
++    {"class_": "entry-content"},
++    {"class_": "post-content"},
++    {"class_": "content-body"},
++    {"class_": "haber-metni"},
++    {"class_": "haberDetay"},
++    {"class_": "haber-detay"},
++    {"attrs": {"id": "article-body"}},
++    {"class_": "yazi"},
++    {"class_": "yazi-icerigi"},
++    {"class_": "column-content"},
++    {"name": "main"},
++    {"attrs": {"role": "main"}},
++]
++
++# Yazar adı için meta attribute eşleşmeleri, itemprop ve class isimleri
++AUTHOR_META_KEYS = ("author", "article:author")
++AUTHOR_ITEMPROP = "author"
++AUTHOR_CLASS_NAMES = [
++    "author", "yazar", "yazar-adi", "yazarAdi",
++    "article-author", "byline", "author-name",
++]
++
++# ---------------------------------------------------------------------------
++# Aktif gazeteler (piyasadaki tüm büyük ulusal gazeteler + güçlü dijital)
++# Her gazete için: bugünün yazıları dizini, tüm yazarlar dizini (opsiyonel),
++# makale bağlantı deseni, yazar bağlantı deseni.
++# Desenler URL'lere regex ile uygulanır; eşleşmeyenler zarifçe atlanır.
++# ---------------------------------------------------------------------------
++NEWSPAPERS = [
++    {
++        "key": "hurriyet", "name": "Hürriyet", "category": "Gündem", "mode": "today",
++        "today": "https://www.hurriyet.com.tr/yazarlar/",
++        "roster": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/",
++        "article_pattern": r"hurriyet\.com\.tr/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+/?$",
++        "author_pattern": r"hurriyet\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["tum-yazarlar", "internet-yazilari", "bugun-yazanlar", "gazete", "spor", "arsiv", "konuk-yazarlar"],
++    },
++    {
++        "key": "sozcu", "name": "Sözcü", "category": "Gündem", "mode": "today",
++        "today": "https://www.sozcu.com.tr/yazarlar/",
++        "roster": None,
++        "article_pattern": r"sozcu\.com\.tr/(?:[a-z0-9-]+-p\d+|\d{4}/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+)/?$",
++        "author_pattern": None,
++    },
++    {
++        "key": "milliyet", "name": "Milliyet", "category": "Gündem", "mode": "today",
++        "today": "https://www.milliyet.com.tr/yazarlar/",
++        "roster": "https://www.milliyet.com.tr/yazarlar/gazete-yazarlari/",
++        "article_pattern": r"milliyet\.com\.tr/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+/?$",
++        "author_pattern": r"milliyet\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["gazete-yazarlari", "spor-yazarlari", "ege-yazarlari", "cumartesi-yazarlari", "pazar-yazarlari", "yazarlar"],
++    },
++    {
++        "key": "sabah", "name": "Sabah", "category": "Gündem", "mode": "today",
++        "today": "https://www.sabah.com.tr/yazarlar",
++        "roster": None,
++        "article_pattern": r"sabah\.com\.tr/yazarlar/[a-z0-9-]+/\d{4}/\d{2}/\d{2}/[a-z0-9-]+/?$",
++        "author_pattern": r"sabah\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["perspektif", "spor", "gunluk-yazarlar", "arsiv", "pazaryazarlar"],
++    },
++    {
++        "key": "cumhuriyet", "name": "Cumhuriyet", "category": "Gündem", "mode": "today",
++        "today": "https://www.cumhuriyet.com.tr/gunun-kose-yazilari",
++        "roster": "https://www.cumhuriyet.com.tr/yazarlar",
++        "article_pattern": r"cumhuriyet\.com\.tr/(?:yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+|koseyazisi/\d+)",
++        "author_pattern": r"cumhuriyet\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "yenisafak", "name": "Yeni Şafak", "category": "Gündem", "mode": "today",
++        "today": "https://www.yenisafak.com/yazarlar/bugun-yazanlar",
++        "roster": "https://www.yenisafak.com/yazarlar/tum-yazarlar",
++        "article_pattern": r"yenisafak\.com/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+",
++        "author_pattern": r"yenisafak\.com/yazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["bugun-yazanlar", "tum-yazarlar", "gazete", "spor", "arsiv"],
++    },
++    {
++        "key": "karar", "name": "Karar", "category": "Gündem", "mode": "today",
++        "today": "https://www.karar.com/yazarlar",
++        "roster": None,
++        "article_pattern": r"karar\.com/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+",
++        "author_pattern": r"karar\.com/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "birgun", "name": "BirGün", "category": "Gündem", "mode": "today",
++        "today": "https://www.birgun.net/yazarlar",
++        "roster": None,
++        "article_pattern": r"birgun\.net/makale/[a-z0-9-]+-\d+",
++        "author_pattern": r"birgun\.net/profil/[a-z0-9-]+-\d+",
++    },
++    {
++        "key": "haberturk", "name": "Habertürk", "category": "Gündem", "mode": "today",
++        "today": "https://www.haberturk.com/htyazarlar",
++        "roster": "https://www.haberturk.com/htyazarlar/arsiv",
++        "article_pattern": r"haberturk\.com/ozel-icerikler/[a-z0-9-]+/\d+-[a-z0-9-]+/?$",
++        "author_pattern": r"haberturk\.com/htyazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["arsiv"],
++    },
++    {
++        "key": "aksam", "name": "Akşam", "category": "Gündem", "mode": "today",
++        "today": "https://www.aksam.com.tr/yazarlar/",
++        "roster": None,
++        "article_pattern": r"aksam\.com\.tr/yazarlar/[a-z0-9-]+/[a-z0-9-]+/haber-\d+",
++        "author_pattern": r"aksam\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "takvim", "name": "Takvim", "category": "Gündem", "mode": "today",
++        "today": "https://www.takvim.com.tr/yazarlar",
++        "roster": None,
++        "article_pattern": r"takvim\.com\.tr/yazarlar/[a-z0-9-]+/(?:\d{4}/\d{2}/\d{2}/[a-z0-9-]+|[a-z0-9-]+-\d+)",
++        "author_pattern": r"takvim\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "posta", "name": "Posta", "category": "Gündem", "mode": "today",
++        "today": "https://www.posta.com.tr/yazarlar/",
++        "roster": "https://www.posta.com.tr/arsiv-yazarlari/",
++        "article_pattern": r"posta\.com\.tr/yazarlar/[a-z0-9-]+/[a-z0-9-]+-\d+",
++        "author_pattern": r"posta\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "yeniasir", "name": "Yeni Asır", "category": "Gündem", "mode": "today",
++        "today": "https://www.yeniasir.com.tr/yazarlar",
++        "roster": "https://www.yeniasir.com.tr/yazarlar/arsiv",
++        "article_pattern": r"yeniasir\.com\.tr/yazarlar/[a-z0-9_-]+/\d{4}/\d{2}/\d{2}/[a-z0-9-]+/?$",
++        "author_pattern": r"yeniasir\.com\.tr/yazar-tum-yazilar/[a-z0-9_-]+/?$",
++    },
++    {
++        "key": "star", "name": "Star", "category": "Gündem", "mode": "today",
++        "today": "https://www.star.com.tr/yazarlar/",
++        "roster": None,
++        "article_pattern": r"star\.com\.tr/yazar/[a-z0-9-]+-yazi-\d+/?$",
++        "author_pattern": r"star\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "turkiye", "name": "Türkiye Gazetesi", "category": "Gündem", "mode": "today",
++        "today": "https://www.turkiyegazetesi.com.tr/yazarlar",
++        "roster": None,
++        "article_pattern": r"turkiyegazetesi\.com\.tr/kose-yazilari/[a-z0-9-]+/[a-z0-9-]+-\d+",
++        "author_pattern": r"turkiyegazetesi\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "yenicag", "name": "Yeniçağ", "category": "Gündem", "mode": "today",
++        "today": "https://www.yenicaggazetesi.com.tr/yazarlar",
++        "roster": None,
++        "article_pattern": r"yenicagazetesi\.com\.tr/[a-z0-9-]+-\d+y\.htm",
++        "author_pattern": r"yenicagazetesi\.com\.tr/[a-z0-9-]+-\d+y\.htm",
++    },
++    {
++        "key": "milligazete", "name": "Milli Gazete", "category": "Gündem", "mode": "authors",
++        "today": "https://www.milligazete.com.tr/yazarlar",
++        "roster": None,
++        # yazar sayfaları kökte kısa slug: /abdulaziz-kiransal
++        "author_pattern": r"milligazete\.com\.tr/[a-z0-9-]+/?$",
++        "author_denylist": ["yazarlar", "kunye", "gizlilik-sozlesmesi", "iletisim", "reklam", "haberler", "etiket", "kategori", "sayfa", "arama", "ara", "yazar-dinle"],
++        # yazar sayfasındaki makale bağlantıları: kökte uzun slug
++        "article_pattern": r"milligazete\.com\.tr/[a-z0-9-]{10,}/?$",
++        "article_denylist": ["yazarlar", "kunye", "gizlilik-sozlesmesi", "iletisim", "reklam", "haberler", "etiket", "kategori", "sayfa", "arama", "ara", "yazar-dinle"],
++    },
++    {
++        "key": "t24", "name": "T24", "category": "Gündem", "mode": "authors",
++        "today": "https://t24.com.tr/son-yazilar",
++        "roster": "https://t24.com.tr/yazar/arsiv-yazarlari",
++        "author_pattern": r"t24\.com\.tr/yazarlar/[a-z0-9-]+/?$",
++        "author_denylist": ["arsiv-yazarlari", "gorus"],
++        "article_pattern": r"t24\.com\.tr/(?:yazar|konuk-yazar)/[a-z0-9-]+/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "duvar", "name": "Gazete Duvar", "category": "Gündem", "mode": "today",
++        "today": "https://www.gazeteduvar.com.tr/yazarlar",
++        "roster": None,
++        "article_pattern": r"gazeteduvar\.com\.tr/[a-z0-9-]{10,}/?$",
++        "article_denylist": ["yazarlar", "kunye-sayfasi", "sayfa", "reklam", "hakkimizda", "iletisim", "arsiv", "etiket", "kategori", "arama"],
++        "author_pattern": r"gazeteduvar\.com\.tr/yazar/[a-z0-9-]+/?$",
++    },
++    {
++        "key": "diken", "name": "Diken", "category": "Gündem", "mode": "today",
++        "today": "https://www.diken.com.tr/kategori/agora/",
++        "roster": None,
++        "article_pattern": r"diken\.com\.tr/[a-z0-9-]{10,}/?$",
++        "article_denylist": ["kategori", "etiket", "sayfa", "kunye", "arsiv", "yazarlar", "arama", "iletisim"],
++        "author_pattern": r"diken\.com\.tr/yazar/[a-z0-9-]+/?$",
++    },
++]
++
++# Kişisel köşe siteleri (yazar belli, sayfa yapısı sabit)
++PERSONAL_SOURCES = [
++    {
++        "key": "altayli", "name": "Fatih Altaylı", "category": "Gündem",
++        "author": "Fatih Altaylı",
++        "listing": "https://fatihaltayli.com.tr/yazilar/fatih-altayli",
++        "article_pattern": r"fatihaltayli\.com\.tr/yazarlar/fatih-altayli/\d{4}-\d{2}-\d{2}/.+",
++    },
++    {
++        "key": "livaneli", "name": "Livaneli.gen.tr", "category": "Kültür-Sanat",
++        "author": "Zülfü Livaneli",
++        "listing": "https://www.livaneli.gen.tr/category/kose-yazilari/",
++        "article_pattern": r"livaneli\.gen\.tr/\d{4}/\d{2}/.+/?$",
++    },
++]
++
++# RSS kaynakları (Blogger / WordPress)
++FEED_SOURCES = [
++    {
++        "key": "mahfiegilmez", "name": "Kendime Yazılar", "category": "Ekonomi",
++        "author": "Mahfi Eğilmez",
++        "feed": "https://www.mahfiegilmez.com/feeds/posts/default?max-results=5",
++    },
++    {
++        "key": "yetkinreport", "name": "YetkinReport", "category": "Gündem",
++        "author": "Murat Yetkin",
++        "feed": "https://yetkinreport.com/author/muratmyetkin/feed/",
++    },
++]
++
++
++def log(msg):
++    print(f"[kose] {msg}", flush=True)
++
++
++_session = requests.Session()
++
++
++def fetch(url):
++    """GET isteği atar; içerik döndürür, hata olursa None."""
++    try:
++        time.sleep(REQUEST_DELAY)
++        r = _session.get(url, headers=HEADERS, timeout=TIMEOUT)
++        if r.status_code != 200:
++            log(f"    ! HTTP {r.status_code} <- {url}")
++            return None
++        if r.encoding is None or r.encoding.lower() in ("iso-8859-1",):
++            r.encoding = r.apparent_encoding or "utf-8"
++        return r.text
++    except Exception as e:
++        log(f"    ! {type(e).__name__}: {e} <- {url}")
++        return None
++
++
++# ---------------------------------------------------------------------------
++# Yardımcılar
++# ---------------------------------------------------------------------------
++def clean_title(t):
++    if not t:
++        return ""
++    t = re.sub(r"\s+", " ", t).strip()
++    t = t.split(" | ")[0].strip()
++    t = re.sub(
++        r"\s+[\-–]\s+(Hürriyet|Sözcü|Sözcü Gazetesi|Gazete|Haberler|Son Dakika|"
++        r"Milliyet|Sabah|Cumhuriyet|Vatan|Yeni Şafak|Oksijen|YetkinReport|"
++        r"Fatih Altaylı|Livaneli\.gen\.tr|kose|T24|Star|Akşam|Takvim|Posta)\s*$",
++        "",
++        t,
++    )
++    return t
++
++
++def clean_author_name(t):
++    if not t:
++        return ""
++    t = re.sub(r"\s+", " ", t).strip()
++    t = re.sub(r"^(Tüm Yazıları|TÜM YAZILARI|Tüm yazıları)\s*", "", t).strip()
++    t = t.rstrip("›»").strip()
++    return t
++
++
++def is_noise(text):
++    return any(n in text for n in NOISE_FRAGMENTS)
++
++
++def format_date_tr(d):
++    now = datetime.now(TR_TZ)
++    if d.date() == now.date():
++        return f"Bugün {d.strftime('%H:%M')}"
++    if d.date() == (now - timedelta(days=1)).date():
++        return f"Dün {d.strftime('%H:%M')}"
++    return f"{d.day} {TURKISH_MONTHS[d.month - 1]} {d.year}"
++
++
++def parse_date_any(value):
++    if not value:
++        return None
++    value = value.strip()
++    try:
++        d = datetime.fromisoformat(value.replace("Z", "+00:00"))
++        if d.tzinfo is None:
++            d = d.replace(tzinfo=TR_TZ)
++        return d.astimezone(TR_TZ)
++    except Exception:
++        pass
++    try:
++        d = parsedate_to_datetime(value)
++        if d.tzinfo is None:
++            d = d.replace(tzinfo=TR_TZ)
++        return d.astimezone(TR_TZ)
++    except Exception:
++        pass
++    m = re.search(
++        r"(\d{1,2})\s+(Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|"
++        r"Eylül|Ekim|Kasım|Aralık)\s+(\d{4})",
++        value,
++    )
++    if m:
++        return datetime(
++            int(m.group(3)), TURKISH_MONTHS.index(m.group(2)) + 1, int(m.group(1)),
++            tzinfo=TR_TZ,
++        )
++    return None
++
++
++def _path_of(url):
++    return urlparse(url).path.strip("/").lower()
++
++
++def _in_denylist(url, denylist):
++    path = _path_of(url)
++    if not denylist:
++        return False
++    first = path.split("/")[0] if path else ""
++    return first in denylist or path in denylist
++
++
++def extract_links(html, base_url, pattern, denylist=None, limit=None):
++    """Sayfadaki bağlantıları desene göre ayıklar (sırayı korur, tekilleştirir)."""
++    soup = BeautifulSoup(html, "html.parser")
++    rx = re.compile(pattern)
++    links, seen = [], set()
++    for a in soup.find_all("a", href=True):
++        href = urljoin(base_url, a["href"].strip())
++        if not rx.search(href):
++            continue
++        if href in seen or _in_denylist(href, denylist):
++            continue
++        seen.add(href)
++        links.append(href)
++        if limit and len(links) >= limit:
++            break
++    return links
++
++
++def extract_named_links(html, base_url, pattern, denylist=None, limit=None):
++    """Desene uyan bağlantılardan (isim, url) çiftleri çıkarır."""
++    soup = BeautifulSoup(html, "html.parser")
++    rx = re.compile(pattern)
++    out, seen = [], set()
++    for a in soup.find_all("a", href=True):
++        href = urljoin(base_url, a["href"].strip())
++        if not rx.search(href):
++            continue
++        if href in seen or _in_denylist(href, denylist):
++            continue
++        name = clean_author_name(a.get_text(" ", strip=True))
++        if not name and a.get("title"):
++            name = clean_author_name(a["title"])
++        if not name:
++            img = a.find("img")
++            if img and img.get("alt"):
++                name = clean_author_name(img["alt"])
++        if len(name) < 2 or len(name) > 40 or not re.search(r"[a-zA-ZçÇğĞıİöÖşŞüÜ]", name):
++            continue
++        if is_noise(name):
++            continue
++        seen.add(href)
++        out.append({"name": name, "url": href})
++        if limit and len(out) >= limit:
++            break
++    return out
++
++
++def extract_blocks(soup):
++    """Sayfadaki makale gövdesini (p + h2/h3) blok listesi olarak çıkarır."""
++    candidates = []
++    for spec in BODY_SELECTORS:
++        for el in soup.find_all(**spec):
++            if el not in candidates:
++                candidates.append(el)
++    if not candidates and soup.body is not None:
++        candidates = [soup.body]
++
++    best, best_score = None, -1
++    for el in candidates:
++        score = sum(len(p.get_text(strip=True)) for p in el.find_all("p"))
++        if score > best_score:
++            best, best_score = el, score
++    if best is None:
++        return []
++
++    blocks = []
++    for child in best.find_all(["p", "h2", "h3"]):
++        if child.find_parent("p") is not None:
++            continue
++        text = re.sub(r"\s+", " ", child.get_text(" ", strip=True))
++        if len(text) < 30 or is_noise(text):
++            continue
++        tag = "h3" if child.name in ("h2", "h3") else "p"
++        blocks.append((tag, text))
++    return blocks
++
++
++def extract_date_from_soup(soup):
++    for el in soup.find_all("meta"):
++        key = (el.get("name") or el.get("property") or el.get("itemprop") or "").lower()
++        if key in ("date", "publishdate", "article:published_time", "datepublished"):
++            d = parse_date_any(el.get("content") or el.get("datetime"))
++            if d:
++                return d
++    for el in soup.find_all("time"):
++        d = parse_date_any(el.get("datetime"))
++        if d:
++            return d
++    return datetime.now(TR_TZ)
++
++
++def extract_author_from_soup(soup):
++    for el in soup.find_all("meta"):
++        key = (el.get("name") or el.get("property") or "").lower()
++        if key in AUTHOR_META_KEYS:
++            val = el.get("content")
++            if val and 2 <= len(val) <= 60:
++                return clean_author_name(val)
++    el = soup.find(attrs={"itemprop": AUTHOR_ITEMPROP})
++    if el is not None:
++        val = el.get("content") or el.get_text(" ", strip=True)
++        if val and 2 <= len(val) <= 60:
++            return clean_author_name(val)
++    for cls in AUTHOR_CLASS_NAMES:
++        el = soup.find(class_=cls)
++        if el is not None:
++            val = el.get_text(" ", strip=True)
++            if val and 2 <= len(val) <= 60:
++                return clean_author_name(val)
++    return ""
++
++
++def build_record(key, source_name, category, author, title, url, blocks, date_dt):
++    """Uygulamanın beklediği makale kaydını üretir."""
++    texts = [t for _, t in blocks]
++    plain = " ".join(texts)
++    words = len(plain.split())
++    read_time = max(1, round(words / 200))
++    snippet = (plain[:180].rstrip() + "…") if len(plain) > 180 else plain
++
++    parts = []
++    for tag, text in blocks:
++        safe = html_lib.escape(text, quote=False)
++        if tag == "h3":
++            parts.append(
++                f'<h3 class="font-serif font-semibold text-lg text-ink-900 pt-1">{safe}</h3>'
++            )
++        else:
++            parts.append(f"<p>{safe}</p>")
++
++    author_name = (author or "").strip()
++    return {
++        "id": f"{key}-{hashlib.md5(url.encode('utf-8')).hexdigest()[:8]}",
++        "author": author_name or "Köşe Yazarı",
++        "source": source_name,
++        "title": title,
++        "url": url,
++        "date": format_date_tr(date_dt),
++        "category": category,
++        "readTime": f"{read_time} dk",
++        "snippet": snippet,
++        "fullContent": "\n".join(parts),
++        "avatar": (
++            "https://ui-avatars.com/api/?name="
++            + quote(author_name or "Yazar")
++            + "&background=2E384D&color=fff&size=128&bold=true"
++        ),
++        "isLive": True,
++    }
++
++
++# ---------------------------------------------------------------------------
++# Makale sayfasından çekim
++# ---------------------------------------------------------------------------
++def parse_html_article(url, paper):
++    html = fetch(url)
++    if not html:
++        return None
++    soup = BeautifulSoup(html, "html.parser")
++    for tag in soup(["script", "style", "noscript", "header", "footer", "nav", "aside", "form"]):
++        tag.decompose()
++
++    candidates = []
++    og = soup.find("meta", attrs={"property": "og:title"})
++    if og and og.get("content"):
++        candidates.append(og["content"])
++    h1 = soup.find("h1")
++    if h1:
++        candidates.append(h1.get_text(" ", strip=True))
++    if soup.title:
++        candidates.append(soup.title.get_text(" ", strip=True))
++    title = ""
++    for cand in candidates:
++        cand = clean_title(cand)
++        if paper.get("author"):
++            cand = re.sub(r"\s+-\s+" + re.escape(paper["author"]) + r"\s*$", "", cand).strip()
++        if len(cand) >= MIN_TITLE_LEN:
++            title = cand
++            break
++    if not title:
++        log(f"    ! başlık bulunamadı <- {url}")
++        return None
++
++    author = extract_author_from_soup(soup) or paper.get("author", "")
++
++    blocks = extract_blocks(soup)
++    if len(blocks) < 2:
++        log(f"    ! gövde bulunamadı <- {url}")
++        return None
++
++    date_dt = extract_date_from_soup(soup)
++    return build_record(
++        paper["key"], paper["name"], paper.get("category", "Gündem"),
++        author, title, url, blocks, date_dt,
++    )
++
++
++# ---------------------------------------------------------------------------
++# RSS / Atom akışından çekim
++# ---------------------------------------------------------------------------
++def _local_name(tag):
++    return tag.split("}")[-1]
++
++
++def _child_text(item, *names):
++    for c in item:
++        if _local_name(c.tag) in names:
++            return (c.text or "").strip()
++    return ""
++
++
++def _child_link(item):
++    for c in item:
++        if _local_name(c.tag) == "link":
++            if c.get("href"):
++                return c.get("href").strip()
++            return (c.text or "").strip()
++    return ""
++
++
++def html_to_blocks(content_html):
++    soup = BeautifulSoup(content_html or "", "html.parser")
++    blocks = []
++    for p in soup.find_all("p"):
++        text = re.sub(r"\s+", " ", p.get_text(" ", strip=True))
++        if len(text) >= 30 and not is_noise(text):
++            blocks.append(("p", text))
++    if not blocks:
++        for chunk in re.split(r"\n\s*\n", (soup.get_text("\n", strip=True) or "")):
++            text = re.sub(r"\s+", " ", chunk).strip()
++            if len(text) >= 30 and not is_noise(text):
++                blocks.append(("p", text))
++    return blocks
++
++
++def parse_feed(feed_cfg, limit):
++    xml = fetch(feed_cfg["feed"])
++    if not xml:
++        return []
++    try:
++        root = ET.fromstring(xml)
++    except ET.ParseError as e:
++        log(f"    ! RSS ayrıştırma hatası: {e}")
++        return []
++
++    records = []
++    for item in root.iter():
++        if _local_name(item.tag) not in ("item", "entry"):
++            continue
++        title = clean_title(_child_text(item, "title"))
++        url = _child_link(item)
++        if len(title) < MIN_TITLE_LEN or not url:
++            continue
++        content = _child_text(item, "encoded", "content", "description", "summary")
++        blocks = html_to_blocks(content)
++        if not blocks:
++            continue
++        date_dt = (
++            parse_date_any(_child_text(item, "pubDate", "published", "updated", "date"))
++            or datetime.now(TR_TZ)
++        )
++        records.append(build_record(
++            feed_cfg["key"], feed_cfg["name"], feed_cfg.get("category", "Gündem"),
++            feed_cfg.get("author", ""), title, url, blocks, date_dt,
++        ))
++        if len(records) >= limit:
++            break
++    return records
++
++
++# ---------------------------------------------------------------------------
++# Yazar keşfi (tüm aktif köşe yazarları)
++# ---------------------------------------------------------------------------
++def discover_writers(max_authors_per_paper):
++    """Her gazetenin yazarlar dizininden tüm köşe yazarlarını çıkarır."""
++    papers_out = []
++    total = 0
++    for paper in NEWSPAPERS:
++        roster_url = paper.get("roster") or paper["today"]
++        pattern = paper.get("author_pattern")
++        writers = []
++        if pattern:
++            html = fetch(roster_url)
++            if html:
++                writers = extract_named_links(
++                    html, roster_url, pattern,
++                    denylist=paper.get("author_denylist"),
++                    limit=max_authors_per_paper,
++                )
++        # yinelenen isimleri temizle (url bazlı)
++        seen, uniq = set(), []
++        for w in writers:
++            k = w["url"].rstrip("/")
++            if k in seen:
++                continue
++            seen.add(k)
++            uniq.append(w)
++        papers_out.append({
++            "key": paper["key"],
++            "name": paper["name"],
++            "count": len(uniq),
++            "writers": uniq,
++        })
++        total += len(uniq)
++        log(f"  {paper['name']}: {len(uniq)} yazar")
++    return {"papers": papers_out, "total": total}
++
++
++def merge_article_authors(writers_data, records):
++    """Makale sayfalarından bulunan yazar adlarını keşif listesine ekler."""
++    by_key = {p["key"]: p for p in writers_data["papers"]}
++    for rec in records:
++        paper = next((p for p in NEWSPAPERS if p["name"] == rec["source"]), None)
++        if not paper:
++            continue
++        entry = by_key.get(paper["key"])
++        if not entry:
++            continue
++        names = {w["name"].lower() for w in entry["writers"]}
++        if rec["author"] and rec["author"] != "Köşe Yazarı" and rec["author"].lower() not in names:
++            entry["writers"].append({"name": rec["author"], "url": ""})
++            entry["count"] += 1
++            writers_data["total"] += 1
++            names.add(rec["author"].lower())
++
++
++def save_writers(writers_data, out_path):
++    now = datetime.now(TR_TZ)
++    payload = {
++        "fetchedAt": now.astimezone(timezone.utc).isoformat(),
++        "date": now.strftime("%Y-%m-%d"),
++        "total": writers_data["total"],
++        "papers": writers_data["papers"],
++    }
++    outdir = os.path.dirname(out_path)
++    if outdir:
++        os.makedirs(outdir, exist_ok=True)
++    with open(out_path, "w", encoding="utf-8") as f:
++        json.dump(payload, f, ensure_ascii=False, indent=2)
++        f.write("\n")
++    log(f"OK: {writers_data['total']} yazar ({len(writers_data['papers'])} gazete) yazıldı -> {out_path}")
++
++
++# ---------------------------------------------------------------------------
++# Günlük makale çekimi
++# ---------------------------------------------------------------------------
++def fetch_paper_articles(paper, max_per_paper):
++    records = []
++    mode = paper.get("mode", "today")
++
++    if mode == "today":
++        html = fetch(paper["today"])
++        if not html:
++            return records
++        urls = extract_links(
++            html, paper["today"], paper["article_pattern"],
++            denylist=paper.get("article_denylist"), limit=max_per_paper,
++        )
++        log(f"  {paper['name']}: dizinden {len(urls)} makale bulundu")
++        for url in urls:
++            rec = parse_html_article(url, paper)
++            if rec:
++                records.append(rec)
++                log(f"    + [{rec['author']}] {rec['title'][:55]}")
++
++    elif mode == "authors":
++        html = fetch(paper["today"])
++        if not html:
++            return records
++        author_urls = extract_links(
++            html, paper["today"], paper["author_pattern"],
++            denylist=paper.get("author_denylist"), limit=max_per_paper,
++        )
++        log(f"  {paper['name']}: dizinden {len(author_urls)} yazar bulundu")
++        for author_url in author_urls:
++            ahtml = fetch(author_url)
++            if not ahtml:
++                continue
++            # yazar adını yazar sayfasının başlığından al
++            asoub = BeautifulSoup(ahtml, "html.parser")
++            author_name = ""
++            h1 = asoub.find("h1")
++            if h1:
++                author_name = clean_author_name(h1.get_text(" ", strip=True))
++            urls = extract_links(
++                ahtml, author_url, paper["article_pattern"],
++                denylist=paper.get("article_denylist"), limit=1,
++            )
++            if not urls:
++                continue
++            sub = dict(paper)
++            if author_name:
++                sub["author"] = author_name
++            rec = parse_html_article(urls[0], sub)
++            if rec:
++                records.append(rec)
++                log(f"    + [{rec['author']}] {rec['title'][:55]}")
++    return records
++
++
++def fetch_personal_articles(src, max_per_source):
++    records = []
++    html = fetch(src["listing"])
++    if not html:
++        return records
++    urls = extract_links(html, src["listing"], src["article_pattern"], limit=max_per_source)
++    for url in urls:
++        paper = {"key": src["key"], "name": src["name"], "category": src["category"], "author": src["author"]}
++        rec = parse_html_article(url, paper)
++        if rec:
++            records.append(rec)
++    return records
++
++
++# ---------------------------------------------------------------------------
++# Ana akış
++# ---------------------------------------------------------------------------
++def main():
++    ap = argparse.ArgumentParser(description="Günlük köşe yazısı toplayıcı (tüm aktif gazeteler)")
++    ap.add_argument("--out", default="data/daily.json", help="Günlük makale JSON çıktısı")
++    ap.add_argument("--writers-out", default="data/writers.json", help="Yazar listesi JSON çıktısı")
++    ap.add_argument("--max-per-paper", type=int, default=25, help="Gazete başına en fazla makale")
++    ap.add_argument("--max-authors-per-paper", type=int, default=200, help="Gazete başına en fazla keşfedilen yazar")
++    ap.add_argument("--max-per-source", type=int, default=2, help="Kişisel/RSS kaynak başına makale")
++    ap.add_argument("--discover-only", action="store_true", help="Sadece yazar listesini üret")
++    args = ap.parse_args()
++
++    # --- Yazar keşfi ---
++    log(">> Yazar keşfi (aktif köşe yazarları)")
++    writers_data = discover_writers(args.max_authors_per_paper)
++
++    if args.discover_only:
++        save_writers(writers_data, args.writers_out)
++        return 0
++
++    # --- Günlük makale çekimi ---
++    records = []
++    papers_with_articles = set()
++
++    for paper in NEWSPAPERS:
++        log(f">> {paper['name']} ({paper['today']})")
++        paper_records = fetch_paper_articles(paper, args.max_per_paper)
++        if paper_records:
++            papers_with_articles.add(paper["name"])
++        records.extend(paper_records)
++
++    for src in PERSONAL_SOURCES:
++        log(f">> {src['name']} (kişisel site)")
++        records.extend(fetch_personal_articles(src, args.max_per_source))
++
++    for cfg in FEED_SOURCES:
++        log(f">> {cfg['name']} (RSS)")
++        records.extend(parse_feed(cfg, args.max_per_source))
++
++    # makale sayfalarındaki yazar adlarını keşif listesine işle
++    merge_article_authors(writers_data, records)
++    save_writers(writers_data, args.writers_out)
++
++    # başlığa göre tekilleştir
++    seen, uniq = set(), []
++    for r in records:
++        key = r["title"].lower()
++        if key in seen:
++            continue
++        seen.add(key)
++        uniq.append(r)
++
++    if not uniq:
++        log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")
++        return 0
++
++    now = datetime.now(TR_TZ)
++    payload = {
++        "fetchedAt": now.astimezone(timezone.utc).isoformat(),
++        "date": now.strftime("%Y-%m-%d"),
++        "count": len(uniq),
++        "papers": len(papers_with_articles) or len(NEWSPAPERS),
++        "writers": writers_data["total"],
++        "articles": uniq,
++    }
++    outdir = os.path.dirname(args.out)
++    if outdir:
++        os.makedirs(outdir, exist_ok=True)
++    with open(args.out, "w", encoding="utf-8") as f:
++        json.dump(payload, f, ensure_ascii=False, indent=2)
++        f.write("\n")
++    log(f"OK: {len(uniq)} makale ({len(papers_with_articles)} gazete) yazıldı -> {args.out}")
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/writers-ui.patch b/writers-ui.patch
+new file mode 100644
+index 0000000..eb44968
+--- /dev/null
++++ b/writers-ui.patch
+@@ -0,0 +1,288 @@
++From 22fb4cba1b27419065697132f538510177fa059c Mon Sep 17 00:00:00 2001
++From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
++Date: Sun, 11 Oct 2026 06:29:36 +0000
++Subject: [PATCH] =?UTF-8?q?feat:=20Ke=C5=9Ffet=20sekmesi=20=E2=80=94=20t?=
++ =?UTF-8?q?=C3=BCm=20k=C3=B6=C5=9Fe=20yazarlar=C4=B1n=C4=B1=20gazete=20baz?=
++ =?UTF-8?q?l=C4=B1=20listele=20(data/writers.json)?=
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++- Keşfet sekmesi artık yazar kaşifi: gazete bazlı gruplar, yazar sayısı rozetleri, arama filtresi
++- Yazar linkleri (varsa) yeni sekmede açılır; linki olmayanlar düz çip olarak gösterilir
++- Veri yoksa açıklayıcı boş durum + Tekrar Dene; yükleniyor durumu; XSS kaçışı
++- setTab ile sekme yönlendirmesi merkezileştirildi; yenile düğmesi Keşfet'te yazarları da yeniler
++- 38 birim test (saf fonksiyonlar + DOM shim) yeşil
++
++Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
++---
++ index.html | 211 ++++++++++++++++++++++++++++++++++++++++++++++++-----
++ 1 file changed, 194 insertions(+), 17 deletions(-)
++
++diff --git a/index.html b/index.html
++index f063d47..52a2b1f 100644
++--- a/index.html
+++++ b/index.html
++@@ -101,7 +101,7 @@
++     <main class="flex-1 overflow-y-auto no-scrollbar relative" id="main-scroll">
++       
++       <!-- Top Authors Story/Avatar Bar -->
++-      <section class="pl-5 mb-4">
+++      <section class="pl-5 mb-4" id="feed-authors-section">
++         <div class="flex items-center justify-between pr-5 mb-2.5">
++           <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Takip Edilenler</h2>
++           <span class="text-[11px] text-accent font-semibold cursor-pointer">Tümü</span>
++@@ -112,7 +112,7 @@
++       </section>
++ 
++       <!-- Category Filter Chips -->
++-      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2">
+++      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2" id="feed-categories-section">
++         <button onclick="filterCategory('Tümü')" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm">
++           Tümü
++         </button>
++@@ -143,6 +143,49 @@
++       <div id="articles-list" class="px-5 space-y-4 pb-20">
++         <!-- Rendered by JS -->
++       </div>
+++
+++      <!-- Writers Explorer View (Keşfet Sekmesi — data/writers.json) -->
+++      <section id="writers-view" class="hidden px-5 pb-24">
+++        <div class="flex items-center justify-between mb-2.5">
+++          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Köşe Yazarları</h2>
+++          <span id="writers-meta" class="text-[11px] text-accent font-semibold"></span>
+++        </div>
+++
+++        <div class="relative mb-4">
+++          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
+++          <input id="writers-search" type="text" placeholder="Yazar veya gazete ara…"
+++            class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-4 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+++        </div>
+++
+++        <!-- Yükleniyor -->
+++        <div id="writers-loading" class="hidden text-center py-12 text-slate-400">
+++          <i data-lucide="rotate-cw" class="w-8 h-8 mx-auto mb-2 opacity-60 animate-spin"></i>
+++          <p class="text-sm font-medium">Yazar kadrosu yükleniyor…</p>
+++        </div>
+++
+++        <!-- Boş Durum (veri henüz yok) -->
+++        <div id="writers-empty" class="hidden">
+++          <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm px-6 py-10 text-center">
+++            <i data-lucide="users" class="w-10 h-10 mx-auto mb-3 text-stone-300"></i>
+++            <h3 class="font-serif font-semibold text-ink-900 text-base mb-1.5">Yazar kadrosu henüz hazır değil</h3>
+++            <p class="text-xs text-stone-500 leading-relaxed mb-4">
+++              Türkiye'deki aktif gazetelerin tüm köşe yazarları otomatik olarak keşfedilir ve
+++              her gün <span class="font-semibold text-ink-700">07:00</span>'de (TSİ) güncellenir.
+++              İlk senkronizasyon henüz çalışmadı.
+++            </p>
+++            <button id="writers-retry-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-ink-900 text-white rounded-full hover:bg-ink-700 active:scale-95 transition-all">
+++              <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+++              <span>Tekrar Dene</span>
+++            </button>
+++          </div>
+++          <p class="text-[11px] text-stone-400 text-center mt-3 leading-relaxed">
+++            Hemen başlatmak için: GitHub → Actions → <span class="font-semibold">Köşe Yazılarını Güncelle</span> → <span class="font-semibold">Run workflow</span>
+++          </p>
+++        </div>
+++
+++        <!-- Gazete Bazlı Yazar Grupları -->
+++        <div id="writers-list" class="space-y-3"></div>
+++      </section>
++     </main>
++ 
++     <!-- Reading Mode Modal (Full Slide-up Sheet) -->
++@@ -377,6 +420,7 @@
++ 
++     // --- Canlı Günlük Akış (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
++     const DAILY_FEED_URL = 'data/daily.json';
+++    const WRITERS_URL = 'data/writers.json';
++     const todayKey = () => new Date().toLocaleDateString('tr-TR');
++ 
++     function mapLiveArticle(a, idx) {
++@@ -472,6 +516,152 @@
++     const miniPlayIcon = document.getElementById('mini-play-icon');
++     const fontSizeBtn = document.getElementById('font-size-btn');
++     const readerBookmarkBtn = document.getElementById('reader-bookmark-btn');
+++    const syncBannerEl = document.getElementById('sync-banner');
+++    const feedAuthorsSection = document.getElementById('feed-authors-section');
+++    const feedCategoriesSection = document.getElementById('feed-categories-section');
+++    const writersViewEl = document.getElementById('writers-view');
+++    const writersListEl = document.getElementById('writers-list');
+++    const writersMetaEl = document.getElementById('writers-meta');
+++    const writersEmptyEl = document.getElementById('writers-empty');
+++    const writersLoadingEl = document.getElementById('writers-loading');
+++    const writersSearchInput = document.getElementById('writers-search');
+++
+++    // --- WRITERS HELPERS (pure) ---
+++    function escapeHtml(s) {
+++      return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+++    }
+++
+++    function normalizeTr(s) {
+++      return String(s ?? '').toLocaleLowerCase('tr-TR').trim();
+++    }
+++
+++    function writersSummary(data) {
+++      if (!data || !Array.isArray(data.papers)) return { total: 0, paperCount: 0, fetchedAt: null };
+++      const total = typeof data.total === 'number'
+++        ? data.total
+++        : data.papers.reduce((n, p) => n + (Array.isArray(p.writers) ? p.writers.length : 0), 0);
+++      return { total, paperCount: data.papers.length, fetchedAt: data.fetchedAt || null };
+++    }
+++
+++    function filterWriters(papers, query) {
+++      const q = normalizeTr(query);
+++      if (!Array.isArray(papers)) return [];
+++      if (!q) return papers.filter(p => Array.isArray(p.writers) && p.writers.length > 0);
+++      return papers
+++        .map(p => {
+++          if (!Array.isArray(p.writers)) return null;
+++          if (normalizeTr(p.name).includes(q)) return p;
+++          const writers = p.writers.filter(w => normalizeTr(w && w.name).includes(q));
+++          return writers.length ? { ...p, writers } : null;
+++        })
+++        .filter(Boolean);
+++    }
+++    // --- /WRITERS HELPERS ---
+++
+++    // --- WRITERS VIEW (dom) ---
+++    let writersData = null;
+++    let writersLoaded = false;
+++    let writersLoading = false;
+++    let currentTab = 'feed';
+++
+++    async function loadWriters(force = false) {
+++      if (writersLoading) return;
+++      if (writersLoaded && !force) { renderWriters(); return; }
+++      writersLoading = true;
+++      writersLoadingEl.classList.remove('hidden');
+++      writersEmptyEl.classList.add('hidden');
+++      writersListEl.innerHTML = '';
+++      writersMetaEl.textContent = '';
+++      try {
+++        const res = await fetch(`${WRITERS_URL}?v=${Date.now()}`, { cache: 'no-store' });
+++        if (!res.ok) throw new Error('HTTP ' + res.status);
+++        const data = await res.json();
+++        const summary = writersSummary(data);
+++        if (!summary.paperCount || !summary.total) throw new Error('Boş veri');
+++        writersData = data;
+++        writersLoaded = true;
+++        renderWriters();
+++      } catch (err) {
+++        writersData = null;
+++        writersLoaded = false;
+++        writersLoadingEl.classList.add('hidden');
+++        writersEmptyEl.classList.remove('hidden');
+++        lucide.createIcons();
+++      } finally {
+++        writersLoading = false;
+++      }
+++    }
+++
+++    function renderWriters() {
+++      if (!writersData) return;
+++      const summary = writersSummary(writersData);
+++      writersLoadingEl.classList.add('hidden');
+++      writersEmptyEl.classList.add('hidden');
+++      writersMetaEl.textContent = `${summary.paperCount} gazete · ${summary.total} yazar`;
+++      const q = writersSearchInput.value;
+++      const groups = filterWriters(writersData.papers, q);
+++      if (!groups.length) {
+++        writersListEl.innerHTML = `
+++          <div class="text-center py-12 text-slate-400">
+++            <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+++            <p class="text-sm font-medium">Aradığınız yazar bulunamadı.</p>
+++          </div>
+++        `;
+++        lucide.createIcons();
+++        return;
+++      }
+++      writersListEl.innerHTML = groups.map(p => {
+++        const chips = p.writers.map(w => {
+++          const name = escapeHtml(w && w.name);
+++          if (w && w.url) {
+++            return `<a href="${escapeHtml(w.url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 hover:bg-ink-900 hover:text-white transition-colors">${name}<i data-lucide="arrow-up-right" class="w-3 h-3 opacity-60"></i></a>`;
+++          }
+++          return `<span class="inline-block px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600">${name}</span>`;
+++        }).join('');
+++        return `
+++          <div class="bg-white rounded-2xl p-3.5 border border-stone-200/80 shadow-sm">
+++            <div class="flex items-center justify-between mb-2.5 px-1">
+++              <h3 class="text-xs font-bold text-ink-900">${escapeHtml(p.name)}</h3>
+++              <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
+++            </div>
+++            <div class="flex flex-wrap gap-1.5">${chips}</div>
+++          </div>
+++        `;
+++      }).join('');
+++      lucide.createIcons();
+++    }
+++
+++    writersSearchInput.addEventListener('input', renderWriters);
+++    document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
+++
+++    // --- Bottom Tab Router (Akış / Keşfet / Kaydedilen / Ayarlar) ---
+++    function setTab(tab) {
+++      currentTab = tab;
+++      document.querySelectorAll('.nav-btn').forEach(b => {
+++        const active = b.getAttribute('data-tab') === tab;
+++        b.classList.toggle('text-accent', active);
+++        b.classList.toggle('text-stone-400', !active);
+++        b.querySelector('span').classList.toggle('font-bold', active);
+++        b.querySelector('span').classList.toggle('font-medium', !active);
+++      });
+++
+++      const isDiscover = tab === 'discover';
+++      feedAuthorsSection.classList.toggle('hidden', isDiscover);
+++      feedCategoriesSection.classList.toggle('hidden', isDiscover);
+++      syncBannerEl.classList.toggle('hidden', isDiscover);
+++      articlesListEl.classList.toggle('hidden', isDiscover);
+++      writersViewEl.classList.toggle('hidden', !isDiscover);
+++
+++      if (isDiscover) {
+++        if (!writersLoaded) loadWriters();
+++        else renderWriters();
+++      } else if (tab === 'saved') {
+++        renderArticles(articles.filter(a => a.isBookmarked));
+++      } else {
+++        applyFilters();
+++      }
+++    }
+++    // --- /WRITERS VIEW ---
++ 
++     // --- Update Device Time ---
++     function updateClock() {
++@@ -778,6 +968,7 @@
++ 
++       const ok = await loadDailyFeed(true);
++       refreshIcon.classList.remove('rotate-180');
+++      if (currentTab === 'discover') loadWriters(true);
++ 
++       if (!ok) {
++         // Çevrimdışıysa örnek makaleyi göster
++@@ -798,21 +989,7 @@
++     // --- Bottom Navigation Tab Switching ---
++     document.querySelectorAll('.nav-btn').forEach(btn => {
++       btn.addEventListener('click', function() {
++-        document.querySelectorAll('.nav-btn').forEach(b => {
++-          b.classList.remove('text-accent');
++-          b.classList.add('text-stone-400');
++-          b.querySelector('span').classList.replace('font-bold', 'font-medium');
++-        });
++-        this.classList.remove('text-stone-400');
++-        this.classList.add('text-accent');
++-        this.querySelector('span').classList.replace('font-medium', 'font-bold');
++-
++-        const tab = this.getAttribute('data-tab');
++-        if (tab === 'saved') {
++-          renderArticles(articles.filter(a => a.isBookmarked));
++-        } else {
++-          applyFilters();
++-        }
+++        setTab(this.getAttribute('data-tab'));
++       });
++     });
++ 
++-- 
++2.39.5
++
