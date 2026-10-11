@@ -53,18 +53,19 @@
       100% { height: 22px; }
     }
 
-    /* Yazar balonu: çerçeve ve iç renk üstte %0 saydamdan başlar, aşağı indikçe belirginleşir */
+    /* Yazar balonu: iç ve çerçeve ortaya kadar %0 saydam kalır, gradient ortadan başlayıp aşağıya doğru dolulaşır */
     .author-tip-card {
       border: 1px solid transparent;
       background:
         linear-gradient(to bottom,
           rgba(255, 235, 214, 0) 0%,
-          rgba(255, 235, 214, .28) 28%,
-          rgba(255, 211, 165, .55) 62%,
+          rgba(255, 235, 214, 0) 50%,
+          rgba(255, 211, 165, .5) 78%,
           rgba(255, 178, 122, .95) 100%) padding-box,
         linear-gradient(to bottom,
           rgba(239, 161, 99, 0) 0%,
-          rgba(239, 161, 99, .35) 45%,
+          rgba(239, 161, 99, 0) 50%,
+          rgba(239, 161, 99, .45) 78%,
           rgba(239, 161, 99, .95) 100%) border-box;
       box-shadow: 0 10px 26px -6px rgba(120, 60, 20, .18);
     }
