@@ -1,0 +1,141 @@
+From b963ba18c51280ff30199e8099d7ca5dafe9037c Mon Sep 17 00:00:00 2001
+From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
+Date: Sun, 11 Oct 2026 14:20:47 +0000
+Subject: [PATCH 4/5] =?UTF-8?q?feat(seslendirme):=20ses=20se=C3=A7imi=20?=
+ =?UTF-8?q?=E2=80=94=20taray=C4=B1c=C4=B1daki=20T=C3=BCrk=C3=A7e=20sesler?=
+ =?UTF-8?q?=20aras=C4=B1ndan=20se=C3=A7?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Ayarlar'a 'Seslendirme sesi' listesi eklendi: Türkçe sesler üstte, diğer diller
+  ayrı grupta, 'Otomatik (ilk Türkçe ses)' varsayılan
+- Seçim appSettings.ttsVoice olarak saklanıyor; konuşma sırasında değişirse aynı
+  bölüm yeni sesle baştan okunuyor
+- Sesler sonradan yüklenirse (voiceschanged) liste ve seçim tazeleniyor
+- Şeritte gerçek ses adı yazıyor; seçim bulunamazsa uyarı gösteriliyor
+- Not satırı daha doğal sesler için yol gösteriyor (Edge Online Natural,
+  iOS/macOS Premium, Android Google Türkçe)
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ index.html | 67 ++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 58 insertions(+), 9 deletions(-)
+
+diff --git a/index.html b/index.html
+index bb49bc8..16d6535 100644
+--- a/index.html
++++ b/index.html
+@@ -215,6 +215,14 @@
+           </div>
+         </div>
+ 
++        <!-- Seslendirme sesi -->
++        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
++          <p class="text-xs font-bold text-ink-900">Seslendirme sesi</p>
++          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">Tarayıcının kullanacağı ses. Adında “Natural”, “Enhanced” veya “Premium” geçenler daha doğaldır.</p>
++          <select id="set-tts-voice" class="w-full text-[11px] font-medium px-3 py-2.5 rounded-xl bg-stone-100 text-stone-700 border border-stone-200 focus:outline-none"></select>
++          <p id="set-tts-voice-note" class="text-[10px] text-stone-400 mt-1.5 leading-relaxed"></p>
++        </div>
++
+         <!-- Aç/kapa ayarları -->
+         <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm divide-y divide-stone-100 mb-3">
+           <div class="p-3.5 flex items-center justify-between gap-3">
+@@ -633,7 +641,7 @@
+ 
+     // --- Uygulama ayarları (localStorage'da saklanır) ---
+     const SETTINGS_KEY = 'kose-settings';
+-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true, ttsRate: 1 };
++    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto' };
+     let appSettings = { ...DEFAULT_SETTINGS };
+     try {
+       Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
+@@ -654,6 +662,7 @@
+         const on = Number(b.dataset.font) === Number(appSettings.readerFont);
+         b.className = `px-3 py-2 rounded-xl text-[11px] font-bold transition-colors ${on ? 'bg-ink-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`;
+       });
++      renderVoiceOptions();
+       paintToggle(document.getElementById('set-tooltip'), appSettings.tooltip);
+       paintToggle(document.getElementById('set-samples'), appSettings.samples);
+       paintToggle(document.getElementById('set-autorefresh'), appSettings.autoRefresh);
+@@ -1305,22 +1314,55 @@
+       speakNextChunk();
+     }
+ 
+-    // Türkçe sesi seç; sesler asenkron yüklendiği için olay dinlenir.
++    const TTS_VOICE_AUTO = 'auto';
++    const isTrVoice = v => /^tr([-_]|$)/i.test((v && v.lang) || '');
++
++    function ttsVoices() {
++      if (!ttsSupported) return [];
++      try { return window.speechSynthesis.getVoices() || []; } catch (e) { return []; }
++    }
++
++    // Kayıtlı sesi, yoksa ilk Türkçe sesi seç; sesler asenkron yüklendiği için
++    // voiceschanged olayında yeniden seçilir.
+     function pickTtsVoice() {
+-      if (!ttsSupported) return null;
+-      const voices = window.speechSynthesis.getVoices() || [];
+-      ttsVoice = voices.find(v => /^tr([-_]|$)/i.test(v.lang || '')) || null;
++      const voices = ttsVoices();
++      const wanted = appSettings.ttsVoice && appSettings.ttsVoice !== TTS_VOICE_AUTO ? appSettings.ttsVoice : '';
++      ttsVoice = (wanted && voices.find(v => v.name === wanted)) || voices.find(isTrVoice) || null;
+       const label = document.getElementById('audio-voice');
+       if (label) {
+-        label.textContent = ttsVoice
+-          ? `Ses: ${ttsVoice.name} (${ttsVoice.lang})`
+-          : (voices.length ? 'Türkçe ses bulunamadı — varsayılan ses' : 'Tarayıcı sesleri yükleniyor…');
++        label.textContent = !ttsSupported
++          ? 'Seslendirme desteklenmiyor'
++          : (ttsVoice
++            ? `Ses: ${ttsVoice.name}${wanted && ttsVoice.name !== wanted ? ' (seçim bulunamadı)' : ''}`
++            : (voices.length ? 'Türkçe ses bulunamadı — varsayılan ses' : 'Tarayıcı sesleri yükleniyor…'));
+       }
+       return ttsVoice;
+     }
++
++    // Ayarlar'daki ses listesi: Türkçe sesler üstte, diğerleri ayrı grupta.
++    function renderVoiceOptions() {
++      const sel = document.getElementById('set-tts-voice');
++      if (!sel) return;
++      const voices = ttsVoices();
++      const current = appSettings.ttsVoice || TTS_VOICE_AUTO;
++      const tr = voices.filter(isTrVoice);
++      const other = voices.filter(v => !isTrVoice(v));
++      const opt = v => `<option value="${escapeHtml(v.name)}"${v.name === current ? ' selected' : ''}>${escapeHtml(v.name)} · ${escapeHtml(v.lang)}</option>`;
++      sel.innerHTML = `<option value="${TTS_VOICE_AUTO}"${current === TTS_VOICE_AUTO ? ' selected' : ''}>Otomatik (ilk Türkçe ses)</option>`
++        + tr.map(opt).join('')
++        + (other.length ? `<optgroup label="Diğer diller">${other.map(opt).join('')}</optgroup>` : '');
++      sel.disabled = !ttsSupported;
++      const note = document.getElementById('set-tts-voice-note');
++      if (note) {
++        note.textContent = !ttsSupported
++          ? 'Bu tarayıcı seslendirmeyi desteklemiyor.'
++          : `${voices.length} ses bulundu, ${tr.length} tanesi Türkçe. Daha doğal bir ses için cihazının ses paketini indir: Edge’de “Microsoft … Online (Natural)”, iPhone/Mac’te “Yelda (Premium)”, Android’de Google Türkçe.`;
++      }
++    }
++
+     if (ttsSupported) {
+       pickTtsVoice();
+-      window.speechSynthesis.addEventListener('voiceschanged', pickTtsVoice);
++      window.speechSynthesis.addEventListener('voiceschanged', () => { pickTtsVoice(); renderVoiceOptions(); updateAudioUI(); });
+     }
+ 
+     function htmlToSpeechText(html) {
+@@ -1510,6 +1552,13 @@
+     document.getElementById('mini-player-open').addEventListener('click', () => {
+       if (ttsArticle) openReader(ttsArticle.id);
+     });
++    document.getElementById('set-tts-voice').addEventListener('change', (e) => {
++      appSettings.ttsVoice = e.target.value;
++      saveSettings();
++      pickTtsVoice();
++      if (ttsActive && !ttsPaused) restartCurrentChunk();
++      else updateAudioUI();
++    });
+     document.getElementById('tts-slower-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() - TTS_RATE_STEP));
+     document.getElementById('tts-faster-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() + TTS_RATE_STEP));
+ 
+-- 
+2.39.5
+

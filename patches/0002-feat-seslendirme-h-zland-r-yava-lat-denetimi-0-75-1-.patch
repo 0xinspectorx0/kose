@@ -1,0 +1,175 @@
+From 6b32e1f718bc48d47071c95d75fd550a8fe54b9d Mon Sep 17 00:00:00 2001
+From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
+Date: Sun, 11 Oct 2026 14:01:51 +0000
+Subject: [PATCH 2/5] =?UTF-8?q?feat(seslendirme):=20h=C4=B1zland=C4=B1r=20?=
+ =?UTF-8?q?/=20yava=C5=9Flat=20denetimi=20(0,75=C3=97=E2=80=931,75=C3=97)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Seslendirme şeridine -/+ hız düğmeleri ve '1,0×' etiketi eklendi (adım 0,25)
+- Hız ayarı appSettings.ttsRate olarak saklanıyor, yeniden açılışta korunuyor
+- Konuşma sırasında hız değişirse aynı bölüm yeni hızla baştan okunur
+  (utterance jenerasyon sayacı ile iptal edilen sesin geç olayları yok sayılır)
+- Sınırlarda ilgili düğme pasifleşiyor; etiket Türkçe biçimde (0,75× / 1,75×)
+- Şerit artık okuyucu açılınca görünür, böylece hız baştan ayarlanabiliyor;
+  bölümler bitince şerit boşta durumuna dönüyor (kapanmıyor)
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ index.html | 85 +++++++++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 78 insertions(+), 7 deletions(-)
+
+diff --git a/index.html b/index.html
+index 58f29ed..7110b77 100644
+--- a/index.html
++++ b/index.html
+@@ -333,8 +333,21 @@
+               <span class="w-1 bg-accent rounded-full h-2"></span>
+             </div>
+           </div>
+-          <div class="mt-2.5 h-1 rounded-full bg-stone-200 overflow-hidden">
+-            <div id="audio-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
++          <div class="mt-2.5 flex items-center gap-2">
++            <div class="flex-1 h-1 rounded-full bg-stone-200 overflow-hidden">
++              <div id="audio-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
++            </div>
++            <div class="flex items-center gap-1 flex-shrink-0">
++              <button id="tts-slower-btn" type="button" aria-label="Seslendirmeyi yavaşlat" title="Yavaşlat"
++                class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center hover:bg-stone-300 active:scale-90 transition-all">
++                <i data-lucide="minus" class="w-3 h-3"></i>
++              </button>
++              <span id="tts-rate-label" class="text-[10px] font-bold text-stone-600 w-11 text-center tabular-nums">1,0×</span>
++              <button id="tts-faster-btn" type="button" aria-label="Seslendirmeyi hızlandır" title="Hızlandır"
++                class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center hover:bg-stone-300 active:scale-90 transition-all">
++                <i data-lucide="plus" class="w-3 h-3"></i>
++              </button>
++            </div>
+           </div>
+         </div>
+ 
+@@ -598,7 +611,7 @@
+ 
+     // --- Uygulama ayarları (localStorage'da saklanır) ---
+     const SETTINGS_KEY = 'kose-settings';
+-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true };
++    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true, ttsRate: 1 };
+     let appSettings = { ...DEFAULT_SETTINGS };
+     try {
+       Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
+@@ -1173,6 +1186,8 @@
+ 
+       updateReaderBookmarkIcon();
+       resetAudio();
++      audioStrip.classList.remove('hidden'); // seslendirme şeridi hazır durumda görünür
++      updateAudioUI();
+       readerScrollable.scrollTop = 0;
+       readerProgressBar.style.width = '0%';
+ 
+@@ -1233,6 +1248,37 @@
+     let ttsActive = false;  // konuşma başladı ve henüz bitmedi
+     let ttsPaused = false;
+     let ttsVoice = null;
++    let ttsGen = 0;         // iptal edilen utterance'ların geç olaylarını yok saymak için
++    const TTS_RATE_MIN = 0.75;
++    const TTS_RATE_MAX = 1.75;
++    const TTS_RATE_STEP = 0.25;
++
++    // 1 -> "1,0×", 0.75 -> "0,75×", 1.5 -> "1,5×"
++    function formatTtsRate(r) {
++      const s = Number(r).toFixed(2).replace(/0+$/, '').replace(/\.$/, '.0');
++      return `${s.replace('.', ',')}×`;
++    }
++
++    function currentTtsRate() {
++      const r = Number(appSettings.ttsRate);
++      return Number.isFinite(r) && r > 0 ? r : 1;
++    }
++
++    // Hızı değiştirir; konuşma sürüyorsa aynı bölüm yeni hızla baştan okunur.
++    function applyTtsRate(rate) {
++      const stepped = Math.round(Number(rate) / TTS_RATE_STEP) * TTS_RATE_STEP;
++      appSettings.ttsRate = Number(Math.min(TTS_RATE_MAX, Math.max(TTS_RATE_MIN, stepped)).toFixed(2));
++      saveSettings();
++      updateAudioUI();
++      if (ttsActive && !ttsPaused) restartCurrentChunk();
++      return appSettings.ttsRate;
++    }
++
++    function restartCurrentChunk() {
++      if (!ttsSupported || !ttsActive) return;
++      window.speechSynthesis.cancel(); // ttsIndex değişmedi: aynı bölüm yeniden okunur
++      speakNextChunk();
++    }
+ 
+     // Türkçe sesi seç; sesler asenkron yüklendiği için olay dinlenir.
+     function pickTtsVoice() {
+@@ -1274,22 +1320,32 @@
+ 
+     function speakNextChunk() {
+       if (!ttsActive) return;
+-      if (ttsIndex >= ttsChunks.length) { resetAudio(); return; }
++      if (ttsIndex >= ttsChunks.length) { finishSpeech(); return; }
++      const gen = ++ttsGen;
+       const utter = new SpeechSynthesisUtterance(ttsChunks[ttsIndex]);
+       utter.lang = 'tr-TR';
+       if (ttsVoice) utter.voice = ttsVoice;
+-      utter.rate = 1;
++      utter.rate = currentTtsRate();
+       utter.pitch = 1;
+       utter.onend = () => {
+-        if (!ttsActive) return;
++        if (!ttsActive || gen !== ttsGen) return; // hız değişimi/iptal sonrası eski olay
+         ttsIndex += 1;
+         updateAudioUI();
+         speakNextChunk();
+       };
+-      utter.onerror = () => resetAudio();
++      utter.onerror = () => { if (gen === ttsGen) resetAudio(); };
+       window.speechSynthesis.speak(utter);
+     }
+ 
++    // Bölümler bitti: konuşma durur, şerit boşta durumuna döner (gizlenmez).
++    function finishSpeech() {
++      ttsActive = false;
++      ttsPaused = false;
++      ttsIndex = 0;
++      ttsChunks = [];
++      updateAudioUI();
++    }
++
+     function showAndPlayAudio() {
+       audioStrip.classList.remove('hidden');
+       if (!ttsSupported) {
+@@ -1355,6 +1411,19 @@
+       if (prog) {
+         prog.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
+       }
++      const rate = currentTtsRate();
++      const rateLabel = document.getElementById('tts-rate-label');
++      if (rateLabel) rateLabel.textContent = formatTtsRate(rate);
++      const slower = document.getElementById('tts-slower-btn');
++      const faster = document.getElementById('tts-faster-btn');
++      if (slower) {
++        slower.disabled = rate <= TTS_RATE_MIN;
++        slower.classList.toggle('opacity-40', rate <= TTS_RATE_MIN);
++      }
++      if (faster) {
++        faster.disabled = rate >= TTS_RATE_MAX;
++        faster.classList.toggle('opacity-40', rate >= TTS_RATE_MAX);
++      }
+       lucide.createIcons();
+     }
+ 
+@@ -1373,6 +1442,8 @@
+     });
+ 
+     miniAudioToggle.addEventListener('click', togglePlayPause);
++    document.getElementById('tts-slower-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() - TTS_RATE_STEP));
++    document.getElementById('tts-faster-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() + TTS_RATE_STEP));
+ 
+     // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
+     // Çevrimdışı kalırsa gösterilecek örnek makale:
+-- 
+2.39.5
+

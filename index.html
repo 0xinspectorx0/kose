@@ -215,6 +215,14 @@
           </div>
         </div>
 
+        <!-- Seslendirme sesi -->
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
+          <p class="text-xs font-bold text-ink-900">Seslendirme sesi</p>
+          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">Tarayıcının kullanacağı ses. Adında “Natural”, “Enhanced” veya “Premium” geçenler daha doğaldır.</p>
+          <select id="set-tts-voice" class="w-full text-[11px] font-medium px-3 py-2.5 rounded-xl bg-stone-100 text-stone-700 border border-stone-200 focus:outline-none"></select>
+          <p id="set-tts-voice-note" class="text-[10px] text-stone-400 mt-1.5 leading-relaxed"></p>
+        </div>
+
         <!-- Aç/kapa ayarları -->
         <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm divide-y divide-stone-100 mb-3">
           <div class="p-3.5 flex items-center justify-between gap-3">
@@ -263,7 +271,7 @@
 
     <!-- Yukarı Çık (aşağı kaydırınca belirir) -->
     <button id="scroll-top-btn" type="button" title="En üste çık" aria-label="En üste çık"
-      class="hidden absolute right-4 bottom-20 z-30 w-11 h-11 rounded-full bg-ink-900 text-white shadow-lg flex items-center justify-center hover:bg-ink-700 active:scale-90 transition-all">
+      class="hidden absolute right-4 bottom-20 z-30 w-11 h-11 rounded-full bg-accent text-white shadow-lg flex items-center justify-center hover:bg-accent/85 active:scale-90 transition-all">
       <i data-lucide="arrow-up" class="w-5 h-5"></i>
     </button>
 
@@ -312,23 +320,42 @@
         </h1>
 
         <!-- Audio Player Strip (Mini Player inside reader) -->
-        <div id="audio-player-strip" class="hidden mb-6 p-3 bg-stone-100 rounded-2xl flex items-center justify-between border border-stone-200 font-sans">
-          <div class="flex items-center gap-3">
-            <button id="mini-audio-toggle" class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center">
-              <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
-            </button>
-            <div>
-              <p class="text-xs font-semibold text-ink-900">Yapay Zeka Seslendirmesi</p>
-              <p class="text-[10px] text-stone-500">Ses: Berke (Doğal Türkçe)</p>
+        <div id="audio-player-strip" class="hidden mb-6 p-3 bg-stone-100 rounded-2xl border border-stone-200 font-sans">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <button id="mini-audio-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
+                class="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
+                <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
+              </button>
+              <div class="min-w-0">
+                <p id="audio-status" class="text-xs font-semibold text-ink-900 truncate">Seslendirme</p>
+                <p id="audio-voice" class="text-[10px] text-stone-500 truncate">Tarayıcı sesi hazırlanıyor…</p>
+              </div>
+            </div>
+            <!-- Animated Voice Waveform -->
+            <div id="waveform" class="flex items-center gap-1 h-6 flex-shrink-0">
+              <span class="w-1 bg-accent rounded-full h-2"></span>
+              <span class="w-1 bg-accent rounded-full h-4"></span>
+              <span class="w-1 bg-accent rounded-full h-3"></span>
+              <span class="w-1 bg-accent rounded-full h-5"></span>
+              <span class="w-1 bg-accent rounded-full h-2"></span>
             </div>
           </div>
-          <!-- Animated Voice Waveform -->
-          <div id="waveform" class="flex items-center gap-1 h-6">
-            <span class="w-1 bg-accent rounded-full h-2"></span>
-            <span class="w-1 bg-accent rounded-full h-4"></span>
-            <span class="w-1 bg-accent rounded-full h-3"></span>
-            <span class="w-1 bg-accent rounded-full h-5"></span>
-            <span class="w-1 bg-accent rounded-full h-2"></span>
+          <div class="mt-2.5 flex items-center gap-2">
+            <div class="flex-1 h-1 rounded-full bg-stone-200 overflow-hidden">
+              <div id="audio-progress" class="h-full w-0 bg-gradient-to-r from-[#F2B489] to-accent transition-all duration-300"></div>
+            </div>
+            <div class="flex items-center gap-1 flex-shrink-0">
+              <button id="tts-slower-btn" type="button" aria-label="Seslendirmeyi yavaşlat" title="Yavaşlat"
+                class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center hover:bg-stone-300 active:scale-90 transition-all">
+                <i data-lucide="minus" class="w-3 h-3"></i>
+              </button>
+              <span id="tts-rate-label" class="text-[10px] font-bold text-stone-600 w-11 text-center tabular-nums">1,0×</span>
+              <button id="tts-faster-btn" type="button" aria-label="Seslendirmeyi hızlandır" title="Hızlandır"
+                class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center hover:bg-stone-300 active:scale-90 transition-all">
+                <i data-lucide="plus" class="w-3 h-3"></i>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -345,6 +372,28 @@
         </div>
       </div>
     </section>
+
+    <!-- Mini Medya Oynatıcı: seslendirme sürerken alt menünün üstünde ince şerit -->
+    <div id="mini-player" class="hidden absolute left-0 right-0 bottom-16 z-30 bg-gradient-to-r from-white/0 via-[#FFF1E1]/95 to-[#FFD3A5]/95 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_14px_rgba(0,0,0,0.06)]">
+      <div class="h-0.5 bg-stone-200/60">
+        <div id="mini-player-progress" class="h-full w-0 bg-gradient-to-r from-[#F2B489] to-accent transition-all duration-300"></div>
+      </div>
+      <div class="h-14 px-3 flex items-center gap-3">
+        <button id="mini-player-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
+          class="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
+          <i data-lucide="pause" id="mini-player-icon" class="w-4 h-4 fill-white"></i>
+        </button>
+        <button id="mini-player-open" type="button" class="flex-1 min-w-0 text-left">
+          <p id="mini-player-author" class="text-[11px] font-bold text-ink-900 truncate">Yazar</p>
+          <p id="mini-player-title" class="text-[10px] text-stone-500 truncate">Yazı adı</p>
+        </button>
+        <span id="mini-player-status" class="text-[10px] font-bold text-stone-400 tabular-nums flex-shrink-0">1/1</span>
+        <button id="mini-player-close" type="button" aria-label="Seslendirmeyi kapat"
+          class="w-8 h-8 rounded-full hover:bg-stone-100 flex items-center justify-center flex-shrink-0 text-stone-500 active:scale-90 transition-all">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
 
     <!-- Android Bottom Navigation Bar -->
     <nav class="h-16 bg-white/95 backdrop-blur-md border-t border-stone-200/70 px-6 flex items-center justify-between z-20 select-none">
@@ -592,7 +641,7 @@
 
     // --- Uygulama ayarları (localStorage'da saklanır) ---
     const SETTINGS_KEY = 'kose-settings';
-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true };
+    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto' };
     let appSettings = { ...DEFAULT_SETTINGS };
     try {
       Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
@@ -613,6 +662,7 @@
         const on = Number(b.dataset.font) === Number(appSettings.readerFont);
         b.className = `px-3 py-2 rounded-xl text-[11px] font-bold transition-colors ${on ? 'bg-ink-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`;
       });
+      renderVoiceOptions();
       paintToggle(document.getElementById('set-tooltip'), appSettings.tooltip);
       paintToggle(document.getElementById('set-samples'), appSettings.samples);
       paintToggle(document.getElementById('set-autorefresh'), appSettings.autoRefresh);
@@ -628,7 +678,28 @@
 
     let currentFilteredCategory = 'Tümü';
     let currentReadingArticle = null;
-    let isPlayingAudio = false;
+
+    // --- Okundu takibi: yazarın tüm yazıları okunduysa çemberi griye döner ---
+    const READ_KEY = 'kose-read-articles';
+    let readArticles = new Set();
+    try { readArticles = new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); } catch (e) { readArticles = new Set(); }
+
+    function applyReadState() {
+      articles.forEach(a => { a.isRead = readArticles.has(a.id); });
+    }
+
+    function markArticleRead(id) {
+      const art = articles.find(a => a.id === id);
+      if (art) art.isRead = true;
+      if (!id || readArticles.has(id)) return;
+      readArticles.add(id);
+      try { localStorage.setItem(READ_KEY, JSON.stringify([...readArticles].slice(-500))); } catch (e) { /* kota */ }
+    }
+
+    function isAuthorFullyRead(author) {
+      const list = articles.filter(a => a.author === author);
+      return list.length > 0 && list.every(a => a.isRead);
+    }
     let readerFontSize = Number(appSettings.readerFont) || 16;
 
     // --- DOM Elements ---
@@ -650,6 +721,7 @@
     const listenArticleBtn = document.getElementById('listen-article-btn');
     const audioStrip = document.getElementById('audio-player-strip');
     const miniAudioToggle = document.getElementById('mini-audio-toggle');
+    const miniPlayerEl = document.getElementById('mini-player');
     const miniPlayIcon = document.getElementById('mini-play-icon');
     const fontDecBtn = document.getElementById('font-dec-btn');
     const fontIncBtn = document.getElementById('font-inc-btn');
@@ -674,6 +746,17 @@
 
     function normalizeTr(s) {
       return String(s ?? '').toLocaleLowerCase('tr-TR').trim();
+    }
+
+    // "ahmet hakan" -> "Ahmet HAKAN", "m. serdar kuzuloğlu" -> "M. Serdar KUZULOĞLU"
+    function formatAuthorName(name) {
+      const raw = String(name ?? '').replace(/\s+/g, ' ').trim();
+      if (!raw) return '';
+      const titleCase = w => w.toLocaleLowerCase('tr-TR').replace(/^./, c => c.toLocaleUpperCase('tr-TR'));
+      const parts = raw.split(' ');
+      if (parts.length === 1) return titleCase(raw);
+      const surname = parts[parts.length - 1].toLocaleUpperCase('tr-TR');
+      return `${parts.slice(0, -1).map(titleCase).join(' ')} ${surname}`;
     }
 
     function writersSummary(data) {
@@ -734,18 +817,74 @@
       }
     }
 
+    // --- Keşfet: yazar sıralaması (popüler baş yazarlar önde) ---
+    // Popülerlik sinyali elimizdeki gerçek veriden gelir: bugün o gazetede köşe
+    // yazısı yayımlanan yazarlar ilk sırada, ardından portresi olan yazarlar;
+    // kalanlar gazetenin kendi listesindeki sırayla gelir (sort kararlıdır).
+    let writerPopularity = new Map();
+    function buildWriterPopularity() {
+      const map = new Map();
+      (articles || []).forEach(a => {
+        if (!a || a.isLive === false) return;
+        const k = `${normalizeTr(a.source)}|${normalizeTr(a.author)}`;
+        map.set(k, (map.get(k) || 0) + 1);
+      });
+      writerPopularity = map;
+    }
+    function writerScore(paperName, w) {
+      if (!w) return 0;
+      const today = writerPopularity.get(`${normalizeTr(paperName)}|${normalizeTr(w.name)}`) || 0;
+      // Katı katmanlar: 1) bugün o gazetede yazısı çıkanlar, 2) portresi olanlar,
+      // 3) kalanlar. Her katmanın içinde gazetenin kendi sırası korunur
+      // (Array.sort kararlıdır).
+      if (today > 0) return 1000;
+      return w.photo ? 1 : 0;
+    }
+
+    // Gazete dizinlerinden sızan ekleri ayıklar: "İlke Gürsoy 15 Yazı" ->
+    // "İlke Gürsoy", "Adnan Ekinci | Hukuk Ombudsmanı" -> "Adnan Ekinci".
+    function cleanWriterName(raw) {
+      let n = String(raw ?? '').replace(/\s+/g, ' ').trim();
+      if (n.includes('|')) n = n.split('|')[0].trim();
+      n = n.replace(/\s+\d+\s+(?:adet\s+)?yaz[ıi]\s*$/i, '').trim();
+      return n;
+    }
+
+    // Kişi adı olmayan kayıtları eler ("15. İstanbul Bienali", kimlik görünümlü ad).
+    function isPersonName(n) {
+      if (!n || n.length < 3 || n.length > 60) return false;
+      if (/^\d/.test(n)) return false;
+      if (/^[0-9a-f]{12,}$/i.test(n)) return false;
+      return /[a-zçğıöşü]/i.test(n);
+    }
+
+    function cleanWriters(list) {
+      const seen = new Set();
+      const out = [];
+      (Array.isArray(list) ? list : []).forEach(w => {
+        const name = cleanWriterName(w && w.name);
+        if (!isPersonName(name)) return;
+        const k = normalizeTr(name);
+        if (seen.has(k)) return;
+        seen.add(k);
+        out.push({ ...(w || {}), name });
+      });
+      return out;
+    }
+
     function renderWriters() {
       if (!writersData) return;
-      const summary = writersSummary(writersData);
+      buildWriterPopularity();
       writersLoadingEl.classList.add('hidden');
       writersEmptyEl.classList.add('hidden');
-      writersMetaEl.textContent = `${summary.paperCount} gazete · ${summary.total} yazar`;
       const q = writersSearchInput.value;
-      // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; yazarların kendi
-      // sırasına dokunulmaz.
+      // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; çiplerde yalnızca
+      // temizlenmiş yazar adı gösterilir.
       const groups = filterWriters(writersData.papers, q)
-        .slice()
+        .map(p => ({ ...p, writers: cleanWriters(p.writers) }))
+        .filter(p => p.writers.length > 0)
         .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
+      writersMetaEl.textContent = `${groups.length} gazete · ${groups.reduce((n, p) => n + p.writers.length, 0)} yazar`;
       if (!groups.length) {
         writersListEl.innerHTML = `
           <div class="text-center py-12 text-slate-400">
@@ -758,12 +897,14 @@
       }
       const searching = normalizeTr(q).length > 0;
       writersListEl.innerHTML = groups.map(p => {
-        const chips = p.writers.map(w => {
-          const name = escapeHtml(w && w.name);
-          if (w && w.url) {
-            return `<a href="${escapeHtml(w.url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 hover:bg-ink-900 hover:text-white transition-colors">${name}<i data-lucide="arrow-up-right" class="w-3 h-3 opacity-60"></i></a>`;
-          }
-          return `<span class="inline-block px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600">${name}</span>`;
+        // Öne çıkan yazarlar (bugün yazan / portresi olan) başa alınır; eşit
+        // puanda gazetenin kendi sırası korunur.
+        const ranked = p.writers.slice().sort((a, b) => writerScore(p.name, b) - writerScore(p.name, a));
+        // Çiplerde yalnızca yazar adı görünür; tıklayınca akışta o yazarın
+        // yazıları listelenir (bağlantı simgesi vb. ek öğe yok).
+        const chips = ranked.map(w => {
+          const name = escapeHtml(w.name);
+          return `<button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 text-left hover:bg-accent hover:text-white active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>`;
         }).join('');
         // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
         const isOpen = searching || expandedPapers.has(p.key);
@@ -795,6 +936,41 @@
       else expandedPapers.add(key);
       renderWriters();
     }
+
+    // Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir
+    function openWriter(paperKey, name, url) {
+      const clean = String(name || '').trim();
+      if (!clean) return;
+      const wanted = normalizeTr(clean);
+      hideAuthorTooltip();
+      searchInput.value = clean;
+      filterCategory('Tümü'); // kategori filtresi yazarı gizlemesin
+      setTab('feed');         // applyFilters() burada çağrılır
+      const matches = articles.filter(a => normalizeTr(a.author) === wanted);
+      if (!matches.length) renderWriterNotFound(clean, url);
+      mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderWriterNotFound(name, url) {
+      const safe = escapeHtml(formatAuthorName(name));
+      const link = url
+        ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-accent hover:underline">Gazetedeki yazar sayfasını aç<i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>`
+        : '';
+      articlesListEl.innerHTML = `
+        <div class="text-center py-12 text-slate-400">
+          <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+          <p class="text-sm font-medium">${safe} için bugün köşe yazısı yok.</p>
+          <p class="text-[11px] mt-1">Yazısı yayımlandığında akışta görünecek.</p>
+          ${link}
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    writersListEl.addEventListener('click', (e) => {
+      const chip = e.target.closest('button[data-writer]');
+      if (chip) openWriter(chip.dataset.paper, chip.dataset.writer, chip.dataset.url);
+    });
 
     writersSearchInput.addEventListener('input', renderWriters);
     document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
@@ -850,6 +1026,7 @@
     }
 
     function renderAuthorAvatars() {
+      applyReadState();
       const seen = new Set();
       const authors = articles.filter(a => {
         const key = normalizeTr(a.author);
@@ -861,16 +1038,19 @@
       authorsAvatarTrack.innerHTML = authors.map(art => {
         const photo = art.avatar || initialAvatar(art.author);
         const fallback = initialAvatar(art.author);
+        const read = isAuthorFullyRead(art.author);
+        const ring = read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
+        const labelColor = read ? 'text-stone-400' : 'text-slate-700';
         return `
         <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
              data-name="${escapeHtml(art.author)}" data-source="${escapeHtml(art.source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
              onclick="quickOpenByAuthor(this.dataset.name)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
-          <div class="w-13 h-13 rounded-full p-0.5 bg-gradient-to-tr from-accent via-amber-500 to-orange-400 group-hover:scale-105 group-active:scale-95 transition-transform">
+          <div class="w-13 h-13 rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
             <img class="w-12 h-12 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
           </div>
-          <span class="text-[10px] font-medium text-slate-700 w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(art.author)}</span>
+          <span class="text-[10px] font-medium ${labelColor} w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(art.author))}</span>
         </div>
       `;}).join('');
     }
@@ -883,7 +1063,7 @@
       photo.onerror = null;
       photo.src = chip.dataset.photo || chip.dataset.fallback;
       photo.onerror = function () { this.onerror = null; this.src = chip.dataset.fallback; };
-      authorTooltipEl.querySelector('#author-tooltip-name').textContent = chip.dataset.name || '';
+      authorTooltipEl.querySelector('#author-tooltip-name').textContent = formatAuthorName(chip.dataset.name || '');
       authorTooltipEl.querySelector('#author-tooltip-source').textContent = chip.dataset.source || '';
 
       authorTooltipEl.classList.remove('opacity-0');
@@ -928,7 +1108,7 @@
             <div class="flex items-center gap-2.5">
               <img src="${art.avatar}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${art.author}">
               <div>
-                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${art.author}</h3>
+                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${escapeHtml(formatAuthorName(art.author))}</h3>
                 <div class="flex items-center gap-1.5 text-[10px] text-stone-400">
                   <span class="font-semibold text-stone-600">${art.source}</span>
                   <span>•</span>
@@ -1054,9 +1234,11 @@
       const art = articles.find(a => a.id === id);
       if (!art) return;
       currentReadingArticle = art;
+      markArticleRead(art.id);
+      renderAuthorAvatars();
 
       document.getElementById('reader-author-img').src = art.avatar;
-      document.getElementById('reader-author-name').textContent = art.author;
+      document.getElementById('reader-author-name').textContent = formatAuthorName(art.author);
       document.getElementById('reader-source').textContent = art.source;
       document.getElementById('reader-date').textContent = art.date;
       document.getElementById('reader-time').textContent = art.readTime;
@@ -1075,6 +1257,8 @@
 
       updateReaderBookmarkIcon();
       resetAudio();
+      audioStrip.classList.remove('hidden'); // seslendirme şeridi hazır durumda görünür
+      updateAudioUI();
       readerScrollable.scrollTop = 0;
       readerProgressBar.style.width = '0%';
 
@@ -1090,7 +1274,7 @@
 
     closeReaderBtn.addEventListener('click', () => {
       articleReader.classList.add('translate-y-full');
-      resetAudio();
+      updateAudioUI(); // seslendirme sürüyorsa mini oynatıcı görünür, ses kesilmez
     });
 
     // --- Reading Progress Bar Indicator ---
@@ -1121,14 +1305,273 @@
     // --- Yukarı çık düğmesi ---
     function updateScrollTopBtn() {
       const readerClosed = articleReader.classList.contains('translate-y-full');
-      scrollTopBtn.classList.toggle('hidden', !(readerClosed && mainScrollEl.scrollTop > 320));
+      const miniPlayerVisible = miniPlayerEl && !miniPlayerEl.classList.contains('hidden');
+      scrollTopBtn.classList.toggle('hidden', !(readerClosed && !miniPlayerVisible && mainScrollEl.scrollTop > 320));
     }
     mainScrollEl.addEventListener('scroll', updateScrollTopBtn, { passive: true });
     scrollTopBtn.addEventListener('click', () => {
       mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // --- Audio Voiceover Simulation ---
+    // --- Seslendirme (Web Speech API — tarayıcının Türkçe sesiyle gerçek okuma) ---
+    const ttsSupported = typeof window !== 'undefined' && 'speechSynthesis' in window;
+    let ttsChunks = [];
+    let ttsIndex = 0;
+    let ttsActive = false;  // konuşma başladı ve henüz bitmedi
+    let ttsPaused = false;
+    let ttsVoice = null;
+    let ttsArticle = null;  // seslendirilen yazı (mini oynatıcı için)
+    let ttsGen = 0;         // iptal edilen utterance'ların geç olaylarını yok saymak için
+    const TTS_RATE_MIN = 0.75;
+    const TTS_RATE_MAX = 1.75;
+    const TTS_RATE_STEP = 0.25;
+
+    // 1 -> "1,0×", 0.75 -> "0,75×", 1.5 -> "1,5×"
+    function formatTtsRate(r) {
+      const s = Number(r).toFixed(2).replace(/0+$/, '').replace(/\.$/, '.0');
+      return `${s.replace('.', ',')}×`;
+    }
+
+    function currentTtsRate() {
+      const r = Number(appSettings.ttsRate);
+      return Number.isFinite(r) && r > 0 ? r : 1;
+    }
+
+    // Hızı değiştirir; konuşma sürüyorsa aynı bölüm yeni hızla baştan okunur.
+    function applyTtsRate(rate) {
+      const stepped = Math.round(Number(rate) / TTS_RATE_STEP) * TTS_RATE_STEP;
+      appSettings.ttsRate = Number(Math.min(TTS_RATE_MAX, Math.max(TTS_RATE_MIN, stepped)).toFixed(2));
+      saveSettings();
+      updateAudioUI();
+      if (ttsActive && !ttsPaused) restartCurrentChunk();
+      return appSettings.ttsRate;
+    }
+
+    function restartCurrentChunk() {
+      if (!ttsSupported || !ttsActive) return;
+      window.speechSynthesis.cancel(); // ttsIndex değişmedi: aynı bölüm yeniden okunur
+      speakNextChunk();
+    }
+
+    const TTS_VOICE_AUTO = 'auto';
+    const isTrVoice = v => /^tr([-_]|$)/i.test((v && v.lang) || '');
+
+    function ttsVoices() {
+      if (!ttsSupported) return [];
+      try { return window.speechSynthesis.getVoices() || []; } catch (e) { return []; }
+    }
+
+    // Kayıtlı sesi, yoksa ilk Türkçe sesi seç; sesler asenkron yüklendiği için
+    // voiceschanged olayında yeniden seçilir.
+    function pickTtsVoice() {
+      const voices = ttsVoices();
+      const wanted = appSettings.ttsVoice && appSettings.ttsVoice !== TTS_VOICE_AUTO ? appSettings.ttsVoice : '';
+      ttsVoice = (wanted && voices.find(v => v.name === wanted)) || voices.find(isTrVoice) || null;
+      const label = document.getElementById('audio-voice');
+      if (label) {
+        label.textContent = !ttsSupported
+          ? 'Seslendirme desteklenmiyor'
+          : (ttsVoice
+            ? `Ses: ${ttsVoice.name}${wanted && ttsVoice.name !== wanted ? ' (seçim bulunamadı)' : ''}`
+            : (voices.length ? 'Türkçe ses bulunamadı — varsayılan ses' : 'Tarayıcı sesleri yükleniyor…'));
+      }
+      return ttsVoice;
+    }
+
+    // Ayarlar'daki ses listesi: Türkçe sesler üstte, diğerleri ayrı grupta.
+    function renderVoiceOptions() {
+      const sel = document.getElementById('set-tts-voice');
+      if (!sel) return;
+      const voices = ttsVoices();
+      const current = appSettings.ttsVoice || TTS_VOICE_AUTO;
+      const tr = voices.filter(isTrVoice);
+      const other = voices.filter(v => !isTrVoice(v));
+      const opt = v => `<option value="${escapeHtml(v.name)}"${v.name === current ? ' selected' : ''}>${escapeHtml(v.name)} · ${escapeHtml(v.lang)}</option>`;
+      sel.innerHTML = `<option value="${TTS_VOICE_AUTO}"${current === TTS_VOICE_AUTO ? ' selected' : ''}>Otomatik (ilk Türkçe ses)</option>`
+        + tr.map(opt).join('')
+        + (other.length ? `<optgroup label="Diğer diller">${other.map(opt).join('')}</optgroup>` : '');
+      sel.disabled = !ttsSupported;
+      const note = document.getElementById('set-tts-voice-note');
+      if (note) {
+        note.textContent = !ttsSupported
+          ? 'Bu tarayıcı seslendirmeyi desteklemiyor.'
+          : `${voices.length} ses bulundu, ${tr.length} tanesi Türkçe. Daha doğal bir ses için cihazının ses paketini indir: Edge’de “Microsoft … Online (Natural)”, iPhone/Mac’te “Yelda (Premium)”, Android’de Google Türkçe.`;
+      }
+    }
+
+    if (ttsSupported) {
+      pickTtsVoice();
+      window.speechSynthesis.addEventListener('voiceschanged', () => { pickTtsVoice(); renderVoiceOptions(); updateAudioUI(); });
+    }
+
+    function htmlToSpeechText(html) {
+      const tmp = document.createElement('div');
+      tmp.innerHTML = String(html || '');
+      return (tmp.textContent || '').replace(/\s+/g, ' ').trim();
+    }
+
+    // Uzun metni cümle sınırlarından ~200 karakterlik parçalara ayırır; bazı
+    // tarayıcılar tek uzun utterance'ı yarıda kesebiliyor.
+    function chunkSpeechText(text, size = 200) {
+      const sentences = String(text).match(/[^.!?…]+[.!?…]+[”"')\]]*\s*|[^.!?…]+$/g) || [String(text)];
+      const out = [];
+      let buf = '';
+      sentences.forEach(sentence => {
+        if (buf && (buf + sentence).length > size) { out.push(buf.trim()); buf = sentence; }
+        else buf += sentence;
+      });
+      if (buf.trim()) out.push(buf.trim());
+      return out.filter(Boolean);
+    }
+
+    function speakNextChunk() {
+      if (!ttsActive) return;
+      if (ttsIndex >= ttsChunks.length) { finishSpeech(); return; }
+      const gen = ++ttsGen;
+      const utter = new SpeechSynthesisUtterance(ttsChunks[ttsIndex]);
+      utter.lang = 'tr-TR';
+      if (ttsVoice) utter.voice = ttsVoice;
+      utter.rate = currentTtsRate();
+      utter.pitch = 1;
+      utter.onend = () => {
+        if (!ttsActive || gen !== ttsGen) return; // hız değişimi/iptal sonrası eski olay
+        ttsIndex += 1;
+        updateAudioUI();
+        speakNextChunk();
+      };
+      utter.onerror = () => { if (gen === ttsGen) resetAudio(); };
+      window.speechSynthesis.speak(utter);
+    }
+
+    // Bölümler bitti: konuşma durur, şerit boşta durumuna döner (gizlenmez).
+    function finishSpeech() {
+      ttsActive = false;
+      ttsPaused = false;
+      ttsIndex = 0;
+      ttsChunks = [];
+      updateAudioUI();
+    }
+
+    function showAndPlayAudio() {
+      audioStrip.classList.remove('hidden');
+      if (!ttsSupported) {
+        const status = document.getElementById('audio-status');
+        if (status) status.textContent = 'Tarayıcın seslendirmeyi desteklemiyor';
+        const label = document.getElementById('audio-voice');
+        if (label) label.textContent = 'Chrome, Edge veya Safari önerilir';
+        updateAudioUI();
+        return;
+      }
+      const art = currentReadingArticle;
+      if (!art) return;
+      ttsArticle = art;
+      window.speechSynthesis.cancel();
+      pickTtsVoice();
+      ttsChunks = chunkSpeechText(`${art.title}. ${art.author}, ${art.source}. ${htmlToSpeechText(art.fullContent)}`);
+      ttsIndex = 0;
+      ttsActive = true;
+      ttsPaused = false;
+      updateAudioUI();
+      speakNextChunk();
+    }
+
+    function togglePlayPause() {
+      if (!ttsSupported) { showAndPlayAudio(); return; }
+      if (!ttsActive) { showAndPlayAudio(); return; }
+      if (ttsPaused) { window.speechSynthesis.resume(); ttsPaused = false; }
+      else { window.speechSynthesis.pause(); ttsPaused = true; }
+      updateAudioUI();
+    }
+
+    function resetAudio() {
+      ttsActive = false;
+      ttsPaused = false;
+      ttsIndex = 0;
+      ttsChunks = [];
+      ttsArticle = null;
+      if (ttsSupported) window.speechSynthesis.cancel();
+      audioStrip.classList.add('hidden');
+      updateAudioUI();
+    }
+
+    function updateAudioUI() {
+      const playing = ttsActive && !ttsPaused;
+      const icon = document.getElementById('mini-play-icon');
+      if (icon) {
+        icon.outerHTML = playing
+          ? `<i data-lucide="pause" id="mini-play-icon" class="w-4 h-4 fill-white"></i>`
+          : `<i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
+      }
+      document.querySelectorAll('#waveform span').forEach((b, i) => {
+        b.classList.toggle('wave-bar', playing);
+        b.style.animationDelay = `${i * 0.2}s`;
+      });
+      const status = document.getElementById('audio-status');
+      if (status) {
+        status.textContent = !ttsSupported
+          ? 'Tarayıcın seslendirmeyi desteklemiyor'
+          : (!ttsActive
+            ? 'Seslendirme'
+            : (ttsPaused ? `Duraklatıldı · ${ttsIndex + 1}/${ttsChunks.length} bölüm`
+                         : `Seslendiriliyor · ${ttsIndex + 1}/${ttsChunks.length} bölüm`));
+      }
+      const prog = document.getElementById('audio-progress');
+      if (prog) {
+        prog.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
+      }
+      // Okuyucu başlığındaki düğme: duruma göre oynat / duraklat simgesi
+      const headerBtn = document.getElementById('listen-article-btn');
+      if (headerBtn) {
+        headerBtn.innerHTML = playing
+          ? `<i data-lucide="pause" class="w-4 h-4"></i>`
+          : `<i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>`;
+        headerBtn.title = playing ? 'Seslendirmeyi duraklat' : 'Yazıyı seslendir';
+        headerBtn.setAttribute('aria-label', headerBtn.title);
+      }
+
+      // Mini oynatıcı: okuyucu kapalıyken ve seslendirme sürerken görünür
+      const readerOpen = !articleReader.classList.contains('translate-y-full');
+      const showMini = ttsActive && !readerOpen;
+      if (miniPlayerEl) {
+        miniPlayerEl.classList.toggle('hidden', !showMini);
+        const miniIcon = document.getElementById('mini-player-icon');
+        if (miniIcon) {
+          miniIcon.outerHTML = playing
+            ? `<i data-lucide="pause" id="mini-player-icon" class="w-4 h-4 fill-white"></i>`
+            : `<i data-lucide="play" id="mini-player-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
+        }
+        const authorEl = document.getElementById('mini-player-author');
+        const titleEl = document.getElementById('mini-player-title');
+        const statusEl = document.getElementById('mini-player-status');
+        if (authorEl) authorEl.textContent = formatAuthorName((ttsArticle && ttsArticle.author) || '');
+        if (titleEl) titleEl.textContent = (ttsArticle && ttsArticle.title) || '';
+        if (statusEl) {
+          statusEl.textContent = ttsActive && ttsChunks.length ? `${ttsIndex + 1}/${ttsChunks.length}` : '';
+        }
+        const miniProg = document.getElementById('mini-player-progress');
+        if (miniProg) {
+          miniProg.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
+        }
+      }
+      updateScrollTopBtn();
+
+      const rate = currentTtsRate();
+      const rateLabel = document.getElementById('tts-rate-label');
+      if (rateLabel) rateLabel.textContent = formatTtsRate(rate);
+      const slower = document.getElementById('tts-slower-btn');
+      const faster = document.getElementById('tts-faster-btn');
+      if (slower) {
+        slower.disabled = rate <= TTS_RATE_MIN;
+        slower.classList.toggle('opacity-40', rate <= TTS_RATE_MIN);
+      }
+      if (faster) {
+        faster.disabled = rate >= TTS_RATE_MAX;
+        faster.classList.toggle('opacity-40', rate >= TTS_RATE_MAX);
+      }
+      lucide.createIcons();
+    }
+
+    // Kart üzerindeki kulaklık simgesi: okuyucuyu açıp seslendirmeyi başlatır
     function toggleAudioPreview(e, id) {
       e.stopPropagation();
       openReader(id);
@@ -1138,46 +1581,25 @@
     }
 
     listenArticleBtn.addEventListener('click', () => {
-      if (audioStrip.classList.contains('hidden')) {
-        showAndPlayAudio();
-      } else {
-        togglePlayPause();
-      }
+      if (ttsActive) togglePlayPause();
+      else showAndPlayAudio();
     });
 
     miniAudioToggle.addEventListener('click', togglePlayPause);
-
-    function showAndPlayAudio() {
-      audioStrip.classList.remove('hidden');
-      isPlayingAudio = true;
-      updateAudioUI();
-    }
-
-    function togglePlayPause() {
-      isPlayingAudio = !isPlayingAudio;
-      updateAudioUI();
-    }
-
-    function resetAudio() {
-      isPlayingAudio = false;
-      audioStrip.classList.add('hidden');
-      updateAudioUI();
-    }
-
-    function updateAudioUI() {
-      const bars = document.querySelectorAll('#waveform span');
-      if (isPlayingAudio) {
-        miniPlayIcon.outerHTML = `<i data-lucide="pause" id="mini-play-icon" class="w-4 h-4 fill-white"></i>`;
-        bars.forEach((b, i) => {
-          b.classList.add('wave-bar');
-          b.style.animationDelay = `${i * 0.2}s`;
-        });
-      } else {
-        miniPlayIcon.outerHTML = `<i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
-        bars.forEach(b => b.classList.remove('wave-bar'));
-      }
-      lucide.createIcons();
-    }
+    document.getElementById('mini-player-toggle').addEventListener('click', togglePlayPause);
+    document.getElementById('mini-player-close').addEventListener('click', resetAudio);
+    document.getElementById('mini-player-open').addEventListener('click', () => {
+      if (ttsArticle) openReader(ttsArticle.id);
+    });
+    document.getElementById('set-tts-voice').addEventListener('change', (e) => {
+      appSettings.ttsVoice = e.target.value;
+      saveSettings();
+      pickTtsVoice();
+      if (ttsActive && !ttsPaused) restartCurrentChunk();
+      else updateAudioUI();
+    });
+    document.getElementById('tts-slower-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() - TTS_RATE_STEP));
+    document.getElementById('tts-faster-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() + TTS_RATE_STEP));
 
     // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
     // Çevrimdışı kalırsa gösterilecek örnek makale:

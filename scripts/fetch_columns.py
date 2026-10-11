@@ -348,6 +348,10 @@ def is_valid_author_name(name):
     """Yazar adı olamayacak değerleri (URL, kurumsal ad) eler."""
     if not name or len(name) < 3 or len(name) > 60:
         return False
+    if re.match(r"^\d", name):  # "15. İstanbul Bienali" gibi kişi olmayan kayıtlar
+        return False
+    if re.fullmatch(r"[0-9a-fA-F]{12,}", name):  # sayfa kimliği / hash görünümlü ad
+        return False
     if re.search(r"https?://|www\.|\.(com|net|org|tr)\b|@", name, re.I):
         return False
     if re.search(r"\b(gazetecilik|gazetesi|yay\u0131nc\u0131l\u0131k|medya|ajans\u0131|holding)\b", name, re.I):
@@ -363,6 +367,11 @@ def clean_author_name(t):
     t = re.sub(r"\s+", " ", t).strip()
     t = re.sub(r"^(Tüm Yazıları|TÜM YAZILARI|Tüm yazıları)\s*", "", t).strip()
     t = t.rstrip("›»").strip()
+    # "Adnan Ekinci | Hukuk Ombudsmanı" -> "Adnan Ekinci" (köşe adı adı değil)
+    if "|" in t:
+        t = t.split("|")[0].strip()
+    # "İlke Gürsoy 15 Yazı", "Abdüllatif Uyan 9297 Adet Yazı" -> sayaç ekini at
+    t = re.sub(r"\s+\d+\s+(?:adet\s+)?yaz[ıi]\s*$", "", t, flags=re.I).strip()
     # "Resul TOSUN, Star Gazetesi" -> "Resul TOSUN"
     if "," in t:
         head, _, tail = t.partition(",")
@@ -939,14 +948,19 @@ def discover_writers(max_authors_per_paper):
                     denylist=paper.get("author_denylist"),
                     limit=max_authors_per_paper,
                 )
-        # yinelenen isimleri temizle (url bazlı)
-        seen, uniq = set(), []
+        # adları temizle; yinelenenleri (url ve ad bazlı) ele
+        seen, seen_names, uniq = set(), set(), []
         for w in writers:
+            name = clean_author_name(w.get("name", ""))
+            if not name:
+                continue
             k = w["url"].rstrip("/")
-            if k in seen:
+            nk = name.casefold()
+            if k in seen or nk in seen_names:
                 continue
             seen.add(k)
-            uniq.append(w)
+            seen_names.add(nk)
+            uniq.append({**w, "name": name})
         papers_out.append({
             "key": paper["key"],
             "name": paper["name"],
