@@ -121,12 +121,12 @@
 
       <!-- Yazar Balonu: avatarın üzerine gelince isim + gazete + fotoğraf -->
       <div id="author-tooltip" class="fixed z-[60] pointer-events-none opacity-0 transition-opacity duration-150" style="left: 0; top: 0;">
-        <div class="w-36 bg-ink-900 rounded-xl shadow-xl p-2.5 flex flex-col items-center gap-1">
-          <img id="author-tooltip-photo" src="" alt="" class="w-11 h-11 rounded-full object-cover border-2 border-white/20 bg-ink-800">
-          <p id="author-tooltip-name" class="text-[11px] font-bold text-white leading-tight text-center"></p>
-          <p id="author-tooltip-source" class="text-[10px] text-white/60 leading-tight text-center"></p>
+        <div class="w-40 rounded-2xl shadow-xl p-3 flex flex-col items-center gap-1.5 bg-gradient-to-b from-[#FFEBD6] via-[#FFD3A5] to-[#FFB27A] ring-1 ring-[#EFA163]/60">
+          <img id="author-tooltip-photo" src="" alt="" class="w-16 h-16 rounded-full object-cover border-[3px] border-white shadow-md bg-white">
+          <p id="author-tooltip-name" class="text-[11.5px] font-bold text-ink-900 leading-tight text-center"></p>
+          <p id="author-tooltip-source" class="text-[10px] font-semibold text-ink-900/60 leading-tight text-center"></p>
         </div>
-        <div id="author-tooltip-arrow" class="w-2.5 h-2.5 rotate-45 bg-ink-900 -mt-1.5"></div>
+        <div id="author-tooltip-arrow" class="w-2.5 h-2.5 rotate-45 bg-[#FFB27A] -mt-1.5"></div>
       </div>
 
       <!-- Category Filter Chips -->
@@ -720,7 +720,7 @@
             <img class="w-12 h-12 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
           </div>
-          <span class="text-[11px] font-medium text-slate-700 w-14 truncate text-center">${escapeHtml(art.author.split(' ')[0])}</span>
+          <span class="text-[10px] font-medium text-slate-700 w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(art.author)}</span>
         </div>
       `;}).join('');
     }
