@@ -1,13 +1,7 @@
 name: Köşe Yazılarını Güncelle (Günlük)
 
-# GEÇİCİ SÜRÜM: çalışma dalına push edildiğinde de çalışır (sandbox'tan elle
-# tetiklemek için; schedule yalnızca varsayılan dalda çalışıyor). İş bitince
-# main'deki özgün hâline geri döndürülecek.
-
+# GEÇİCİ: fotoğraf/yazar teşhisi çalıştırır ve data/diag.json'ı commit'ler.
 on:
-  schedule:
-    - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
-  workflow_dispatch: # elle tetikleme
   push:
     branches:
       - 'arena/d1241d9e-kose'
@@ -18,7 +12,7 @@ permissions:
 jobs:
   fetch-columns:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - name: Depoyu çek
         uses: actions/checkout@v4
@@ -31,17 +25,12 @@ jobs:
       - name: Bağımlılıkları kur
         run: pip install requests beautifulsoup4
 
-      - name: Köşe yazılarını çek
-        run: python scripts/fetch_columns.py
+      - name: Teşhis çalıştır
+        run: python scripts/diag_photos.py
 
-      - name: Sonuçları commit'le
+      - name: Teşhis sonucunu commit'le
         run: |
           git config user.name "kose-bot"
           git config user.email "kose-bot@users.noreply.github.com"
-          git add data/daily.json data/writers.json || true
-          if git diff --cached --quiet; then
-            echo "Değişiklik yok, commit atlanıyor."
-          else
-            git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
-            git push
-          fi
+          git add data/diag.json
+          git commit -m "chore: fotoğraf teşhis çıktısı" && git push
