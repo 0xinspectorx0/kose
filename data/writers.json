@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-11T06:48:37.521164+00:00",
+  "fetchedAt": "2026-10-11T07:12:40.623079+00:00",
   "date": "2026-10-11",
-  "total": 0,
+  "total": 54,
   "papers": [
     {
       "key": "hurriyet",
@@ -12,8 +12,73 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 0,
-      "writers": []
+      "count": 16,
+      "writers": [
+        {
+          "name": "Rahmi Turan",
+          "url": ""
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": ""
+        },
+        {
+          "name": "İsmail Saymaz",
+          "url": ""
+        },
+        {
+          "name": "Ege Cansen",
+          "url": ""
+        },
+        {
+          "name": "Öner Döşer",
+          "url": ""
+        },
+        {
+          "name": "Güney Öztürk",
+          "url": ""
+        },
+        {
+          "name": "Emin Çölaşan",
+          "url": ""
+        },
+        {
+          "name": "Naim Babüroğlu",
+          "url": ""
+        },
+        {
+          "name": "Sultan Uçar",
+          "url": ""
+        },
+        {
+          "name": "Ozan Bingöl",
+          "url": ""
+        },
+        {
+          "name": "Turan Yücel",
+          "url": ""
+        },
+        {
+          "name": "Mesut Parlak",
+          "url": ""
+        },
+        {
+          "name": "Yekta Güngör Özden",
+          "url": ""
+        },
+        {
+          "name": "Pınar Turan",
+          "url": ""
+        },
+        {
+          "name": "İpek Özbey",
+          "url": ""
+        },
+        {
+          "name": "Burak Özcan",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "milliyet",
@@ -30,8 +95,41 @@
     {
       "key": "cumhuriyet",
       "name": "Cumhuriyet",
-      "count": 0,
-      "writers": []
+      "count": 8,
+      "writers": [
+        {
+          "name": "Emre Kongar",
+          "url": ""
+        },
+        {
+          "name": "Özdemir İnce",
+          "url": ""
+        },
+        {
+          "name": "Zülal Kalkandelen",
+          "url": ""
+        },
+        {
+          "name": "Zeynep Oral",
+          "url": ""
+        },
+        {
+          "name": "Işıl Özgentürk",
+          "url": ""
+        },
+        {
+          "name": "Nilgün Cerrahoğlu",
+          "url": ""
+        },
+        {
+          "name": "Hilmi Türkay",
+          "url": ""
+        },
+        {
+          "name": "Hayri Güner",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "yenisafak",
@@ -42,14 +140,112 @@
     {
       "key": "karar",
       "name": "Karar",
-      "count": 0,
-      "writers": []
+      "count": 12,
+      "writers": [
+        {
+          "name": "Taha Akyol",
+          "url": "https://www.karar.com/yazarlar/taha-akyol"
+        },
+        {
+          "name": "Ahmet Taşgetiren",
+          "url": "https://www.karar.com/yazarlar/ahmet-tasgetiren"
+        },
+        {
+          "name": "Fehmi Koru",
+          "url": "https://www.karar.com/yazarlar/fehmi-koru"
+        },
+        {
+          "name": "Yusuf Ziya Cömert",
+          "url": "https://www.karar.com/yazarlar/yusuf-ziya-comert"
+        },
+        {
+          "name": "İskender Öksüz",
+          "url": "https://www.karar.com/yazarlar/iskender-oksuz"
+        },
+        {
+          "name": "Mensur Akgün",
+          "url": ""
+        },
+        {
+          "name": "Taner Ay",
+          "url": ""
+        },
+        {
+          "name": "Bekir Fuat",
+          "url": ""
+        },
+        {
+          "name": "Gamze Demirel",
+          "url": ""
+        },
+        {
+          "name": "Aynur Taş",
+          "url": ""
+        },
+        {
+          "name": "Kerime Yıldız",
+          "url": ""
+        },
+        {
+          "name": "Gökhan Aktürk",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "birgun",
       "name": "BirGün",
-      "count": 0,
-      "writers": []
+      "count": 12,
+      "writers": [
+        {
+          "name": "Gözde Bedeloğlu",
+          "url": "https://www.birgun.net/profil/gozde-bedeloglu-223"
+        },
+        {
+          "name": "Halis Dokgöz",
+          "url": "https://www.birgun.net/profil/halis-dokgoz-402"
+        },
+        {
+          "name": "Yakup Kepenek",
+          "url": "https://www.birgun.net/profil/yakup-kepenek-348"
+        },
+        {
+          "name": "H. Tuğça Şener",
+          "url": "https://www.birgun.net/profil/h-tugca-sener-408"
+        },
+        {
+          "name": "Vecdi Sayar",
+          "url": "https://www.birgun.net/profil/vecdi-sayar-342"
+        },
+        {
+          "name": "Haydar Ergülen",
+          "url": "https://www.birgun.net/profil/haydar-ergulen-98"
+        },
+        {
+          "name": "Önder İşleyen",
+          "url": "https://www.birgun.net/profil/onder-isleyen-291"
+        },
+        {
+          "name": "Eren Tutel",
+          "url": "https://www.birgun.net/profil/eren-tutel-378"
+        },
+        {
+          "name": "L. Doğan Tılıç",
+          "url": "https://www.birgun.net/profil/l-dogan-tilic-274"
+        },
+        {
+          "name": "Attila Aşut",
+          "url": "https://www.birgun.net/profil/attila-asut-218"
+        },
+        {
+          "name": "Selin Nakıpoğlu",
+          "url": "https://www.birgun.net/profil/selin-nakipoglu-363"
+        },
+        {
+          "name": "Tuğçe Madayanti Şen",
+          "url": "https://www.birgun.net/profil/tugce-madayanti-sen-294"
+        }
+      ]
     },
     {
       "key": "haberturk",
@@ -108,8 +304,33 @@
     {
       "key": "t24",
       "name": "T24",
-      "count": 0,
-      "writers": []
+      "count": 6,
+      "writers": [
+        {
+          "name": "Ahmet Güneştekin",
+          "url": "https://t24.com.tr/yazarlar/ahmet-gunestekin"
+        },
+        {
+          "name": "Esra Akgemci",
+          "url": "https://t24.com.tr/yazarlar/esra-akgemci-america-invertida"
+        },
+        {
+          "name": "Gürkan Akgüneş",
+          "url": "https://t24.com.tr/yazarlar/gurkan-akgunes"
+        },
+        {
+          "name": "Ebru D. Dedeoğlu",
+          "url": "https://t24.com.tr/yazarlar/ebru-degirmenci"
+        },
+        {
+          "name": "Serfiraz Ergun",
+          "url": "https://t24.com.tr/yazarlar/serfiraz-ergun"
+        },
+        {
+          "name": "Ertuğrul Özkök",
+          "url": "https://t24.com.tr/yazarlar/ertugrul-ozkok"
+        }
+      ]
     },
     {
       "key": "duvar",
