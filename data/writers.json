@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-11T08:06:06.431861+00:00",
+  "fetchedAt": "2026-10-11T08:21:32.795222+00:00",
   "date": "2026-10-11",
-  "total": 1241,
+  "total": 1278,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 208,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "6998422Eeb59fdefaeb22670",
           "url": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1053,97 +1053,122 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 18,
+      "count": 23,
       "writers": [
         {
           "name": "Emin Çölaşan",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
         },
         {
           "name": "Necati Doğru",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
+        {
+          "name": "Ege Cansen",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
         },
         {
           "name": "İsmail Saymaz",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
         },
         {
           "name": "Yekta Güngör Özden",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yektagungorozdenpng-zP0TsX7F3Ee0UR1N0FEZlg.png"
         },
         {
           "name": "Sultan Uçar",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/sultanucarpng-wVZpU-tLykKwKruMjrWSWw.png"
         },
         {
           "name": "Öner Döşer",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/1/onerdoseryazarpng-iE37Ba61eUmpqyfO_xjZKQ.png"
+        },
+        {
+          "name": "Güney Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
         },
         {
           "name": "Naim Babüroğlu",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
           "name": "Turan Yücel",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
         },
         {
           "name": "Ozan Bingöl",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
         },
         {
           "name": "Mesut Parlak",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
         },
         {
           "name": "Damla Doğan Tuncel",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/damladogantuncelpng-cTaaZ1CKzk_R7ZwVac3WMg.png"
         },
         {
           "name": "İpek Özbey",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
         },
         {
           "name": "Can Coşkun",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2023/12/cancoskunpng-pQRHbJUp4U_O8RXy-6O8bg.png"
         },
         {
           "name": "Selen Öktem",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/5/3510cae2a2b04e629d8cb985765e9b81removebgpreviewpng-04_FqOkxAkefP5Pgcmlo5w.png"
         },
         {
           "name": "Burak Özcan",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
         },
         {
           "name": "Mahmut Aydoğmuş",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
+        },
+        {
+          "name": "Ercan Taner",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
         },
         {
           "name": "Yasin Yıldırım",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yasinyildirimpng-9UZhCSAgtk6ANUIxxJV6KQ.png"
         },
         {
           "name": "Sercan C. Güler",
           "url": "",
-          "photo": ""
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260420at092526removebgpreviewpng-pkfAAPP-4k27es32T5Aylg.png"
         }
       ]
     },
@@ -1257,7 +1282,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 10,
+      "count": 15,
       "writers": [
         {
           "name": "SABAH",
@@ -1308,6 +1333,31 @@
           "name": "TÜM YAZARLAR",
           "url": "https://www.sabah.com.tr/yazarlar/arsiv",
           "photo": ""
+        },
+        {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "BERCAN TUTAR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/4f4d40/147/124/0/23/162/160?u=https://isbh.tmgrup.com.tr/sbh/2020/12/31/1609417082683.png"
         }
       ]
     },
@@ -1781,7 +1831,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 200,
+      "count": 209,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2121,7 +2171,7 @@
         {
           "name": "Ergün Yıldırım",
           "url": "https://www.yenisafak.com/yazarlar/ergun-yildirim",
-          "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2017/12/26/03/22/554x554resized_a2f1e-ad36a4b9author5.png"
+          "photo": ""
         },
         {
           "name": "Erhan Köknar",
@@ -2691,7 +2741,7 @@
         {
           "name": "MerveŞebnemOruç",
           "url": "https://www.yenisafak.com/yazarlar/merve-sebnem-oruc",
-          "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2018/03/01/11/02/554x554resized_c6cae-ad3ade12author5.png"
+          "photo": ""
         },
         {
           "name": "Mirza A. Beg",
@@ -2782,6 +2832,51 @@
           "name": "Müfit Yüksel",
           "url": "https://www.yenisafak.com/yazarlar/mufit-yuksel",
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
+        },
+        {
+          "name": "Ömer Çelikbaşlı",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
+        },
+        {
+          "name": "Yusuf Kaplan",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_f3f84-f848yusufkaplan2.png"
+        },
+        {
+          "name": "Yusuf Dinç",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2023/2/14/ec3ba5bb-z1u297ohxu942gf8zbo8n.png"
+        },
+        {
+          "name": "Yaşar Süngü",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/11/25/resized_306f3-d6d4b525yasarsungu2.png"
+        },
+        {
+          "name": "Serdar Tuncer",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2025/10/13/ca86ab64-b3agfrwlcd7l4lekdc6utc.webp"
+        },
+        {
+          "name": "Taha Kılınç",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2017/06/14/02/26/554x554resized_75d1b-234e5aedddd.png"
+        },
+        {
+          "name": "Yasin Aktay",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/08/resized_a3775-85d5yasinaktay2.png"
+        },
+        {
+          "name": "Nedret Ersanel",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_08e0c-12b7nedretersanel2.png"
+        },
+        {
+          "name": "Özgür Bayram Soylu",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2023/12/20/c5a2ab23-qtuqxemjeqryt90hmr7.png"
         }
       ]
     },
@@ -3511,16 +3606,11 @@
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 2,
+      "count": 1,
       "writers": [
         {
           "name": "Yazar Arşivi",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
-          "photo": ""
-        },
-        {
-          "name": "Habertürk",
-          "url": "",
           "photo": ""
         }
       ]
@@ -3660,13 +3750,54 @@
     {
       "key": "takvim",
       "name": "Takvim",
-      "count": 0,
-      "writers": []
+      "count": 8,
+      "writers": [
+        {
+          "name": "Ekrem Kızıltaş",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/f1c3be/0/0/0/0/0/0?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2016%2f02%2f03%2f184x150%2fd081ed56-6a93-4b4d-83d2-8ec86529b5d7.jpg"
+        },
+        {
+          "name": "BÜLENT ERANDAÇ",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/7d1a80/184/150/0/0/184/150?u=https://itkv.tmgrup.com.tr/2016/02/03/184x150/f63a476e-21a8-44de-b262-33856baa71f1.jpg"
+        },
+        {
+          "name": "Emre Şahin",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/a96f32/184/150/0/0/1024/834?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2026%2f03%2f28%2f1774708783681.jpg"
+        },
+        {
+          "name": "ALİ ŞERBETÇİ",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/2c6241/0/0/0/0/0/0?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2016%2f02%2f03%2f184x150%2f09328aab-c66a-4344-a734-744b0047b0b2.jpg"
+        },
+        {
+          "name": "Ulaş Özdemir",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/6eadd3/184/150/120/0/717/486?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2024%2f09%2f20%2f1726821243475.png"
+        },
+        {
+          "name": "Abdullah Ercan",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/fa4696/184/150/0/5/978/803?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2026%2f08%2f06%2f1785986943889.png"
+        },
+        {
+          "name": "DR. NAFİZ KARAGÖZOĞLU",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/e84570/0/0/0/0/0/0?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2016%2f02%2f03%2f184x150%2f8b52d9cd-9fc4-4f53-9122-14770d68e56d.jpg"
+        },
+        {
+          "name": "Lütfi Albayrak",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/0717ba/0/0/0/0/0/0?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2016%2f02%2f03%2f184x150%2f29e266f8-d446-463e-bbf9-760b58a5a8a6.jpg"
+        }
+      ]
     },
     {
       "key": "posta",
       "name": "Posta",
-      "count": 12,
+      "count": 22,
       "writers": [
         {
           "name": "İlke Gürsoy 15 Yazı",
@@ -3727,13 +3858,63 @@
           "name": "Erdoğan Arıpınar 115 Yazı",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
           "photo": ""
+        },
+        {
+          "name": "Mehmet Coşkundeniz",
+          "url": "",
+          "photo": "https://image.posta.com.tr/i/posta/75/75x75/622129d5932151d6b46b170b.jpg"
+        },
+        {
+          "name": "Şirin Sever",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Mustafa Bakacak",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ekrem Sarısu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Tamer Heper",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Murat Gülderen",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Filiz Özkol",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Rükzan Sağır",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Şoray Uzun",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Doç. Dr. Gökçen Erdoğan",
+          "url": "",
+          "photo": ""
         }
       ]
     },
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 39,
+      "count": 40,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3929,6 +4110,11 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
+        },
+        {
+          "name": "Farka bakın",
+          "url": "",
+          "photo": "https://iaysr.tmgrup.com.tr/8f568d/170/170/0/0/170/170?u=https://iysr.tmgrup.com.tr/2018/02/06/1517927515499.png"
         }
       ]
     },
@@ -5125,7 +5311,7 @@
         {
           "name": "Mine Alpay Gün",
           "url": "https://www.milligazete.com.tr/mine-alpay-gun",
-          "photo": ""
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
         },
         {
           "name": "Muhammet Esiroğlu",
@@ -5962,7 +6148,7 @@
         {
           "name": "Levent Yılmaz",
           "url": "https://t24.com.tr/yazarlar/levent-yilmaz",
-          "photo": "https://media-cdn.t24.com.tr/media/library/2023/11/1699949574344-a-6772917-24-a-0-4970-b-9-c-8-e-0-ad-4-c-1-a-163-b.JPG"
+          "photo": ""
         },
         {
           "name": "Lian Penso Benbasat",
@@ -6300,27 +6486,27 @@
         {
           "name": "Mehmet Aksel",
           "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
         },
         {
           "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
           "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
         },
         {
           "name": "Psk. Dr. Feyza Bayraktar",
           "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
         },
         {
           "name": "Ayhan Tinin",
           "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
         },
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Bişar Arslan",
