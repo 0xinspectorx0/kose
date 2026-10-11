@@ -1,25 +1,858 @@
 {
-  "fetchedAt": "2026-10-11T07:12:40.623079+00:00",
+  "fetchedAt": "2026-10-11T07:27:39.804290+00:00",
   "date": "2026-10-11",
-  "total": 54,
+  "total": 1254,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 0,
-      "writers": []
+      "count": 208,
+      "writers": [
+        {
+          "name": "Hürriyet.com.tr Yazıları",
+          "url": "https://www.hurriyet.com.tr/yazarlar/internet-yazilari/"
+        },
+        {
+          "name": "6998422Eeb59fdefaeb22670",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/"
+        },
+        {
+          "name": "Abdulkadir Özbek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/"
+        },
+        {
+          "name": "Abdulkadir Selvi",
+          "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-selvi/"
+        },
+        {
+          "name": "Abdülkadir Küşin",
+          "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-kusin/"
+        },
+        {
+          "name": "Adam Adam",
+          "url": "https://www.hurriyet.com.tr/yazarlar/adam-adam/"
+        },
+        {
+          "name": "Adnan Kaya",
+          "url": "https://www.hurriyet.com.tr/yazarlar/adnan-kaya/"
+        },
+        {
+          "name": "Ahmet Ağaoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-agaoglu/"
+        },
+        {
+          "name": "Ahmet Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-altan/"
+        },
+        {
+          "name": "Ahmet Arsan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-arsan/"
+        },
+        {
+          "name": "Ahmet Can",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-can/"
+        },
+        {
+          "name": "Ahmet Ercanlar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-ercanlar/"
+        },
+        {
+          "name": "Ahmet Hakan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/"
+        },
+        {
+          "name": "Ahmet İnsel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-insel/"
+        },
+        {
+          "name": "Ahmet Karabıyık",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-karabiyik/"
+        },
+        {
+          "name": "Ahmet Mümtaz Taylan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-mumtaz-taylan/"
+        },
+        {
+          "name": "Ahmet Turan Altıner",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-turan-altiner/"
+        },
+        {
+          "name": "Ajda Pekkan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ajda-pekkan/"
+        },
+        {
+          "name": "Akif Beki",
+          "url": "https://www.hurriyet.com.tr/yazarlar/akif-beki/"
+        },
+        {
+          "name": "Alev Akkoyunlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alev-akkoyunlu/"
+        },
+        {
+          "name": "Alışveriş Cadısı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alisveris-cadisi/"
+        },
+        {
+          "name": "Ali Atıf Bir",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-atif-bir/"
+        },
+        {
+          "name": "Ali Can Yaycılı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-can-yaycili/"
+        },
+        {
+          "name": "Ali Ece",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-ece/"
+        },
+        {
+          "name": "Ali Menoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-menoglu/"
+        },
+        {
+          "name": "Ali Miraç Aşık",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-mirac-asik/"
+        },
+        {
+          "name": "Ali Naci Küçük",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-naci-kucuk/"
+        },
+        {
+          "name": "Ali Sarp",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ali-sarp/"
+        },
+        {
+          "name": "Alp Ulagay",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alp-ulagay/"
+        },
+        {
+          "name": "Alparslan Akkuş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alparslan-akkus/"
+        },
+        {
+          "name": "Alper Beyaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alper-beyaz/"
+        },
+        {
+          "name": "Alper Dülgerci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alper-dulgerci/"
+        },
+        {
+          "name": "Alper Hasanoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alper-hasanoglu/"
+        },
+        {
+          "name": "Alper Karaağaç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/alper-karaagac/"
+        },
+        {
+          "name": "Altan Öymen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/altan-oymen/"
+        },
+        {
+          "name": "Altan Tanrıkulu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/altan-tanrikulu/"
+        },
+        {
+          "name": "Anlatanadam",
+          "url": "https://www.hurriyet.com.tr/yazarlar/anlatanadam-yaziyor/"
+        },
+        {
+          "name": "Arda Akın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arda-akin/"
+        },
+        {
+          "name": "Arda Kutsal",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arda-kutsal/"
+        },
+        {
+          "name": "Arda Meriç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arda-meric/"
+        },
+        {
+          "name": "Arda Sayıner",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arda-sayiner/"
+        },
+        {
+          "name": "Arda Türkmen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arda-turkmen/"
+        },
+        {
+          "name": "Ariana Ferentinou",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ariana-ferentinou/"
+        },
+        {
+          "name": "Arif Dizdaroğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arif-dizdaroglu/"
+        },
+        {
+          "name": "Armağan Çağlayan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/armagan-caglayan/"
+        },
+        {
+          "name": "Arman Kırım",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arman-kirim/"
+        },
+        {
+          "name": "Arzu Çakır Morin",
+          "url": "https://www.hurriyet.com.tr/yazarlar/arzu-cakir-morin/"
+        },
+        {
+          "name": "Aslı Elif Tanuğur Samancı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/asli-elif-tanugur-samanci/"
+        },
+        {
+          "name": "Aslıhan Hopaç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aslihan-hopac/"
+        },
+        {
+          "name": "Ata Nirun",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ata-nirun/"
+        },
+        {
+          "name": "Ateş Bakan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ates-bakan/"
+        },
+        {
+          "name": "Ateş Yalazan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ates-yalazan/"
+        },
+        {
+          "name": "Ateş Yalazan - Arşiv Balıkçısı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ates-yalazan-arsiv-balikcisi/"
+        },
+        {
+          "name": "Atilla Türker",
+          "url": "https://www.hurriyet.com.tr/yazarlar/atilla-turker/"
+        },
+        {
+          "name": "Ayça Barut",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayca-barut/"
+        },
+        {
+          "name": "Ayça Çizer",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayca-cizer/"
+        },
+        {
+          "name": "Ayçe Bükülmeyen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayce-bukulmeyen/"
+        },
+        {
+          "name": "Aydın Candabak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aydin-candabak/"
+        },
+        {
+          "name": "Ayfer Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayfer-aydin/"
+        },
+        {
+          "name": "Aygül Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aygul-aydin/"
+        },
+        {
+          "name": "Ayhan Sicimoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayhan-sicimoglu/"
+        },
+        {
+          "name": "Aykut Kocaman",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aykut-kocaman/"
+        },
+        {
+          "name": "Aylin Anne",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aylin-anne/"
+        },
+        {
+          "name": "Aylin Livaneli",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aylin-livaneli/"
+        },
+        {
+          "name": "Aynur Tartan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aynur-tartan/"
+        },
+        {
+          "name": "Aysun Kaba",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysun-kaba/"
+        },
+        {
+          "name": "Ayşe Aral - Kelebek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-aral/"
+        },
+        {
+          "name": "Ayşe Arman",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-arman/"
+        },
+        {
+          "name": "Ayşe Baykal",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-baykal/"
+        },
+        {
+          "name": "Ayşe Hür",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-hur/"
+        },
+        {
+          "name": "Ayşe Okumuş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-okumus/"
+        },
+        {
+          "name": "Ayşe Özek Karasu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-ozek-karasu/"
+        },
+        {
+          "name": "Ayşegül Domaniç Yelçe",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysegul-domanic-yelce/"
+        },
+        {
+          "name": "Ayşegül Ekinci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysegul-ekinci/"
+        },
+        {
+          "name": "Ayşen Gür",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysen-gur/"
+        },
+        {
+          "name": "Ayten Tutkun",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayten-tutkun/"
+        },
+        {
+          "name": "Aziz Devrimci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-devrimci/"
+        },
+        {
+          "name": "Aziz Fidancı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-fidanci/"
+        },
+        {
+          "name": "Aziz Özen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-ozen/"
+        },
+        {
+          "name": "Bağış Erten",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bagis-erten/"
+        },
+        {
+          "name": "Bahar Akıncı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-akinci/"
+        },
+        {
+          "name": "Bahar Akıncı - Kelebek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-akinci-kelebek/"
+        },
+        {
+          "name": "Bahar Çuhadar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-cuhadar/"
+        },
+        {
+          "name": "Bahar Ekinci Akçaoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-ekinci-akcaoglu/"
+        },
+        {
+          "name": "Bahar Korçan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-korcan/"
+        },
+        {
+          "name": "Banu Şen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/banu-sen/"
+        },
+        {
+          "name": "Banu Tuna",
+          "url": "https://www.hurriyet.com.tr/yazarlar/banu-tuna/"
+        },
+        {
+          "name": "Banu Yelkovan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/banu-yelkovan/"
+        },
+        {
+          "name": "Barbaros Tapan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/barbaros-tapan/"
+        },
+        {
+          "name": "Barçın Yinanç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/barcin-yinanc/"
+        },
+        {
+          "name": "Barış Özkan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/baris-ozkan/"
+        },
+        {
+          "name": "Başak Baksu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/basak-baksu/"
+        },
+        {
+          "name": "Başak Dizer",
+          "url": "https://www.hurriyet.com.tr/yazarlar/basak-dizer/"
+        },
+        {
+          "name": "Bayram Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bayram-aydin/"
+        },
+        {
+          "name": "Bekir Coşkun",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bekir-coskun/"
+        },
+        {
+          "name": "Belgin Ekmen Yenilmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/belgin-ekmen-yenilmez/"
+        },
+        {
+          "name": "Bengü",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bengu/"
+        },
+        {
+          "name": "Beril Papuççuer Ceylan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/beril-papuccuer-ceylan/"
+        },
+        {
+          "name": "Berkay Ateş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/berkay-ates/"
+        },
+        {
+          "name": "Berrin Yiğit",
+          "url": "https://www.hurriyet.com.tr/yazarlar/berrin-yigit/"
+        },
+        {
+          "name": "Beyza Bilgin",
+          "url": "https://www.hurriyet.com.tr/yazarlar/beyza-bilgin/"
+        },
+        {
+          "name": "Bige Dalkılıç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bige-dalkilic/"
+        },
+        {
+          "name": "Bilge Egemen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bilge-egemen/"
+        },
+        {
+          "name": "Bilge Kobaş & Can Sucuoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bilge-kobas-can-sucuoglu/"
+        },
+        {
+          "name": "Bilgin Gökberk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bilgin-gokberk/"
+        },
+        {
+          "name": "Binnur Zaimler",
+          "url": "https://www.hurriyet.com.tr/yazarlar/binnur-zaimler/"
+        },
+        {
+          "name": "Birce Bora",
+          "url": "https://www.hurriyet.com.tr/yazarlar/birce-bora/"
+        },
+        {
+          "name": "Buğra Adil Buyrukcu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bugra-adil-buyrukcu/"
+        },
+        {
+          "name": "Buket Bayındır",
+          "url": "https://www.hurriyet.com.tr/yazarlar/buket-bayindir/"
+        },
+        {
+          "name": "Buket Çürük",
+          "url": "https://www.hurriyet.com.tr/yazarlar/buket-curuk/"
+        },
+        {
+          "name": "Burak Akın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burak-akin/"
+        },
+        {
+          "name": "Burak Bekdil",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burak-bekdil/"
+        },
+        {
+          "name": "Burak Kesayak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burak-kesayak/"
+        },
+        {
+          "name": "Burcu Babaç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burcu-babac/"
+        },
+        {
+          "name": "Burcu Eminoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burcu-eminoglu/"
+        },
+        {
+          "name": "Burhan Uslu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burhan-uslu/"
+        },
+        {
+          "name": "Buse Akçil",
+          "url": "https://www.hurriyet.com.tr/yazarlar/buse-akcil/"
+        },
+        {
+          "name": "Bülent Boğ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-bog/"
+        },
+        {
+          "name": "Bülent Düzgit",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-duzgit/"
+        },
+        {
+          "name": "Bülent Katarcı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-katarci/"
+        },
+        {
+          "name": "Bülent Mumay",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-mumay/"
+        },
+        {
+          "name": "Bülent Yavuz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-yavuz/"
+        },
+        {
+          "name": "Bünyamin Gezer",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bunyamin-gezer/"
+        },
+        {
+          "name": "Bünyamin Sürmeli",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bunyamin-surmeli/"
+        },
+        {
+          "name": "Büşra Taşpınar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/busra-taspinar/"
+        },
+        {
+          "name": "Can Aydoğmuş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/can-aydogmus"
+        },
+        {
+          "name": "Can Bartu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/can-bartu/"
+        },
+        {
+          "name": "Can Erginkurban",
+          "url": "https://www.hurriyet.com.tr/yazarlar/can-erginkurban/"
+        },
+        {
+          "name": "Can Mumay",
+          "url": "https://www.hurriyet.com.tr/yazarlar/can-mumay/"
+        },
+        {
+          "name": "Cansel Oruç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cansel-oruc/"
+        },
+        {
+          "name": "Cansu Çamlıbel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cansu-camlibel/"
+        },
+        {
+          "name": "Cansu Özdemir",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cansu-ozdemir/"
+        },
+        {
+          "name": "Celal Demirbilek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/celal-demirbilek/"
+        },
+        {
+          "name": "Celal Özcan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/celal-ozcan/"
+        },
+        {
+          "name": "Cem Erciyes",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cem-erciyes/"
+        },
+        {
+          "name": "Cem Keçe",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cem-kece/"
+        },
+        {
+          "name": "Cem Oğuz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cem-oguz/"
+        },
+        {
+          "name": "Cem Öztürkler",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cem-ozturkler/"
+        },
+        {
+          "name": "Cemal Erbaş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cemal-erbas/"
+        },
+        {
+          "name": "Cemal Tükel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cemal-tukel/"
+        },
+        {
+          "name": "Cengiz Aktar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-aktar/"
+        },
+        {
+          "name": "Cengiz Çandar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-candar/"
+        },
+        {
+          "name": "Cengiz Çandar - English",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-candar-english/"
+        },
+        {
+          "name": "Cengiz Özdemir",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-ozdemir/"
+        },
+        {
+          "name": "Cengiz Semercioğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-semercioglu/"
+        },
+        {
+          "name": "Cenker Tezel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cenker-tezel/"
+        },
+        {
+          "name": "Ceren Arseven",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-arseven/"
+        },
+        {
+          "name": "Ceren Can",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-can/"
+        },
+        {
+          "name": "Ceren Şehirlioğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-sehirlioglu/"
+        },
+        {
+          "name": "Ceylan Sever",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceylan-sever/"
+        },
+        {
+          "name": "Ceylan Şekerci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceylan-sekerci/"
+        },
+        {
+          "name": "Cihan Şensözlü",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cihan-sensozlu/"
+        },
+        {
+          "name": "Civan Er",
+          "url": "https://www.hurriyet.com.tr/yazarlar/civan-er/"
+        },
+        {
+          "name": "Cüneyt Ülsever",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cuneyt-ulsever/"
+        },
+        {
+          "name": "Cüneyt Ülsever - English",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cuneyt-ulsever-english/"
+        },
+        {
+          "name": "Çağlayan Çevik",
+          "url": "https://www.hurriyet.com.tr/yazarlar/caglayan-cevik/"
+        },
+        {
+          "name": "Çağlayan Kent",
+          "url": "https://www.hurriyet.com.tr/yazarlar/caglayan-kent/"
+        },
+        {
+          "name": "Çağrı Develioğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cagri-develioglu/"
+        },
+        {
+          "name": "Çetin Yılmaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cetin-yilmaz/"
+        },
+        {
+          "name": "Çiğdem Toker",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cigdem-toker/"
+        },
+        {
+          "name": "Damla Güler",
+          "url": "https://www.hurriyet.com.tr/yazarlar/damla-guler/"
+        },
+        {
+          "name": "Danilo Zanna",
+          "url": "https://www.hurriyet.com.tr/yazarlar/danilo-zanna/"
+        },
+        {
+          "name": "Defne Barak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/defne-barak/"
+        },
+        {
+          "name": "Demet Baykal",
+          "url": "https://www.hurriyet.com.tr/yazarlar/demet-baykal/"
+        },
+        {
+          "name": "Demir Karahan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/demir-karahan/"
+        },
+        {
+          "name": "Deniz Bayramoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-bayramoglu/"
+        },
+        {
+          "name": "Deniz Beykont",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-beykont/"
+        },
+        {
+          "name": "Deniz Gök",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-gok/"
+        },
+        {
+          "name": "Deniz Gürel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-gurel/"
+        },
+        {
+          "name": "Deniz Sipahi",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-sipahi/"
+        },
+        {
+          "name": "Deniz Tutkun",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-tutkun/"
+        },
+        {
+          "name": "Deniz Yoldaç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-yoldac/"
+        },
+        {
+          "name": "Deniz Zeyrek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-zeyrek/"
+        },
+        {
+          "name": "Dennis Redmont",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dennis-redmont/"
+        },
+        {
+          "name": "Dermatolog Dr. Neslihan Dolar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dermatolog-dr-neslihan-dolar/"
+        },
+        {
+          "name": "Derya Fidan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/derya-fidan/"
+        },
+        {
+          "name": "Derya Jerdev",
+          "url": "https://www.hurriyet.com.tr/yazarlar/derya-jerdev/"
+        },
+        {
+          "name": "Derya Korkmaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/derya-korkmaz/"
+        },
+        {
+          "name": "Devrim Mumcuoğulları",
+          "url": "https://www.hurriyet.com.tr/yazarlar/devrim-mumcuogullari/"
+        },
+        {
+          "name": "Devrim Sağıroğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/devrim-sagiroglu/"
+        },
+        {
+          "name": "Didem Şenol",
+          "url": "https://www.hurriyet.com.tr/yazarlar/didem-senol/"
+        },
+        {
+          "name": "Dilek Avşar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-avsar/"
+        },
+        {
+          "name": "Dilek Çiftçi",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-ciftci/"
+        },
+        {
+          "name": "Dilek Dayınlarlı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-dayinlarli/"
+        },
+        {
+          "name": "Dinçer Güner",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dincer-guner/"
+        },
+        {
+          "name": "Doç. Dr. Gülay Ergin Okay",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulay-ergin-okay/"
+        },
+        {
+          "name": "Doç. Dr. İlker Kahramanoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-ilker-kahramanoglu/"
+        },
+        {
+          "name": "Doç. Dr. Nermin Köşüş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-nermin-kosus/"
+        },
+        {
+          "name": "Doç. Dr. Serkan Özel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-serkan-ozel/"
+        },
+        {
+          "name": "Doç. Dr. Zekayi Kutlubay",
+          "url": "https://www.hurriyet.com.tr/yazarlar/zekayi-kutlubay/"
+        },
+        {
+          "name": "Doç.Dr. Efsun Dindar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-efsun-dindar/"
+        },
+        {
+          "name": "Dodo",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dodo/"
+        },
+        {
+          "name": "Doğa Huriye Özkaya",
+          "url": "https://www.hurriyet.com.tr/yazarlar/doga-huriye-ozkaya/"
+        },
+        {
+          "name": "Doğahan Giritlioğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dogahan-giritlioglu/"
+        },
+        {
+          "name": "Doğan Hakyemez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-hakyemez/"
+        },
+        {
+          "name": "Doğan Hızlan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-hizlan/"
+        },
+        {
+          "name": "Doğan Satmış",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-satmis/"
+        },
+        {
+          "name": "Doğan Uluç",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-uluc/"
+        },
+        {
+          "name": "Dr. Ecz. Metin Uyar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/"
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/"
+        },
+        {
+          "name": "Fatih ÇEKİRGE",
+          "url": ""
+        },
+        {
+          "name": "Doğan HIZLAN",
+          "url": ""
+        },
+        {
+          "name": "Umut Fırat Eroğlu",
+          "url": ""
+        },
+        {
+          "name": "Zeynel Balcı",
+          "url": ""
+        },
+        {
+          "name": "Yunus Paksoy",
+          "url": ""
+        },
+        {
+          "name": "Dr.Furkan Burak",
+          "url": ""
+        },
+        {
+          "name": "Zeynep BİLGEHAN",
+          "url": ""
+        },
+        {
+          "name": "Serkan Kızılbayır",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 16,
+      "count": 18,
       "writers": [
         {
-          "name": "Rahmi Turan",
+          "name": "Emin Çölaşan",
           "url": ""
         },
         {
-          "name": "Saygı Öztürk",
+          "name": "Necati Doğru",
           "url": ""
         },
         {
@@ -27,23 +860,7 @@
           "url": ""
         },
         {
-          "name": "Ege Cansen",
-          "url": ""
-        },
-        {
-          "name": "Öner Döşer",
-          "url": ""
-        },
-        {
-          "name": "Güney Öztürk",
-          "url": ""
-        },
-        {
-          "name": "Emin Çölaşan",
-          "url": ""
-        },
-        {
-          "name": "Naim Babüroğlu",
+          "name": "Yekta Güngör Özden",
           "url": ""
         },
         {
@@ -51,7 +868,11 @@
           "url": ""
         },
         {
-          "name": "Ozan Bingöl",
+          "name": "Öner Döşer",
+          "url": ""
+        },
+        {
+          "name": "Naim Babüroğlu",
           "url": ""
         },
         {
@@ -59,15 +880,15 @@
           "url": ""
         },
         {
+          "name": "Ozan Bingöl",
+          "url": ""
+        },
+        {
           "name": "Mesut Parlak",
           "url": ""
         },
         {
-          "name": "Yekta Güngör Özden",
-          "url": ""
-        },
-        {
-          "name": "Pınar Turan",
+          "name": "Damla Doğan Tuncel",
           "url": ""
         },
         {
@@ -75,7 +896,27 @@
           "url": ""
         },
         {
+          "name": "Can Coşkun",
+          "url": ""
+        },
+        {
+          "name": "Selen Öktem",
+          "url": ""
+        },
+        {
           "name": "Burak Özcan",
+          "url": ""
+        },
+        {
+          "name": "Mahmut Aydoğmuş",
+          "url": ""
+        },
+        {
+          "name": "Yasin Yıldırım",
+          "url": ""
+        },
+        {
+          "name": "Sercan C. Güler",
           "url": ""
         }
       ]
@@ -83,68 +924,1343 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 0,
-      "writers": []
+      "count": 20,
+      "writers": [
+        {
+          "name": "Özay Şendir",
+          "url": ""
+        },
+        {
+          "name": "Abbas Güçlü",
+          "url": ""
+        },
+        {
+          "name": "Zeynep Aktaş",
+          "url": ""
+        },
+        {
+          "name": "Ali Eyüboğlu",
+          "url": ""
+        },
+        {
+          "name": "Güldener Sonumut",
+          "url": ""
+        },
+        {
+          "name": "Çağdaş Ertuna",
+          "url": ""
+        },
+        {
+          "name": "Prof. Dr. Nuran Yıldız",
+          "url": ""
+        },
+        {
+          "name": "Belma Akçura",
+          "url": ""
+        },
+        {
+          "name": "Ege Doğaç Erdoğan",
+          "url": ""
+        },
+        {
+          "name": "Prof. Dr. Barış Erdoğan",
+          "url": ""
+        },
+        {
+          "name": "Patrick Özdemiroğlu",
+          "url": ""
+        },
+        {
+          "name": "Hasan Mert Kaya",
+          "url": ""
+        },
+        {
+          "name": "Zeynep İşman",
+          "url": ""
+        },
+        {
+          "name": "Mehmet Çelik",
+          "url": ""
+        },
+        {
+          "name": "Mehmet Tez",
+          "url": ""
+        },
+        {
+          "name": "Filiz Aygündüz",
+          "url": ""
+        },
+        {
+          "name": "Osman Gençer",
+          "url": ""
+        },
+        {
+          "name": "Aylin Öney Tan",
+          "url": ""
+        },
+        {
+          "name": "Zeynep Kakınç",
+          "url": ""
+        },
+        {
+          "name": "Dilara Koçak",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 0,
-      "writers": []
+      "count": 11,
+      "writers": [
+        {
+          "name": "SABAH",
+          "url": "https://www.sabah.com.tr/yazarlar/sabah"
+        },
+        {
+          "name": "SPOR",
+          "url": "https://www.sabah.com.tr/yazarlar/spor"
+        },
+        {
+          "name": "GÜNAYDIN",
+          "url": "https://www.sabah.com.tr/yazarlar/gunaydin"
+        },
+        {
+          "name": "SABAH.COM.TR",
+          "url": "https://www.sabah.com.tr/yazarlar/site"
+        },
+        {
+          "name": "PERSPEKTİF",
+          "url": "https://www.sabah.com.tr/yazarlar/perspektif"
+        },
+        {
+          "name": "CUMARTESİ",
+          "url": "https://www.sabah.com.tr/yazarlar/cumartesi"
+        },
+        {
+          "name": "PAZAR",
+          "url": "https://www.sabah.com.tr/yazarlar/pazar"
+        },
+        {
+          "name": "BÖLGELER",
+          "url": "https://www.sabah.com.tr/yazarlar/bolgeler"
+        },
+        {
+          "name": "KİTAP",
+          "url": "https://www.sabah.com.tr/yazarlar/kitap"
+        },
+        {
+          "name": "ARŞİV",
+          "url": "https://www.sabah.com.tr/yazarlar/sabaharsiv"
+        },
+        {
+          "name": "TÜM YAZARLAR",
+          "url": "https://www.sabah.com.tr/yazarlar/arsiv"
+        }
+      ]
     },
     {
       "key": "cumhuriyet",
       "name": "Cumhuriyet",
-      "count": 8,
+      "count": 92,
       "writers": [
         {
+          "name": "Spor",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/spor-yazarlari"
+        },
+        {
+          "name": "Konuk",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/konuk-yazarlari"
+        },
+        {
+          "name": "Yaşam",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/yasam-yazarlari"
+        },
+        {
+          "name": "Tuğrul Akşar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/tugrul-aksar"
+        },
+        {
+          "name": "Mine Esen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mine-esen"
+        },
+        {
+          "name": "Altan Öymen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/altan-oymen"
+        },
+        {
+          "name": "Cumhuriyet",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhuriyet"
+        },
+        {
+          "name": "Cumhuriyet Dosyaları",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhuriyet-dosyalari"
+        },
+        {
+          "name": "Alev Coşkun",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/alev-coskun"
+        },
+        {
+          "name": "Olayların Ardındaki Gerçek",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/olaylarin-ardindaki-gercek"
+        },
+        {
           "name": "Emre Kongar",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/emre-kongar"
         },
         {
           "name": "Özdemir İnce",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ozdemir-ince"
+        },
+        {
+          "name": "Ali Sirmen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ali-sirmen"
+        },
+        {
+          "name": "Barış Terkoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/baris-terkoglu"
+        },
+        {
+          "name": "Orhan Bursalı",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/orhan-bursali"
         },
         {
           "name": "Zülal Kalkandelen",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/zulal-kalkandelen"
+        },
+        {
+          "name": "Işık Kansu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/isik-kansu"
+        },
+        {
+          "name": "Ergin Yıldızoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ergin-yildizoglu"
+        },
+        {
+          "name": "Barış Pehlivan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/baris-pehlivan"
+        },
+        {
+          "name": "Mustafa Balbay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mustafa-balbay"
+        },
+        {
+          "name": "Erdal Atabek",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/erdal-atabek"
+        },
+        {
+          "name": "Şükran Soner",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/sukran-soner"
+        },
+        {
+          "name": "Mine G. Kırıkkanat",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mine-g-kirikkanat"
+        },
+        {
+          "name": "Murat Ağırel",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/murat-agirel"
+        },
+        {
+          "name": "Oktay Ekşi",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/oktay-eksi"
+        },
+        {
+          "name": "Miyase İlknur",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/miyase-ilknur"
+        },
+        {
+          "name": "Müjdat Gezen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mujdat-gezen"
+        },
+        {
+          "name": "Sinan Meydan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/sinan-meydan"
+        },
+        {
+          "name": "Örsan K. Öymen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/orsan-k-oymen"
+        },
+        {
+          "name": "Ahmet Saltık",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-saltik"
+        },
+        {
+          "name": "Veysel Ulusoy",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/veysel-ulusoy"
+        },
+        {
+          "name": "Mehmet Ali Güller",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mehmet-ali-guller"
         },
         {
           "name": "Zeynep Oral",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/zeynep-oral"
+        },
+        {
+          "name": "Ataol Behramoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ataol-behramoglu"
+        },
+        {
+          "name": "Jale Özgentürk",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/jale-ozgenturk"
         },
         {
           "name": "Işıl Özgentürk",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/isil-ozgenturk"
+        },
+        {
+          "name": "Özgen Acar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ozgen-acar"
+        },
+        {
+          "name": "Öner Yağcı",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/oner-yagci"
+        },
+        {
+          "name": "Sertaç Eş",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/sertac-es"
+        },
+        {
+          "name": "Ahmet Tan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-tan"
+        },
+        {
+          "name": "Bedri Baykam",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/bedri-baykam"
+        },
+        {
+          "name": "Bilsay Kuruç",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/bilsay-kuruc"
         },
         {
           "name": "Nilgün Cerrahoğlu",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/nilgun-cerrahoglu"
         },
         {
-          "name": "Hilmi Türkay",
-          "url": ""
+          "name": "Özlem Yüzak",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ozlem-yuzak"
+        },
+        {
+          "name": "Dikmen Gürün",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/dikmen-gurun"
+        },
+        {
+          "name": "Üstün Dökmen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ustun-dokmen"
+        },
+        {
+          "name": "Bilgin Gökberk",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/bilgin-gokberk"
+        },
+        {
+          "name": "Arif Kızılyalın",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/arif-kizilyalin"
+        },
+        {
+          "name": "İrfan Hüseyin Yıldız",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/irfan-huseyin-yildiz"
+        },
+        {
+          "name": "Eren Aysan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/eren-aysan"
+        },
+        {
+          "name": "Meriç Velidedeoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/meric-velidedeoglu"
+        },
+        {
+          "name": "Adnan Binyazar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/adnan-binyazar"
+        },
+        {
+          "name": "Öztin Akgüç",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/oztin-akguc"
+        },
+        {
+          "name": "Feyzi Açıkalın",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/feyzi-acikalin"
+        },
+        {
+          "name": "Elçin Poyrazlar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/elcin-poyrazlar"
+        },
+        {
+          "name": "Ayşe Emel Mesci",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ayse-emel-mesci"
+        },
+        {
+          "name": "Nergis Şimşek",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/nergis-simsek"
+        },
+        {
+          "name": "Adnan Dinçer",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/adnan-dincer"
+        },
+        {
+          "name": "Ayşegül Yüksel",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/aysegul-yuksel"
+        },
+        {
+          "name": "Evin İlyasoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/evin-ilyasoglu"
+        },
+        {
+          "name": "Feridun Andaç",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/feridun-andac"
+        },
+        {
+          "name": "Siyaset Kulisi",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/siyaset-kulisi"
+        },
+        {
+          "name": "Gülengül Altınsay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/gulengul-altinsay"
+        },
+        {
+          "name": "Erman Kunter",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/erman-kunter"
+        },
+        {
+          "name": "Yalın Gündüz",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/yalin-gunduz"
+        },
+        {
+          "name": "Deniz Tansi",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/deniz-tansi"
+        },
+        {
+          "name": "Güven Baykan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/guven-baykan"
+        },
+        {
+          "name": "Mehmet Şakir Örs",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mehmet-sakir-ors"
+        },
+        {
+          "name": "Ahmet Süha Umar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-suha-umar"
+        },
+        {
+          "name": "Uğur Mumcu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ugur-mumcu"
+        },
+        {
+          "name": "Çiğdem Bayraktar Ör",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/cigdem-bayraktar-or"
+        },
+        {
+          "name": "Olaylar Ve Görüşler",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/olaylar-ve-gorusler"
+        },
+        {
+          "name": "Tolga Aydoğan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/tolga-aydogan"
+        },
+        {
+          "name": "Deniz Berktay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/deniz-berktay"
+        },
+        {
+          "name": "Figen Atalay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/figen-atalay"
+        },
+        {
+          "name": "Tonguç Orözü",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/tonguc-orozu"
+        },
+        {
+          "name": "Savaşkan İskefli",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/savaskan-iskefli"
+        },
+        {
+          "name": "Nilay Küçük",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/nilay-kucuk"
+        },
+        {
+          "name": "Güneş Aksüs",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/gunes-aksus"
+        },
+        {
+          "name": "Deniz Ülkütekin",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/deniz-ulkutekin"
+        },
+        {
+          "name": "Sadık Çelik",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/sadik-celik"
+        },
+        {
+          "name": "Cumhur Önder Arslan",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhur-onder-arslan"
+        },
+        {
+          "name": "Sevgi Özel",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/sevgi-ozel"
+        },
+        {
+          "name": "Ahmet Kurt",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-kurt"
         },
         {
           "name": "Hayri Güner",
-          "url": ""
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/hayri-guner"
+        },
+        {
+          "name": "Hilmi Türkay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/hilmi-turkay"
+        },
+        {
+          "name": "Ceylan Adanalı",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ceylan-adanali-kabadayioglu"
+        },
+        {
+          "name": "Orhan Can",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/orhan-can"
+        },
+        {
+          "name": "Ebru Kılıçoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ebru-kilicoglu"
+        },
+        {
+          "name": "Gamze Çetin",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/gamze-cetin"
+        },
+        {
+          "name": "Yiğit Güralp",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/yigit-guralp"
+        },
+        {
+          "name": "Ali Apaydın",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ali-apaydin"
         }
       ]
     },
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 0,
-      "writers": []
+      "count": 201,
+      "writers": [
+        {
+          "name": "Bugün Yazanlar",
+          "url": "https://www.yenisafak.com/yazarlar/bugun-yazanlar"
+        },
+        {
+          "name": "Abdulhamit Güler",
+          "url": "https://www.yenisafak.com/yazarlar/abdulhamit-guler"
+        },
+        {
+          "name": "Abdullah Muradoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/abdullah-muradoglu"
+        },
+        {
+          "name": "Abdurrahim Boynukalın",
+          "url": "https://www.yenisafak.com/yazarlar/abdurrahim-boynukalin"
+        },
+        {
+          "name": "Abdülkadir Selvi",
+          "url": "https://www.yenisafak.com/yazarlar/abdulkadir-selvi"
+        },
+        {
+          "name": "Adnan Çoban",
+          "url": "https://www.yenisafak.com/yazarlar/adnan-coban"
+        },
+        {
+          "name": "Adnan Sökmen",
+          "url": "https://www.yenisafak.com/yazarlar/adnan-sokmen"
+        },
+        {
+          "name": "Ahmet Altınkaynak",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-altinkaynak"
+        },
+        {
+          "name": "Ahmet Bıyıklı",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-biyikli"
+        },
+        {
+          "name": "Ahmet Davutoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-davutoglu"
+        },
+        {
+          "name": "Ahmet Evren - Cumartesi",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-evren--cumartesi"
+        },
+        {
+          "name": "Ahmet Kekeç",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-kekec"
+        },
+        {
+          "name": "Ahmet Ocaktan",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-ocaktan"
+        },
+        {
+          "name": "Ahmet Rıdvan",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-ridvan"
+        },
+        {
+          "name": "Ahmet Rıfat Albuz",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-rifat-albuz"
+        },
+        {
+          "name": "Ahmet Taşgetiren",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-tasgetiren"
+        },
+        {
+          "name": "Ahmet Ulusoy",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-ulusoy"
+        },
+        {
+          "name": "Ahmet Ünlü",
+          "url": "https://www.yenisafak.com/yazarlar/ahmet-unlu"
+        },
+        {
+          "name": "Akif Emre",
+          "url": "https://www.yenisafak.com/yazarlar/akif-emre"
+        },
+        {
+          "name": "Ali Akel",
+          "url": "https://www.yenisafak.com/yazarlar/ali-akel"
+        },
+        {
+          "name": "Ali Bayramoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/ali-bayramoglu"
+        },
+        {
+          "name": "Ali Bayramoğlu - Spor",
+          "url": "https://www.yenisafak.com/yazarlar/ali-bayramoglu--spor"
+        },
+        {
+          "name": "Ali Erbaş",
+          "url": "https://www.yenisafak.com/yazarlar/ali-erbas"
+        },
+        {
+          "name": "Ali Gümüş",
+          "url": "https://www.yenisafak.com/yazarlar/ali-gumus"
+        },
+        {
+          "name": "Ali Kemal Yazıcı",
+          "url": "https://www.yenisafak.com/yazarlar/ali-kemal-yazici"
+        },
+        {
+          "name": "Ali Murat Güven",
+          "url": "https://www.yenisafak.com/yazarlar/ali-murat-guven"
+        },
+        {
+          "name": "Ali Nur Kutlu",
+          "url": "https://www.yenisafak.com/yazarlar/ali-nur-kutlu"
+        },
+        {
+          "name": "Ali Saydam",
+          "url": "https://www.yenisafak.com/yazarlar/ali-saydam"
+        },
+        {
+          "name": "Alper Tunga Albayrak",
+          "url": "https://www.yenisafak.com/yazarlar/alper-tunga-albayrak"
+        },
+        {
+          "name": "Altay Cem Meriç",
+          "url": "https://www.yenisafak.com/yazarlar/altay-cem-meric"
+        },
+        {
+          "name": "Asaf Samet Bayraktar",
+          "url": "https://www.yenisafak.com/yazarlar/asaf-samet-bayraktar"
+        },
+        {
+          "name": "Atilla Yayla",
+          "url": "https://www.yenisafak.com/yazarlar/atilla-yayla"
+        },
+        {
+          "name": "Avni Tarhan",
+          "url": "https://www.yenisafak.com/yazarlar/avni-tarhan"
+        },
+        {
+          "name": "Aydın Menderes",
+          "url": "https://www.yenisafak.com/yazarlar/aydin-menderes"
+        },
+        {
+          "name": "Aydın Ünal",
+          "url": "https://www.yenisafak.com/yazarlar/aydin-unal"
+        },
+        {
+          "name": "Ayşe Böhürler",
+          "url": "https://www.yenisafak.com/yazarlar/ayse-bohurler"
+        },
+        {
+          "name": "Ayşe Keşir",
+          "url": "https://www.yenisafak.com/yazarlar/ayse-kesir"
+        },
+        {
+          "name": "Bekir Boran",
+          "url": "https://www.yenisafak.com/yazarlar/bekir-boran"
+        },
+        {
+          "name": "Bekir Hazar",
+          "url": "https://www.yenisafak.com/yazarlar/bekir-hazar"
+        },
+        {
+          "name": "Bekir Hazar - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/bekir-hazar--pazar"
+        },
+        {
+          "name": "Bercan Tutar",
+          "url": "https://www.yenisafak.com/yazarlar/bercan-tutar"
+        },
+        {
+          "name": "Bülent Akyürek",
+          "url": "https://www.yenisafak.com/yazarlar/bulent-akyurek"
+        },
+        {
+          "name": "Bülent Orakoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/bulent-orakoglu"
+        },
+        {
+          "name": "Can Aksın",
+          "url": "https://www.yenisafak.com/yazarlar/can-aksin"
+        },
+        {
+          "name": "Cem Küçük",
+          "url": "https://www.yenisafak.com/yazarlar/cem-kucuk"
+        },
+        {
+          "name": "Cem Küçük -Spor",
+          "url": "https://www.yenisafak.com/yazarlar/cem-kucuk-spor"
+        },
+        {
+          "name": "Cemal Aydın",
+          "url": "https://www.yenisafak.com/yazarlar/cemal-aydin"
+        },
+        {
+          "name": "Cemaleddin Latiç",
+          "url": "https://www.yenisafak.com/yazarlar/cemaleddin-latic"
+        },
+        {
+          "name": "Cemile Bayraktar",
+          "url": "https://www.yenisafak.com/yazarlar/cemile-bayraktar"
+        },
+        {
+          "name": "Cengiz Çandar",
+          "url": "https://www.yenisafak.com/yazarlar/cengiz-candar"
+        },
+        {
+          "name": "Cevdet Akçalı",
+          "url": "https://www.yenisafak.com/yazarlar/cevdet-akcali"
+        },
+        {
+          "name": "Ceyda Şenel - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/ceyda-senel--pazar"
+        },
+        {
+          "name": "Cömert Aslan",
+          "url": "https://www.yenisafak.com/yazarlar/comert-aslan"
+        },
+        {
+          "name": "Davut Dursun",
+          "url": "https://www.yenisafak.com/yazarlar/davut-dursun"
+        },
+        {
+          "name": "Demir Fevzioğlu",
+          "url": "https://www.yenisafak.com/yazarlar/demir-fevzioglu"
+        },
+        {
+          "name": "Dursun Gürlek",
+          "url": "https://www.yenisafak.com/yazarlar/dursun-gurlek"
+        },
+        {
+          "name": "Dücane Cündioğlu",
+          "url": "https://www.yenisafak.com/yazarlar/ducane-cundioglu"
+        },
+        {
+          "name": "Ebru Çıdal",
+          "url": "https://www.yenisafak.com/yazarlar/ebru-cidal"
+        },
+        {
+          "name": "Ebubekir Sifil",
+          "url": "https://www.yenisafak.com/yazarlar/ebubekir-sifil"
+        },
+        {
+          "name": "Elif Aktuğ",
+          "url": "https://www.yenisafak.com/yazarlar/elif-aktug"
+        },
+        {
+          "name": "Elvan Alkaya",
+          "url": "https://www.yenisafak.com/yazarlar/elvan-alkaya"
+        },
+        {
+          "name": "Enbiya Yıldırım",
+          "url": "https://www.yenisafak.com/yazarlar/enbiya-yildirim"
+        },
+        {
+          "name": "Engin Albayrak",
+          "url": "https://www.yenisafak.com/yazarlar/engin-albayrak"
+        },
+        {
+          "name": "Erdal Hoş",
+          "url": "https://www.yenisafak.com/yazarlar/erdal-hos"
+        },
+        {
+          "name": "Erdal Tanas Karagöl",
+          "url": "https://www.yenisafak.com/yazarlar/erdal-tanas-karagol"
+        },
+        {
+          "name": "Ergin Aslan",
+          "url": "https://www.yenisafak.com/yazarlar/ergin-aslan"
+        },
+        {
+          "name": "Ergün Diler",
+          "url": "https://www.yenisafak.com/yazarlar/ergun-diler"
+        },
+        {
+          "name": "Ergün Yıldırım",
+          "url": "https://www.yenisafak.com/yazarlar/ergun-yildirim"
+        },
+        {
+          "name": "Erhan Köknar",
+          "url": "https://www.yenisafak.com/yazarlar/erhan-koknar"
+        },
+        {
+          "name": "Erkan Bayazıtlı",
+          "url": "https://www.yenisafak.com/yazarlar/erkan-bayazitli"
+        },
+        {
+          "name": "Erkan Tan",
+          "url": "https://www.yenisafak.com/yazarlar/erkan-tan"
+        },
+        {
+          "name": "Erol Yaşar",
+          "url": "https://www.yenisafak.com/yazarlar/erol-yasar"
+        },
+        {
+          "name": "ErolGöka",
+          "url": "https://www.yenisafak.com/yazarlar/erol-goka"
+        },
+        {
+          "name": "Ersin Çelik",
+          "url": "https://www.yenisafak.com/yazarlar/ersin-celik"
+        },
+        {
+          "name": "Ersin Nazif Gürdoğan",
+          "url": "https://www.yenisafak.com/yazarlar/ersin-nazif-gurdogan"
+        },
+        {
+          "name": "Fadime Özkan",
+          "url": "https://www.yenisafak.com/yazarlar/fadime-ozkan"
+        },
+        {
+          "name": "Faruk Aksoy",
+          "url": "https://www.yenisafak.com/yazarlar/faruk-aksoy"
+        },
+        {
+          "name": "Faruk Beşer",
+          "url": "https://www.yenisafak.com/yazarlar/faruk-beser"
+        },
+        {
+          "name": "Fatma Barbarosoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/fatma-barbarosoglu"
+        },
+        {
+          "name": "Fehmi Koru",
+          "url": "https://www.yenisafak.com/yazarlar/fehmi-koru"
+        },
+        {
+          "name": "Fehmi Koru - English",
+          "url": "https://www.yenisafak.com/yazarlar/fehmi-koru--english"
+        },
+        {
+          "name": "Fevzi Öztürk",
+          "url": "https://www.yenisafak.com/yazarlar/fevzi-ozturk"
+        },
+        {
+          "name": "Fikret Arsun",
+          "url": "https://www.yenisafak.com/yazarlar/fikret-arsun"
+        },
+        {
+          "name": "Fikri Akyüz",
+          "url": "https://www.yenisafak.com/yazarlar/fikri-akyuz"
+        },
+        {
+          "name": "Fikri Akyüz - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/fikri-akyuz--pazar"
+        },
+        {
+          "name": "Fikri Türkel",
+          "url": "https://www.yenisafak.com/yazarlar/fikri-turkel"
+        },
+        {
+          "name": "Fuat Atik",
+          "url": "https://www.yenisafak.com/yazarlar/fuat-atik"
+        },
+        {
+          "name": "Furkan Çalışkan",
+          "url": "https://www.yenisafak.com/yazarlar/furkan-caliskan"
+        },
+        {
+          "name": "Gaffar Taşkın",
+          "url": "https://www.yenisafak.com/yazarlar/gaffar-taskin"
+        },
+        {
+          "name": "Gökhan Özcan",
+          "url": "https://www.yenisafak.com/yazarlar/gokhan-ozcan"
+        },
+        {
+          "name": "Gülden Tümer",
+          "url": "https://www.yenisafak.com/yazarlar/gulden-tumer"
+        },
+        {
+          "name": "Gülden Tümer - Cumartesi",
+          "url": "https://www.yenisafak.com/yazarlar/gulden-tumer--cumartesi"
+        },
+        {
+          "name": "Gülsen Gülsen",
+          "url": "https://www.yenisafak.com/yazarlar/gulsen-gulsen"
+        },
+        {
+          "name": "Gülşah Nezaket Maraşlı",
+          "url": "https://www.yenisafak.com/yazarlar/gulsah-nezaket-marasli"
+        },
+        {
+          "name": "Güray Soysal",
+          "url": "https://www.yenisafak.com/yazarlar/guray-soysal"
+        },
+        {
+          "name": "Hakan Albayrak",
+          "url": "https://www.yenisafak.com/yazarlar/hakan-albayrak"
+        },
+        {
+          "name": "Hakan Arslan",
+          "url": "https://www.yenisafak.com/yazarlar/hakan-arslan"
+        },
+        {
+          "name": "Haldun Domaç",
+          "url": "https://www.yenisafak.com/yazarlar/haldun-domac"
+        },
+        {
+          "name": "Halil İbrahim İzgi",
+          "url": "https://www.yenisafak.com/yazarlar/halil-ibrahim-izgi"
+        },
+        {
+          "name": "Harun Tokak - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/harun-tokak--pazar"
+        },
+        {
+          "name": "Hasan Öztürk",
+          "url": "https://www.yenisafak.com/yazarlar/hasan-ozturk"
+        },
+        {
+          "name": "Hasibe Nisa",
+          "url": "https://www.yenisafak.com/yazarlar/hasibe-nisa"
+        },
+        {
+          "name": "Hatem Ete",
+          "url": "https://www.yenisafak.com/yazarlar/hatem-ete"
+        },
+        {
+          "name": "Hatice Karahan",
+          "url": "https://www.yenisafak.com/yazarlar/hatice-karahan"
+        },
+        {
+          "name": "Hayati Develi",
+          "url": "https://www.yenisafak.com/yazarlar/hayati-develi"
+        },
+        {
+          "name": "Hayreddin Karaman",
+          "url": "https://www.yenisafak.com/yazarlar/hayreddin-karaman"
+        },
+        {
+          "name": "Hayrettin Karaman - Ramazan",
+          "url": "https://www.yenisafak.com/yazarlar/hayrettin-karaman--ramazan"
+        },
+        {
+          "name": "Hayri Beşer",
+          "url": "https://www.yenisafak.com/yazarlar/hayri-beser"
+        },
+        {
+          "name": "Hikmet Genç",
+          "url": "https://www.yenisafak.com/yazarlar/hikmet-genc"
+        },
+        {
+          "name": "Hikmet Gök - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/hikmet-gok--pazar"
+        },
+        {
+          "name": "Hilal Acar",
+          "url": "https://www.yenisafak.com/yazarlar/hilal-acar"
+        },
+        {
+          "name": "Hilal Güven Özbey",
+          "url": "https://www.yenisafak.com/yazarlar/hilal-guven-ozbey"
+        },
+        {
+          "name": "Hilal Kaplan",
+          "url": "https://www.yenisafak.com/yazarlar/hilal-kaplan"
+        },
+        {
+          "name": "Hürol Bilal",
+          "url": "https://www.yenisafak.com/yazarlar/hurol-bilal"
+        },
+        {
+          "name": "Hüsamettin Acar",
+          "url": "https://www.yenisafak.com/yazarlar/husamettin-acar"
+        },
+        {
+          "name": "Hüseyin Besli",
+          "url": "https://www.yenisafak.com/yazarlar/huseyin-besli"
+        },
+        {
+          "name": "Hüseyin Durukan",
+          "url": "https://www.yenisafak.com/yazarlar/huseyin-durukan"
+        },
+        {
+          "name": "Hüseyin Hatemi",
+          "url": "https://www.yenisafak.com/yazarlar/huseyin-hatemi"
+        },
+        {
+          "name": "Hüseyin Korucuoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/huseyin-korucuoglu"
+        },
+        {
+          "name": "Hüseyin Likoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/huseyin-likoglu"
+        },
+        {
+          "name": "Işın Eliçin",
+          "url": "https://www.yenisafak.com/yazarlar/isin-elicin"
+        },
+        {
+          "name": "İbrahim Kahveci",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-kahveci"
+        },
+        {
+          "name": "İbrahim Karagül",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-karagul"
+        },
+        {
+          "name": "İbrahim Kardeş",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-kardes"
+        },
+        {
+          "name": "İbrahim Paşalı - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-pasali--pazar"
+        },
+        {
+          "name": "İbrahim Sadri - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-sadri--pazar"
+        },
+        {
+          "name": "İbrahim Tenekeci",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-tenekeci"
+        },
+        {
+          "name": "İbrahim Tığlı",
+          "url": "https://www.yenisafak.com/yazarlar/ibrahim-tigli"
+        },
+        {
+          "name": "İdris Özyol",
+          "url": "https://www.yenisafak.com/yazarlar/idris-ozyol"
+        },
+        {
+          "name": "İdris Saruhan",
+          "url": "https://www.yenisafak.com/yazarlar/idris-saruhan"
+        },
+        {
+          "name": "İhsan Aktaş",
+          "url": "https://www.yenisafak.com/yazarlar/ihsan-aktas"
+        },
+        {
+          "name": "İhsan Deniz",
+          "url": "https://www.yenisafak.com/yazarlar/ihsan-deniz"
+        },
+        {
+          "name": "İhsan Öksüz",
+          "url": "https://www.yenisafak.com/yazarlar/ihsan-oksuz"
+        },
+        {
+          "name": "İsmail Cesur",
+          "url": "https://www.yenisafak.com/yazarlar/ismail-cesur"
+        },
+        {
+          "name": "İsmail Halis",
+          "url": "https://www.yenisafak.com/yazarlar/ismail-halis"
+        },
+        {
+          "name": "İsmail Kılıçarslan",
+          "url": "https://www.yenisafak.com/yazarlar/ismail-kilicarslan"
+        },
+        {
+          "name": "İsmail Kılıçarslan - Ramazan",
+          "url": "https://www.yenisafak.com/yazarlar/ismail-kilicarslan--ramazan"
+        },
+        {
+          "name": "İsmet Badem",
+          "url": "https://www.yenisafak.com/yazarlar/ismet-badem"
+        },
+        {
+          "name": "İsmet Özel",
+          "url": "https://www.yenisafak.com/yazarlar/ismet-ozel"
+        },
+        {
+          "name": "Kadir Bilir",
+          "url": "https://www.yenisafak.com/yazarlar/kadir-bilir"
+        },
+        {
+          "name": "Kadir Demirel",
+          "url": "https://www.yenisafak.com/yazarlar/kadir-demirel"
+        },
+        {
+          "name": "Kadir Üstün",
+          "url": "https://www.yenisafak.com/yazarlar/kadir-ustun"
+        },
+        {
+          "name": "Kadri Aytaç",
+          "url": "https://www.yenisafak.com/yazarlar/kadri-aytac"
+        },
+        {
+          "name": "Kamil Anahar",
+          "url": "https://www.yenisafak.com/yazarlar/kamil-anahar"
+        },
+        {
+          "name": "Kamil Doruk",
+          "url": "https://www.yenisafak.com/yazarlar/kamil-doruk"
+        },
+        {
+          "name": "Kemal Kahraman",
+          "url": "https://www.yenisafak.com/yazarlar/kemal-kahraman"
+        },
+        {
+          "name": "Kemal Öztürk",
+          "url": "https://www.yenisafak.com/yazarlar/kemal-ozturk"
+        },
+        {
+          "name": "Kerem Alkin",
+          "url": "https://www.yenisafak.com/yazarlar/kerem-alkin"
+        },
+        {
+          "name": "Kevser Topkar",
+          "url": "https://www.yenisafak.com/yazarlar/kevser-topkar"
+        },
+        {
+          "name": "Koray Düzgören",
+          "url": "https://www.yenisafak.com/yazarlar/koray-duzgoren"
+        },
+        {
+          "name": "Kürşat Bumin",
+          "url": "https://www.yenisafak.com/yazarlar/kursat-bumin"
+        },
+        {
+          "name": "Levent Yılmaz",
+          "url": "https://www.yenisafak.com/yazarlar/levent-yilmaz"
+        },
+        {
+          "name": "Leyla İpekçi",
+          "url": "https://www.yenisafak.com/yazarlar/leyla-ipekci"
+        },
+        {
+          "name": "Lokman Koyuncuoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/lokman-koyuncuoglu"
+        },
+        {
+          "name": "Lokman Köse",
+          "url": "https://www.yenisafak.com/yazarlar/lokman-kose"
+        },
+        {
+          "name": "Mahmud Erol Kılıç",
+          "url": "https://www.yenisafak.com/yazarlar/mahmud-erol-kilic"
+        },
+        {
+          "name": "Mahmut Ay",
+          "url": "https://www.yenisafak.com/yazarlar/mahmut-ay"
+        },
+        {
+          "name": "Mahmut Dikmen",
+          "url": "https://www.yenisafak.com/yazarlar/mahmut-dikmen"
+        },
+        {
+          "name": "Mahmut Kulein",
+          "url": "https://www.yenisafak.com/yazarlar/mahmut-kulein"
+        },
+        {
+          "name": "Mahmut Osmanoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mahmut-osmanoglu"
+        },
+        {
+          "name": "Markar Esayan",
+          "url": "https://www.yenisafak.com/yazarlar/markar-esayan"
+        },
+        {
+          "name": "Mediha Olgun Karaca - Cts.",
+          "url": "https://www.yenisafak.com/yazarlar/mediha-olgun-karaca--cts"
+        },
+        {
+          "name": "Mehmed Niyazi Özdemir",
+          "url": "https://www.yenisafak.com/yazarlar/mehmed-niyazi-ozdemir"
+        },
+        {
+          "name": "Mehmet Acet",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-acet"
+        },
+        {
+          "name": "Mehmet Akif Aydın",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-akif-aydin"
+        },
+        {
+          "name": "Mehmet Akif Ersoy",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-akif-ersoy"
+        },
+        {
+          "name": "Mehmet Akif Soysal",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-akif-soysal"
+        },
+        {
+          "name": "Mehmet Ali Ergün",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-ali-ergun"
+        },
+        {
+          "name": "Mehmet Atalay",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-atalay"
+        },
+        {
+          "name": "Mehmet Barlas",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-barlas"
+        },
+        {
+          "name": "Mehmet Doğan - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-dogan--pazar"
+        },
+        {
+          "name": "Mehmet E. Yavuz",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-e-yavuz"
+        },
+        {
+          "name": "Mehmet Gündem - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-gundem--pazar"
+        },
+        {
+          "name": "Mehmet Metiner",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-metiner"
+        },
+        {
+          "name": "Mehmet Ocaktan",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-ocaktan"
+        },
+        {
+          "name": "Mehmet Ocaktan - Pazar",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-ocaktan--pazar"
+        },
+        {
+          "name": "Mehmet Ofluoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-ofluoglu"
+        },
+        {
+          "name": "Mehmet Onur Nizamoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-onur-nizamoglu"
+        },
+        {
+          "name": "Mehmet Şeker",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-seker"
+        },
+        {
+          "name": "Mehmet Ziya Gökalp",
+          "url": "https://www.yenisafak.com/yazarlar/mehmet-ziya-gokalp"
+        },
+        {
+          "name": "Melikşah Utku",
+          "url": "https://www.yenisafak.com/yazarlar/meliksah-utku"
+        },
+        {
+          "name": "MerveŞebnemOruç",
+          "url": "https://www.yenisafak.com/yazarlar/merve-sebnem-oruc"
+        },
+        {
+          "name": "Mirza A. Beg",
+          "url": "https://www.yenisafak.com/yazarlar/mirza-a-beg"
+        },
+        {
+          "name": "Muhammed Berdibek",
+          "url": "https://www.yenisafak.com/yazarlar/muhammed-berdibek"
+        },
+        {
+          "name": "Murat Aksoy",
+          "url": "https://www.yenisafak.com/yazarlar/murat-aksoy"
+        },
+        {
+          "name": "Murat Aksoy - Spor",
+          "url": "https://www.yenisafak.com/yazarlar/murat-aksoy--spor"
+        },
+        {
+          "name": "Murat Kelkitlioğlu",
+          "url": "https://www.yenisafak.com/yazarlar/murat-kelkitlioglu"
+        },
+        {
+          "name": "Murat Menteş",
+          "url": "https://www.yenisafak.com/yazarlar/murat-mentes"
+        },
+        {
+          "name": "Murat Zelan",
+          "url": "https://www.yenisafak.com/yazarlar/murat-zelan"
+        },
+        {
+          "name": "Mustafa Armağan",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-armagan"
+        },
+        {
+          "name": "Mustafa Başoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-basoglu"
+        },
+        {
+          "name": "Mustafa Erdoğan",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-erdogan"
+        },
+        {
+          "name": "Mustafa Göksel",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-goksel"
+        },
+        {
+          "name": "Mustafa İslamoğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-islamoglu"
+        },
+        {
+          "name": "Mustafa Karaalioğlu",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-karaalioglu"
+        },
+        {
+          "name": "Mustafa Kutlu",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-kutlu"
+        },
+        {
+          "name": "Mustafa Kutlu - Spor",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-kutlu--spor"
+        },
+        {
+          "name": "Mustafa Özel",
+          "url": "https://www.yenisafak.com/yazarlar/mustafa-ozel"
+        },
+        {
+          "name": "Mücahit Öztürk",
+          "url": "https://www.yenisafak.com/yazarlar/mucahit-ozturk"
+        },
+        {
+          "name": "Müfit Yüksel",
+          "url": "https://www.yenisafak.com/yazarlar/mufit-yuksel"
+        },
+        {
+          "name": "Yeni Şafak Gazetecilik A.Ş.",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "karar",
       "name": "Karar",
-      "count": 12,
+      "count": 142,
       "writers": [
+        {
+          "name": "İbrahim Kiras",
+          "url": "https://www.karar.com/yazarlar/ibrahim-kiras"
+        },
         {
           "name": "Taha Akyol",
           "url": "https://www.karar.com/yazarlar/taha-akyol"
+        },
+        {
+          "name": "Mustafa Karaalioğlu",
+          "url": "https://www.karar.com/yazarlar/mustafa-karaalioglu"
         },
         {
           "name": "Ahmet Taşgetiren",
@@ -155,139 +2271,1801 @@
           "url": "https://www.karar.com/yazarlar/fehmi-koru"
         },
         {
+          "name": "Mehmet Ocaktan",
+          "url": "https://www.karar.com/yazarlar/mehmet-ocaktan"
+        },
+        {
           "name": "Yusuf Ziya Cömert",
           "url": "https://www.karar.com/yazarlar/yusuf-ziya-comert"
+        },
+        {
+          "name": "Hakan Albayrak",
+          "url": "https://www.karar.com/yazarlar/hakan-albayrak"
+        },
+        {
+          "name": "Elif Çakır",
+          "url": "https://www.karar.com/yazarlar/elif-cakir"
+        },
+        {
+          "name": "Akif Beki",
+          "url": "https://www.karar.com/yazarlar/akif-beki"
+        },
+        {
+          "name": "Ali Bayramoğlu",
+          "url": "https://www.karar.com/yazarlar/ali-bayramoglu"
+        },
+        {
+          "name": "Yıldıray Oğur",
+          "url": "https://www.karar.com/yazarlar/yildiray-ogur"
+        },
+        {
+          "name": "İsmet Berkan",
+          "url": "https://www.karar.com/yazarlar/ismet-berkan"
         },
         {
           "name": "İskender Öksüz",
           "url": "https://www.karar.com/yazarlar/iskender-oksuz"
         },
         {
+          "name": "Carl Bildt",
+          "url": "https://www.karar.com/yazarlar/carl-bildt"
+        },
+        {
+          "name": "Sigmar Gabriel",
+          "url": "https://www.karar.com/yazarlar/sigmar-gabriel"
+        },
+        {
+          "name": "Mark Leonard",
+          "url": "https://www.karar.com/yazarlar/mark-leonard"
+        },
+        {
+          "name": "Muhammad Al Jasser",
+          "url": "https://www.karar.com/yazarlar/muhammad-al-jasser"
+        },
+        {
+          "name": "Anne O. Krueger",
+          "url": "https://www.karar.com/yazarlar/anne-o-krueger"
+        },
+        {
+          "name": "Josep Borrell",
+          "url": "https://www.karar.com/yazarlar/josep-borrell"
+        },
+        {
+          "name": "Joschka Fischer",
+          "url": "https://www.karar.com/yazarlar/joschka-fischer"
+        },
+        {
+          "name": "Emmanuel Guerin",
+          "url": "https://www.karar.com/yazarlar/emmanuel-guerin"
+        },
+        {
+          "name": "Ilona Sologoub",
+          "url": "https://www.karar.com/yazarlar/ilona-sologoub"
+        },
+        {
+          "name": "İbrahim Kahveci",
+          "url": "https://www.karar.com/yazarlar/ibrahim-kahveci"
+        },
+        {
+          "name": "Anders Åslund",
+          "url": "https://www.karar.com/yazarlar/anders-aslund"
+        },
+        {
+          "name": "Hakan Temiztürk",
+          "url": "https://www.karar.com/yazarlar/prof-dr-hakan-temizturk1"
+        },
+        {
+          "name": "Osman Sert",
+          "url": "https://www.karar.com/yazarlar/osman-sert1"
+        },
+        {
+          "name": "Mehmet Ali Verçin",
+          "url": "https://www.karar.com/yazarlar/mehmet-ali-vercin"
+        },
+        {
           "name": "Mensur Akgün",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/mensur-akgun"
+        },
+        {
+          "name": "Mustafa Çağrıcı",
+          "url": "https://www.karar.com/yazarlar/mustafa-cagrici"
         },
         {
           "name": "Taner Ay",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/taneray1"
+        },
+        {
+          "name": "Mikdat Karaalioğlu",
+          "url": "https://www.karar.com/yazarlar/mikdat-karaalioglu"
+        },
+        {
+          "name": "Ulvi Saran",
+          "url": "https://www.karar.com/yazarlar/ulvi-saran"
+        },
+        {
+          "name": "A. Yağmur Tunalı",
+          "url": "https://www.karar.com/yazarlar/yagmur-tunali"
+        },
+        {
+          "name": "Gülay Erdemli",
+          "url": "https://www.karar.com/yazarlar/gulay-erdemli"
+        },
+        {
+          "name": "Figen Çalıkuşu",
+          "url": "https://www.karar.com/yazarlar/figen-calikusu"
+        },
+        {
+          "name": "Eyüp Sabri Demirci",
+          "url": "https://www.karar.com/yazarlar/eyup-sabri-demirci"
+        },
+        {
+          "name": "Alaattin Karaca",
+          "url": "https://www.karar.com/yazarlar/alaattin-karaca"
+        },
+        {
+          "name": "Salih Cenap Baydar",
+          "url": "https://www.karar.com/yazarlar/salih-cenap-baydar"
+        },
+        {
+          "name": "Ömer Erdem",
+          "url": "https://www.karar.com/yazarlar/omer-erdem"
+        },
+        {
+          "name": "Levent Işık",
+          "url": "https://www.karar.com/yazarlar/levent-isik"
+        },
+        {
+          "name": "Şenol Kaluç",
+          "url": "https://www.karar.com/yazarlar/senol-kaluc"
+        },
+        {
+          "name": "Semra Alkan",
+          "url": "https://www.karar.com/yazarlar/semra-alkan"
         },
         {
           "name": "Bekir Fuat",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/bekir-fuat"
+        },
+        {
+          "name": "Şule Demirtaş",
+          "url": "https://www.karar.com/yazarlar/sule-demirtas"
+        },
+        {
+          "name": "Raşit Yıldırım",
+          "url": "https://www.karar.com/yazarlar/rasit-yildirim"
+        },
+        {
+          "name": "Ali Barskanmay",
+          "url": "https://www.karar.com/yazarlar/ali-barskanmay"
+        },
+        {
+          "name": "Enes Batman",
+          "url": "https://www.karar.com/yazarlar/enes-batman"
+        },
+        {
+          "name": "Sacide Özlem",
+          "url": "https://www.karar.com/yazarlar/sacide-ozlem"
         },
         {
           "name": "Gamze Demirel",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/gamze-demirel"
+        },
+        {
+          "name": "Ziyahan Albeniz",
+          "url": "https://www.karar.com/yazarlar/ziyahan-albeniz"
         },
         {
           "name": "Aynur Taş",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/aynur-tas"
+        },
+        {
+          "name": "Gülşen Yeşilyurt",
+          "url": "https://www.karar.com/yazarlar/gulsen-yesilyurt"
         },
         {
           "name": "Kerime Yıldız",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/kerime-yildiz"
+        },
+        {
+          "name": "Anadolu Aydınlı",
+          "url": "https://www.karar.com/yazarlar/anadolu-aydinli"
+        },
+        {
+          "name": "Zeynep Delav",
+          "url": "https://www.karar.com/yazarlar/zeynepdelav"
+        },
+        {
+          "name": "Bülent Tuncay",
+          "url": "https://www.karar.com/yazarlar/bulent-tuncay"
+        },
+        {
+          "name": "Veysel Taşkın",
+          "url": "https://www.karar.com/yazarlar/veysel-taskin"
         },
         {
           "name": "Gökhan Aktürk",
-          "url": ""
+          "url": "https://www.karar.com/yazarlar/gokhan-akturk"
+        },
+        {
+          "name": "Salome Mikadze",
+          "url": "https://www.karar.com/yazarlar/salome-mikadze"
+        },
+        {
+          "name": "Kian Tajbakhsh",
+          "url": "https://www.karar.com/yazarlar/kian-tajbakhsh"
+        },
+        {
+          "name": "Bartosz M. Rydlinski",
+          "url": "https://www.karar.com/yazarlar/bartosz-m-rydlinski"
+        },
+        {
+          "name": "Nancy Qian",
+          "url": "https://www.karar.com/yazarlar/nancy-qian"
+        },
+        {
+          "name": "Anna Husarska",
+          "url": "https://www.karar.com/yazarlar/anna-husarska"
+        },
+        {
+          "name": "Dalia Ghanem",
+          "url": "https://www.karar.com/yazarlar/dalia-ghanem"
+        },
+        {
+          "name": "Cristina Ramirez",
+          "url": "https://www.karar.com/yazarlar/cristina-ramirez"
+        },
+        {
+          "name": "Jim O’Neill",
+          "url": "https://www.karar.com/yazarlar/jim-oneill"
+        },
+        {
+          "name": "Vali Nasr",
+          "url": "https://www.karar.com/yazarlar/vali-nasr"
+        },
+        {
+          "name": "Djavad Salehi-Isfahani",
+          "url": "https://www.karar.com/yazarlar/djavad-salehi"
+        },
+        {
+          "name": "Pinelopi Koujianou Goldberg",
+          "url": "https://www.karar.com/yazarlar/pinelopi-koujianou-goldberg"
+        },
+        {
+          "name": "Eric A. Baldwin",
+          "url": "https://www.karar.com/yazarlar/eric-a-baldwin"
+        },
+        {
+          "name": "Marco Buti",
+          "url": "https://www.karar.com/yazarlar/marco-buti"
+        },
+        {
+          "name": "Reed Galen",
+          "url": "https://www.karar.com/yazarlar/reed-galen"
+        },
+        {
+          "name": "Diane Coyle",
+          "url": "https://www.karar.com/yazarlar/diane-coyle"
+        },
+        {
+          "name": "Kenneth Rogoff",
+          "url": "https://www.karar.com/yazarlar/kenneth-rogoff"
+        },
+        {
+          "name": "Nina L. Khrushcheva",
+          "url": "https://www.karar.com/yazarlar/nina-l-khrushcheva"
+        },
+        {
+          "name": "Helen Clark",
+          "url": "https://www.karar.com/yazarlar/helen-clark"
+        },
+        {
+          "name": "Binaifer Nowrojee",
+          "url": "https://www.karar.com/yazarlar/binaifer-nowrojee"
+        },
+        {
+          "name": "Kori Schake",
+          "url": "https://www.karar.com/yazarlar/kori-schake"
+        },
+        {
+          "name": "Rakesh Mohan",
+          "url": "https://www.karar.com/yazarlar/rakesh-mohan"
+        },
+        {
+          "name": "Nicu Popescu",
+          "url": "https://www.karar.com/yazarlar/nicu-popescu"
+        },
+        {
+          "name": "Sam Chetwin George",
+          "url": "https://www.karar.com/yazarlar/sam-chetwin-george"
+        },
+        {
+          "name": "Janak Raj",
+          "url": "https://www.karar.com/yazarlar/janak-raj"
+        },
+        {
+          "name": "Pegah Banihashemi",
+          "url": "https://www.karar.com/yazarlar/pegah-banihashemi"
+        },
+        {
+          "name": "Daniel Sleat",
+          "url": "https://www.karar.com/yazarlar/daniel-sleat"
+        },
+        {
+          "name": "Huang Yiping",
+          "url": "https://www.karar.com/yazarlar/huang-yiping"
+        },
+        {
+          "name": "Carla Norrlöf",
+          "url": "https://www.karar.com/yazarlar/carla-norrlof"
+        },
+        {
+          "name": "Inna Bondarenko",
+          "url": "https://www.karar.com/yazarlar/inna-bondarenko"
+        },
+        {
+          "name": "Robert Skidelsky",
+          "url": "https://www.karar.com/yazarlar/robert-skidelsky2"
+        },
+        {
+          "name": "Barak Barfi",
+          "url": "https://www.karar.com/yazarlar/barak-barfi"
+        },
+        {
+          "name": "Zselyke Csaky",
+          "url": "https://www.karar.com/yazarlar/zselyke-csaky"
+        },
+        {
+          "name": "Roger Myerson",
+          "url": "https://www.karar.com/yazarlar/roger-myerson"
+        },
+        {
+          "name": "Simon Johnson",
+          "url": "https://www.karar.com/yazarlar/simon-johnson"
+        },
+        {
+          "name": "Federico Fubini",
+          "url": "https://www.karar.com/yazarlar/federico-fubini"
+        },
+        {
+          "name": "Gomez Agou",
+          "url": "https://www.karar.com/yazarlar/gomez-agou"
+        },
+        {
+          "name": "Eyck Freymann",
+          "url": "https://www.karar.com/yazarlar/eyck-freymann"
+        },
+        {
+          "name": "Joseph E. Stiglitz",
+          "url": "https://www.karar.com/yazarlar/joseph-e-stiglitz"
+        },
+        {
+          "name": "Stephen Holmes",
+          "url": "https://www.karar.com/yazarlar/stephen-holmes"
+        },
+        {
+          "name": "Prof. Kenneth Rogoff",
+          "url": "https://www.karar.com/yazarlar/prof-kenneth-rogoff"
+        },
+        {
+          "name": "Aziz Huq",
+          "url": "https://www.karar.com/yazarlar/aziz-huq"
+        },
+        {
+          "name": "Angela Huyue Zhang",
+          "url": "https://www.karar.com/yazarlar/angela-huyue-zhang"
+        },
+        {
+          "name": "Samuel Charap",
+          "url": "https://www.karar.com/yazarlar/samuel-charap"
+        },
+        {
+          "name": "Lütfü Şehsuvaroğlu",
+          "url": "https://www.karar.com/yazarlar/lutfu-sehsuvaroglu"
+        },
+        {
+          "name": "Alberto Alemanno",
+          "url": "https://www.karar.com/yazarlar/alberto-alemanno"
+        },
+        {
+          "name": "László Bruszt",
+          "url": "https://www.karar.com/yazarlar/laszlo-bruszt"
+        },
+        {
+          "name": "Ana Palacio",
+          "url": "https://www.karar.com/yazarlar/ana-palacio"
+        },
+        {
+          "name": "Joseph S. Nye",
+          "url": "https://www.karar.com/yazarlar/joseph-s-nye"
+        },
+        {
+          "name": "Fabrizio Tassinari",
+          "url": "https://www.karar.com/yazarlar/fabrizio-tassinari"
+        },
+        {
+          "name": "Sergei Guriev",
+          "url": "https://www.karar.com/yazarlar/sergei-guriev"
+        },
+        {
+          "name": "Jamal Ibrahim Haidar",
+          "url": "https://www.karar.com/yazarlar/jamal-ibrahim-haidar"
+        },
+        {
+          "name": "Don Aviv",
+          "url": "https://www.karar.com/yazarlar/don-aviv"
+        },
+        {
+          "name": "İlker Yıldız",
+          "url": "https://www.karar.com/yazarlar/ilker-yildiz"
+        },
+        {
+          "name": "Beşir Ayvazoğlu",
+          "url": "https://www.karar.com/yazarlar/besir-ayvazoglu"
+        },
+        {
+          "name": "Mustafa Öztürk",
+          "url": "https://www.karar.com/yazarlar/mustafa-ozturk"
+        },
+        {
+          "name": "Lütfü Şahsuvaroğlu",
+          "url": "https://www.karar.com/yazarlar/lutfu-sahsuvaroglu"
+        },
+        {
+          "name": "Zafer Acar",
+          "url": "https://www.karar.com/yazarlar/zafer-acar"
+        },
+        {
+          "name": "Uğur Emek",
+          "url": "https://www.karar.com/yazarlar/ugur-emek"
+        },
+        {
+          "name": "Osman Çakmakçı",
+          "url": "https://www.karar.com/yazarlar/osman-cakmakci"
+        },
+        {
+          "name": "Mustafa Morgil",
+          "url": "https://www.karar.com/yazarlar/mustafa-morgil"
+        },
+        {
+          "name": "Zaki Laïdi",
+          "url": "https://www.karar.com/yazarlar/zaki-laidi"
+        },
+        {
+          "name": "Mehmet Atalay",
+          "url": "https://www.karar.com/yazarlar/mehmet-atalay"
+        },
+        {
+          "name": "Hasan Kösebalaban",
+          "url": "https://www.karar.com/yazarlar/hasan-kosebalaban"
+        },
+        {
+          "name": "Muhsin Mete",
+          "url": "https://www.karar.com/yazarlar/muhsin-mete"
+        },
+        {
+          "name": "Mevlana İdris",
+          "url": "https://www.karar.com/yazarlar/mevlana-idris"
+        },
+        {
+          "name": "Selim Yıldırım",
+          "url": "https://www.karar.com/yazarlar/selim-yildirim"
+        },
+        {
+          "name": "Asım Gültekin",
+          "url": "https://www.karar.com/yazarlar/asim-gultekin"
+        },
+        {
+          "name": "Yıldız Ramazanoğlu",
+          "url": "https://www.karar.com/yazarlar/yildiz-ramazanoglu"
+        },
+        {
+          "name": "Ahmet Altay",
+          "url": "https://www.karar.com/yazarlar/ahmet-altay"
+        },
+        {
+          "name": "D. Mehmet Doğan",
+          "url": "https://www.karar.com/yazarlar/d-mehmet-dogan"
+        },
+        {
+          "name": "Galip Dalay",
+          "url": "https://www.karar.com/yazarlar/galip-dalay"
+        },
+        {
+          "name": "Hakan Erdem",
+          "url": "https://www.karar.com/yazarlar/hakan-erdem"
+        },
+        {
+          "name": "Hüseyin Hatemi",
+          "url": "https://www.karar.com/yazarlar/huseyin-hatemi"
+        },
+        {
+          "name": "KALP DİLİYLE",
+          "url": "https://www.karar.com/yazarlar/kalp-diliyle"
+        },
+        {
+          "name": "Ahmet Ertuğrul Akyol",
+          "url": "https://www.karar.com/yazarlar/ahmet-ertugrul-akyol"
+        },
+        {
+          "name": "Mete Yarar",
+          "url": "https://www.karar.com/yazarlar/mete-yarar"
+        },
+        {
+          "name": "Oğuz Demir",
+          "url": "https://www.karar.com/yazarlar/oguz-demir"
+        },
+        {
+          "name": "Oğulcan Çoksayar",
+          "url": "https://www.karar.com/yazarlar/ogulcan-coksayar"
+        },
+        {
+          "name": "Burcu Öğretmen",
+          "url": "https://www.karar.com/yazarlar/burcu-ogretmen"
+        },
+        {
+          "name": "Burak Köse",
+          "url": "https://www.karar.com/yazarlar/burak-kose"
+        },
+        {
+          "name": "Emir Ekşioğlu",
+          "url": "https://www.karar.com/yazarlar/emir-eksioglu"
+        },
+        {
+          "name": "Melikşah Aydın",
+          "url": "https://www.karar.com/yazarlar/meliksah-aydin1"
+        },
+        {
+          "name": "Janis Emmanouilidis",
+          "url": "https://www.karar.com/yazarlar/janis-emmanouilidis"
         }
       ]
     },
     {
       "key": "birgun",
       "name": "BirGün",
-      "count": 12,
-      "writers": [
-        {
-          "name": "Gözde Bedeloğlu",
-          "url": "https://www.birgun.net/profil/gozde-bedeloglu-223"
-        },
-        {
-          "name": "Halis Dokgöz",
-          "url": "https://www.birgun.net/profil/halis-dokgoz-402"
-        },
-        {
-          "name": "Yakup Kepenek",
-          "url": "https://www.birgun.net/profil/yakup-kepenek-348"
-        },
-        {
-          "name": "H. Tuğça Şener",
-          "url": "https://www.birgun.net/profil/h-tugca-sener-408"
-        },
-        {
-          "name": "Vecdi Sayar",
-          "url": "https://www.birgun.net/profil/vecdi-sayar-342"
-        },
-        {
-          "name": "Haydar Ergülen",
-          "url": "https://www.birgun.net/profil/haydar-ergulen-98"
-        },
-        {
-          "name": "Önder İşleyen",
-          "url": "https://www.birgun.net/profil/onder-isleyen-291"
-        },
-        {
-          "name": "Eren Tutel",
-          "url": "https://www.birgun.net/profil/eren-tutel-378"
-        },
-        {
-          "name": "L. Doğan Tılıç",
-          "url": "https://www.birgun.net/profil/l-dogan-tilic-274"
-        },
-        {
-          "name": "Attila Aşut",
-          "url": "https://www.birgun.net/profil/attila-asut-218"
-        },
-        {
-          "name": "Selin Nakıpoğlu",
-          "url": "https://www.birgun.net/profil/selin-nakipoglu-363"
-        },
-        {
-          "name": "Tuğçe Madayanti Şen",
-          "url": "https://www.birgun.net/profil/tugce-madayanti-sen-294"
-        }
-      ]
+      "count": 0,
+      "writers": []
     },
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "Habertürk",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "aksam",
       "name": "Akşam",
-      "count": 0,
-      "writers": []
+      "count": 25,
+      "writers": [
+        {
+          "name": "Serkan Fıçıcı",
+          "url": "https://www.aksam.com.tr/yazarlar/serkan-ficici/"
+        },
+        {
+          "name": "Prof. Dr. Cevdet Erdöl",
+          "url": "https://www.aksam.com.tr/yazarlar/prof-dr-cevdet-erdol/"
+        },
+        {
+          "name": "Hüseyin Besli",
+          "url": "https://www.aksam.com.tr/yazarlar/huseyin-besli/"
+        },
+        {
+          "name": "Okan Güray Bülbül",
+          "url": "https://www.aksam.com.tr/yazarlar/okan-guray-bulbul/"
+        },
+        {
+          "name": "Engin Verel",
+          "url": "https://www.aksam.com.tr/yazarlar/engin-verel/"
+        },
+        {
+          "name": "Kenan Karcı",
+          "url": "https://www.aksam.com.tr/yazarlar/kenan-karci/"
+        },
+        {
+          "name": "Dr. Eray Güçlüer",
+          "url": "https://www.aksam.com.tr/yazarlar/dr-eray-gucluer-gazete/"
+        },
+        {
+          "name": "Mehmet Garip Tanyıldızı",
+          "url": "https://www.aksam.com.tr/yazarlar/mehmet-garip-tanyildizi/"
+        },
+        {
+          "name": "Mustafa Kartoğlu",
+          "url": "https://www.aksam.com.tr/yazarlar/mustafa-kartoglu/"
+        },
+        {
+          "name": "Ahmet Kekeç",
+          "url": "https://www.aksam.com.tr/yazarlar/ahmet-kekec/"
+        },
+        {
+          "name": "Murat Çiçek",
+          "url": "https://www.aksam.com.tr/yazarlar/murat-cicek/"
+        },
+        {
+          "name": "Turgay Güler",
+          "url": "https://www.aksam.com.tr/yazarlar/turgay-guler/"
+        },
+        {
+          "name": "Yusuf Alabarda",
+          "url": "https://www.aksam.com.tr/yazarlar/yusuf-alabarda/"
+        },
+        {
+          "name": "Prof. Dr. Yaşar Hacısalihoğlu",
+          "url": "https://www.aksam.com.tr/yazarlar/prof-dr-yasar-hacisalihoglu/"
+        },
+        {
+          "name": "Hikmet Genç",
+          "url": "https://www.aksam.com.tr/yazarlar/hikmet-genc/"
+        },
+        {
+          "name": "Kurtuluş Tayiz",
+          "url": "https://www.aksam.com.tr/yazarlar/kurtulus-tayiz/"
+        },
+        {
+          "name": "Barış Kocaoğlu",
+          "url": "https://www.aksam.com.tr/yazarlar/baris-kocaoglu/"
+        },
+        {
+          "name": "Oğuzhan Bilgin",
+          "url": "https://www.aksam.com.tr/yazarlar/oguzhan-bilgin/"
+        },
+        {
+          "name": "Taceddin Kutay",
+          "url": "https://www.aksam.com.tr/yazarlar/taceddin-kutay/"
+        },
+        {
+          "name": "Murat Özer",
+          "url": "https://www.aksam.com.tr/yazarlar/murat-ozer/"
+        },
+        {
+          "name": "Aydın Türkmen",
+          "url": "https://www.aksam.com.tr/yazarlar/aydin-turkmen/"
+        },
+        {
+          "name": "Alen Markaryan",
+          "url": "https://www.aksam.com.tr/yazarlar/alen-markaryan/"
+        },
+        {
+          "name": "Tarkan Zengin",
+          "url": "https://www.aksam.com.tr/yazarlar/tarkan-zengin/"
+        },
+        {
+          "name": "Bedir Acar",
+          "url": "https://www.aksam.com.tr/yazarlar/bedir-acar/"
+        },
+        {
+          "name": "Burak Çolo",
+          "url": "https://www.aksam.com.tr/yazarlar/burak-colo/"
+        }
+      ]
     },
     {
       "key": "takvim",
       "name": "Takvim",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "https://www.facebook.com/takvim",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "posta",
       "name": "Posta",
-      "count": 0,
-      "writers": []
+      "count": 12,
+      "writers": [
+        {
+          "name": "İlke Gürsoy 15 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/ilke-gursoy/"
+        },
+        {
+          "name": "Ayşe Mine Yaman 28 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/ayse-mine-yaman/"
+        },
+        {
+          "name": "Aytül Farquharson 111 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/aytul-farquharson/"
+        },
+        {
+          "name": "Dr. Ceyda Şener 26 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/dr-ceyda-sener/"
+        },
+        {
+          "name": "Emre Arslan 8 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/emre-arslan/"
+        },
+        {
+          "name": "Selcen Doğan Ağakay 115 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/selcen-dogan-agakay/"
+        },
+        {
+          "name": "Twitter Köstebeği 5 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/twitter-kostebegi/"
+        },
+        {
+          "name": "Yasemin Altan 12 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/yasemin-altan/"
+        },
+        {
+          "name": "Zeyno Gürses 46 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/zeyno-gurses/"
+        },
+        {
+          "name": "Didem Şarman 6 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/didem-sarman/"
+        },
+        {
+          "name": "Aslı Utkan 1 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/asli-utkan/"
+        },
+        {
+          "name": "Erdoğan Arıpınar 115 Yazı",
+          "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/"
+        }
+      ]
     },
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 0,
-      "writers": []
+      "count": 40,
+      "writers": [
+        {
+          "name": "BİLAL DOĞAN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/bilal_dogan"
+        },
+        {
+          "name": "BÜLENT ERANDAÇ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/bulent-erandac"
+        },
+        {
+          "name": "EKREM DURUL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/ekrem-durul"
+        },
+        {
+          "name": "ERCAN DEMİR",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/ercan-demir"
+        },
+        {
+          "name": "ERDEM ÖZTOP",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/erdem-oztop"
+        },
+        {
+          "name": "ERGUN ONARIR",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/ergun_onarir"
+        },
+        {
+          "name": "ERHAN ÇALIŞKAN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/erhan-caliskan"
+        },
+        {
+          "name": "ERHAN GÜLENÇ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/erhan-gulenc"
+        },
+        {
+          "name": "ERMAN AZAR",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/erman-azar"
+        },
+        {
+          "name": "FARUK ERDEM",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/faruk-erdem"
+        },
+        {
+          "name": "FİLİZ İÇKE ÖNAL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/filiz_icke"
+        },
+        {
+          "name": "FİLİZ ÖZKOL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/filiz_ozkol"
+        },
+        {
+          "name": "GONCA ELİBOL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/gonca-elibol"
+        },
+        {
+          "name": "HACER ÖNOĞLU ÜLGER",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/hacer-onoglu-ulger"
+        },
+        {
+          "name": "HAKAN URGANCI",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/hakan_urganci"
+        },
+        {
+          "name": "Halil Fincan",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/halil_fincan"
+        },
+        {
+          "name": "İSMAİL HAKKI DOSTOĞLU",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/ismail-hakki-dostoglu"
+        },
+        {
+          "name": "LEVENT ARIÖZ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/levent_arioz"
+        },
+        {
+          "name": "LEVENT TÜZEMEN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/levent-tuzemen"
+        },
+        {
+          "name": "MERT DİRİM",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/mert-dirim"
+        },
+        {
+          "name": "METİN GÖKALP",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/metin-gokalp"
+        },
+        {
+          "name": "PAKİZE SÜKAN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/pakize-sukan"
+        },
+        {
+          "name": "SEZER ALTAN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/sezer-altan"
+        },
+        {
+          "name": "TOLGA TEKİN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/tolga-tekin"
+        },
+        {
+          "name": "ZÜMRÜT YILMAZ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zumrut-yilmaz"
+        },
+        {
+          "name": "BERKE ÖZBAY",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/berke_ozbay"
+        },
+        {
+          "name": "BURAK HAKERLER",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/burak-hakerler"
+        },
+        {
+          "name": "DOĞANCAN BİNGÖL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/dogancanbingol"
+        },
+        {
+          "name": "GÜRCAN BİLGİÇ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/gurcan-bilgic"
+        },
+        {
+          "name": "HAYRİ ÜLGEN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/hayri-ulgen"
+        },
+        {
+          "name": "OGÜN ÖZDEMİR",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/ogun-ozdemir"
+        },
+        {
+          "name": "ÖMER ÜRÜNDÜL",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/omer-urundul"
+        },
+        {
+          "name": "SELAHATTİN ERTAŞ",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/selahattin-ertas"
+        },
+        {
+          "name": "ŞENOL KANTÜRK",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/senol-kanturk"
+        },
+        {
+          "name": "ARZU GÜNAYDIN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/arzu-gunaydin"
+        },
+        {
+          "name": "BURCU ILGIN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/burcu-ilgin"
+        },
+        {
+          "name": "ÇAĞRI ZORER",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/cagri-zorer"
+        },
+        {
+          "name": "NİHAN YARKENT İNCE",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/nihan-yarkent-ince"
+        },
+        {
+          "name": "ZEKİ HOZER",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer"
+        },
+        {
+          "name": "https://www.facebook.com/yeniasir",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "star",
       "name": "Star",
-      "count": 0,
-      "writers": []
+      "count": 158,
+      "writers": [
+        {
+          "name": "Abdelbari ATWAN",
+          "url": "https://www.star.com.tr/yazarlar/abdelbari-atwan/"
+        },
+        {
+          "name": "Abdelbari ATWAN (TR)",
+          "url": "https://www.star.com.tr/yazarlar/abdelbari-atwan-tr/"
+        },
+        {
+          "name": "Ahmet Gürdağ",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-gurdag/"
+        },
+        {
+          "name": "Ahmet Hamdi Çamlı",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-hamdi-camli/"
+        },
+        {
+          "name": "Ahmet KAPLAN",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-kaplan/"
+        },
+        {
+          "name": "Ahmet KEKEÇ",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-kekec/"
+        },
+        {
+          "name": "Ahmet KESKİN",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-keskin/"
+        },
+        {
+          "name": "Ahmet Metin AYSOY",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-metin-aysoy/"
+        },
+        {
+          "name": "Ahmet TAŞGETİREN",
+          "url": "https://www.star.com.tr/yazarlar/ahmet-tasgetiren/"
+        },
+        {
+          "name": "Ali Sami ALKIŞ",
+          "url": "https://www.star.com.tr/yazarlar/ali-sami-alkis/"
+        },
+        {
+          "name": "Alin TAŞÇIYAN",
+          "url": "https://www.star.com.tr/yazarlar/alin-tasciyan/"
+        },
+        {
+          "name": "Alper Mert",
+          "url": "https://www.star.com.tr/yazarlar/alper-mert/"
+        },
+        {
+          "name": "Alper TEKBAŞ",
+          "url": "https://www.star.com.tr/yazarlar/alper-tekbas/"
+        },
+        {
+          "name": "Ardan ZENTÜRK",
+          "url": "https://www.star.com.tr/yazarlar/ardan-zenturk/"
+        },
+        {
+          "name": "ASABİ ADAM",
+          "url": "https://www.star.com.tr/yazarlar/asabi-adam/"
+        },
+        {
+          "name": "Avni Tarhan",
+          "url": "https://www.star.com.tr/yazarlar/avni-tarhan/"
+        },
+        {
+          "name": "Aydan ÜSTKANAT",
+          "url": "https://www.star.com.tr/yazarlar/aydan-ustkanat/"
+        },
+        {
+          "name": "Aydın BAYRAM",
+          "url": "https://www.star.com.tr/yazarlar/aydin-bayram/"
+        },
+        {
+          "name": "Aygün Özipek",
+          "url": "https://www.star.com.tr/yazarlar/aygun-ozipek/"
+        },
+        {
+          "name": "Aziz Bostan",
+          "url": "https://www.star.com.tr/yazarlar/aziz-bostan/"
+        },
+        {
+          "name": "Aziz ÜSTEL",
+          "url": "https://www.star.com.tr/yazarlar/aziz-ustel/"
+        },
+        {
+          "name": "Bedir ACAR",
+          "url": "https://www.star.com.tr/yazarlar/bedir-acar/"
+        },
+        {
+          "name": "Behçet YAVUZ",
+          "url": "https://www.star.com.tr/yazarlar/behcet-yavuz/"
+        },
+        {
+          "name": "Bekir S. Gür",
+          "url": "https://www.star.com.tr/yazarlar/bekir-s-gur/"
+        },
+        {
+          "name": "Belkıs Kamut AKTÜRK",
+          "url": "https://www.star.com.tr/yazarlar/belkis-kamut-akturk/"
+        },
+        {
+          "name": "Berat ÖZİPEK",
+          "url": "https://www.star.com.tr/yazarlar/berat-ozipek/"
+        },
+        {
+          "name": "Beril DEDEOĞLU",
+          "url": "https://www.star.com.tr/yazarlar/beril-dedeoglu/"
+        },
+        {
+          "name": "Beyinsiz Adam",
+          "url": "https://www.star.com.tr/yazarlar/beyinsiz-adam/"
+        },
+        {
+          "name": "Bobby Salman SAYYİD",
+          "url": "https://www.star.com.tr/yazarlar/bobby-salman-sayyid/"
+        },
+        {
+          "name": "Bobby Salman SAYYİD (TR)",
+          "url": "https://www.star.com.tr/yazarlar/bobby-salman-sayyid-tr/"
+        },
+        {
+          "name": "Burcu ÇETİNKAYA",
+          "url": "https://www.star.com.tr/yazarlar/burcu-cetinkaya/"
+        },
+        {
+          "name": "Cem Küçük",
+          "url": "https://www.star.com.tr/yazarlar/cem-kucuk/"
+        },
+        {
+          "name": "Cemil ERTEM",
+          "url": "https://www.star.com.tr/yazarlar/cemil-ertem/"
+        },
+        {
+          "name": "Cemil KOÇAK",
+          "url": "https://www.star.com.tr/yazarlar/cemil-kocak/"
+        },
+        {
+          "name": "Cengiz Tümer",
+          "url": "https://www.star.com.tr/yazarlar/cengiz-tumer/"
+        },
+        {
+          "name": "Cüneyt Özek",
+          "url": "https://www.star.com.tr/yazarlar/cuneyt-ozek/"
+        },
+        {
+          "name": "Deniz Adnan ÇOBAN",
+          "url": "https://www.star.com.tr/yazarlar/deniz-adnan-coban/"
+        },
+        {
+          "name": "Devrim DEMİREL",
+          "url": "https://www.star.com.tr/yazarlar/devrim-demirel/"
+        },
+        {
+          "name": "Dr.Sevda Sarıkaya",
+          "url": "https://www.star.com.tr/yazarlar/drsevda-sarikaya/"
+        },
+        {
+          "name": "Ekrem PAKDEMİRLİ",
+          "url": "https://www.star.com.tr/yazarlar/ekrem-pakdemirli/"
+        },
+        {
+          "name": "Eldebiran AYAN",
+          "url": "https://www.star.com.tr/yazarlar/eldebiran-ayan/"
+        },
+        {
+          "name": "Elif ÇAKIR",
+          "url": "https://www.star.com.tr/yazarlar/elif-cakir/"
+        },
+        {
+          "name": "Eral KARAYAZICI",
+          "url": "https://www.star.com.tr/yazarlar/eral-karayazici/"
+        },
+        {
+          "name": "Erdinç TEĞMEN",
+          "url": "https://www.star.com.tr/yazarlar/erdinc-tegmen/"
+        },
+        {
+          "name": "Eren HATTATOĞLU",
+          "url": "https://www.star.com.tr/yazarlar/eren-hattatoglu/"
+        },
+        {
+          "name": "Ergun BABAHAN",
+          "url": "https://www.star.com.tr/yazarlar/ergun-babahan/"
+        },
+        {
+          "name": "Ergün YILDIRIM",
+          "url": "https://www.star.com.tr/yazarlar/ergun-yildirim/"
+        },
+        {
+          "name": "Erhan Köknar",
+          "url": "https://www.star.com.tr/yazarlar/erhan-koknar/"
+        },
+        {
+          "name": "Ersoy DEDE",
+          "url": "https://www.star.com.tr/yazarlar/ersoy-dede/"
+        },
+        {
+          "name": "Eser KARAKAŞ",
+          "url": "https://www.star.com.tr/yazarlar/eser-karakas/"
+        },
+        {
+          "name": "Fehmi KORU",
+          "url": "https://www.star.com.tr/yazarlar/fehmi-koru/"
+        },
+        {
+          "name": "Ferid ZEKERİYA",
+          "url": "https://www.star.com.tr/yazarlar/ferid-zekeriya/"
+        },
+        {
+          "name": "Ferudun Niğdelioğlu",
+          "url": "https://www.star.com.tr/yazarlar/ferudun-nigdelioglu/"
+        },
+        {
+          "name": "Figen KIZILTAŞ & Berna Narin AŞKIN",
+          "url": "https://www.star.com.tr/yazarlar/figen-kiziltas-amp-berna-narin-askin/"
+        },
+        {
+          "name": "Fulya ERDEM",
+          "url": "https://www.star.com.tr/yazarlar/fulya-erdem/"
+        },
+        {
+          "name": "Gökçe Bayraktar YILDIRIM",
+          "url": "https://www.star.com.tr/yazarlar/gokce-bayraktar-yildirim/"
+        },
+        {
+          "name": "Gülay ERDEMLİ",
+          "url": "https://www.star.com.tr/yazarlar/gulay-erdemli/"
+        },
+        {
+          "name": "Güven TANER",
+          "url": "https://www.star.com.tr/yazarlar/guven-taner/"
+        },
+        {
+          "name": "Hakan Albayrak",
+          "url": "https://www.star.com.tr/yazarlar/hakan-albayrak/"
+        },
+        {
+          "name": "Hakan ARSLAN",
+          "url": "https://www.star.com.tr/yazarlar/hakan-arslan/"
+        },
+        {
+          "name": "Halime Sürek KAHVECİ",
+          "url": "https://www.star.com.tr/yazarlar/halime-surek-kahveci/"
+        },
+        {
+          "name": "Hasan Öztürk",
+          "url": "https://www.star.com.tr/yazarlar/hasan-ozturk/"
+        },
+        {
+          "name": "Hikmet GENÇ",
+          "url": "https://www.star.com.tr/yazarlar/hikmet-genc/"
+        },
+        {
+          "name": "Hüseyin KAYA",
+          "url": "https://www.star.com.tr/yazarlar/huseyin-kaya/"
+        },
+        {
+          "name": "Hüseyin ÖZAY",
+          "url": "https://www.star.com.tr/yazarlar/huseyin-ozay/"
+        },
+        {
+          "name": "İbrahim KAHVECİ",
+          "url": "https://www.star.com.tr/yazarlar/ibrahim-kahveci/"
+        },
+        {
+          "name": "İbrahim KİRAS",
+          "url": "https://www.star.com.tr/yazarlar/ibrahim-kiras/"
+        },
+        {
+          "name": "İhsan KABİL",
+          "url": "https://www.star.com.tr/yazarlar/ihsan-kabil/"
+        },
+        {
+          "name": "İkram Bağcı",
+          "url": "https://www.star.com.tr/yazarlar/ikram-bagci/"
+        },
+        {
+          "name": "İlhami IŞIK",
+          "url": "https://www.star.com.tr/yazarlar/ilhami-isik/"
+        },
+        {
+          "name": "İsmail Bayazıt",
+          "url": "https://www.star.com.tr/yazarlar/ismail-bayazit/"
+        },
+        {
+          "name": "Lokman DURAK",
+          "url": "https://www.star.com.tr/yazarlar/lokman-durak/"
+        },
+        {
+          "name": "Lütfü OFLAZ",
+          "url": "https://www.star.com.tr/yazarlar/lutfu-oflaz/"
+        },
+        {
+          "name": "Mahir KAYNAK",
+          "url": "https://www.star.com.tr/yazarlar/mahir-kaynak/"
+        },
+        {
+          "name": "Medaim YANIK",
+          "url": "https://www.star.com.tr/yazarlar/medaim-yanik/"
+        },
+        {
+          "name": "Mehmet METİNER",
+          "url": "https://www.star.com.tr/yazarlar/mehmet-metiner/"
+        },
+        {
+          "name": "Mehmet OCAKTAN",
+          "url": "https://www.star.com.tr/yazarlar/mehmet-ocaktan/"
+        },
+        {
+          "name": "Mehmet TEKELİOĞLU",
+          "url": "https://www.star.com.tr/yazarlar/mehmet-tekelioglu/"
+        },
+        {
+          "name": "Mehmet YEŞİLKAYA",
+          "url": "https://www.star.com.tr/yazarlar/mehmet-yesilkaya/"
+        },
+        {
+          "name": "Melih Sadıkoğlu",
+          "url": "https://www.star.com.tr/yazarlar/melih-sadikoglu/"
+        },
+        {
+          "name": "Mensur AKGÜN",
+          "url": "https://www.star.com.tr/yazarlar/mensur-akgun/"
+        },
+        {
+          "name": "Michael GERSON",
+          "url": "https://www.star.com.tr/yazarlar/michael-gerson/"
+        },
+        {
+          "name": "Michael GERSON (TR)",
+          "url": "https://www.star.com.tr/yazarlar/michael-gerson-tr/"
+        },
+        {
+          "name": "Muammer Başkan",
+          "url": "https://www.star.com.tr/yazarlar/muammer-baskan/"
+        },
+        {
+          "name": "Muhittin BOŞAT",
+          "url": "https://www.star.com.tr/yazarlar/muhittin-bosat/"
+        },
+        {
+          "name": "Murat ÇİÇEK",
+          "url": "https://www.star.com.tr/yazarlar/murat-cicek/"
+        },
+        {
+          "name": "Murat KUTLU",
+          "url": "https://www.star.com.tr/yazarlar/murat-kutlu/"
+        },
+        {
+          "name": "Murat Özgül",
+          "url": "https://www.star.com.tr/yazarlar/murat-ozgul/"
+        },
+        {
+          "name": "Mustafa AKYOL",
+          "url": "https://www.star.com.tr/yazarlar/mustafa-akyol/"
+        },
+        {
+          "name": "Mustafa ÇİFTÇİ",
+          "url": "https://www.star.com.tr/yazarlar/mustafa-ciftci/"
+        },
+        {
+          "name": "Mustafa KARAALİOĞLU",
+          "url": "https://www.star.com.tr/yazarlar/mustafa-karaalioglu/"
+        },
+        {
+          "name": "Mustafa KARTOĞLU",
+          "url": "https://www.star.com.tr/yazarlar/mustafa-kartoglu/"
+        },
+        {
+          "name": "Mustafa Nihat Yükselir",
+          "url": "https://www.star.com.tr/yazarlar/mustafa-nihat-yukselir/"
+        },
+        {
+          "name": "Nasuhi GÜNGÖR",
+          "url": "https://www.star.com.tr/yazarlar/nasuhi-gungor/"
+        },
+        {
+          "name": "Orhan Miroğlu",
+          "url": "https://www.star.com.tr/yazarlar/orhan-miroglu/"
+        },
+        {
+          "name": "Osman CAN",
+          "url": "https://www.star.com.tr/yazarlar/osman-can/"
+        },
+        {
+          "name": "Ömer EKİNCİ",
+          "url": "https://www.star.com.tr/yazarlar/omer-ekinci/"
+        },
+        {
+          "name": "Önder ÇİFTCİ",
+          "url": "https://www.star.com.tr/yazarlar/onder-ciftci/"
+        },
+        {
+          "name": "Özay ŞENDİR",
+          "url": "https://www.star.com.tr/yazarlar/ozay-sendir/"
+        },
+        {
+          "name": "Paul KRUGMAN",
+          "url": "https://www.star.com.tr/yazarlar/paul-krugman/"
+        },
+        {
+          "name": "Paul KRUGMAN (TR)",
+          "url": "https://www.star.com.tr/yazarlar/paul-krugman-tr/"
+        },
+        {
+          "name": "Prof. Dr. Erdem YEŞİLADA",
+          "url": "https://www.star.com.tr/yazarlar/prof-dr-erdem-yesilada/"
+        },
+        {
+          "name": "Rifat Sait",
+          "url": "https://www.star.com.tr/yazarlar/rifat-sait/"
+        },
+        {
+          "name": "Robert FISK",
+          "url": "https://www.star.com.tr/yazarlar/robert-fisk/"
+        },
+        {
+          "name": "Robert FISK (TR)",
+          "url": "https://www.star.com.tr/yazarlar/robert-fisk-tr/"
+        },
+        {
+          "name": "Saadet ORUÇ",
+          "url": "https://www.star.com.tr/yazarlar/saadet-oruc/"
+        },
+        {
+          "name": "Sedat LAÇİNER",
+          "url": "https://www.star.com.tr/yazarlar/sedat-laciner/"
+        },
+        {
+          "name": "Selahattin DÖNMEZ",
+          "url": "https://www.star.com.tr/yazarlar/selahattin-donmez/"
+        },
+        {
+          "name": "Selçuk ACAR",
+          "url": "https://www.star.com.tr/yazarlar/selcuk-acar/"
+        },
+        {
+          "name": "Selim ATALAY",
+          "url": "https://www.star.com.tr/yazarlar/selim-atalay/"
+        },
+        {
+          "name": "Serdar AKBIYIK",
+          "url": "https://www.star.com.tr/yazarlar/serdar-akbiyik/"
+        },
+        {
+          "name": "Serdar BALİ",
+          "url": "https://www.star.com.tr/yazarlar/serdar-bali/"
+        },
+        {
+          "name": "Sevil NURİYEVA İSMAYILOV",
+          "url": "https://www.star.com.tr/yazarlar/sevil-nuriyeva-ismayilov/"
+        },
+        {
+          "name": "Şamil TAYYAR",
+          "url": "https://www.star.com.tr/yazarlar/samil-tayyar/"
+        },
+        {
+          "name": "Şehnaz YILMAZ",
+          "url": "https://www.star.com.tr/yazarlar/sehnaz-yilmaz/"
+        },
+        {
+          "name": "Taha KIVANÇ",
+          "url": "https://www.star.com.tr/yazarlar/taha-kivanc/"
+        },
+        {
+          "name": "Taha ÖZHAN",
+          "url": "https://www.star.com.tr/yazarlar/taha-ozhan/"
+        },
+        {
+          "name": "Tahsin Han",
+          "url": "https://www.star.com.tr/yazarlar/tahsin-han/"
+        },
+        {
+          "name": "Tanju ÇOLAK",
+          "url": "https://www.star.com.tr/yazarlar/tanju-colak/"
+        },
+        {
+          "name": "Tarık RAMAZAN",
+          "url": "https://www.star.com.tr/yazarlar/tarik-ramazan/"
+        },
+        {
+          "name": "Tarık RAMAZAN (TR)",
+          "url": "https://www.star.com.tr/yazarlar/tarik-ramazan-tr/"
+        },
+        {
+          "name": "Tarık SİPAHİ",
+          "url": "https://www.star.com.tr/yazarlar/tarik-sipahi/"
+        },
+        {
+          "name": "Tijen İNALTONG",
+          "url": "https://www.star.com.tr/yazarlar/tijen-inaltong/"
+        },
+        {
+          "name": "Tony KARON",
+          "url": "https://www.star.com.tr/yazarlar/tony-karon/"
+        },
+        {
+          "name": "Turgut Aslan",
+          "url": "https://www.star.com.tr/yazarlar/turgut-aslan/"
+        },
+        {
+          "name": "Yağmur ATSIZ",
+          "url": "https://www.star.com.tr/yazarlar/yagmur-atsiz/"
+        },
+        {
+          "name": "Yahya BOSTAN",
+          "url": "https://www.star.com.tr/yazarlar/yahya-bostan/"
+        },
+        {
+          "name": "Yalçın AKDOĞAN",
+          "url": "https://www.star.com.tr/yazarlar/yalcin-akdogan/"
+        },
+        {
+          "name": "Yavuz SALTIK",
+          "url": "https://www.star.com.tr/yazarlar/yavuz-saltik/"
+        },
+        {
+          "name": "Yeliz ÜNAL",
+          "url": "https://www.star.com.tr/yazarlar/yeliz-unal/"
+        },
+        {
+          "name": "Yiğit BULUT",
+          "url": "https://www.star.com.tr/yazarlar/yigit-bulut/"
+        },
+        {
+          "name": "Yusuf Ziya CÖMERT",
+          "url": "https://www.star.com.tr/yazarlar/yusuf-ziya-comert/"
+        },
+        {
+          "name": "Zeliha Saraç",
+          "url": "https://www.star.com.tr/yazarlar/zeliha-sarac/"
+        },
+        {
+          "name": "Ziya ŞENGÜL",
+          "url": "https://www.star.com.tr/yazarlar/ziya-sengul/"
+        },
+        {
+          "name": "Resul TOSUN, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Vahdettin İNCE, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "İbrahim Güneş, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Cengiz ÖZDEMİR, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Muhammed Ali Uçar, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Nuh ALBAYRAK, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Sibel ERASLAN, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Fadime ÖZKAN, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Hüseyin GÜLERCE, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Selahaddin E. ÇAKIRGİL, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Halime KÖKCE, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Yakup KÖSE, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Mustafa SABRİ BEŞER, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "M. Yalçın YILMAZ, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Esra ELÖNÜ, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Resul KURT, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Coşkun BAŞBUĞ, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Betül Soysal Bozdoğan, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Hasan Hüseyin ÖZ, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Cüneyd Altıparmak, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Filiz Katman, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Adil Karaismailoğlu, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Faik Tanrıkulu, Star Gazetesi",
+          "url": ""
+        },
+        {
+          "name": "Levent Ersin Orallı, Star Gazetesi",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "turkiye",
       "name": "Türkiye Gazetesi",
-      "count": 0,
-      "writers": []
+      "count": 61,
+      "writers": [
+        {
+          "name": "Abdüllatif Uyan 9297 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/abdullatif-uyan"
+        },
+        {
+          "name": "Adnan Şahin 473 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/adnan-sahin"
+        },
+        {
+          "name": "Ahmet Demirbaş 1711 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ahmet-demirbas"
+        },
+        {
+          "name": "Ahmet Sağırlı 2637 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ahmet-sagirli"
+        },
+        {
+          "name": "Akif Bülbül 228 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/akif-bulbul"
+        },
+        {
+          "name": "Ali Kunak 129 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ali-kunak"
+        },
+        {
+          "name": "Ali Tüfekçi 35 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ali-tufekci"
+        },
+        {
+          "name": "Anlat Derdini Feridun Ağabey'e",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/anlat-derdini-feridun-agabeye"
+        },
+        {
+          "name": "Atilla Yayla 463 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/atilla-yayla"
+        },
+        {
+          "name": "Cahit Erogul 171 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/cahit-erogul"
+        },
+        {
+          "name": "Canan Eraslan 208 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/canan-eraslan"
+        },
+        {
+          "name": "Celal Toprak 232 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/celal-toprak"
+        },
+        {
+          "name": "Dr. C. Ahmet Akisik 130 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/dr-c-ahmet-akisik"
+        },
+        {
+          "name": "Ercan Yıldız 197 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ercan-yildiz"
+        },
+        {
+          "name": "Fatih Selek 522 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/fatih-selek"
+        },
+        {
+          "name": "Ferhat Ünlü 47 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ferhat-unlu"
+        },
+        {
+          "name": "Geniş Açı - Fikir Ve Tartışma",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/genis-aci-fikir-ve-tartisma"
+        },
+        {
+          "name": "Gökhan Karataş 61 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/gokhan-karatas"
+        },
+        {
+          "name": "Halime Gürbüz 2162 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/halime-gurbuz"
+        },
+        {
+          "name": "Hasan Sariçiçek 2281 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hasan-saricicek"
+        },
+        {
+          "name": "Hasan Yavaş 570 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hasan-yavas"
+        },
+        {
+          "name": "Hikmet Köksal 927 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hikmet-koksal"
+        },
+        {
+          "name": "İrfan Özfatura 827 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/irfan-ozfatura"
+        },
+        {
+          "name": "İsa Karakaş 1370 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/isa-karakas"
+        },
+        {
+          "name": "İsmail Kapan 3833 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ismail-kapan"
+        },
+        {
+          "name": "Kemal Belgin 1946 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/kemal-belgin"
+        },
+        {
+          "name": "Kubilay Gülbek 11 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/kubilay-gulbek"
+        },
+        {
+          "name": "M. Said Arvas 999 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/m-said-arvas"
+        },
+        {
+          "name": "M.Tahir Kum 63 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/mtahir-kum"
+        },
+        {
+          "name": "Mehmet Emin Uluç 223 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/mehmet-emin-uluc"
+        },
+        {
+          "name": "Meryem Aybike Sinan 915 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/meryem-aybike-sinan"
+        },
+        {
+          "name": "Murad Tamer 53 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/murad-tamer"
+        },
+        {
+          "name": "Müzeyyen Bıyık 36 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/muzeyyen-biyik"
+        },
+        {
+          "name": "Necmettin Batırel 2079 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/necmettin-batirel"
+        },
+        {
+          "name": "Nur Tuğba Aktay 231 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/nur-tugba-aktay"
+        },
+        {
+          "name": "Osman Sağırlı 27 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/osman-sagirli"
+        },
+        {
+          "name": "Osman Ünlü 5435 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/osman-unlu"
+        },
+        {
+          "name": "Öcal Uluç 3992 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ocal-uluc"
+        },
+        {
+          "name": "Ömer Çetin 29 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-cetin"
+        },
+        {
+          "name": "Ömer Ekinci 322 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-ekinci"
+        },
+        {
+          "name": "Ömer Faruk Bingöl 375 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-faruk-bingol"
+        },
+        {
+          "name": "Ömer Faruk Ünal 1904 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-faruk-unal"
+        },
+        {
+          "name": "Prof. Dr. Ahmet Şimşirgil 467 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-ahmet-simsirgil"
+        },
+        {
+          "name": "Prof. Dr. Çağrı Erhan 803 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-cagri-erhan"
+        },
+        {
+          "name": "Prof. Dr. Ekrem Buğra Ekinci",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-ekrem-bugra-ekinci"
+        },
+        {
+          "name": "Prof. Dr. Emre Alkin 194 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-emre-alkin"
+        },
+        {
+          "name": "Prof. Dr. Gaye Gencer 5 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-gaye-gencer"
+        },
+        {
+          "name": "Prof. Dr. Osman Kemal Kayra",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-osman-kemal-kayra"
+        },
+        {
+          "name": "Prof. Dr. Ramazan Ayvallı 1617 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-ramazan-ayvalli"
+        },
+        {
+          "name": "Ragıp Karadayı 2919 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ragip-karadayi"
+        },
+        {
+          "name": "Rahim Er 5174 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/rahim-er"
+        },
+        {
+          "name": "Sadık Söztutan 879 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sadik-soztutan"
+        },
+        {
+          "name": "Salih Uyan 516 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/salih-uyan"
+        },
+        {
+          "name": "Salim Köklü 568 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/salim-koklu"
+        },
+        {
+          "name": "Sevda Kılıç 87 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sevda-kilic"
+        },
+        {
+          "name": "Sevil Nuriyeva 239 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sevil-nuriyeva"
+        },
+        {
+          "name": "Türkiye Gazetesi 2906 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/turkiye-gazetesi"
+        },
+        {
+          "name": "Ünal Bolat 5384 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/unal-bolat"
+        },
+        {
+          "name": "Vehbi Tülek 7622 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/vehbi-tulek"
+        },
+        {
+          "name": "Yetenekli Kalemler 2831 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/yetenekli-kalemler"
+        },
+        {
+          "name": "Yücel Koç 853 Adet Yazı",
+          "url": "https://www.turkiyegazetesi.com.tr/yazarlar/yucel-koc"
+        }
+      ]
     },
     {
       "key": "yenicag",
@@ -298,37 +4076,1034 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 0,
-      "writers": []
+      "count": 55,
+      "writers": [
+        {
+          "name": "Foto Galeri",
+          "url": "https://www.milligazete.com.tr/foto-galeri"
+        },
+        {
+          "name": "Video",
+          "url": "https://www.milligazete.com.tr/video"
+        },
+        {
+          "name": "Gündem",
+          "url": "https://www.milligazete.com.tr/gundem"
+        },
+        {
+          "name": "Dünya",
+          "url": "https://www.milligazete.com.tr/dunya"
+        },
+        {
+          "name": "Siyaset",
+          "url": "https://www.milligazete.com.tr/siyaset"
+        },
+        {
+          "name": "Ekonomi",
+          "url": "https://www.milligazete.com.tr/ekonomi"
+        },
+        {
+          "name": "Spor",
+          "url": "https://www.milligazete.com.tr/spor"
+        },
+        {
+          "name": "Teknoloji",
+          "url": "https://www.milligazete.com.tr/teknoloji"
+        },
+        {
+          "name": "Sağlık",
+          "url": "https://www.milligazete.com.tr/saglik"
+        },
+        {
+          "name": "Resmi İlanlar",
+          "url": "https://www.milligazete.com.tr/resmi-ilanlar"
+        },
+        {
+          "name": "Dr. Abdülaziz Kıranşal",
+          "url": "https://www.milligazete.com.tr/abdulaziz-kiransal"
+        },
+        {
+          "name": "Düzensizliğin Siyaseti",
+          "url": "https://www.milligazete.com.tr/duzensizligin-siyaseti"
+        },
+        {
+          "name": "Mehmet Biten",
+          "url": "https://www.milligazete.com.tr/mehmet-biten"
+        },
+        {
+          "name": "Şarkın yaralı yazgısı",
+          "url": "https://www.milligazete.com.tr/sarkin-yarali-yazgisi"
+        },
+        {
+          "name": "Mine Alpay Gün",
+          "url": "https://www.milligazete.com.tr/mine-alpay-gun"
+        },
+        {
+          "name": "Muhammet Esiroğlu",
+          "url": "https://www.milligazete.com.tr/muhammet-esiroglu"
+        },
+        {
+          "name": "Mustafa Kaya",
+          "url": "https://www.milligazete.com.tr/mustafa-kaya"
+        },
+        {
+          "name": "Reşat Nuri Erol",
+          "url": "https://www.milligazete.com.tr/resat-nuri-erol"
+        },
+        {
+          "name": "Doç. Dr. Harun Bekiroğlu",
+          "url": "https://www.milligazete.com.tr/harun-bekiroglu"
+        },
+        {
+          "name": "Şaban Turhal",
+          "url": "https://www.milligazete.com.tr/saban-turhal"
+        },
+        {
+          "name": "Hürriyetsiz Düzen",
+          "url": "https://www.milligazete.com.tr/hurriyetsiz-duzen"
+        },
+        {
+          "name": "Cafer Keklikçi",
+          "url": "https://www.milligazete.com.tr/cafer-keklikci"
+        },
+        {
+          "name": "Aklı olan",
+          "url": "https://www.milligazete.com.tr/akli-olan"
+        },
+        {
+          "name": "İsmail Hakkı Akkiraz",
+          "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz"
+        },
+        {
+          "name": "Necati Tuncer",
+          "url": "https://www.milligazete.com.tr/necati-tuncer"
+        },
+        {
+          "name": "Üç yıllık onurlu direniş",
+          "url": "https://www.milligazete.com.tr/uc-yillik-onurlu-direnis"
+        },
+        {
+          "name": "Şakir Tarım",
+          "url": "https://www.milligazete.com.tr/sakir-tarim"
+        },
+        {
+          "name": "Nöbetçi Eczaneler",
+          "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler"
+        },
+        {
+          "name": "Hava Durumu",
+          "url": "https://www.milligazete.com.tr/istanbul-hava-durumu"
+        },
+        {
+          "name": "İstanbul Namaz Vakitleri",
+          "url": "https://www.milligazete.com.tr/istanbul-namaz-vakitleri"
+        },
+        {
+          "name": "Trafik Durumu",
+          "url": "https://www.milligazete.com.tr/istanbul-trafik-durumu"
+        },
+        {
+          "name": "Tüm Manşetler",
+          "url": "https://www.milligazete.com.tr/tum-mansetler"
+        },
+        {
+          "name": "Haber Arşivi",
+          "url": "https://www.milligazete.com.tr/arsiv"
+        },
+        {
+          "name": "Hakkımızda",
+          "url": "https://www.milligazete.com.tr/kurulus-hakkinda"
+        },
+        {
+          "name": "Yayın İlkeleri",
+          "url": "https://www.milligazete.com.tr/yayin-ilkeleri"
+        },
+        {
+          "name": "Eğitim",
+          "url": "https://www.milligazete.com.tr/egitim"
+        },
+        {
+          "name": "Afet & Kaza",
+          "url": "https://www.milligazete.com.tr/afet-kaza"
+        },
+        {
+          "name": "Aile & Yaşam",
+          "url": "https://www.milligazete.com.tr/aile-yasam"
+        },
+        {
+          "name": "Yerel Haberler",
+          "url": "https://www.milligazete.com.tr/yerel-haberler"
+        },
+        {
+          "name": "Firma Rehberi",
+          "url": "https://www.milligazete.com.tr/rehber"
+        },
+        {
+          "name": "Röportaj",
+          "url": "https://www.milligazete.com.tr/roportaj"
+        },
+        {
+          "name": "Biyografi",
+          "url": "https://www.milligazete.com.tr/biyografi"
+        },
+        {
+          "name": "Anketler",
+          "url": "https://www.milligazete.com.tr/anketler"
+        },
+        {
+          "name": "Video Galeri",
+          "url": ""
+        },
+        {
+          "name": "İran kara kuvvetleri komutanı açıkladı… Hazırlıklarımız sürüyor…çok iyi önlemler aldık işte İran’ın yaptığı hazırlıklar",
+          "url": ""
+        },
+        {
+          "name": "Erdoğan’dan okul saldırıları çıkışı: “Zehirli tohumlar tehdit oluşturuyor”",
+          "url": ""
+        },
+        {
+          "name": "15 Yaşından küçüklere yasaklanıyor… 1 Kasım’da yürürlüğe girecek… Resmi Gazete’de yayınlandı yaş doğrulaması E-Devlet üzerinden yapılacak",
+          "url": ""
+        },
+        {
+          "name": "Vanlı Kara Haydar soruşturmasında yeni operasyon! Yakalanan para 2,5 milyar TL’ye dayandı",
+          "url": ""
+        },
+        {
+          "name": "Sigara satışında yeni dönem! T.C. kimlik numarası şartı geliyor",
+          "url": ""
+        },
+        {
+          "name": "Bahçeli’den fon soruşturması açıklaması! Bakanlarımızı suçlamak ihanettir",
+          "url": ""
+        },
+        {
+          "name": "AGD Kadın Kolları’ndan yeni dönem hamlesi...Teşkilat çalışmalarına yön veriliyor",
+          "url": ""
+        },
+        {
+          "name": "Tam da beklenen açıklama buydu! Müslümanız ancak laik bir devletiz Video çekip “neden başörtüsü yasağı getirdiğini ilan etti”",
+          "url": ""
+        },
+        {
+          "name": "İstanbul’da E-5’te 12 günlük çalışma! Sürücülere saat uyarısı",
+          "url": ""
+        },
+        {
+          "name": "Ataşehir Belediyesi AK Parti’ye geçti! Serdar Orhan yeni Başkan vekili seçildi",
+          "url": ""
+        },
+        {
+          "name": "Nefis Terbiyesini İhmal Eden Müslüman Gençlere",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "t24",
       "name": "T24",
-      "count": 6,
+      "count": 200,
       "writers": [
         {
-          "name": "Ahmet Güneştekin",
-          "url": "https://t24.com.tr/yazarlar/ahmet-gunestekin"
+          "name": "15. İstanbul Bienali",
+          "url": "https://t24.com.tr/yazarlar/komsu"
         },
         {
-          "name": "Esra Akgemci",
-          "url": "https://t24.com.tr/yazarlar/esra-akgemci-america-invertida"
+          "name": "21. İstanbul Tiyatro Festivali",
+          "url": "https://t24.com.tr/yazarlar/21-tiyatro-festivali"
         },
         {
-          "name": "Gürkan Akgüneş",
-          "url": "https://t24.com.tr/yazarlar/gurkan-akgunes"
+          "name": "Adalet Çavdar",
+          "url": "https://t24.com.tr/yazarlar/adalet-cavdar"
         },
         {
-          "name": "Ebru D. Dedeoğlu",
-          "url": "https://t24.com.tr/yazarlar/ebru-degirmenci"
+          "name": "Adnan Ekinci | Hukuk Ombudsmanı",
+          "url": "https://t24.com.tr/yazarlar/adnan-ekinci"
         },
         {
-          "name": "Serfiraz Ergun",
-          "url": "https://t24.com.tr/yazarlar/serfiraz-ergun"
+          "name": "Ahmet Altan",
+          "url": "https://t24.com.tr/yazarlar/ahmet-altan"
         },
         {
-          "name": "Ertuğrul Özkök",
-          "url": "https://t24.com.tr/yazarlar/ertugrul-ozkok"
+          "name": "Ahmet Sever",
+          "url": "https://t24.com.tr/yazarlar/ahmet-sever"
+        },
+        {
+          "name": "Ahmet Tulgar",
+          "url": "https://t24.com.tr/yazarlar/ahmet-tulgar"
+        },
+        {
+          "name": "Ahmet Utlu",
+          "url": "https://t24.com.tr/yazarlar/ahmet-utlu"
+        },
+        {
+          "name": "Alaaddin Dinçer",
+          "url": "https://t24.com.tr/yazarlar/alaaddin-dincer"
+        },
+        {
+          "name": "Ali Servet Etkin",
+          "url": "https://t24.com.tr/yazarlar/ali-servet-etkin"
+        },
+        {
+          "name": "Ali Yurttagül",
+          "url": "https://t24.com.tr/yazarlar/ali-yurttagul"
+        },
+        {
+          "name": "Alper Görmüş",
+          "url": "https://t24.com.tr/yazarlar/alper-gormus"
+        },
+        {
+          "name": "Altan Öymen | Bugünden düne...",
+          "url": "https://t24.com.tr/yazarlar/altan-oymen"
+        },
+        {
+          "name": "Anıl Özgüç",
+          "url": "https://t24.com.tr/yazarlar/anil-ozguc"
+        },
+        {
+          "name": "Aram Ekin Duran",
+          "url": "https://t24.com.tr/yazarlar/aram-ekin-duran"
+        },
+        {
+          "name": "Aris Nalcı",
+          "url": "https://t24.com.tr/yazarlar/aris-nalci"
+        },
+        {
+          "name": "Aslı Öktener",
+          "url": "https://t24.com.tr/yazarlar/asli-oktener-kose"
+        },
+        {
+          "name": "Aslı Tunç",
+          "url": "https://t24.com.tr/yazarlar/asli-tunc"
+        },
+        {
+          "name": "Ayça Abakan",
+          "url": "https://t24.com.tr/yazarlar/ayca-abakan"
+        },
+        {
+          "name": "Aydın Ayaydın",
+          "url": "https://t24.com.tr/yazarlar/aydin-ayaydin"
+        },
+        {
+          "name": "Aydın Engin",
+          "url": "https://t24.com.tr/yazarlar/aydin-engin"
+        },
+        {
+          "name": "Ayfer G. Cambier",
+          "url": "https://t24.com.tr/yazarlar/ayfer-g-cambier"
+        },
+        {
+          "name": "Aylin Kaplan",
+          "url": "https://t24.com.tr/yazarlar/aylin-kaplan"
+        },
+        {
+          "name": "Ayşe Alan",
+          "url": "https://t24.com.tr/yazarlar/ayse-alan"
+        },
+        {
+          "name": "Ayşe Cemal",
+          "url": "https://t24.com.tr/yazarlar/ayse-cemal"
+        },
+        {
+          "name": "Ayşe Minaz",
+          "url": "https://t24.com.tr/yazarlar/ayse-minaz"
+        },
+        {
+          "name": "Aytaç Tereci",
+          "url": "https://t24.com.tr/yazarlar/aytac-tereci"
+        },
+        {
+          "name": "Aytun Aktan",
+          "url": "https://t24.com.tr/yazarlar/aytun-aktan"
+        },
+        {
+          "name": "Baran Alp Uncu",
+          "url": "https://t24.com.tr/yazarlar/baran-alp-uncu"
+        },
+        {
+          "name": "Barbaros Şansal",
+          "url": "https://t24.com.tr/yazarlar/barbaros-sansal"
+        },
+        {
+          "name": "Barış Soydan",
+          "url": "https://t24.com.tr/yazarlar/baris-soydan"
+        },
+        {
+          "name": "Baskın Oran",
+          "url": "https://t24.com.tr/yazarlar/baskin-oran"
+        },
+        {
+          "name": "Bejan Matur",
+          "url": "https://t24.com.tr/yazarlar/bejan-matur"
+        },
+        {
+          "name": "Berkhan Günaydın",
+          "url": "https://t24.com.tr/yazarlar/berkhan-gunaydin"
+        },
+        {
+          "name": "Berna Abik",
+          "url": "https://t24.com.tr/yazarlar/berna-abik"
+        },
+        {
+          "name": "Bilgehan Uçak",
+          "url": "https://t24.com.tr/yazarlar/bilgehan-ucak"
+        },
+        {
+          "name": "Buket Şengül",
+          "url": "https://t24.com.tr/yazarlar/buket-sengul"
+        },
+        {
+          "name": "Bülent Şık",
+          "url": "https://t24.com.tr/yazarlar/bulent-sik"
+        },
+        {
+          "name": "Bülent Vardar",
+          "url": "https://t24.com.tr/yazarlar/bulent-vardar"
+        },
+        {
+          "name": "Burak Cop",
+          "url": "https://t24.com.tr/yazarlar/burak-cop"
+        },
+        {
+          "name": "Burçin Akgün Ünaldı",
+          "url": "https://t24.com.tr/yazarlar/burcin-akgun-unaldi"
+        },
+        {
+          "name": "Çağnur Öztürk",
+          "url": "https://t24.com.tr/yazarlar/cagnur-ozturk"
+        },
+        {
+          "name": "Caz ve Dahası",
+          "url": "https://t24.com.tr/yazarlar/caz-ve-dahasi"
+        },
+        {
+          "name": "Celal Başlangıç",
+          "url": "https://t24.com.tr/yazarlar/celal-baslangic"
+        },
+        {
+          "name": "Celal Özcan",
+          "url": "https://t24.com.tr/yazarlar/celal-ozcan"
+        },
+        {
+          "name": "Cem Dizdar",
+          "url": "https://t24.com.tr/yazarlar/cem-dizdar"
+        },
+        {
+          "name": "Cem Özgüzel",
+          "url": "https://t24.com.tr/yazarlar/cem-ozguzel"
+        },
+        {
+          "name": "Cem Ülker",
+          "url": "https://t24.com.tr/yazarlar/cem-ulker"
+        },
+        {
+          "name": "Cemre Baytok",
+          "url": "https://t24.com.tr/yazarlar/cemre-baytok"
+        },
+        {
+          "name": "Cengiz Çandar",
+          "url": "https://t24.com.tr/yazarlar/cengiz-candar"
+        },
+        {
+          "name": "Cengiz Çiftçi",
+          "url": "https://t24.com.tr/yazarlar/cengiz-ciftci"
+        },
+        {
+          "name": "Cengiz Özdemir",
+          "url": "https://t24.com.tr/yazarlar/cengiz-ozdemir"
+        },
+        {
+          "name": "Ceren Sözeri",
+          "url": "https://t24.com.tr/yazarlar/ceren-sozeri"
+        },
+        {
+          "name": "Çetin Çeko",
+          "url": "https://t24.com.tr/yazarlar/cetin-ceko"
+        },
+        {
+          "name": "Ceyda Karan",
+          "url": "https://t24.com.tr/yazarlar/hudut-ihlali"
+        },
+        {
+          "name": "Ceyhan Suvari",
+          "url": "https://t24.com.tr/yazarlar/ceyhan-suvari"
+        },
+        {
+          "name": "Chris Stephenson",
+          "url": "https://t24.com.tr/yazarlar/chris-stephenson"
+        },
+        {
+          "name": "Çiğdem Anad",
+          "url": "https://t24.com.tr/yazarlar/cigdem-anad"
+        },
+        {
+          "name": "Çiğdem Öztabak",
+          "url": "https://t24.com.tr/yazarlar/cigdem-oztabak"
+        },
+        {
+          "name": "Cihan Tuğal",
+          "url": "https://t24.com.tr/yazarlar/cihan-tugal"
+        },
+        {
+          "name": "Damla Yur",
+          "url": "https://t24.com.tr/yazarlar/damla-yur"
+        },
+        {
+          "name": "Defne Seheryıldızı",
+          "url": "https://t24.com.tr/yazarlar/defne-seheryildizi"
+        },
+        {
+          "name": "Demet Cengiz",
+          "url": "https://t24.com.tr/yazarlar/demet-cengiz"
+        },
+        {
+          "name": "Deniz Bağrıaçık",
+          "url": "https://t24.com.tr/yazarlar/deniz-bagriacik-dunya"
+        },
+        {
+          "name": "Deniz Can",
+          "url": "https://t24.com.tr/yazarlar/denizcan-b"
+        },
+        {
+          "name": "Dilara Gürcü",
+          "url": "https://t24.com.tr/yazarlar/dilara-gurcu"
+        },
+        {
+          "name": "Ebru Akdağ",
+          "url": "https://t24.com.tr/yazarlar/ebru-akdag"
+        },
+        {
+          "name": "Eda Ayaydın",
+          "url": "https://t24.com.tr/yazarlar/eda-ayaydin"
+        },
+        {
+          "name": "Elif Kork",
+          "url": "https://t24.com.tr/yazarlar/elif-kork"
+        },
+        {
+          "name": "Eliza Doolittle",
+          "url": "https://t24.com.tr/yazarlar/eliza-doolittle"
+        },
+        {
+          "name": "Emek Karakılıç",
+          "url": "https://t24.com.tr/yazarlar/emek-karakilic"
+        },
+        {
+          "name": "Emrah Akın",
+          "url": "https://t24.com.tr/yazarlar/emrah-akin"
+        },
+        {
+          "name": "Emre Çalışkan",
+          "url": "https://t24.com.tr/yazarlar/emre-caliskan"
+        },
+        {
+          "name": "Emre Metin Bilginer",
+          "url": "https://t24.com.tr/yazarlar/emre-metin-bilginer"
+        },
+        {
+          "name": "Emre Tansu Keten",
+          "url": "https://t24.com.tr/yazarlar/emre-tansu-keten-sosyal-medya"
+        },
+        {
+          "name": "Engin Biçer",
+          "url": "https://t24.com.tr/yazarlar/engin-bicer"
+        },
+        {
+          "name": "Engin Çelebi Seyahatnamesinden",
+          "url": "https://t24.com.tr/yazarlar/engin-celebi-seyahatnamesinden"
+        },
+        {
+          "name": "Engin Turhan",
+          "url": "https://t24.com.tr/yazarlar/engin-turhan"
+        },
+        {
+          "name": "Enis Erdem Aydın",
+          "url": "https://t24.com.tr/yazarlar/enis-erdem-aydin"
+        },
+        {
+          "name": "Erdal Güven",
+          "url": "https://t24.com.tr/yazarlar/erdal-guven"
+        },
+        {
+          "name": "Erdoğan Aydın",
+          "url": "https://t24.com.tr/yazarlar/erdogan-aydin"
+        },
+        {
+          "name": "Erel Eryürek",
+          "url": "https://t24.com.tr/yazarlar/erel-eryurek"
+        },
+        {
+          "name": "Eren Alkan",
+          "url": "https://t24.com.tr/yazarlar/eren-alkan"
+        },
+        {
+          "name": "Eren Topçu",
+          "url": "https://t24.com.tr/yazarlar/eren-topcu"
+        },
+        {
+          "name": "Erkan Saka",
+          "url": "https://t24.com.tr/yazarlar/erkan-saka"
+        },
+        {
+          "name": "Erol Anar",
+          "url": "https://t24.com.tr/yazarlar/erol-anar"
+        },
+        {
+          "name": "Erol Katırcıoğlu",
+          "url": "https://t24.com.tr/yazarlar/erol-katircioglu"
+        },
+        {
+          "name": "Ersan Şen",
+          "url": "https://t24.com.tr/yazarlar/ersan-sen"
+        },
+        {
+          "name": "Esmer Erdem",
+          "url": "https://t24.com.tr/yazarlar/esmer-erdem"
+        },
+        {
+          "name": "Esra Yalazan",
+          "url": "https://t24.com.tr/yazarlar/esra-yalazan"
+        },
+        {
+          "name": "Esra Yalçınalp",
+          "url": "https://t24.com.tr/yazarlar/esra-yalcinalp"
+        },
+        {
+          "name": "Evren M. Dinçer",
+          "url": "https://t24.com.tr/yazarlar/evren-m-dincer"
+        },
+        {
+          "name": "Ex Libris",
+          "url": "https://t24.com.tr/yazarlar/ex-libris"
+        },
+        {
+          "name": "Ezgi Gizem Gülümser",
+          "url": "https://t24.com.tr/yazarlar/ezgi-gizem-gulumser"
+        },
+        {
+          "name": "Fatma Fulya Tepe",
+          "url": "https://t24.com.tr/yazarlar/fatma-fulya-tepe"
+        },
+        {
+          "name": "Fehmi Gürdallı",
+          "url": "https://t24.com.tr/yazarlar/fehmi-gurdalli"
+        },
+        {
+          "name": "Fikret Bila",
+          "url": "https://t24.com.tr/yazarlar/fikret-bila"
+        },
+        {
+          "name": "Fréderike Geerdink",
+          "url": "https://t24.com.tr/yazarlar/frederike-geerdink"
+        },
+        {
+          "name": "Fuat Torun",
+          "url": "https://t24.com.tr/yazarlar/fuat-torun"
+        },
+        {
+          "name": "Giray Kömürcü",
+          "url": "https://t24.com.tr/yazarlar/giray-komurcu"
+        },
+        {
+          "name": "Gizem Sevinç Selvi",
+          "url": "https://t24.com.tr/yazarlar/gizem-sevinc-selvi"
+        },
+        {
+          "name": "Gökhan Çetinsaya",
+          "url": "https://t24.com.tr/yazarlar/gokhan-cetinsaya"
+        },
+        {
+          "name": "Göksel Aymaz | Haftalık",
+          "url": "https://t24.com.tr/yazarlar/goksel-aymaz-pazar"
+        },
+        {
+          "name": "Göksun Gökçe Göndermez",
+          "url": "https://t24.com.tr/yazarlar/goksun-gokce-gondermez"
+        },
+        {
+          "name": "Gönenç Gürkaynak",
+          "url": "https://t24.com.tr/yazarlar/gonenc-gurkaynak"
+        },
+        {
+          "name": "Gönül Tol",
+          "url": "https://t24.com.tr/yazarlar/gonul-tol"
+        },
+        {
+          "name": "Gülay Kayacan",
+          "url": "https://t24.com.tr/yazarlar/gulay-kayacan"
+        },
+        {
+          "name": "Gülengül Altınsay",
+          "url": "https://t24.com.tr/yazarlar/gulengul-altinsay"
+        },
+        {
+          "name": "Gülfem Saydan Sanver",
+          "url": "https://t24.com.tr/yazarlar/dr-gulfem-saydan"
+        },
+        {
+          "name": "Gülüstü Salur",
+          "url": "https://t24.com.tr/yazarlar/gulustu-salur"
+        },
+        {
+          "name": "Gürsel Köksal",
+          "url": "https://t24.com.tr/yazarlar/gursel-koksal"
+        },
+        {
+          "name": "H. Bader Arslan",
+          "url": "https://t24.com.tr/yazarlar/h-bader-arslan"
+        },
+        {
+          "name": "Hakan Bakırezer",
+          "url": "https://t24.com.tr/yazarlar/hakan-bakirezer"
+        },
+        {
+          "name": "Halûk Uluhan",
+          "url": "https://t24.com.tr/yazarlar/haluk-uluhan"
+        },
+        {
+          "name": "Hasan Kanbolat",
+          "url": "https://t24.com.tr/yazarlar/hasan-kanbolat"
+        },
+        {
+          "name": "Hasan Yazıcı",
+          "url": "https://t24.com.tr/yazarlar/hasan-yazici"
+        },
+        {
+          "name": "Hazal Özvarış",
+          "url": "https://t24.com.tr/yazarlar/hazal-ozvaris"
+        },
+        {
+          "name": "Hikmet Can Koyuncuoğlu",
+          "url": "https://t24.com.tr/yazarlar/hikmet-can-koyuncuoglu"
+        },
+        {
+          "name": "Hilal Bebek",
+          "url": "https://t24.com.tr/yazarlar/hilal-bebek"
+        },
+        {
+          "name": "Hülya Gülbahar",
+          "url": "https://t24.com.tr/yazarlar/hulya-gulbahar"
+        },
+        {
+          "name": "Ilgaz Çınar",
+          "url": "https://t24.com.tr/yazarlar/ilgaz-cinar"
+        },
+        {
+          "name": "İlkan Akgül",
+          "url": "https://t24.com.tr/yazarlar/ilkan-akgul"
+        },
+        {
+          "name": "İlke Şanlıer Yüksel",
+          "url": "https://t24.com.tr/yazarlar/ilke-sanlier-yuksel"
+        },
+        {
+          "name": "Işık Cansu Canayak",
+          "url": "https://t24.com.tr/yazarlar/isik-cansu-canayak"
+        },
+        {
+          "name": "İskender Paydaş",
+          "url": "https://t24.com.tr/yazarlar/iskender-paydas"
+        },
+        {
+          "name": "İstanbul Müzik Festivali",
+          "url": "https://t24.com.tr/yazarlar/istanbul-muzik-festivali"
+        },
+        {
+          "name": "Justin Marcus",
+          "url": "https://t24.com.tr/yazarlar/justin-marcus"
+        },
+        {
+          "name": "Karel Valansi",
+          "url": "https://t24.com.tr/yazarlar/karel-valansi"
+        },
+        {
+          "name": "Kendine Ait Bir Köşe",
+          "url": "https://t24.com.tr/yazarlar/kendine-ait-bir-kose"
+        },
+        {
+          "name": "Kerem Altan",
+          "url": "https://t24.com.tr/yazarlar/kerem-altan"
+        },
+        {
+          "name": "Kevork Altınkaya",
+          "url": "https://t24.com.tr/yazarlar/kevork-altinkaya"
+        },
+        {
+          "name": "KKTC seçimleri",
+          "url": "https://t24.com.tr/yazarlar/kktc-secimleri"
+        },
+        {
+          "name": "Kolaj",
+          "url": "https://t24.com.tr/yazarlar/kolaj"
+        },
+        {
+          "name": "Kumru Sis Eren",
+          "url": "https://t24.com.tr/yazarlar/kumru-sis-eren"
+        },
+        {
+          "name": "Levent Kurnaz",
+          "url": "https://t24.com.tr/yazarlar/levent-kurnaz"
+        },
+        {
+          "name": "Levent Yılmaz",
+          "url": "https://t24.com.tr/yazarlar/levent-yilmaz"
+        },
+        {
+          "name": "Lian Penso Benbasat",
+          "url": "https://t24.com.tr/yazarlar/lian-penso-benbasat"
+        },
+        {
+          "name": "M. K. Perker",
+          "url": "https://t24.com.tr/yazarlar/m-k-perker"
+        },
+        {
+          "name": "M. Melih Güneş",
+          "url": "https://t24.com.tr/yazarlar/m-melih-gunes"
+        },
+        {
+          "name": "Maya Arakon",
+          "url": "https://t24.com.tr/yazarlar/maya-arakon"
+        },
+        {
+          "name": "Mehmet Önal",
+          "url": "https://t24.com.tr/yazarlar/mehmet-onal"
+        },
+        {
+          "name": "Mehmet Tezkan",
+          "url": "https://t24.com.tr/yazarlar/mehmet-tezkan"
+        },
+        {
+          "name": "Mehmet Yakın",
+          "url": "https://t24.com.tr/yazarlar/mehmet-yakin"
+        },
+        {
+          "name": "Melek Ulagay",
+          "url": "https://t24.com.tr/yazarlar/melek-ulagay"
+        },
+        {
+          "name": "Melih Şabanoğlu",
+          "url": "https://t24.com.tr/yazarlar/melih-sabanoglu"
+        },
+        {
+          "name": "Melike Eğilmezler Boylan",
+          "url": "https://t24.com.tr/yazarlar/melike-egilmezler-boylan"
+        },
+        {
+          "name": "Melike Karakartal",
+          "url": "https://t24.com.tr/yazarlar/melike-karakartal"
+        },
+        {
+          "name": "Memetcan Demiray",
+          "url": "https://t24.com.tr/yazarlar/memetcan-demiray"
+        },
+        {
+          "name": "Mesude Atay",
+          "url": "https://t24.com.tr/yazarlar/mesude-atay"
+        },
+        {
+          "name": "Mete Büyük",
+          "url": "https://t24.com.tr/yazarlar/mete-buyuk"
+        },
+        {
+          "name": "Mete Çubukçu",
+          "url": "https://t24.com.tr/yazarlar/mete-cubukcu"
+        },
+        {
+          "name": "Metin Duyar",
+          "url": "https://t24.com.tr/yazarlar/metin-duyar"
+        },
+        {
+          "name": "Metin Gürcan",
+          "url": "https://t24.com.tr/yazarlar/metin-gurcan"
+        },
+        {
+          "name": "Metin Kaan Kurtuluş",
+          "url": "https://t24.com.tr/yazarlar/metin-kaan-kurtulus"
+        },
+        {
+          "name": "Metin Münir",
+          "url": "https://t24.com.tr/yazarlar/metin-munir"
+        },
+        {
+          "name": "Meyda Yeğenoğlu",
+          "url": "https://t24.com.tr/yazarlar/meyda-yegenoglu"
+        },
+        {
+          "name": "Mine Gencel Bek",
+          "url": "https://t24.com.tr/yazarlar/mine-gencel-bek"
+        },
+        {
+          "name": "Mirgün Cabas",
+          "url": "https://t24.com.tr/yazarlar/mirgun-cabas"
+        },
+        {
+          "name": "Misal Adnan Yıldız",
+          "url": "https://t24.com.tr/yazarlar/misal-adnan-yildiz"
+        },
+        {
+          "name": "Murat Aksoy",
+          "url": "https://t24.com.tr/yazarlar/murat-aksoy"
+        },
+        {
+          "name": "Murat Çakır",
+          "url": "https://t24.com.tr/yazarlar/murat-cakir"
+        },
+        {
+          "name": "Murat Paker",
+          "url": "https://t24.com.tr/yazarlar/murat-paker"
+        },
+        {
+          "name": "Mustafa Alp Dağıstanlı",
+          "url": "https://t24.com.tr/yazarlar/mustafa-alp-dagistanli"
+        },
+        {
+          "name": "Mustafa Cihan Camcı",
+          "url": "https://t24.com.tr/yazarlar/mustafa-cihan-camci"
+        },
+        {
+          "name": "Mustafa Durmuş",
+          "url": "https://t24.com.tr/yazarlar/mustafa-durmus"
+        },
+        {
+          "name": "Mustafa Kavgacı",
+          "url": "https://t24.com.tr/yazarlar/mustafa-kavgaci"
+        },
+        {
+          "name": "Nataşa Mektupları",
+          "url": "https://t24.com.tr/yazarlar/natasa-mektuplari"
+        },
+        {
+          "name": "Nazım Tural",
+          "url": "https://t24.com.tr/yazarlar/nazim-tural"
+        },
+        {
+          "name": "Neslihan Sabuncu Marcus",
+          "url": "https://t24.com.tr/yazarlar/neslihan-sabuncu-marcus"
+        },
+        {
+          "name": "Nihat Kentel",
+          "url": "https://t24.com.tr/yazarlar/nihat-kentel"
+        },
+        {
+          "name": "Nil Aldemir",
+          "url": "https://t24.com.tr/yazarlar/nil-aldemir"
+        },
+        {
+          "name": "Nil Mutluer",
+          "url": "https://t24.com.tr/yazarlar/nil-mutluer"
+        },
+        {
+          "name": "Nilüfer Göle",
+          "url": "https://t24.com.tr/yazarlar/nilufer-gole"
+        },
+        {
+          "name": "Nora Tataryan",
+          "url": "https://t24.com.tr/yazarlar/nora-tataryan"
+        },
+        {
+          "name": "Nur Kıpçak",
+          "url": "https://t24.com.tr/yazarlar/nur-kipcak"
+        },
+        {
+          "name": "Nuray Mert",
+          "url": "https://t24.com.tr/yazarlar/nuray-mert"
+        },
+        {
+          "name": "Nurcan Baysal",
+          "url": "https://t24.com.tr/yazarlar/nurcan-baysal"
+        },
+        {
+          "name": "Nurseren Tor",
+          "url": "https://t24.com.tr/yazarlar/nurseren-tor"
+        },
+        {
+          "name": "Ogan Yumlu",
+          "url": "https://t24.com.tr/yazarlar/ogan-yumlu"
+        },
+        {
+          "name": "Ömer Laçiner",
+          "url": "https://t24.com.tr/yazarlar/omer-laciner"
+        },
+        {
+          "name": "Ömer Taşpınar",
+          "url": "https://t24.com.tr/yazarlar/omer-taspinar"
+        },
+        {
+          "name": "Önay Yılmaz",
+          "url": "https://t24.com.tr/yazarlar/onay-yilmaz"
+        },
+        {
+          "name": "Orhan Alkaya",
+          "url": "https://t24.com.tr/yazarlar/orhan-alkaya"
+        },
+        {
+          "name": "Orhan Tekelioğlu",
+          "url": "https://t24.com.tr/yazarlar/orhan-tekelioglu"
+        },
+        {
+          "name": "Örsan K. Öymen",
+          "url": "https://t24.com.tr/yazarlar/orsan-k-oymen"
+        },
+        {
+          "name": "Osman Elbek",
+          "url": "https://t24.com.tr/yazarlar/osman-elbek"
+        },
+        {
+          "name": "Özge Mumcu Aybars",
+          "url": "https://t24.com.tr/yazarlar/ozge-mumcu"
+        },
+        {
+          "name": "Özgün Keleşoğlu",
+          "url": "https://t24.com.tr/yazarlar/ozgun-kelesoglu"
+        },
+        {
+          "name": "Özgür Öztürk",
+          "url": "https://t24.com.tr/yazarlar/ozgur-ozturk"
+        },
+        {
+          "name": "Özlem Yalım",
+          "url": "https://t24.com.tr/yazarlar/ozlem-yalim-tasarim"
+        },
+        {
+          "name": "Özüm Ceren İlhan",
+          "url": "https://t24.com.tr/yazarlar/ozum-ceren-ilhan"
+        },
+        {
+          "name": "Parlamento Kulisi",
+          "url": "https://t24.com.tr/yazarlar/parlamento-kulisi"
+        },
+        {
+          "name": "Perihan Mağden",
+          "url": "https://t24.com.tr/yazarlar/perihan-magden"
+        },
+        {
+          "name": "Pınar Doğu",
+          "url": "https://t24.com.tr/yazarlar/pinar-dogu"
+        },
+        {
+          "name": "Pınar Okyay",
+          "url": "https://t24.com.tr/yazarlar/pinar-okyay"
+        },
+        {
+          "name": "Pınar Tremblay",
+          "url": "https://t24.com.tr/yazarlar/pinar-tremblay"
+        },
+        {
+          "name": "Raffi A. Hermonn",
+          "url": "https://t24.com.tr/yazarlar/raffi-a-hermonn"
+        },
+        {
+          "name": "Ragıp Ertuğrul",
+          "url": "https://t24.com.tr/yazarlar/ragip-ertugrul"
+        },
+        {
+          "name": "Rengin Soysal",
+          "url": "https://t24.com.tr/yazarlar/rengin-soysal"
+        },
+        {
+          "name": "Reyan Tuvi",
+          "url": "https://t24.com.tr/yazarlar/reyan-tuvi"
         }
       ]
     },
@@ -341,8 +5116,45 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 0,
-      "writers": []
+      "count": 9,
+      "writers": [
+        {
+          "name": "Mehmet Aksel",
+          "url": ""
+        },
+        {
+          "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
+          "url": ""
+        },
+        {
+          "name": "Psk. Dr. Feyza Bayraktar",
+          "url": ""
+        },
+        {
+          "name": "Ayhan Tinin",
+          "url": ""
+        },
+        {
+          "name": "Mesude Demir",
+          "url": ""
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": ""
+        },
+        {
+          "name": "Ece Deniz",
+          "url": ""
+        },
+        {
+          "name": "Emre Zor",
+          "url": ""
+        }
+      ]
     }
   ]
 }
