@@ -421,7 +421,9 @@
         articles = [...live, ...articles.filter(a => !a.isLive)];
         localStorage.setItem('kose-feed-date', todayKey());
         syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
-        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi · ${live.length} canlı yazı`;
+        const papers = data.papers ? ` · ${data.papers} gazete` : '';
+        const writers = data.writers ? ` · ${data.writers} yazar` : '';
+        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi ·${papers}${writers} · ${live.length} canlı yazı`;
         renderAuthorAvatars();
         applyFilters();
         return true;
