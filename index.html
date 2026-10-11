@@ -1063,11 +1063,11 @@
              data-name="${escapeHtml(art.author)}" data-source="${escapeHtml(art.source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
              onclick="quickOpenByAuthor(this.dataset.name)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
-          <div class="w-13 h-13 rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
-            <img class="w-12 h-12 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
+          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
           </div>
-          <span class="text-[10px] font-medium ${labelColor} w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(art.author))}</span>
+          <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(art.author))}</span>
         </div>
       `;}).join('');
     }
