@@ -88,7 +88,7 @@
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
           <span class="text-[11px] uppercase tracking-widest text-slate-500 font-bold">Günün Kalemleri</span>
         </div>
-        <h1 class="text-2xl font-serif font-semibold tracking-tight text-accent mt-0.5">mürekkep.</h1>
+        <h1 class="text-[26px] leading-8 font-serif font-semibold tracking-tight text-accent mt-0.5">mürekkep.</h1>
       </div>
       <div class="flex items-center gap-2">
         <button id="refresh-feed-btn" title="Yazıları Yenile" class="p-2.5 rounded-full bg-stone-200/60 active:scale-90 transition-transform text-slate-700 hover:text-black">
@@ -116,7 +116,7 @@
       <section class="pl-5 mb-4" id="feed-authors-section">
         <div class="flex items-center justify-between pr-5 mb-2.5">
           <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Takip Edilenler</h2>
-          <span class="text-[11px] text-accent font-semibold cursor-pointer">Tümü</span>
+          <button type="button" onclick="setTab('discover')" class="flex items-center gap-0.5 text-[11px] text-accent font-semibold cursor-pointer hover:underline active:opacity-70 transition">Tümü<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>
         </div>
         <div id="authors-avatar-track" class="flex gap-3.5 overflow-x-auto no-scrollbar pr-5 py-1">
           <!-- Dynamic author heads -->
@@ -207,6 +207,69 @@
 
         <!-- Gazete Bazlı Yazar Grupları -->
         <div id="writers-list" class="space-y-3"></div>
+      </section>
+
+      <!-- Ayarlar Görünümü -->
+      <section id="settings-view" class="hidden px-5 pb-24">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Ayarlar</h2>
+          <button id="settings-reset-btn" type="button" class="text-[11px] font-semibold text-stone-500 hover:text-accent transition-colors">Varsayılanlara dön</button>
+        </div>
+
+        <!-- Okuma yazı boyutu -->
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
+          <p class="text-xs font-bold text-ink-900">Okuma yazı boyutu</p>
+          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">Yazıyı açtığında kullanılan punto.</p>
+          <div id="settings-font-group" class="grid grid-cols-3 gap-1.5">
+            <button type="button" data-font="14" class="px-3 py-2 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-600">Küçük</button>
+            <button type="button" data-font="16" class="px-3 py-2 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-600">Normal</button>
+            <button type="button" data-font="19" class="px-3 py-2 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-600">Büyük</button>
+          </div>
+        </div>
+
+        <!-- Aç/kapa ayarları -->
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm divide-y divide-stone-100 mb-3">
+          <div class="p-3.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <p class="text-xs font-bold text-ink-900">Yazar balonu</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Dairelerin üzerine gelince ad, gazete ve fotoğraf.</p>
+            </div>
+            <button id="set-tooltip" type="button" role="switch" aria-checked="true" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-accent transition-colors">
+              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform translate-x-[18px]"></span>
+            </button>
+          </div>
+          <div class="p-3.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <p class="text-xs font-bold text-ink-900">Çevrimdışı örnek yazılar</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Canlı veriye ulaşılamazsa örnek yazıları göster.</p>
+            </div>
+            <button id="set-samples" type="button" role="switch" aria-checked="true" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-accent transition-colors">
+              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform translate-x-[18px]"></span>
+            </button>
+          </div>
+          <div class="p-3.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <p class="text-xs font-bold text-ink-900">Saat başı otomatik yenile</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Sayfa açıkken gün değişimini kendisi kontrol etsin.</p>
+            </div>
+            <button id="set-autorefresh" type="button" role="switch" aria-checked="true" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-accent transition-colors">
+              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform translate-x-[18px]"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Veri durumu -->
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5">
+          <p class="text-xs font-bold text-ink-900">Veri</p>
+          <p id="settings-data-info" class="text-[11px] text-stone-500 mt-1">—</p>
+          <button id="settings-refresh-btn" type="button" class="mt-3 w-full flex items-center justify-center gap-2 text-xs font-bold px-4 py-2.5 bg-ink-900 text-white rounded-xl hover:bg-ink-700 active:scale-[0.98] transition-all">
+            <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i><span>Yazıları şimdi yenile</span>
+          </button>
+        </div>
+
+        <p class="text-center text-[10px] text-stone-400 mt-4 leading-relaxed">
+          Mürekkep · köşe yazıları GitHub Actions ile her gün 07.00’de yenilenir
+        </p>
       </section>
     </main>
 
@@ -503,11 +566,21 @@
         } else if (!articles.some(a => a.isLive)) {
           label.textContent = 'Canlı veri bekleniyor — örnek yazılar gösteriliyor';
         }
-        // Ekranda hiç yazı yoksa örnek yazılarla doldur (boş kalmasın)
+        // Ekranda hiç yazı yoksa: ayara göre örnek yazılar ya da uyarı göster
         if (!articles.length) {
-          articles = [...initialArticles];
           renderAuthorAvatars();
-          applyFilters();
+          if (appSettings.samples) {
+            articles = [...initialArticles];
+            applyFilters();
+          } else {
+            articlesListEl.innerHTML = `
+              <div class="text-center py-14 text-slate-400">
+                <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+                <p class="text-sm font-medium">Canlı veriye ulaşılamadı.</p>
+                <p class="text-[11px] mt-1">Bağlantını kontrol edip yenilemeyi deneyebilirsin.</p>
+              </div>`;
+            lucide.createIcons();
+          }
         }
         return false;
       }
@@ -515,21 +588,59 @@
 
     // Her gün otomatik kontrol: takvim günü değiştiyse yeni günlük veriyi çek
     function autoDailyCheck() {
+      if (!appSettings.autoRefresh) return;
       if (localStorage.getItem('kose-feed-date') !== todayKey()) {
         loadDailyFeed(false);
       }
     }
     setInterval(autoDailyCheck, 60 * 60 * 1000); // açılıkken her saat başı gün değişimi kontrolü
 
+    // --- Uygulama ayarları (localStorage'da saklanır) ---
+    const SETTINGS_KEY = 'kose-settings';
+    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true };
+    let appSettings = { ...DEFAULT_SETTINGS };
+    try {
+      Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
+    } catch (e) { /* bozuk kayıt -> varsayılanlar */ }
+    function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); }
+
+    function paintToggle(btn, on) {
+      if (!btn) return;
+      btn.classList.toggle('bg-accent', !!on);
+      btn.classList.toggle('bg-stone-200', !on);
+      btn.setAttribute('aria-checked', String(!!on));
+      const knob = btn.firstElementChild;
+      if (knob) knob.classList.toggle('translate-x-[18px]', !!on);
+    }
+
+    function renderSettings() {
+      document.querySelectorAll('#settings-font-group button').forEach(b => {
+        const on = Number(b.dataset.font) === Number(appSettings.readerFont);
+        b.className = `px-3 py-2 rounded-xl text-[11px] font-bold transition-colors ${on ? 'bg-ink-900 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`;
+      });
+      paintToggle(document.getElementById('set-tooltip'), appSettings.tooltip);
+      paintToggle(document.getElementById('set-samples'), appSettings.samples);
+      paintToggle(document.getElementById('set-autorefresh'), appSettings.autoRefresh);
+      const info = document.getElementById('settings-data-info');
+      if (info) {
+        const live = articles.filter(a => a.isLive);
+        const saved = articles.filter(a => a.isBookmarked).length;
+        info.textContent = live.length
+          ? `${live.length} canlı yazı · ${new Set(live.map(a => a.source)).size} kaynak · ${new Set(live.map(a => a.author)).size} yazar · ${saved} kayıtlı`
+          : 'Henüz canlı yazı yüklenmedi.';
+      }
+    }
+
     let currentFilteredCategory = 'Tümü';
     let currentReadingArticle = null;
     let isPlayingAudio = false;
-    let readerFontSize = 16;
+    let readerFontSize = Number(appSettings.readerFont) || 16;
 
     // --- DOM Elements ---
     const articlesListEl = document.getElementById('articles-list');
     const authorsAvatarTrack = document.getElementById('authors-avatar-track');
     const authorTooltipEl = document.getElementById('author-tooltip');
+    const settingsViewEl = document.getElementById('settings-view');
     const searchToggleBtn = document.getElementById('search-toggle-btn');
     const searchContainer = document.getElementById('search-container');
     const searchInput = document.getElementById('search-input');
@@ -698,13 +809,18 @@
       });
 
       const isDiscover = tab === 'discover';
-      feedAuthorsSection.classList.toggle('hidden', isDiscover);
-      feedCategoriesSection.classList.toggle('hidden', isDiscover);
-      syncBannerEl.classList.toggle('hidden', isDiscover);
-      articlesListEl.classList.toggle('hidden', isDiscover);
+      const isSettings = tab === 'settings';
+      const showFeed = !isDiscover && !isSettings; // Akış ve Kaydedilen aynı düzeni kullanır
+      feedAuthorsSection.classList.toggle('hidden', !showFeed);
+      feedCategoriesSection.classList.toggle('hidden', !showFeed);
+      syncBannerEl.classList.toggle('hidden', !showFeed);
+      articlesListEl.classList.toggle('hidden', !showFeed);
       writersViewEl.classList.toggle('hidden', !isDiscover);
+      settingsViewEl.classList.toggle('hidden', !isSettings);
 
-      if (isDiscover) {
+      if (isSettings) {
+        renderSettings();
+      } else if (isDiscover) {
         if (!writersLoaded) loadWriters();
         else renderWriters();
       } else if (tab === 'saved') {
@@ -759,7 +875,7 @@
 
     // --- Yazar Balonu (küçük: fotoğraf + ad soyad + gazete) ---
     function showAuthorTooltip(chip) {
-      if (!authorTooltipEl || !chip) return;
+      if (!authorTooltipEl || !chip || !appSettings.tooltip) return;
       const photo = authorTooltipEl.querySelector('#author-tooltip-photo');
       const arrow = authorTooltipEl.querySelector('#author-tooltip-arrow');
       photo.onerror = null;
@@ -983,7 +1099,11 @@
 
     // --- Font Size Adjustment in Reader ---
     fontSizeBtn.addEventListener('click', () => {
-      readerFontSize = readerFontSize >= 20 ? 15 : readerFontSize + 2;
+      const fontSteps = [14, 16, 19];
+      readerFontSize = fontSteps[(fontSteps.indexOf(readerFontSize) + 1) % fontSteps.length];
+      appSettings.readerFont = readerFontSize;
+      saveSettings();
+      renderSettings();
       document.getElementById('reader-body').style.fontSize = `${readerFontSize}px`;
     });
 
@@ -1098,6 +1218,33 @@
         setTab(this.getAttribute('data-tab'));
       });
     });
+
+    // --- Ayarlar sekmesi olayları ---
+    document.querySelectorAll('#settings-font-group button').forEach(b => {
+      b.addEventListener('click', () => {
+        appSettings.readerFont = Number(b.dataset.font);
+        readerFontSize = appSettings.readerFont;
+        const body = document.getElementById('reader-body');
+        if (body) body.style.fontSize = `${readerFontSize}px`;
+        saveSettings();
+        renderSettings();
+      });
+    });
+    [['set-tooltip', 'tooltip'], ['set-samples', 'samples'], ['set-autorefresh', 'autoRefresh']].forEach(([id, key]) => {
+      const btn = document.getElementById(id);
+      if (btn) btn.addEventListener('click', () => {
+        appSettings[key] = !appSettings[key];
+        saveSettings();
+        renderSettings();
+      });
+    });
+    document.getElementById('settings-reset-btn').addEventListener('click', () => {
+      appSettings = { ...DEFAULT_SETTINGS };
+      readerFontSize = Number(appSettings.readerFont) || 16;
+      saveSettings();
+      renderSettings();
+    });
+    document.getElementById('settings-refresh-btn').addEventListener('click', () => loadDailyFeed(true));
 
     // Initialize View — akış doğrudan canlı veriden kurulur
     articlesListEl.innerHTML = `
