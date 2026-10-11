@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-11T07:54:46.498979+00:00",
+  "fetchedAt": "2026-10-11T08:06:06.431861+00:00",
   "date": "2026-10-11",
-  "total": 1255,
+  "total": 1241,
   "papers": [
     {
       "key": "hurriyet",
@@ -9,8 +9,13 @@
       "count": 208,
       "writers": [
         {
-          "name": "Hürriyet.com.tr Yazıları",
-          "url": "https://www.hurriyet.com.tr/yazarlar/internet-yazilari/",
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
           "photo": ""
         },
         {
@@ -1004,11 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1257,7 +1257,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 11,
+      "count": 10,
       "writers": [
         {
           "name": "SABAH",
@@ -1272,11 +1272,6 @@
         {
           "name": "GÜNAYDIN",
           "url": "https://www.sabah.com.tr/yazarlar/gunaydin",
-          "photo": ""
-        },
-        {
-          "name": "SABAH.COM.TR",
-          "url": "https://www.sabah.com.tr/yazarlar/site",
           "photo": ""
         },
         {
@@ -1786,7 +1781,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 201,
+      "count": 200,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2787,11 +2782,6 @@
           "name": "Müfit Yüksel",
           "url": "https://www.yenisafak.com/yazarlar/mufit-yuksel",
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
-        },
-        {
-          "name": "Yeni Şafak Gazetecilik A.Ş.",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         }
       ]
     },
@@ -3670,14 +3660,8 @@
     {
       "key": "takvim",
       "name": "Takvim",
-      "count": 1,
-      "writers": [
-        {
-          "name": "https://www.facebook.com/takvim",
-          "url": "",
-          "photo": "https://iatkv.tmgrup.com.tr/f1c3be/0/0/0/0/0/0?u=https%3a%2f%2fitkv.tmgrup.com.tr%2f2016%2f02%2f03%2f184x150%2fd081ed56-6a93-4b4d-83d2-8ec86529b5d7.jpg"
-        }
-      ]
+      "count": 0,
+      "writers": []
     },
     {
       "key": "posta",
@@ -3749,7 +3733,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 39,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3945,11 +3929,6 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
-        },
-        {
-          "name": "https://www.facebook.com/yeniasir",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/d53da8/170/170/56/0/350/294?u=https://iysr.tmgrup.com.tr/2024/09/12/1726139911201.png"
         }
       ]
     },
@@ -4629,122 +4608,122 @@
           "photo": ""
         },
         {
-          "name": "Resul TOSUN, Star Gazetesi",
+          "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
         },
         {
-          "name": "Vahdettin İNCE, Star Gazetesi",
+          "name": "Vahdettin İNCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
         },
         {
-          "name": "İbrahim Güneş, Star Gazetesi",
+          "name": "İbrahim Güneş",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
         },
         {
-          "name": "Cengiz ÖZDEMİR, Star Gazetesi",
+          "name": "Cengiz ÖZDEMİR",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
         },
         {
-          "name": "Muhammed Ali Uçar, Star Gazetesi",
+          "name": "Muhammed Ali Uçar",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/203.png?v=1907.99"
         },
         {
-          "name": "Nuh ALBAYRAK, Star Gazetesi",
+          "name": "Nuh ALBAYRAK",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/152.png?v=1907.99"
         },
         {
-          "name": "Sibel ERASLAN, Star Gazetesi",
+          "name": "Sibel ERASLAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
         },
         {
-          "name": "Fadime ÖZKAN, Star Gazetesi",
+          "name": "Fadime ÖZKAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
         },
         {
-          "name": "Hüseyin GÜLERCE, Star Gazetesi",
+          "name": "Hüseyin GÜLERCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Selahaddin E. ÇAKIRGİL, Star Gazetesi",
+          "name": "Selahaddin E. ÇAKIRGİL",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
-          "name": "Halime KÖKCE, Star Gazetesi",
+          "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
         },
         {
-          "name": "Yakup KÖSE, Star Gazetesi",
+          "name": "Yakup KÖSE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
         },
         {
-          "name": "Mustafa SABRİ BEŞER, Star Gazetesi",
+          "name": "Mustafa SABRİ BEŞER",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
         },
         {
-          "name": "M. Yalçın YILMAZ, Star Gazetesi",
+          "name": "M. Yalçın YILMAZ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
-          "name": "Esra ELÖNÜ, Star Gazetesi",
+          "name": "Esra ELÖNÜ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/184.png?v=1907.99"
         },
         {
-          "name": "Resul KURT, Star Gazetesi",
+          "name": "Resul KURT",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
         },
         {
-          "name": "Coşkun BAŞBUĞ, Star Gazetesi",
+          "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
         },
         {
-          "name": "Betül Soysal Bozdoğan, Star Gazetesi",
+          "name": "Betül Soysal Bozdoğan",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
-          "name": "Hasan Hüseyin ÖZ, Star Gazetesi",
+          "name": "Hasan Hüseyin ÖZ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
         },
         {
-          "name": "Cüneyd Altıparmak, Star Gazetesi",
+          "name": "Cüneyd Altıparmak",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
         },
         {
-          "name": "Filiz Katman, Star Gazetesi",
+          "name": "Filiz Katman",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
         },
         {
-          "name": "Adil Karaismailoğlu, Star Gazetesi",
+          "name": "Adil Karaismailoğlu",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
         },
         {
-          "name": "Faik Tanrıkulu, Star Gazetesi",
+          "name": "Faik Tanrıkulu",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/195.png?v=1907.99"
         },
         {
-          "name": "Levent Ersin Orallı, Star Gazetesi",
+          "name": "Levent Ersin Orallı",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/198.png?v=1907.99"
         }
@@ -5036,7 +5015,7 @@
           "photo": ""
         },
         {
-          "name": "Türkiye Gazetesi 2906 Adet Yazı",
+          "name": "Yazar Avatarı",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/turkiye-gazetesi",
           "photo": ""
         },
@@ -5071,7 +5050,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 55,
+      "count": 45,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5290,56 +5269,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İran kara kuvvetleri komutanı açıkladı… Hazırlıklarımız sürüyor…çok iyi önlemler aldık işte İran’ın yaptığı hazırlıklar",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Erdoğan’dan okul saldırıları çıkışı: “Zehirli tohumlar tehdit oluşturuyor”",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "15 Yaşından küçüklere yasaklanıyor… 1 Kasım’da yürürlüğe girecek… Resmi Gazete’de yayınlandı yaş doğrulaması E-Devlet üzerinden yapılacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Vanlı Kara Haydar soruşturmasında yeni operasyon! Yakalanan para 2,5 milyar TL’ye dayandı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Sigara satışında yeni dönem! T.C. kimlik numarası şartı geliyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bahçeli’den fon soruşturması açıklaması! Bakanlarımızı suçlamak ihanettir",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "AGD Kadın Kolları’ndan yeni dönem hamlesi...Teşkilat çalışmalarına yön veriliyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tam da beklenen açıklama buydu! Müslümanız ancak laik bir devletiz Video çekip “neden başörtüsü yasağı getirdiğini ilan etti”",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İstanbul’da E-5’te 12 günlük çalışma! Sürücülere saat uyarısı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ataşehir Belediyesi AK Parti’ye geçti! Serdar Orhan yeni Başkan vekili seçildi",
           "url": "",
           "photo": ""
         },
