@@ -93,6 +93,17 @@ AUTHOR_CLASS_NAMES = [
     "article-author", "byline", "author-name",
 ]
 
+# Yazar fotoğrafı için ipuçları: class/id/src içinde bu kelimeler geçen <img>
+# etiketleri yazar portresi sayılır. Logo/reklam/ikon görselleri elenir.
+AUTHOR_PHOTO_HINTS = (
+    "author", "yazar", "writer", "avatar", "profile", "portrait", "columnist",
+)
+AUTHOR_PHOTO_DENY = (
+    "logo", "icon", "sprite", "banner", "reklam", "ads", "advert",
+    "placeholder", "1x1", "blank", "loading", "share", "social",
+)
+AUTHOR_PHOTO_MIN_SIZE = 40
+
 # ---------------------------------------------------------------------------
 # Aktif gazeteler (piyasadaki tüm büyük ulusal gazeteler + güçlü dijital)
 # Her gazete için: bugünün yazıları dizini, tüm yazarlar dizini (opsiyonel),
@@ -431,8 +442,14 @@ def extract_named_links(html, base_url, pattern, denylist=None, limit=None):
             continue
         if is_noise(name):
             continue
+        photo = ""
+        img = a.find("img")
+        if img is not None:
+            src = _abs_img_src(img, base_url)
+            if src and not _is_denied_photo(src) and _img_size_ok(img):
+                photo = src
         seen.add(href)
-        out.append({"name": name, "url": href})
+        out.append({"name": name, "url": href, "photo": photo})
         if limit and len(out) >= limit:
             break
     return out
@@ -503,7 +520,133 @@ def extract_author_from_soup(soup):
     return ""
 
 
-def build_record(key, source_name, category, author, title, url, blocks, date_dt):
+def avatar_url(name):
+    """Fotoğraf bulunamadığında kullanılan baş harf avatarı."""
+    return (
+        "https://ui-avatars.com/api/?name="
+        + quote(name or "Yazar")
+        + "&background=2E384D&color=fff&size=128&bold=true"
+    )
+
+
+def _norm_name(value):
+    value = (value or "").strip().lower()
+    for ch in ".,;:!?'’“\"()[]*|-":
+        value = value.replace(ch, " ")
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _abs_img_src(img, base_url):
+    if img is None:
+        return ""
+    for attr in ("src", "data-src", "data-original", "data-lazy-src", "srcset"):
+        val = img.get(attr)
+        if not val:
+            continue
+        if attr == "srcset":
+            val = val.split(",")[0].split(" ")[0]
+        val = val.strip()
+        if val and not val.startswith("data:"):
+            return urljoin(base_url, val)
+    return ""
+
+
+def _img_size_ok(img):
+    for attr in ("width", "height"):
+        m = re.search(r"\d+", str(img.get(attr) or ""))
+        if m and int(m.group()) < AUTHOR_PHOTO_MIN_SIZE:
+            return False
+    return True
+
+
+def _has_photo_hint(text):
+    return any(h in text for h in AUTHOR_PHOTO_HINTS)
+
+
+def _is_denied_photo(src):
+    low = src.lower()
+    return any(d in low for d in AUTHOR_PHOTO_DENY)
+
+
+def _photo_from_jsonld(node):
+    """JSON-LD ağacında yalnızca author.image alanını arar (yayıncı logosu değil)."""
+    if isinstance(node, list):
+        for item in node:
+            found = _photo_from_jsonld(item)
+            if found:
+                return found
+        return ""
+    if not isinstance(node, dict):
+        return ""
+    if node.get("@graph"):
+        found = _photo_from_jsonld(node["@graph"])
+        if found:
+            return found
+    author = node.get("author")
+    for cand in (author if isinstance(author, list) else [author] if author else []):
+        if not isinstance(cand, dict):
+            continue
+        for key in ("image", "photo", "thumbnailUrl"):
+            val = cand.get(key)
+            if isinstance(val, dict):
+                val = val.get("url")
+            if isinstance(val, str) and val.startswith("http"):
+                return val
+    return ""
+
+
+def extract_author_photo(soup, author, base_url):
+    """Makale sayfasındaki yazar portresini bulur; bulamazsa boş string döner.
+
+    Sıra: JSON-LD author.image -> alt metni yazar adıyla aynı olan görsel ->
+    class/id/src içinde yazar ipucu geçen görsel (üç üst öğeye kadar bakılır).
+    """
+    for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
+        try:
+            data = json.loads(tag.string or tag.get_text() or "")
+        except Exception:
+            continue
+        photo = _photo_from_jsonld(data)
+        if photo and not _is_denied_photo(photo):
+            return urljoin(base_url, photo)
+
+    target = _norm_name(author)
+    imgs = soup.find_all("img")
+
+    if target:
+        for img in imgs:
+            if _norm_name(img.get("alt")) != target or not _img_size_ok(img):
+                continue
+            src = _abs_img_src(img, base_url)
+            if src and not _is_denied_photo(src):
+                return src
+
+    for img in imgs:
+        if not _img_size_ok(img):
+            continue
+        src = _abs_img_src(img, base_url)
+        if not src or _is_denied_photo(src):
+            continue
+        hay = " ".join([
+            " ".join(img.get("class") or []), img.get("id") or "", src,
+        ]).lower()
+        if _has_photo_hint(hay):
+            return src
+        parent = img.find_parent()
+        for _ in range(3):
+            if parent is None or not getattr(parent, "get", None):
+                break
+            attrs = " ".join([
+                " ".join(parent.get("class") or []), parent.get("id") or "",
+            ]).lower()
+            if _has_photo_hint(attrs):
+                return src
+            parent = parent.find_parent()
+    return ""
+
+
+def build_record(key, source_name, category, author, title, url, blocks, date_dt,
+                 photo=""):
     """Uygulamanın beklediği makale kaydını üretir."""
     texts = [t for _, t in blocks]
     plain = " ".join(texts)
@@ -522,6 +665,7 @@ def build_record(key, source_name, category, author, title, url, blocks, date_dt
             parts.append(f"<p>{safe}</p>")
 
     author_name = (author or "").strip()
+    photo = (photo or "").strip()
     return {
         "id": f"{key}-{hashlib.md5(url.encode('utf-8')).hexdigest()[:8]}",
         "author": author_name or "Köşe Yazarı",
@@ -533,11 +677,8 @@ def build_record(key, source_name, category, author, title, url, blocks, date_dt
         "readTime": f"{read_time} dk",
         "snippet": snippet,
         "fullContent": "\n".join(parts),
-        "avatar": (
-            "https://ui-avatars.com/api/?name="
-            + quote(author_name or "Yazar")
-            + "&background=2E384D&color=fff&size=128&bold=true"
-        ),
+        "photo": photo,
+        "avatar": photo or avatar_url(author_name),
         "isLive": True,
     }
 
@@ -575,6 +716,7 @@ def parse_html_article(url, paper):
         return None
 
     author = extract_author_from_soup(soup) or paper.get("author", "")
+    photo = extract_author_photo(soup, author, url)
 
     blocks = extract_blocks(soup)
     if len(blocks) < 2:
@@ -584,7 +726,7 @@ def parse_html_article(url, paper):
     date_dt = extract_date_from_soup(soup)
     return build_record(
         paper["key"], paper["name"], paper.get("category", "Gündem"),
-        author, title, url, blocks, date_dt,
+        author, title, url, blocks, date_dt, photo=photo,
     )
 
 
@@ -730,15 +872,38 @@ def fill_missing_authors(records, writers_data):
         for prof_url, name in by_source.get(rec.get("source"), []):
             if url.startswith(prof_url):
                 rec["author"] = name
-                rec["avatar"] = (
-                    "https://ui-avatars.com/api/?name="
-                    + quote(name)
-                    + "&background=2E384D&color=fff&size=128&bold=true"
-                )
+                rec["avatar"] = rec.get("photo") or avatar_url(name)
                 fixed += 1
                 break
     if fixed:
         log(f">> Yazar adı roster'dan tamamlandı: {fixed} kayıt")
+    return records
+
+
+def fill_missing_photos(records, writers_data):
+    """Makale sayfasında fotoğrafı bulunamayan kayıtlara, aynı gazetenin yazar
+    listesindeki profil fotoğrafını atar. Bulunamazsa baş harf avatarı kalır."""
+    by_source = {}
+    for paper in writers_data.get("papers", []):
+        photos = {
+            _norm_name(w["name"]): w["photo"]
+            for w in paper.get("writers", [])
+            if w.get("photo") and _norm_name(w.get("name"))
+        }
+        if photos:
+            by_source[paper["name"]] = photos
+
+    fixed = 0
+    for rec in records:
+        if rec.get("photo"):
+            continue
+        photo = by_source.get(rec.get("source"), {}).get(_norm_name(rec.get("author")))
+        if photo:
+            rec["photo"] = photo
+            rec["avatar"] = photo
+            fixed += 1
+    if fixed:
+        log(f">> Yazar fotoğrafı roster'dan tamamlandı: {fixed} kayıt")
     return records
 
 
@@ -754,7 +919,9 @@ def merge_article_authors(writers_data, records):
             continue
         names = {w["name"].lower() for w in entry["writers"]}
         if rec["author"] and rec["author"] != "Köşe Yazarı" and rec["author"].lower() not in names:
-            entry["writers"].append({"name": rec["author"], "url": ""})
+            entry["writers"].append(
+                {"name": rec["author"], "url": "", "photo": rec.get("photo", "")}
+            )
             entry["count"] += 1
             writers_data["total"] += 1
             names.add(rec["author"].lower())
@@ -888,9 +1055,10 @@ def main():
         log(f">> {cfg['name']} (RSS)")
         records.extend(parse_feed(cfg, args.max_per_source))
 
-    # yazarı okunamayan kayıtları roster eşleşmesiyle tamamla, ardından
-    # makale sayfalarındaki yazar adlarını keşif listesine işle
+    # yazarı/fotoğrafı okunamayan kayıtları roster eşleşmesiyle tamamla,
+    # ardından makale sayfalarındaki yazar adlarını keşif listesine işle
     fill_missing_authors(records, writers_data)
+    fill_missing_photos(records, writers_data)
     merge_article_authors(writers_data, records)
     save_writers(writers_data, args.writers_out)
 
