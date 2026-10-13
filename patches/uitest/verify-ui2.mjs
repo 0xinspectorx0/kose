@@ -27,7 +27,9 @@ const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslend
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
-const fns = ['escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
+// Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
+const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','unfavoriteFromAvatar','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
   'renderAuthorAvatars','renderArticles','applyFilters','filterCategory','loadDailyFeed','applyReadState',
   'markArticleRead','isAuthorFullyRead','writersSummary','filterWriters','buildWriterPopularity','writerScore',
   'cleanWriterName','isPersonName','cleanWriters','renderWriters','togglePaper','openWriter','renderWriterNotFound',
@@ -45,7 +47,9 @@ const domIds = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'arti
   fontDecBtn:'font-dec-btn', fontIncBtn:'font-inc-btn', miniPlayerEl:'mini-player',
   audioStrip:'audio-player-strip', miniAudioToggle:'mini-audio-toggle', listenArticleBtn:'listen-article-btn',
   closeReaderBtn:'close-reader-btn', externalLinkBtn:'external-link-btn', readerScrollable:'reader-scrollable',
-  readerProgressBar:'reader-progress', readerBookmarkBtn:'reader-bookmark-btn' };
+  readerProgressBar:'reader-progress', readerBookmarkBtn:'reader-bookmark-btn', readerFavoriteBtn:'reader-favorite-btn',
+  favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
+  favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty' };
 
 function boot(preset) {
   const { window } = new JSDOM(html, { runScripts: 'outside-only', url: 'http://localhost/' });
@@ -62,9 +66,27 @@ function boot(preset) {
   for (const [k, id] of Object.entries(domIds)) window[k] = doc.getElementById(id);
   window.mainScrollEl.scrollTo = () => {};
   if (preset) window.localStorage.setItem('kose-read-articles', JSON.stringify(preset));
-  window.eval([...srcConsts, settingsBlock, readStateBlock, ...fns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
+  window.localStorage.setItem('kose-favorite-writers', FAVORITE_SEED);
+  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
   return { window, doc };
 }
+
+// Ana sayfadaki daireler artık yalnızca favori yazarları gösterir: test,
+// günlük akıştaki yazarların tamamını boot'tan ÖNCE localStorage'a favori
+// olarak yazar (favoriteWriters bu kayıttan okunur).
+function favoriteSeedFromDaily(dailyPath) {
+  const dd = JSON.parse(readFileSync(dailyPath, 'utf8'));
+  const seen = new Set();
+  const favs = [];
+  (dd.articles || []).forEach(a => {
+    const k = String(a.author || '').toLocaleLowerCase('tr-TR').trim();
+    if (!k || seen.has(k)) return;
+    seen.add(k);
+    favs.push({ name: a.author, source: a.source, photo: '', url: '' });
+  });
+  return JSON.stringify(favs);
+}
+const FAVORITE_SEED = favoriteSeedFromDaily('/home/user/kose/data/daily.json');
 
 const d = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 const w = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));
@@ -78,6 +100,7 @@ console.log('  Türkçe harfler: "işıl" ->', window.formatAuthorName('işıl �
 window.writersData = w;
 window.fetch = async () => ({ ok: true, json: async () => d });
 await window.loadDailyFeed(false);
+window.renderAuthorAvatars();
 const cards = [...doc.querySelectorAll('#articles-list > *')];
 const h3 = cards[0].querySelector('h3').textContent;
 console.log('  ilk kart yazarı:', JSON.stringify(h3), '| beklenen:', JSON.stringify(window.formatAuthorName(window.articles[0].author)), '| uyuşuyor:', h3 === window.formatAuthorName(window.articles[0].author));
@@ -96,6 +119,7 @@ console.log('\n[2] OKUNDUYSA GRİ HALKA');
 window.writersData = w;
 window.fetch = async () => ({ ok: true, json: async () => d });
 await window.loadDailyFeed(false);
+window.renderAuthorAvatars();
 const normName = s => String(s ?? '').toLocaleLowerCase('tr-TR').trim();
 // veri aynı ismin farklı yazımlarını taşıyabilir ("Abdulkadir SELVİ"/"ABDULKADİR SELVİ");
 // daire araması normalizasyonla eşleşir

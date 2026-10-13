@@ -21,8 +21,11 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
+// Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
+const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
 
-const fns = ['escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','unfavoriteFromAvatar','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
+  'applyReadState','markArticleRead','isAuthorFullyRead','quickOpenByAuthor',
   'renderArticles','applyFilters','filterCategory','loadDailyFeed','writersSummary','filterWriters',
   'buildWriterPopularity','writerScore','cleanWriterName','isPersonName','cleanWriters','renderWriters',
   'togglePaper','openWriter','renderWriterNotFound','paintToggle','renderSettings','saveSettings',
@@ -48,10 +51,28 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
   writersSearchInput:'writers-search', searchInput:'search-input', syncTimeEl:'sync-time',
   feedAuthorsSection:'feed-authors-section', feedCategoriesSection:'feed-categories-section', syncBannerEl:'sync-banner',
   writersViewEl:'writers-view', settingsViewEl:'settings-view', articleReader:'article-reader',
-  mainScrollEl:'main-scroll', scrollTopBtn:'scroll-top-btn', authorTooltipEl:'author-tooltip' };
+  mainScrollEl:'main-scroll', scrollTopBtn:'scroll-top-btn', authorTooltipEl:'author-tooltip',
+  favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
+  favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty' };
+window.localStorage.setItem('kose-favorite-writers', favoriteSeedFromDaily('/home/user/kose/data/daily.json'));
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
 window.mainScrollEl.scrollTo = () => {};
-window.eval([...srcConsts, settingsBlock, readStateBlock, ...fns.map(extract), writersEvents].join('\n'));
+window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), writersEvents].join('\n'));
+// Ana sayfadaki daireler artık yalnızca favori yazarları gösterir: test,
+// günlük akıştaki yazarların tamamını eval'den ÖNCE localStorage üzerinden
+// favori olarak tohumlar (favoriteWriters bu kayıttan okunur).
+function favoriteSeedFromDaily(dailyPath) {
+  const dd = JSON.parse(readFileSync(dailyPath, 'utf8'));
+  const seen = new Set();
+  const favs = [];
+  (dd.articles || []).forEach(a => {
+    const k = String(a.author || '').toLocaleLowerCase('tr-TR').trim();
+    if (!k || seen.has(k)) return;
+    seen.add(k);
+    favs.push({ name: a.author, source: a.source, photo: '', url: '' });
+  });
+  return JSON.stringify(favs);
+}
 
 const d = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 const w = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));
