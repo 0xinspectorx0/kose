@@ -613,22 +613,24 @@
     async function loadDailyFeed(isManual = false) {
       try {
         // Önce GitHub main'deki CANLI veri (Actions oraya commit'ler; raw host'u CORS'a açık),
-        // ulaşılamazsa uygulama ile paketlenen yerel anlık görüntüye düş.
+        // ayrıca uygulama ile paketlenen yerel anlık görüntü de yoklanır; hangi kaynak daha
+        // taze (fetchedAt) ise o kullanılır — böylece main'e yazılamayan ara koşullarda bile
+        // dal üzerindeki güncel snapshot görünür kalır.
         const sources = [
           'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/daily.json',
           DAILY_FEED_URL
         ];
-        let data = null;
-        for (let i = 0; i < sources.length; i++) {
+        const probes = await Promise.all(sources.map(async (src) => {
           try {
-            const res = await fetch(`${sources[i]}?v=${Date.now()}`, { cache: 'no-store' });
-            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const res = await fetch(`${src}?v=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) return null;
             const d = await res.json();
-            if (!d || !Array.isArray(d.articles) || d.articles.length === 0) throw new Error('Boş veri');
-            data = d;
-            break;
-          } catch (e) { if (i === sources.length - 1) throw e; }
-        }
+            return (d && Array.isArray(d.articles) && d.articles.length) ? d : null;
+          } catch (e) { return null; }
+        }));
+        const good = probes.filter(Boolean);
+        if (!good.length) throw new Error('veri alınamadı');
+        const data = good.sort((x, y) => new Date(y.fetchedAt || 0) - new Date(x.fetchedAt || 0))[0];
         const live = data.articles.map(mapLiveArticle);
         articles = [...live, ...articles.filter(a => !a.isLive)];
         localStorage.setItem('kose-feed-date', todayKey());
@@ -636,7 +638,7 @@
         const papers = data.papers ? ` · ${data.papers} gazete` : '';
         const writers = data.writers ? ` · ${data.writers} yazar` : '';
         const ageH = (Date.now() - new Date(data.fetchedAt || 0).getTime()) / 3600000;
-        const stale = isFinite(ageH) && ageH > 18;   // günlük koşu ~24 saat arayla; 18 sa aştıysa cron atlanmış
+        const stale = isFinite(ageH) && ageH > 30;   // koşular günde ~1 kez; 24 sa + tolerans aşıldıysa cron gerçekten atlanmış demektir
         const syncBanner = document.getElementById('sync-banner');
         if (syncBanner) {
           syncBanner.classList.toggle('bg-amber-50', stale);
@@ -646,7 +648,13 @@
           syncBanner.classList.toggle('text-amber-800', stale);
           syncBanner.classList.toggle('text-emerald-800', !stale);
         }
-        document.getElementById('sync-label').textContent = `${stale ? 'Kaynak güncellemesi gecikti' : 'Gazetelerden senkronize edildi'}${papers}${writers} · ${live.length} canlı yazı`;
+        const lastStamp = data.fetchedAt
+          ? new Date(data.fetchedAt).toLocaleString('tr-TR', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })
+          : null;
+        const head = stale
+          ? `Kaynak güncellemesi gecikti${lastStamp ? ` (son veri: ${lastStamp})` : ''}`
+          : 'Gazetelerden senkronize edildi';
+        document.getElementById('sync-label').textContent = `${head}${papers}${writers} · ${live.length} canlı yazı`;
         renderAuthorAvatars();
         applyFilters();
         return true;
@@ -849,22 +857,23 @@
       writersListEl.innerHTML = '';
       writersMetaEl.textContent = '';
       try {
+        // loadDailyFeed ile aynı tazelik mantığı: main + yerel yoklanır, fetchedAt'ı büyük olan kazanır
         const wSources = [
           'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/writers.json',
           WRITERS_URL
         ];
-        let data = null;
-        for (let i = 0; i < wSources.length; i++) {
+        const wProbes = await Promise.all(wSources.map(async (src) => {
           try {
-            const res = await fetch(`${wSources[i]}?v=${Date.now()}`, { cache: 'no-store' });
-            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const res = await fetch(`${src}?v=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) return null;
             const d = await res.json();
             const summary = writersSummary(d);
-            if (!summary.paperCount || !summary.total) throw new Error('Boş veri');
-            data = d;
-            break;
-          } catch (e) { if (i === wSources.length - 1) throw e; }
-        }
+            return (summary.paperCount && summary.total) ? d : null;
+          } catch (e) { return null; }
+        }));
+        const wGood = wProbes.filter(Boolean);
+        if (!wGood.length) throw new Error('yazar listesi alınamadı');
+        const data = wGood.sort((x, y) => new Date(y.fetchedAt || 0) - new Date(x.fetchedAt || 0))[0];
         writersData = data;
         writersLoaded = true;
         renderWriters();
@@ -1796,6 +1805,8 @@
     `;
     lucide.createIcons();
     loadDailyFeed(false); // günlük canlı akışı çek (örnek yazılar sadece çevrimdışı yedeği)
+    // Sekme açıkken yarımsaatte bir taze veri yokla (görünür değilken boşuna ağa dokunma)
+    setInterval(() => { if (!document.hidden) loadDailyFeed(false); }, 30 * 60 * 1000);
   </script>
 </body>
 </html>
