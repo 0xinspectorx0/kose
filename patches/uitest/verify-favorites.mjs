@@ -1,4 +1,4 @@
-// Favori Yazarlar regresyonu: alt menü sekmesi, kalpler, ana sayfa daireleri
+// Favori Yazarlar regresyonu: alt menü sekmesi, Keşfet/kart/okuyucu kalpleri, kalpsiz ana sayfa daireleri
 import { readFileSync } from 'node:fs';
 import { JSDOM } from '/tmp/uitest/node_modules/jsdom/lib/api.js';
 
@@ -16,10 +16,11 @@ ok(/id="reader-favorite-btn"/.test(html), 'okuyucuda kalp düğmesi var');
 ok(/Favori Yazarlar/.test(html), '"Favori Yazarlar" başlığı var');
 ok(!/Takip Edilenler/.test(html), 'eski "Takip Edilenler" başlığı kaldırıldı');
 for (const fn of ['renderFavorites', 'toggleFavoriteWriter', 'isFavoriteWriter', 'saveFavoriteWriters',
-  'unfavoriteFromAvatar', 'openFavoriteWriterArticles', 'findWriterPhoto', 'updateReaderFavoriteIcon',
+  'openFavoriteWriterArticles', 'findWriterPhoto', 'updateReaderFavoriteIcon',
   'toggleFavoriteFromCard', 'favoriteArticles', 'deaccentTr']) {
   ok(new RegExp(`function ${fn}\\(`).test(html), `${fn}() tanımlı`);
 }
+ok(!/unfavoriteFromAvatar/.test(html), 'dairelerdeki favoriden çıkarma kalbi kaldırıldı (fonksiyon yok)');
 ok(/kose-favorite-writers/.test(html), 'favoriler localStorage anahtarı kullanılıyor');
 
 // --- 2) jsdom ile davranış ---
@@ -77,7 +78,8 @@ ok(window.eval('favoriteWriters.length') === 1, 'favori eklendi');
 ok(window.localStorage.getItem('kose-favorite-writers').includes('Ahmet HAKAN'), 'favori localStorage’a yazıldı');
 const track2 = doc.getElementById('authors-avatar-track').innerHTML;
 ok(/Ahmet/.test(track2) && !/Mahfi/.test(track2), 'ana sayfadaki dairelerde yalnızca favori yazar var');
-ok(/unfavoriteFromAvatar/.test(track2), 'dairenin üzerinde favoriden çıkarma kalbi var');
+ok(!/unfavoriteFromAvatar|data-fav-avatar/.test(track2), 'dairelerde favoriden çıkarma kalbi yok');
+ok(!/<button/.test(track2), 'dairelerin içinde düğme yok (sadece portre + ad)');
 
 const favHtml = doc.getElementById('favorites-list').innerHTML;
 ok(/Ahmet/.test(favHtml), 'Favoriler sayfasında yazar listeleniyor');
@@ -155,13 +157,16 @@ ok(window.eval('favoriteWriters.length') === 2, 'Favoriler sayfasından yazar ç
 ok(doc.getElementById('favorites-meta').textContent === '2 yazar', 'sayaç çıkarınca güncellendi');
 ok(!/Zeynep/.test(doc.getElementById('authors-avatar-track').innerHTML), 'çıkarılan yazarın dairesi ana sayfadan düştü');
 
-// ana sayfadaki daireden çıkar
+// ana sayfadaki dairede kalp/düğme yok; daireye tıklamak yazıları açar, favoriyi silmez
 window.eval("setTab('feed')");
-const circleHeart = doc.querySelector('#authors-avatar-track [onclick^="unfavoriteFromAvatar"]');
-ok(!!circleHeart, 'ana sayfadaki dairede favoriden çıkarma kalbi var');
-const circleName = circleHeart.closest('[data-name]').dataset.name;
-circleHeart.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
-ok(!window.eval(`isFavoriteWriter(${JSON.stringify(circleName)}, '')`), 'dairedeki kalple favori çıkarıldı');
+const circleEls = [...doc.querySelectorAll('#authors-avatar-track [data-name]')];
+ok(circleEls.length === 2, 'ana sayfada 2 favori dairesi var');
+ok(circleEls.every(c => c.querySelectorAll('button').length === 0), 'dairelerde hiç düğme/kalp yok');
+const circleName = circleEls[0].dataset.name;
+const favCountBefore = window.eval('favoriteWriters.length');
+circleEls[0].dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+ok(window.eval('favoriteWriters.length') === favCountBefore, 'daireye tıklamak favoriyi silmiyor');
+ok(window.eval(`isFavoriteWriter(${JSON.stringify(circleName)}, '')`), 'daireye tıklanan yazar hâlâ favori');
 
 // favorideki yazarın yazısı yoksa bilgi kartı
 window.eval("toggleFavoriteWriter({ name: 'Yok Yazar', source: 'Sabah', url: 'http://yok' })");
@@ -179,10 +184,13 @@ ok(window.eval('currentTab') === 'feed', 'Favoriler’den "yazılarını aç" ak
 
 // kalıcılık: aynı kayıtla yeniden yükle
 const stored = window.localStorage.getItem('kose-favorite-writers');
-ok(JSON.parse(stored).length === 2, 'localStorage’da 2 favori saklı');
+ok(JSON.parse(stored).length === 3, 'localStorage’da 3 favori saklı');
 const dom2 = makeDom(stored);
 await new Promise(r => setTimeout(r, 250));
-ok(dom2.window.eval('favoriteWriters.length') === 2, 'favoriler sayfa yeniden açılınca korunuyor');
+ok(dom2.window.eval('favoriteWriters.length') === 3, 'favoriler sayfa yeniden açılınca korunuyor');
+const track3 = doc2Track(dom2);
+ok(!/unfavoriteFromAvatar|<button/.test(track3), 'yeniden açılan sayfadaki dairelerde de kalp yok');
+function doc2Track(d) { return d.window.document.getElementById('authors-avatar-track').innerHTML; }
 dom2.window.close();
 
 dom.window.close();
