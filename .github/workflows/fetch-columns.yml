@@ -45,5 +45,16 @@ jobs:
             echo "Değişiklik yok, commit atlanıyor."
           else
             git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
-            git push
+            # Çakışma toleransı: elle tetiklenen + gecikmiş schedule koşusu aynı anda
+            # push ederse ikincisi reddedilir. Uzaktaki içerik bizimle aynıysa bu
+            # başarıdır; değilse rebase edip bir kez daha dene.
+            if ! git push; then
+              git fetch origin "${GITHUB_REF_NAME:-main}"
+              if git diff --quiet "origin/${GITHUB_REF_NAME:-main}" -- data/daily.json data/writers.json; then
+                echo "Uzakta aynı içerik var (eşzamanlı koşu yazdı); sorun değil."
+              else
+                git rebase "origin/${GITHUB_REF_NAME:-main}" || git rebase --abort
+                git push || { echo "::error::push başarısız"; exit 1; }
+              fi
+            fi
           fi
