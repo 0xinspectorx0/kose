@@ -1,18 +1,13 @@
 {
-  "fetchedAt": "2026-10-13T11:01:22.350811+00:00",
+  "fetchedAt": "2026-10-13T11:32:30.669832+00:00",
   "date": "2026-10-13",
-  "total": 1274,
+  "total": 1273,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "6998422Eeb59fdefaeb22670",
-          "url": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -231,6 +226,11 @@
         {
           "name": "Arman Kırım",
           "url": "https://www.hurriyet.com.tr/yazarlar/arman-kirim/",
+          "photo": ""
+        },
+        {
+          "name": "Arzu Akbaş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/",
           "photo": ""
         },
         {
@@ -1275,14 +1275,19 @@
           "photo": ""
         },
         {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1290,19 +1295,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "SALİH TUNA",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -2956,6 +2956,11 @@
           "photo": "https://cdn.karar.com/author/556_s.jpg"
         },
         {
+          "name": "Helmut Anheier",
+          "url": "https://www.karar.com/yazarlar/helmut-anheier",
+          "photo": "https://cdn.karar.com/author/557_s.jpg"
+        },
+        {
           "name": "İbrahim Kahveci",
           "url": "https://www.karar.com/yazarlar/ibrahim-kahveci",
           "photo": "https://cdn.karar.com/author/20_s.jpg"
@@ -3549,11 +3554,6 @@
           "name": "Janis Emmanouilidis",
           "url": "https://www.karar.com/yazarlar/janis-emmanouilidis",
           "photo": "https://cdn.karar.com/author/550_s.jpg"
-        },
-        {
-          "name": "Helmut Anheier",
-          "url": "https://www.karar.com/yazarlar/helmut-anheier",
-          "photo": "https://cdn.karar.com/author/557_s.jpg"
         }
       ]
     },
@@ -3745,62 +3745,62 @@
       "count": 21,
       "writers": [
         {
-          "name": "İlke Gürsoy 15 Yazı",
+          "name": "İlke Gürsoy",
           "url": "https://www.posta.com.tr/yazarlar/ilke-gursoy/",
           "photo": ""
         },
         {
-          "name": "Ayşe Mine Yaman 28 Yazı",
+          "name": "Ayşe Mine Yaman",
           "url": "https://www.posta.com.tr/yazarlar/ayse-mine-yaman/",
           "photo": ""
         },
         {
-          "name": "Aytül Farquharson 111 Yazı",
+          "name": "Aytül Farquharson",
           "url": "https://www.posta.com.tr/yazarlar/aytul-farquharson/",
           "photo": ""
         },
         {
-          "name": "Dr. Ceyda Şener 26 Yazı",
+          "name": "Dr. Ceyda Şener",
           "url": "https://www.posta.com.tr/yazarlar/dr-ceyda-sener/",
           "photo": ""
         },
         {
-          "name": "Emre Arslan 8 Yazı",
+          "name": "Emre Arslan",
           "url": "https://www.posta.com.tr/yazarlar/emre-arslan/",
           "photo": ""
         },
         {
-          "name": "Selcen Doğan Ağakay 115 Yazı",
+          "name": "Selcen Doğan Ağakay",
           "url": "https://www.posta.com.tr/yazarlar/selcen-dogan-agakay/",
           "photo": ""
         },
         {
-          "name": "Twitter Köstebeği 5 Yazı",
+          "name": "Twitter Köstebeği",
           "url": "https://www.posta.com.tr/yazarlar/twitter-kostebegi/",
           "photo": ""
         },
         {
-          "name": "Yasemin Altan 12 Yazı",
+          "name": "Yasemin Altan",
           "url": "https://www.posta.com.tr/yazarlar/yasemin-altan/",
           "photo": ""
         },
         {
-          "name": "Zeyno Gürses 46 Yazı",
+          "name": "Zeyno Gürses",
           "url": "https://www.posta.com.tr/yazarlar/zeyno-gurses/",
           "photo": ""
         },
         {
-          "name": "Didem Şarman 6 Yazı",
+          "name": "Didem Şarman",
           "url": "https://www.posta.com.tr/yazarlar/didem-sarman/",
           "photo": ""
         },
         {
-          "name": "Aslı Utkan 1 Yazı",
+          "name": "Aslı Utkan",
           "url": "https://www.posta.com.tr/yazarlar/asli-utkan/",
           "photo": ""
         },
         {
-          "name": "Erdoğan Arıpınar 115 Yazı",
+          "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
           "photo": ""
         },
@@ -4861,37 +4861,37 @@
       "count": 61,
       "writers": [
         {
-          "name": "Abdüllatif Uyan 9299 Adet Yazı",
+          "name": "Abdüllatif Uyan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/abdullatif-uyan",
           "photo": ""
         },
         {
-          "name": "Adnan Şahin 473 Adet Yazı",
+          "name": "Adnan Şahin",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/adnan-sahin",
           "photo": ""
         },
         {
-          "name": "Ahmet Demirbaş 1711 Adet Yazı",
+          "name": "Ahmet Demirbaş",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ahmet-demirbas",
           "photo": ""
         },
         {
-          "name": "Ahmet Sağırlı 2637 Adet Yazı",
+          "name": "Ahmet Sağırlı",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ahmet-sagirli",
           "photo": ""
         },
         {
-          "name": "Akif Bülbül 229 Adet Yazı",
+          "name": "Akif Bülbül",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/akif-bulbul",
           "photo": ""
         },
         {
-          "name": "Ali Kunak 129 Adet Yazı",
+          "name": "Ali Kunak",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ali-kunak",
           "photo": ""
         },
         {
-          "name": "Ali Tüfekçi 36 Adet Yazı",
+          "name": "Ali Tüfekçi",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ali-tufekci",
           "photo": ""
         },
@@ -4901,42 +4901,42 @@
           "photo": ""
         },
         {
-          "name": "Atilla Yayla 463 Adet Yazı",
+          "name": "Atilla Yayla",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/atilla-yayla",
           "photo": ""
         },
         {
-          "name": "Cahit Erogul 171 Adet Yazı",
+          "name": "Cahit Erogul",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/cahit-erogul",
           "photo": ""
         },
         {
-          "name": "Canan Eraslan 209 Adet Yazı",
+          "name": "Canan Eraslan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/canan-eraslan",
           "photo": ""
         },
         {
-          "name": "Celal Toprak 233 Adet Yazı",
+          "name": "Celal Toprak",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/celal-toprak",
           "photo": ""
         },
         {
-          "name": "Dr. C. Ahmet Akisik 130 Adet Yazı",
+          "name": "Dr. C. Ahmet Akisik",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/dr-c-ahmet-akisik",
           "photo": ""
         },
         {
-          "name": "Ercan Yıldız 197 Adet Yazı",
+          "name": "Ercan Yıldız",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ercan-yildiz",
           "photo": ""
         },
         {
-          "name": "Fatih Selek 523 Adet Yazı",
+          "name": "Fatih Selek",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/fatih-selek",
           "photo": ""
         },
         {
-          "name": "Ferhat Ünlü 47 Adet Yazı",
+          "name": "Ferhat Ünlü",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ferhat-unlu",
           "photo": ""
         },
@@ -4946,137 +4946,137 @@
           "photo": ""
         },
         {
-          "name": "Gökhan Karataş 61 Adet Yazı",
+          "name": "Gökhan Karataş",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/gokhan-karatas",
           "photo": ""
         },
         {
-          "name": "Halime Gürbüz 2163 Adet Yazı",
+          "name": "Halime Gürbüz",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/halime-gurbuz",
           "photo": ""
         },
         {
-          "name": "Hasan Sariçiçek 2283 Adet Yazı",
+          "name": "Hasan Sariçiçek",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hasan-saricicek",
           "photo": ""
         },
         {
-          "name": "Hasan Yavaş 570 Adet Yazı",
+          "name": "Hasan Yavaş",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hasan-yavas",
           "photo": ""
         },
         {
-          "name": "Hikmet Köksal 927 Adet Yazı",
+          "name": "Hikmet Köksal",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/hikmet-koksal",
           "photo": ""
         },
         {
-          "name": "İrfan Özfatura 827 Adet Yazı",
+          "name": "İrfan Özfatura",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/irfan-ozfatura",
           "photo": ""
         },
         {
-          "name": "İsa Karakaş 1371 Adet Yazı",
+          "name": "İsa Karakaş",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/isa-karakas",
           "photo": ""
         },
         {
-          "name": "İsmail Kapan 3834 Adet Yazı",
+          "name": "İsmail Kapan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ismail-kapan",
           "photo": ""
         },
         {
-          "name": "Kemal Belgin 1946 Adet Yazı",
+          "name": "Kemal Belgin",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/kemal-belgin",
           "photo": ""
         },
         {
-          "name": "Kubilay Gülbek 13 Adet Yazı",
+          "name": "Kubilay Gülbek",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/kubilay-gulbek",
           "photo": ""
         },
         {
-          "name": "M. Said Arvas 999 Adet Yazı",
+          "name": "M. Said Arvas",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/m-said-arvas",
           "photo": ""
         },
         {
-          "name": "M.Tahir Kum 63 Adet Yazı",
+          "name": "M.Tahir Kum",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/mtahir-kum",
           "photo": ""
         },
         {
-          "name": "Mehmet Emin Uluç 223 Adet Yazı",
+          "name": "Mehmet Emin Uluç",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/mehmet-emin-uluc",
           "photo": ""
         },
         {
-          "name": "Meryem Aybike Sinan 915 Adet Yazı",
+          "name": "Meryem Aybike Sinan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/meryem-aybike-sinan",
           "photo": ""
         },
         {
-          "name": "Murad Tamer 54 Adet Yazı",
+          "name": "Murad Tamer",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/murad-tamer",
           "photo": ""
         },
         {
-          "name": "Müzeyyen Bıyık 37 Adet Yazı",
+          "name": "Müzeyyen Bıyık",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/muzeyyen-biyik",
           "photo": ""
         },
         {
-          "name": "Necmettin Batırel 2080 Adet Yazı",
+          "name": "Necmettin Batırel",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/necmettin-batirel",
           "photo": ""
         },
         {
-          "name": "Nur Tuğba Aktay 232 Adet Yazı",
+          "name": "Nur Tuğba Aktay",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/nur-tugba-aktay",
           "photo": ""
         },
         {
-          "name": "Osman Sağırlı 27 Adet Yazı",
+          "name": "Osman Sağırlı",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/osman-sagirli",
           "photo": ""
         },
         {
-          "name": "Osman Ünlü 5437 Adet Yazı",
+          "name": "Osman Ünlü",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/osman-unlu",
           "photo": ""
         },
         {
-          "name": "Öcal Uluç 3992 Adet Yazı",
+          "name": "Öcal Uluç",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ocal-uluc",
           "photo": ""
         },
         {
-          "name": "Ömer Çetin 29 Adet Yazı",
+          "name": "Ömer Çetin",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-cetin",
           "photo": ""
         },
         {
-          "name": "Ömer Ekinci 322 Adet Yazı",
+          "name": "Ömer Ekinci",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-ekinci",
           "photo": ""
         },
         {
-          "name": "Ömer Faruk Bingöl 375 Adet Yazı",
+          "name": "Ömer Faruk Bingöl",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-faruk-bingol",
           "photo": ""
         },
         {
-          "name": "Ömer Faruk Ünal 1904 Adet Yazı",
+          "name": "Ömer Faruk Ünal",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/omer-faruk-unal",
           "photo": ""
         },
         {
-          "name": "Prof. Dr. Ahmet Şimşirgil 467 Adet Yazı",
+          "name": "Prof. Dr. Ahmet Şimşirgil",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-ahmet-simsirgil",
           "photo": ""
         },
         {
-          "name": "Prof. Dr. Çağrı Erhan 803 Adet Yazı",
+          "name": "Prof. Dr. Çağrı Erhan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-cagri-erhan",
           "photo": ""
         },
@@ -5086,12 +5086,12 @@
           "photo": ""
         },
         {
-          "name": "Prof. Dr. Emre Alkin 194 Adet Yazı",
+          "name": "Prof. Dr. Emre Alkin",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-emre-alkin",
           "photo": ""
         },
         {
-          "name": "Prof. Dr. Gaye Gencer 5 Adet Yazı",
+          "name": "Prof. Dr. Gaye Gencer",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-gaye-gencer",
           "photo": ""
         },
@@ -5101,42 +5101,42 @@
           "photo": ""
         },
         {
-          "name": "Prof. Dr. Ramazan Ayvallı 1619 Adet Yazı",
+          "name": "Prof. Dr. Ramazan Ayvallı",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/prof-dr-ramazan-ayvalli",
           "photo": ""
         },
         {
-          "name": "Ragıp Karadayı 2921 Adet Yazı",
+          "name": "Ragıp Karadayı",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/ragip-karadayi",
           "photo": ""
         },
         {
-          "name": "Rahim Er 5175 Adet Yazı",
+          "name": "Rahim Er",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/rahim-er",
           "photo": ""
         },
         {
-          "name": "Sadık Söztutan 879 Adet Yazı",
+          "name": "Sadık Söztutan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sadik-soztutan",
           "photo": ""
         },
         {
-          "name": "Salih Uyan 516 Adet Yazı",
+          "name": "Salih Uyan",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/salih-uyan",
           "photo": ""
         },
         {
-          "name": "Salim Köklü 568 Adet Yazı",
+          "name": "Salim Köklü",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/salim-koklu",
           "photo": ""
         },
         {
-          "name": "Sevda Kılıç 88 Adet Yazı",
+          "name": "Sevda Kılıç",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sevda-kilic",
           "photo": ""
         },
         {
-          "name": "Sevil Nuriyeva 240 Adet Yazı",
+          "name": "Sevil Nuriyeva",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/sevil-nuriyeva",
           "photo": ""
         },
@@ -5146,22 +5146,22 @@
           "photo": ""
         },
         {
-          "name": "Ünal Bolat 5386 Adet Yazı",
+          "name": "Ünal Bolat",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/unal-bolat",
           "photo": ""
         },
         {
-          "name": "Vehbi Tülek 7624 Adet Yazı",
+          "name": "Vehbi Tülek",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/vehbi-tulek",
           "photo": ""
         },
         {
-          "name": "Yetenekli Kalemler 2833 Adet Yazı",
+          "name": "Yetenekli Kalemler",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/yetenekli-kalemler",
           "photo": ""
         },
         {
-          "name": "Yücel Koç 853 Adet Yazı",
+          "name": "Yücel Koç",
           "url": "https://www.turkiyegazetesi.com.tr/yazarlar/yucel-koc",
           "photo": ""
         }
@@ -5176,7 +5176,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5424,11 +5424,6 @@
           "photo": ""
         },
         {
-          "name": "'Ankara Abisi' gözaltında: 2 milyarlık kara para iddiası",
-          "url": "",
-          "photo": ""
-        },
-        {
           "name": "Medeniyet, Güç ve Yeni Dünya Düzeninin Çelişkileri",
           "url": "",
           "photo": ""
@@ -5441,22 +5436,12 @@
       "count": 200,
       "writers": [
         {
-          "name": "15. İstanbul Bienali",
-          "url": "https://t24.com.tr/yazarlar/komsu",
-          "photo": "https://media-cdn.t24.com.tr/media/authors/page/15-istanbul-bienali_630320966.jpg"
-        },
-        {
-          "name": "21. İstanbul Tiyatro Festivali",
-          "url": "https://t24.com.tr/yazarlar/21-tiyatro-festivali",
-          "photo": "https://media-cdn.t24.com.tr/media/authors/page/21-tiyatro-festivali_173890517.jpg"
-        },
-        {
           "name": "Adalet Çavdar",
           "url": "https://t24.com.tr/yazarlar/adalet-cavdar",
           "photo": "https://media-cdn.t24.com.tr/media/library/2019/05/1557500994318-adalet-cavdar.jpg"
         },
         {
-          "name": "Adnan Ekinci | Hukuk Ombudsmanı",
+          "name": "Adnan Ekinci",
           "url": "https://t24.com.tr/yazarlar/adnan-ekinci",
           "photo": "https://media-cdn.t24.com.tr/media/library/2019/08/1565272784006-4.jpg"
         },
@@ -5501,7 +5486,7 @@
           "photo": "https://media-cdn.t24.com.tr/media/authors/page/alper-gormus.jpg"
         },
         {
-          "name": "Altan Öymen | Bugünden düne...",
+          "name": "Altan Öymen",
           "url": "https://t24.com.tr/yazarlar/altan-oymen",
           "photo": "https://media-cdn.t24.com.tr/media/library/2020/05/1589717546755-altan-oymen.jpg"
         },
@@ -5911,6 +5896,11 @@
           "photo": "https://media-cdn.t24.com.tr/media/library/2019/09/1568387390644-ezgi-gizem.png"
         },
         {
+          "name": "Fatih Türkmenoğlu",
+          "url": "https://t24.com.tr/yazarlar/fatih-turkmenoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/06/1655555324146-fatih-turkmenoglu.jpeg"
+        },
+        {
           "name": "Fatma Fulya Tepe",
           "url": "https://t24.com.tr/yazarlar/fatma-fulya-tepe",
           "photo": "https://media-cdn.t24.com.tr/media/library/2024/07/1722002479401-ekran-resmi-2024-07-26-16.00"
@@ -5951,7 +5941,7 @@
           "photo": "https://media-cdn.t24.com.tr/media/library/2019/12/1576865534219-gokhan-cetinsaya.png"
         },
         {
-          "name": "Göksel Aymaz | Haftalık",
+          "name": "Göksel Aymaz",
           "url": "https://t24.com.tr/yazarlar/goksel-aymaz-pazar",
           "photo": "https://media-cdn.t24.com.tr/media/authors/page/goksel-aymaz-pazar_825764374.jpg"
         },
@@ -6439,6 +6429,11 @@
           "name": "Reyan Tuvi",
           "url": "https://t24.com.tr/yazarlar/reyan-tuvi",
           "photo": "https://media-cdn.t24.com.tr/media/authors/page/reyan-tuvi.jpg"
+        },
+        {
+          "name": "Robert Schild",
+          "url": "https://t24.com.tr/yazarlar/robert-schild",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/robertschild.jpg"
         }
       ]
     },
