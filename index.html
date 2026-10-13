@@ -1298,7 +1298,21 @@
 
       if (art.url) {
         externalLinkBtn.classList.remove('hidden');
-        externalLinkBtn.onclick = () => window.open(art.url, '_blank', 'noopener');
+        externalLinkBtn.onclick = () => {
+          const url = art.url;
+          // 1) normal yeni sekme
+          let w = null;
+          try { w = window.open(url, '_blank', 'noopener'); } catch (e) { /* engel yoksa devam */ }
+          if (w) return;
+          // 2) engellendiyse gerçek bağlantı tıklaması (tarayıcılar bunu popup saymaz)
+          try {
+            const a = document.createElement('a');
+            a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            document.body.appendChild(a); a.click(); a.remove();
+          } catch (e) { /* hedef kilitliyse panoya kopyala */ }
+          // 3) güvenlik ağı: sekme açılsa da açılmasa zararsız — adresi kopyala
+          try { navigator.clipboard && navigator.clipboard.writeText(url); } catch (e) {}
+        };
       } else {
         externalLinkBtn.classList.add('hidden');
       }
