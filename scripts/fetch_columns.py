@@ -328,22 +328,56 @@ def log(msg):
 
 
 _session = requests.Session()
+# HTTPAdapter üzerinden otomatik yeniden deneme (429/5xx + bağlantı hataları)
+try:
+    from requests.adapters import HTTPAdapter
+    from urllib3.util.retry import Retry
+
+    retry_strategy = Retry(
+        total=2,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET", "HEAD"],
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    _session.mount("https://", adapter)
+    _session.mount("http://", adapter)
+except Exception:
+    pass
 
 
-def fetch(url):
-    """GET isteği atar; içerik döndürür, hata olursa None."""
-    try:
-        time.sleep(REQUEST_DELAY)
-        r = _session.get(url, headers=HEADERS, timeout=TIMEOUT)
-        if r.status_code != 200:
-            log(f"    ! HTTP {r.status_code} <- {url}")
+def fetch(url, retries=2):
+    """GET isteği atar; içerik döndürür, hata olursa None.
+    Ağ/SASL/TLS hatalarında üstel geri çekilmeyle yeniden dener."""
+    for attempt in range(retries + 1):
+        try:
+            time.sleep(REQUEST_DELAY)
+            r = _session.get(url, headers=HEADERS, timeout=TIMEOUT)
+            if r.status_code != 200:
+                log(f"    ! HTTP {r.status_code} <- {url}")
+                return None
+            if r.encoding is None or r.encoding.lower() in ("iso-8859-1",):
+                r.encoding = r.apparent_encoding or "utf-8"
+            return r.text
+        except requests.exceptions.SSLError as e:
+            log(f"    ! SSLError ({attempt+1}/{retries+1}): {e} <- {url}")
+            if attempt < retries:
+                time.sleep(1.5 * (attempt + 1))
+                continue
             return None
-        if r.encoding is None or r.encoding.lower() in ("iso-8859-1",):
-            r.encoding = r.apparent_encoding or "utf-8"
-        return r.text
-    except Exception as e:
-        log(f"    ! {type(e).__name__}: {e} <- {url}")
-        return None
+        except requests.exceptions.ConnectionError as e:
+            log(f"    ! ConnectionError ({attempt+1}/{retries+1}): {e} <- {url}")
+            if attempt < retries:
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            return None
+        except Exception as e:
+            log(f"    ! {type(e).__name__}: {e} <- {url}")
+            if attempt < retries:
+                time.sleep(1.0 * (attempt + 1))
+                continue
+            return None
 
 
 # ---------------------------------------------------------------------------
@@ -1089,6 +1123,16 @@ def merge_article_authors(writers_data, records):
 
 
 def save_writers(writers_data, out_path):
+    # Ağ hatasında mevcut dosyayı boş veriyle ezmemek için koruma
+    if writers_data["total"] == 0 and os.path.exists(out_path):
+        try:
+            with open(out_path, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+            if existing.get("total", 0) > 0:
+                log(f"UYARI: keşif başarısız (0 yazar) — mevcut {out_path} korunuyor ({existing['total']} yazar).")
+                return
+        except Exception:
+            pass
     now = datetime.now(TR_TZ)
     payload = {
         "fetchedAt": now.astimezone(timezone.utc).isoformat(),
@@ -1238,7 +1282,10 @@ def main():
                 uniq[seen[key]] = r
 
     if not uniq:
+        # writers.json zaten keşif adımında (varsa) güncellenmeye çalışıldı;
+        # daily.json'ı ise boş veriyle ezmemek için burada dönüyoruz.
         log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")
+        # keşif verisi de boşsa kalıcı dosyayı ezmemiş olduk; yine de dön
         return 0
 
     now = datetime.now(TR_TZ)

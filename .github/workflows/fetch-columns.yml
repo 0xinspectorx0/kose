@@ -36,11 +36,45 @@ jobs:
       - name: Köşe yazılarını çek
         run: python scripts/fetch_columns.py
 
+      - name: Sonuçları doğrula
+        run: |
+          echo "== data kontrolü =="
+          ls -lh data/ || echo "data klasörü yok"
+          if [ -f data/writers.json ]; then
+            echo "writers.json:"
+            python -c 'import json; d=json.load(open("data/writers.json")); print("  total=%s papers=%s" % (d.get("total"), len(d.get("papers",[]))))' || cat data/writers.json | head -n 30
+            # boş keşif (total 0) ise ve git geçmişinde dolu veri varsa, stage'i geri al — sahte boş commit önlenir
+            total=$(python -c "import json; print(json.load(open('data/writers.json')).get('total',0))" 2>/dev/null || echo 1)
+            if [ "$total" = "0" ] && git ls-files --error-unmatch data/writers.json >/dev/null 2>&1; then
+              prev=$(git show HEAD:data/writers.json 2>/dev/null | python -c "import json,sys; print(json.load(sys.stdin).get('total',0))" 2>/dev/null || echo 0)
+              if [ "$prev" != "0" ] && [ "$prev" != "" ]; then
+                echo "UYARI: keşif 0 yazar döndürdü ama önceki kayıt $prev yazar — boş dosya commit edilmeyecek."
+                git checkout -- data/writers.json 2>/dev/null || rm -f data/writers.json
+              fi
+            fi
+          fi
+          if [ -f data/daily.json ]; then
+            echo "daily.json:"
+            python -c 'import json; d=json.load(open("data/daily.json")); print("  count=%s papers=%s writers=%s" % (d.get("count"), d.get("papers"), d.get("writers")))' || cat data/daily.json | head -n 50
+          fi
+
       - name: Sonuçları commit'le
         run: |
           git config user.name "kose-bot"
           git config user.email "kose-bot@users.noreply.github.com"
           git add data/daily.json data/writers.json || true
+          # boş writers.json stage edildiyse geri al (ağ hatası koruması)
+          if [ -f data/writers.json ]; then
+            staged_total=$(git show :data/writers.json 2>/dev/null | python -c "import json,sys; print(json.load(sys.stdin).get('total',-1))" 2>/dev/null || echo -1)
+            if [ "$staged_total" = "0" ]; then
+              prev=$(git show HEAD:data/writers.json 2>/dev/null | python -c "import json,sys; print(json.load(sys.stdin).get('total',0))" 2>/dev/null || echo 0)
+              if [ "$prev" != "0" ] && [ "$prev" != "" ]; then
+                echo "Boş writers.json stage edilmiş — geri alınıyor."
+                git restore --staged data/writers.json 2>/dev/null || git reset HEAD -- data/writers.json 2>/dev/null || true
+                git checkout -- data/writers.json 2>/dev/null || rm -f data/writers.json
+              fi
+            fi
+          fi
           if git diff --cached --quiet; then
             echo "Değişiklik yok, commit atlanıyor."
           else
