@@ -96,7 +96,10 @@ console.log('\n[2] OKUNDUYSA GRİ HALKA');
 window.writersData = w;
 window.fetch = async () => ({ ok: true, json: async () => d });
 await window.loadDailyFeed(false);
-const circleOf = author => [...doc.querySelectorAll('#authors-avatar-track > div')].find(el => el.dataset.name === author);
+const normName = s => String(s ?? '').toLocaleLowerCase('tr-TR').trim();
+// veri aynı ismin farklı yazımlarını taşıyabilir ("Abdulkadir SELVİ"/"ABDULKADİR SELVİ");
+// daire araması normalizasyonla eşleşir
+const circleOf = author => [...doc.querySelectorAll('#authors-avatar-track > div')].find(el => normName(el.dataset.name) === normName(author));
 const ringOf = author => circleOf(author).querySelector('div').getAttribute('class');
 const single = window.articles.find(a => window.articles.filter(x => x.author === a.author).length === 1);
 const multi = window.articles.map(a => a.author).find((v, i, arr) => arr.indexOf(v) !== i);
@@ -116,7 +119,7 @@ const reborn = boot(savedRead);
 reborn.window.writersData = w;
 reborn.window.fetch = async () => ({ ok: true, json: async () => d });
 await reborn.window.loadDailyFeed(false);
-const ring2 = a => [...reborn.doc.querySelectorAll('#authors-avatar-track > div')].find(el => el.dataset.name === a).querySelector('div').getAttribute('class');
+const ring2 = a => [...reborn.doc.querySelectorAll('#authors-avatar-track > div')].find(el => normName(el.dataset.name) === normName(a)).querySelector('div').getAttribute('class');
 console.log(`  yeniden açılışta "${single.author}" gri:`, ring2(single.author).includes('bg-stone-300'), `| "${multi}" gri:`, ring2(multi).includes('bg-stone-300'));
 console.log('  okunmamış bir yazar turuncu:', /from-accent/.test(ring2(window.articles.find(a => !savedRead.includes(a.id)).author)));
 

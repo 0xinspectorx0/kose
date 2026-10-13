@@ -181,7 +181,11 @@
         <div class="relative mb-4">
           <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
           <input id="writers-search" type="text" placeholder="Yazar veya gazete ara…"
-            class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-4 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+            class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-10 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+          <button id="writers-search-clear" type="button" aria-label="Aramayı temizle" title="Temizle"
+            class="hidden absolute right-2 top-1.5 p-1.5 rounded-full text-slate-400 hover:text-ink-900 hover:bg-stone-200/70 active:scale-90 transition">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
         </div>
 
         <!-- Yükleniyor -->
@@ -714,7 +718,10 @@
     }
 
     function isAuthorFullyRead(author) {
-      const list = articles.filter(a => a.author === author);
+      // aynı ismin farklı yazım varyantları ("Abdulkadir SELVİ" / "ABDULKADİR SELVİ")
+      // normalizeTr ile tek kaleme iner
+      const key = normalizeTr(author);
+      const list = articles.filter(a => normalizeTr(a.author) === key);
       return list.length > 0 && list.every(a => a.isRead);
     }
     let readerFontSize = Number(appSettings.readerFont) || 16;
@@ -890,6 +897,9 @@
     }
 
     function renderWriters() {
+      // çarpı düğmesi yalnızca kutuda metin varken görünür
+      const wcBtn = document.getElementById('writers-search-clear');
+      if (wcBtn) wcBtn.classList.toggle('hidden', !writersSearchInput.value);
       if (!writersData) return;
       buildWriterPopularity();
       writersLoadingEl.classList.add('hidden');
@@ -990,6 +1000,13 @@
     });
 
     writersSearchInput.addEventListener('input', renderWriters);
+    // ✕ — aramayı temizle: kutuyu boşalt, listeyi eski haline döndür, odağı geri ver
+    const writersSearchClearBtn = document.getElementById('writers-search-clear');
+    if (writersSearchClearBtn) writersSearchClearBtn.addEventListener('click', () => {
+      writersSearchInput.value = '';
+      renderWriters();
+      writersSearchInput.focus();
+    });
     document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
 
     // --- Bottom Tab Router (Akış / Keşfet / Kaydedilen / Ayarlar) ---
@@ -1196,7 +1213,7 @@
     }
 
     function applyFilters() {
-      const term = searchInput.value.toLowerCase().trim();
+      const term = normalizeTr(searchInput.value); // Türkçe-duyarlı küçültme (İ/i uyumu)
       let filtered = articles;
 
       if (currentFilteredCategory !== 'Tümü') {
@@ -1205,11 +1222,11 @@
 
       if (term) {
         filtered = filtered.filter(a =>
-          a.author.toLowerCase().includes(term) ||
-          a.title.toLowerCase().includes(term) ||
-          a.source.toLowerCase().includes(term) ||
-          a.snippet.toLowerCase().includes(term) ||
-          a.fullContent.toLowerCase().includes(term)
+          normalizeTr(a.author).includes(term) ||
+          normalizeTr(a.title).includes(term) ||
+          normalizeTr(a.source).includes(term) ||
+          normalizeTr(a.snippet).includes(term) ||
+          normalizeTr(a.fullContent).includes(term)
         );
       }
 
@@ -1285,7 +1302,8 @@
 
     function quickOpenByAuthor(authorName) {
       hideAuthorTooltip();
-      const art = articles.find(a => a.author.includes(authorName));
+      const key = normalizeTr(authorName);
+      const art = articles.find(a => normalizeTr(a.author) === key);
       if (art) openReader(art.id);
     }
 
