@@ -21,8 +21,10 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
+// Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
+const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
 
-const fns = ['escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','unfavoriteFromAvatar','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
   'renderArticles','applyFilters','filterCategory','loadDailyFeed','writersSummary','filterWriters',
   'buildWriterPopularity','writerScore','cleanWriterName','isPersonName','cleanWriters','renderWriters',
   'togglePaper','paintToggle','renderSettings','saveSettings','showAuthorTooltip','hideAuthorTooltip','setTab'];
@@ -53,9 +55,11 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
   fontDecBtn:'font-dec-btn', fontIncBtn:'font-inc-btn', miniPlayerEl:'mini-player',
   audioStrip:'audio-player-strip', miniAudioToggle:'mini-audio-toggle', listenArticleBtn:'listen-article-btn',
   closeReaderBtn:'close-reader-btn', externalLinkBtn:'external-link-btn', readerScrollable:'reader-scrollable',
-  readerProgressBar:'reader-progress', readerBookmarkBtn:'reader-bookmark-btn' };
+  readerProgressBar:'reader-progress', readerBookmarkBtn:'reader-bookmark-btn', readerFavoriteBtn:'reader-favorite-btn',
+  favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
+  favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty' };
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
-window.eval([...srcConsts, settingsBlock, readStateBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
+window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
 
 const d = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 window.writersData = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));

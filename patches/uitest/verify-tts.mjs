@@ -21,13 +21,15 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
+// Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
+const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
 
 const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','todayKey'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
 const closeBlock = block("closeReaderBtn.addEventListener('click', () => {", '// --- Reading Progress Bar Indicator ---');
-const fns = ['escapeHtml','htmlToSpeechText','chunkSpeechText','pickTtsVoice','speakNextChunk','restartCurrentChunk',
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','unfavoriteFromAvatar','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','htmlToSpeechText','chunkSpeechText','pickTtsVoice','speakNextChunk','restartCurrentChunk',
   'finishSpeech','showAndPlayAudio','togglePlayPause','resetAudio','updateAudioUI','currentTtsRate','formatTtsRate','applyTtsRate',
   'saveSettings','paintToggle','renderSettings','setTab','applyFilters','renderArticles','renderWriters','writersSummary','filterWriters','cleanWriters','cleanWriterName','isPersonName','buildWriterPopularity','writerScore','normalizeTr','formatAuthorName','markArticleRead','applyReadState','isAuthorFullyRead','renderAuthorAvatars','initialAvatar','togglePaper','openReader','updateReaderBookmarkIcon','updateScrollTopBtn'];
 
@@ -35,7 +37,9 @@ const domIds = { authorsAvatarTrack:'authors-avatar-track', audioStrip:'audio-pl
   closeReaderBtn:'close-reader-btn', externalLinkBtn:'external-link-btn', readerScrollable:'reader-scrollable',
   readerProgressBar:'reader-progress', articleReader:'article-reader', mainScrollEl:'main-scroll',
   scrollTopBtn:'scroll-top-btn', fontDecBtn:'font-dec-btn', fontIncBtn:'font-inc-btn',
-  readerBookmarkBtn:'reader-bookmark-btn', authorTooltipEl:'author-tooltip', miniPlayerEl:'mini-player',
+  readerBookmarkBtn:'reader-bookmark-btn', readerFavoriteBtn:'reader-favorite-btn',
+  favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
+  favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty', authorTooltipEl:'author-tooltip', miniPlayerEl:'mini-player',
   feedAuthorsSection:'feed-authors-section', feedCategoriesSection:'feed-categories-section', syncBannerEl:'sync-banner',
   articlesListEl:'articles-list', writersViewEl:'writers-view', settingsViewEl:'settings-view',
   writersListEl:'writers-list', writersMetaEl:'writers-meta', writersLoadingEl:'writers-loading',
@@ -81,7 +85,7 @@ function boot(withTts, presetSettings) {
       addEventListener: (t, f) => { (window.__tts.listeners[t] ||= []).push(f); },
     };
   }
-  window.eval([...srcConsts, settingsBlock, readStateBlock, ...fns.map(extract), audioBlock, readerBlock, closeBlock].join('\n'));
+  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), audioBlock, readerBlock, closeBlock].join('\n'));
   return { window, doc, spoken, calls };
 }
 

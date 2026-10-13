@@ -111,11 +111,11 @@
     <!-- Scrollable Body Content -->
     <main class="flex-1 overflow-y-auto no-scrollbar relative" id="main-scroll">
       
-      <!-- Top Authors Story/Avatar Bar -->
+      <!-- Top Authors Story/Avatar Bar — yalnızca favoriye eklenen yazarlar -->
       <section class="pl-5 mb-4" id="feed-authors-section">
         <div class="flex items-center justify-between pr-5 mb-2.5">
-          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Takip Edilenler</h2>
-          <button type="button" onclick="setTab('discover')" class="flex items-center gap-0.5 text-[11px] text-accent font-semibold cursor-pointer hover:underline active:opacity-70 transition">Tümü<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Favori Yazarlar</h2>
+          <button type="button" onclick="setTab('discover')" class="flex items-center gap-0.5 text-[11px] text-accent font-semibold cursor-pointer hover:underline active:opacity-70 transition">Yazar Ekle<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>
         </div>
         <div id="authors-avatar-track" class="flex gap-3.5 overflow-x-auto no-scrollbar pr-5 py-1">
           <!-- Dynamic author heads -->
@@ -212,6 +212,37 @@
         <div id="writers-list" class="space-y-3"></div>
       </section>
 
+      <!-- Favori Yazarlar Görünümü (alt menü: Favoriler) -->
+      <section id="favorites-view" class="hidden px-5 pb-24">
+        <div class="flex items-center justify-between mb-2.5">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Favori Yazarlar</h2>
+          <span id="favorites-meta" class="text-[11px] text-accent font-semibold"></span>
+        </div>
+        <p class="text-[11px] text-stone-500 leading-relaxed mb-4">
+          Keşfet'te bir yazarın yanındaki <span class="font-semibold text-accent">kalbe</span> dokunarak favorilere eklersin.
+          Ana sayfadaki dairelerde yalnızca buradaki yazarlar görünür.
+        </p>
+
+        <!-- Boş durum: henüz favori yok -->
+        <div id="favorites-empty" class="hidden">
+          <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm px-6 py-10 text-center">
+            <i data-lucide="heart" class="w-10 h-10 mx-auto mb-3 text-stone-300"></i>
+            <h3 class="font-serif font-semibold text-ink-900 text-base mb-1.5">Favori yazarın yok</h3>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4">
+              Beğendiğin köşe yazarlarını favorilere ekle; yazıları ana sayfanda
+              daireler halinde seni beklesin.
+            </p>
+            <button id="favorites-discover-btn" type="button" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-ink-900 text-white rounded-full hover:bg-ink-700 active:scale-95 transition-all">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+              <span>Yazarları Keşfet</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Favori yazar kartları -->
+        <div id="favorites-list" class="space-y-2.5"></div>
+      </section>
+
       <!-- Ayarlar Görünümü -->
       <section id="settings-view" class="hidden px-5 pb-24">
         <div class="flex items-center justify-between mb-3">
@@ -302,6 +333,9 @@
           <button id="font-inc-btn" type="button" title="Yazıyı büyüt" class="px-2 py-1.5 rounded-full hover:bg-stone-200/60 text-stone-700 text-xs font-bold">A+</button>
           <button id="listen-article-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
             <i data-lucide="headphones" class="w-4 h-4"></i>
+          </button>
+          <button id="reader-favorite-btn" type="button" title="Yazarı favorilere ekle / çıkar" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
+            <i data-lucide="heart" class="w-4 h-4"></i>
           </button>
           <button id="reader-bookmark-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
             <i data-lucide="bookmark" class="w-4 h-4"></i>
@@ -411,7 +445,7 @@
     </div>
 
     <!-- Android Bottom Navigation Bar -->
-    <nav class="h-16 bg-white/95 backdrop-blur-md border-t border-stone-200/70 px-6 flex items-center justify-between z-20 select-none">
+    <nav class="h-16 bg-white/95 backdrop-blur-md border-t border-stone-200/70 px-3 flex items-center justify-between z-20 select-none">
       <button class="nav-btn flex flex-col items-center gap-1 text-accent" data-tab="feed">
         <i data-lucide="newspaper" class="w-5 h-5"></i>
         <span class="text-[10px] font-bold">Akış</span>
@@ -419,6 +453,10 @@
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="discover">
         <i data-lucide="compass" class="w-5 h-5"></i>
         <span class="text-[10px] font-medium">Keşfet</span>
+      </button>
+      <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="favorites">
+        <i data-lucide="heart" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Favoriler</span>
       </button>
       <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="saved">
         <i data-lucide="bookmark" class="w-5 h-5"></i>
@@ -716,8 +754,9 @@
       if (info) {
         const live = articles.filter(a => a.isLive);
         const saved = articles.filter(a => a.isBookmarked).length;
+        const favs = favoriteWriters.length;
         info.textContent = live.length
-          ? `${live.length} canlı yazı · ${new Set(live.map(a => a.source)).size} kaynak · ${new Set(live.map(a => a.author)).size} yazar · ${saved} kayıtlı`
+          ? `${live.length} canlı yazı · ${new Set(live.map(a => a.source)).size} kaynak · ${new Set(live.map(a => a.author)).size} yazar · ${saved} kayıtlı · ${favs} favori yazar`
           : 'Henüz canlı yazı yüklenmedi.';
       }
     }
@@ -749,6 +788,87 @@
       const list = articles.filter(a => normalizeTr(a.author) === key);
       return list.length > 0 && list.every(a => a.isRead);
     }
+    // --- Favori yazarlar: kalpler localStorage'da saklanır (kose-favorite-writers) ---
+    // Kayıt biçimi: { name, source, photo, url } — aynı yazarın adı gazete
+    // dizininde ve akışta farklı yazılsa da normalizeTr ile tek anahtara iner.
+    const FAV_KEY = 'kose-favorite-writers';
+    let favoriteWriters = [];
+    try {
+      const parsedFav = JSON.parse(localStorage.getItem(FAV_KEY) || '[]');
+      if (Array.isArray(parsedFav)) favoriteWriters = parsedFav.filter(f => f && f.name);
+    } catch (e) { favoriteWriters = []; }
+
+    function saveFavoriteWriters() {
+      try { localStorage.setItem(FAV_KEY, JSON.stringify(favoriteWriters.slice(0, 300))); } catch (e) { /* kota */ }
+    }
+    // Favori anahtarı: adın büyük/küçük harf, Türkçe aksan ve boşluk farkları
+    // önemsenmez ("Ahmet HAKAN" ile "Ahmet Hakan" aynı yazardır).
+    function deaccentTr(s) {
+      return String(s ?? '').replace(/[çÇğĞıİöÖşŞüÜâîûÂÎÛ]/g, m => ({
+        'Ç': 'c', 'ç': 'c', 'Ğ': 'g', 'ğ': 'g', 'İ': 'i', 'ı': 'i',
+        'Ö': 'o', 'ö': 'o', 'Ş': 's', 'ş': 's', 'Ü': 'u', 'ü': 'u',
+        'Â': 'a', 'â': 'a', 'Î': 'i', 'î': 'i', 'Û': 'u', 'û': 'u'
+      }[m]));
+    }
+    function favKeyName(name) {
+      return deaccentTr(cleanWriterName(name)).toLocaleLowerCase('tr-TR').replace(/\s+/g, ' ').trim();
+    }
+    function sameSource(a, b) {
+      if (!a || !b) return true;   // gazete bilinmiyorsa ada göre eşleştir
+      return favKeyName(a) === favKeyName(b);
+    }
+    function isFavoriteWriter(name, source) {
+      const n = favKeyName(name);
+      if (!n) return false;
+      return favoriteWriters.some(f => favKeyName(f.name) === n && sameSource(f.source, source));
+    }
+    function findFavoriteWriter(name, source) {
+      const n = favKeyName(name);
+      return favoriteWriters.find(f => favKeyName(f.name) === n && sameSource(f.source, source)) || null;
+    }
+    // Favori yazarın akıştaki yazıları (gazete biliniyorsa gazete de eşleşmeli)
+    function favoriteArticles(fav) {
+      const n = favKeyName(fav && fav.name);
+      if (!n) return [];
+      return articles.filter(a => favKeyName(a.author) === n && sameSource(fav.source, a.source));
+    }
+    function toggleFavoriteWriter(info) {
+      const name = cleanWriterName(info && info.name);
+      if (!isPersonName(name)) return false;
+      const existing = findFavoriteWriter(name, info.source);
+      let nowFav;
+      if (existing) {
+        favoriteWriters = favoriteWriters.filter(f => f !== existing);
+        nowFav = false;
+      } else {
+        favoriteWriters.push({ name, source: info.source || '', photo: info.photo || '', url: info.url || '' });
+        nowFav = true;
+      }
+      saveFavoriteWriters();
+      renderAuthorAvatars();               // ana sayfadaki daireler yalnızca favoriler
+      if (currentTab === 'favorites') renderFavorites();
+      else if (currentTab === 'feed') applyFilters();     // kart kalpleri tazelensin
+      else if (currentTab === 'saved') renderArticles(articles.filter(a => a.isBookmarked));
+      if (writersLoaded && !writersViewEl.classList.contains('hidden')) renderWriters(); // Keşfet kalpleri tazelensin
+      return nowFav;
+    }
+
+    // Keşfet'teki yazar adı: sola kaydırınca yazıları listeler
+    function openFavoriteWriterArticles(idx) {
+      const fav = favoriteWriters[idx];
+      if (!fav) return;
+      openWriter('', fav.name, fav.url);
+    }
+    function removeFavoriteWriter(idx) {
+      toggleFavoriteWriter(favoriteWriters[idx] || {});
+    }
+    // Ana sayfadaki dairenin kalbi: favoriden çıkarır
+    function unfavoriteFromAvatar(e, name, source) {
+      e.stopPropagation();
+      toggleFavoriteWriter({ name, source });
+      hideAuthorTooltip();
+    }
+
     let readerFontSize = Number(appSettings.readerFont) || 16;
 
     // --- DOM Elements ---
@@ -787,6 +907,11 @@
     const writersEmptyEl = document.getElementById('writers-empty');
     const writersLoadingEl = document.getElementById('writers-loading');
     const writersSearchInput = document.getElementById('writers-search');
+    const favoritesViewEl = document.getElementById('favorites-view');
+    const favoritesListEl = document.getElementById('favorites-list');
+    const favoritesMetaEl = document.getElementById('favorites-meta');
+    const favoritesEmptyEl = document.getElementById('favorites-empty');
+    const readerFavoriteBtn = document.getElementById('reader-favorite-btn');
 
     // --- WRITERS HELPERS (pure) ---
     function escapeHtml(s) {
@@ -867,11 +992,18 @@
         writersData = data;
         writersLoaded = true;
         renderWriters();
+        // Favoriler sekmesi açıksa portreler artık gazete dizininden doldurulabilir
+        if (currentTab === 'favorites') renderFavorites();
       } catch (err) {
-        writersData = null;
-        writersLoaded = false;
-        writersLoadingEl.classList.add('hidden');
-        writersEmptyEl.classList.remove('hidden');
+        // Elde zaten bir dizin varsa korunur (çevrimdışı yenileme listeyi boşaltmasın)
+        if (!writersData) {
+          writersLoaded = false;
+          writersLoadingEl.classList.add('hidden');
+          writersEmptyEl.classList.remove('hidden');
+        } else {
+          renderWriters();
+        }
+        if (currentTab === 'favorites') renderFavorites();
         lucide.createIcons();
       } finally {
         writersLoading = false;
@@ -897,7 +1029,8 @@
       const today = writerPopularity.get(`${normalizeTr(paperName)}|${normalizeTr(w.name)}`) || 0;
       // Katı katmanlar: 1) bugün o gazetede yazısı çıkanlar, 2) portresi olanlar,
       // 3) kalanlar. Her katmanın içinde gazetenin kendi sırası korunur
-      // (Array.sort kararlıdır).
+      // (Array.sort kararlıdır). Favori yazarlar kendi katmanında kalır —
+      // kalp çipte zaten dolu görünür.
       if (today > 0) return 1000;
       return w.photo ? 1 : 0;
     }
@@ -964,11 +1097,16 @@
         // Öne çıkan yazarlar (bugün yazan / portresi olan) başa alınır; eşit
         // puanda gazetenin kendi sırası korunur.
         const ranked = p.writers.slice().sort((a, b) => writerScore(p.name, b) - writerScore(p.name, a));
-        // Çiplerde yalnızca yazar adı görünür; tıklayınca akışta o yazarın
-        // yazıları listelenir (bağlantı simgesi vb. ek öğe yok).
+        // Çiplerde yazar adı görünür; ada tıklayınca akışta o yazarın yazıları
+        // listelenir, kalbe tıklayınca yazar favorilere eklenir/çıkarılır.
         const chips = ranked.map(w => {
           const name = escapeHtml(w.name);
-          return `<button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 text-left hover:bg-accent hover:text-white active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>`;
+          const fav = isFavoriteWriter(w.name, p.name);
+          const heart = `<i data-lucide="heart" class="w-3 h-3 ${fav ? 'fill-current' : ''}"></i>`;
+          return `<span class="inline-flex items-center gap-0.5 pl-2.5 pr-1 py-1 rounded-full ${fav ? 'bg-accent/10 ring-1 ring-accent/40' : 'bg-stone-100'} transition-colors">
+            <button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="text-[11px] font-medium ${fav ? 'text-accent' : 'text-stone-700'} text-left hover:text-accent active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>
+            <button type="button" data-fav-writer="${name}" data-paper="${escapeHtml(p.key)}" data-paper-name="${escapeHtml(p.name)}" data-url="${escapeHtml(w.url || '')}" data-photo="${escapeHtml(w.photo || '')}" aria-pressed="${fav}" title="${fav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" aria-label="${fav ? 'Favorilerden çıkar' : 'Favorilere ekle'}: ${escapeHtml(formatAuthorName(w.name))}" class="w-5 h-5 flex-shrink-0 rounded-full flex items-center justify-center ${fav ? 'text-accent' : 'text-stone-300 hover:text-accent'} active:scale-90 transition-all">${heart}</button>
+          </span>`;
         }).join('');
         // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
         const isOpen = searching || expandedPapers.has(p.key);
@@ -994,6 +1132,81 @@
       lucide.createIcons();
     }
 
+    // --- Favori Yazarlar sekmesi: favoriye eklenen yazarların listesi ---
+    function findWriterPhoto(name) {
+      const key = favKeyName(name);
+      if (!writersData || !Array.isArray(writersData.papers)) return '';
+      for (const p of writersData.papers) {
+        const hit = cleanWriters(p.writers).find(w => favKeyName(w.name) === key);
+        if (hit && hit.photo) return hit.photo;
+      }
+      return '';
+    }
+
+    function renderFavorites() {
+      const has = favoriteWriters.length > 0;
+      favoritesEmptyEl.classList.toggle('hidden', has);
+      favoritesListEl.classList.toggle('hidden', !has);
+      favoritesMetaEl.textContent = has ? `${favoriteWriters.length} yazar` : '';
+      if (!has) { favoritesListEl.innerHTML = ''; lucide.createIcons(); return; }
+
+      const rows = favoriteWriters
+        .map((fav, idx) => ({ fav, idx }))
+        .sort((a, b) => String(a.fav.name).localeCompare(String(b.fav.name), 'tr'))
+        .map(({ fav, idx }) => {
+          const list = favoriteArticles(fav);
+          const art = list[0] || null;
+          const name = (art && art.author) || fav.name;
+          const source = (art && art.source) || fav.source || '';
+          const count = list.length;
+          const photo = fav.photo || findWriterPhoto(name) || (art && art.avatar) || initialAvatar(name);
+          const fallback = initialAvatar(name);
+          const status = articles.length === 0
+            ? 'Yazılar yükleniyor…'
+            : count > 0
+              ? `Bugün ${count} yazı${art ? ` · ${art.category}` : ''}`
+              : 'Bugün yeni yazısı yok';
+          return `
+            <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3 flex items-center gap-3">
+              <div class="relative flex-shrink-0 w-[52px] h-[52px] rounded-full p-0.5 bg-gradient-to-tr from-accent via-amber-500 to-orange-400">
+                <img class="w-12 h-12 rounded-full object-cover border-2 border-white bg-white" src="${escapeHtml(photo)}" alt="${escapeHtml(name)}" loading="lazy"
+                     onerror="this.onerror=null; this.src='${escapeHtml(fallback)}';">
+              </div>
+              <div class="min-w-0 flex-1">
+                <p class="text-[12.5px] font-bold text-ink-900 truncate">${escapeHtml(formatAuthorName(name))}</p>
+                <p class="text-[10.5px] font-semibold text-stone-500 truncate">${escapeHtml(source)}</p>
+                <p class="text-[10px] mt-0.5 ${count > 0 ? 'text-emerald-600 font-semibold' : 'text-stone-400'}">${escapeHtml(status)}</p>
+              </div>
+              <div class="flex items-center gap-1 flex-shrink-0">
+                <button type="button" data-open-fav="${idx}" title="Yazılarını aç" aria-label="${escapeHtml(formatAuthorName(name))} yazılarını aç"
+                  class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center active:scale-90 transition-all">
+                  <i data-lucide="newspaper" class="w-3.5 h-3.5"></i>
+                </button>
+                <button type="button" data-remove-fav="${idx}" title="Favorilerden çıkar" aria-label="${escapeHtml(formatAuthorName(name))} favorilerden çıkar"
+                  class="w-8 h-8 rounded-full bg-accent/10 hover:bg-accent/20 text-accent flex items-center justify-center active:scale-90 transition-all">
+                  <i data-lucide="heart" class="w-3.5 h-3.5 fill-accent"></i>
+                </button>
+              </div>
+            </div>`;
+        }).join('');
+      favoritesListEl.innerHTML = rows;
+      lucide.createIcons();
+    }
+
+    // Favoriler listesi: yazıları aç / favoriden çıkar / Keşfet'e git
+    favoritesListEl.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('button[data-open-fav]');
+      if (openBtn) { openFavoriteWriterArticles(Number(openBtn.dataset.openFav)); return; }
+      const rmBtn = e.target.closest('button[data-remove-fav]');
+      if (rmBtn) {
+        const fav = favoriteWriters[Number(rmBtn.dataset.removeFav)];
+        if (fav) toggleFavoriteWriter(fav); // renderFavorites() toggle içinden çağrılır
+      }
+    });
+    favoritesEmptyEl.addEventListener('click', (e) => {
+      if (e.target.closest('#favorites-discover-btn')) setTab('discover');
+    });
+
     // Keşfet: gazete satırına tıklayınca aç/kapat
     function togglePaper(key) {
       if (expandedPapers.has(key)) expandedPapers.delete(key);
@@ -1002,15 +1215,16 @@
     }
 
     // Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir
+    // (Favoriler sekmesindeki "yazılarını aç" düğmesi de bu yolu kullanır)
     function openWriter(paperKey, name, url) {
       const clean = String(name || '').trim();
       if (!clean) return;
-      const wanted = normalizeTr(clean);
+      const wanted = favKeyName(clean);   // aksan/büyük harf farkları önemsiz
       hideAuthorTooltip();
       searchInput.value = clean;
       filterCategory('Tümü'); // kategori filtresi yazarı gizlemesin
       setTab('feed');         // applyFilters() burada çağrılır
-      const matches = articles.filter(a => normalizeTr(a.author) === wanted);
+      const matches = articles.filter(a => favKeyName(a.author) === wanted);
       if (!matches.length) renderWriterNotFound(clean, url);
       mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1032,6 +1246,17 @@
     }
 
     writersListEl.addEventListener('click', (e) => {
+      // Kalp: yazarı favorilere ekle/çıkar (listenin kendisi taze kalplerle yeniden çizilir)
+      const favBtn = e.target.closest('button[data-fav-writer]');
+      if (favBtn) {
+        toggleFavoriteWriter({
+          name: favBtn.dataset.favWriter,
+          source: favBtn.dataset.paperName,
+          photo: favBtn.dataset.photo,
+          url: favBtn.dataset.url
+        });
+        return;
+      }
       const chip = e.target.closest('button[data-writer]');
       if (chip) openWriter(chip.dataset.paper, chip.dataset.writer, chip.dataset.url);
     });
@@ -1046,7 +1271,7 @@
     });
     document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
 
-    // --- Bottom Tab Router (Akış / Keşfet / Kaydedilen / Ayarlar) ---
+    // --- Bottom Tab Router (Akış / Keşfet / Favoriler / Kaydedilen / Ayarlar) ---
     function setTab(tab) {
       currentTab = tab;
       document.querySelectorAll('.nav-btn').forEach(b => {
@@ -1058,13 +1283,15 @@
       });
 
       const isDiscover = tab === 'discover';
+      const isFavorites = tab === 'favorites';
       const isSettings = tab === 'settings';
-      const showFeed = !isDiscover && !isSettings; // Akış ve Kaydedilen aynı düzeni kullanır
+      const showFeed = !isDiscover && !isFavorites && !isSettings; // Akış ve Kaydedilen aynı düzeni kullanır
       feedAuthorsSection.classList.toggle('hidden', !showFeed);
       feedCategoriesSection.classList.toggle('hidden', !showFeed);
       syncBannerEl.classList.toggle('hidden', !showFeed);
       articlesListEl.classList.toggle('hidden', !showFeed);
       writersViewEl.classList.toggle('hidden', !isDiscover);
+      favoritesViewEl.classList.toggle('hidden', !isFavorites);
       settingsViewEl.classList.toggle('hidden', !isSettings);
 
       if (isSettings) {
@@ -1072,6 +1299,10 @@
       } else if (isDiscover) {
         if (!writersLoaded) loadWriters();
         else renderWriters();
+      } else if (isFavorites) {
+        mainScrollEl.scrollTo({ top: 0 });
+        if (!writersLoaded) loadWriters();   // favori portreleri gazete dizininden gelir
+        renderFavorites();
       } else if (tab === 'saved') {
         renderArticles(articles.filter(a => a.isBookmarked));
       } else {
@@ -1086,34 +1317,54 @@
       return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`;
     }
 
+    // Ana sayfadaki daireler: YALNIZCA favoriye eklenen yazarlar.
     function renderAuthorAvatars() {
       applyReadState();
-      const seen = new Set();
-      const authors = articles.filter(a => {
-        const key = normalizeTr(a.author);
-        if (!key || seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
+      if (!favoriteWriters.length) {
+        authorsAvatarTrack.innerHTML = `
+          <div class="w-full pr-5">
+            <div class="bg-white/70 border border-dashed border-stone-300 rounded-2xl px-4 py-4 flex items-center gap-3">
+              <i data-lucide="heart" class="w-6 h-6 text-stone-300 flex-shrink-0"></i>
+              <div class="min-w-0">
+                <p class="text-[11.5px] font-bold text-stone-600">Henüz favori yazarın yok</p>
+                <p class="text-[10.5px] text-stone-400 mt-0.5 leading-snug">Keşfet'te bir yazarın yanındaki kalbe dokun; daireler burada belirsin.</p>
+              </div>
+              <button type="button" onclick="event.stopPropagation(); setTab('discover')"
+                class="ml-auto flex-shrink-0 text-[10.5px] font-bold text-white bg-accent px-3 py-1.5 rounded-full hover:bg-accent/85 active:scale-95 transition-all">Keşfet</button>
+            </div>
+          </div>`;
+        lucide.createIcons();
+        return;
+      }
 
-      authorsAvatarTrack.innerHTML = authors.map(art => {
-        const photo = art.avatar || initialAvatar(art.author);
-        const fallback = initialAvatar(art.author);
-        const read = isAuthorFullyRead(art.author);
+      authorsAvatarTrack.innerHTML = favoriteWriters.map(fav => {
+        const list = favoriteArticles(fav);
+        const art = list[0] || null;
+        const source = (art && art.source) || fav.source || '';
+        const name = (art && art.author) || fav.name;
+        const photo = fav.photo || (art && art.avatar) || initialAvatar(name);
+        const fallback = initialAvatar(name);
+        const read = art ? isAuthorFullyRead(art.author) : false;
         const ring = read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
         const labelColor = read ? 'text-stone-400' : 'text-slate-700';
         return `
         <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
-             data-name="${escapeHtml(art.author)}" data-source="${escapeHtml(art.source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
-             onclick="quickOpenByAuthor(this.dataset.name)"
+             data-name="${escapeHtml(name)}" data-source="${escapeHtml(source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
+             onclick="quickOpenByAuthor(this.dataset.name, this.dataset.source)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
-          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
+          <div class="relative w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(name)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
+            <button type="button" title="Favorilerden çıkar" aria-label="${escapeHtml(formatAuthorName(name))} favorilerden çıkar"
+              class="absolute -bottom-0.5 -right-0.5 w-6 h-6 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-accent hover:bg-stone-50 active:scale-90 transition-all"
+              onclick="unfavoriteFromAvatar(event, this.closest('[data-name]').dataset.name, this.closest('[data-name]').dataset.source)">
+              <i data-lucide="heart" class="w-3 h-3 fill-accent"></i>
+            </button>
           </div>
-          <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(art.author))}</span>
+          <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(name))}</span>
         </div>
       `;}).join('');
+      lucide.createIcons();
     }
 
     // --- Yazar Balonu (küçük: fotoğraf + ad soyad + gazete) ---
@@ -1203,6 +1454,9 @@
                 <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
                 <span>Dinle</span>
               </button>
+              <button onclick="toggleFavoriteFromCard(event, ${art.id})" title="${isFavoriteWriter(art.author, art.source) ? 'Yazarı favorilerden çıkar' : 'Yazarı favorilere ekle'}" class="p-1.5 rounded-full hover:bg-stone-100 ${isFavoriteWriter(art.author, art.source) ? 'text-accent' : 'text-stone-300'} active:scale-90 transition-transform">
+                <i data-lucide="heart" class="w-4 h-4 ${isFavoriteWriter(art.author, art.source) ? 'fill-accent' : ''}"></i>
+              </button>
               <button onclick="toggleBookmark(event, ${art.id})" class="p-1.5 rounded-full hover:bg-stone-100 ${art.isBookmarked ? 'text-accent' : 'text-stone-400'} active:scale-90 transition-transform">
                 <i data-lucide="bookmark" class="w-4 h-4 ${art.isBookmarked ? 'fill-accent' : ''}"></i>
               </button>
@@ -1270,6 +1524,18 @@
       renderArticles(filtered);
     }
 
+    // Yazı kartındaki kalp: kartın yazarını favorilere ekler/çıkarır
+    function toggleFavoriteFromCard(e, id) {
+      e.stopPropagation();
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+      toggleFavoriteWriter({
+        name: art.author,
+        source: art.source,
+        photo: art.avatar && !String(art.avatar).includes('ui-avatars.com') ? art.avatar : ''
+      });
+    }
+
     // --- Bookmarking Logic ---
     function toggleBookmark(e, id) {
       e.stopPropagation();
@@ -1292,12 +1558,33 @@
       lucide.createIcons();
     }
 
+    // Okuyucudaki kalp: yazının yazarını favorilere ekler/çıkarır
+    function updateReaderFavoriteIcon() {
+      const fav = currentReadingArticle && isFavoriteWriter(currentReadingArticle.author, currentReadingArticle.source);
+      readerFavoriteBtn.innerHTML = fav
+        ? `<i data-lucide="heart" class="w-4 h-4 text-accent fill-accent"></i>`
+        : `<i data-lucide="heart" class="w-4 h-4 text-stone-700"></i>`;
+      readerFavoriteBtn.title = fav ? 'Yazarı favorilerden çıkar' : 'Yazarı favorilere ekle';
+      lucide.createIcons();
+    }
+
     readerBookmarkBtn.addEventListener('click', () => {
       if (currentReadingArticle) {
         currentReadingArticle.isBookmarked = !currentReadingArticle.isBookmarked;
         updateReaderBookmarkIcon();
         applyFilters();
       }
+    });
+
+    readerFavoriteBtn.addEventListener('click', () => {
+      if (!currentReadingArticle) return;
+      toggleFavoriteWriter({
+        name: currentReadingArticle.author,
+        source: currentReadingArticle.source,
+        photo: currentReadingArticle.avatar && !String(currentReadingArticle.avatar).includes('ui-avatars.com') ? currentReadingArticle.avatar : '',
+        url: ''
+      });
+      updateReaderFavoriteIcon();
     });
 
     // --- Open Reader Full Modal ---
@@ -1342,6 +1629,7 @@
       }
 
       updateReaderBookmarkIcon();
+      updateReaderFavoriteIcon();
       resetAudio();
       audioStrip.classList.remove('hidden'); // seslendirme şeridi hazır durumda görünür
       updateAudioUI();
@@ -1352,11 +1640,16 @@
       lucide.createIcons();
     }
 
-    function quickOpenByAuthor(authorName) {
+    function quickOpenByAuthor(authorName, source) {
       hideAuthorTooltip();
-      const key = normalizeTr(authorName);
-      const art = articles.find(a => normalizeTr(a.author) === key);
-      if (art) openReader(art.id);
+      const key = favKeyName(authorName);
+      const sameSourceArticles = articles.filter(a => favKeyName(a.author) === key && sameSource(source, a.source));
+      const art = sameSourceArticles[0] || articles.find(a => favKeyName(a.author) === key);
+      if (art) { openReader(art.id); return; }
+      // Favori yazarın bugün yazısı yoksa boş durum kartı göster
+      const fav = findFavoriteWriter(authorName, source);
+      renderWriterNotFound(authorName, fav ? fav.url : '');
+      mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     closeReaderBtn.addEventListener('click', () => {
