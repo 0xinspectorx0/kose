@@ -428,6 +428,10 @@
         <i data-lucide="sliders-horizontal" class="w-5 h-5"></i>
         <span class="text-[10px] font-medium">Ayarlar</span>
       </button>
+      <button class="nav-btn flex flex-col items-center gap-1 text-stone-400 hover:text-ink-800 transition-colors" data-tab="favorites">
+        <i data-lucide="star" class="w-5 h-5"></i>
+        <span class="text-[10px] font-medium">Yazarlar</span>
+      </button>
     </nav>
 
     <!-- Android Bottom Gesture Indicator -->
@@ -1059,13 +1063,15 @@
 
       const isDiscover = tab === 'discover';
       const isSettings = tab === 'settings';
-      const showFeed = !isDiscover && !isSettings; // Akış ve Kaydedilen aynı düzeni kullanır
+      const isFavorites = tab === 'favorites';
+      const showFeed = !isDiscover && !isSettings && !isFavorites; // Akış ve Kaydedilen aynı düzeni kullanır
       feedAuthorsSection.classList.toggle('hidden', !showFeed);
       feedCategoriesSection.classList.toggle('hidden', !showFeed);
       syncBannerEl.classList.toggle('hidden', !showFeed);
       articlesListEl.classList.toggle('hidden', !showFeed);
       writersViewEl.classList.toggle('hidden', !isDiscover);
       settingsViewEl.classList.toggle('hidden', !isSettings);
+      authorsAvatarSection.classList.toggle('hidden', isFavorites);
 
       if (isSettings) {
         renderSettings();
@@ -1074,6 +1080,8 @@
         else renderWriters();
       } else if (tab === 'saved') {
         renderArticles(articles.filter(a => a.isBookmarked));
+      } else if (isFavorites) {
+        renderAuthorAvatarsFavorite();
       } else {
         applyFilters();
       }
@@ -1158,6 +1166,39 @@
             <p class="text-sm font-medium">Bu kriterde yazı bulunamadı.</p>
           </div>
         `;
+
+    function renderAuthorAvatarsFavorite() {
+      applyReadState();
+      const favoriteAuthors = getFavoriteAuthors();
+      const seen = new Set();
+      const authors = articles.filter(a => {
+        const key = normalizeTr(a.author);
+        if (!key || seen.has(key)) return false;
+        if (!favoriteAuthors.includes(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+      authorsAvatarTrack.innerHTML = authors.map(art => {
+        const photo = art.avatar || initialAvatar(art.author);
+        const fallback = initialAvatar(art.author);
+        const read = isAuthorFullyRead(art.author);
+        const ring = read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
+        const labelColor = read ? 'text-stone-400' : 'text-slate-700';
+        return `
+        <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
+             data-name="${escapeHtml(art.author)}" data-source="${escapeHtml(art.source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
+             onclick="quickOpenByAuthor(this.dataset.name)"
+             onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
+          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
+                 onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
+          </div>
+          <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words]">${escapeHtml(formatAuthorName(art.author))}</span>
+        </div>
+      `;}).join("");
+    }
+
         lucide.createIcons();
         return;
       }
@@ -1204,7 +1245,9 @@
                 <span>Dinle</span>
               </button>
               <button onclick="toggleBookmark(event, ${art.id})" class="p-1.5 rounded-full hover:bg-stone-100 ${art.isBookmarked ? 'text-accent' : 'text-stone-400'} active:scale-90 transition-transform">
-                <i data-lucide="bookmark" class="w-4 h-4 ${art.isBookmarked ? 'fill-accent' : ''}"></i>
+              <button onclick="toggleFavoriteAuthor(${art.author})" class="p-1.5 rounded-full hover:bg-stone-100 ${isAuthorFavorite(art.author) ? 'text-accent' : 'text-stone-400'} active:scale-90 transition-transform">
+                <i data-lucide="star" class="w-4 h-4 ${isAuthorFavorite(art.author) ? 'fill-accent' : ''}"></i>
+              </button>                <i data-lucide="bookmark" class="w-4 h-4 ${art.isBookmarked ? 'fill-accent' : ''}"></i>
               </button>
             </div>
           </div>
@@ -1281,6 +1324,59 @@
           updateReaderBookmarkIcon();
         }
       }
+    }
+
+    // --- Favorite Authors (localStorage-based) ---
+
+    function toggleFavoriteAuthorUI(e, id) {
+      e.stopPropagation();
+      const item = articles.find(a => a.id === id);
+      if (item) {
+        const authorName = item.author;
+        if (isAuthorFavorite(authorName)) {
+          // Remove from favorites - we need to track per-article favorite state
+          // For now, just update the UI - the global favorites are managed via toggleFavoriteAuthor
+        }
+        applyFilters();
+        if (currentReadingArticle && currentReadingArticle.id === id) {
+          updateReaderBookmarkIcon();
+        }
+      }
+    }
+    const FAVORITES_KEY = 'kose-favorite-authors';
+
+    function getFavoriteAuthors() {
+      try {
+        return JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function setFavoriteAuthors(authors) {
+      try {
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify(authors));
+      } catch (e) {
+        /* ignore */
+      }
+    }
+
+    function toggleFavoriteAuthor(authorName) {
+      const favorites = getFavoriteAuthors();
+      const key = normalizeTr(authorName);
+      if (key && !favorites.includes(key)) {
+        favorites.push(key);
+      } else {
+        favorites = favorites.filter(f => normalizeTr(f) !== key);
+      }
+      setFavoriteAuthors(favorites);
+      applyFilters();
+      renderAuthorAvatars();
+    }
+
+    function isAuthorFavorite(authorName) {
+      const favorites = getFavoriteAuthors();
+      return favorites.some(f => normalizeTr(f) === normalizeTr(authorName));
     }
 
     function updateReaderBookmarkIcon() {
