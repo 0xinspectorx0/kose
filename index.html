@@ -76,18 +76,8 @@
   <!-- Desktop Presentation Wrap / Mobile Viewport -->
   <div class="w-full sm:max-w-[420px] h-[100dvh] sm:h-[880px] bg-parchment sm:rounded-[44px] shadow-2xl relative flex flex-col overflow-hidden sm:ring-8 sm:ring-slate-800">
     
-    <!-- Android Top Status Bar -->
-    <header class="pt-3 px-6 pb-2 flex justify-between items-center text-xs font-semibold tracking-wide text-ink-800 select-none z-30">
-      <span id="current-clock">09:41</span>
-      <div class="flex items-center gap-1.5">
-        <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
-        <i data-lucide="signal" class="w-3.5 h-3.5"></i>
-        <i data-lucide="battery-charging" class="w-4 h-4 text-emerald-600"></i>
-      </div>
-    </header>
-
     <!-- App Header -->
-    <nav class="px-5 pt-1 pb-3 flex items-center justify-between z-20">
+    <nav class="px-5 pt-4 pb-3 flex items-center justify-between z-20">
       <div>
         <div class="flex items-center gap-2">
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
@@ -255,8 +245,8 @@
               <p class="text-xs font-bold text-ink-900">Yazar balonu</p>
               <p class="text-[11px] text-stone-500 mt-0.5">Dairelerin üzerine gelince ad, gazete ve fotoğraf.</p>
             </div>
-            <button id="set-tooltip" type="button" role="switch" aria-checked="true" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-accent transition-colors">
-              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform translate-x-[18px]"></span>
+            <button id="set-tooltip" type="button" role="switch" aria-checked="false" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-stone-200 transition-colors">
+              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"></span>
             </button>
           </div>
           <div class="p-3.5 flex items-center justify-between gap-3">
@@ -697,7 +687,7 @@
 
     // --- Uygulama ayarları (localStorage'da saklanır) ---
     const SETTINGS_KEY = 'kose-settings';
-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: true, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto' };
+    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: false, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto' };
     let appSettings = { ...DEFAULT_SETTINGS };
     try {
       Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
@@ -1089,16 +1079,6 @@
       }
     }
     // --- /WRITERS VIEW ---
-
-    // --- Update Device Time ---
-    function updateClock() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const mins = String(now.getMinutes()).padStart(2, '0');
-      document.getElementById('current-clock').textContent = `${hours}:${mins}`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
 
     // --- Render Top Authors Avatar ---
     // Fotoğraf yüklenemezse baş harf avatarına düşer.
