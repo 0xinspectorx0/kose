@@ -862,12 +862,6 @@
     function removeFavoriteWriter(idx) {
       toggleFavoriteWriter(favoriteWriters[idx] || {});
     }
-    // Ana sayfadaki dairenin kalbi: favoriden çıkarır
-    function unfavoriteFromAvatar(e, name, source) {
-      e.stopPropagation();
-      toggleFavoriteWriter({ name, source });
-      hideAuthorTooltip();
-    }
 
     let readerFontSize = Number(appSettings.readerFont) || 16;
 
@@ -1352,14 +1346,9 @@
              data-name="${escapeHtml(name)}" data-source="${escapeHtml(source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
              onclick="quickOpenByAuthor(this.dataset.name, this.dataset.source)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
-          <div class="relative w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
+          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
             <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(name)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
-            <button type="button" title="Favorilerden çıkar" aria-label="${escapeHtml(formatAuthorName(name))} favorilerden çıkar"
-              class="absolute -bottom-0.5 -right-0.5 w-6 h-6 rounded-full bg-white border border-stone-200 shadow-sm flex items-center justify-center text-accent hover:bg-stone-50 active:scale-90 transition-all"
-              onclick="unfavoriteFromAvatar(event, this.closest('[data-name]').dataset.name, this.closest('[data-name]').dataset.source)">
-              <i data-lucide="heart" class="w-3 h-3 fill-accent"></i>
-            </button>
           </div>
           <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(name))}</span>
         </div>

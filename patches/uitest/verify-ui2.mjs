@@ -29,7 +29,7 @@ const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o ya
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
-const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','unfavoriteFromAvatar','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
   'renderAuthorAvatars','renderArticles','applyFilters','filterCategory','loadDailyFeed','applyReadState',
   'markArticleRead','isAuthorFullyRead','writersSummary','filterWriters','buildWriterPopularity','writerScore',
   'cleanWriterName','isPersonName','cleanWriters','renderWriters','togglePaper','openWriter','renderWriterNotFound',
