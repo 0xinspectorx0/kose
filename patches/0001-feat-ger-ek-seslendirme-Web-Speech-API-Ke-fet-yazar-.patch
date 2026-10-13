@@ -1,0 +1,479 @@
+From 87e63deba63dc836f1233b1df70d73a589c7ad88 Mon Sep 17 00:00:00 2001
+From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
+Date: Sun, 11 Oct 2026 13:56:20 +0000
+Subject: [PATCH 1/5] =?UTF-8?q?feat:=20ger=C3=A7ek=20seslendirme=20(Web=20?=
+ =?UTF-8?q?Speech=20API)=20+=20Ke=C5=9Ffet=20yazar=20etkile=C5=9Fimi?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Seslendirme:
+- 'Yapay Zeka Seslendirmesi' simülasyonu yerine tarayıcının Web Speech API'si ile
+  gerçek okuma: başlık + yazar + gazete + tam metin tr-TR sesiyle seslendirilir
+- Türkçe ses otomatik seçilir (voiceschanged dinlenir), şeritte gerçek ses adı yazar
+- Metin cümle sınırlarından ~200 karakterlik bölümlere ayrılır (uzun utterance kesilmesi)
+- Duraklat/sürdür, bölüm ilerleme çubuğu (3/21), okuyucu kapanınca konuşma durur
+- Desteklemeyen tarayıcıda açıklayıcı mesaj; play/pause simgesi artık gerçekten değişiyor
+- Silinen toggleAudioPreview ve dinleme düğmesi olayları geri yüklendi
+
+Keşfet:
+- Yazar çipleri düğme oldu: tıklayınca akışta o yazarın yazıları listelenir
+- Çiplerde yalnızca temizlenmiş yazar adı; 'İlke Gürsoy 15 Yazı' -> 'İlke Gürsoy'
+- Öne çıkan yazarlar başta: bugün yazanlar > portresi olanlar > kalanlar
+- Aynı ad temizleme kuralları kazıyıcıya da eklendi (roster + is_valid_author_name)
+
+Test: .uitest/ altındaki jsdom koşumları (tts, keşfet, çekirdek, simge) yeşil
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ .gitignore               |   1 +
+ index.html               | 305 ++++++++++++++++++++++++++++++++-------
+ scripts/fetch_columns.py |  22 ++-
+ 3 files changed, 269 insertions(+), 59 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index f2c22d0..16bdbd8 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -2,3 +2,4 @@ __pycache__/
+ *.pyc
+ data/daily.json.local
+ .venv/
++.uitest/
+diff --git a/index.html b/index.html
+index 4558cf0..58f29ed 100644
+--- a/index.html
++++ b/index.html
+@@ -312,23 +312,29 @@
+         </h1>
+ 
+         <!-- Audio Player Strip (Mini Player inside reader) -->
+-        <div id="audio-player-strip" class="hidden mb-6 p-3 bg-stone-100 rounded-2xl flex items-center justify-between border border-stone-200 font-sans">
+-          <div class="flex items-center gap-3">
+-            <button id="mini-audio-toggle" class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center">
+-              <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
+-            </button>
+-            <div>
+-              <p class="text-xs font-semibold text-ink-900">Yapay Zeka Seslendirmesi</p>
+-              <p class="text-[10px] text-stone-500">Ses: Berke (Doğal Türkçe)</p>
++        <div id="audio-player-strip" class="hidden mb-6 p-3 bg-stone-100 rounded-2xl border border-stone-200 font-sans">
++          <div class="flex items-center justify-between gap-3">
++            <div class="flex items-center gap-3 min-w-0">
++              <button id="mini-audio-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
++                class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center flex-shrink-0">
++                <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
++              </button>
++              <div class="min-w-0">
++                <p id="audio-status" class="text-xs font-semibold text-ink-900 truncate">Seslendirme</p>
++                <p id="audio-voice" class="text-[10px] text-stone-500 truncate">Tarayıcı sesi hazırlanıyor…</p>
++              </div>
++            </div>
++            <!-- Animated Voice Waveform -->
++            <div id="waveform" class="flex items-center gap-1 h-6 flex-shrink-0">
++              <span class="w-1 bg-accent rounded-full h-2"></span>
++              <span class="w-1 bg-accent rounded-full h-4"></span>
++              <span class="w-1 bg-accent rounded-full h-3"></span>
++              <span class="w-1 bg-accent rounded-full h-5"></span>
++              <span class="w-1 bg-accent rounded-full h-2"></span>
+             </div>
+           </div>
+-          <!-- Animated Voice Waveform -->
+-          <div id="waveform" class="flex items-center gap-1 h-6">
+-            <span class="w-1 bg-accent rounded-full h-2"></span>
+-            <span class="w-1 bg-accent rounded-full h-4"></span>
+-            <span class="w-1 bg-accent rounded-full h-3"></span>
+-            <span class="w-1 bg-accent rounded-full h-5"></span>
+-            <span class="w-1 bg-accent rounded-full h-2"></span>
++          <div class="mt-2.5 h-1 rounded-full bg-stone-200 overflow-hidden">
++            <div id="audio-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
+           </div>
+         </div>
+ 
+@@ -628,7 +634,6 @@
+ 
+     let currentFilteredCategory = 'Tümü';
+     let currentReadingArticle = null;
+-    let isPlayingAudio = false;
+     let readerFontSize = Number(appSettings.readerFont) || 16;
+ 
+     // --- DOM Elements ---
+@@ -734,18 +739,74 @@
+       }
+     }
+ 
++    // --- Keşfet: yazar sıralaması (popüler baş yazarlar önde) ---
++    // Popülerlik sinyali elimizdeki gerçek veriden gelir: bugün o gazetede köşe
++    // yazısı yayımlanan yazarlar ilk sırada, ardından portresi olan yazarlar;
++    // kalanlar gazetenin kendi listesindeki sırayla gelir (sort kararlıdır).
++    let writerPopularity = new Map();
++    function buildWriterPopularity() {
++      const map = new Map();
++      (articles || []).forEach(a => {
++        if (!a || a.isLive === false) return;
++        const k = `${normalizeTr(a.source)}|${normalizeTr(a.author)}`;
++        map.set(k, (map.get(k) || 0) + 1);
++      });
++      writerPopularity = map;
++    }
++    function writerScore(paperName, w) {
++      if (!w) return 0;
++      const today = writerPopularity.get(`${normalizeTr(paperName)}|${normalizeTr(w.name)}`) || 0;
++      // Katı katmanlar: 1) bugün o gazetede yazısı çıkanlar, 2) portresi olanlar,
++      // 3) kalanlar. Her katmanın içinde gazetenin kendi sırası korunur
++      // (Array.sort kararlıdır).
++      if (today > 0) return 1000;
++      return w.photo ? 1 : 0;
++    }
++
++    // Gazete dizinlerinden sızan ekleri ayıklar: "İlke Gürsoy 15 Yazı" ->
++    // "İlke Gürsoy", "Adnan Ekinci | Hukuk Ombudsmanı" -> "Adnan Ekinci".
++    function cleanWriterName(raw) {
++      let n = String(raw ?? '').replace(/\s+/g, ' ').trim();
++      if (n.includes('|')) n = n.split('|')[0].trim();
++      n = n.replace(/\s+\d+\s+(?:adet\s+)?yaz[ıi]\s*$/i, '').trim();
++      return n;
++    }
++
++    // Kişi adı olmayan kayıtları eler ("15. İstanbul Bienali", kimlik görünümlü ad).
++    function isPersonName(n) {
++      if (!n || n.length < 3 || n.length > 60) return false;
++      if (/^\d/.test(n)) return false;
++      if (/^[0-9a-f]{12,}$/i.test(n)) return false;
++      return /[a-zçğıöşü]/i.test(n);
++    }
++
++    function cleanWriters(list) {
++      const seen = new Set();
++      const out = [];
++      (Array.isArray(list) ? list : []).forEach(w => {
++        const name = cleanWriterName(w && w.name);
++        if (!isPersonName(name)) return;
++        const k = normalizeTr(name);
++        if (seen.has(k)) return;
++        seen.add(k);
++        out.push({ ...(w || {}), name });
++      });
++      return out;
++    }
++
+     function renderWriters() {
+       if (!writersData) return;
+-      const summary = writersSummary(writersData);
++      buildWriterPopularity();
+       writersLoadingEl.classList.add('hidden');
+       writersEmptyEl.classList.add('hidden');
+-      writersMetaEl.textContent = `${summary.paperCount} gazete · ${summary.total} yazar`;
+       const q = writersSearchInput.value;
+-      // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; yazarların kendi
+-      // sırasına dokunulmaz.
++      // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; çiplerde yalnızca
++      // temizlenmiş yazar adı gösterilir.
+       const groups = filterWriters(writersData.papers, q)
+-        .slice()
++        .map(p => ({ ...p, writers: cleanWriters(p.writers) }))
++        .filter(p => p.writers.length > 0)
+         .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
++      writersMetaEl.textContent = `${groups.length} gazete · ${groups.reduce((n, p) => n + p.writers.length, 0)} yazar`;
+       if (!groups.length) {
+         writersListEl.innerHTML = `
+           <div class="text-center py-12 text-slate-400">
+@@ -758,12 +819,14 @@
+       }
+       const searching = normalizeTr(q).length > 0;
+       writersListEl.innerHTML = groups.map(p => {
+-        const chips = p.writers.map(w => {
+-          const name = escapeHtml(w && w.name);
+-          if (w && w.url) {
+-            return `<a href="${escapeHtml(w.url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 hover:bg-ink-900 hover:text-white transition-colors">${name}<i data-lucide="arrow-up-right" class="w-3 h-3 opacity-60"></i></a>`;
+-          }
+-          return `<span class="inline-block px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600">${name}</span>`;
++        // Öne çıkan yazarlar (bugün yazan / portresi olan) başa alınır; eşit
++        // puanda gazetenin kendi sırası korunur.
++        const ranked = p.writers.slice().sort((a, b) => writerScore(p.name, b) - writerScore(p.name, a));
++        // Çiplerde yalnızca yazar adı görünür; tıklayınca akışta o yazarın
++        // yazıları listelenir (bağlantı simgesi vb. ek öğe yok).
++        const chips = ranked.map(w => {
++          const name = escapeHtml(w.name);
++          return `<button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 text-left hover:bg-ink-900 hover:text-white active:scale-95 transition-all">${name}</button>`;
+         }).join('');
+         // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
+         const isOpen = searching || expandedPapers.has(p.key);
+@@ -796,6 +859,41 @@
+       renderWriters();
+     }
+ 
++    // Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir
++    function openWriter(paperKey, name, url) {
++      const clean = String(name || '').trim();
++      if (!clean) return;
++      const wanted = normalizeTr(clean);
++      hideAuthorTooltip();
++      searchInput.value = clean;
++      filterCategory('Tümü'); // kategori filtresi yazarı gizlemesin
++      setTab('feed');         // applyFilters() burada çağrılır
++      const matches = articles.filter(a => normalizeTr(a.author) === wanted);
++      if (!matches.length) renderWriterNotFound(clean, url);
++      mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
++    }
++
++    function renderWriterNotFound(name, url) {
++      const safe = escapeHtml(name);
++      const link = url
++        ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-accent hover:underline">Gazetedeki yazar sayfasını aç<i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>`
++        : '';
++      articlesListEl.innerHTML = `
++        <div class="text-center py-12 text-slate-400">
++          <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
++          <p class="text-sm font-medium">${safe} için bugün köşe yazısı yok.</p>
++          <p class="text-[11px] mt-1">Yazısı yayımlandığında akışta görünecek.</p>
++          ${link}
++        </div>
++      `;
++      lucide.createIcons();
++    }
++
++    writersListEl.addEventListener('click', (e) => {
++      const chip = e.target.closest('button[data-writer]');
++      if (chip) openWriter(chip.dataset.paper, chip.dataset.writer, chip.dataset.url);
++    });
++
+     writersSearchInput.addEventListener('input', renderWriters);
+     document.getElementById('writers-retry-btn').addEventListener('click', () => loadWriters(true));
+ 
+@@ -1128,57 +1226,154 @@
+       mainScrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+     });
+ 
+-    // --- Audio Voiceover Simulation ---
+-    function toggleAudioPreview(e, id) {
+-      e.stopPropagation();
+-      openReader(id);
+-      setTimeout(() => {
+-        showAndPlayAudio();
+-      }, 350);
++    // --- Seslendirme (Web Speech API — tarayıcının Türkçe sesiyle gerçek okuma) ---
++    const ttsSupported = typeof window !== 'undefined' && 'speechSynthesis' in window;
++    let ttsChunks = [];
++    let ttsIndex = 0;
++    let ttsActive = false;  // konuşma başladı ve henüz bitmedi
++    let ttsPaused = false;
++    let ttsVoice = null;
++
++    // Türkçe sesi seç; sesler asenkron yüklendiği için olay dinlenir.
++    function pickTtsVoice() {
++      if (!ttsSupported) return null;
++      const voices = window.speechSynthesis.getVoices() || [];
++      ttsVoice = voices.find(v => /^tr([-_]|$)/i.test(v.lang || '')) || null;
++      const label = document.getElementById('audio-voice');
++      if (label) {
++        label.textContent = ttsVoice
++          ? `Ses: ${ttsVoice.name} (${ttsVoice.lang})`
++          : (voices.length ? 'Türkçe ses bulunamadı — varsayılan ses' : 'Tarayıcı sesleri yükleniyor…');
++      }
++      return ttsVoice;
++    }
++    if (ttsSupported) {
++      pickTtsVoice();
++      window.speechSynthesis.addEventListener('voiceschanged', pickTtsVoice);
+     }
+ 
+-    listenArticleBtn.addEventListener('click', () => {
+-      if (audioStrip.classList.contains('hidden')) {
+-        showAndPlayAudio();
+-      } else {
+-        togglePlayPause();
+-      }
+-    });
++    function htmlToSpeechText(html) {
++      const tmp = document.createElement('div');
++      tmp.innerHTML = String(html || '');
++      return (tmp.textContent || '').replace(/\s+/g, ' ').trim();
++    }
+ 
+-    miniAudioToggle.addEventListener('click', togglePlayPause);
++    // Uzun metni cümle sınırlarından ~200 karakterlik parçalara ayırır; bazı
++    // tarayıcılar tek uzun utterance'ı yarıda kesebiliyor.
++    function chunkSpeechText(text, size = 200) {
++      const sentences = String(text).match(/[^.!?…]+[.!?…]+[”"')\]]*\s*|[^.!?…]+$/g) || [String(text)];
++      const out = [];
++      let buf = '';
++      sentences.forEach(sentence => {
++        if (buf && (buf + sentence).length > size) { out.push(buf.trim()); buf = sentence; }
++        else buf += sentence;
++      });
++      if (buf.trim()) out.push(buf.trim());
++      return out.filter(Boolean);
++    }
++
++    function speakNextChunk() {
++      if (!ttsActive) return;
++      if (ttsIndex >= ttsChunks.length) { resetAudio(); return; }
++      const utter = new SpeechSynthesisUtterance(ttsChunks[ttsIndex]);
++      utter.lang = 'tr-TR';
++      if (ttsVoice) utter.voice = ttsVoice;
++      utter.rate = 1;
++      utter.pitch = 1;
++      utter.onend = () => {
++        if (!ttsActive) return;
++        ttsIndex += 1;
++        updateAudioUI();
++        speakNextChunk();
++      };
++      utter.onerror = () => resetAudio();
++      window.speechSynthesis.speak(utter);
++    }
+ 
+     function showAndPlayAudio() {
+       audioStrip.classList.remove('hidden');
+-      isPlayingAudio = true;
++      if (!ttsSupported) {
++        const status = document.getElementById('audio-status');
++        if (status) status.textContent = 'Tarayıcın seslendirmeyi desteklemiyor';
++        const label = document.getElementById('audio-voice');
++        if (label) label.textContent = 'Chrome, Edge veya Safari önerilir';
++        updateAudioUI();
++        return;
++      }
++      const art = currentReadingArticle;
++      if (!art) return;
++      window.speechSynthesis.cancel();
++      pickTtsVoice();
++      ttsChunks = chunkSpeechText(`${art.title}. ${art.author}, ${art.source}. ${htmlToSpeechText(art.fullContent)}`);
++      ttsIndex = 0;
++      ttsActive = true;
++      ttsPaused = false;
+       updateAudioUI();
++      speakNextChunk();
+     }
+ 
+     function togglePlayPause() {
+-      isPlayingAudio = !isPlayingAudio;
++      if (!ttsSupported) { showAndPlayAudio(); return; }
++      if (!ttsActive) { showAndPlayAudio(); return; }
++      if (ttsPaused) { window.speechSynthesis.resume(); ttsPaused = false; }
++      else { window.speechSynthesis.pause(); ttsPaused = true; }
+       updateAudioUI();
+     }
+ 
+     function resetAudio() {
+-      isPlayingAudio = false;
++      ttsActive = false;
++      ttsPaused = false;
++      ttsIndex = 0;
++      ttsChunks = [];
++      if (ttsSupported) window.speechSynthesis.cancel();
+       audioStrip.classList.add('hidden');
+       updateAudioUI();
+     }
+ 
+     function updateAudioUI() {
+-      const bars = document.querySelectorAll('#waveform span');
+-      if (isPlayingAudio) {
+-        miniPlayIcon.outerHTML = `<i data-lucide="pause" id="mini-play-icon" class="w-4 h-4 fill-white"></i>`;
+-        bars.forEach((b, i) => {
+-          b.classList.add('wave-bar');
+-          b.style.animationDelay = `${i * 0.2}s`;
+-        });
+-      } else {
+-        miniPlayIcon.outerHTML = `<i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
+-        bars.forEach(b => b.classList.remove('wave-bar'));
++      const playing = ttsActive && !ttsPaused;
++      const icon = document.getElementById('mini-play-icon');
++      if (icon) {
++        icon.outerHTML = playing
++          ? `<i data-lucide="pause" id="mini-play-icon" class="w-4 h-4 fill-white"></i>`
++          : `<i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
++      }
++      document.querySelectorAll('#waveform span').forEach((b, i) => {
++        b.classList.toggle('wave-bar', playing);
++        b.style.animationDelay = `${i * 0.2}s`;
++      });
++      const status = document.getElementById('audio-status');
++      if (status) {
++        status.textContent = !ttsSupported
++          ? 'Tarayıcın seslendirmeyi desteklemiyor'
++          : (!ttsActive
++            ? 'Seslendirme'
++            : (ttsPaused ? `Duraklatıldı · ${ttsIndex + 1}/${ttsChunks.length} bölüm`
++                         : `Seslendiriliyor · ${ttsIndex + 1}/${ttsChunks.length} bölüm`));
++      }
++      const prog = document.getElementById('audio-progress');
++      if (prog) {
++        prog.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
+       }
+       lucide.createIcons();
+     }
+ 
++    // Kart üzerindeki kulaklık simgesi: okuyucuyu açıp seslendirmeyi başlatır
++    function toggleAudioPreview(e, id) {
++      e.stopPropagation();
++      openReader(id);
++      setTimeout(() => {
++        showAndPlayAudio();
++      }, 350);
++    }
++
++    listenArticleBtn.addEventListener('click', () => {
++      if (ttsActive) togglePlayPause();
++      else showAndPlayAudio();
++    });
++
++    miniAudioToggle.addEventListener('click', togglePlayPause);
++
+     // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
+     // Çevrimdışı kalırsa gösterilecek örnek makale:
+     const offlineMockColumn = {
+diff --git a/scripts/fetch_columns.py b/scripts/fetch_columns.py
+index 2a799ac..9e00d37 100644
+--- a/scripts/fetch_columns.py
++++ b/scripts/fetch_columns.py
+@@ -348,6 +348,10 @@ def is_valid_author_name(name):
+     """Yazar adı olamayacak değerleri (URL, kurumsal ad) eler."""
+     if not name or len(name) < 3 or len(name) > 60:
+         return False
++    if re.match(r"^\d", name):  # "15. İstanbul Bienali" gibi kişi olmayan kayıtlar
++        return False
++    if re.fullmatch(r"[0-9a-fA-F]{12,}", name):  # sayfa kimliği / hash görünümlü ad
++        return False
+     if re.search(r"https?://|www\.|\.(com|net|org|tr)\b|@", name, re.I):
+         return False
+     if re.search(r"\b(gazetecilik|gazetesi|yay\u0131nc\u0131l\u0131k|medya|ajans\u0131|holding)\b", name, re.I):
+@@ -363,6 +367,11 @@ def clean_author_name(t):
+     t = re.sub(r"\s+", " ", t).strip()
+     t = re.sub(r"^(Tüm Yazıları|TÜM YAZILARI|Tüm yazıları)\s*", "", t).strip()
+     t = t.rstrip("›»").strip()
++    # "Adnan Ekinci | Hukuk Ombudsmanı" -> "Adnan Ekinci" (köşe adı adı değil)
++    if "|" in t:
++        t = t.split("|")[0].strip()
++    # "İlke Gürsoy 15 Yazı", "Abdüllatif Uyan 9297 Adet Yazı" -> sayaç ekini at
++    t = re.sub(r"\s+\d+\s+(?:adet\s+)?yaz[ıi]\s*$", "", t, flags=re.I).strip()
+     # "Resul TOSUN, Star Gazetesi" -> "Resul TOSUN"
+     if "," in t:
+         head, _, tail = t.partition(",")
+@@ -939,14 +948,19 @@ def discover_writers(max_authors_per_paper):
+                     denylist=paper.get("author_denylist"),
+                     limit=max_authors_per_paper,
+                 )
+-        # yinelenen isimleri temizle (url bazlı)
+-        seen, uniq = set(), []
++        # adları temizle; yinelenenleri (url ve ad bazlı) ele
++        seen, seen_names, uniq = set(), set(), []
+         for w in writers:
++            name = clean_author_name(w.get("name", ""))
++            if not name:
++                continue
+             k = w["url"].rstrip("/")
+-            if k in seen:
++            nk = name.casefold()
++            if k in seen or nk in seen_names:
+                 continue
+             seen.add(k)
+-            uniq.append(w)
++            seen_names.add(nk)
++            uniq.append({**w, "name": name})
+         papers_out.append({
+             "key": paper["key"],
+             "name": paper["name"],
+-- 
+2.39.5
+

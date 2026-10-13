@@ -1,0 +1,212 @@
+From bbbdcd79aea32426d6ec8480b324c8be76561cec Mon Sep 17 00:00:00 2001
+From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
+Date: Sun, 11 Oct 2026 14:33:38 +0000
+Subject: [PATCH 5/5] =?UTF-8?q?feat(ui):=20yazar=20ad=C4=B1=20bi=C3=A7imi,?=
+ =?UTF-8?q?=20okundu=20halkas=C4=B1,=20turuncu=20yukar=C4=B1-=C3=A7=C4=B1k?=
+ =?UTF-8?q?=20ve=20oynat=C4=B1c=C4=B1=20renkleri?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Yazar adları her yerde 'Ad SOYAD' biçiminde: adın baş harfi büyük, soyadın
+  tamamı büyük (Türkçe duyarlı: ı->I, i->İ); 'Dr.'/'M.' gibi kısaltmalar korunur
+  (akış kartı, yazar daireleri, balon, okuyucu, mini oynatıcı, Keşfet çipleri)
+- Ana menüde yazarın bugünkü tüm yazıları okunduysa çemberin turuncu halkası
+  griye dönüyor, adı soluklaşıyor; okundu bilgisi localStorage'da saklanıyor
+- Yukarı çık düğmesi siyah yerine mürekkep turuncusu (accent #D9532F)
+- Oynatıcı düğmeleri (mini oynatıcı + okuyucu şeridi) mürekkep turuncusu
+- Mini oynatıcı soldan sağa 0'dan (şeffaf) başlayan turuncu gradient; ilerleme
+  çizgileri de gradient
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ index.html | 69 ++++++++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 54 insertions(+), 15 deletions(-)
+
+diff --git a/index.html b/index.html
+index 16d6535..b21a0f7 100644
+--- a/index.html
++++ b/index.html
+@@ -271,7 +271,7 @@
+ 
+     <!-- Yukarı Çık (aşağı kaydırınca belirir) -->
+     <button id="scroll-top-btn" type="button" title="En üste çık" aria-label="En üste çık"
+-      class="hidden absolute right-4 bottom-20 z-30 w-11 h-11 rounded-full bg-ink-900 text-white shadow-lg flex items-center justify-center hover:bg-ink-700 active:scale-90 transition-all">
++      class="hidden absolute right-4 bottom-20 z-30 w-11 h-11 rounded-full bg-accent text-white shadow-lg flex items-center justify-center hover:bg-accent/85 active:scale-90 transition-all">
+       <i data-lucide="arrow-up" class="w-5 h-5"></i>
+     </button>
+ 
+@@ -324,7 +324,7 @@
+           <div class="flex items-center justify-between gap-3">
+             <div class="flex items-center gap-3 min-w-0">
+               <button id="mini-audio-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
+-                class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center flex-shrink-0">
++                class="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
+                 <i data-lucide="play" id="mini-play-icon" class="w-4 h-4 fill-white ml-0.5"></i>
+               </button>
+               <div class="min-w-0">
+@@ -343,7 +343,7 @@
+           </div>
+           <div class="mt-2.5 flex items-center gap-2">
+             <div class="flex-1 h-1 rounded-full bg-stone-200 overflow-hidden">
+-              <div id="audio-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
++              <div id="audio-progress" class="h-full w-0 bg-gradient-to-r from-[#F2B489] to-accent transition-all duration-300"></div>
+             </div>
+             <div class="flex items-center gap-1 flex-shrink-0">
+               <button id="tts-slower-btn" type="button" aria-label="Seslendirmeyi yavaşlat" title="Yavaşlat"
+@@ -374,13 +374,13 @@
+     </section>
+ 
+     <!-- Mini Medya Oynatıcı: seslendirme sürerken alt menünün üstünde ince şerit -->
+-    <div id="mini-player" class="hidden absolute left-0 right-0 bottom-16 z-30 bg-white/98 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_14px_rgba(0,0,0,0.06)]">
+-      <div class="h-0.5 bg-stone-100">
+-        <div id="mini-player-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
++    <div id="mini-player" class="hidden absolute left-0 right-0 bottom-16 z-30 bg-gradient-to-r from-white/0 via-[#FFF1E1]/95 to-[#FFD3A5]/95 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_14px_rgba(0,0,0,0.06)]">
++      <div class="h-0.5 bg-stone-200/60">
++        <div id="mini-player-progress" class="h-full w-0 bg-gradient-to-r from-[#F2B489] to-accent transition-all duration-300"></div>
+       </div>
+       <div class="h-14 px-3 flex items-center gap-3">
+         <button id="mini-player-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
+-          class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
++          class="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
+           <i data-lucide="pause" id="mini-player-icon" class="w-4 h-4 fill-white"></i>
+         </button>
+         <button id="mini-player-open" type="button" class="flex-1 min-w-0 text-left">
+@@ -678,6 +678,28 @@
+ 
+     let currentFilteredCategory = 'Tümü';
+     let currentReadingArticle = null;
++
++    // --- Okundu takibi: yazarın tüm yazıları okunduysa çemberi griye döner ---
++    const READ_KEY = 'kose-read-articles';
++    let readArticles = new Set();
++    try { readArticles = new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); } catch (e) { readArticles = new Set(); }
++
++    function applyReadState() {
++      articles.forEach(a => { a.isRead = readArticles.has(a.id); });
++    }
++
++    function markArticleRead(id) {
++      const art = articles.find(a => a.id === id);
++      if (art) art.isRead = true;
++      if (!id || readArticles.has(id)) return;
++      readArticles.add(id);
++      try { localStorage.setItem(READ_KEY, JSON.stringify([...readArticles].slice(-500))); } catch (e) { /* kota */ }
++    }
++
++    function isAuthorFullyRead(author) {
++      const list = articles.filter(a => a.author === author);
++      return list.length > 0 && list.every(a => a.isRead);
++    }
+     let readerFontSize = Number(appSettings.readerFont) || 16;
+ 
+     // --- DOM Elements ---
+@@ -726,6 +748,17 @@
+       return String(s ?? '').toLocaleLowerCase('tr-TR').trim();
+     }
+ 
++    // "ahmet hakan" -> "Ahmet HAKAN", "m. serdar kuzuloğlu" -> "M. Serdar KUZULOĞLU"
++    function formatAuthorName(name) {
++      const raw = String(name ?? '').replace(/\s+/g, ' ').trim();
++      if (!raw) return '';
++      const titleCase = w => w.toLocaleLowerCase('tr-TR').replace(/^./, c => c.toLocaleUpperCase('tr-TR'));
++      const parts = raw.split(' ');
++      if (parts.length === 1) return titleCase(raw);
++      const surname = parts[parts.length - 1].toLocaleUpperCase('tr-TR');
++      return `${parts.slice(0, -1).map(titleCase).join(' ')} ${surname}`;
++    }
++
+     function writersSummary(data) {
+       if (!data || !Array.isArray(data.papers)) return { total: 0, paperCount: 0, fetchedAt: null };
+       const total = typeof data.total === 'number'
+@@ -871,7 +904,7 @@
+         // yazıları listelenir (bağlantı simgesi vb. ek öğe yok).
+         const chips = ranked.map(w => {
+           const name = escapeHtml(w.name);
+-          return `<button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 text-left hover:bg-ink-900 hover:text-white active:scale-95 transition-all">${name}</button>`;
++          return `<button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700 text-left hover:bg-accent hover:text-white active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>`;
+         }).join('');
+         // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
+         const isOpen = searching || expandedPapers.has(p.key);
+@@ -919,7 +952,7 @@
+     }
+ 
+     function renderWriterNotFound(name, url) {
+-      const safe = escapeHtml(name);
++      const safe = escapeHtml(formatAuthorName(name));
+       const link = url
+         ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-accent hover:underline">Gazetedeki yazar sayfasını aç<i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>`
+         : '';
+@@ -993,6 +1026,7 @@
+     }
+ 
+     function renderAuthorAvatars() {
++      applyReadState();
+       const seen = new Set();
+       const authors = articles.filter(a => {
+         const key = normalizeTr(a.author);
+@@ -1004,16 +1038,19 @@
+       authorsAvatarTrack.innerHTML = authors.map(art => {
+         const photo = art.avatar || initialAvatar(art.author);
+         const fallback = initialAvatar(art.author);
++        const read = isAuthorFullyRead(art.author);
++        const ring = read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
++        const labelColor = read ? 'text-stone-400' : 'text-slate-700';
+         return `
+         <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
+              data-name="${escapeHtml(art.author)}" data-source="${escapeHtml(art.source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
+              onclick="quickOpenByAuthor(this.dataset.name)"
+              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
+-          <div class="w-13 h-13 rounded-full p-0.5 bg-gradient-to-tr from-accent via-amber-500 to-orange-400 group-hover:scale-105 group-active:scale-95 transition-transform">
++          <div class="w-13 h-13 rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
+             <img class="w-12 h-12 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(art.author)}" loading="lazy"
+                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
+           </div>
+-          <span class="text-[10px] font-medium text-slate-700 w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(art.author)}</span>
++          <span class="text-[10px] font-medium ${labelColor} w-16 leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(art.author))}</span>
+         </div>
+       `;}).join('');
+     }
+@@ -1026,7 +1063,7 @@
+       photo.onerror = null;
+       photo.src = chip.dataset.photo || chip.dataset.fallback;
+       photo.onerror = function () { this.onerror = null; this.src = chip.dataset.fallback; };
+-      authorTooltipEl.querySelector('#author-tooltip-name').textContent = chip.dataset.name || '';
++      authorTooltipEl.querySelector('#author-tooltip-name').textContent = formatAuthorName(chip.dataset.name || '');
+       authorTooltipEl.querySelector('#author-tooltip-source').textContent = chip.dataset.source || '';
+ 
+       authorTooltipEl.classList.remove('opacity-0');
+@@ -1071,7 +1108,7 @@
+             <div class="flex items-center gap-2.5">
+               <img src="${art.avatar}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${art.author}">
+               <div>
+-                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${art.author}</h3>
++                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${escapeHtml(formatAuthorName(art.author))}</h3>
+                 <div class="flex items-center gap-1.5 text-[10px] text-stone-400">
+                   <span class="font-semibold text-stone-600">${art.source}</span>
+                   <span>•</span>
+@@ -1197,9 +1234,11 @@
+       const art = articles.find(a => a.id === id);
+       if (!art) return;
+       currentReadingArticle = art;
++      markArticleRead(art.id);
++      renderAuthorAvatars();
+ 
+       document.getElementById('reader-author-img').src = art.avatar;
+-      document.getElementById('reader-author-name').textContent = art.author;
++      document.getElementById('reader-author-name').textContent = formatAuthorName(art.author);
+       document.getElementById('reader-source').textContent = art.source;
+       document.getElementById('reader-date').textContent = art.date;
+       document.getElementById('reader-time').textContent = art.readTime;
+@@ -1504,7 +1543,7 @@
+         const authorEl = document.getElementById('mini-player-author');
+         const titleEl = document.getElementById('mini-player-title');
+         const statusEl = document.getElementById('mini-player-status');
+-        if (authorEl) authorEl.textContent = (ttsArticle && ttsArticle.author) || '';
++        if (authorEl) authorEl.textContent = formatAuthorName((ttsArticle && ttsArticle.author) || '');
+         if (titleEl) titleEl.textContent = (ttsArticle && ttsArticle.title) || '';
+         if (statusEl) {
+           statusEl.textContent = ttsActive && ttsChunks.length ? `${ttsIndex + 1}/${ttsChunks.length}` : '';
+-- 
+2.39.5
+

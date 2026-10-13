@@ -1,0 +1,166 @@
+From b64d2b27123c31a4454254b79c27d43ad2ff6207 Mon Sep 17 00:00:00 2001
+From: 0xinspectorx0 <124451381+0xinspectorx0@users.noreply.github.com>
+Date: Sun, 11 Oct 2026 14:06:41 +0000
+Subject: [PATCH 3/5] =?UTF-8?q?feat(seslendirme):=20okuyucuda=20oynat/dura?=
+ =?UTF-8?q?klat=20d=C3=BC=C4=9Fmesi=20+=20alt=20men=C3=BC=20=C3=BCst=C3=BC?=
+ =?UTF-8?q?nde=20mini=20oynat=C4=B1c=C4=B1?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Okuyucu başlığındaki kulaklık düğmesi artık duruma göre play/pause simgesi
+  gösteriyor ve doğrudan seslendirmeyi başlatıp duraklatıyor
+- Okuyucuyu kapatmak seslendirmeyi kesmiyor: alt menünün üstünde ince bir mini
+  oynatıcı beliriyor (yazar adı, yazı adı, bölüm sayacı, ilerleme çizgisi,
+  oynat/duraklat ve kapat düğmesi); yazıya tıklayınca okuyucu yeniden açılıyor
+- Mini oynatıcı sekme değişimlerinde de yerinde kalıyor (Akış/Keşfet/Kaydedilen)
+- Yukarı çık düğmesi mini oynatıcı görünürken gizleniyor (çakışma olmasın)
+- Testler: .uitest/verify-tts.mjs 10 bölüm, çekirdek/keşfet/simge koşumları yeşil
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ index.html | 72 ++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 70 insertions(+), 2 deletions(-)
+
+diff --git a/index.html b/index.html
+index 7110b77..bb49bc8 100644
+--- a/index.html
++++ b/index.html
+@@ -365,6 +365,28 @@
+       </div>
+     </section>
+ 
++    <!-- Mini Medya Oynatıcı: seslendirme sürerken alt menünün üstünde ince şerit -->
++    <div id="mini-player" class="hidden absolute left-0 right-0 bottom-16 z-30 bg-white/98 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_14px_rgba(0,0,0,0.06)]">
++      <div class="h-0.5 bg-stone-100">
++        <div id="mini-player-progress" class="h-full w-0 bg-accent transition-all duration-300"></div>
++      </div>
++      <div class="h-14 px-3 flex items-center gap-3">
++        <button id="mini-player-toggle" type="button" aria-label="Seslendirmeyi duraklat veya sürdür"
++          class="w-9 h-9 rounded-full bg-ink-900 text-white flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
++          <i data-lucide="pause" id="mini-player-icon" class="w-4 h-4 fill-white"></i>
++        </button>
++        <button id="mini-player-open" type="button" class="flex-1 min-w-0 text-left">
++          <p id="mini-player-author" class="text-[11px] font-bold text-ink-900 truncate">Yazar</p>
++          <p id="mini-player-title" class="text-[10px] text-stone-500 truncate">Yazı adı</p>
++        </button>
++        <span id="mini-player-status" class="text-[10px] font-bold text-stone-400 tabular-nums flex-shrink-0">1/1</span>
++        <button id="mini-player-close" type="button" aria-label="Seslendirmeyi kapat"
++          class="w-8 h-8 rounded-full hover:bg-stone-100 flex items-center justify-center flex-shrink-0 text-stone-500 active:scale-90 transition-all">
++          <i data-lucide="x" class="w-4 h-4"></i>
++        </button>
++      </div>
++    </div>
++
+     <!-- Android Bottom Navigation Bar -->
+     <nav class="h-16 bg-white/95 backdrop-blur-md border-t border-stone-200/70 px-6 flex items-center justify-between z-20 select-none">
+       <button class="nav-btn flex flex-col items-center gap-1 text-accent" data-tab="feed">
+@@ -668,6 +690,7 @@
+     const listenArticleBtn = document.getElementById('listen-article-btn');
+     const audioStrip = document.getElementById('audio-player-strip');
+     const miniAudioToggle = document.getElementById('mini-audio-toggle');
++    const miniPlayerEl = document.getElementById('mini-player');
+     const miniPlayIcon = document.getElementById('mini-play-icon');
+     const fontDecBtn = document.getElementById('font-dec-btn');
+     const fontIncBtn = document.getElementById('font-inc-btn');
+@@ -1203,7 +1226,7 @@
+ 
+     closeReaderBtn.addEventListener('click', () => {
+       articleReader.classList.add('translate-y-full');
+-      resetAudio();
++      updateAudioUI(); // seslendirme sürüyorsa mini oynatıcı görünür, ses kesilmez
+     });
+ 
+     // --- Reading Progress Bar Indicator ---
+@@ -1234,7 +1257,8 @@
+     // --- Yukarı çık düğmesi ---
+     function updateScrollTopBtn() {
+       const readerClosed = articleReader.classList.contains('translate-y-full');
+-      scrollTopBtn.classList.toggle('hidden', !(readerClosed && mainScrollEl.scrollTop > 320));
++      const miniPlayerVisible = miniPlayerEl && !miniPlayerEl.classList.contains('hidden');
++      scrollTopBtn.classList.toggle('hidden', !(readerClosed && !miniPlayerVisible && mainScrollEl.scrollTop > 320));
+     }
+     mainScrollEl.addEventListener('scroll', updateScrollTopBtn, { passive: true });
+     scrollTopBtn.addEventListener('click', () => {
+@@ -1248,6 +1272,7 @@
+     let ttsActive = false;  // konuşma başladı ve henüz bitmedi
+     let ttsPaused = false;
+     let ttsVoice = null;
++    let ttsArticle = null;  // seslendirilen yazı (mini oynatıcı için)
+     let ttsGen = 0;         // iptal edilen utterance'ların geç olaylarını yok saymak için
+     const TTS_RATE_MIN = 0.75;
+     const TTS_RATE_MAX = 1.75;
+@@ -1358,6 +1383,7 @@
+       }
+       const art = currentReadingArticle;
+       if (!art) return;
++      ttsArticle = art;
+       window.speechSynthesis.cancel();
+       pickTtsVoice();
+       ttsChunks = chunkSpeechText(`${art.title}. ${art.author}, ${art.source}. ${htmlToSpeechText(art.fullContent)}`);
+@@ -1381,6 +1407,7 @@
+       ttsPaused = false;
+       ttsIndex = 0;
+       ttsChunks = [];
++      ttsArticle = null;
+       if (ttsSupported) window.speechSynthesis.cancel();
+       audioStrip.classList.add('hidden');
+       updateAudioUI();
+@@ -1411,6 +1438,42 @@
+       if (prog) {
+         prog.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
+       }
++      // Okuyucu başlığındaki düğme: duruma göre oynat / duraklat simgesi
++      const headerBtn = document.getElementById('listen-article-btn');
++      if (headerBtn) {
++        headerBtn.innerHTML = playing
++          ? `<i data-lucide="pause" class="w-4 h-4"></i>`
++          : `<i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>`;
++        headerBtn.title = playing ? 'Seslendirmeyi duraklat' : 'Yazıyı seslendir';
++        headerBtn.setAttribute('aria-label', headerBtn.title);
++      }
++
++      // Mini oynatıcı: okuyucu kapalıyken ve seslendirme sürerken görünür
++      const readerOpen = !articleReader.classList.contains('translate-y-full');
++      const showMini = ttsActive && !readerOpen;
++      if (miniPlayerEl) {
++        miniPlayerEl.classList.toggle('hidden', !showMini);
++        const miniIcon = document.getElementById('mini-player-icon');
++        if (miniIcon) {
++          miniIcon.outerHTML = playing
++            ? `<i data-lucide="pause" id="mini-player-icon" class="w-4 h-4 fill-white"></i>`
++            : `<i data-lucide="play" id="mini-player-icon" class="w-4 h-4 fill-white ml-0.5"></i>`;
++        }
++        const authorEl = document.getElementById('mini-player-author');
++        const titleEl = document.getElementById('mini-player-title');
++        const statusEl = document.getElementById('mini-player-status');
++        if (authorEl) authorEl.textContent = (ttsArticle && ttsArticle.author) || '';
++        if (titleEl) titleEl.textContent = (ttsArticle && ttsArticle.title) || '';
++        if (statusEl) {
++          statusEl.textContent = ttsActive && ttsChunks.length ? `${ttsIndex + 1}/${ttsChunks.length}` : '';
++        }
++        const miniProg = document.getElementById('mini-player-progress');
++        if (miniProg) {
++          miniProg.style.width = `${ttsChunks.length ? Math.round((ttsIndex / ttsChunks.length) * 100) : 0}%`;
++        }
++      }
++      updateScrollTopBtn();
++
+       const rate = currentTtsRate();
+       const rateLabel = document.getElementById('tts-rate-label');
+       if (rateLabel) rateLabel.textContent = formatTtsRate(rate);
+@@ -1442,6 +1505,11 @@
+     });
+ 
+     miniAudioToggle.addEventListener('click', togglePlayPause);
++    document.getElementById('mini-player-toggle').addEventListener('click', togglePlayPause);
++    document.getElementById('mini-player-close').addEventListener('click', resetAudio);
++    document.getElementById('mini-player-open').addEventListener('click', () => {
++      if (ttsArticle) openReader(ttsArticle.id);
++    });
+     document.getElementById('tts-slower-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() - TTS_RATE_STEP));
+     document.getElementById('tts-faster-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() + TTS_RATE_STEP));
+ 
+-- 
+2.39.5
+

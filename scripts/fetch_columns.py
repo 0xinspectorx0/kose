@@ -283,6 +283,21 @@ PERSONAL_SOURCES = [
         "listing": "https://www.livaneli.gen.tr/category/kose-yazilari/",
         "article_pattern": r"livaneli\.gen\.tr/\d{4}/\d{2}/.+/?$",
     },
+    {
+        # Evrensel'deki yazar arşivi (güncel adres: /yazi/NNNNN/slug).
+        "key": "tastekin", "name": "Evrensel", "category": "Gündem",
+        "author": "Fehim Taştekin",
+        "listing": "https://www.evrensel.net/yazar/137/fehim-tastekin",
+        "article_pattern": r"evrensel\.net/yazi/\d+/[^/?#]+/?$",
+    },
+    {
+        # Habertürk yazar arşivi; köşe bağlantıları iki biçimde gelebiliyor:
+        # /yazarlar/oray-egin/NNN-... (arşiv) ve /ozel-icerikler/oray-egin/NNN-... (güncel).
+        "key": "egin", "name": "Oray Eğin", "category": "Kültür-Sanat",
+        "author": "Oray Eğin",
+        "listing": "https://www.haberturk.com/htyazar/oray-egin",
+        "article_pattern": r"haberturk\.com/(?:yazarlar|ozel-icerikler)/oray-egin/\d+-[a-z0-9-]+/?$",
+    },
 ]
 
 # RSS kaynakları (Blogger / WordPress)
@@ -296,6 +311,14 @@ FEED_SOURCES = [
         "key": "yetkinreport", "name": "YetkinReport", "category": "Gündem",
         "author": "Murat Yetkin",
         "feed": "https://yetkinreport.com/author/muratmyetkin/feed/",
+    },
+    {
+        # Sözcü'den ayrıldı (Nis 2026); bağımsız YouTube kanalında yayımlıyor.
+        # Kanal: youtube.com/@yilmaz_ozdil — Atom akışı video açıklamasından
+        # özet/okuma süresi üretilir.
+        "key": "yilmazozdil", "name": "Yılmaz Özdil", "category": "Gündem",
+        "author": "Yılmaz Özdil",
+        "feed": "https://www.youtube.com/feeds/videos.xml?channel_id=UCQmDWRUf_X8BSrrDOSZA-NA",
     },
 ]
 
@@ -333,8 +356,8 @@ def clean_title(t):
     t = t.split(" | ")[0].strip()
     t = re.sub(
         r"\s+[\-–]\s+(Hürriyet|Sözcü|Sözcü Gazetesi|Gazete|Haberler|Son Dakika|"
-        r"Milliyet|Sabah|Cumhuriyet|Vatan|Yeni Şafak|Oksijen|YetkinReport|"
-        r"Fatih Altaylı|Livaneli\.gen\.tr|kose|T24|Star|Akşam|Takvim|Posta)\s*$",
+        r"Milliyet|Sabah|Cumhuriyet|Vatan|Yeni Şafak|Oksijen|YetkinReport|Evrensel|"
+        r"Fatih Altaylı|Livaneli\.gen\.tr|kose|T24|Star|Akşam|Takvim|Posta|Yılmaz Özdil)\s*$",
         "",
         t,
     )
@@ -347,6 +370,10 @@ CORPORATE_TAIL_RX = re.compile(r"gazete|gazetecilik|medya|yay\u0131n|haber|ajans
 def is_valid_author_name(name):
     """Yazar adı olamayacak değerleri (URL, kurumsal ad) eler."""
     if not name or len(name) < 3 or len(name) > 60:
+        return False
+    if re.match(r"^\d", name):  # "15. İstanbul Bienali" gibi kişi olmayan kayıtlar
+        return False
+    if re.fullmatch(r"[0-9a-fA-F]{12,}", name):  # sayfa kimliği / hash görünümlü ad
         return False
     if re.search(r"https?://|www\.|\.(com|net|org|tr)\b|@", name, re.I):
         return False
@@ -363,6 +390,11 @@ def clean_author_name(t):
     t = re.sub(r"\s+", " ", t).strip()
     t = re.sub(r"^(Tüm Yazıları|TÜM YAZILARI|Tüm yazıları)\s*", "", t).strip()
     t = t.rstrip("›»").strip()
+    # "Adnan Ekinci | Hukuk Ombudsmanı" -> "Adnan Ekinci" (köşe adı adı değil)
+    if "|" in t:
+        t = t.split("|")[0].strip()
+    # "İlke Gürsoy 15 Yazı", "Abdüllatif Uyan 9297 Adet Yazı" -> sayaç ekini at
+    t = re.sub(r"\s+\d+\s+(?:adet\s+)?yaz[ıi]\s*$", "", t, flags=re.I).strip()
     # "Resul TOSUN, Star Gazetesi" -> "Resul TOSUN"
     if "," in t:
         head, _, tail = t.partition(",")
@@ -858,6 +890,13 @@ def _child_text(item, *names):
     for c in item:
         if _local_name(c.tag) in names:
             return (c.text or "").strip()
+    # YouTube Atom: <media:description> doğrudan entry altında değil,
+    # <media:group> içinde durur — torunlarda da ara.
+    for c in item.iter():
+        if c is item:
+            continue
+        if _local_name(c.tag) in names and (c.text or "").strip():
+            return c.text.strip()
     return ""
 
 
@@ -939,14 +978,19 @@ def discover_writers(max_authors_per_paper):
                     denylist=paper.get("author_denylist"),
                     limit=max_authors_per_paper,
                 )
-        # yinelenen isimleri temizle (url bazlı)
-        seen, uniq = set(), []
+        # adları temizle; yinelenenleri (url ve ad bazlı) ele
+        seen, seen_names, uniq = set(), set(), []
         for w in writers:
+            name = clean_author_name(w.get("name", ""))
+            if not name:
+                continue
             k = w["url"].rstrip("/")
-            if k in seen:
+            nk = name.casefold()
+            if k in seen or nk in seen_names:
                 continue
             seen.add(k)
-            uniq.append(w)
+            seen_names.add(nk)
+            uniq.append({**w, "name": name})
         papers_out.append({
             "key": paper["key"],
             "name": paper["name"],
@@ -1179,14 +1223,19 @@ def main():
     merge_article_authors(writers_data, records)
     save_writers(writers_data, args.writers_out)
 
-    # başlığa göre tekilleştir
-    seen, uniq = set(), []
+    # başlığa göre tekilleştir — aynı başlık iki kez düşerse (ör. gazete
+    # akışı + yazarın kişisel kaynağı) yazar adı bilinen kayıt tercih edilir
+    seen, uniq = {}, []
     for r in records:
         key = r["title"].lower()
-        if key in seen:
-            continue
-        seen.add(key)
-        uniq.append(r)
+        if key not in seen:
+            seen[key] = len(uniq)
+            uniq.append(r)
+        else:
+            old = uniq[seen[key]]
+            real = lambda a: a and a != "Köşe Yazarı"
+            if not real(old.get("author")) and real(r.get("author")):
+                uniq[seen[key]] = r
 
     if not uniq:
         log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")

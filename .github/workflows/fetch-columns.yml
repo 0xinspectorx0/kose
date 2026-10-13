@@ -1,15 +1,18 @@
 name: Köşe Yazılarını Güncelle (Günlük)
 
-# Her gün sabah 07:00 TSİ (04:00 UTC) Türk gazetelerinin köşe yazar
-# sayfalarından yazıları çeker ve data/daily.json olarak commit'ler.
+# Günde üç kez (04:00 / 08:30 / 14:00 UTC) Türk gazetelerinin köşe yazar
+# sayfalarından yazıları çeker ve data/daily.json + data/writers.json olarak
+# main'e commit'ler. Uygulama bu iki dosyayı önce main'den canlı okur.
 # Not: `schedule` tetikleyicisi GitHub'da yalnızca varsayılan dalda (main)
 # çalışır; bu dosya main'e merge edildiğinde otomatik zamanlama başlar.
 # Herhangi bir dalda elle çalıştırmak için: Actions -> workflow -> Run workflow
 
 on:
   schedule:
-    - cron: '0 4 * * *' # her gün 04:00 UTC = 07:00 TSİ
-  workflow_dispatch: # elle tetikleme
+    - cron: '0 4 * * *'   # ana koşu: her gün 04:00 UTC = 07:00 TSİ
+    - cron: '30 8 * * *'  # yedek 1: GitHub yoğunlukta schedule'ları atlayabilir; çok giriş dayanıklılık sağlar
+    - cron: '0 14 * * *'  # yedek 2: öğleden sonra yayılan köşeleri de yakalar (değişiklik yoksa commit zaten atlanır)
+  workflow_dispatch: # elle tetikleme: Actions → Run workflow (main üzerinde çalıştır)
 
 permissions:
   contents: write
@@ -42,5 +45,16 @@ jobs:
             echo "Değişiklik yok, commit atlanıyor."
           else
             git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
-            git push
+            # Çakışma toleransı: elle tetiklenen + gecikmiş schedule koşusu aynı anda
+            # push ederse ikincisi reddedilir. Uzaktaki içerik bizimle aynıysa bu
+            # başarıdır; değilse rebase edip bir kez daha dene.
+            if ! git push; then
+              git fetch origin "${GITHUB_REF_NAME:-main}"
+              if git diff --quiet "origin/${GITHUB_REF_NAME:-main}" -- data/daily.json data/writers.json; then
+                echo "Uzakta aynı içerik var (eşzamanlı koşu yazdı); sorun değil."
+              else
+                git rebase "origin/${GITHUB_REF_NAME:-main}" || git rebase --abort
+                git push || { echo "::error::push başarısız"; exit 1; }
+              fi
+            fi
           fi
