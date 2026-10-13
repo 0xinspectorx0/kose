@@ -110,7 +110,11 @@
       <div class="relative">
         <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
         <input id="search-input" type="text" placeholder="Yazar, gazete veya konu ara..." 
-          class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-4 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+          class="w-full bg-white/80 border border-stone-200 rounded-2xl pl-9 pr-10 py-2.5 text-sm outline-none focus:border-accent shadow-sm">
+        <button id="search-clear" type="button" aria-label="Aramayı temizle" title="Temizle"
+          class="hidden absolute right-2 top-1.5 p-1.5 rounded-full text-slate-400 hover:text-ink-900 hover:bg-stone-200/70 active:scale-90 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
       </div>
     </div>
 
@@ -1199,6 +1203,13 @@
     });
 
     searchInput.addEventListener('input', applyFilters);
+    // ✕ — tek basınca kutudaki metnin tamamını siler, akışı eski haline döndürür
+    const searchClearBtn = document.getElementById('search-clear');
+    if (searchClearBtn) searchClearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      applyFilters();
+      searchInput.focus();
+    });
 
     function filterCategory(cat) {
       currentFilteredCategory = cat;
@@ -1214,6 +1225,9 @@
 
     function applyFilters() {
       const term = normalizeTr(searchInput.value); // Türkçe-duyarlı küçültme (İ/i uyumu)
+      // ✕ yalnızca kutuda metin varken görünür (toplu silme düğmesi)
+      const scBtn = document.getElementById('search-clear');
+      if (scBtn) scBtn.classList.toggle('hidden', !searchInput.value);
       let filtered = articles;
 
       if (currentFilteredCategory !== 'Tümü') {
