@@ -390,10 +390,10 @@
 
         <div class="mt-8 pt-6 border-t border-stone-200 font-sans text-center">
           <p class="text-xs text-stone-400 mb-3">Bu köşe yazısı kaynak gazetenin sayfasından otomatik olarak derlenmiştir.</p>
-          <button id="external-link-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-stone-200/80 rounded-full hover:bg-stone-300">
+          <a id="external-link-btn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-stone-200/80 rounded-full hover:bg-stone-300 active:scale-95 transition select-none">
             <span>Orijinal Yazıya Git</span>
             <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -1298,23 +1298,24 @@
 
       if (art.url) {
         externalLinkBtn.classList.remove('hidden');
+        externalLinkBtn.href = art.url;   // gerçek bağlantı: orta tuş/click/new-tab davranışı tarayıcıya ait
         externalLinkBtn.onclick = () => {
-          const url = art.url;
-          // 1) normal yeni sekme
-          let w = null;
-          try { w = window.open(url, '_blank', 'noopener'); } catch (e) { /* engel yoksa devam */ }
-          if (w) return;
-          // 2) engellendiyse gerçek bağlantı tıklaması (tarayıcılar bunu popup saymaz)
-          try {
-            const a = document.createElement('a');
-            a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-            document.body.appendChild(a); a.click(); a.remove();
-          } catch (e) { /* hedef kilitliyse panoya kopyala */ }
-          // 3) güvenlik ağı: sekme açılsa da açılmasa zararsız — adresi kopyala
-          try { navigator.clipboard && navigator.clipboard.writeText(url); } catch (e) {}
+          // Sekme açıldıysa bu çerçeve odağını kaybeder; 400 ms sonra hâlâ odak bizdeyse
+          // yeni pencere yolu kilitli demektir → üst çerçeveyi yönlendir, o da kilitliyse panoya kopyala.
+          setTimeout(() => {
+            if (!document.hasFocus()) return;
+            try { window.top.location.href = art.url; return; } catch (e) { /* üst çerçeve kilitli */ }
+            try { navigator.clipboard && navigator.clipboard.writeText(art.url); } catch (e2) {}
+            const label = externalLinkBtn.querySelector('span');
+            if (label) {
+              label.textContent = 'Bağlantı panoya kopyalandı';
+              setTimeout(() => { label.textContent = 'Orijinal Yazıya Git'; }, 2600);
+            }
+          }, 400);
         };
       } else {
         externalLinkBtn.classList.add('hidden');
+        externalLinkBtn.href = '#';
       }
 
       updateReaderBookmarkIcon();
