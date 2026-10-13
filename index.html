@@ -574,7 +574,8 @@
     // gösterilir; normal açılışta akış data/daily.json'dan gelir.
     let articles = [];
 
-    // --- Canlı Günlük Akış (data/daily.json — GitHub Actions her gün 07:00 TSİ'de günceller) ---
+    // --- Canlı Günlük Akış (önce GitHub main'deki data/daily.json — Actions her sabah günceller;
+    //     çevrimdışıysan uygulama ile paketlenen yerel kopyaya düşülür) ---
     const DAILY_FEED_URL = 'data/daily.json';
     const WRITERS_URL = 'data/writers.json';
     const todayKey = () => new Date().toLocaleDateString('tr-TR');
@@ -611,11 +612,22 @@
 
     async function loadDailyFeed(isManual = false) {
       try {
-        const res = await fetch(`${DAILY_FEED_URL}?v=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        if (!data || !Array.isArray(data.articles) || data.articles.length === 0) {
-          throw new Error('Boş veri');
+        // Önce GitHub main'deki CANLI veri (Actions oraya commit'ler; raw host'u CORS'a açık),
+        // ulaşılamazsa uygulama ile paketlenen yerel anlık görüntüye düş.
+        const sources = [
+          'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/daily.json',
+          DAILY_FEED_URL
+        ];
+        let data = null;
+        for (let i = 0; i < sources.length; i++) {
+          try {
+            const res = await fetch(`${sources[i]}?v=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const d = await res.json();
+            if (!d || !Array.isArray(d.articles) || d.articles.length === 0) throw new Error('Boş veri');
+            data = d;
+            break;
+          } catch (e) { if (i === sources.length - 1) throw e; }
         }
         const live = data.articles.map(mapLiveArticle);
         articles = [...live, ...articles.filter(a => !a.isLive)];
@@ -623,7 +635,18 @@
         syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
         const papers = data.papers ? ` · ${data.papers} gazete` : '';
         const writers = data.writers ? ` · ${data.writers} yazar` : '';
-        document.getElementById('sync-label').textContent = `Gazetelerden senkronize edildi${papers}${writers} · ${live.length} canlı yazı`;
+        const ageH = (Date.now() - new Date(data.fetchedAt || 0).getTime()) / 3600000;
+        const stale = isFinite(ageH) && ageH > 18;   // günlük koşu ~24 saat arayla; 18 sa aştıysa cron atlanmış
+        const syncBanner = document.getElementById('sync-banner');
+        if (syncBanner) {
+          syncBanner.classList.toggle('bg-amber-50', stale);
+          syncBanner.classList.toggle('bg-emerald-50', !stale);
+          syncBanner.classList.toggle('border-amber-100', stale);
+          syncBanner.classList.toggle('border-emerald-100', !stale);
+          syncBanner.classList.toggle('text-amber-800', stale);
+          syncBanner.classList.toggle('text-emerald-800', !stale);
+        }
+        document.getElementById('sync-label').textContent = `${stale ? 'Kaynak güncellemesi gecikti' : 'Gazetelerden senkronize edildi'}${papers}${writers} · ${live.length} canlı yazı`;
         renderAuthorAvatars();
         applyFilters();
         return true;
@@ -826,11 +849,22 @@
       writersListEl.innerHTML = '';
       writersMetaEl.textContent = '';
       try {
-        const res = await fetch(`${WRITERS_URL}?v=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        const summary = writersSummary(data);
-        if (!summary.paperCount || !summary.total) throw new Error('Boş veri');
+        const wSources = [
+          'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/writers.json',
+          WRITERS_URL
+        ];
+        let data = null;
+        for (let i = 0; i < wSources.length; i++) {
+          try {
+            const res = await fetch(`${wSources[i]}?v=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const d = await res.json();
+            const summary = writersSummary(d);
+            if (!summary.paperCount || !summary.total) throw new Error('Boş veri');
+            data = d;
+            break;
+          } catch (e) { if (i === wSources.length - 1) throw e; }
+        }
         writersData = data;
         writersLoaded = true;
         renderWriters();
