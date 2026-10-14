@@ -26,12 +26,6 @@ on:
     - cron: '13 12 * * *'  # 15:13 TSİ — öğleden sonra yayılan köşeler
     - cron: '17 15 * * *'  # 18:17 TSİ — akşam yedeği
     - cron: '23 18 * * *'  # 21:23 TSİ — günün son toplamı
-  # GEÇİCİ (bu dal için uçtan uca doğrulama — merge'den önce kaldırılacak):
-  # push tetikleyicisi data/** dışında bir şey değiştiğinde koşar; böylece
-  # bot'un kendi veri commit'i yeni bir koşu tetiklemez (döngü olmaz).
-  push:
-    branches: [arena/f3719e10-kose]
-    paths-ignore: ['data/**']
   workflow_dispatch:
     inputs:
       force:
@@ -78,8 +72,7 @@ jobs:
           set +e
           set -uo pipefail
           # Elle tetiklemede "force" işaretlenirse tazelik kısayolu devre dışı.
-          # GEÇİCİ: doğrulama koşusu tazelik kısayolunu hep atlasın
-          EXTRA="--min-interval-hours 0"
+          EXTRA=""
           if [ "${{ inputs.force }}" = "true" ]; then
             EXTRA="--min-interval-hours 0"
           fi
