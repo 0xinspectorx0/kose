@@ -26,6 +26,12 @@ on:
     - cron: '13 12 * * *'  # 15:13 TSİ — öğleden sonra yayılan köşeler
     - cron: '17 15 * * *'  # 18:17 TSİ — akşam yedeği
     - cron: '23 18 * * *'  # 21:23 TSİ — günün son toplamı
+  # GEÇİCİ (bu dal için uçtan uca doğrulama — merge'den önce kaldırılacak):
+  # push tetikleyicisi data/** dışında bir şey değiştiğinde koşar; böylece
+  # bot'un kendi veri commit'i yeni bir koşu tetiklemez (döngü olmaz).
+  push:
+    branches: [arena/f3719e10-kose]
+    paths-ignore: ['data/**']
   workflow_dispatch:
     inputs:
       force:
@@ -67,9 +73,13 @@ jobs:
 
       - name: Köşe yazılarını çek
         run: |
+          # Runner adımı `bash -e` ile çalıştırıyor; betiğin çıkış kodunu kendimiz
+          # yönettiğimiz için -e kapatılır (yoksa ilk başarısız çekimde döngü kesilir).
+          set +e
           set -uo pipefail
           # Elle tetiklemede "force" işaretlenirse tazelik kısayolu devre dışı.
-          EXTRA=""
+          # GEÇİCİ: doğrulama koşusu tazelik kısayolunu hep atlasın
+          EXTRA="--min-interval-hours 0"
           if [ "${{ inputs.force }}" = "true" ]; then
             EXTRA="--min-interval-hours 0"
           fi
@@ -95,6 +105,9 @@ jobs:
       - name: Sonuçları commit'le
         if: ${{ !cancelled() }}
         run: |
+          # -e kapalı: push reddi/fetch hatası bizim yönettiğimiz deneme döngüsünü
+          # yarıda kesmemeli; adımın sonucunu açıkça biz belirliyoruz.
+          set +e
           set -uo pipefail
           BRANCH="${GITHUB_REF_NAME:-main}"
           git config user.name "kose-bot"
@@ -119,7 +132,7 @@ jobs:
             fi
             echo "::warning::push reddedildi (deneme $attempt) — uzak senkronize edilip yeniden denenecek"
             sleep $((attempt * 10))
-            git fetch origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+            git fetch origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH" || true
 
             # Uzaktaki veri bizimkinden tazeyse (eşzamanlı başka bir koşu yazdıysa)
             # kendi çıktımızı bırakıyoruz: amaç "main'de bugünün verisi olsun".
@@ -155,7 +168,7 @@ jobs:
               local = None
           print("yes" if (remote and local and remote > local) else "no")
           PY
-            )
+            ) || echo "no"
             if [ "$REMOTE_NEWER" = "yes" ]; then
               echo "Uzakta daha taze veri var (başka bir koşu yazmış) — bu koşunun çıktısı bırakılıyor, sorun değil."
               exit 0
@@ -177,7 +190,8 @@ jobs:
       - name: İş özeti
         if: ${{ !cancelled() }}
         run: |
-          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          { python3 - <<'PY'
+          
           import json
           from datetime import datetime, timedelta, timezone
 
@@ -208,3 +222,4 @@ jobs:
           else:
               print("- ✅ main'de bugünün verisi var.")
           PY
+          } >> "$GITHUB_STEP_SUMMARY" || echo "::warning::iş özeti üretilemedi"
