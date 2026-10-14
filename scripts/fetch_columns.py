@@ -1260,10 +1260,11 @@ def data_is_fresh(path, min_interval_hours, min_articles):
 
 
 def drop_stale_records(records, max_age_days):
-    """Yayım tarihi max_age_days günden eski yazıları eler.
+    """Yayım tarihi max_age_days günden eski yazıları eler (varsayılan: bugün + dün).
 
     Gazetelerin "bugünün yazıları" dizinleri ara sıra eski yazıları da
-    listeliyor; bu da akışın günlerdir güncellenmediği izlenimi veriyor.
+    listeliyor — canlı koşuda 2023 Mayıs'ından iki yazı bile düştü. Bu da
+    akışın günlerdir güncellenmediği izlenimi veriyor.
     Tarih hiç okunamamışsa kayıt korunur (şüphe yazarın lehine).
     """
     if not max_age_days or max_age_days <= 0:
@@ -1298,10 +1299,10 @@ def main():
     ap.add_argument("--discover-only", action="store_true", help="Sadece yazar listesini üret")
     ap.add_argument("--min-interval-hours", type=float, default=4.0,
                     help="Mevcut veri bugünün verisiyse ve bu kadar saatten yeniyse çekimi atla (0 = her zaman çek)")
-    ap.add_argument("--min-articles", type=int, default=100,
+    ap.add_argument("--min-articles", type=int, default=80,
                     help="Tazelik kısayolunun 'dolu' sayması için gereken en az makale sayısı")
-    ap.add_argument("--max-age-days", type=int, default=3,
-                    help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma (0 = filtre yok)")
+    ap.add_argument("--max-age-days", type=int, default=2,
+                    help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma, yani bugün+dün kalır (0 = filtre yok)")
     ap.add_argument("--require-articles", type=int, default=20,
                     help="Bugünün verisi bu sayının altında kalırsa çıkış kodu 2 döndür (CI yeniden dener; 0 = kapat)")
     args = ap.parse_args()
