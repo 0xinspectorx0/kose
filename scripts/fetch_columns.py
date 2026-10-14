@@ -17,9 +17,17 @@ günün köşe yazılarını çeker:
     python scripts/fetch_columns.py                 # her şeyi çek
     python scripts/fetch_columns.py --discover-only # sadece yazar listesi
     python scripts/fetch_columns.py --max-per-paper 10
+    python scripts/fetch_columns.py --min-interval-hours 0   # tazelik kısayolunu atla
 
-GitHub Actions (.github/workflows/fetch-columns.yml) her gün 07:00 TSİ'de
-otomatik çalıştırır. İstekler nazik tempodadır (aralarda gecikme vardır).
+GitHub Actions (.github/workflows/fetch-columns.yml) günde 6 kez (TSİ 06:13,
+09:17, 12:23, 15:13, 18:17, 21:23) otomatik çalıştırır; veri zaten tazeyse
+betik çekimi atlar (bkz. --min-interval-hours / --min-articles). İstekler
+nazik tempodadır (aralarda gecikme vardır).
+
+Çıkış kodları:
+    0  bugünün verisi üretildi (ya da zaten tazeydi, çekim atlandı)
+    2  bugünün verisi üretilemedi (ağ hatası, boş dizin, çok erken saat…) —
+       mevcut daily.json korunur; CI bu kodda bir kez daha dener
 """
 
 import argparse
@@ -411,6 +419,8 @@ def is_noise(text):
 
 def format_date_tr(d):
     now = datetime.now(TR_TZ)
+    if not d:  # tarih hiç okunamadıysa çekim zamanı kullanılır (koşu çökmesin)
+        d = now
     if d.date() == now.date():
         return f"Bugün {d.strftime('%H:%M')}"
     if d.date() == (now - timedelta(days=1)).date():
@@ -791,6 +801,15 @@ def build_record(key, source_name, category, author, title, url, blocks, date_dt
 
     author_name = (author or "").strip()
     photo = (photo or "").strip()
+    # Makinenin okuyabildiği yayım zamanı (UTC ISO-8601): yaş filtresi ve
+    # ileride "en yeni önce" sıralaması için. "date" alanı insan okumasına
+    # yönelik Türkçe etiket olarak kalır.
+    published_at = ""
+    if date_dt:
+        try:
+            published_at = date_dt.astimezone(timezone.utc).isoformat()
+        except Exception:
+            published_at = ""
     return {
         "id": f"{key}-{hashlib.md5(url.encode('utf-8')).hexdigest()[:8]}",
         "author": author_name or "Köşe Yazarı",
@@ -798,6 +817,7 @@ def build_record(key, source_name, category, author, title, url, blocks, date_dt
         "title": title,
         "url": url,
         "date": format_date_tr(date_dt),
+        "publishedAt": published_at,
         "category": category,
         "readTime": f"{read_time} dk",
         "snippet": snippet,
@@ -877,6 +897,19 @@ def parse_html_article(url, paper):
         paper["key"], paper["name"], paper.get("category", "Gündem"),
         author, title, url, blocks, date_dt, photo=photo,
     )
+
+
+def safe_parse_article(url, paper):
+    """parse_html_article'ı tek makale ölçeğinde korur.
+
+    Bir sayfanın şablonu beklenmedik biçimde değişirse yalnızca o makale
+    atlanır; gazetenin (ve günün) geri kalanı kurtarılır.
+    """
+    try:
+        return parse_html_article(url, paper)
+    except Exception as e:
+        log(f"    ! makale çözümlenemedi ({type(e).__name__}: {e}) <- {url}")
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -971,13 +1004,19 @@ def discover_writers(max_authors_per_paper):
         pattern = paper.get("author_pattern")
         writers = []
         if pattern:
-            html = fetch(roster_url)
-            if html:
-                writers = extract_named_links(
-                    html, roster_url, pattern,
-                    denylist=paper.get("author_denylist"),
-                    limit=max_authors_per_paper,
-                )
+            # Tek bir gazetenin dizini patlarsa bütün keşif (ve dolayısıyla
+            # günün verisi) kaybolmasın: hata kaynağa özgü kalır.
+            try:
+                html = fetch(roster_url)
+                if html:
+                    writers = extract_named_links(
+                        html, roster_url, pattern,
+                        denylist=paper.get("author_denylist"),
+                        limit=max_authors_per_paper,
+                    )
+            except Exception as e:
+                log(f"    ! {paper['name']} yazar dizini okunamadı: {type(e).__name__}: {e}")
+                writers = []
         # adları temizle; yinelenenleri (url ve ad bazlı) ele
         seen, seen_names, uniq = set(), set(), []
         for w in writers:
@@ -1122,7 +1161,7 @@ def fetch_paper_articles(paper, max_per_paper):
         )
         log(f"  {paper['name']}: dizinden {len(urls)} makale bulundu")
         for url in urls:
-            rec = parse_html_article(url, paper)
+            rec = safe_parse_article(url, paper)
             if rec:
                 records.append(rec)
                 log(f"    + [{rec['author']}] {rec['title'][:55]}")
@@ -1155,7 +1194,7 @@ def fetch_paper_articles(paper, max_per_paper):
             sub = dict(paper)
             if author_name:
                 sub["author"] = author_name
-            rec = parse_html_article(urls[0], sub)
+            rec = safe_parse_article(urls[0], sub)
             if rec:
                 records.append(rec)
                 log(f"    + [{rec['author']}] {rec['title'][:55]}")
@@ -1170,10 +1209,80 @@ def fetch_personal_articles(src, max_per_source):
     urls = extract_links(html, src["listing"], src["article_pattern"], limit=max_per_source)
     for url in urls:
         paper = {"key": src["key"], "name": src["name"], "category": src["category"], "author": src["author"]}
-        rec = parse_html_article(url, paper)
+        rec = safe_parse_article(url, paper)
         if rec:
             records.append(rec)
     return records
+
+
+# ---------------------------------------------------------------------------
+# Tazelik kısayolu ve yaş filtresi
+# ---------------------------------------------------------------------------
+def load_payload(path):
+    """JSON dosyasını okur; yoksa/bozuksa None döner (eski veri bozulmuş olabilir)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def data_is_fresh(path, min_interval_hours, min_articles):
+    """Mevcut daily.json bugünün verisiyse, yeterince yeniyse ve doluysa True.
+
+    Zamanlanmış koşular gün içinde birkaç kez tetikleniyor; veri zaten tazeyse
+    gazete sitelerine boşuna istek atmamak için çekim atlanır. Sabahın erken
+    saatlerindeki seyrek çekim (ör. 60 yazı) "dolu" sayılmaz — böylece günün
+    ilerleyen koşusu yayımlanan tüm köşeleri toplar.
+    """
+    if not min_interval_hours or min_interval_hours <= 0:
+        return False
+    data = load_payload(path)
+    if not data:
+        return False
+    fetched = parse_date_any(data.get("fetchedAt") or "")
+    if not fetched:
+        return False
+    age_h = (datetime.now(timezone.utc) - fetched).total_seconds() / 3600.0
+    count = len(data.get("articles") or [])
+    today = datetime.now(TR_TZ).strftime("%Y-%m-%d")
+    if data.get("date") != today:
+        log(f">> Mevcut veri bugüne ait değil ({data.get('date')} != {today}) — çekim yapılacak")
+        return False
+    if age_h >= min_interval_hours:
+        log(f">> Mevcut veri {age_h:.1f} saatlik (eşik {min_interval_hours:g} sa) — çekim yapılacak")
+        return False
+    if count < min_articles:
+        log(f">> Mevcut veri seyrek ({count} yazı < {min_articles}) — günün kalan köşeleri için yeniden çekilecek")
+        return False
+    log(f">> Veri taze: {count} yazı, {age_h:.1f} saat önce çekildi — çekim atlanıyor")
+    return True
+
+
+def drop_stale_records(records, max_age_days):
+    """Yayım tarihi max_age_days günden eski yazıları eler.
+
+    Gazetelerin "bugünün yazıları" dizinleri ara sıra eski yazıları da
+    listeliyor; bu da akışın günlerdir güncellenmediği izlenimi veriyor.
+    Tarih hiç okunamamışsa kayıt korunur (şüphe yazarın lehine).
+    """
+    if not max_age_days or max_age_days <= 0:
+        return records
+    cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+    kept, dropped = [], []
+    for rec in records:
+        dt = parse_date_any(rec.get("publishedAt") or "")
+        if dt and dt < cutoff:
+            dropped.append(rec)
+            continue
+        kept.append(rec)
+    for rec in dropped[:10]:
+        log(f"    - eski yazı elendi ({rec.get('date')}): [{rec.get('author')}] {rec.get('title', '')[:50]}")
+    if len(dropped) > 10:
+        log(f"    - …ve {len(dropped) - 10} eski yazı daha")
+    if dropped:
+        log(f">> {max_age_days} günden eski {len(dropped)} yazı elendi")
+    return kept
 
 
 # ---------------------------------------------------------------------------
@@ -1187,41 +1296,94 @@ def main():
     ap.add_argument("--max-authors-per-paper", type=int, default=200, help="Gazete başına en fazla keşfedilen yazar")
     ap.add_argument("--max-per-source", type=int, default=2, help="Kişisel/RSS kaynak başına makale")
     ap.add_argument("--discover-only", action="store_true", help="Sadece yazar listesini üret")
+    ap.add_argument("--min-interval-hours", type=float, default=4.0,
+                    help="Mevcut veri bugünün verisiyse ve bu kadar saatten yeniyse çekimi atla (0 = her zaman çek)")
+    ap.add_argument("--min-articles", type=int, default=100,
+                    help="Tazelik kısayolunun 'dolu' sayması için gereken en az makale sayısı")
+    ap.add_argument("--max-age-days", type=int, default=3,
+                    help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma (0 = filtre yok)")
+    ap.add_argument("--require-articles", type=int, default=20,
+                    help="Bugünün verisi bu sayının altında kalırsa çıkış kodu 2 döndür (CI yeniden dener; 0 = kapat)")
     args = ap.parse_args()
+
+    # --- Tazelik kısayolu: bugünün dolu verisi zaten varsa gazetelere dokunma ---
+    if not args.discover_only and data_is_fresh(args.out, args.min_interval_hours, args.min_articles):
+        return 0
 
     # --- Yazar keşfi ---
     log(">> Yazar keşfi (aktif köşe yazarları)")
-    writers_data = discover_writers(args.max_authors_per_paper)
+    try:
+        writers_data = discover_writers(args.max_authors_per_paper)
+    except Exception as e:
+        log(f"! Yazar keşfi yarıda kesildi: {type(e).__name__}: {e}")
+        writers_data = {"papers": [], "total": 0}
+
+    # Keşif tamamen boş döndüyse mevcut writers.json'ı EZME: 1000+ yazarlık
+    # dizin bir ağ aksaklığında silinmesin. Eski dosya hem korunur hem de
+    # yazar adı/fotoğraf tamamlamalarında roster olarak kullanılmaya devam eder.
+    keep_existing_writers = False
+    if not writers_data.get("total"):
+        previous = load_payload(args.writers_out)
+        if previous and previous.get("total"):
+            log(f"UYARI: keşif boş döndü — mevcut writers.json korunuyor ({previous['total']} yazar)")
+            writers_data = {
+                "papers": previous.get("papers") or [],
+                "total": previous.get("total") or 0,
+            }
+            keep_existing_writers = True
 
     if args.discover_only:
-        save_writers(writers_data, args.writers_out)
+        if not keep_existing_writers:
+            save_writers(writers_data, args.writers_out)
         return 0
 
     # --- Günlük makale çekimi ---
+    # Her kaynak ayrı ayrı korunur: bir gazetenin sayfası beklenmedik bir hata
+    # verirse (şablon değişti, ağ koptu) günün geri kalanı kaybolmaz.
     records = []
     papers_with_articles = set()
 
     for paper in NEWSPAPERS:
         log(f">> {paper['name']} ({paper['today']})")
-        paper_records = fetch_paper_articles(paper, args.max_per_paper)
+        try:
+            paper_records = fetch_paper_articles(paper, args.max_per_paper)
+        except Exception as e:
+            log(f"    ! {paper['name']} çekilemedi: {type(e).__name__}: {e}")
+            paper_records = []
         if paper_records:
             papers_with_articles.add(paper["name"])
         records.extend(paper_records)
 
     for src in PERSONAL_SOURCES:
         log(f">> {src['name']} (kişisel site)")
-        records.extend(fetch_personal_articles(src, args.max_per_source))
+        try:
+            records.extend(fetch_personal_articles(src, args.max_per_source))
+        except Exception as e:
+            log(f"    ! {src['name']} çekilemedi: {type(e).__name__}: {e}")
 
     for cfg in FEED_SOURCES:
         log(f">> {cfg['name']} (RSS)")
-        records.extend(parse_feed(cfg, args.max_per_source))
+        try:
+            records.extend(parse_feed(cfg, args.max_per_source))
+        except Exception as e:
+            log(f"    ! {cfg['name']} okunamadı: {type(e).__name__}: {e}")
+
+    # dizinlerde kalmış eski yazılar akışı bayat göstermesin
+    records = drop_stale_records(records, args.max_age_days)
 
     # yazarı/fotoğrafı okunamayan kayıtları roster eşleşmesiyle tamamla,
     # ardından makale sayfalarındaki yazar adlarını keşif listesine işle
     fill_missing_authors(records, writers_data)
     fill_missing_photos(records, writers_data)
     merge_article_authors(writers_data, records)
-    save_writers(writers_data, args.writers_out)
+    if keep_existing_writers and not records:
+        # Keşif de makaleler de boş döndü: dosyaya hiç dokunma (zaman damgası
+        # bile yenilenmesin) ki uygulama bayat veriyi taze sanmasın.
+        log(">> writers.json korunuyor (keşif boş döndü, makale de yok)")
+    else:
+        # Keşif boş döndüyse writers_data diskteki mevcut listeden yüklendi,
+        # yani yazılan dosya eski dizini KORUR (üzerine boş liste yazılmaz).
+        save_writers(writers_data, args.writers_out)
 
     # başlığa göre tekilleştir — aynı başlık iki kez düşerse (ör. gazete
     # akışı + yazarın kişisel kaynağı) yazar adı bilinen kayıt tercih edilir
@@ -1239,7 +1401,7 @@ def main():
 
     if not uniq:
         log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")
-        return 0
+        return 2 if args.require_articles > 0 else 0
 
     now = datetime.now(TR_TZ)
     payload = {
@@ -1257,6 +1419,13 @@ def main():
         json.dump(payload, f, ensure_ascii=False, indent=2)
         f.write("\n")
     log(f"OK: {len(uniq)} makale ({len(papers_with_articles)} gazete) yazıldı -> {args.out}")
+
+    # CI'ın "bugünün verisi gerçekten üretildi mi?" denetimi: eşik altındaysa
+    # 2 döner, workflow bir kez daha dener (ağ hatası / dizin değişikliği /
+    # çok erken saat gibi geçici durumlarda günlük güncelleme kaybolmasın).
+    if args.require_articles > 0 and len(uniq) < args.require_articles:
+        log(f"UYARI: {len(uniq)} makale bulundu, beklenen en az {args.require_articles} — koşu başarısız sayıldı.")
+        return 2
     return 0
 
 
