@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-14T09:24:12.401410+00:00",
+  "fetchedAt": "2026-10-14T14:02:57.219462+00:00",
   "date": "2026-10-14",
-  "total": 1270,
+  "total": 1276,
   "papers": [
     {
       "key": "hurriyet",
@@ -1257,7 +1257,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 16,
+      "count": 17,
       "writers": [
         {
           "name": "SABAH",
@@ -1310,11 +1310,6 @@
           "photo": ""
         },
         {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1330,6 +1325,11 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
+          "name": "HİLAL KAPLAN",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
@@ -1338,6 +1338,11 @@
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
+          "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/95c4b5/147/124/0/0/724/611?u=https://isbh.tmgrup.com.tr/sbh/2026/02/11/1770765350668.jpg"
         }
       ]
     },
@@ -5211,7 +5216,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5262,6 +5267,16 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Fahrettin Gün",
+          "url": "https://www.milligazete.com.tr/fahrettin-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun-3.png"
+        },
+        {
+          "name": "Ercan Özcan",
+          "url": "https://www.milligazete.com.tr/ercan-ozcan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
         },
         {
           "name": "Bu ayıp size yeter",
@@ -5342,16 +5357,6 @@
           "name": "Prof. Dr. Abdullah Aydın",
           "url": "https://www.milligazete.com.tr/abdullah-aydin",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70279-avatar.jpg"
-        },
-        {
-          "name": "Şaban Turhal",
-          "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun.jpeg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5439,32 +5444,7 @@
           "photo": ""
         },
         {
-          "name": "Dört meslek grubuna yeşil pasaport yolu: 15 yıl şartı var",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altında ibre tersine döndü: 14 Ekim gram ve çeyrek fiyatı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Karahan'dan fon krizi mesajı: Yerleşikler TL'den vazgeçmedi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mahmut Arıkan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Dövizde ateş düşmüyor: Dolar ve euro güne yükselişle başladı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Meteoroloji'den 18 ile sarı kod: Sağanak ve fırtına vuracak",
+          "name": "Galatasaray’ın Barcelona mağlubiyeti sonrası UEFA ülke puanı",
           "url": "",
           "photo": ""
         }
@@ -6486,8 +6466,59 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 0,
-      "writers": []
+      "count": 10,
+      "writers": [
+        {
+          "name": "Psk. Dr. Feyza Bayraktar",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
+        },
+        {
+          "name": "Ayhan Tinin",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
+        },
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+        },
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
+        {
+          "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Ece Deniz",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        }
+      ]
     }
   ]
 }
