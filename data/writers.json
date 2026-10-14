@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-14T14:02:57.219462+00:00",
+  "fetchedAt": "2026-10-14T18:22:49.856479+00:00",
   "date": "2026-10-14",
-  "total": 1276,
+  "total": 1280,
   "papers": [
     {
       "key": "hurriyet",
@@ -1310,24 +1310,9 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
+          "name": "MAHMUT ÖVÜR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "DİLEK GÜNGÖR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1335,9 +1320,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "MAHMUT ÖVÜR",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -5216,7 +5216,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5444,7 +5444,27 @@
           "photo": ""
         },
         {
-          "name": "Galatasaray’ın Barcelona mağlubiyeti sonrası UEFA ülke puanı",
+          "name": "Ucuz palamut tartışması büyüyor! Balıkçılar ikiye bölündü",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fon Soruşturmasında dev rapor! Paranın izi 29 ülkede sürüyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Valilik duyurdu: İstanbul'da yarın okullar tatil edildi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Eski SPK Başkanı İbrahim Ömer Gönül’e soruşturma!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul’da sağanak alarmı! İBB’den evde kalın çağrısı",
           "url": "",
           "photo": ""
         }
