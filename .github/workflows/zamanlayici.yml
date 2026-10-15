@@ -1,0 +1,217 @@
+name: Zamanlayıcı (30 dk röle)
+
+# NEDEN VAR?
+#   GitHub'ın `schedule` (cron) tetikleyicisi 26 Ağustos 2026'dan beri birçok
+#   depoda ya hiç koşu üretmiyor ya da saatlerce geciktiriyor. Bu depoda
+#   15 Ekim 2026'da 09:39-14:08 UTC arasında fetch-columns.yml'in
+#   '7,37 * * * *' zamanlamasından da watchdog'dan da TEK koşu oluşmadı; veri
+#   4,5 saat bayat kaldı. Elle/API ile tetikleme (workflow_dispatch) ise
+#   saniyeler içinde başlıyor. Bu iş akışı veriyi GitHub cron'una bağlı
+#   kalmadan taze tutar.
+#
+# NASIL ÇALIŞIR? — kendi kendini yeniden başlatan zincir
+#   Her koşu ("halka") iki iş içerir; ikisi aynı anda başlar:
+#     kontrol  HEMEN: main'deki veriye scripts/freshness.py ile bakar (politika
+#              fetch-columns.yml ile aynı). Çekim gerekiyorsa ve main'de süren
+#              bir çekim yoksa fetch-columns.yml'i main'de tetikler.
+#     sonraki  `kose-zamanlayici` ortamının BEKLEME SÜRESİ (wait timer) dolunca
+#              çalışır ve bu iş akışını yeniden tetikler -> bir sonraki halka.
+#   Bekleme GitHub'ın ortam koruma kuralıdır: cron zamanlayıcısından
+#   bağımsızdır, beklerken runner meşgul edilmez, süre faturalanmaz.
+#   `deployment: false` sayesinde halkalar dağıtım kaydı oluşturmaz.
+#   GITHUB_TOKEN ile yapılan workflow_dispatch yeni koşu başlatabilir (GitHub'ın
+#   "GITHUB_TOKEN olayları koşu tetiklemez" kuralının istisnası) — ek token ya
+#   da secret gerekmez.
+#
+# TEK SEFERLİK KURULUM (depo yöneticisi):
+#   Settings -> Environments -> kose-zamanlayici -> [x] Wait timer: 30
+#   -> Save protection rules. (Ortam yoksa ilk koşu otomatik oluşturur;
+#   "New environment" ile elle de açılabilir.)
+#
+# GÜVENLİK KİLİTLERİ
+#   - Bekleme uygulanmadıysa (koşu başlayalı EN_AZ_BEKLEME_DK dakika geçmemişse
+#     ya da ortamdaki süre bundan kısaysa) zincir DURUR — hızlı/kaçak döngü
+#     oluşamaz. Koşu yine de bir kez tazelik kontrolü yapar.
+#   - concurrency (dal başına): en fazla 1 koşu + 1 bekleyen; yeni bekleyen
+#     eskisini iptal eder. push/cron/elle tetikleme üst üste gelse de tek zincir
+#     kalır.
+#   - Varsayılan dal dışında zincir en fazla bir halka uzar (test: 0 -> 1).
+#
+# ZİNCİR KOPARSA yeniden başlatanlar: bu dosya main'de değişince (push),
+#   aşağıdaki seyrek cron (GitHub zamanlayıcısı toparlandığında) ya da elle:
+#   Actions -> "Zamanlayıcı (30 dk röle)" -> Run workflow.
+#   Veriyi HEMEN tazelemek için "Köşe Yazılarını Güncelle (Günlük)"ü çalıştırın.
+
+on:
+  workflow_dispatch:
+    inputs:
+      halka:
+        description: 'Zincirdeki sıra numarası (iç kullanım — elle başlatırken 0 bırakın)'
+        type: string
+        default: '0'
+  push:
+    branches:
+      - main
+      - 'arena/3d55f148-kose'   # GEÇİCİ: dal testi — birleştirmeden önce kaldırılacak
+    paths:
+      - '.github/workflows/zamanlayici.yml'
+  schedule:
+    - cron: '41 */4 * * *'   # yalnızca kopmuş zinciri yeniden başlatmak için
+
+permissions:
+  contents: read
+  actions: write   # fetch-columns.yml'i ve bu iş akışını tetiklemek için
+
+concurrency:
+  group: kose-zamanlayici-${{ github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  ORTAM: kose-zamanlayici
+  EN_AZ_BEKLEME_DK: '20'
+
+jobs:
+  kontrol:
+    name: Tazelik kontrolü (main)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: main'in verisini çek (yalnızca scripts/ + data/)
+        uses: actions/checkout@v6
+        with:
+          # Zamanlayıcı hangi dalda koşarsa koşsun veri main'de yaşar
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: |
+            scripts
+            data
+
+      - name: Çekim gerekiyorsa fetch-columns.yml'i tetikle
+        env:
+          ANA_DAL: ${{ github.event.repository.default_branch }}
+          HALKA: ${{ inputs.halka || '0' }}
+        run: |
+          # Çıkış kodlarını biz yönetiyoruz; bu iş zinciri asla düşürmemeli.
+          set +e
+          case "$HALKA" in ''|*[!0-9]*) HALKA=0 ;; esac
+
+          OUT=$(python3 scripts/freshness.py --data data/daily.json 2>&1)
+          rc=$?
+          echo "$OUT"
+          NEEDED=$(printf '%s\n' "$OUT" | sed -n 's/^needed=//p' | tail -n 1)
+          REASON=$(printf '%s\n' "$OUT" | sed -n 's/^reason=//p' | tail -n 1)
+          if [ "$rc" -ne 0 ] || [ -z "$NEEDED" ]; then
+            NEEDED=true
+            REASON="karar betiği hata verdi (rc=$rc) — güvenli taraf: çekim istenecek"
+          fi
+
+          SONUC="gerekmedi"
+          if [ "$NEEDED" = "true" ]; then
+            # main'de kuyruğa girmiş/süren bir çekim varsa ikinciyi açma
+            AKTIF=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/runs?per_page=20" \
+              --jq '[.workflow_runs[] | select(.status != "completed" and .head_branch == env.ANA_DAL)] | length' 2>/dev/null)
+            case "$AKTIF" in ''|*[!0-9]*) AKTIF=0 ;; esac
+            if [ "$AKTIF" -gt 0 ]; then
+              SONUC="atlandı — $ANA_DAL dalında zaten süren/bekleyen $AKTIF çekim koşusu var"
+            else
+              SONUC="TETİKLENEMEDİ"
+              for i in 1 2 3; do
+                if gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/dispatches" \
+                     -f ref="$ANA_DAL" >/dev/null; then
+                  SONUC="fetch-columns.yml $ANA_DAL dalında tetiklendi"
+                  break
+                fi
+                sleep $((i * 10))
+              done
+            fi
+          fi
+
+          case "$SONUC" in
+            TETİKLENEMEDİ) echo "::error title=Çekim tetiklenemedi::$REASON — fetch-columns.yml 3 denemede tetiklenemedi" ;;
+            fetch-columns*) echo "::notice title=Çekim tetiklendi::$REASON" ;;
+            *) echo "Çekim: $SONUC — $REASON" ;;
+          esac
+          {
+            echo "### Tazelik kontrolü (main)"
+            echo ""
+            echo "- **Gerekçe:** $REASON"
+            echo "- **Sonuç:** $SONUC"
+            echo "- **Halka:** $HALKA · tetikleyici: $GITHUB_EVENT_NAME · dal: $GITHUB_REF_NAME"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+  sonraki:
+    name: Bekleme süresi dolunca sonraki halkayı başlat
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: kose-zamanlayici
+      deployment: false
+    steps:
+      - name: Bekleme denetimi ve sonraki halka
+        env:
+          ANA_DAL: ${{ github.event.repository.default_branch }}
+          HALKA: ${{ inputs.halka || '0' }}
+        run: |
+          set +e
+          case "$HALKA" in ''|*[!0-9]*) HALKA=0 ;; esac
+
+          # 1) Bekleme gerçekten uygulandı mı? Koşunun başlangıcından bu yana
+          #    geçen süre (yeniden koşturmada run_started_at da yenilenir).
+          BASLANGIC=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --jq '.run_started_at // .created_at' 2>/dev/null)
+          if [ -n "$BASLANGIC" ] && T0=$(date -u -d "$BASLANGIC" +%s 2>/dev/null); then
+            GECEN_DK=$(( ($(date -u +%s) - T0) / 60 ))
+          else
+            GECEN_DK=-1   # bilinemedi -> güvenli taraf: zincirleme
+          fi
+
+          # 2) Ortamda tanımlı bekleme süresi (bilgi + ikinci kilit; okunamazsa "?")
+          SURE_DK=$(gh api "repos/$GITHUB_REPOSITORY/environments/$ORTAM" \
+            --jq '[.protection_rules[]? | select(.type == "wait_timer") | .wait_timer][0] // 0' 2>/dev/null)
+          case "$SURE_DK" in ''|*[!0-9]*) SURE_DK="?" ;; esac
+          echo "Halka $HALKA · koşu $GECEN_DK dk önce başladı · ortam bekleme süresi: $SURE_DK dk"
+
+          NEDEN=""
+          if [ "$GECEN_DK" -lt "$EN_AZ_BEKLEME_DK" ]; then
+            NEDEN="bekleme uygulanmadı: koşu $GECEN_DK dk önce başladı (en az $EN_AZ_BEKLEME_DK dk gerekir)"
+          elif [ "$SURE_DK" != "?" ] && [ "$SURE_DK" -lt "$EN_AZ_BEKLEME_DK" ]; then
+            NEDEN="ortamdaki bekleme süresi $SURE_DK dk (en az $EN_AZ_BEKLEME_DK dk olmalı)"
+          fi
+          if [ -n "$NEDEN" ]; then
+            echo "::error title=Zamanlayıcı kurulu değil — zincir durdu::$NEDEN. Kurulum: Settings -> Environments -> $ORTAM -> Wait timer = 30 -> Save protection rules; sonra bu iş akışını bir kez elle çalıştırın."
+            {
+              echo "### Zincir durdu"
+              echo ""
+              echo "- $NEDEN"
+              echo "- Kurulum: Settings → Environments → \`$ORTAM\` → **Wait timer** = 30 → Save protection rules, ardından bu iş akışını bir kez elle çalıştırın"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          if [ "$GITHUB_REF_NAME" != "$ANA_DAL" ] && [ "$HALKA" -ge 1 ]; then
+            echo "Test dalı ($GITHUB_REF_NAME): zincir halka $HALKA'da bitiyor."
+            {
+              echo "### Test zinciri bitti"
+              echo ""
+              echo "- Dal \`$GITHUB_REF_NAME\` · halka $HALKA (varsayılan dal dışında en fazla 1 halka) · bekleme $GECEN_DK dk"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          SONRAKI=$((HALKA + 1))
+          for i in 1 2 3 4 5; do
+            if gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/zamanlayici.yml/dispatches" \
+                 -f ref="$GITHUB_REF_NAME" -f "inputs[halka]=$SONRAKI" >/dev/null; then
+              echo "Sonraki halka ($SONRAKI) tetiklendi."
+              {
+                echo "### Sonraki halka"
+                echo ""
+                echo "- Halka $SONRAKI tetiklendi · ortam bekleme süresi $SURE_DK dk · bu halka $GECEN_DK dk bekledi"
+              } >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            sleep $((i * 15))
+          done
+          echo "::error title=Zincir koptu::Sonraki halka 5 denemede tetiklenemedi. Actions -> Zamanlayıcı (30 dk röle) -> Run workflow ile yeniden başlatın."
+          exit 1

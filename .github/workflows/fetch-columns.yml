@@ -31,6 +31,10 @@ name: Köşe Yazılarını Güncelle (Günlük)
 #     GITHUB_TOKEN ile atıldığı için yeni koşu tetiklemez; döngü olmaz.)
 #   - workflow_dispatch: Actions -> bu workflow -> Run workflow ("force").
 #   - verify-columns.yml (watchdog) bayat veride bunu force=true ile tetikler.
+#   - zamanlayici.yml (30 dk röle): GitHub cron'u koşu üretmediğinde BİRİNCİL
+#     tetikleyici. Aynı politikayla bayat gördüğünde bunu force'suz
+#     workflow_dispatch ile main'de başlatır (15 Ekim 2026'da cron 4,5 saat
+#     boyunca tek koşu üretmedi). Buradaki `schedule` artık yedektir.
 #
 # Not: `schedule` yalnızca varsayılan dalda (main) çalışır.
 

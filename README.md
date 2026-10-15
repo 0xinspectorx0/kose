@@ -36,7 +36,7 @@ aşağıdaki politikayla sınırlı kalıyor.
 
 | Konu | Durum |
 |---|---|
-| Yoklama | Her saatin `:07` ve `:37`'sinde (`7,37 * * * *`) — günde 48 hafif kontrol |
+| Yoklama | **Birincil:** `zamanlayici.yml` röle zinciri — ≈30 dk'da bir, GitHub cron'undan bağımsız (aşağıdaki *Zamanlayıcı* bölümü) · **Yedek:** her saatin `:07` ve `:37`'si (`7,37 * * * *`) |
 | Karar (`scripts/freshness.py`) | Veri bugünün değilse **çek** · 05:00-12:00 TSİ arası 1 saatten eskiyse **çek** · diğer saatlerde 3 saatten eskiyse **çek** · seyrekse (< 80 yazı) saatte bir yeniden **çek** · aksi halde atla |
 | Kontrol işi | Bağımlılık kurmaz (yalnızca standart kütüphane), kararı ve gerekçesini iş özetine yazar; çekim işi `needs.kontrol.outputs.needed == 'true'` ise koşar |
 | Dakikalar | Kasıtlı olarak `:00`/`:30` değil — GitHub tam/yarım saatteki koşuları yoğunlukta daha çok geciktiriyor |
@@ -58,6 +58,34 @@ Kararı yerelde görmek için:
 python3 scripts/freshness.py                                   # şimdi çekim gerekir mi? (needed=… reason=…)
 python3 scripts/freshness.py --now 2026-10-15T08:30:00+03:00   # belirli bir an için
 ```
+
+## Zamanlayıcı (30 dk röle) — GitHub cron'u çalışmadığında
+
+GitHub'ın `schedule` tetikleyicisi 26 Ağustos 2026'dan beri birçok depoda ya hiç
+koşu üretmiyor ya da saatlerce geciktiriyor; elle/API ile tetikleme ise anında
+çalışıyor. Bu depoda 15 Ekim 2026'da 09:39-14:08 UTC arasında yarım saatlik
+yoklamadan da watchdog'dan da **tek koşu oluşmadı**, veri 4,5 saat bayat kaldı.
+`.github/workflows/zamanlayici.yml` veriyi GitHub cron'una bağlı kalmadan taze tutar.
+
+| Konu | Durum |
+|---|---|
+| Mantık | Kendi kendini yeniden başlatan zincir. Her koşu ("halka") iki iş içerir; ikisi aynı anda başlar |
+| `kontrol` işi | **Hemen** koşar: main'deki veriye `scripts/freshness.py` ile bakar (politika yukarıdakiyle aynı); çekim gerekiyorsa ve main'de süren bir çekim yoksa `fetch-columns.yml`'i main'de tetikler |
+| `sonraki` işi | `kose-zamanlayici` ortamının **bekleme süresi** (wait timer, 30 dk) dolunca koşar ve bu iş akışını yeniden tetikler → bir sonraki halka |
+| Neden cron'dan bağımsız? | Bekleme, GitHub'ın ortam koruma kuralıdır; beklerken runner meşgul edilmez, süre faturalanmaz. `deployment: false` sayesinde dağıtım kaydı oluşmaz. `GITHUB_TOKEN` ile yapılan `workflow_dispatch` yeni koşu başlatabilir — ek token/secret gerekmez |
+| Kaçak döngü kilidi | Bekleme uygulanmadıysa (koşu başlayalı 20 dk geçmemişse ya da ortamdaki süre 20 dk'dan kısaysa) zincir **durur**, koşu kurulum talimatını hata notu olarak düşer; tazelik kontrolü yine de bir kez yapılır |
+| Tek zincir | `concurrency: kose-zamanlayici-<dal>` — en fazla 1 koşu + 1 bekleyen. push/cron/elle tetikleme üst üste gelse de tek zincir kalır (fazladan bekleyen koşu "iptal" görünür; normaldir) |
+| Test dalları | Varsayılan dal dışında zincir en fazla bir halka uzar (0 → 1) |
+| Kopan zincir | Bu dosya main'de değişince (push), seyrek cron (`41 */4 * * *`, GitHub zamanlayıcısı toparlanınca) ya da elle: Actions → *Zamanlayıcı (30 dk röle)* → **Run workflow** |
+| GitHub cron'u düzelirse | `fetch-columns.yml`'in kendi `7,37` yoklaması da koşar; iki taraf aynı politikayı kullandığı ve süren çekim varken yenisi açılmadığı için çift çekim olmaz |
+
+**Tek seferlik kurulum (depo yöneticisi):** Settings → Environments →
+`kose-zamanlayici` (yoksa **New environment**) → **Wait timer** kutusunu
+işaretleyip `30` yazın → **Save protection rules**. Zinciri main'e merge
+başlatır; koparsa Actions → *Zamanlayıcı (30 dk röle)* → **Run workflow**.
+
+> Veriyi **hemen** tazelemek için zamanlayıcıyı değil *Köşe Yazılarını Güncelle
+> (Günlük)*'ü çalıştırın — zamanlayıcının her halkası bekleme süresi kadar sürer.
 
 ## Peki gerçekten güncellendi mi? (Watchdog)
 
@@ -109,6 +137,7 @@ Uygulama statiktir: `index.html` dosyasını açmak yeterlidir.
 # 1) Hat (kazıyıcı + workflow) — ağ gerektirmez (yapısal denetimler için: pip install pyyaml)
 .venv/bin/python patches/uitest/verify-pipeline.py   # tazelik politikası, kontrol işi uçtan uca, yaş filtresi, çıkış kodları, cron/push ayarları
 .venv/bin/python patches/uitest/verify-watchdog.py   # verify_daily.py senaryoları + onarma akışı (sahte gh) + gece koruması (sahte date)
+.venv/bin/python patches/uitest/verify-relay.py      # zamanlayıcı: yapı + bekleme kilidi + zincir/test dalı senaryoları (sahte gh)
 
 # 2) Arayüz — jsdom koşumları
 mkdir -p /tmp/uitest && cd /tmp/uitest && npm init -y && npm install jsdom lucide
