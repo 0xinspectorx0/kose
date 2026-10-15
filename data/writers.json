@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T14:38:24.825576+00:00",
+  "fetchedAt": "2026-10-15T15:27:51.243463+00:00",
   "date": "2026-10-15",
   "total": 1240,
   "papers": [
@@ -8,16 +8,6 @@
       "name": "Hürriyet",
       "count": 211,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1006,6 +996,16 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -5284,12 +5284,12 @@
           "photo": ""
         },
         {
-          "name": "İstanbul'un sel tarihi! 1951'den bugüne büyük felaketler",
+          "name": "Sapanca’da sel felaketi! Dere yatağındaki ev yıkıldı",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Arda Güler'den tarihi gece: İspanyol basını ayakta",
+          "name": "İstanbul'un sel tarihi! 1951'den bugüne büyük felaketler",
           "url": "",
           "photo": ""
         }
