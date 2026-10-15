@@ -1,4 +1,5 @@
 name: Zamanlayıcı (30 dk röle)
+run-name: "Zamanlayıcı — halka ${{ inputs.halka || '0' }} (${{ github.event_name }})"
 
 # NEDEN VAR?
 #   GitHub'ın `schedule` (cron) tetikleyicisi 26 Ağustos 2026'dan beri birçok
@@ -35,12 +36,17 @@ name: Zamanlayıcı (30 dk röle)
 #   - concurrency (dal başına): en fazla 1 koşu + 1 bekleyen; yeni bekleyen
 #     eskisini iptal eder. push/cron/elle tetikleme üst üste gelse de tek zincir
 #     kalır.
-#   - Varsayılan dal dışında zincir en fazla bir halka uzar (test: 0 -> 1).
+#   - Varsayılan dal dışında yalnızca push ile başlayan koşu bir halka daha
+#     başlatır; tetiklenmiş halkalar orada durur (test: 0 -> 1). Girdiye
+#     (halka) bağlı değildir — girdi kaybolsa bile dalda zincir uzayamaz.
 #
 # GERÇEK ORTAMDA DOĞRULANAN (15 Ekim 2026): ortam ilk koşuda otomatik oluştu;
 #   bekleme süresi yokken kilit zinciri durdurdu ("koşu 0 dk önce başladı");
 #   `deployment: false` hiç dağıtım kaydı oluşturmadı; kontrol işi 4,7 saatlik
-#   veride fetch-columns.yml'i main'de tetikledi.
+#   veride fetch-columns.yml'i main'de tetikledi; 30 dk'lık bekleme tam
+#   uygulandı (halka 14:34:11'de oluştu, sonraki iş 15:04:15'te koştu) ve
+#   sonraki halka github-actions[bot] ile tetiklendi; main'de süren çekim
+#   varken ikincisi açılmadı.
 #
 # ZİNCİR KOPARSA yeniden başlatanlar: bu dosya main'de değişince (push),
 #   aşağıdaki seyrek cron (GitHub zamanlayıcısı toparlandığında) ya da elle:
@@ -55,9 +61,7 @@ on:
         type: string
         default: '0'
   push:
-    branches:
-      - main
-      - 'arena/3d55f148-kose'   # GEÇİCİ: dal testi — birleştirmeden önce kaldırılacak
+    branches: [main]
     paths:
       - '.github/workflows/zamanlayici.yml'
   schedule:
@@ -194,12 +198,14 @@ jobs:
             exit 0
           fi
 
-          if [ "$GITHUB_REF_NAME" != "$ANA_DAL" ] && [ "$HALKA" -ge 1 ]; then
-            echo "Test dalı ($GITHUB_REF_NAME): zincir halka $HALKA'da bitiyor."
+          # Varsayılan dal dışında yalnızca push ile başlayan koşu (test başlangıcı)
+          # bir halka daha başlatır; tetiklenmiş halkalar burada durur.
+          if [ "$GITHUB_REF_NAME" != "$ANA_DAL" ] && [ "$GITHUB_EVENT_NAME" != "push" ]; then
+            echo "Test dalı ($GITHUB_REF_NAME): tetiklenmiş halka ($HALKA) — zincir burada biter."
             {
               echo "### Test zinciri bitti"
               echo ""
-              echo "- Dal \`$GITHUB_REF_NAME\` · halka $HALKA (varsayılan dal dışında en fazla 1 halka) · bekleme $GECEN_DK dk"
+              echo "- Dal \`$GITHUB_REF_NAME\` · halka $HALKA · olay $GITHUB_EVENT_NAME (varsayılan dal dışında yalnızca push ile başlayan koşu bir halka daha başlatır) · bekleme $GECEN_DK dk"
             } >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi

@@ -75,7 +75,8 @@ yoklamadan da watchdog'dan da **tek koşu oluşmadı**, veri 4,5 saat bayat kald
 | Neden cron'dan bağımsız? | Bekleme, GitHub'ın ortam koruma kuralıdır; beklerken runner meşgul edilmez, süre faturalanmaz. `deployment: false` sayesinde dağıtım kaydı oluşmaz. `GITHUB_TOKEN` ile yapılan `workflow_dispatch` yeni koşu başlatabilir — ek token/secret gerekmez |
 | Kaçak döngü kilidi | Bekleme uygulanmadıysa (koşu başlayalı 20 dk geçmemişse ya da ortamdaki süre 20 dk'dan kısaysa) zincir **durur**, koşu kurulum talimatını hata notu olarak düşer; tazelik kontrolü yine de bir kez yapılır |
 | Tek zincir | `concurrency: kose-zamanlayici-<dal>` — en fazla 1 koşu + 1 bekleyen. push/cron/elle tetikleme üst üste gelse de tek zincir kalır (fazladan bekleyen koşu "iptal" görünür; normaldir) |
-| Test dalları | Varsayılan dal dışında zincir en fazla bir halka uzar (0 → 1) |
+| Test dalları | Varsayılan dal dışında yalnızca push ile başlayan koşu bir halka daha başlatır; tetiklenmiş halkalar orada durur (0 → 1). Girdiye bağlı değildir |
+| Koşu başlığı | Actions listesinde her koşu `Zamanlayıcı — halka N (olay)` olarak görünür; N her halkada bir artar |
 | Kopan zincir | Bu dosya main'de değişince (push), seyrek cron (`41 */4 * * *`, GitHub zamanlayıcısı toparlanınca) ya da elle: Actions → *Zamanlayıcı (30 dk röle)* → **Run workflow** |
 | GitHub cron'u düzelirse | `fetch-columns.yml`'in kendi `7,37` yoklaması da koşar; iki taraf aynı politikayı kullandığı ve süren çekim varken yenisi açılmadığı için çift çekim olmaz |
 

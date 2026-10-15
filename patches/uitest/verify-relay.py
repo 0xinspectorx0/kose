@@ -41,7 +41,8 @@ check(isinstance(on, dict), "tetikleyiciler okunabildi")
 check("halka" in on["workflow_dispatch"]["inputs"], "workflow_dispatch 'halka' girdisi var")
 check(on["workflow_dispatch"]["inputs"]["halka"].get("default") == "0", "halka varsayılanı '0'")
 check(".github/workflows/zamanlayici.yml" in on["push"]["paths"], "push yalnızca bu dosya değişince")
-check("main" in on["push"]["branches"], "push: main'e merge zinciri başlatır")
+check(on["push"]["branches"] == ["main"], "push yalnızca main (geçici dal tetikleyicisi kaldırılmış)")
+check("inputs.halka" in wf.get("run-name", ""), "koşu başlığı halka numarasını gösterir (run-name)")
 check(bool(on.get("schedule")), "kopan zinciri yeniden başlatan seyrek cron var")
 check(wf["permissions"] == {"contents": "read", "actions": "write"}, "izinler: contents read + actions write (fazlası yok)")
 conc = wf["concurrency"]
@@ -191,15 +192,26 @@ rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_RUN_FAIL="1", FAKE_TIMER="30
 check(rc == 0 and not posts(calls, "zamanlayici.yml"), "koşu başlangıcı okunamazsa güvenli taraf: zincir durur")
 
 rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(31), FAKE_TIMER="30",
-                                  ref="arena/3d55f148-kose", halka="0")
+                                  ref="test-dali", halka="0", event="push")
 p = posts(calls, "zamanlayici.yml")
-check(rc == 0 and len(p) == 1 and "ref=arena/3d55f148-kose" in p[0] and "inputs[halka]=1" in p[0],
-      "test dalı halka 0 → aynı dalda halka 1 tetiklenir")
+check(rc == 0 and len(p) == 1 and "ref=test-dali" in p[0] and "inputs[halka]=1" in p[0],
+      "test dalı, push ile başlayan halka 0 → aynı dalda halka 1 tetiklenir")
 
 rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(31), FAKE_TIMER="30",
-                                  ref="arena/3d55f148-kose", halka="1")
+                                  ref="test-dali", halka="1", event="workflow_dispatch")
 check(rc == 0 and not posts(calls, "zamanlayici.yml") and "Test zinciri bitti" in summ,
-      "test dalı halka 1 → zincir biter (dal dışında en fazla 1 halka)")
+      "test dalı, tetiklenmiş halka 1 → zincir biter")
+
+rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(31), FAKE_TIMER="30",
+                                  ref="test-dali", halka="0", event="workflow_dispatch")
+check(rc == 0 and not posts(calls, "zamanlayici.yml"),
+      "test dalı, girdi kaybolmuş tetiklenmiş halka (0) → yine biter (girdiye bağlı değil)")
+
+rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(31), FAKE_TIMER="30",
+                                  ref="main", halka="0", event="schedule")
+p = posts(calls, "zamanlayici.yml")
+check(rc == 0 and len(p) == 1 and "ref=main" in p[0] and "inputs[halka]=1" in p[0],
+      "main'de cron ile yeniden başlatılan zincir halka 1 ile sürer")
 
 rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(31), FAKE_TIMER="30", FAKE_NEXT_RC="1")
 check(rc == 1 and len(posts(calls, "zamanlayici.yml")) == 5 and "::error title=Zincir koptu::" in out,
