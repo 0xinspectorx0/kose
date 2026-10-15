@@ -52,6 +52,13 @@ node verify-tts.mjs      # seslendirme: oynat/duraklat, hız, ses seçimi, mini 
 node verify-round9.mjs   # Keşfet: alfabetik gazeteler, öne çıkan yazarlar, yazara tıkla
 node verify-core.mjs     # akış, alt menü, yukarı çık, A-/A+, Ayarlar
 node verify-icons.mjs    # lucide 1.55.0 simge denetimi
+node verify-freshness.mjs # bayat veri uyarısı, otomatik yeniden deneme, çok kaynaklı yoklama
+```
+
+Ayrıca günlük güncelleme hattının (kazıyıcı + workflow) ağ gerektirmeyen denetimi:
+
+```bash
+python3 patches/uitest/verify-pipeline.py   # tazelik kısayolu, yaş filtresi, çıkış kodları, cron/push ayarları
 ```
 
 Beş koşum da bu paketi oluştururken çalıştırıldı ve `exit 0` döndü.

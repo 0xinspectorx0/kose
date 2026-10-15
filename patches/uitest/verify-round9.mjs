@@ -33,7 +33,7 @@ const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWr
 
 const { window } = new JSDOM(html, { runScripts: 'outside-only', url: 'http://localhost/' });
 const doc = window.document;
-const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','todayKey'].map(extractConst);
+const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
 

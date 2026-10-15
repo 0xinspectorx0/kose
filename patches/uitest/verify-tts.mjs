@@ -24,7 +24,7 @@ const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()'
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
 
-const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','todayKey'].map(extractConst);
+const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');

@@ -1,21 +1,50 @@
 name: Köşe Yazılarını Güncelle (Günlük)
 
-# Günde üç kez (04:00 / 08:30 / 14:00 UTC) Türk gazetelerinin köşe yazar
-# sayfalarından yazıları çeker ve data/daily.json + data/writers.json olarak
-# main'e commit'ler. Uygulama bu iki dosyayı önce main'den canlı okur.
-# Not: `schedule` tetikleyicisi GitHub'da yalnızca varsayılan dalda (main)
-# çalışır; bu dosya main'e merge edildiğinde otomatik zamanlama başlar.
-# Herhangi bir dalda elle çalıştırmak için: Actions -> workflow -> Run workflow
+# Türk gazetelerinin köşe yazarı sayfalarından yazıları çeker ve
+# data/daily.json + data/writers.json olarak main'e commit'ler.
+# Uygulama bu iki dosyayı önce main'den canlı okur.
+#
+# Zamanlama neden 6 ayrı saatte?
+#   GitHub `schedule` tetikleyicisi "en iyi çaba"dır: yoğun saatlerde koşular
+#   dakikalarca-saatlerce gecikebiliyor ya da hiç tetiklenmeyebiliyor (bu
+#   depoda gözlendi: günde 3 slot tanımlıyken bazı günler tek koşu ateşlendi,
+#   iki koşu da push adımında düştü). Bu yüzden gün içine yayılmış 6 slot var
+#   ve betik "veri zaten tazeyse çekme" kısayoluyla çalışıyor — yani slot
+#   sayısı artsa da gazete sitelerine giden istek sayısı artmıyor.
+#   Dakikalar kasıtlı olarak :00/:30 değil: tam saatte başlayan koşular
+#   GitHub genelinde daha çok gecikiyor.
+#
+# Not: `schedule` yalnızca varsayılan dalda (main) çalışır; bu dosya main'e
+# merge edildiğinde zamanlama etkin olur. Elle çalıştırmak için:
+# Actions -> workflow -> Run workflow ("force" ile tazelik kısayolu atlanır).
 
 on:
   schedule:
-    - cron: '0 4 * * *'   # ana koşu: her gün 04:00 UTC = 07:00 TSİ
-    - cron: '30 8 * * *'  # yedek 1: GitHub yoğunlukta schedule'ları atlayabilir; çok giriş dayanıklılık sağlar
-    - cron: '0 14 * * *'  # yedek 2: öğleden sonra yayılan köşeleri de yakalar (değişiklik yoksa commit zaten atlanır)
-  workflow_dispatch: # elle tetikleme: Actions → Run workflow (main üzerinde çalıştır)
+    - cron: '13 3 * * *'   # 06:13 TSİ — gece yayımlanan köşeler
+    - cron: '17 6 * * *'   # 09:17 TSİ — ana koşu: köşelerin büyük kısmı bu saatte yayımlanmış olur
+    - cron: '23 9 * * *'   # 12:23 TSİ — sabah koşusu seyrek kaldıysa tamamlar
+    - cron: '13 12 * * *'  # 15:13 TSİ — öğleden sonra yayılan köşeler
+    - cron: '17 15 * * *'  # 18:17 TSİ — akşam yedeği
+    - cron: '23 18 * * *'  # 21:23 TSİ — günün son toplamı
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Tazelik kısayolunu atla, veriyi zorla yenile'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+
+# Aynı anda iki koşu main'e yazmaya çalışmasın: sıraya girerler. (Geçmişteki
+# push hatalarının ana nedeni buydu — iki koşu aynı üretilmiş JSON'a yazıyor,
+# rebase her seferinde çakışıyordu.)
+concurrency:
+  group: kose-fetch-columns
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: '1'
 
 jobs:
   fetch-columns:
@@ -24,6 +53,9 @@ jobs:
     steps:
       - name: Depoyu çek
         uses: actions/checkout@v4
+        with:
+          # push reddedilince uzak ucun üzerine yeniden yazabilmek için tam geçmiş
+          fetch-depth: 0
 
       - name: Python kur
         uses: actions/setup-python@v5
@@ -34,27 +66,153 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Köşe yazılarını çek
-        run: python scripts/fetch_columns.py
+        run: |
+          # Runner adımı `bash -e` ile çalıştırıyor; betiğin çıkış kodunu kendimiz
+          # yönettiğimiz için -e kapatılır (yoksa ilk başarısız çekimde döngü kesilir).
+          set +e
+          set -uo pipefail
+          # Elle tetiklemede "force" işaretlenirse tazelik kısayolu devre dışı.
+          EXTRA=""
+          if [ "${{ inputs.force }}" = "true" ]; then
+            EXTRA="--min-interval-hours 0"
+          fi
+
+          # Betik 2 dönerse bugünün verisi üretilememiştir (ağ hatası / dizinler
+          # değişmiş / henüz çok erken). Bir kez daha deniyoruz: günlük güncelleme
+          # tek bir başarısız koşuda kaybolmasın.
+          for attempt in 1 2; do
+            echo "=== Çekim denemesi $attempt ==="
+            # shellcheck disable=SC2086
+            python scripts/fetch_columns.py $EXTRA --require-articles 20
+            rc=$?
+            if [ "$rc" -eq 0 ]; then
+              echo "Çekim tamam (deneme $attempt)."
+              exit 0
+            fi
+            echo "::warning::Bugünün verisi üretilemedi (çıkış $rc, deneme $attempt)"
+            [ "$attempt" -lt 2 ] && sleep 30
+          done
+          echo "::error::İki denemede de bugünün köşe yazıları üretilemedi — mevcut data/daily.json korundu, sonraki zamanlanmış koşu yeniden deneyecek."
+          exit 1
 
       - name: Sonuçları commit'le
+        if: ${{ !cancelled() }}
         run: |
+          # -e kapalı: push reddi/fetch hatası bizim yönettiğimiz deneme döngüsünü
+          # yarıda kesmemeli; adımın sonucunu açıkça biz belirliyoruz.
+          set +e
+          set -uo pipefail
+          BRANCH="${GITHUB_REF_NAME:-main}"
           git config user.name "kose-bot"
           git config user.email "kose-bot@users.noreply.github.com"
-          git add data/daily.json data/writers.json || true
+          git add data/daily.json data/writers.json
           if git diff --cached --quiet; then
-            echo "Değişiklik yok, commit atlanıyor."
-          else
-            git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
-            # Çakışma toleransı: elle tetiklenen + gecikmiş schedule koşusu aynı anda
-            # push ederse ikincisi reddedilir. Uzaktaki içerik bizimle aynıysa bu
-            # başarıdır; değilse rebase edip bir kez daha dene.
-            if ! git push; then
-              git fetch origin "${GITHUB_REF_NAME:-main}"
-              if git diff --quiet "origin/${GITHUB_REF_NAME:-main}" -- data/daily.json data/writers.json; then
-                echo "Uzakta aynı içerik var (eşzamanlı koşu yazdı); sorun değil."
-              else
-                git rebase "origin/${GITHUB_REF_NAME:-main}" || git rebase --abort
-                git push || { echo "::error::push başarısız"; exit 1; }
-              fi
-            fi
+            echo "Değişiklik yok (veri zaten tazeydi ya da çekim boş döndü) — commit atlanıyor."
+            exit 0
           fi
+          git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
+
+          # Ürettiğimiz dosyaları kenara al: push reddedilirse uzak ucun üzerine
+          # bunları yeniden yazıp tek commit'le tekrar deniyoruz. data/*.json
+          # üretilen bir artefakt olduğu için rebase/merge çatışması hiç yaşanmaz.
+          GEN="$(mktemp -d)"
+          cp data/daily.json data/writers.json "$GEN"/
+
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:$BRANCH"; then
+              echo "Push tamam (deneme $attempt)."
+              exit 0
+            fi
+            echo "::warning::push reddedildi (deneme $attempt) — uzak senkronize edilip yeniden denenecek"
+            sleep $((attempt * 10))
+            git fetch origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH" || true
+
+            # Uzaktaki veri bizimkinden tazeyse (eşzamanlı başka bir koşu yazdıysa)
+            # kendi çıktımızı bırakıyoruz: amaç "main'de bugünün verisi olsun".
+            REMOTE_NEWER=$(GEN="$GEN" BRANCH="$BRANCH" python3 - <<'PY'
+          import json, os, subprocess
+          from datetime import datetime
+
+          def stamp(text):
+              try:
+                  return json.loads(text).get("fetchedAt") or ""
+              except Exception:
+                  return ""
+
+          def parse(value):
+              try:
+                  return datetime.fromisoformat(value.replace("Z", "+00:00"))
+              except Exception:
+                  return None
+
+          branch = os.environ.get("BRANCH", "main")
+          try:
+              proc = subprocess.run(
+                  ["git", "show", f"origin/{branch}:data/daily.json"],
+                  capture_output=True, text=True, check=True,
+              )
+              remote = parse(stamp(proc.stdout))
+          except Exception:
+              remote = None
+          try:
+              with open(os.path.join(os.environ["GEN"], "daily.json"), encoding="utf-8") as f:
+                  local = parse(stamp(f.read()))
+          except Exception:
+              local = None
+          print("yes" if (remote and local and remote > local) else "no")
+          PY
+            ) || echo "no"
+            if [ "$REMOTE_NEWER" = "yes" ]; then
+              echo "Uzakta daha taze veri var (başka bir koşu yazmış) — bu koşunun çıktısı bırakılıyor, sorun değil."
+              exit 0
+            fi
+
+            # Uzak uca sıfırla, taze çıktımızı yeniden yaz, tek commit'le tekrar dene.
+            git reset --hard "origin/$BRANCH"
+            cp "$GEN"/daily.json "$GEN"/writers.json data/
+            git add data/daily.json data/writers.json
+            if git diff --cached --quiet; then
+              echo "Uzakla içerik aynılaştı — commit gerekmiyor."
+              exit 0
+            fi
+            git commit -m "chore: günlük köşe yazıları güncellendi ($(date -u '+%Y-%m-%d %H:%M') UTC)"
+          done
+          echo "::error::push 5 denemede de başarısız"
+          exit 1
+
+      - name: İş özeti
+        if: ${{ !cancelled() }}
+        run: |
+          { python3 - <<'PY'
+          
+          import json
+          from datetime import datetime, timedelta, timezone
+
+          TR = timezone(timedelta(hours=3))
+          today = datetime.now(TR).strftime("%Y-%m-%d")
+          try:
+              with open("data/daily.json", encoding="utf-8") as f:
+                  d = json.load(f)
+          except Exception as exc:
+              print(f"### Günlük veri okunamadı\n\n`{exc}`")
+              raise SystemExit
+
+          arts = d.get("articles") or []
+          fetched = d.get("fetchedAt") or ""
+          age = "?"
+          try:
+              dt = datetime.fromisoformat(fetched.replace("Z", "+00:00"))
+              age = f"{(datetime.now(timezone.utc) - dt).total_seconds() / 3600:.1f} saat"
+          except Exception:
+              pass
+
+          print("### Köşe yazısı güncelleme özeti\n")
+          print(f"- **Veri günü (TSİ):** {d.get('date')}")
+          print(f"- **Çekim:** {fetched} ({age} önce)")
+          print(f"- **Makale:** {len(arts)} · **gazete:** {d.get('papers')} · **yazar dizini:** {d.get('writers')}")
+          if d.get("date") != today:
+              print(f"- ⚠️ Veri bugüne ({today}) ait değil — sıradaki zamanlanmış koşu yakalayacak.")
+          else:
+              print("- ✅ main'de bugünün verisi var.")
+          PY
+          } >> "$GITHUB_STEP_SUMMARY" || echo "::warning::iş özeti üretilemedi"
