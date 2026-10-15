@@ -120,6 +120,62 @@ Rapor "en son yayımlanan yazılar çekilmiş mi?" sorusunu kaynak bazında ceva
     Evrensel               2 |   0 | 2026-10-11 12:00   ← günün yazısı yok
 ```
 
+## Pasif yazarlar (yazısı güncellenmesin) ve Keşfet'ten silme
+
+Keşfet'te her yazarın yanındaki **⋯** düğmesi yazar seçeneklerini açar:
+
+| İşlem | Ne olur | Nerede saklanır |
+|---|---|---|
+| **Pasife al** | Yazar Keşfet'te soluk "pasif" olarak kalır; yazıları **güncellenmez**. Eldeki son yazısı akışta `PASİF YAZAR` etiketiyle donar, tekrar çekilmez | `kose-passive-writers` (localStorage) |
+| **Keşfet listesinden sil** | Yazar Keşfet listesinden tamamen kaldırılır (akıştaki yazıları etkilenmez) | `kose-hidden-writers` |
+| Gazete satırındaki **⋯ → Gazeteyi Keşfet'ten sil** | Gazete ve tüm yazar çipleri listeden kalkar | `kose-hidden-papers` |
+
+Silinen yazarlar ve gazeteler Keşfet'in altındaki **Gizlenenler** kartından, pasif
+yazarlar **Pasif yazarlar** kartından (ya da akıştaki kartın "Aktif et" düğmesinden)
+geri alınır. Pasif yazarın yazısı akışta soluk görünür; okunabilir, kaydedilebilir.
+
+### Yazarın yazısı gerçekten güncellenmesin (kazıyıcı tarafı)
+
+Uygulamada işaretlemek cihazla sınırlıdır. Güncellemeyi **kaynağında** durdurmak için
+liste depoya `data/passive-writers.json` olarak eklenir: **Ayarlar → Pasif yazarlar ·
+depo listesi → “JSON'u kopyala”/“JSON indir”**. Dosya depoya girdiğinde:
+
+* `scripts/fetch_columns.py` bu yazarların yazılarını **hiç çekmez** (yazar dizininde
+  profil bağlantısı eşleşirse istek bile yapılmaz),
+* çekim sırasında yakalanan yazılar çıktıya **yazılmaz** (`daily.json`'a girmez),
+* pasif yazarın **son bilinen yazısı dondurulur**: yeniden çekilmez, içeriği değişmez,
+  akışta `passive: true` işaretiyle soluk görünür (2 günden eskiyse normal yaş
+  filtresiyle akıştan düşer),
+* `data/writers.json`'da yazar `"passive": true` ile işaretlenir — uygulama cihazda
+  işaret olmasa da yazarı pasif gösterir,
+* dosya `main`'e işlendiğinde `fetch-columns.yml`'in `push` tetikleyicisi **hemen
+  zorla çekim** başlatır: yeni liste beklemeden devreye girer.
+
+Dosya biçimi (`source`/`url` isteğe bağlıdır; `source` verilirse eşleşme o gazetede
+olmalı — aynı ad başka gazetede yazıyor olabilir):
+
+```json
+{
+  "updatedAt": "2026-10-15T18:20:00.000Z",
+  "writers": [
+    { "name": "Ahmet Hakan", "source": "Hürriyet",
+      "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/" },
+    { "name": "Sadece Isim" }
+  ]
+}
+```
+
+Kazıyıcıyı elle koşarken liste dosyası değiştirilebilir:
+
+```bash
+.venv/bin/python scripts/fetch_columns.py --passive-file data/passive-writers.json
+.venv/bin/python scripts/fetch_columns.py --passive-file -   # pasif listeyi yok say
+```
+
+> Ad karşılaştırması Türkçe duyarlıdır: büyük/küçük harf, aksan ve boşluk farkları
+> önemsenmez (`"AHMET HAKAN"` = `"Ahmet Hakan"`). Dosya bozuksa/eksikse çekim durmaz;
+> o koşu pasif listesiz çalışır.
+
 ## Yerelde çalıştırma
 
 ```bash
@@ -139,6 +195,7 @@ Uygulama statiktir: `index.html` dosyasını açmak yeterlidir.
 .venv/bin/python patches/uitest/verify-pipeline.py   # tazelik politikası, kontrol işi uçtan uca, yaş filtresi, çıkış kodları, cron/push ayarları
 .venv/bin/python patches/uitest/verify-watchdog.py   # verify_daily.py senaryoları + onarma akışı (sahte gh) + gece koruması (sahte date)
 .venv/bin/python patches/uitest/verify-relay.py      # zamanlayıcı: yapı + bekleme kilidi + zincir/test dalı senaryoları (sahte gh)
+.venv/bin/python patches/uitest/verify-passive.py    # pasif yazarlar: dosya okuma, eşleşme, yazı eleme, donmuş son yazı, writers.json işareti
 
 # 2) Arayüz — jsdom koşumları
 mkdir -p /tmp/uitest && cd /tmp/uitest && npm init -y && npm install jsdom lucide
@@ -150,4 +207,5 @@ node verify-tts.mjs        # seslendirme
 node verify-round9.mjs     # Keşfet
 node verify-favorites.mjs  # Favori yazarlar
 node verify-icons.mjs      # lucide simgeleri
+node verify-passive.mjs    # pasif yazarlar + Keşfet'ten silme: ⋯ menüsü, akışta soluk etiket, Gizlenenler, depo JSON çıktısı
 ```

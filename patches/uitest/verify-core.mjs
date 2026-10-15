@@ -118,6 +118,7 @@ console.log('  varsayılana dön:', window.localStorage.getItem('kose-settings')
 console.log('\n[F] KEŞFET');
 window.setTab('discover');
 const rows = [...doc.querySelectorAll('#writers-list > div')];
-console.log('  satır:', rows.length, '| hepsi kapalı:', rows.every(r => r.querySelector('button + div').classList.contains('hidden')), '| meta:', window.writersMetaEl.textContent);
+// Gazete satırı artık [aç/kapa düğmesi + ⋯ düğmesi] şeridi ve çip panelinden oluşur
+console.log('  satır:', rows.length, '| hepsi kapalı:', rows.every(r => r.querySelector('[data-chips-panel]').classList.contains('hidden')), '| meta:', window.writersMetaEl.textContent);
 const names = rows.map(r => r.querySelector('h3').textContent);
 console.log('  alfabetik:', JSON.stringify(names) === JSON.stringify([...names].sort((a, b) => a.localeCompare(b, 'tr'))));
