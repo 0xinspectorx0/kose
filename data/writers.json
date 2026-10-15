@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-15T18:14:03.410798+00:00",
-  "date": "2026-10-15",
-  "total": 1240,
+  "fetchedAt": "2026-10-15T21:29:17.000807+00:00",
+  "date": "2026-10-16",
+  "total": 1217,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 211,
+      "count": 200,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1007,61 +1007,6 @@
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
           "photo": ""
-        },
-        {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Hande FIRAT",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
-        },
-        {
-          "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
-        },
-        {
-          "name": "Noyan Doğan",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
-        },
-        {
-          "name": "Savaş ÖZBEY",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
-        },
-        {
-          "name": "Orkun Ün",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63328fae4e3fe019b4db225d.jpg"
-        },
-        {
-          "name": "Ömür GEDİK",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f4f018fbaf44942219.jpg"
-        },
-        {
-          "name": "Doğan HIZLAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/599bce37c9de3d1878bfcb6d.jpg"
-        },
-        {
-          "name": "Sinem Vural",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5da712a1c03c0e1498be0fd3.jpg"
-        },
-        {
-          "name": "Ebru Erke",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6acff6c7fb23dcac9582152e.jpg"
-        },
-        {
-          "name": "Erdal Fernergiz",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -1111,6 +1056,11 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
+          "name": "Turan Yücel",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
+        },
+        {
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
@@ -1119,11 +1069,6 @@
           "name": "Mesut Parlak",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
-        },
-        {
-          "name": "Pınar Turan",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2023/12/pinarturanpng-6G8eLeRSPEuUZRAs9utOGA.png"
         },
         {
           "name": "Ercan Taner",
@@ -1135,7 +1080,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 7,
+      "count": 6,
       "writers": [
         {
           "name": "Tunca Bengin",
@@ -1166,11 +1111,6 @@
           "name": "Atilay Kandemir",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f2956d95542811db0e213d9.jpg"
-        },
-        {
-          "name": "Prof. Dr. Mahmut Özer",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6730e323c72706dec4b3bdd3.jpg"
         }
       ]
     },
@@ -1230,16 +1170,6 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1248,6 +1178,16 @@
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1726,7 +1666,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 209,
+      "count": 208,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2759,11 +2699,6 @@
           "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_08e0c-12b7nedretersanel2.png"
         },
         {
-          "name": "Yasin Aktay",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/08/resized_a3775-85d5yasinaktay2.png"
-        },
-        {
           "name": "Yaşar Süngü",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2015/11/25/resized_306f3-d6d4b525yasarsungu2.png"
@@ -3672,7 +3607,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 23,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3732,61 +3667,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Hakan Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Coşkundeniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bilal Emin Turan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Özlem Denizmen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şirin Sever",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mustafa Bakacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Rükzan Sağır",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -5056,7 +4936,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5284,6 +5164,16 @@
           "photo": ""
         },
         {
+          "name": "Sel felaketinde son durum! 6 kişi için arama çalışması",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Beşiktaş deplasmanda Hoffenheim’ı devirdi!",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Ekrem İmamoğlu hakkında yeni soruşturma başlatıldı",
           "url": "",
           "photo": ""
@@ -5295,11 +5185,6 @@
         },
         {
           "name": "İstanbul Valiliği uyardı! Yarın daha kuvvetlisi geliyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Sapanca’da sel felaketi! Dere yatağındaki ev yıkıldı",
           "url": "",
           "photo": ""
         }
