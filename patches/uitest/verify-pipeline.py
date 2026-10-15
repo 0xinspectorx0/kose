@@ -200,8 +200,12 @@ daily = os.path.join(REPO, "data/daily.json")
 if os.path.exists(daily):
     d = json.load(open(daily, encoding="utf-8"))
     arts = d.get("articles", [])
-    check("data/daily.json bugünün verisi",
-          d.get("date") == datetime.now(fc.TR_TZ).strftime("%Y-%m-%d"), d.get("date", ""))
+    # Not: verinin bugüne ait olup olmaması bu paketin konusu değil — o iş
+    # scripts/verify_daily.py + verify-columns.yml (watchdog) koşusuna ait.
+    # Burası yalnızca dosyanın şemasını doğrular; gün bilgisi not düşülür.
+    today = datetime.now(fc.TR_TZ).strftime("%Y-%m-%d")
+    print(f"  BİLGİ  data/daily.json veri günü: {d.get('date')} (bugün {today})"
+          + ("" if d.get("date") == today else " — bayat; denetim için: python3 scripts/verify_daily.py"))
     check("makale sayısı makul (>= 20)", len(arts) >= 20, f"{len(arts)} makale")
     check("uygulamanın okuduğu alanlar mevcut",
           all(k in arts[0] for k in ("author", "source", "title", "url", "date", "fullContent")))

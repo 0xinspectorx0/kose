@@ -59,6 +59,7 @@ Ayrıca günlük güncelleme hattının (kazıyıcı + workflow) ağ gerektirmey
 
 ```bash
 python3 patches/uitest/verify-pipeline.py   # tazelik kısayolu, yaş filtresi, çıkış kodları, cron/push ayarları
+python3 patches/uitest/verify-watchdog.py   # günlük veri denetçisi + watchdog'un kendi kendini onarma akışı
 ```
 
 Beş koşum da bu paketi oluştururken çalıştırıldı ve `exit 0` döndü.
