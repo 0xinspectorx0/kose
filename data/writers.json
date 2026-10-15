@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-15T15:27:51.243463+00:00",
+  "fetchedAt": "2026-10-15T18:14:03.410798+00:00",
   "date": "2026-10-15",
   "total": 1240,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 211,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1240,6 +1240,11 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
@@ -1248,11 +1253,6 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -5056,7 +5056,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5284,12 +5284,22 @@
           "photo": ""
         },
         {
-          "name": "Sapanca’da sel felaketi! Dere yatağındaki ev yıkıldı",
+          "name": "Ekrem İmamoğlu hakkında yeni soruşturma başlatıldı",
           "url": "",
           "photo": ""
         },
         {
-          "name": "İstanbul'un sel tarihi! 1951'den bugüne büyük felaketler",
+          "name": "Peş peşe tatil haberleri! Üç ilde eğitime ara verildi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul Valiliği uyardı! Yarın daha kuvvetlisi geliyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Sapanca’da sel felaketi! Dere yatağındaki ev yıkıldı",
           "url": "",
           "photo": ""
         }
@@ -6311,8 +6321,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 3,
       "writers": [
+        {
+          "name": "Murat Sevinç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
+        },
         {
           "name": "Behzat Şahin",
           "url": "",
@@ -6321,22 +6336,7 @@
         {
           "name": "Zehra Çelenk",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
-        },
-        {
-          "name": "Ece Deniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto-96x96.jpeg"
         }
       ]
     }
