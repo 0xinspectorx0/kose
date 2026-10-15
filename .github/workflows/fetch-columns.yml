@@ -17,6 +17,9 @@ name: Köşe Yazılarını Güncelle (Günlük)
 # Not: `schedule` yalnızca varsayılan dalda (main) çalışır; bu dosya main'e
 # merge edildiğinde zamanlama etkin olur. Elle çalıştırmak için:
 # Actions -> workflow -> Run workflow ("force" ile tazelik kısayolu atlanır).
+#
+# Ayrıca bkz. verify-columns.yml (watchdog): üretilen veriyi günde 2 kez denetler
+# ve bayatsa bu workflow'u force=true ile tetikleyip sonucunu bekler.
 
 on:
   schedule:

@@ -1,5 +1,8 @@
 # kose — Mürekkep
 
+[![Köşe Yazılarını Güncelle (Günlük)](https://github.com/0xinspectorx0/kose/actions/workflows/fetch-columns.yml/badge.svg)](https://github.com/0xinspectorx0/kose/actions/workflows/fetch-columns.yml)
+[![Günlük Veri Denetimi (Watchdog)](https://github.com/0xinspectorx0/kose/actions/workflows/verify-columns.yml/badge.svg)](https://github.com/0xinspectorx0/kose/actions/workflows/verify-columns.yml)
+
 Türk gazetelerinin köşe yazılarını toplayan tek dosyalık okuyucu (`index.html`) ve
 onu besleyen günlük kazıyıcı (`scripts/fetch_columns.py`).
 
@@ -32,6 +35,37 @@ Aynı mantık yazar dizini için de geçerlidir (`data/writers.json`).
 > Bu dosya main'de olduğu sürece zamanlama etkindir; başka bir dalda yalnızca
 > *Run workflow* ile elle koşulur.
 
+## Peki gerçekten güncellendi mi? (Watchdog)
+
+`fetch-columns.yml` veriyi **üretir**; `.github/workflows/verify-columns.yml` ise
+üretilen veriyi **denetler** ve gerekirse kendini onarır.
+
+| Konu | Durum |
+|---|---|
+| Zamanlama | Günde 2 denetim: TSİ **13:07** ve **22:07** (çekim slotlarından sonra) |
+| Denetleyen | `scripts/verify_daily.py` (ağ gerektirmez, yalnızca `data/*.json`'a bakar) |
+| Denetim maddeleri | Veri bugünün verisi mi · son çekim 24 saatten yeni mi · en az 60 yazı var mı · **en az 6 kaynak günün yazısını getirmiş mi** · **son 24 saatte yayımlanan en az 40 yazı çekilmiş mi** · akışa 3 günden eski yazı sızmış mı · yazar dizini sağlam mı |
+| Kendi kendini onarma | Denetim başarısızsa `fetch-columns.yml` **force=true** ile tetiklenir (`actions: write`), bitmesi beklenir, main'in verisi indirilip yeniden denetlenir |
+| Kırmızı koşu | Onarmaya rağmen bugünün verisi yoksa koşu `exit 1` ile biter → Actions'ta kırmızı görünür, iş özeti hangi maddenin kaldığını ve kaynak bazında günün yazısı sayısını yazar |
+| Elle | Actions → *Günlük Veri Denetimi (Watchdog)* → **Run workflow** (`heal=false` ile yalnızca rapor) |
+
+Yerelde tek komutla denetim:
+
+```bash
+python3 scripts/verify_daily.py              # insan okumasına yönelik rapor
+python3 scripts/verify_daily.py --markdown   # GitHub iş özeti biçimi
+python3 scripts/verify_daily.py --json       # makine okunur
+```
+
+Rapor "en son yayımlanan yazılar çekilmiş mi?" sorusunu kaynak bazında cevaplar:
+
+```
+  KAYNAK BAZINDA (yazı | günün yazısı | en yeni)
+    Cumhuriyet            13 |  13 | 2026-10-15 09:46
+    Hürriyet              13 |  10 | 2026-10-15 11:41
+    Evrensel               2 |   0 | 2026-10-11 12:00   ← günün yazısı yok
+```
+
 ## Yerelde çalıştırma
 
 ```bash
@@ -48,7 +82,8 @@ Uygulama statiktir: `index.html` dosyasını açmak yeterlidir.
 
 ```bash
 # 1) Hat (kazıyıcı + workflow) — ağ gerektirmez
-.venv/bin/python patches/uitest/verify-pipeline.py   # PyYAML varsa workflow'u da denetler
+.venv/bin/python patches/uitest/verify-pipeline.py   # tazelik kısayolu, yaş filtresi, çıkış kodları, cron/push ayarları
+.venv/bin/python patches/uitest/verify-watchdog.py   # verify_daily.py senaryoları + watchdog'un onarma akışı (sahte gh)
 
 # 2) Arayüz — jsdom koşumları
 mkdir -p /tmp/uitest && cd /tmp/uitest && npm init -y && npm install jsdom lucide

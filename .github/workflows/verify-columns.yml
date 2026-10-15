@@ -1,0 +1,167 @@
+name: Günlük Veri Denetimi (Watchdog)
+
+# "Köşe yazıları her gün gerçekten güncelleniyor mu?" sorusunun otomatik cevabı.
+#
+# fetch-columns.yml veriyi ÜRETİR; bu workflow üretilen veriyi DENETLER:
+#   1. data/daily.json bugünün verisi mi? (TSİ gün damgası)
+#   2. Son çekim ne kadar önce? Kaç yazı, kaç kaynak var?
+#   3. En son yayımlanan yazılar çekilmiş mi? (son 24 saatte yayımlanan yazı
+#      sayısı + kaynak bazında "günün yazısı" dağılımı)
+#   4. Akışa eski yazı sızmış mı? (en eski yazının yaşı)
+#   5. Yazar dizini (writers.json) sağlam ve taze mi?
+#
+# Denetim başarısızsa: çekim workflow'u force=true ile tetiklenir (kendi kendini
+# onarma), bitmesi beklenir, veri yeniden denetlenir. Yine başarısızsa koşu
+# KIRMIZI biter — Actions sekmesinde/bildirimlerde görünür.
+#
+# Zamanlama, çekim slotlarından (03:13/06:17/09:23/12:13/15:17/18:23 UTC) sonra
+# gelir; eşzamanlı koşu olursa fetch-columns'ın concurrency kilidi sıraya sokar.
+
+on:
+  schedule:
+    - cron: '7 10 * * *'   # 13:07 TSİ — öğle çekiminden sonra
+    - cron: '7 19 * * *'   # 22:07 TSİ — günün kapanış denetimi
+  workflow_dispatch:
+    inputs:
+      heal:
+        description: 'Veri bayatsa çekimi zorla tetikle (kendi kendini onarma)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  actions: write   # bayat veride fetch-columns.yml'i tetikleyebilmek için
+
+concurrency:
+  group: kose-verify-columns
+  cancel-in-progress: false
+
+env:
+  PYTHONUNBUFFERED: '1'
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Depoyu çek
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Veriyi denetle
+        id: check
+        run: |
+          # Runner adımı `bash -e` ile çalıştırıyor; çıkış kodunu biz yönetiyoruz.
+          set +e
+          # Boru (| tee) kullanılmıyor: runner'ın varsayılan kabuğunda pipefail yok,
+          # bu yüzden rc=$? tee'nin kodunu okur ve denetim hep "sağlıklı" görünürdü.
+          python3 scripts/verify_daily.py > "$RUNNER_TEMP/rapor.txt" 2>&1
+          rc=$?
+          cat "$RUNNER_TEMP/rapor.txt"
+          echo "#### İlk denetim" >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/verify_daily.py --markdown >> "$GITHUB_STEP_SUMMARY" 2>/dev/null
+          if [ "$rc" -eq 0 ]; then
+            echo "healthy=yes" >> "$GITHUB_OUTPUT"
+            echo "Denetim sağlıklı."
+          else
+            echo "healthy=no" >> "$GITHUB_OUTPUT"
+            echo "::warning::Bugünün köşe yazıları main'de eksik/bayat — onarma denenecek."
+          fi
+          exit 0
+
+      - name: Bayatsa çekimi zorla tetikle (kendi kendini onarma)
+        id: heal
+        # Zamanlanmış koşullarda `inputs` boş olur; bu yüzden "dispatch değilse
+        # ya da heal işaretliyse" biçiminde açık yazıldı (null != false tuzağı).
+        if: steps.check.outputs.healthy == 'no' && (github.event_name != 'workflow_dispatch' || inputs.heal)
+        run: |
+          # Runner adımı `bash -e` ile çalıştırıyor; çıkış kodlarını biz yönetiyoruz.
+          set +e
+          BRANCH="${GITHUB_REF_NAME:-main}"
+          START="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "::notice::Onarma başlıyor — fetch-columns.yml (ref=$BRANCH, force=true), eşik $START"
+          DISPATCH_URL="repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/dispatches"
+          DISPATCH_OUT=$(gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" -F force=true 2>&1)
+          DISPATCH_RC=$?
+          echo "dispatch (force=true) rc=$DISPATCH_RC çıktı=${DISPATCH_OUT:0:300}"
+          if [ "$DISPATCH_RC" -ne 0 ]; then
+            # GitHub'ın workflow metadata kaydı eski kalabiliyor: fetch-columns.yml'e
+            # `inputs.force` sonradan eklendiği için dispatch "force is not a permitted
+            # key" (422) dönebiliyor. Girdisiz dispatch her zaman geçerlidir; tazelik
+            # kısayolu da yalnızca veri zaten bugünün+ dolu olduğunda atladığı için
+            # onarma senaryosunda çekim yine yapılır.
+            echo "::warning::force girdisi kabul edilmedi (rc=$DISPATCH_RC) — girdisiz dispatch deneniyor"
+            DISPATCH_OUT=$(gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" 2>&1)
+            DISPATCH_RC=$?
+            echo "dispatch (girdisiz) rc=$DISPATCH_RC çıktı=${DISPATCH_OUT:0:300}"
+          fi
+          if [ "$DISPATCH_RC" -ne 0 ]; then
+            echo "::error::Çekim workflow'u tetiklenemedi (rc=$DISPATCH_RC): ${DISPATCH_OUT:0:300}"
+            echo "healed=no" >> "$GITHUB_OUTPUT"
+            echo "reason=dispatch-failed" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::notice::Dispatch kabul edildi — koşunun kaydı bekleniyor"
+
+          # Koşunun kaydının oluşmasını bekle (dispatch asenkron)
+          RUN_ID=""
+          for i in $(seq 1 24); do
+            sleep 10
+            RUN_ID=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/runs?per_page=5" \
+              -q "[.workflow_runs[] | select(.created_at >= \"$START\")] | .[0].id // empty")
+            [ -n "$RUN_ID" ] && break
+          done
+          if [ -z "$RUN_ID" ]; then
+            echo "::warning::Tetiklenen koşu listeye düşmedi (dispatch 204 döndü ama koşu yok). GITHUB_TOKEN ile tetiklenen etkinlikler yeni koşu başlatmıyor olabilir — Actions'tan elle 'Run workflow' (force) gerekir."
+            echo "healed=no" >> "$GITHUB_OUTPUT"
+            echo "reason=no-run-created" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::notice::Onarma koşusu: https://github.com/$GITHUB_REPOSITORY/actions/runs/$RUN_ID"
+
+          # Bitmesini bekle (en çok ~22 dk; çekim genelde 7-8 dk sürer)
+          STATUS="queued"
+          for i in $(seq 1 45); do
+            STATUS=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" -q '.status')
+            if [ "$STATUS" = "completed" ]; then break; fi
+            sleep 30
+          done
+          CONCLUSION=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" -q '.conclusion // "bilinmiyor"')
+          echo "::notice::Onarma koşusu bitti: $CONCLUSION (durum=$STATUS)"
+
+          # main'in güncel verisini indir ve yeniden denetle
+          git fetch origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"
+          git checkout "origin/$BRANCH" -- data/daily.json data/writers.json 2>/dev/null
+          echo "healed=$([ "$CONCLUSION" = "success" ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+          echo "run=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "conclusion=$CONCLUSION" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Son denetim
+        if: ${{ !cancelled() }}
+        run: |
+          set +e
+          if [ "${{ steps.heal.outputs.run }}" != "" ]; then
+            {
+              echo ""
+              echo "#### Onarma koşusu"
+              echo ""
+              echo "- Tetiklenen koşu: [\`${{ steps.heal.outputs.run }}\`](https://github.com/$GITHUB_REPOSITORY/actions/runs/${{ steps.heal.outputs.run }}) → **${{ steps.heal.outputs.conclusion }}**"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "#### Onarma sonrası denetim" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          python3 scripts/verify_daily.py > "$RUNNER_TEMP/son.txt" 2>&1
+          rc=$?
+          cat "$RUNNER_TEMP/son.txt"
+          python3 scripts/verify_daily.py --markdown >> "$GITHUB_STEP_SUMMARY" 2>/dev/null
+          if [ "$rc" -eq 0 ]; then
+            echo "✅ Günlük veri denetimi sağlıklı: bugünün en son köşe yazıları main'de."
+            exit 0
+          fi
+          echo "::error::Günlük veri denetimi BAŞARISIZ — bugünün köşe yazıları main'de yok ya da eksik. Ayrıntı iş özetinde; elle tetiklemek için: Actions → Köşe Yazılarını Güncelle (Günlük) → Run workflow (force)."
+          exit 1
