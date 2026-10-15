@@ -19,10 +19,11 @@ günün köşe yazılarını çeker:
     python scripts/fetch_columns.py --max-per-paper 10
     python scripts/fetch_columns.py --min-interval-hours 0   # tazelik kısayolunu atla
 
-GitHub Actions (.github/workflows/fetch-columns.yml) günde 6 kez (TSİ 06:13,
-09:17, 12:23, 15:13, 18:17, 21:23) otomatik çalıştırır; veri zaten tazeyse
-betik çekimi atlar (bkz. --min-interval-hours / --min-articles). İstekler
-nazik tempodadır (aralarda gecikme vardır).
+GitHub Actions (.github/workflows/fetch-columns.yml) yarım saatte bir yoklar;
+çekimin gerekip gerekmediğine scripts/freshness.py karar verir (veri bugünün
+değilse; 05:00-12:00 TSİ arası 1 saatten, diğer saatlerde 3 saatten eskiyse;
+seyrekse). Veri zaten tazeyse betik de çekimi atlar (bkz. --min-interval-hours /
+--min-articles). İstekler nazik tempodadır (aralarda gecikme vardır).
 
 Çıkış kodları:
     0  bugünün verisi üretildi (ya da zaten tazeydi, çekim atlandı)
@@ -46,6 +47,11 @@ from urllib.parse import quote, urljoin, urlparse
 import requests
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
+
+# Tazelik politikası tek yerde: CI'ın bağımlılıksız "kontrol" işi de aynı modülü
+# kullanır (scripts/ dizini, betik doğrudan çalıştırıldığında sys.path'tedir).
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import freshness  # noqa: E402
 
 TR_TZ = timezone(timedelta(hours=3))  # Türkiye saati (UTC+3)
 USER_AGENT = "kose-kosebot/1.0 (+https://github.com/0xinspectorx0/kose; gunluk kose yazisi toplayici)"
@@ -1227,36 +1233,20 @@ def load_payload(path):
         return None
 
 
-def data_is_fresh(path, min_interval_hours, min_articles):
+def data_is_fresh(path, min_interval_hours=None, min_articles=freshness.DEFAULT_MIN_ARTICLES):
     """Mevcut daily.json bugünün verisiyse, yeterince yeniyse ve doluysa True.
 
-    Zamanlanmış koşular gün içinde birkaç kez tetikleniyor; veri zaten tazeyse
-    gazete sitelerine boşuna istek atmamak için çekim atlanır. Sabahın erken
-    saatlerindeki seyrek çekim (ör. 60 yazı) "dolu" sayılmaz — böylece günün
-    ilerleyen koşusu yayımlanan tüm köşeleri toplar.
+    Karar scripts/freshness.py'de (CI'ın hafif kontrol işiyle aynı politika):
+      * min_interval_hours None -> günün saatine göre eşik (05-12 TSİ: 1 sa, diğer: 3 sa)
+      * min_interval_hours <= 0 -> kısayol kapalı, her zaman çek
+      * min_interval_hours > 0  -> sabit eşik
+    Sabahın erken saatlerindeki seyrek çekim (ör. 60 yazı) "dolu" sayılmaz —
+    saatte bir yeniden denenir ki günün ilerleyen koşusu tüm köşeleri toplasın.
     """
-    if not min_interval_hours or min_interval_hours <= 0:
-        return False
-    data = load_payload(path)
-    if not data:
-        return False
-    fetched = parse_date_any(data.get("fetchedAt") or "")
-    if not fetched:
-        return False
-    age_h = (datetime.now(timezone.utc) - fetched).total_seconds() / 3600.0
-    count = len(data.get("articles") or [])
-    today = datetime.now(TR_TZ).strftime("%Y-%m-%d")
-    if data.get("date") != today:
-        log(f">> Mevcut veri bugüne ait değil ({data.get('date')} != {today}) — çekim yapılacak")
-        return False
-    if age_h >= min_interval_hours:
-        log(f">> Mevcut veri {age_h:.1f} saatlik (eşik {min_interval_hours:g} sa) — çekim yapılacak")
-        return False
-    if count < min_articles:
-        log(f">> Mevcut veri seyrek ({count} yazı < {min_articles}) — günün kalan köşeleri için yeniden çekilecek")
-        return False
-    log(f">> Veri taze: {count} yazı, {age_h:.1f} saat önce çekildi — çekim atlanıyor")
-    return True
+    needs_fetch, reason = freshness.decide_file(
+        path, min_interval_hours=min_interval_hours, min_articles=min_articles)
+    log(f">> {reason[:1].upper()}{reason[1:]}")
+    return not needs_fetch
 
 
 def drop_stale_records(records, max_age_days):
@@ -1297,9 +1287,10 @@ def main():
     ap.add_argument("--max-authors-per-paper", type=int, default=200, help="Gazete başına en fazla keşfedilen yazar")
     ap.add_argument("--max-per-source", type=int, default=2, help="Kişisel/RSS kaynak başına makale")
     ap.add_argument("--discover-only", action="store_true", help="Sadece yazar listesini üret")
-    ap.add_argument("--min-interval-hours", type=float, default=4.0,
-                    help="Mevcut veri bugünün verisiyse ve bu kadar saatten yeniyse çekimi atla (0 = her zaman çek)")
-    ap.add_argument("--min-articles", type=int, default=80,
+    ap.add_argument("--min-interval-hours", type=float, default=None,
+                    help="Mevcut veri bugünün verisiyse ve bu kadar saatten yeniyse çekimi atla. "
+                         "Verilmezse günün saatine göre politika (05-12 TSİ: 1 sa, diğer: 3 sa); 0 = her zaman çek")
+    ap.add_argument("--min-articles", type=int, default=freshness.DEFAULT_MIN_ARTICLES,
                     help="Tazelik kısayolunun 'dolu' sayması için gereken en az makale sayısı")
     ap.add_argument("--max-age-days", type=int, default=2,
                     help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma, yani bugün+dün kalır (0 = filtre yok)")

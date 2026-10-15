@@ -4,31 +4,45 @@ name: Köşe Yazılarını Güncelle (Günlük)
 # data/daily.json + data/writers.json olarak main'e commit'ler.
 # Uygulama bu iki dosyayı önce main'den canlı okur.
 #
-# Zamanlama neden 6 ayrı saatte?
-#   GitHub `schedule` tetikleyicisi "en iyi çaba"dır: yoğun saatlerde koşular
-#   dakikalarca-saatlerce gecikebiliyor ya da hiç tetiklenmeyebiliyor (bu
-#   depoda gözlendi: günde 3 slot tanımlıyken bazı günler tek koşu ateşlendi,
-#   iki koşu da push adımında düştü). Bu yüzden gün içine yayılmış 6 slot var
-#   ve betik "veri zaten tazeyse çekme" kısayoluyla çalışıyor — yani slot
-#   sayısı artsa da gazete sitelerine giden istek sayısı artmıyor.
-#   Dakikalar kasıtlı olarak :00/:30 değil: tam saatte başlayan koşular
-#   GitHub genelinde daha çok gecikiyor.
+# Neden yarım saatte bir yoklama (sabit slotlar yerine)?
+#   GitHub `schedule` tetikleyicisi "en iyi çaba"dır ve bu depoda koşular
+#   planlanan saatten 3-6 SAAT SONRA başlıyor. 13-15 Ekim 2026 gözlemi:
+#     04:00 UTC slotu -> 09:17'de, 08:30 slotu -> 13:55'te, 14:00 slotu ->
+#     18:15'te başladı; 13 Ekim 14:00 koşusu 20:00'de oluşup ertesi sabah
+#     05:28'e kadar kuyrukta bekledi; 15 Ekim sabahı hiç koşu düşmedi.
+#   Yani "06:13 TSİ sabah çekimi" fiilen öğleden sonraya kayıyor, sabah
+#   köşeleri öğlene kadar gelmiyordu. Sabit slot sayısını artırmak bunu
+#   çözmez; çözüm sık ve UCUZ yoklama:
+#     1. `kontrol` işi (~10 sn, bağımlılık yok) scripts/freshness.py ile
+#        "çekim gerekli mi?" kararını verir.
+#     2. Asıl `fetch-columns` işi (≈8 dk) YALNIZCA veri bayatsa başlar.
+#   Gecikme ne olursa olsun gün boyu düzenli yoklama düşer; gazetelere giden
+#   istek sayısı ise politikayla sınırlı kalır (TSİ):
+#     - veri bugünün değilse                 -> çek
+#     - 05:00-12:00 (yayın penceresi)        -> 1 saatten eskiyse çek
+#     - diğer saatlerde                      -> 3 saatten eskiyse çek
+#     - seyrekse (< 80 yazı)                 -> saatte bir yeniden çek
+#   Dakikalar kasıtlı olarak :00/:30 değil — tam/yarım saatte başlayan
+#   koşular GitHub genelinde daha çok gecikiyor.
 #
-# Not: `schedule` yalnızca varsayılan dalda (main) çalışır; bu dosya main'e
-# merge edildiğinde zamanlama etkin olur. Elle çalıştırmak için:
-# Actions -> workflow -> Run workflow ("force" ile tazelik kısayolu atlanır).
+# Diğer tetikleyiciler:
+#   - push (main): kazıyıcı/workflow değişikliği merge edilince hemen ZORLA
+#     çekim — yeni kod beklemeden devreye girer. (Botun kendi veri commit'leri
+#     GITHUB_TOKEN ile atıldığı için yeni koşu tetiklemez; döngü olmaz.)
+#   - workflow_dispatch: Actions -> bu workflow -> Run workflow ("force").
+#   - verify-columns.yml (watchdog) bayat veride bunu force=true ile tetikler.
 #
-# Ayrıca bkz. verify-columns.yml (watchdog): üretilen veriyi günde 2 kez denetler
-# ve bayatsa bu workflow'u force=true ile tetikleyip sonucunu bekler.
+# Not: `schedule` yalnızca varsayılan dalda (main) çalışır.
 
 on:
   schedule:
-    - cron: '13 3 * * *'   # 06:13 TSİ — gece yayımlanan köşeler
-    - cron: '17 6 * * *'   # 09:17 TSİ — ana koşu: köşelerin büyük kısmı bu saatte yayımlanmış olur
-    - cron: '23 9 * * *'   # 12:23 TSİ — sabah koşusu seyrek kaldıysa tamamlar
-    - cron: '13 12 * * *'  # 15:13 TSİ — öğleden sonra yayılan köşeler
-    - cron: '17 15 * * *'  # 18:17 TSİ — akşam yedeği
-    - cron: '23 18 * * *'  # 21:23 TSİ — günün son toplamı
+    - cron: '7,37 * * * *'   # yarım saatte bir yoklama (karar: scripts/freshness.py)
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch_columns.py'
+      - 'scripts/freshness.py'
+      - '.github/workflows/fetch-columns.yml'
   workflow_dispatch:
     inputs:
       force:
@@ -39,29 +53,105 @@ on:
 permissions:
   contents: write
 
-# Aynı anda iki koşu main'e yazmaya çalışmasın: sıraya girerler. (Geçmişteki
-# push hatalarının ana nedeni buydu — iki koşu aynı üretilmiş JSON'a yazıyor,
-# rebase her seferinde çakışıyordu.)
-concurrency:
-  group: kose-fetch-columns
-  cancel-in-progress: false
-
 env:
   PYTHONUNBUFFERED: '1'
 
 jobs:
+  kontrol:
+    name: Tazelik kontrolü
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      needed: ${{ steps.karar.outputs.needed }}
+      force: ${{ steps.karar.outputs.force }}
+      reason: ${{ steps.karar.outputs.reason }}
+    steps:
+      - name: Veriyi çek (yalnızca scripts/ + data/)
+        uses: actions/checkout@v6
+        with:
+          # Gecikmeli/sıradaki koşu da dalın GÜNCEL ucuna baksın
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            scripts
+            data
+
+      - name: Çekim gerekli mi?
+        id: karar
+        env:
+          FORCE_INPUT: ${{ inputs.force }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          # Runner adımı `bash -e` ile çalıştırıyor; çıkış kodlarını biz yönetiyoruz.
+          set +e
+          FORCE=false
+          WHY=""
+          if [ "$FORCE_INPUT" = "true" ]; then
+            FORCE=true; WHY="elle tetikleme (force)"
+          elif [ "$GITHUB_EVENT_NAME" = "push" ] && [ "$GITHUB_REF_NAME" = "$DEFAULT_BRANCH" ]; then
+            # main'e kazıyıcı/workflow değişikliği geldi: yeni kod hemen devreye girsin
+            FORCE=true; WHY="main'e kod değişikliği merge edildi (push)"
+          fi
+          echo "force=$FORCE" >> "$GITHUB_OUTPUT"
+
+          if [ "$FORCE" = "true" ]; then
+            NEEDED=true
+            REASON="zorla çekim — $WHY"
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+            echo "reason=$REASON" >> "$GITHUB_OUTPUT"
+          else
+            OUT=$(python3 scripts/freshness.py --data data/daily.json --github-output 2>&1)
+            rc=$?
+            echo "$OUT"
+            NEEDED=$(printf '%s\n' "$OUT" | sed -n 's/^needed=//p' | tail -n 1)
+            REASON=$(printf '%s\n' "$OUT" | sed -n 's/^reason=//p' | tail -n 1)
+            if [ "$rc" -ne 0 ] || [ -z "$NEEDED" ]; then
+              # Karar verilemedi: güvenli taraf — çek (son yazılan değer geçerlidir)
+              NEEDED=true
+              REASON="karar betiği hata verdi (rc=$rc) — güvenli taraf: çekim yapılacak"
+              echo "needed=true" >> "$GITHUB_OUTPUT"
+              echo "reason=$REASON" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+          if [ "$NEEDED" = "true" ]; then
+            echo "::notice::Çekim başlıyor: $REASON"
+          else
+            echo "Çekim gerekmiyor: $REASON"
+          fi
+          {
+            echo "### Tazelik kontrolü"
+            echo ""
+            if [ "$NEEDED" = "true" ]; then echo "- **Karar:** çekim yapılacak"; else echo "- **Karar:** çekim gerekmiyor (veri taze)"; fi
+            echo "- **Gerekçe:** $REASON"
+            echo "- **Tetikleyici:** $GITHUB_EVENT_NAME · dal: $GITHUB_REF_NAME"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
   fetch-columns:
+    name: Köşe yazılarını çek ve commit'le
+    needs: kontrol
+    if: needs.kontrol.outputs.needed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Aynı anda iki çekim main'e yazmaya çalışmasın: sıraya girerler. Kilit İŞ
+    # düzeyinde — yarım saatlik hafif kontroller kilide takılmadan koşar.
+    concurrency:
+      group: kose-fetch-columns
+      cancel-in-progress: false
     steps:
       - name: Depoyu çek
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
+          # Kilitte beklerken başka bir koşu main'e yazmış olabilir: tetiklendiği
+          # andaki commit'i değil dalın güncel ucunu al (betik tazeliği yeniden
+          # denetler; veri bu arada tazelendiyse çekim atlanır).
+          ref: ${{ github.ref_name }}
           # push reddedilince uzak ucun üzerine yeniden yazabilmek için tam geçmiş
           fetch-depth: 0
 
       - name: Python kur
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -69,14 +159,18 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Köşe yazılarını çek
+        env:
+          FORCE: ${{ needs.kontrol.outputs.force }}
         run: |
           # Runner adımı `bash -e` ile çalıştırıyor; betiğin çıkış kodunu kendimiz
           # yönettiğimiz için -e kapatılır (yoksa ilk başarısız çekimde döngü kesilir).
           set +e
           set -uo pipefail
-          # Elle tetiklemede "force" işaretlenirse tazelik kısayolu devre dışı.
+          # Zorla çekimde (elle force / main'e push) tazelik kısayolu devre dışı.
+          # Aksi halde betik aynı politikayla (scripts/freshness.py) tazeliği
+          # yeniden denetler: kilitte beklerken veri tazelendiyse çekim atlanır.
           EXTRA=""
-          if [ "${{ inputs.force }}" = "true" ]; then
+          if [ "${FORCE:-false}" = "true" ]; then
             EXTRA="--min-interval-hours 0"
           fi
 
@@ -95,7 +189,7 @@ jobs:
             echo "::warning::Bugünün verisi üretilemedi (çıkış $rc, deneme $attempt)"
             [ "$attempt" -lt 2 ] && sleep 30
           done
-          echo "::error::İki denemede de bugünün köşe yazıları üretilemedi — mevcut data/daily.json korundu, sonraki zamanlanmış koşu yeniden deneyecek."
+          echo "::error::İki denemede de bugünün köşe yazıları üretilemedi — mevcut data/daily.json korundu, sıradaki yoklama (≤30 dk) yeniden deneyecek."
           exit 1
 
       - name: Sonuçları commit'le
@@ -187,7 +281,6 @@ jobs:
         if: ${{ !cancelled() }}
         run: |
           { python3 - <<'PY'
-          
           import json
           from datetime import datetime, timedelta, timezone
 
@@ -214,8 +307,8 @@ jobs:
           print(f"- **Çekim:** {fetched} ({age} önce)")
           print(f"- **Makale:** {len(arts)} · **gazete:** {d.get('papers')} · **yazar dizini:** {d.get('writers')}")
           if d.get("date") != today:
-              print(f"- ⚠️ Veri bugüne ({today}) ait değil — sıradaki zamanlanmış koşu yakalayacak.")
+              print(f"- ⚠️ Veri bugüne ({today}) ait değil — sıradaki yoklama (≤30 dk) yeniden deneyecek.")
           else:
-              print("- ✅ main'de bugünün verisi var.")
+              print("- ✅ Dalda bugünün verisi var.")
           PY
           } >> "$GITHUB_STEP_SUMMARY" || echo "::warning::iş özeti üretilemedi"

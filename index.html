@@ -195,7 +195,7 @@
             <h3 class="font-serif font-semibold text-ink-900 text-base mb-1.5">Yazar kadrosu henüz hazır değil</h3>
             <p class="text-xs text-stone-500 leading-relaxed mb-4">
               Türkiye'deki aktif gazetelerin tüm köşe yazarları otomatik olarak keşfedilir ve
-              gün boyu <span class="font-semibold text-ink-700">üç saatte bir</span> (TSİ 06:13–21:23) güncellenir.
+              gün boyu <span class="font-semibold text-ink-700">yarım saatte bir</span> yoklanır (sabahları saatlik, gün içinde en geç 3 saatte bir güncellenir).
               İlk senkronizasyon henüz çalışmadı.
             </p>
             <button id="writers-retry-btn" class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-ink-900 text-white rounded-full hover:bg-ink-700 active:scale-95 transition-all">
@@ -291,8 +291,8 @@
           </div>
           <div class="p-3.5 flex items-center justify-between gap-3">
             <div class="min-w-0">
-              <p class="text-xs font-bold text-ink-900">Saat başı otomatik yenile</p>
-              <p class="text-[11px] text-stone-500 mt-0.5">Sayfa açıkken gün değişimini kendisi kontrol etsin.</p>
+              <p class="text-xs font-bold text-ink-900">Otomatik yenile</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Sayfa açıkken yeni yazıları yarım saatte bir, sekmeye dönünce hemen kontrol etsin.</p>
             </div>
             <button id="set-autorefresh" type="button" role="switch" aria-checked="true" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-accent transition-colors">
               <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform translate-x-[18px]"></span>
@@ -310,7 +310,7 @@
         </div>
 
         <p class="text-center text-[10px] text-stone-400 mt-4 leading-relaxed">
-          Mürekkep · köşe yazıları GitHub Actions ile gün boyu üç saatte bir yenilenir
+          Mürekkep · köşe yazıları GitHub Actions ile gün boyu yenilenir (sabahları saatlik)
         </p>
       </section>
     </main>
@@ -602,12 +602,22 @@
     // gösterilir; normal açılışta akış data/daily.json'dan gelir.
     let articles = [];
 
-    // --- Canlı Günlük Akış (önce GitHub main'deki data/daily.json — Actions gün boyu
-    //     üç saatte bir günceller; çevrimdışıysan uygulama ile paketlenen yerel kopyaya düşülür) ---
+    // --- Canlı Günlük Akış (önce GitHub main'deki data/daily.json — Actions yarım saatte bir
+    //     yoklar, veri bayatsa yeniden çeker: 05-12 TSİ arası saatlik, diğer saatlerde 3 saatte bir;
+    //     çevrimdışıysan uygulama ile paketlenen yerel kopyaya düşülür) ---
     const DAILY_FEED_URL = 'data/daily.json';
     const WRITERS_URL = 'data/writers.json';
     // data/daily.json'daki "date" damgasıyla (YYYY-MM-DD) karşılaştırılabilir yerel gün anahtarı
     const isoDayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    // Son başarılı yükleme anı (ms) ve ekrandaki verinin çekim damgası: sekmeye dönüşte
+    // "veri ne kadar eski?" kararı ve "x dk önce" etiketinin canlı tutulması için.
+    let lastFeedLoadAt = 0;
+    let lastFeedStamp = null;
+    // Ekrandaki veri bundan eskiyse sekmeye dönünce hemen yeniden yoklanır
+    const FEED_RECHECK_MS = 10 * 60 * 1000;
+    // "Kaynak güncellemesi gecikti" eşiği (saat): Actions gün içinde en geç 3 saatte bir
+    // tazeler; 12 saat yeni veri gelmemesi hattın aksadığını gösterir.
+    const STALE_AFTER_HOURS = 12;
 
     function mapLiveArticle(a, idx) {
       const plain = (a.fullContent || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -667,16 +677,19 @@
         // henüz main'e düşmediyse otomatik kontrol her yoklamada yeniden dener ve
         // bayat veri "bugün geldi" sayılıp bir daha denetlenmeden kalmaz.
         localStorage.setItem('kose-feed-date', data.date || isoDayKey());
+        lastFeedLoadAt = Date.now();
+        lastFeedStamp = data.fetchedAt || null;
         syncTimeEl.textContent = formatSyncTime(data.fetchedAt);
         const papers = data.papers ? ` · ${data.papers} gazete` : '';
         const writers = data.writers ? ` · ${data.writers} yazar` : '';
         const ageH = (Date.now() - new Date(data.fetchedAt || 0).getTime()) / 3600000;
         const nowD = new Date();
         const todayISO = isoDayKey(nowD);
-        // Sabahın ilk saatlerinde (ilk koşu 06:13 TSİ) günün verisi henüz yayımlanmamış
-        // olabilir; 07:00'den sonra "bugünün verisi yok" durumu gerçekten gecikmedir.
+        // Gün dönümünden sonraki ilk çekim normalde yarım saat içinde yapılır, ama GitHub
+        // zamanlanmış koşuları geciktirebiliyor; 07:00'den sonra "bugünün verisi yok" durumu
+        // gerçekten gecikmedir.
         const missingToday = Boolean(data.date) && data.date !== todayISO && nowD.getHours() >= 7;
-        const stale = (isFinite(ageH) && ageH > 30) || missingToday;
+        const stale = (isFinite(ageH) && ageH > STALE_AFTER_HOURS) || missingToday;
         const syncBanner = document.getElementById('sync-banner');
         if (syncBanner) {
           syncBanner.classList.toggle('bg-amber-50', stale);
@@ -737,11 +750,31 @@
       }
     }
     setInterval(autoDailyCheck, 15 * 60 * 1000); // arka plandayken de çeyrek saatte bir gün kontrolü
-    // Sekme yeniden görünür olduğunda da yokla: tarayıcı arka plandaki
-    // zamanlayıcıları kısıtladığı için interval tek başına yetmeyebiliyor.
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && appSettings.autoRefresh) autoDailyCheck();
-    });
+
+    // Sekmeye dönüş / sayfanın tarayıcı önbelleğinden geri gelmesi / bağlantının geri
+    // gelmesi: gün değiştiyse YA DA ekrandaki veri 10 dakikadan eskiyse hemen yokla.
+    // (Eskiden yalnızca gün değişimine bakılıyordu: sabah açılıp akşam dönülen sekme,
+    // gün içinde gelen yeni köşeleri yarım saatlik interval'e kadar göstermiyordu;
+    // mobilde arka plandaki zamanlayıcılar hiç çalışmadığı için daha da uzun.)
+    function refreshIfStale() {
+      if (!appSettings.autoRefresh || document.hidden) return false;
+      const dayChanged = localStorage.getItem('kose-feed-date') !== isoDayKey();
+      if (!dayChanged && Date.now() - lastFeedLoadAt < FEED_RECHECK_MS) return false;
+      loadDailyFeed(false);
+      return true;
+    }
+    document.addEventListener('visibilitychange', () => { refreshIfStale(); });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) refreshIfStale(); });
+    window.addEventListener('online', () => { refreshIfStale(); });
+
+    // "x dk önce" etiketi sayfa açık kaldıkça eskimesin (yükleme/çevrimdışı yazısına dokunma)
+    function tickSyncTime() {
+      if (document.hidden || !lastFeedStamp) return;
+      const cur = syncTimeEl.textContent;
+      if (cur === 'Çekiliyor...' || cur === 'Çevrimdışı') return;
+      syncTimeEl.textContent = formatSyncTime(lastFeedStamp);
+    }
+    setInterval(tickSyncTime, 60 * 1000);
 
     // --- Uygulama ayarları (localStorage'da saklanır) ---
     const SETTINGS_KEY = 'kose-settings';
@@ -1991,7 +2024,7 @@
     document.getElementById('tts-slower-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() - TTS_RATE_STEP));
     document.getElementById('tts-faster-btn').addEventListener('click', () => applyTtsRate(currentTtsRate() + TTS_RATE_STEP));
 
-    // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions TSİ 06:13/09:17/12:23/15:13/18:17/21:23'te günceller) ---
+    // --- Canlı Akışı Yenile (data/daily.json — GitHub Actions yarım saatte bir yoklar, bayatsa yeniden çeker) ---
     // Çevrimdışı kalırsa gösterilecek örnek makale:
     const offlineMockColumn = {
           id: 900001,
@@ -2088,9 +2121,10 @@
     `;
     lucide.createIcons();
     loadDailyFeed(false); // günlük canlı akışı çek (örnek yazılar sadece çevrimdışı yedeği)
-    // Sekme açıkken yarımsaatte bir taze veri yokla (görünür değilken boşuna ağa dokunma;
-    // arka plandaki gün kontrolü autoDailyCheck + visibilitychange ile yürür)
-    setInterval(() => { if (!document.hidden) loadDailyFeed(false); }, 30 * 60 * 1000);
+    // Sekme açıkken yarım saatte bir taze veri yokla (görünür değilken boşuna ağa dokunma;
+    // arka plandaki gün kontrolü autoDailyCheck, sekmeye dönüş refreshIfStale ile yürür).
+    // "Otomatik yenile" ayarı kapalıysa yalnızca elle yenilenir.
+    setInterval(() => { if (!document.hidden && appSettings.autoRefresh) loadDailyFeed(false); }, 30 * 60 * 1000);
   </script>
 </body>
 </html>

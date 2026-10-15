@@ -155,8 +155,8 @@ if yaml and "--quick" not in sys.argv:
     on = doc.get("on", doc.get(True))
     crons = [c["cron"] for c in on.get("schedule", [])]
     check("günde en az 2 denetim slotu", len(crons) >= 2, ", ".join(crons))
-    check("denetim saatleri çekim slotlarından sonra (10 ve 19 UTC)",
-          {c.split()[1] for c in crons} >= {"10", "19"}, str([c.split()[1] for c in crons]))
+    check("denetim saatleri: sabah yayın penceresinden sonra ve akşam (8 ve 15 UTC = 11:07 / 18:07 TSİ)",
+          {c.split()[1] for c in crons} >= {"8", "15"}, str([c.split()[1] for c in crons]))
     check("actions:write yetkisi var (onarma için dispatch)",
           doc.get("permissions", {}).get("actions") == "write")
     check("concurrency kilidi var", bool(doc.get("concurrency", {}).get("group")))
@@ -168,12 +168,24 @@ if yaml and "--quick" not in sys.argv:
     heal = next(s for n, s in by_name.items() if n and "zorla" in n)
     check("onarma yalnızca veri bayatken koşuyor", "healthy == 'no'" in str(heal.get("if", "")),
           str(heal.get("if", "")))
-    check("onarma dispatch'i force=true ile çağırıyor",
-          "dispatches" in heal["run"] and "force=true" in heal["run"])
-    # GitHub'ın workflow metadata kaydı eski kalırsa `force` girdisi 422 verir
-    # ("force is not a permitted key"); girdisiz dispatch yedeği şart.
+    # Girdi `inputs` nesnesinin içinde gitmeli; en üst düzeyde `force` gönderilirse
+    # GitHub '"force" is not a permitted key' (422) döner — 15 Ekim'de olan buydu.
+    check("onarma dispatch'i force'u inputs İÇİNDE gönderiyor (inputs[force]=true)",
+          "dispatches" in heal["run"] and '-f "inputs[force]=true"' in heal["run"])
+    heal_code = "\n".join(l for l in heal["run"].splitlines() if not l.strip().startswith("#"))
+    check("en üst düzeyde force gönderilmiyor (422 'not a permitted key' regresyonu)",
+          not re.search(r"-[fF] force=", heal_code))
     check("force reddedilirse girdisiz dispatch yedeği var",
           heal["run"].count("-X POST") >= 2 and 'gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" 2>&1' in heal["run"])
+    check("yalnızca bizim tetiklediğimiz koşu seçiliyor (event + dal filtresi)",
+          '.event == \\"workflow_dispatch\\"' in heal["run"] and ".head_branch" in heal["run"])
+
+    saat = by_name.get("Saat kontrolü (gece saatine kaymış zamanlanmış koşu)")
+    check("gece saatine kaymış zamanlanmış koşu için saat kontrolü adımı var", saat is not None)
+    later = [s_ for s_ in steps if s_ is not saat]
+    check("sonraki tüm adımlar saat kontrolüne bağlı (skip != 'yes')",
+          all("steps.saat.outputs.skip != 'yes'" in str(s_.get("if", "")) for s_ in later),
+          str([s_.get("name") for s_ in later if "steps.saat" not in str(s_.get("if", ""))]))
     check("onarma koşusunun bitmesi bekleniyor", ".status" in heal["run"] and "completed" in heal["run"])
     check("onarma sonrası main'in verisi indiriliyor",
           "git fetch origin" in heal["run"] and "data/daily.json" in heal["run"])
@@ -187,6 +199,36 @@ if yaml and "--quick" not in sys.argv:
     allruns = "\n".join(s.get("run", "") for s in steps)
     check("çıkış kodu borudan okunmuyor (| tee + rc=$? yok)",
           not re.search(r"\|\s*tee[^\n]*\n\s*rc=\$\?", allruns))
+
+    print("\n[H2] SAAT KONTROLÜ UÇTAN UCA (sahte date ile)")
+    date_dir = os.path.join(td, "date-stub")
+    os.makedirs(date_dir, exist_ok=True)
+    real_date = subprocess.run(["bash", "-c", "command -v date"], capture_output=True, text=True).stdout.strip()
+    open(os.path.join(date_dir, "date"), "w", encoding="utf-8").write(f"""#!/usr/bin/env bash
+for a in "$@"; do [ "$a" = "+%H" ] && {{ echo "$FAKE_HOUR"; exit 0; }}; done
+exec {real_date} "$@"
+""")
+    os.chmod(os.path.join(date_dir, "date"), 0o755)
+
+    def run_saat(event, hour):
+        sp = os.path.join(td, "saat.sh")
+        open(sp, "w", encoding="utf-8").write(saat["run"])
+        out = os.path.join(td, f"saat-{event}-{hour}.txt")
+        summ = os.path.join(td, f"saat-{event}-{hour}.md")
+        env = dict(os.environ, PATH=date_dir + os.pathsep + os.environ["PATH"], FAKE_HOUR=hour,
+                   GITHUB_EVENT_NAME=event, GITHUB_OUTPUT=out, GITHUB_STEP_SUMMARY=summ)
+        p_ = subprocess.run(["bash", "-e", sp], capture_output=True, text=True, env=env)
+        got = open(out, encoding="utf-8").read() if os.path.exists(out) else ""
+        return p_.returncode, got, p_.stdout
+    rc, got, so = run_saat("schedule", "03")
+    check("zamanlanmış koşu TSİ 03:xx'e kaydıysa atlanıyor (skip=yes)", rc == 0 and "skip=yes" in got, got.strip())
+    check("atlama ::notice:: ile görünür", "::notice::" in so)
+    rc, got, _ = run_saat("schedule", "08")
+    check("TSİ 08 (başında sıfır, sekizlik taban tuzağı) da atlanıyor", rc == 0 and "skip=yes" in got, got.strip())
+    rc, got, _ = run_saat("schedule", "11")
+    check("TSİ 11:xx'teki zamanlanmış koşu denetliyor (skip=no)", rc == 0 and "skip=no" in got, got.strip())
+    rc, got, _ = run_saat("workflow_dispatch", "03")
+    check("elle tetikleme gece de denetliyor (skip=no)", rc == 0 and "skip=no" in got, got.strip())
 
     print("\n[I] ADIM BETİKLERİNİN SÖZDİZİMİ (CI kabuğu)")
     for i, s in enumerate(steps):
@@ -217,7 +259,7 @@ now_minus=$(date -u -d '-2 hour' +%Y-%m-%dT%H:%M:%SZ)
 case "$method$url" in
   POST*dispatches) echo "dispatch-ok" ;;
   *"/actions/workflows/fetch-columns.yml/runs"*)
-    emit "{\\"workflow_runs\\":[{\\"id\\":111,\\"created_at\\":\\"$now_minus\\",\\"status\\":\\"completed\\"},{\\"id\\":222,\\"created_at\\":\\"$now_plus\\",\\"status\\":\\"in_progress\\"}]}" ;;
+    emit "{\\"workflow_runs\\":[{\\"id\\":333,\\"created_at\\":\\"$now_plus\\",\\"status\\":\\"in_progress\\",\\"event\\":\\"schedule\\",\\"head_branch\\":\\"main\\"},{\\"id\\":444,\\"created_at\\":\\"$now_plus\\",\\"status\\":\\"queued\\",\\"event\\":\\"workflow_dispatch\\",\\"head_branch\\":\\"baska-dal\\"},{\\"id\\":111,\\"created_at\\":\\"$now_minus\\",\\"status\\":\\"completed\\",\\"event\\":\\"workflow_dispatch\\",\\"head_branch\\":\\"main\\"},{\\"id\\":222,\\"created_at\\":\\"$now_plus\\",\\"status\\":\\"in_progress\\",\\"event\\":\\"workflow_dispatch\\",\\"head_branch\\":\\"main\\"}]}" ;;
   *"/actions/runs/"*)
     n=$(cat "$COUNTER" 2>/dev/null || echo 0); n=$((n+1)); echo "$n" > "$COUNTER"
     if [ "$n" -lt 3 ]; then emit '{"status":"in_progress","conclusion":null}';
@@ -257,7 +299,9 @@ esac
     log = open(env["STUB_LOG"], encoding="utf-8").read() if os.path.exists(env["STUB_LOG"]) else ""
     check("onarma adımı exit 0", p.returncode == 0, p.stdout[-200:] + p.stderr[-200:])
     check("dispatch POST atıldı", "method=POST" in log and "dispatches" in log)
-    check("START'tan eski koşu değil, yeni koşu seçildi (id 222)", "run=222" in outs, outs.replace("\n", " "))
+    check("tek dispatch yetti (inputs[force] ilk denemede kabul)", log.count("method=POST") == 1, log.count("method=POST"))
+    check("START'tan eski, zamanlanmış ya da başka dalın koşusu değil; bizim koşu seçildi (id 222)",
+          "run=222" in outs, outs.replace("\n", " "))
     check("koşunun bitmesi beklendi (en az 3 durum sorgusu)", log.count("/actions/runs/222") >= 3)
     check("healed=yes yazıldı", "healed=yes" in outs)
     check("conclusion=success yazıldı", "conclusion=success" in outs)

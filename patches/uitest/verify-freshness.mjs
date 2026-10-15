@@ -2,8 +2,11 @@
 //   [1] bugünün verisi geldiyse etiket/saklanan gün doğru, boşuna yeniden çekilmiyor
 //   [2] günün verisi geciktiyse (07:00'den sonra) "Bugünün verisi bekleniyor" + amber banner
 //       ve autoDailyCheck yeniden deniyor (bayat veri "bugün geldi" sayılıp unutulmuyor)
-//   [3] sabahın erken saatlerinde (ilk koşu 06:13 TSİ) dünün verisi panik yaratmıyor
+//   [3] sabahın erken saatlerinde (07:00'den önce) dünün verisi panik yaratmıyor
 //   [4] üç kaynak yoklanıyor (raw + jsDelivr CDN + yerel kopya) ve en taze olan kazanıyor
+//   [6] sekmeye dönünce veri 10 dk'dan eskiyse hemen yeniden yoklanıyor (gün değişmese de)
+//   [7] bugünün verisi 12 saattir yenilenmediyse "Kaynak güncellemesi gecikti" görünüyor
+//   [8] "x dk önce" etiketi sayfa açık kaldıkça güncelleniyor
 // Koşum: node verify-freshness.mjs   (jsdom /tmp/uitest/node_modules altından içe aktarılır)
 import { readFileSync } from 'node:fs';
 import { JSDOM } from '/tmp/uitest/node_modules/jsdom/lib/api.js';
@@ -47,10 +50,15 @@ window.applyFilters = () => {};
 window.syncTimeEl = doc.getElementById('sync-time');
 window.articlesListEl = doc.getElementById('articles-list');
 
-const srcConsts = ['DAILY_FEED_URL', 'WRITERS_URL', 'isoDayKey'].map(extractConst);
-window.eval([...srcConsts,
+// jsdom'da document.hidden varsayılan olarak true; görünürlük testten yönetiliyor
+let hiddenFlag = false;
+Object.defineProperty(doc, 'hidden', { configurable: true, get: () => hiddenFlag });
+
+const srcConsts = ['DAILY_FEED_URL', 'WRITERS_URL', 'isoDayKey', 'FEED_RECHECK_MS', 'STALE_AFTER_HOURS'].map(extractConst);
+window.eval(['var lastFeedLoadAt = 0; var lastFeedStamp = null;', ...srcConsts,
   extract('mapLiveArticle'), extract('formatSyncTime'),
-  extract('loadDailyFeed'), extract('autoDailyCheck')].join('\n'));
+  extract('loadDailyFeed'), extract('autoDailyCheck'),
+  extract('refreshIfStale'), extract('tickSyncTime')].join('\n'));
 
 const payload = (date, fetchedAt, n = 12) => ({
   fetchedAt, date, count: n, papers: 4, writers: 900,
@@ -115,7 +123,7 @@ check('günün verisi gelince saklanan gün bugün oluyor', stored() === c.today
 check('etiket normale dönüyor', label().startsWith('Gazetelerden senkronize edildi'), label().slice(0, 60));
 check('banner yeşile dönüyor', banner().includes('bg-emerald-50'));
 
-console.log('\n[3] SABAHIN ERKEN SAATİ (05:00 — ilk koşu 06:13 TSİ)');
+console.log('\n[3] SABAHIN ERKEN SAATİ (05:00 — 07:00 öncesi gecikme sayılmaz)');
 c = setClock(2026, 10, 14, 5, 0);
 responder = () => payload(c.yesterdayISO, new RealDate(c.fixed - 8 * 3600000).toISOString());
 await window.loadDailyFeed(false);
@@ -147,6 +155,58 @@ window.autoDailyCheck();
 await new Promise(r => setTimeout(r, 30));
 check('ayar kapalıyken kendiliğinden çekmiyor', requests.length === 0, `${requests.length} istek`);
 window.appSettings.autoRefresh = true;
+
+console.log('\n[6] SEKMEYE DÖNÜŞ (gün aynı, veri eskidi)');
+c = setClock(2026, 10, 14, 9, 0);
+responder = () => payload(c.todayISO, new RealDate(c.fixed - 20 * 60000).toISOString());
+await window.loadDailyFeed(false);
+c = setClock(2026, 10, 14, 9, 5);
+requests = [];
+check('5 dk sonra dönünce yeniden çekmiyor', window.refreshIfStale() === false && requests.length === 0,
+  `${requests.length} istek`);
+c = setClock(2026, 10, 14, 17, 40);
+responder = () => payload(c.todayISO, new RealDate(c.fixed - 25 * 60000).toISOString(), 15);
+requests = [];
+hiddenFlag = true;
+check('sekme gizliyken yoklamıyor', window.refreshIfStale() === false && requests.length === 0);
+hiddenFlag = false;
+window.appSettings.autoRefresh = false;
+check('otomatik yenile kapalıyken yoklamıyor', window.refreshIfStale() === false && requests.length === 0);
+window.appSettings.autoRefresh = true;
+const fired = window.refreshIfStale();
+await new Promise(r => setTimeout(r, 60));
+check('sabah açılıp akşam dönülen sekme hemen yeniden yokluyor', fired === true && requests.length > 0,
+  `${requests.length} istek`);
+check('akşam gelen yeni yazılar ekranda', window.articles.length === 15, `${window.articles.length} yazı`);
+check('etiket yeni çekim zamanını gösteriyor', doc.getElementById('sync-time').textContent === '25 dk önce',
+  doc.getElementById('sync-time').textContent);
+
+console.log('\n[7] BUGÜNÜN VERİSİ AMA SAATLERDİR YENİLENMEMİŞ');
+c = setClock(2026, 10, 14, 15, 0);
+responder = () => payload(c.todayISO, new RealDate(c.fixed - 13 * 3600000).toISOString());
+await window.loadDailyFeed(false);
+check('13 saatlik veri "Kaynak güncellemesi gecikti"', label().startsWith('Kaynak güncellemesi gecikti'), label().slice(0, 60));
+check('banner amber', banner().includes('bg-amber-50'));
+responder = () => payload(c.todayISO, new RealDate(c.fixed - 2 * 3600000).toISOString());
+await window.loadDailyFeed(false);
+check('2 saatlik veri normal', label().startsWith('Gazetelerden senkronize edildi'), label().slice(0, 60));
+check('banner yeşil', banner().includes('bg-emerald-50'));
+
+console.log('\n[8] GÖRELİ SAAT ETİKETİ CANLI');
+c = setClock(2026, 10, 14, 10, 0);
+responder = () => payload(c.todayISO, new RealDate(c.fixed - 45 * 60000).toISOString());
+await window.loadDailyFeed(false);
+const st = () => doc.getElementById('sync-time').textContent;
+check('yüklemede 45 dk önce', st() === '45 dk önce', st());
+setClock(2026, 10, 14, 10, 10);
+window.tickSyncTime();
+check('10 dk sonra 55 dk önce', st() === '55 dk önce', st());
+setClock(2026, 10, 14, 10, 30);
+window.tickSyncTime();
+check('saat dolunca 1 sa önce', st() === '1 sa önce', st());
+doc.getElementById('sync-time').textContent = 'Çekiliyor...';
+window.tickSyncTime();
+check('yükleme sürerken "Çekiliyor..." yazısına dokunmuyor', st() === 'Çekiliyor...', st());
 
 console.log();
 if (fails) { console.log(`${fails} MADDE KALDI`); process.exit(1); }
