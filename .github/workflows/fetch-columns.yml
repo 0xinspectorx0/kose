@@ -38,7 +38,7 @@ on:
   schedule:
     - cron: '7,37 * * * *'   # yarım saatte bir yoklama (karar: scripts/freshness.py)
   push:
-    branches: [main]
+    branches: [main, arena/3d2f061e-kose]   # GEÇİCİ: dal üzerinde uçtan uca doğrulama
     paths:
       - 'scripts/fetch_columns.py'
       - 'scripts/freshness.py'
