@@ -91,17 +91,28 @@ jobs:
           BRANCH="${GITHUB_REF_NAME:-main}"
           START="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           echo "::notice::Onarma başlıyor — fetch-columns.yml (ref=$BRANCH, force=true), eşik $START"
-          DISPATCH_OUT=$(gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/dispatches" \
-            -f ref="$BRANCH" -F force=true 2>&1)
+          DISPATCH_URL="repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/dispatches"
+          DISPATCH_OUT=$(gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" -F force=true 2>&1)
           DISPATCH_RC=$?
-          echo "dispatch rc=$DISPATCH_RC çıktı=${DISPATCH_OUT:0:300}"
+          echo "dispatch (force=true) rc=$DISPATCH_RC çıktı=${DISPATCH_OUT:0:300}"
+          if [ "$DISPATCH_RC" -ne 0 ]; then
+            # GitHub'ın workflow metadata kaydı eski kalabiliyor: fetch-columns.yml'e
+            # `inputs.force` sonradan eklendiği için dispatch "force is not a permitted
+            # key" (422) dönebiliyor. Girdisiz dispatch her zaman geçerlidir; tazelik
+            # kısayolu da yalnızca veri zaten bugünün+ dolu olduğunda atladığı için
+            # onarma senaryosunda çekim yine yapılır.
+            echo "::warning::force girdisi kabul edilmedi (rc=$DISPATCH_RC) — girdisiz dispatch deneniyor"
+            DISPATCH_OUT=$(gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" 2>&1)
+            DISPATCH_RC=$?
+            echo "dispatch (girdisiz) rc=$DISPATCH_RC çıktı=${DISPATCH_OUT:0:300}"
+          fi
           if [ "$DISPATCH_RC" -ne 0 ]; then
             echo "::error::Çekim workflow'u tetiklenemedi (rc=$DISPATCH_RC): ${DISPATCH_OUT:0:300}"
             echo "healed=no" >> "$GITHUB_OUTPUT"
             echo "reason=dispatch-failed" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "::notice::Dispatch kabul edildi (HTTP 204) — koşunun kaydı bekleniyor"
+          echo "::notice::Dispatch kabul edildi — koşunun kaydı bekleniyor"
 
           # Koşunun kaydının oluşmasını bekle (dispatch asenkron)
           RUN_ID=""

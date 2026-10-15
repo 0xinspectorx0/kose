@@ -170,6 +170,10 @@ if yaml and "--quick" not in sys.argv:
           str(heal.get("if", "")))
     check("onarma dispatch'i force=true ile çağırıyor",
           "dispatches" in heal["run"] and "force=true" in heal["run"])
+    # GitHub'ın workflow metadata kaydı eski kalırsa `force` girdisi 422 verir
+    # ("force is not a permitted key"); girdisiz dispatch yedeği şart.
+    check("force reddedilirse girdisiz dispatch yedeği var",
+          heal["run"].count("-X POST") >= 2 and 'gh api -X POST "$DISPATCH_URL" -f ref="$BRANCH" 2>&1' in heal["run"])
     check("onarma koşusunun bitmesi bekleniyor", ".status" in heal["run"] and "completed" in heal["run"])
     check("onarma sonrası main'in verisi indiriliyor",
           "git fetch origin" in heal["run"] and "data/daily.json" in heal["run"])
