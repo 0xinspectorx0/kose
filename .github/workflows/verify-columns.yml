@@ -21,12 +21,6 @@ on:
   schedule:
     - cron: '7 10 * * *'   # 13:07 TSİ — öğle çekiminden sonra
     - cron: '7 19 * * *'   # 22:07 TSİ — günün kapanış denetimi
-  # GEÇİCİ (bu dalda uçtan uca doğrulama — merge'den önce kaldırılacak):
-  # push tetikleyicisi data/** dışındaki değişikliklerde koşar, böylece
-  # onarma adımının kendi veri commit'i yeni bir denetim tetiklemez.
-  push:
-    branches: [arena/ac6e72e9-kose]
-    paths-ignore: ['data/**']
   workflow_dispatch:
     inputs:
       heal:
