@@ -21,7 +21,7 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 
-const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey'].map(extractConst);
+const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');

@@ -31,7 +31,7 @@ const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWr
 
 const { window } = new JSDOM(html, { runScripts: 'outside-only', url: 'http://localhost/' });
 const doc = window.document;
-const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey'].map(extractConst);
+const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const settingsEvents = block('// --- Ayarlar sekmesi olayları ---', '// Initialize View');
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
