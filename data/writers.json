@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-15T09:45:42.671832+00:00",
+  "fetchedAt": "2026-10-15T14:38:24.825576+00:00",
   "date": "2026-10-15",
-  "total": 1238,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
@@ -1068,7 +1068,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 11,
+      "count": 12,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1114,6 +1114,11 @@
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
+        },
+        {
+          "name": "Mesut Parlak",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
         },
         {
           "name": "Pınar Turan",
@@ -1225,19 +1230,14 @@
           "photo": ""
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "MAHMUT ÖVÜR",
@@ -1245,9 +1245,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -2744,14 +2749,14 @@
           "photo": "https://img.piri.net/piri/upload/3/2026/4/16/d8c9666d-7pzrya452efa6fpyi14gko.webp"
         },
         {
+          "name": "Ömer Çelikbaşlı",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
+        },
+        {
           "name": "Nedret Ersanel",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_08e0c-12b7nedretersanel2.png"
-        },
-        {
-          "name": "Taha Kılınç",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2017/06/14/02/26/554x554resized_75d1b-234e5aedddd.png"
         },
         {
           "name": "Yasin Aktay",
@@ -5279,12 +5284,12 @@
           "photo": ""
         },
         {
-          "name": "Hristodulidis COP31 zirvesi için Türkiye'ye geliyor",
+          "name": "İstanbul'un sel tarihi! 1951'den bugüne büyük felaketler",
           "url": "",
           "photo": ""
         },
         {
-          "name": "BUDO'dan kötü haber: Bugünkü 12 sefer birden iptal edildi!",
+          "name": "Arda Güler'den tarihi gece: İspanyol basını ayakta",
           "url": "",
           "photo": ""
         }
@@ -6306,8 +6311,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 5,
       "writers": [
+        {
+          "name": "Behzat Şahin",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-profil-behzat-500x500.jpeg"
+        },
         {
           "name": "Zehra Çelenk",
           "url": "",
