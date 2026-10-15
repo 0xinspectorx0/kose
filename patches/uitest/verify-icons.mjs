@@ -7,7 +7,11 @@ const require = createRequire('/tmp/uitest/');
 const lucide = require('lucide');
 const html = readFileSync('/home/user/kose/index.html', 'utf8');
 
-const names = [...new Set([...html.matchAll(/data-lucide="([^"]+)"/g)].map(m => m[1]))].sort();
+// JS şablonlarındaki dinamik adlar (data-lucide="${row.icon}") denetim dışıdır:
+// bunlar zaten lucide paketinden gelen simge adlarıdır.
+const names = [...new Set([...html.matchAll(/data-lucide="([^"]+)"/g)].map(m => m[1]))]
+  .filter(n => !n.includes('${'))
+  .sort();
 const have = new Set(Object.keys(lucide.icons).map(n => n.toLowerCase()));
 const missing = names.filter(n => !have.has(n.replace(/-/g, '')));
 
