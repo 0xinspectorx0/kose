@@ -37,6 +37,11 @@ name: Zamanlayıcı (30 dk röle)
 #     kalır.
 #   - Varsayılan dal dışında zincir en fazla bir halka uzar (test: 0 -> 1).
 #
+# GERÇEK ORTAMDA DOĞRULANAN (15 Ekim 2026): ortam ilk koşuda otomatik oluştu;
+#   bekleme süresi yokken kilit zinciri durdurdu ("koşu 0 dk önce başladı");
+#   `deployment: false` hiç dağıtım kaydı oluşturmadı; kontrol işi 4,7 saatlik
+#   veride fetch-columns.yml'i main'de tetikledi.
+#
 # ZİNCİR KOPARSA yeniden başlatanlar: bu dosya main'de değişince (push),
 #   aşağıdaki seyrek cron (GitHub zamanlayıcısı toparlandığında) ya da elle:
 #   Actions -> "Zamanlayıcı (30 dk röle)" -> Run workflow.
