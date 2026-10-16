@@ -23,6 +23,7 @@ const block = (a, b) => {
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 
 const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
   'applyReadState','markArticleRead','isAuthorFullyRead','quickOpenByAuthor',
@@ -57,7 +58,7 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
 window.localStorage.setItem('kose-favorite-writers', favoriteSeedFromDaily('/home/user/kose/data/daily.json'));
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
 window.mainScrollEl.scrollTo = () => {};
-window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), writersEvents].join('\n'));
+window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), writersEvents].join('\n'));
 // Ana sayfadaki daireler artık yalnızca favori yazarları gösterir: test,
 // günlük akıştaki yazarların tamamını eval'den ÖNCE localStorage üzerinden
 // favori olarak tohumlar (favoriteWriters bu kayıttan okunur).
