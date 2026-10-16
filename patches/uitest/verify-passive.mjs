@@ -53,7 +53,7 @@ const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory =
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Pasif/gizli liste mantığı favori bloğunun içinde yaşıyor (aynı localStorage deseni)
 const passiveBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
-const shuffleBlock = block('// --- Ana ekran: favori yazar dairelerinin sırası ---', '// --- /ANA EKRAN SIRASI ---');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
 const settingsEvents = block('// --- Ayarlar sekmesi olayları ---', '// Initialize View');
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');

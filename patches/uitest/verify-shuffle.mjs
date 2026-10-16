@@ -1,8 +1,10 @@
-// Ana ekran: "Yazarları karıştır" seçeneği + okuduğum favorilerin sona geçmesi
+// Ana ekran: "Karıştır" — favori yazar daireleri + yazı listesi
 //   1) okunmuş favori yazarlar her zaman listenin sonunda (karıştırma kapalıyken de)
-//   2) "Karıştır" düğmesi (ve Ayarlar'daki anahtar) açınca okunmamışlar karışık sırada
-//   3) karışık sıra kalıcı ve kararlı (her çizimde yeniden karışmaz)
-//   4) yeni favori / okunan yazar doğru gruba girer; kapatınca favoriye eklenme sırası döner
+//   2) "Karıştır" düğmeleri (favori başlığı + kategori satırı) ve Ayarlar anahtarı
+//      aynı ayarı değiştirir: hem daireler hem aşağıdaki yazılar karışır
+//   3) karışık sıralar kalıcı ve kararlı (her çizimde yeniden karışmaz)
+//   4) yeni yazılar başa, yeni favoriler okunmamış grubun sonuna gelir
+//   5) kapatınca doğal sıra döner (favoriler: eklenme sırası, akış: veri sırası)
 import { readFileSync } from 'node:fs';
 import { JSDOM } from '/tmp/uitest/node_modules/jsdom/lib/api.js';
 
@@ -32,18 +34,27 @@ const block = (a, b) => {
 };
 
 console.log('\n[A] STATİK YAPI');
-ok(/id="shuffle-authors-btn"/.test(html), 'ana ekranda #shuffle-authors-btn var');
-ok(html.indexOf('id="shuffle-authors-btn"') < html.indexOf('id="authors-avatar-track"'),
-  'düğme dairelerin (avatar şeridinin) içinde değil, başlık satırında');
+ok(/id="shuffle-authors-btn"/.test(html), 'favori başlığında #shuffle-authors-btn var');
+ok(/id="shuffle-feed-btn"/.test(html), 'kategori (Tümü) satırında #shuffle-feed-btn var');
+ok(html.indexOf('id="shuffle-feed-btn"') > html.indexOf("filterCategory('Tümü')"),
+  'yazı karıştırma düğmesi kategori pilleriyle aynı satırda (Tümü’nün yanında)');
 ok(/id="set-shuffle"[^>]*role="switch"/.test(html), 'Ayarlar’da #set-shuffle anahtarı var');
-ok(/shuffleAuthors: false/.test(html), 'varsayılan: karıştırma kapalı (shuffleAuthors: false)');
-ok(html.includes("const AUTHOR_ORDER_KEY = 'kose-author-shuffle-order'"), 'karışık sıra localStorage anahtarı tanımlı');
-ok(/data-lucide="shuffle"/.test(html), 'shuffle simgesi kullanılıyor');
-for (const fn of ['orderedFavoriteWriters', 'setAuthorShuffle', 'paintShuffleControls', 'shuffleArray',
-  'favSortKey', 'isFavoriteAuthorRead', 'loadAuthorShuffleOrder', 'saveAuthorShuffleOrder']) {
+ok(/shuffle: false/.test(html), 'varsayılan: karıştırma kapalı (shuffle: false)');
+ok(/stored\.shuffleAuthors/.test(html), 'eski shuffleAuthors ayarı yeni shuffle’a taşınıyor');
+ok(html.includes("const ARTICLE_ORDER_KEY = 'kose-article-shuffle-order'"), 'yazı sırası localStorage anahtarı tanımlı');
+ok(/data-lucide="shuffle"/.test(html), 'shuffle simgesi kullanılıyor (iki düğme)');
+for (const fn of ['orderedFavoriteWriters', 'orderedArticles', 'setShuffle', 'paintShuffleControls', 'shuffleArray',
+  'favSortKey', 'articleSortKey', 'isFavoriteAuthorRead', 'loadOrderList', 'saveOrderList', 'ensureShuffleOrders']) {
   ok(new RegExp(`function ${fn}\\(`).test(html), `${fn}() tanımlı`);
 }
-ok(/orderedFavoriteWriters\(\)\.map/.test(html), 'renderAuthorAvatars sıralamayı orderedFavoriteWriters’tan alıyor');
+ok(!/function setAuthorShuffle\(/.test(html), 'eski setAuthorShuffle kaldırıldı (tek ayar: setShuffle)');
+ok(/renderArticles\(orderedArticles\(filtered\)\)/.test(html), 'applyFilters akışı orderedArticles ile çiziyor');
+ok(/for \(const id of \['shuffle-authors-btn', 'shuffle-feed-btn', 'set-shuffle'\]\)/.test(html),
+  'üç kontrol aynı ayarı değiştiriyor');
+ok(/paintShuffleControls\(\);   \/\/ "Karıştır" düğmeleri yalnızca ait oldukları sekmede görünür/.test(html),
+  'sekme değişiminde karıştırma düğmeleri tazeleniyor');
+ok(/\(currentTab === 'feed' && articles\.length\)/.test(html),
+  'yazı karıştırma düğmesi yalnızca Akış sekmesinde görünür');
 
 console.log('\n[B] TEST ORTAMI');
 // 6 favori; 2’si tamamen okunmuş (Ayşe İki, Ece Beş)
@@ -58,7 +69,7 @@ const FAVS = [
 const ARTS = FAVS.map((f, i) => ({
   id: 5000 + i, author: f.name, source: f.source, avatar: '', category: 'Gündem',
   title: `${f.name} yazısı`, snippet: 'x', readTime: '2 dk', date: 'Bugün',
-  isBookmarked: false, isLive: true, url: '', fullContent: '<p>x</p>',
+  isBookmarked: false, isLive: true, url: `https://gazete.test/${5000 + i}`, fullContent: '<p>x</p>',
 }));
 const READ_SEED = [ARTS[1].id, ARTS[4].id];          // Ayşe İki + Ece Beş okundu
 const READ_NAMES = ['Ayşe İki', 'Ece Beş'];
@@ -70,10 +81,10 @@ function boot(extra = {}) {
   const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
   const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
   const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
-  const shuffleBlock = block('// --- Ana ekran: favori yazar dairelerinin sırası ---', '// --- /ANA EKRAN SIRASI ---');
+  const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
   // Düğme/anahtar bağlantıları: tıklama davranışı gerçek dinleyicilerle sınanır
-  const shuffleEvents = block('// Ana ekran: "Karıştır" düğmesi', "document.getElementById('settings-reset-btn')");
-  const fns = ['applyFilters', 'renderArticles', 'filterCategory',
+  const shuffleEvents = block('// Ana ekran: iki "Karıştır" düğmesi', "document.getElementById('settings-reset-btn')");
+  const fns = ['applyFilters', 'renderArticles', 'filterCategory', 'setTab',
     'toggleFavoriteWriter', 'findFavoriteWriter', 'isFavoriteWriter', 'sameSource', 'favKeyName',
     'deaccentTr', 'favoriteArticles', 'findWriterPhoto', 'renderFavorites', 'escapeHtml', 'normalizeTr',
     'formatAuthorName', 'initialAvatar', 'applyReadState', 'markArticleRead', 'isAuthorFullyRead',
@@ -90,6 +101,7 @@ function boot(extra = {}) {
   window.writersData = null;
   window.writersLoaded = false;   // Keşfet henüz yüklenmedi (favori kalbi çizimi bu koşumun konusu değil)
   window.renderVoiceOptions = () => {};   // ses seçimi listesi bu koşumun konusu değil
+  window.loadWriters = () => {};          // Keşfet çağrıları bu koşumun konusu değil
   const domIds = {
     authorsAvatarTrack: 'authors-avatar-track', articlesListEl: 'articles-list',
     writersListEl: 'writers-list', writersMetaEl: 'writers-meta', writersLoadingEl: 'writers-loading',
@@ -102,6 +114,7 @@ function boot(extra = {}) {
     writersManageEl: 'writers-manage',
   };
   for (const [k, id] of Object.entries(domIds)) window[k] = doc.getElementById(id);
+  window.Element.prototype.scrollTo = () => {};   // jsdom'da yok; sekme geçişleri bunu kullanır
   window.localStorage.setItem('kose-favorite-writers', JSON.stringify(FAVS));
   window.localStorage.setItem('kose-read-articles', JSON.stringify(READ_SEED));
   for (const [k, v] of Object.entries(extra)) window.localStorage.setItem(k, v);
@@ -109,12 +122,13 @@ function boot(extra = {}) {
   // dışarı açan küçük yardımcılar aynı eval bloğunun sonuna eklenir (yalnızca test).
   const harness = `
     window.__t = {
-      shuffleOn: () => appSettings.shuffleAuthors,
+      shuffleOn: () => appSettings.shuffle,
       favNames: () => favoriteWriters.map(f => f.name),
       displayOrder: () => orderedFavoriteWriters().map(f => f.name),
-      readIds: () => [...readArticles],
+      feedOrder: () => orderedArticles(articles).map(articleSortKey),
+      articleKeyOfId: (id) => articleSortKey(articles.find(a => a.id === id)),
       setFavs: (list) => { favoriteWriters = list.slice(); saveFavoriteWriters(); renderAuthorAvatars(); },
-      keyOf: (name, source) => favSortKey({ name, source: source || 'Gazete A' })
+      renderFeed: () => applyFilters()
     };`;
   window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock,
     ...fns.map(extract), shuffleEvents, harness].join('\n'));
@@ -125,96 +139,155 @@ function boot(extra = {}) {
 
 let { window, doc } = boot();
 const circleNames = () => [...doc.querySelectorAll('#authors-avatar-track > div[data-name]')].map(el => el.dataset.name);
-const btn = doc.getElementById('shuffle-authors-btn');
-const storedOrder = () => JSON.parse(window.localStorage.getItem('kose-author-shuffle-order') || '[]');
-const settingsSaved = () => JSON.parse(window.localStorage.getItem('kose-settings') || '{}');
+// Akıştaki kartların sırasını, kartın openReader(<id>) bağlantısından okuyup anahtara çevirir
+const feedKeys = () => [...doc.querySelectorAll('#articles-list article')]
+  .map(a => Number(String(a.getAttribute('onclick')).match(/openReader\((\d+)\)/)[1]))
+  .map(id => window.__t.articleKeyOfId(id));
+const naturalFeedKeys = () => window.articles.map(a => window.__t.articleKeyOfId(a.id));
 const click = el => el.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+const favBtn = doc.getElementById('shuffle-authors-btn');
+const feedBtn = doc.getElementById('shuffle-feed-btn');
+const storedOrder = k => JSON.parse(window.localStorage.getItem(k) || '[]');
+const settingsSaved = () => JSON.parse(window.localStorage.getItem('kose-settings') || '{}');
 
-console.log('\n[C] OKUDUĞUM FAVORİLER SONA (karıştırma kapalı)');
+console.log('\n[C] KARIŞTIRMA KAPALI: OKUDUĞUM FAVORİLER SONA, AKIŞ DOĞAL SIRADA');
 window.renderAuthorAvatars();
+window.__t.renderFeed();
 const order0 = circleNames();
 ok(order0.join('|') === ['Ali Bir', 'Can Üç', 'Deniz Dört', 'Fatih Altı', 'Ayşe İki', 'Ece Beş'].join('|'),
-  'sıra: okunmamışlar önde, okunanlar sonda', order0.join(', '));
+  'daireler: okunmamışlar önde, okunanlar sonda', order0.join(', '));
 ok(window.__t.shuffleOn() === false, 'karıştırma varsayılan olarak kapalı');
-ok(btn.getAttribute('aria-pressed') === 'false' && btn.textContent.trim() === 'Karıştır',
-  'düğme kapalı durumda: aria-pressed=false, etiket "Karıştır"');
-ok(btn.style.display !== 'none', 'favori varken düğme görünür');
-ok(window.__t.displayOrder().join('|') === order0.join('|'), 'çizilen sıra = orderedFavoriteWriters()');
+ok(feedKeys().join('|') === naturalFeedKeys().join('|'), 'akış doğal (veri) sırasında');
+ok(favBtn.getAttribute('aria-pressed') === 'false' && favBtn.textContent.trim() === 'Karıştır',
+  'favori düğmesi kapalı: aria-pressed=false, etiket "Karıştır"');
+ok(feedBtn.getAttribute('aria-pressed') === 'false', 'yazı düğmesi kapalı görünüyor');
+ok(feedBtn.style.display !== 'none', 'yazı düğmesi görünür (yazılar yüklü)');
 
-console.log('\n[D] "KARIŞTIR" AÇIK');
-click(btn);
+console.log('\n[D] KATEGORİ SATIRINDAKİ DÜĞME: İKİ LİSTE BİRDEN KARIŞIYOR');
+click(feedBtn);
 const order1 = circleNames();
-ok(window.__t.shuffleOn() === true, 'karıştırma açıldı (appSettings)');
-ok(btn.getAttribute('aria-pressed') === 'true' && btn.textContent.trim() === 'Karışık',
-  'düğme açık durumda: aria-pressed=true, etiket "Karışık"');
-ok(/bg-accent/.test(btn.className), 'düğme turuncu (aktif) tonda');
-ok(settingsSaved().shuffleAuthors === true, 'seçim Ayarlar’a (localStorage) yazıldı');
-ok(storedOrder().length === FAVS.length, 'karışık sıra kaydedildi', `${storedOrder().length} anahtar`);
-const unreadShuffled = order1.slice(0, 4);
-const readPart = order1.slice(4);
-ok(unreadShuffled.slice().sort().join('|') === order0.slice(0, 4).slice().sort().join('|'),
-  'karıştırma yalnızca okunmamışları yer değiştirdi', unreadShuffled.join(', '));
-ok(unreadShuffled.join('|') !== order0.slice(0, 4).join('|'), 'okunmamışların sırası gerçekten karıştı');
-ok(readPart.join('|') === READ_NAMES.join('|'), 'okunanlar yine sonda ve kendi içinde sıralı', readPart.join(', '));
+const feed1 = feedKeys();
+ok(window.__t.shuffleOn() === true, 'karıştırma açıldı (appSettings.shuffle)');
+ok(settingsSaved().shuffle === true, 'seçim Ayarlar’a (localStorage) yazıldı');
+ok(!('shuffleAuthors' in settingsSaved()), 'eski ayar anahtarı kayıtta kalmıyor');
+ok(storedOrder('kose-author-shuffle-order').length === FAVS.length, 'favori sırası kaydedildi',
+  `${storedOrder('kose-author-shuffle-order').length} anahtar`);
+ok(storedOrder('kose-article-shuffle-order').length === ARTS.length, 'yazı sırası kaydedildi',
+  `${storedOrder('kose-article-shuffle-order').length} anahtar`);
+ok(order1.slice(0, 4).slice().sort().join('|') === order0.slice(0, 4).slice().sort().join('|') &&
+  order1.slice(0, 4).join('|') !== order0.slice(0, 4).join('|'),
+  'okunmamış daireler karıştı (okunanlar yerinde)', order1.join(', '));
+ok(order1.slice(4).join('|') === READ_NAMES.join('|'), 'okunanlar yine sonda', order1.slice(4).join(', '));
+const storedFeed = storedOrder('kose-article-shuffle-order');
+ok(feed1.join('|') === storedFeed.join('|'), 'akış tam olarak kayıtlı karışık sırada çizildi');
+ok(feed1.join('|') !== naturalFeedKeys().join('|'), 'akış sırası gerçekten değişti');
+ok(feedBtn.getAttribute('aria-pressed') === 'true' && /bg-accent/.test(feedBtn.className),
+  'yazı düğmesi açık: aria-pressed=true, turuncu');
+ok(favBtn.textContent.trim() === 'Karışık' && favBtn.getAttribute('aria-pressed') === 'true',
+  'favori düğmesi de açık duruma geçti (senkron)');
+window.__t.renderFeed();
+ok(feedKeys().join('|') === feed1.join('|'), 'karışık sıra kararlı: ikinci çizimde değişmiyor');
 window.renderAuthorAvatars();
-ok(circleNames().join('|') === order1.join('|'), 'karışık sıra kararlı: ikinci çizimde değişmiyor');
+ok(circleNames().join('|') === order1.join('|'), 'dairelerin karışık sırası da kararlı');
 
-console.log('\n[E] SONRADAN EKLENEN FAVORİ / OKUNAN YAZAR');
-window.toggleFavoriteWriter({ name: 'Gizem Yedi', source: 'Gazete A' });
+console.log('\n[E] YENİ YAZI BAŞA · YENİ FAVORİ SONA');
+const NEW_URL = 'https://gazete.test/yeni-yazi';
 window.articles.push({ id: 5999, author: 'Gizem Yedi', source: 'Gazete A', avatar: '', category: 'Gündem',
-  title: 'Gizem yazısı', snippet: 'x', readTime: '2 dk', date: 'Bugün', isBookmarked: false, isLive: true,
-  url: '', fullContent: '<p>x</p>' });
+  title: 'Yepyeni yazı', snippet: 'y', readTime: '1 dk', date: 'Bugün', isBookmarked: false, isLive: true,
+  url: NEW_URL, fullContent: '<p>y</p>' });
+window.__t.renderFeed();
+const feed2 = feedKeys();
+ok(feed2[0] === NEW_URL, 'sonradan gelen yeni yazı karışık listenin başında', feed2[0]);
+ok(feed2.slice(1).join('|') === feed1.join('|'), 'mevcut yazıların karışık sırası korundu');
+window.toggleFavoriteWriter({ name: 'Gizem Yedi', source: 'Gazete A' });
 window.renderAuthorAvatars();
 const order2 = circleNames();
-ok(order2[4] === 'Gizem Yedi', 'yeni favori okunmamış grubun sonuna eklendi', order2.join(', '));
-ok(order2.slice(5).join('|') === READ_NAMES.join('|'), 'okunanlar hâlâ sonda');
-window.markArticleRead(ARTS[0].id);   // Ali Bir’in yazısı okundu
+ok(order2.indexOf('Gizem Yedi') === 4, 'yeni favori karışık grubun sonuna eklendi', order2.join(', '));
+window.markArticleRead(ARTS[0].id);   // Ali Bir okundu -> sona geçer
 window.renderAuthorAvatars();
 const order3 = circleNames();
-ok(order3.indexOf('Ali Bir') >= order3.indexOf('Gizem Yedi'),
-  'okunan yazar (Ali Bir) karışık gruptan çıkıp sona geçti', order3.join(', '));
-ok(order3.slice(-3).join('|') === 'Ayşe İki|Ece Beş|Ali Bir', 'okunanlar sonda kendi sırasıyla', order3.slice(-3).join(', '));
+ok(order3.slice(-3).join('|') === 'Ayşe İki|Ece Beş|Ali Bir', 'okunan yazar sona geçti', order3.slice(-3).join(', '));
 
-console.log('\n[F] KAPATINCA FAVORİYE EKLENME SIRASI DÖNER');
-click(btn);
-const order4 = circleNames();
-ok(window.__t.shuffleOn() === false && btn.getAttribute('aria-pressed') === 'false', 'karıştırma kapandı');
-ok(storedOrder().length === 0, 'kayıtlı karışık sıra temizlendi');
-ok(order4.join('|') === ['Can Üç', 'Deniz Dört', 'Fatih Altı', 'Gizem Yedi', 'Ali Bir', 'Ayşe İki', 'Ece Beş'].join('|'),
-  'favoriye eklenme sırasına dönüldü (okunanlar yine sonda)', order4.join(', '));
-ok(order4.slice(-3).join('|') === ['Ali Bir', 'Ayşe İki', 'Ece Beş'].join('|'),
-  'okunan grup kendi içinde favoriye eklenme sırasında', order4.slice(-3).join(', '));
-
-console.log('\n[G] AYARLAR ANAHTARI + GÖRÜNÜRLÜK');
+console.log('\n[F] AYARLAR ANAHTARI + KAPATINCA DOĞAL SIRA');
 click(doc.getElementById('set-shuffle'));
-ok(window.__t.shuffleOn() === true, 'Ayarlar’dan açılabiliyor');
-ok(doc.getElementById('set-shuffle').getAttribute('aria-checked') === 'true', 'anahtar işaretlendi (aria-checked)');
-ok(btn.textContent.trim() === 'Karışık', 'ana ekran düğmesi de güncellendi');
-window.renderSettings();
-ok(doc.getElementById('set-shuffle').getAttribute('aria-checked') === 'true', 'renderSettings sonrası anahtar açık');
-window.__t.setFavs([]);
-ok(btn.style.display === 'none', 'favori yokken "Karıştır" düğmesi gizli');
-window.__t.setFavs(FAVS);
-ok(btn.style.display !== 'none' && circleNames().length === FAVS.length, 'favori eklenince düğme geri geldi');
+ok(window.__t.shuffleOn() === false, 'Ayarlar’dan kapatılabiliyor');
+ok(storedOrder('kose-article-shuffle-order').length === 0 && storedOrder('kose-author-shuffle-order').length === 0,
+  'iki karışık sıra da temizlendi');
+const feed3 = feedKeys();
+ok(feed3.join('|') === window.articles.map(a => window.__t.articleKeyOfId(a.id)).join('|'),
+  'akış veri sırasına döndü', feed3.slice(0, 3).join(', '));
+ok(feed3[0] !== NEW_URL, 'yeni yazı artık başta değil (doğal sırada sonunda)');
+const order4 = circleNames();
+ok(order4.join('|') === ['Can Üç', 'Deniz Dört', 'Fatih Altı', 'Gizem Yedi', 'Ali Bir', 'Ayşe İki', 'Ece Beş'].join('|'),
+  'daireler favoriye eklenme sırasına döndü (okunanlar sonda)', order4.join(', '));
+ok(feedBtn.getAttribute('aria-pressed') === 'false' && favBtn.getAttribute('aria-pressed') === 'false',
+  'iki düğme de kapalı gösteriyor');
+ok(doc.getElementById('set-shuffle').getAttribute('aria-checked') === 'false', 'Ayarlar anahtarı kapalı');
 
-console.log('\n[H] KALICILIK (sayfa yeniden açılışı)');
-const orderRaw = window.localStorage.getItem('kose-author-shuffle-order');
+console.log('\n[G] FAVORİ BAŞLIĞINDAKİ DÜĞME + GÖRÜNÜRLÜK');
+click(favBtn);
+ok(window.__t.shuffleOn() === true, 'favori düğmesi de karıştırmayı açıyor (aynı ayar)');
+ok(feedBtn.getAttribute('aria-pressed') === 'true', 'yazı düğmesi senkron');
+window.__t.setFavs([]);
+ok(favBtn.style.display === 'none', 'favori yokken başlıktaki düğme gizli');
+ok(feedBtn.style.display !== 'none', 'yazı düğmesi yine görünür (yazılar var)');
+window.__t.setFavs(FAVS);
+ok(favBtn.style.display !== 'none' && circleNames().length === FAVS.length, 'favori eklenince düğme geri geldi');
+
+console.log('\n[H] YAZI DÜĞMESİ YALNIZCA AKIŞ SEKMESİNDE');
+window.setTab('saved');
+ok(feedBtn.style.display === 'none', 'Kaydedilen sekmesinde yazı karıştırma düğmesi gizli');
+ok(doc.getElementById('articles-list') !== null, 'Kaydedilen listesi yine çiziliyor');
+window.setTab('feed');
+ok(feedBtn.style.display !== 'none', 'Akış sekmesine dönünce düğme geri geliyor');
+window.setTab('discover');
+ok(feedBtn.style.display === 'none', 'Keşfet sekmesinde yazı düğmesi gizli (kategori satırı görünmüyor)');
+ok(favBtn.style.display !== 'none', 'Keşfet sekmesinde favori düğmesi yerinde kalıyor');
+window.setTab('feed');
+
+console.log('\n[I] SIRA ÜRETİLMEMİŞKEN KARIŞTIRMA AÇIK (tembel üretim)');
+window.close();
+const lazy = boot({ 'kose-settings': JSON.stringify({ shuffle: true }) });   // kayıtlı sıra YOK
+lazy.window.renderAuthorAvatars();
+lazy.window.__t.renderFeed();
+ok(lazy.window.__t.shuffleOn() === true, 'ayar kayıttan açık geldi');
+ok(JSON.parse(lazy.window.localStorage.getItem('kose-article-shuffle-order') || '[]').length === ARTS.length,
+  'yazı sırası ilk çizimde üretilip kaydedildi');
+ok(JSON.parse(lazy.window.localStorage.getItem('kose-author-shuffle-order') || '[]').length === FAVS.length,
+  'favori sırası ilk çizimde üretilip kaydedildi');
+const lazyFeed = [...lazy.doc.querySelectorAll('#articles-list article')]
+  .map(a => Number(String(a.getAttribute('onclick')).match(/openReader\((\d+)\)/)[1]))
+  .map(id => lazy.window.__t.articleKeyOfId(id));
+ok(lazyFeed.join('|') !== ARTS.map(a => a.url).join('|'), 'akış ilk çizimde karışık geldi', lazyFeed.slice(0, 3).join(', '));
+const lazyCircles = [...lazy.doc.querySelectorAll('#authors-avatar-track > div[data-name]')].map(el => el.dataset.name);
+ok(lazyCircles.slice(0, 4).join('|') !== ['Ali Bir', 'Can Üç', 'Deniz Dört', 'Fatih Altı'].join('|'),
+  'daireler de ilk çizimde karışık geldi', lazyCircles.slice(0, 4).join(', '));
+ok(lazyCircles.slice(-2).join('|') === READ_NAMES.join('|'), 'okunanlar yine sonda');
+lazy.window.close();
+
+console.log('\n[J] KALICILIK (sayfa yeniden açılışı)');
+const authorRaw = window.localStorage.getItem('kose-author-shuffle-order');
+const articleRaw = window.localStorage.getItem('kose-article-shuffle-order');
 const settingsRaw = window.localStorage.getItem('kose-settings');
 const favRaw = window.localStorage.getItem('kose-favorite-writers');
 window.close();
-const reborn = boot({ 'kose-settings': settingsRaw, 'kose-author-shuffle-order': orderRaw, 'kose-favorite-writers': favRaw });
+const reborn = boot({ 'kose-settings': settingsRaw, 'kose-author-shuffle-order': authorRaw,
+  'kose-article-shuffle-order': articleRaw, 'kose-favorite-writers': favRaw });
 reborn.window.renderAuthorAvatars();
-const rebornOrder = [...reborn.doc.querySelectorAll('#authors-avatar-track > div[data-name]')].map(el => el.dataset.name);
+reborn.window.__t.renderFeed();
+const rebornFavs = [...reborn.doc.querySelectorAll('#authors-avatar-track > div[data-name]')].map(el => el.dataset.name);
+const rebornFeed = [...reborn.doc.querySelectorAll('#articles-list article')]
+  .map(a => Number(String(a.getAttribute('onclick')).match(/openReader\((\d+)\)/)[1]))
+  .map(id => reborn.window.__t.articleKeyOfId(id));
 ok(reborn.window.__t.shuffleOn() === true, 'yeniden açılışta karıştırma açık kalıyor');
-ok(reborn.doc.getElementById('shuffle-authors-btn').getAttribute('aria-pressed') === 'true',
-  'düğme açık durumda geri geliyor');
-const nameByKey = Object.fromEntries(FAVS.map(f => [reborn.window.__t.keyOf(f.name, f.source), f.name]));
-const storedNames = JSON.parse(orderRaw).map(k => nameByKey[k]).filter(Boolean);
-const expectedReborn = [...storedNames.filter(n => !READ_NAMES.includes(n)),
-                        ...storedNames.filter(n => READ_NAMES.includes(n))];
-ok(rebornOrder.join('|') === expectedReborn.join('|'),
-  'kayıtlı karışık sıra yeniden uygulanıyor (okunanlar sonda)', rebornOrder.join(', '));
-ok(rebornOrder.slice(-2).join('|') === READ_NAMES.join('|'), 'okunanlar yeniden açılışta da sonda');
+ok(reborn.doc.getElementById('shuffle-feed-btn').getAttribute('aria-pressed') === 'true' &&
+  reborn.doc.getElementById('shuffle-authors-btn').getAttribute('aria-pressed') === 'true',
+  'iki düğme de açık durumda geri geliyor');
+const savedArticleOrder = JSON.parse(articleRaw);
+const firstBatch = window.articles.slice(0, 6).map(a => window.__t.articleKeyOfId(a.id));
+ok(rebornFeed.slice(0, 6).join('|') === savedArticleOrder.filter(k => firstBatch.includes(k)).join('|'),
+  'kayıtlı karışık yazı sırası yeniden uygulanıyor', rebornFeed.slice(0, 3).join(', '));
+ok(rebornFavs.slice(-2).join('|') === READ_NAMES.join('|'), 'okunan favoriler yeniden açılışta da sonda');
 reborn.window.close();
 
 console.log('');
@@ -223,4 +296,4 @@ if (fails.length) {
   fails.forEach(f => console.log('  - ' + f));
   process.exit(1);
 }
-console.log('TÜM KARIŞTIRMA / OKUNAN-SONDA TESTLERİ GEÇTİ');
+console.log('TÜM KARIŞTIRMA TESTLERİ GEÇTİ (favoriler + yazı listesi)');

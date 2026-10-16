@@ -140,7 +140,8 @@
       </div>
 
       <!-- Category Filter Chips -->
-      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2" id="feed-categories-section">
+      <section class="px-5 mb-4 flex items-center gap-2" id="feed-categories-section">
+        <div class="flex-1 flex gap-2 overflow-x-auto no-scrollbar py-0.5">
         <button onclick="filterCategory('Tümü')" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm">
           Tümü
         </button>
@@ -155,6 +156,12 @@
         </button>
         <button onclick="filterCategory('Kültür-Sanat')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
           Kültür-Sanat
+        </button>
+        </div>
+        <!-- Karıştır: favori yazarlar + aşağıdaki yazı listesi (başlıktaki düğmeyle aynı ayar) -->
+        <button id="shuffle-feed-btn" type="button" aria-pressed="false" title="Yazıları ve favori yazarları karıştır"
+          class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-stone-200/70 text-slate-600 hover:bg-stone-300 active:scale-90 transition-all">
+          <i data-lucide="shuffle" class="w-4 h-4"></i>
         </button>
       </section>
 
@@ -301,8 +308,8 @@
           </div>
           <div class="p-3.5 flex items-center justify-between gap-3">
             <div class="min-w-0">
-              <p class="text-xs font-bold text-ink-900">Favori yazarları karıştır</p>
-              <p class="text-[11px] text-stone-500 mt-0.5">Ana ekrandaki daireler karışık sırada gelsin. Okuduğunuz yazarlar her zaman sona geçer.</p>
+              <p class="text-xs font-bold text-ink-900">Favori yazarları ve yazıları karıştır</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Ana ekrandaki daireler ve yazı listesi karışık sırada gelsin. Okuduğunuz yazarlar sona, sonradan gelen yazılar başa geçer.</p>
             </div>
             <button id="set-shuffle" type="button" role="switch" aria-checked="false" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-stone-200 transition-colors">
               <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"></span>
@@ -845,11 +852,18 @@
 
     // --- Uygulama ayarları (localStorage'da saklanır) ---
     const SETTINGS_KEY = 'kose-settings';
-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: false, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto', shuffleAuthors: false };
+    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: false, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto', shuffle: false };
     let appSettings = { ...DEFAULT_SETTINGS };
     try {
-      Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
+      const stored = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+      Object.assign(appSettings, stored);
+      // Önceki sürümde karıştırma yalnızca favori dairelerine uygulanıyordu
+      // ('shuffleAuthors'); artık tek ayar hem daireleri hem yazı listesini yönetir.
+      if (stored.shuffle === undefined && typeof stored.shuffleAuthors === 'boolean') {
+        appSettings.shuffle = stored.shuffleAuthors;
+      }
     } catch (e) { /* bozuk kayıt -> varsayılanlar */ }
+    delete appSettings.shuffleAuthors;
     function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); }
 
     function paintToggle(btn, on) {
@@ -1945,6 +1959,7 @@
       writersViewEl.classList.toggle('hidden', !isDiscover);
       favoritesViewEl.classList.toggle('hidden', !isFavorites);
       settingsViewEl.classList.toggle('hidden', !isSettings);
+      paintShuffleControls();   // "Karıştır" düğmeleri yalnızca ait oldukları sekmede görünür
 
       if (isSettings) {
         renderSettings();
@@ -1969,30 +1984,39 @@
       return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`;
     }
 
-    // --- Ana ekran: favori yazar dairelerinin sırası ---
-    // İki kural:
-    //   1) OKUDUĞUM favoriler her zaman sona geçer (halkası gri olanlar; bugünkü
-    //      yazılarının tamamı okunmuş yazarlar).
-    //   2) "Karıştır" açıksa okunmamışlar kayıtlı karışık sırayla gelir; kapatınca
-    //      favoriye eklenme sırasına dönülür. Karışık sıra localStorage'da saklanır,
-    //      böylece her çizimde (veri yenilenince, sekmeye dönünce) zıplamaz.
+    // --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---
+    // Tek ayar iki listeyi birlikte karıştırır:
+    //   * Favori yazar daireleri: okunmamışlar kayıtlı karışık sırada, okunanlar sonda.
+    //   * Yazı listesi (Akış/Tümü): kayıtlı karışık sırada.
+    // Karışık sıralar localStorage'da saklanır; böylece her çizimde, veri
+    // yenilenince ya da sekmeye dönünce sıra zıplamaz.
     const AUTHOR_ORDER_KEY = 'kose-author-shuffle-order';
+    const ARTICLE_ORDER_KEY = 'kose-article-shuffle-order';
     let authorShuffleOrder = [];
+    let articleShuffleOrder = [];
 
-    function loadAuthorShuffleOrder() {
+    function loadOrderList(key) {
       try {
-        const parsed = JSON.parse(localStorage.getItem(AUTHOR_ORDER_KEY) || '[]');
+        const parsed = JSON.parse(localStorage.getItem(key) || '[]');
         return Array.isArray(parsed) ? parsed.filter(k => typeof k === 'string' && k) : [];
       } catch (e) { return []; }
     }
-    function saveAuthorShuffleOrder(list) {
-      try { localStorage.setItem(AUTHOR_ORDER_KEY, JSON.stringify((list || []).slice(0, 400))); } catch (e) { /* kota */ }
+    function saveOrderList(key, list) {
+      try { localStorage.setItem(key, JSON.stringify((list || []).slice(0, 800))); } catch (e) { /* kota */ }
     }
-    authorShuffleOrder = loadAuthorShuffleOrder();
+    authorShuffleOrder = loadOrderList(AUTHOR_ORDER_KEY);
+    articleShuffleOrder = loadOrderList(ARTICLE_ORDER_KEY);
 
     // Favori kaydının sıralama anahtarı (ad + gazete; aksan/büyük harf farkı önemsiz)
     function favSortKey(fav) {
       return `${favKeyName(fav && fav.name)}|${favKeyName(fav && fav.source)}`;
+    }
+
+    // Yazının sıralama anahtarı: kalıcı bağlantı (url) — akış her yarım saatte
+    // yenilendiğinde nesne kimlikleri değişse de sıra korunur.
+    function articleSortKey(art) {
+      if (!art) return '';
+      return String(art.url || '') || `${art.source || ''}|${art.author || ''}|${art.title || ''}`;
     }
 
     // Fisher-Yates
@@ -2012,11 +2036,26 @@
       return art ? isAuthorFullyRead(art.author) : false;
     }
 
+    // Karıştırma açıkken sıra henüz üretilmemişse (ör. ayar veri/favori gelmeden
+    // açıldıysa) burada üretilir; bir kez üretilir ve kalıcı olur.
+    function ensureShuffleOrders() {
+      if (!appSettings.shuffle) return;
+      if (!authorShuffleOrder.length && favoriteWriters.length) {
+        authorShuffleOrder = shuffleArray(favoriteWriters.map(favSortKey));
+        saveOrderList(AUTHOR_ORDER_KEY, authorShuffleOrder);
+      }
+      if (!articleShuffleOrder.length && articles.length) {
+        articleShuffleOrder = shuffleArray(articles.map(articleSortKey));
+        saveOrderList(ARTICLE_ORDER_KEY, articleShuffleOrder);
+      }
+    }
+
     // Ana ekranda gösterilecek sıra: okunanlar sonda, grup içi sıra korunur
     function orderedFavoriteWriters() {
+      ensureShuffleOrders();
       const base = favoriteWriters.slice();
       let ordered = base;
-      if (appSettings.shuffleAuthors && authorShuffleOrder.length) {
+      if (appSettings.shuffle && authorShuffleOrder.length) {
         const rank = new Map();
         authorShuffleOrder.forEach((key, i) => { if (!rank.has(key)) rank.set(key, i); });
         // Karışık sırada olmayan (yeni eklenen) favoriler kendi aralarında
@@ -2031,37 +2070,74 @@
       return [...unread, ...read];
     }
 
-    // Karıştırmayı aç/kapat: yeni sıra üretir, seçimi kalıcı yazar, daireleri çizer
-    function setAuthorShuffle(on) {
-      appSettings.shuffleAuthors = !!on;
+    // Yazı akışının sırası: "Karıştır" açıkken kayıtlı karışık sıra uygulanır.
+    // Karışık sırada bulunmayan (sonradan gelen yeni) yazılar BAŞA alınır ki taze
+    // içerik karışık listenin içinde kaybolmasın; kendi aralarında normal
+    // sıralarını korurlar (sort kararlıdır + yedek ölçüt).
+    function orderedArticles(list) {
+      ensureShuffleOrders();
+      const base = Array.isArray(list) ? list.slice() : [];
+      if (!appSettings.shuffle || !articleShuffleOrder.length) return base;
+      const rank = new Map();
+      articleShuffleOrder.forEach((key, i) => { if (!rank.has(key)) rank.set(key, i); });
+      return base
+        .map((art, i) => ({ art, i, rank: rank.has(articleSortKey(art)) ? rank.get(articleSortKey(art)) + 1 : 0 }))
+        .sort((a, b) => (a.rank - b.rank) || (a.i - b.i))
+        .map(x => x.art);
+    }
+
+    // Karıştırmayı aç/kapat: iki liste için yeni sıra üretir, seçimi kalıcı yazar,
+    // daireleri ve yazı akışını yeniden çizer.
+    function setShuffle(on) {
+      appSettings.shuffle = !!on;
       if (on) {
         authorShuffleOrder = shuffleArray(favoriteWriters.map(favSortKey));
-        saveAuthorShuffleOrder(authorShuffleOrder);
+        articleShuffleOrder = shuffleArray(articles.map(articleSortKey));
       } else {
         authorShuffleOrder = [];
-        saveAuthorShuffleOrder([]);
+        articleShuffleOrder = [];
       }
+      saveOrderList(AUTHOR_ORDER_KEY, authorShuffleOrder);
+      saveOrderList(ARTICLE_ORDER_KEY, articleShuffleOrder);
       saveSettings();
       paintShuffleControls();
       renderAuthorAvatars();
+      if (currentTab === 'feed') applyFilters();   // yazı listesi de yeni sıraya geçsin
     }
 
-    // Ana ekrandaki "Karıştır" düğmesi ile Ayarlar'daki anahtarı aynı duruma getir
+    // İki "Karıştır" düğmesi (favori başlığı + kategori satırı) ve Ayarlar'daki
+    // anahtar aynı durumu gösterir.
     function paintShuffleControls() {
-      const on = !!appSettings.shuffleAuthors;
-      const btn = document.getElementById('shuffle-authors-btn');
-      if (btn) {
+      const on = !!appSettings.shuffle;
+      const favLabel = on ? 'Karışık' : 'Karıştır';
+      const hasFav = favoriteWriters.length > 0;
+      const favBtn = document.getElementById('shuffle-authors-btn');
+      if (favBtn) {
         // Karıştıracak yazar yoksa düğme görünmez (hidden/flex çakışmasın diye inline stil)
-        btn.style.display = favoriteWriters.length ? '' : 'none';
-        btn.setAttribute('aria-pressed', String(on));
-        btn.title = on
-          ? 'Karıştırma açık — dokununca eski sıraya döner (okuduklarınız sonda)'
-          : 'Yazarları karıştır (okuduklarınız sonda kalır)';
-        btn.className = `flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full active:scale-95 transition-all ${on
+        favBtn.style.display = hasFav ? '' : 'none';
+        favBtn.setAttribute('aria-pressed', String(on));
+        favBtn.title = on
+          ? 'Karıştırma açık — dokununca doğal sıraya döner (yazılar ve yazarlar eski düzeninde)'
+          : 'Favori yazarları ve yazıları karıştır (okuduklarınız sonda kalır)';
+        favBtn.className = `flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full active:scale-95 transition-all ${on
           ? 'bg-accent text-white hover:bg-accent/85'
           : 'bg-stone-200/70 text-slate-600 hover:bg-stone-300'}`;
-        const label = btn.querySelector('span');
-        if (label) label.textContent = on ? 'Karışık' : 'Karıştır';
+        const label = favBtn.querySelector('span');
+        if (label) label.textContent = favLabel;
+      }
+      // Kategori satırının ucundaki simge düğmesi: aşağıdaki yazıları (ve daireleri) karıştırır
+      const feedBtn = document.getElementById('shuffle-feed-btn');
+      if (feedBtn) {
+        // Yalnızca Akış'ta: Kaydedilen sekmesi kendi listesini doğal sırada gösterir
+        feedBtn.style.display = (currentTab === 'feed' && articles.length) ? '' : 'none';
+        feedBtn.setAttribute('aria-pressed', String(on));
+        feedBtn.setAttribute('aria-label', on ? 'Karıştırmayı kapat' : 'Yazıları ve favori yazarları karıştır');
+        feedBtn.title = on
+          ? 'Karıştırma açık — dokununca doğal sıraya döner'
+          : 'Yazıları ve favori yazarları karıştır';
+        feedBtn.className = `flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center active:scale-90 transition-all ${on
+          ? 'bg-accent text-white hover:bg-accent/85'
+          : 'bg-stone-200/70 text-slate-600 hover:bg-stone-300'}`;
       }
       paintToggle(document.getElementById('set-shuffle'), on);
     }
@@ -2280,7 +2356,8 @@
         );
       }
 
-      renderArticles(filtered);
+      // "Karıştır" açıksa akış kayıtlı karışık sırada listelenir (yeni yazılar başta)
+      renderArticles(orderedArticles(filtered));
     }
 
     // Yazı kartındaki kalp: kartın yazarını favorilere ekler/çıkarır
@@ -2823,21 +2900,24 @@
         renderSettings();
       });
     });
-    // Ana ekran: "Karıştır" düğmesi (okuduğum favoriler sonda kalır)
-    const shuffleAuthorsBtn = document.getElementById('shuffle-authors-btn');
-    if (shuffleAuthorsBtn) shuffleAuthorsBtn.addEventListener('click', () => setAuthorShuffle(!appSettings.shuffleAuthors));
-    // Ayarlar: "Favori yazarları karıştır" anahtarı
-    const setShuffleBtn = document.getElementById('set-shuffle');
-    if (setShuffleBtn) setShuffleBtn.addEventListener('click', () => setAuthorShuffle(!appSettings.shuffleAuthors));
+    // Ana ekran: iki "Karıştır" düğmesi (favori başlığı + kategori satırı) ve
+    // Ayarlar'daki anahtar aynı ayarı değiştirir: yazarlar + yazı listesi karışır.
+    for (const id of ['shuffle-authors-btn', 'shuffle-feed-btn', 'set-shuffle']) {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => setShuffle(!appSettings.shuffle));
+    }
 
     document.getElementById('settings-reset-btn').addEventListener('click', () => {
       appSettings = { ...DEFAULT_SETTINGS };
       readerFontSize = Number(appSettings.readerFont) || 16;
       authorShuffleOrder = [];
-      saveAuthorShuffleOrder([]);
+      articleShuffleOrder = [];
+      saveOrderList(AUTHOR_ORDER_KEY, []);
+      saveOrderList(ARTICLE_ORDER_KEY, []);
       saveSettings();
       renderSettings();
       renderAuthorAvatars();   // daireler favoriye eklenme sırasına döner
+      if (currentTab === 'feed') applyFilters();   // akış doğal sırasına döner
     });
     document.getElementById('settings-refresh-btn').addEventListener('click', () => loadDailyFeed(true));
 
