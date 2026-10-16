@@ -120,6 +120,21 @@ Rapor "en son yayımlanan yazılar çekilmiş mi?" sorusunu kaynak bazında ceva
     Evrensel               2 |   0 | 2026-10-11 12:00   ← günün yazısı yok
 ```
 
+## Ana ekran: favori yazar dairelerinin sırası
+
+Ana ekrandaki daireler iki kurala göre sıralanır:
+
+1. **Okuduğunuz yazarlar sona geçer.** Bugünkü yazılarının tamamı okunmuş (halkası gri)
+   yazarlar listenin sonunda toplanır; ertesi gün yeni yazı gelince başa döner.
+2. **"Karıştır" açıksa okunmamışlar karışık gelir.** Başlıktaki **Karıştır** düğmesi
+   (Ayarlar → *Favori yazarları karıştır* anahtarı da aynı ayarı değiştirir) her
+   dokunuşta yeni bir karışık sıra üretir; kapatınca favoriye eklenme sırasına
+   dönülür. Karışık sıra `localStorage`'da saklandığı için veri yenilenince,
+   sekmeye dönünce ya da sayfa yeniden açılınca sıra zıplamaz.
+
+Karıştırma yalnızca okunmamış grubun içinde çalışır: okuduğunuz favoriler her iki
+durumda da sonda kalır.
+
 ## Pasif yazarlar (yazısı güncellenmesin) ve Keşfet'ten silme
 
 Keşfet'te her yazarın yanındaki **⋯** düğmesi yazar seçeneklerini açar:
@@ -208,4 +223,5 @@ node verify-round9.mjs     # Keşfet
 node verify-favorites.mjs  # Favori yazarlar
 node verify-icons.mjs      # lucide simgeleri
 node verify-passive.mjs    # pasif yazarlar + Keşfet'ten silme: ⋯ menüsü, akışta soluk etiket, Gizlenenler, depo JSON çıktısı
+node verify-shuffle.mjs    # ana ekran: "Yazarları karıştır", okuduğum favoriler sonda, karışık sıranın kalıcılığı
 ```

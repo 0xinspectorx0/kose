@@ -53,6 +53,7 @@ const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory =
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Pasif/gizli liste mantığı favori bloğunun içinde yaşıyor (aynı localStorage deseni)
 const passiveBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: favori yazar dairelerinin sırası ---', '// --- /ANA EKRAN SIRASI ---');
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
 const settingsEvents = block('// --- Ayarlar sekmesi olayları ---', '// Initialize View');
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
@@ -103,7 +104,7 @@ const frozen = JSON.parse(JSON.stringify(daily.articles[0]));
 frozen.passive = true;
 const frozenDaily = { ...daily, articles: [frozen, ...daily.articles.slice(1)] };
 
-window.eval([...srcConsts, settingsBlock, readStateBlock, passiveBlock, ...fns.map(extract),
+window.eval([...srcConsts, settingsBlock, readStateBlock, passiveBlock, shuffleBlock, ...fns.map(extract),
   writersEvents, settingsEvents, readerBlock, audioBlock].join('\n'));
 
 // Çevrimdışı: veriler dosyadan gelir; pasif liste ilk turda BOŞ

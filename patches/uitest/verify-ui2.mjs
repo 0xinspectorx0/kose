@@ -29,6 +29,7 @@ const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o ya
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: favori yazar dairelerinin sırası ---', '// --- /ANA EKRAN SIRASI ---');
 const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
   'renderAuthorAvatars','renderArticles','applyFilters','filterCategory','loadDailyFeed','applyReadState',
   'markArticleRead','isAuthorFullyRead','writersSummary','filterWriters','buildWriterPopularity','writerScore',
@@ -67,7 +68,7 @@ function boot(preset) {
   window.mainScrollEl.scrollTo = () => {};
   if (preset) window.localStorage.setItem('kose-read-articles', JSON.stringify(preset));
   window.localStorage.setItem('kose-favorite-writers', FAVORITE_SEED);
-  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
+  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
   return { window, doc };
 }
 
