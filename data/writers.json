@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-16T07:03:03.789174+00:00",
+  "fetchedAt": "2026-10-16T08:33:16.866059+00:00",
   "date": "2026-10-16",
-  "total": 1241,
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
@@ -1053,8 +1053,18 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 12,
       "writers": [
+        {
+          "name": "Emin Çölaşan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
         {
           "name": "Ege Cansen",
           "url": "",
@@ -1084,6 +1094,11 @@
           "name": "Turan Yücel",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
+        },
+        {
+          "name": "Ozan Bingöl",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
         },
         {
           "name": "Mesut Parlak",
@@ -1195,6 +1210,21 @@
           "photo": ""
         },
         {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
@@ -1205,29 +1235,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         }
       ]
     },
@@ -1257,23 +1272,23 @@
           "photo": ""
         },
         {
-          "name": "Altan Öymen",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/altan-oymen",
-          "photo": ""
-        },
-        {
           "name": "Mine Esen",
           "url": "https://www.cumhuriyet.com.tr/yazarlar/mine-esen",
           "photo": ""
         },
         {
-          "name": "Cumhuriyet Dosyaları",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhuriyet-dosyalari",
+          "name": "Altan Öymen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/altan-oymen",
           "photo": ""
         },
         {
           "name": "Cumhuriyet",
           "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhuriyet",
+          "photo": ""
+        },
+        {
+          "name": "Cumhuriyet Dosyaları",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/cumhuriyet-dosyalari",
           "photo": ""
         },
         {
@@ -1377,13 +1392,13 @@
           "photo": ""
         },
         {
-          "name": "Ahmet Saltık",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-saltik",
+          "name": "Örsan K. Öymen",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/orsan-k-oymen",
           "photo": ""
         },
         {
-          "name": "Örsan K. Öymen",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/orsan-k-oymen",
+          "name": "Ahmet Saltık",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-saltik",
           "photo": ""
         },
         {
@@ -1572,13 +1587,13 @@
           "photo": ""
         },
         {
-          "name": "Ahmet Süha Umar",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-suha-umar",
+          "name": "Mehmet Şakir Örs",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/mehmet-sakir-ors",
           "photo": ""
         },
         {
-          "name": "Mehmet Şakir Örs",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/mehmet-sakir-ors",
+          "name": "Ahmet Süha Umar",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-suha-umar",
           "photo": ""
         },
         {
@@ -1592,6 +1607,11 @@
           "photo": ""
         },
         {
+          "name": "Olaylar Ve Görüşler",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/olaylar-ve-gorusler",
+          "photo": ""
+        },
+        {
           "name": "Tolga Aydoğan",
           "url": "https://www.cumhuriyet.com.tr/yazarlar/tolga-aydogan",
           "photo": ""
@@ -1602,28 +1622,8 @@
           "photo": ""
         },
         {
-          "name": "Olaylar Ve Görüşler",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/olaylar-ve-gorusler",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Ülkütekin",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/deniz-ulkutekin",
-          "photo": ""
-        },
-        {
-          "name": "Güneş Aksüs",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/gunes-aksus",
-          "photo": ""
-        },
-        {
-          "name": "Nilay Küçük",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/nilay-kucuk",
-          "photo": ""
-        },
-        {
-          "name": "Savaşkan İskefli",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/savaskan-iskefli",
+          "name": "Figen Atalay",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/figen-atalay",
           "photo": ""
         },
         {
@@ -1632,8 +1632,23 @@
           "photo": ""
         },
         {
-          "name": "Figen Atalay",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/figen-atalay",
+          "name": "Savaşkan İskefli",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/savaskan-iskefli",
+          "photo": ""
+        },
+        {
+          "name": "Nilay Küçük",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/nilay-kucuk",
+          "photo": ""
+        },
+        {
+          "name": "Güneş Aksüs",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/gunes-aksus",
+          "photo": ""
+        },
+        {
+          "name": "Deniz Ülkütekin",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/deniz-ulkutekin",
           "photo": ""
         },
         {
@@ -1652,11 +1667,6 @@
           "photo": ""
         },
         {
-          "name": "Orhan Can",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/orhan-can",
-          "photo": ""
-        },
-        {
           "name": "Ahmet Kurt",
           "url": "https://www.cumhuriyet.com.tr/yazarlar/ahmet-kurt",
           "photo": ""
@@ -1672,13 +1682,18 @@
           "photo": ""
         },
         {
-          "name": "Ebru Kılıçoğlu",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/ebru-kilicoglu",
+          "name": "Ceylan Adanalı",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ceylan-adanali-kabadayioglu",
           "photo": ""
         },
         {
-          "name": "Ceylan Adanalı",
-          "url": "https://www.cumhuriyet.com.tr/yazarlar/ceylan-adanali-kabadayioglu",
+          "name": "Orhan Can",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/orhan-can",
+          "photo": ""
+        },
+        {
+          "name": "Ebru Kılıçoğlu",
+          "url": "https://www.cumhuriyet.com.tr/yazarlar/ebru-kilicoglu",
           "photo": ""
         },
         {
@@ -3469,7 +3484,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "Yazar Arşivi",
+          "name": "YAZARLAR",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -5016,7 +5031,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 53,
+      "count": 52,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5244,6 +5259,16 @@
           "photo": ""
         },
         {
+          "name": "MSCI'dan Türkiye kararı: Endeks değişiklikleri donduruldu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altın fiyatlarında yükseliş: Gram ve çeyrek ne kadar oldu?",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Green Card çekilişine yargıç müdahalesi: Kayıtlar 1 Kasım'da",
           "url": "",
           "photo": ""
@@ -5259,27 +5284,12 @@
           "photo": ""
         },
         {
-          "name": "KOSGEB'de 23 yıllık dönem kapandı: Destekler bitti mi?",
+          "name": "Türkiye",
           "url": "",
           "photo": ""
         },
         {
-          "name": "İhaleye girecekler dikkat! O borç sınırı 10 katına fırladı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Meteoroloji'den 14 ile sarı ve turuncu kodlu sel alarmı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Sel felaketinde son durum! 6 kişi için arama çalışması",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Beşiktaş deplasmanda Hoffenheim’ı devirdi!",
+          "name": "Mustafa Uzun",
           "url": "",
           "photo": ""
         }
@@ -6316,7 +6326,7 @@
         {
           "name": "Zehra Çelenk",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
         },
         {
           "name": "Mesude Demir",
