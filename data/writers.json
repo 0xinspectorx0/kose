@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-16T19:06:12.356301+00:00",
-  "date": "2026-10-16",
-  "total": 1242,
+  "fetchedAt": "2026-10-16T21:37:00.694862+00:00",
+  "date": "2026-10-17",
+  "total": 1227,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 209,
+      "count": 201,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1009,49 +1009,9 @@
           "photo": ""
         },
         {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Nedim ŞENER",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
-        },
-        {
-          "name": "İhsan Yılmaz",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/84x63/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
-        },
-        {
-          "name": "Noyan Doğan",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
-        },
-        {
-          "name": "Savaş ÖZBEY",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
-        },
-        {
-          "name": "Deniz SİPAHİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
-        },
-        {
           "name": "Erdal Fernergiz",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
-        },
-        {
-          "name": "İpek İZCİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/631327dc4e3fe00b3cbb054d.jpg"
         }
       ]
     },
@@ -1220,9 +1180,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "HİLAL KAPLAN",
@@ -1230,24 +1190,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -3672,7 +3632,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 20,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3732,46 +3692,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Coşkundeniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Gülderen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şoray Uzun",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -3986,7 +3906,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 144,
+      "count": 146,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4679,9 +4599,19 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
         },
         {
+          "name": "Filiz Katman",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
+        },
+        {
           "name": "Fadime ÖZKAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
+        },
+        {
+          "name": "Halime KÖKCE",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
         },
         {
           "name": "M. Yalçın YILMAZ",
@@ -5031,7 +4961,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5259,6 +5189,11 @@
           "photo": ""
         },
         {
+          "name": "BES’ten kitlesel çıkış iddiasına DMM’den açıklama geldi",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Konut ve kira fiyatlarında son durum! İstanbul yine zirvede",
           "url": "",
           "photo": ""
@@ -5275,16 +5210,6 @@
         },
         {
           "name": "Bakan Çiftçi’den kritik uyarı! Zorunlu olmadıkça çıkmayın",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Eylül ayı konut ve iş yeri satış istatistikleri açıklandı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mustafa Sarıgül'den gözaltı açıklaması! İddialar gerçek dışı",
           "url": "",
           "photo": ""
         }
