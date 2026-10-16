@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-16T15:35:33.990068+00:00",
+  "fetchedAt": "2026-10-16T19:06:12.356301+00:00",
   "date": "2026-10-16",
-  "total": 1245,
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
@@ -1215,24 +1215,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1245,9 +1230,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -3986,7 +3986,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 146,
+      "count": 144,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4679,19 +4679,9 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
         },
         {
-          "name": "Filiz Katman",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
-        },
-        {
           "name": "Fadime ÖZKAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
-        },
-        {
-          "name": "Halime KÖKCE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
         },
         {
           "name": "M. Yalçın YILMAZ",
@@ -5041,7 +5031,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 52,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5269,37 +5259,32 @@
           "photo": ""
         },
         {
+          "name": "Konut ve kira fiyatlarında son durum! İstanbul yine zirvede",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul’da sağanak alarmı! Eğitim ve sınavlara 2 gün ara",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Benzine dev indirim! Litre fiyatı 80 liranın altına iniyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bakan Çiftçi’den kritik uyarı! Zorunlu olmadıkça çıkmayın",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Eylül ayı konut ve iş yeri satış istatistikleri açıklandı",
           "url": "",
           "photo": ""
         },
         {
           "name": "Mustafa Sarıgül'den gözaltı açıklaması! İddialar gerçek dışı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ankara Valiliği'nden kuvvetli yağış uyarısı! Tedbirli olun",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Alo Adalet 135 hattı 81 ilde hizmete girdi!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bakan Kurum’dan 36 il için sarı kodlu sağanak uyarısı!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "AKOM'dan İstanbul uyarısı! Sağanak yeniden kuvvetlenecek",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Kış lastiği zorunluluğu başlıyor",
           "url": "",
           "photo": ""
         }
@@ -6344,12 +6329,12 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Ece Deniz",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
@@ -6359,7 +6344,7 @@
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Ece Deniz",
           "url": "",
           "photo": ""
         }
