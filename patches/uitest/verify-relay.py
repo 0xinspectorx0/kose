@@ -95,6 +95,16 @@ sys.exit(int(os.environ.get("FAKE_FRESH_RC", "0")))
 '''
 
 
+# Sahte kaynak kuralı kontrolü: çağrıldığını işaretler, senaryoya göre karar basar
+FAKE_KURAL = r'''import os, sys
+open("kural-cagrildi", "w").write("1")
+if os.environ.get("FAKE_KURAL_CRASH"):
+    raise SystemExit(3)
+print("degisti=" + os.environ.get("FAKE_KURAL_DEGISTI", "false"))
+print("neden=" + os.environ.get("FAKE_KURAL_NEDEN", "kural test gerekçesi"))
+'''
+
+
 def iso_minutes_ago(m):
     t = dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=m)
     return t.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -111,6 +121,7 @@ def run_script(script, **scenario):
             (bindir / f).chmod(0o755)
         (tmp / "scripts").mkdir()
         (tmp / "scripts" / "freshness.py").write_text(FAKE_FRESHNESS)
+        (tmp / "scripts" / "kaynak_kurallari.py").write_text(FAKE_KURAL)
         (tmp / "data").mkdir()
         (tmp / "data" / "daily.json").write_text("{}")
         log = tmp / "gh.log"
@@ -136,6 +147,7 @@ def run_script(script, **scenario):
         p = subprocess.run(["bash", "-e", "-c", script], cwd=tmp, env=envv,
                            capture_output=True, text=True, timeout=60)
         calls = [c for c in log.read_text().splitlines() if c]
+        run_script.kural_cagrildi = (tmp / "kural-cagrildi").exists()
         return p.returncode, p.stdout + p.stderr, calls, summary.read_text()
 
 
@@ -171,6 +183,27 @@ check(rc == 0 and len(posts(calls, "fetch-columns.yml")) == 1 and "güvenli tara
 
 rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="false", halka='1"; touch PWNED; echo "')
 check(rc == 0 and "Halka:** 0" in summ, "zararlı halka girdisi 0'a indirgenir")
+
+print("\nKONTROL İŞİ — yönetici kaynak kuralları")
+rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="false", FAKE_KURAL_DEGISTI="true",
+                                  FAKE_KURAL_NEDEN="kurallar 10 dk önce değişti")
+p = posts(calls, "fetch-columns.yml")
+check(rc == 0 and len(p) == 1 and "inputs[force]=true" in p[0] and "ref=main" in p[0],
+      "veri taze ama kurallar değişti → fetch-columns force=true ile 1 kez tetiklenir")
+check("kaynak kuralları değişti" in summ and "10 dk önce" in summ, "gerekçe özette (kural değişikliği)")
+rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="false", FAKE_KURAL_DEGISTI="false")
+check(rc == 0 and not posts(calls, "fetch-columns.yml") and run_script.kural_cagrildi,
+      "veri taze, kurallar değişmedi → çekim yok (kural kontrolü yapıldı)")
+rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="true", FAKE_ACTIVE="0", FAKE_KURAL_DEGISTI="true")
+p = posts(calls, "fetch-columns.yml")
+check(rc == 0 and len(p) == 1 and "inputs[force]=false" in p[0] and not run_script.kural_cagrildi,
+      "veri zaten bayat → normal (force'suz) çekim; kural kontrolüne gerek kalmaz")
+rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="false", FAKE_KURAL_CRASH="1")
+check(rc == 0 and not posts(calls, "fetch-columns.yml") and "gerekmedi" in summ,
+      "kural kontrolü çökerse zincir düşmez, çekim de açılmaz")
+rc, out, calls, summ = run_script(KONTROL_RUN, FAKE_NEEDED="false", FAKE_KURAL_DEGISTI="true", FAKE_ACTIVE="1")
+check(rc == 0 and not posts(calls, "fetch-columns.yml") and "atlandı" in summ,
+      "kural değişti ama süren çekim var → ikincisi açılmaz")
 
 print("\nSONRAKİ İŞİ (bekleme kilidi + zincir)")
 rc, out, calls, summ = run_script(SONRAKI_RUN, FAKE_STARTED=iso_minutes_ago(1), FAKE_TIMER="0")

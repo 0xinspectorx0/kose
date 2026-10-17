@@ -99,6 +99,8 @@ jobs:
         env:
           ANA_DAL: ${{ github.event.repository.default_branch }}
           HALKA: ${{ inputs.halka || '0' }}
+          # Boşsa betik varsayılanı kullanır (https://murekkep.vercel.app/api/yonetim?islem=kaynaklar)
+          KAYNAK_KURALLARI_URL: ${{ vars.KAYNAK_KURALLARI_URL }}
         run: |
           # Çıkış kodlarını biz yönetiyoruz; bu iş zinciri asla düşürmemeli.
           set +e
@@ -114,6 +116,24 @@ jobs:
             REASON="karar betiği hata verdi (rc=$rc) — güvenli taraf: çekim istenecek"
           fi
 
+          # Veri tazeyse bile yönetici kaynak kurallarını son çekimden SONRA
+          # değiştirdiyse (Yönetim panelinde kaynak/yazar çekimden çıkarıldı ya da
+          # yeni kaynak eklendi) tazelik beklenmeden ZORLA çekilir. Karşılaştırma
+          # kataloğun kurallarAlindi anıyla yapılır: her değişiklik en fazla bir
+          # zorla çekim doğurur. Uç okunamazsa (kurulum yok / ağ) hiçbir şey yapılmaz.
+          FORCE=false
+          if [ "$NEEDED" != "true" ]; then
+            KOUT=$(python3 scripts/kaynak_kurallari.py --kontrol --data data/kaynaklar.json 2>&1)
+            echo "$KOUT"
+            KDEGISTI=$(printf '%s\n' "$KOUT" | sed -n 's/^degisti=//p' | tail -n 1)
+            KNEDEN=$(printf '%s\n' "$KOUT" | sed -n 's/^neden=//p' | tail -n 1)
+            if [ "$KDEGISTI" = "true" ]; then
+              NEEDED=true
+              FORCE=true
+              REASON="yönetici kaynak kuralları değişti — $KNEDEN"
+            fi
+          fi
+
           SONUC="gerekmedi"
           if [ "$NEEDED" = "true" ]; then
             # main'de kuyruğa girmiş/süren bir çekim varsa ikinciyi açma
@@ -126,7 +146,7 @@ jobs:
               SONUC="TETİKLENEMEDİ"
               for i in 1 2 3; do
                 if gh api -X POST "repos/$GITHUB_REPOSITORY/actions/workflows/fetch-columns.yml/dispatches" \
-                     -f ref="$ANA_DAL" >/dev/null; then
+                     -f ref="$ANA_DAL" -f "inputs[force]=$FORCE" >/dev/null; then
                   SONUC="fetch-columns.yml $ANA_DAL dalında tetiklendi"
                   break
                 fi

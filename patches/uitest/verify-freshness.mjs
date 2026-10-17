@@ -55,7 +55,11 @@ let hiddenFlag = false;
 Object.defineProperty(doc, 'hidden', { configurable: true, get: () => hiddenFlag });
 
 const srcConsts = ['DAILY_FEED_URL', 'WRITERS_URL', 'isoDayKey', 'FEED_RECHECK_MS', 'STALE_AFTER_HOURS'].map(extractConst);
+// Yükleyici artık tüm yazıları allArticles'a koyup rebuildArticles() ile süzüyor;
+// bu testin konusu tazelik olduğu için süzme saplanır (articles = allArticles).
 window.eval(['var lastFeedLoadAt = 0; var lastFeedStamp = null;', ...srcConsts,
+  'var allArticles = []; function rebuildArticles() { articles = allArticles.slice(); }',
+  extractConst('UID_PATTERN'), extract('stableNumericId'), extract('sourceKeyOf'),
   extract('mapLiveArticle'), extract('formatSyncTime'),
   extract('loadDailyFeed'), extract('autoDailyCheck'),
   extract('refreshIfStale'), extract('tickSyncTime')].join('\n'));

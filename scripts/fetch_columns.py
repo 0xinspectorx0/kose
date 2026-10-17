@@ -52,6 +52,7 @@ from bs4 import BeautifulSoup
 # kullanır (scripts/ dizini, betik doğrudan çalıştırıldığında sys.path'tedir).
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import freshness  # noqa: E402
+import kaynak_kurallari  # noqa: E402  (yönetici kaynak kuralları: pasif kaynak/yazar, eklenen akışlar)
 
 TR_TZ = timezone(timedelta(hours=3))  # Türkiye saati (UTC+3)
 USER_AGENT = "kose-kosebot/1.0 (+https://github.com/0xinspectorx0/kose; gunluk kose yazisi toplayici)"
@@ -818,6 +819,7 @@ def build_record(key, source_name, category, author, title, url, blocks, date_dt
             published_at = ""
     return {
         "id": f"{key}-{hashlib.md5(url.encode('utf-8')).hexdigest()[:8]}",
+        "sourceKey": key,
         "author": author_name or "Köşe Yazarı",
         "source": source_name,
         "title": title,
@@ -963,8 +965,8 @@ def html_to_blocks(content_html):
     return blocks
 
 
-def parse_feed(feed_cfg, limit):
-    xml = fetch(feed_cfg["feed"])
+def parse_feed(feed_cfg, limit, xml_text=None):
+    xml = xml_text if xml_text is not None else fetch(feed_cfg["feed"])
     if not xml:
         return []
     try:
@@ -999,13 +1001,102 @@ def parse_feed(feed_cfg, limit):
 
 
 # ---------------------------------------------------------------------------
+# Yöneticinin eklediği kaynaklar: yazılan adres -> okunabilir akış
+# ---------------------------------------------------------------------------
+YOUTUBE_CHANNEL_RX = re.compile(
+    r'"(?:channelId|externalId)"\s*:\s*"(UC[\w-]{22})"|channel_id=(UC[\w-]{22})|/channel/(UC[\w-]{22})'
+)
+
+
+def looks_like_feed(text):
+    """Metin RSS/Atom/RDF akışı mı (HTML sayfa değil)?"""
+    head = (text or "").lstrip("\ufeff \t\r\n")[:1500].lower()
+    if head.startswith("<rss") or head.startswith("<feed") or head.startswith("<rdf"):
+        return True
+    return head.startswith("<?xml") and any(t in head for t in ("<rss", "<feed", "<rdf:rdf"))
+
+
+def resolve_feed(url, cached=None):
+    """Yöneticinin yazdığı adresi okunabilir bir akışa çevirir.
+
+    Dönüş: (akış_adresi, akış_metni, durum) — durum: 'ok' | 'akis-yok' | 'erisilemedi'.
+      * Önceki çekimde çözülen akış (cached) varsa önce o denenir (tek istek).
+      * Adres zaten RSS/Atom ise olduğu gibi kullanılır.
+      * YouTube kanal sayfası (@ad, /c/, /user/, /channel/) -> kanalın Atom akışı.
+      * Düz site/blog sayfası -> <link rel="alternate" type="application/rss+xml">
+        (otomatik keşif); bulunamazsa WordPress/Blogger'ın alışıldık akış yolları.
+    İstek sayısı sınırlıdır (en çok ~4): 40 eklenen kaynak bile çekimi uzatmaz.
+    """
+    if cached and cached != url:
+        xml = fetch(cached)
+        if xml and looks_like_feed(xml):
+            return cached, xml, "ok"
+    text = fetch(url)
+    if text is None:
+        return None, None, "erisilemedi"
+    if looks_like_feed(text):
+        return url, text, "ok"
+    host = (urlparse(url).hostname or "").lower()
+    if host == "youtu.be" or host.endswith("youtube.com"):
+        m = YOUTUBE_CHANNEL_RX.search(text)
+        if m:
+            cid = next(g for g in m.groups() if g)
+            feed = f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"
+            xml = fetch(feed)
+            if xml and looks_like_feed(xml):
+                return feed, xml, "ok"
+        return None, None, "akis-yok"
+    candidates = []
+    try:
+        soup = BeautifulSoup(text, "html.parser")
+        for link in soup.find_all("link", href=True):
+            rel = " ".join(link.get("rel") or []).lower()
+            typ = (link.get("type") or "").lower()
+            if "alternate" in rel and any(t in typ for t in ("rss", "atom", "feed+xml")):
+                candidates.append(urljoin(url, link["href"]))
+    except Exception:
+        pass
+    base = url if url.endswith("/") else url + "/"
+    candidates += [urljoin(base, "feed/"), urljoin(base, "feeds/posts/default")]
+    tried = set()
+    for cand in candidates:
+        if len(tried) >= 3:
+            break
+        if cand in tried or cand == url or kaynak_kurallari.ozel_adres_mi(urlparse(cand).hostname):
+            continue
+        tried.add(cand)
+        xml = fetch(cand)
+        if xml and looks_like_feed(xml):
+            return cand, xml, "ok"
+    return None, None, "akis-yok"
+
+
+def katalog_girdisi(src, tur, pasif, sayac):
+    """data/kaynaklar.json'daki tek kaynak satırı (Yönetim paneli listeler)."""
+    girdi = {
+        "key": src["key"],
+        "name": src["name"],
+        "tur": tur,
+        "category": src.get("category", ""),
+        "aktif": src["key"] not in pasif,
+        "yazi": sayac.get(src["key"], 0),
+    }
+    if src.get("author"):
+        girdi["author"] = src["author"]
+    return girdi
+
+
+# ---------------------------------------------------------------------------
 # Yazar keşfi (tüm aktif köşe yazarları)
 # ---------------------------------------------------------------------------
-def discover_writers(max_authors_per_paper):
-    """Her gazetenin yazarlar dizininden tüm köşe yazarlarını çıkarır."""
+def discover_writers(max_authors_per_paper, papers=None):
+    """Her gazetenin yazarlar dizininden tüm köşe yazarlarını çıkarır.
+
+    papers verilirse yalnızca o gazeteler taranır (yöneticinin çekimden
+    çıkardığı gazeteler atlanır)."""
     papers_out = []
     total = 0
-    for paper in NEWSPAPERS:
+    for paper in (NEWSPAPERS if papers is None else papers):
         roster_url = paper.get("roster") or paper["today"]
         pattern = paper.get("author_pattern")
         writers = []
@@ -1296,16 +1387,41 @@ def main():
                     help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma, yani bugün+dün kalır (0 = filtre yok)")
     ap.add_argument("--require-articles", type=int, default=20,
                     help="Bugünün verisi bu sayının altında kalırsa çıkış kodu 2 döndür (CI yeniden dener; 0 = kapat)")
+    ap.add_argument("--kurallar-url", default=None,
+                    help="Yönetici kaynak kuralları ucu (varsayılan: KAYNAK_KURALLARI_URL ortam değişkeni, "
+                         "o da yoksa murekkep.vercel.app; 'yok' = kural uygulama)")
+    ap.add_argument("--kaynaklar-out", default="data/kaynaklar.json",
+                    help="Kaynak kataloğu + uygulanan kurallar (uygulamadaki Yönetim paneli okur)")
     args = ap.parse_args()
+    kurallar_url = (args.kurallar_url if args.kurallar_url is not None
+                    else (os.environ.get("KAYNAK_KURALLARI_URL") or kaynak_kurallari.VARSAYILAN_URL))
 
     # --- Tazelik kısayolu: bugünün dolu verisi zaten varsa gazetelere dokunma ---
     if not args.discover_only and data_is_fresh(args.out, args.min_interval_hours, args.min_articles):
         return 0
 
+    # --- Yönetici kaynak kuralları (uygulamadaki Yönetim paneli) ---
+    # Kuralların ALINMAYA ÇALIŞILDIĞI an kataloğa yazılır: röle, kurallar bundan
+    # sonra değiştiyse zorla çekim başlatır (her değişiklik en fazla bir kez).
+    kurallar_alindi = datetime.now(timezone.utc).isoformat()
+    kurallar, kural_kaynagi, kural_notu = kaynak_kurallari.kurallari_yukle(kurallar_url, args.kaynaklar_out)
+    log(f">> Kaynak kuralları: {kural_notu}")
+    pasif_kaynak = kaynak_kurallari.pasif_kaynak_anahtarlari(kurallar)
+    pasif_yazar = kaynak_kurallari.pasif_yazar_anahtarlari(kurallar)
+    aktif_gazeteler = [p for p in NEWSPAPERS if p["key"] not in pasif_kaynak]
+    aktif_kisisel = [s for s in PERSONAL_SOURCES if s["key"] not in pasif_kaynak]
+    aktif_akislar = [c for c in FEED_SOURCES if c["key"] not in pasif_kaynak]
+    ek_kaynaklar = kaynak_kurallari.ek_akis_kaynaklari(kurallar)
+    for src in NEWSPAPERS + PERSONAL_SOURCES + FEED_SOURCES:
+        if src["key"] in pasif_kaynak:
+            log(f"   - {src['name']}: yönetici çekimden çıkardı (pasif)")
+    for p in kurallar["pasif"]["yazarlar"]:
+        log(f"   - yazar {p['ad']}: yönetici çekimden çıkardı (pasif)")
+
     # --- Yazar keşfi ---
     log(">> Yazar keşfi (aktif köşe yazarları)")
     try:
-        writers_data = discover_writers(args.max_authors_per_paper)
+        writers_data = discover_writers(args.max_authors_per_paper, aktif_gazeteler)
     except Exception as e:
         log(f"! Yazar keşfi yarıda kesildi: {type(e).__name__}: {e}")
         writers_data = {"papers": [], "total": 0}
@@ -1318,9 +1434,10 @@ def main():
         previous = load_payload(args.writers_out)
         if previous and previous.get("total"):
             log(f"UYARI: keşif boş döndü — mevcut writers.json korunuyor ({previous['total']} yazar)")
+            kept = [p for p in (previous.get("papers") or []) if p.get("key") not in pasif_kaynak]
             writers_data = {
-                "papers": previous.get("papers") or [],
-                "total": previous.get("total") or 0,
+                "papers": kept,
+                "total": sum(len(p.get("writers") or []) for p in kept) if pasif_kaynak else (previous.get("total") or 0),
             }
             keep_existing_writers = True
 
@@ -1335,7 +1452,7 @@ def main():
     records = []
     papers_with_articles = set()
 
-    for paper in NEWSPAPERS:
+    for paper in aktif_gazeteler:
         log(f">> {paper['name']} ({paper['today']})")
         try:
             paper_records = fetch_paper_articles(paper, args.max_per_paper)
@@ -1346,19 +1463,42 @@ def main():
             papers_with_articles.add(paper["name"])
         records.extend(paper_records)
 
-    for src in PERSONAL_SOURCES:
+    for src in aktif_kisisel:
         log(f">> {src['name']} (kişisel site)")
         try:
             records.extend(fetch_personal_articles(src, args.max_per_source))
         except Exception as e:
             log(f"    ! {src['name']} çekilemedi: {type(e).__name__}: {e}")
 
-    for cfg in FEED_SOURCES:
+    for cfg in aktif_akislar:
         log(f">> {cfg['name']} (RSS)")
         try:
             records.extend(parse_feed(cfg, args.max_per_source))
         except Exception as e:
             log(f"    ! {cfg['name']} okunamadı: {type(e).__name__}: {e}")
+
+    # Yöneticinin eklediği kaynaklar: adres akışa çözülür (önceki çekimde
+    # çözülen akış katalogdan hatırlanır), durum Yönetim panelinde gösterilir.
+    onceki_katalog = {}
+    for k in (load_payload(args.kaynaklar_out) or {}).get("katalog") or []:
+        if isinstance(k, dict) and k.get("key") and k.get("akis"):
+            onceki_katalog[k["key"]] = k["akis"]
+    ek_durum = {}
+    for cfg in ek_kaynaklar:
+        log(f">> {cfg['name']} (eklenen kaynak: {cfg['feed']})")
+        try:
+            feed_url, xml_text, durum = resolve_feed(cfg["feed"], onceki_katalog.get(cfg["key"]))
+            if not feed_url:
+                log(f"    ! akış bulunamadı ({durum})")
+                ek_durum[cfg["key"]] = {"durum": durum}
+                continue
+            recs = parse_feed({**cfg, "feed": feed_url}, args.max_per_source, xml_text=xml_text)
+            ek_durum[cfg["key"]] = {"durum": "ok" if recs else "bos", "akis": feed_url}
+            log(f"    + {len(recs)} yazı ({feed_url})")
+            records.extend(recs)
+        except Exception as e:
+            log(f"    ! {cfg['name']} okunamadı: {type(e).__name__}: {e}")
+            ek_durum[cfg["key"]] = {"durum": "hata"}
 
     # dizinlerde kalmış eski yazılar akışı bayat göstermesin
     records = drop_stale_records(records, args.max_age_days)
@@ -1367,6 +1507,17 @@ def main():
     # ardından makale sayfalarındaki yazar adlarını keşif listesine işle
     fill_missing_authors(records, writers_data)
     fill_missing_photos(records, writers_data)
+    if pasif_yazar:
+        once = len(records)
+        records = [r for r in records if kaynak_kurallari.writer_key(r.get("author")) not in pasif_yazar]
+        if once != len(records):
+            log(f">> {once - len(records)} yazı pasif yazar kuralıyla elendi")
+        for p in writers_data.get("papers") or []:
+            p["writers"] = [w for w in (p.get("writers") or [])
+                            if kaynak_kurallari.writer_key(w.get("name")) not in pasif_yazar]
+            if "count" in p:
+                p["count"] = len(p["writers"])
+        writers_data["total"] = sum(len(p.get("writers") or []) for p in writers_data.get("papers") or [])
     merge_article_authors(writers_data, records)
     if keep_existing_writers and not records:
         # Keşif de makaleler de boş döndü: dosyaya hiç dokunma (zaman damgası
@@ -1400,7 +1551,7 @@ def main():
         "fetchedAt": now.astimezone(timezone.utc).isoformat(),
         "date": now.strftime("%Y-%m-%d"),
         "count": len(uniq),
-        "papers": len(papers_with_articles) or len(NEWSPAPERS),
+        "papers": len(papers_with_articles) or len(aktif_gazeteler),
         "writers": writers_data["total"],
         "articles": uniq,
     }
@@ -1411,6 +1562,38 @@ def main():
         json.dump(payload, f, ensure_ascii=False, indent=2)
         f.write("\n")
     log(f"OK: {len(uniq)} makale ({len(papers_with_articles)} gazete) yazıldı -> {args.out}")
+
+    # Kaynak kataloğu: tüm tanımlı kaynaklar + uygulanan kurallar + kaynak başına
+    # yazı sayısı / eklenen kaynağın durumu. Uygulamadaki Yönetim paneli listeler;
+    # kural ucu bir sonraki çekimde okunamazsa buradaki kurallar kullanılır.
+    sayac = {}
+    for r in uniq:
+        k = r.get("sourceKey") or str(r.get("id", "")).rsplit("-", 1)[0]
+        sayac[k] = sayac.get(k, 0) + 1
+    katalog = ([katalog_girdisi(p, "gazete", pasif_kaynak, sayac) for p in NEWSPAPERS]
+               + [katalog_girdisi(s, "site", pasif_kaynak, sayac) for s in PERSONAL_SOURCES]
+               + [katalog_girdisi(c, "akis", pasif_kaynak, sayac) for c in FEED_SOURCES])
+    for e in kurallar["ek"]:
+        girdi = katalog_girdisi(e, "ek", pasif_kaynak, sayac)
+        girdi["feed"] = e["feed"]
+        durum = ek_durum.get(e["key"], {})
+        girdi["durum"] = durum.get("durum") or ("pasif" if e["key"] in pasif_kaynak else "bekliyor")
+        if durum.get("akis"):
+            girdi["akis"] = durum["akis"]
+        katalog.append(girdi)
+    try:
+        kaynak_kurallari.katalog_yaz(args.kaynaklar_out, {
+            "guncellendi": payload["fetchedAt"],
+            "kurallarAlindi": kurallar_alindi,
+            "kurallarKaynagi": kural_kaynagi,
+            "kurallarSurumu": kurallar["surum"],
+            "kurallarNotu": kural_notu,
+            "kurallar": kurallar,
+            "katalog": katalog,
+        })
+        log(f"OK: kaynak kataloğu ({len(katalog)} kaynak, {len(pasif_kaynak)} pasif) -> {args.kaynaklar_out}")
+    except Exception as e:
+        log(f"UYARI: kaynak kataloğu yazılamadı: {type(e).__name__}: {e}")
 
     # CI'ın "bugünün verisi gerçekten üretildi mi?" denetimi: eşik altındaysa
     # 2 döner, workflow bir kez daha dener (ağ hatası / dizin değişikliği /

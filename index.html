@@ -300,6 +300,13 @@
           </div>
         </div>
 
+        <!-- Gizlenenler (yalnızca bir şey gizlendiyse görünür) -->
+        <div id="hidden-card" class="hidden bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
+          <p class="text-xs font-bold text-ink-900">Gizlenenler</p>
+          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">Akışında görünmeyen yazar ve gazeteler. Okuyucudaki <span class="font-semibold">⋮</span> menüsünden eklenir; çarpıya dokununca yeniden görünür.</p>
+          <div id="hidden-list" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
         <!-- Veri durumu -->
         <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5">
           <p class="text-xs font-bold text-ink-900">Veri</p>
@@ -309,9 +316,29 @@
           </button>
         </div>
 
+        <!-- Yönetici: giriş / çevrimiçi eşitleme durumu (renderAdminCard çizer) -->
+        <div id="admin-card" class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mt-3"></div>
+
         <p class="text-center text-[10px] text-stone-400 mt-4 leading-relaxed">
           Mürekkep · köşe yazıları GitHub Actions ile gün boyu yenilenir (sabahları saatlik)
         </p>
+      </section>
+
+      <!-- Yönetim Paneli (yalnızca yönetici; Ayarlar'dan açılır) -->
+      <section id="admin-view" class="hidden px-5 pb-24">
+        <div class="flex items-center justify-between mb-3">
+          <button id="admin-back-btn" type="button" class="inline-flex items-center gap-1 text-[11px] font-bold text-stone-500 hover:text-accent active:scale-95 transition">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>Ayarlar
+          </button>
+          <span id="admin-view-status" class="text-[10.5px] text-stone-400 truncate"></span>
+        </div>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Yönetim</h2>
+        <p class="text-[11px] text-stone-500 leading-relaxed mt-1 mb-3">
+          <span class="font-semibold text-ink-700">Kaynak kuralları herkes için geçerlidir:</span> çekimden çıkarılan kaynak/yazar artık toplanmaz,
+          eklenen kaynak takibe alınır. Değişiklik en geç ~40 dakikada veriye yansır; senin akışında hemen uygulanır.
+          Favoriler, kaydedilenler ve gizlediklerin yalnızca senindir.
+        </p>
+        <div id="admin-view-body" class="space-y-3"></div>
       </section>
     </main>
 
@@ -340,6 +367,12 @@
           <button id="reader-bookmark-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
             <i data-lucide="bookmark" class="w-4 h-4"></i>
           </button>
+          <div class="relative">
+            <button id="reader-more-btn" type="button" title="Diğer işlemler" aria-label="Diğer işlemler" aria-haspopup="menu" aria-expanded="false" class="p-2 -mr-1 rounded-full hover:bg-stone-200/60 text-stone-700">
+              <i data-lucide="ellipsis-vertical" class="w-4 h-4"></i>
+            </button>
+            <div id="reader-more-menu" role="menu" class="hidden absolute right-0 top-10 z-50 w-72 max-w-[85vw] bg-white rounded-2xl shadow-xl border border-stone-200 py-1.5 font-sans"></div>
+          </div>
         </div>
       </div>
 
@@ -442,6 +475,12 @@
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
+    </div>
+
+    <!-- Bildirim balonu (gizle / geri al / eşitleme bildirimleri) -->
+    <div id="toast" role="status" aria-live="polite" class="hidden absolute left-1/2 -translate-x-1/2 bottom-20 z-[70] w-max max-w-[90%] px-4 py-2.5 rounded-2xl bg-ink-900/95 text-white text-xs font-semibold shadow-lg flex items-center gap-3">
+      <span id="toast-text"></span>
+      <button id="toast-action" type="button" class="hidden flex-shrink-0 text-amber-300 font-bold hover:underline"></button>
     </div>
 
     <!-- Android Bottom Navigation Bar -->
@@ -600,7 +639,84 @@
 
     // Örnek yazılar (initialArticles) yalnızca canlı veriye ulaşılamazsa
     // gösterilir; normal açılışta akış data/daily.json'dan gelir.
+    // allArticles: yüklenen TÜM yazılar; articles: ekranda kullanılan liste =
+    // allArticles − gizlenen yazar/gazeteler − (yöneticiyse) çekimden çıkarılanlar.
+    // Uygulamanın geri kalanı yalnızca `articles`ı okur; kurallar değişince
+    // rebuildArticles() listeyi yeniden süzer.
+    let allArticles = [];
     let articles = [];
+
+    // --- Kalıcı yazı kimliği ---
+    // Veri dosyasındaki "id" (kaynak-md5(url)) yazının KALICI kimliğidir (uid).
+    // Kart düğmeleri sayısal kimlik beklediği için sayı korunur ama artık uid'den
+    // hesaplanır: eskiden listedeki sıraydı (100000 + idx) ve veri her yenilendiğinde
+    // kayıyordu — okundu işaretleri başka yazılara geçiyordu.
+    const UID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._:-]{0,99}$/;
+    function stableNumericId(uid) {
+      let h = 0x811c9dc5; // FNV-1a (32 bit)
+      const s = String(uid);
+      for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+      return 1000000 + (h % 2000000000);
+    }
+    function articleUid(a) {
+      if (!a) return '';
+      if (a.uid) return String(a.uid);
+      return a.id !== undefined && a.id !== null ? `ornek-${a.id}` : '';
+    }
+    // Kaynağın kazıyıcıdaki anahtarı ("hurriyet", "ek-1a2b3c4d"): kayıttaki sourceKey,
+    // yoksa uid'nin son "-"den önceki kısmı (uid = anahtar-md5).
+    function sourceKeyOf(a) {
+      if (a && a.sourceKey) return String(a.sourceKey);
+      const uid = String((a && a.uid) || '');
+      const i = uid.lastIndexOf('-');
+      return i > 0 ? uid.slice(0, i) : '';
+    }
+
+    // --- Kaydedilenler: yerelde kalıcı (kose-saved-v1) ---
+    // Eskiden yalnızca bellekteydi; sayfa yenilenince ya da akış güncellenince
+    // kayboluyordu. Yazı akıştan düşse de (veri 2 günlük) özet + tam metin saklanır.
+    const SAVED_KEY = 'kose-saved-v1';
+    const SAVED_MAX = 300;
+    const SAVED_TEXT_MAX = 80000;
+    let savedArticles = new Map(); // uid -> {uid, title, author, source, sourceKey, category, url, date, readTime, snippet, avatar, savedAt, fullContent}
+    try {
+      const rawSaved = JSON.parse(localStorage.getItem(SAVED_KEY) || '[]');
+      if (Array.isArray(rawSaved)) rawSaved.forEach(s => { if (s && s.uid && s.title) savedArticles.set(String(s.uid), s); });
+    } catch (e) { savedArticles = new Map(); }
+    let savedOnlyArticles = new Map(); // uid -> akışta artık olmayan kayıtlı yazı (özetten kurulur)
+
+    // --- Gizlenenler (kişisel kural): yazar ya da gazete akıştan gizlenir ---
+    // Herkes kendi tarayıcısında kullanabilir; yönetici girişliyse her cihaza taşınır.
+    const HIDDEN_KEY = 'kose-hidden-v1';
+    let hiddenRules = new Map(); // "y:<yazar anahtarı>" | "g:<gazete anahtarı>" -> {tur, ad, kaynak, t}
+    try {
+      const rawHidden = JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]');
+      if (Array.isArray(rawHidden)) rawHidden.forEach(h => { if (h && h.anahtar && h.ad) hiddenRules.set(String(h.anahtar), { tur: h.tur === 'gazete' ? 'gazete' : 'yazar', ad: String(h.ad), kaynak: String(h.kaynak || ''), t: Number(h.t) || 0 }); });
+    } catch (e) { hiddenRules = new Map(); }
+
+    // --- Yönetici oturumu (çevrimiçi eşitleme durumu; motor aşağıda "Yönetici:" bölümünde) ---
+    const ADMIN_API = '/api/yonetim';
+    const ADMIN_TOKEN_KEY = 'kose-admin-token';
+    const ADMIN_QUEUE_KEY = 'kose-admin-queue';
+    const ADMIN_META_KEY = 'kose-admin-meta';
+    // Cihazlar arasında taşınan ayarlar; seslendirme sesi cihaza özgü olduğu için yok
+    const ADMIN_SYNC_SETTINGS = ['readerFont', 'tooltip', 'samples', 'autoRefresh', 'ttsRate'];
+    const emptyAdminMeta = () => ({ lastSync: 0, surum: { y: -1, k: -1 }, kaynak: null, bitis: '' });
+    let adminToken = '';
+    let adminQueue = [];
+    let adminMeta = emptyAdminMeta();
+    try { adminToken = localStorage.getItem(ADMIN_TOKEN_KEY) || ''; } catch (e) { adminToken = ''; }
+    try { const q = JSON.parse(localStorage.getItem(ADMIN_QUEUE_KEY) || '[]'); if (Array.isArray(q)) adminQueue = q.filter(o => o && o.tur); } catch (e) { adminQueue = []; }
+    try { Object.assign(adminMeta, JSON.parse(localStorage.getItem(ADMIN_META_KEY) || '{}')); } catch (e) { adminMeta = emptyAdminMeta(); }
+    const adminUi = { busy: false, error: '', setupMissing: false };
+    let adminFlushTimer = null;
+    let adminFlushing = null;
+    let adminPulling = null;
+    let adminRetryTimer = null;
+    let adminRetryMs = 0;
+    let lastSyncedSettings = null;
+    let ruleCache = null; // rebuildArticles() için hazırlanmış kural kümeleri
+    let adminStale = false; // başka bir cihaz yazdı: bir sonraki yoklamada düzen baştan çekilsin
 
     // --- Canlı Günlük Akış (önce GitHub main'deki data/daily.json — Actions yarım saatte bir
     //     yoklar, veri bayatsa yeniden çeker: 05-12 TSİ arası saatlik, diğer saatlerde 3 saatte bir;
@@ -621,8 +737,14 @@
 
     function mapLiveArticle(a, idx) {
       const plain = (a.fullContent || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      // Kalıcı kimlik: verideki "id"; eski/bozuk kayıtta bağlantıdan türetilir
+      const uid = UID_PATTERN.test(String(a.id || ''))
+        ? String(a.id)
+        : `u-${stableNumericId(a.url || a.title || `yazi-${idx}`).toString(36)}`;
       return {
-        id: 100000 + idx,
+        id: stableNumericId(uid),
+        uid,
+        sourceKey: a.sourceKey || sourceKeyOf({ uid }),
         author: a.author || 'Köşe Yazarı',
         source: a.source || 'Gazete',
         avatar: a.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(a.author || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`,
@@ -671,8 +793,18 @@
         const good = probes.filter(Boolean);
         if (!good.length) throw new Error('veri alınamadı');
         const data = good.sort((x, y) => new Date(y.fetchedAt || 0) - new Date(x.fetchedAt || 0))[0];
-        const live = data.articles.map(mapLiveArticle);
-        articles = [...live, ...articles.filter(a => !a.isLive)];
+        // Aynı uid iki kez gelirse tek kayıt; nadir sayısal kimlik çakışması kaydırılarak çözülür
+        const seenUids = new Set();
+        const usedIds = new Set();
+        const live = data.articles.map(mapLiveArticle).filter(a => {
+          if (seenUids.has(a.uid)) return false;
+          seenUids.add(a.uid);
+          while (usedIds.has(a.id)) a.id += 1;
+          usedIds.add(a.id);
+          return true;
+        });
+        allArticles = [...live, ...allArticles.filter(a => !a.isLive)];
+        rebuildArticles();
         // Verinin KENDİ gününü saklıyoruz (bugünün anahtarını değil): günün verisi
         // henüz main'e düşmediyse otomatik kontrol her yoklamada yeniden dener ve
         // bayat veri "bugün geldi" sayılıp bir daha denetlenmeden kalmaz.
@@ -716,14 +848,15 @@
         if (isManual) {
           syncTimeEl.textContent = 'Çevrimdışı';
           label.textContent = 'Çevrimdışı — örnek yazılar gösteriliyor';
-        } else if (!articles.some(a => a.isLive)) {
+        } else if (!allArticles.some(a => a.isLive)) {
           label.textContent = 'Canlı veri bekleniyor — örnek yazılar gösteriliyor';
         }
         // Ekranda hiç yazı yoksa: ayara göre örnek yazılar ya da uyarı göster
-        if (!articles.length) {
+        if (!allArticles.length) {
           renderAuthorAvatars();
           if (appSettings.samples) {
-            articles = [...initialArticles];
+            allArticles = [...initialArticles];
+            rebuildArticles();
             applyFilters();
           } else {
             articlesListEl.innerHTML = `
@@ -783,7 +916,10 @@
     try {
       Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
     } catch (e) { /* bozuk kayıt -> varsayılanlar */ }
-    function saveSettings() { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); }
+    function saveSettings() {
+      try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); } catch (e) { /* kota */ }
+      queueSettingsSync(); // yönetici girişliyse değişen ayarlar diğer cihazlara gider
+    }
 
     function paintToggle(btn, on) {
       if (!btn) return;
@@ -803,10 +939,12 @@
       paintToggle(document.getElementById('set-tooltip'), appSettings.tooltip);
       paintToggle(document.getElementById('set-samples'), appSettings.samples);
       paintToggle(document.getElementById('set-autorefresh'), appSettings.autoRefresh);
+      renderHiddenCard();
+      renderAdminCard();
       const info = document.getElementById('settings-data-info');
       if (info) {
         const live = articles.filter(a => a.isLive);
-        const saved = articles.filter(a => a.isBookmarked).length;
+        const saved = savedArticles.size;
         const favs = favoriteWriters.length;
         info.textContent = live.length
           ? `${live.length} canlı yazı · ${new Set(live.map(a => a.source)).size} kaynak · ${new Set(live.map(a => a.author)).size} yazar · ${saved} kayıtlı · ${favs} favori yazar`
@@ -818,20 +956,37 @@
     let currentReadingArticle = null;
 
     // --- Okundu takibi: yazarın tüm yazıları okunduysa çemberi griye döner ---
-    const READ_KEY = 'kose-read-articles';
-    let readArticles = new Set();
-    try { readArticles = new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); } catch (e) { readArticles = new Set(); }
+    // Kalıcı kimlikle (uid) tutulur: kose-read-v2 = [[uid, zaman(ms)], ...] (en yeni 3000).
+    // Eski kose-read-articles sıra numarasına dayanıyordu (her veri yenilemesinde başka
+    // yazılara kayıyordu); güvenilmez olduğu için atılır.
+    const READ_KEY = 'kose-read-v2';
+    const READ_MAX = 3000;
+    let readMap = new Map(); // uid -> okunma zamanı
+    try {
+      const rawRead = JSON.parse(localStorage.getItem(READ_KEY) || '[]');
+      if (Array.isArray(rawRead)) rawRead.forEach(r => { if (Array.isArray(r) && r[0]) readMap.set(String(r[0]), Number(r[1]) || 0); });
+      localStorage.removeItem('kose-read-articles');
+    } catch (e) { readMap = new Map(); }
+    function persistRead() {
+      const list = [...readMap.entries()].sort((a, b) => a[1] - b[1]).slice(-READ_MAX);
+      if (list.length < readMap.size) readMap = new Map(list);
+      try { localStorage.setItem(READ_KEY, JSON.stringify(list)); } catch (e) { /* kota */ }
+    }
 
     function applyReadState() {
-      articles.forEach(a => { a.isRead = readArticles.has(a.id); });
+      articles.forEach(a => { a.isRead = readMap.has(articleUid(a)); });
     }
 
     function markArticleRead(id) {
-      const art = articles.find(a => a.id === id);
-      if (art) art.isRead = true;
-      if (!id || readArticles.has(id)) return;
-      readArticles.add(id);
-      try { localStorage.setItem(READ_KEY, JSON.stringify([...readArticles].slice(-500))); } catch (e) { /* kota */ }
+      const art = findArticle(id);
+      if (!art) return;
+      art.isRead = true;
+      const uid = articleUid(art);
+      if (!uid || readMap.has(uid)) return;
+      const t = Date.now();
+      readMap.set(uid, t);
+      persistRead();
+      queueAdminOp({ tur: 'okundu.ekle', uid, t });
     }
 
     function isAuthorFullyRead(author) {
@@ -863,8 +1018,16 @@
         'Â': 'a', 'â': 'a', 'Î': 'i', 'î': 'i', 'Û': 'u', 'û': 'u'
       }[m]));
     }
+    // Önce Türkçe küçültülür (I->ı, İ->i), SONRA aksan atılır: eskiden sıra tersti ve
+    // "KILIÇ" ("kılıc") ile "Kılıç" ("kilic") farklı anahtara düşüyordu. Kazıyıcıdaki
+    // writer_key() (scripts/fetch_columns.py) aynı kuralı uygular — yazar kuralları
+    // (gizle / çekimden çıkar) iki tarafta da aynı anahtarla eşleşir.
     function favKeyName(name) {
-      return deaccentTr(cleanWriterName(name)).toLocaleLowerCase('tr-TR').replace(/\s+/g, ' ').trim();
+      return deaccentTr(cleanWriterName(name).normalize('NFC').toLocaleLowerCase('tr-TR')).replace(/\s+/g, ' ').trim();
+    }
+    // Sunucudaki favori kaydının anahtarı (cihazlar arası aynı yazar = aynı anahtar)
+    function favSyncKey(f) {
+      return `${favKeyName(f && f.name)}|${favKeyName((f && f.source) || '')}`;
     }
     function sameSource(a, b) {
       if (!a || !b) return true;   // gazete bilinmiyorsa ada göre eşleştir
@@ -893,15 +1056,17 @@
       if (existing) {
         favoriteWriters = favoriteWriters.filter(f => f !== existing);
         nowFav = false;
+        queueAdminOp({ tur: 'fav.sil', anahtar: favSyncKey(existing) });
       } else {
-        favoriteWriters.push({ name, source: info.source || '', photo: info.photo || '', url: info.url || '' });
+        const rec = { name, source: info.source || '', photo: info.photo || '', url: info.url || '' };
+        favoriteWriters.push(rec);
         nowFav = true;
+        queueAdminOp({ tur: 'fav.ekle', anahtar: favSyncKey(rec), veri: rec });
       }
       saveFavoriteWriters();
       renderAuthorAvatars();               // ana sayfadaki daireler yalnızca favoriler
       if (currentTab === 'favorites') renderFavorites();
-      else if (currentTab === 'feed') applyFilters();     // kart kalpleri tazelensin
-      else if (currentTab === 'saved') renderArticles(articles.filter(a => a.isBookmarked));
+      else if (currentTab === 'feed' || currentTab === 'saved') renderCurrentList(); // kart kalpleri tazelensin
       if (writersLoaded && !writersViewEl.classList.contains('hidden')) renderWriters(); // Keşfet kalpleri tazelensin
       return nowFav;
     }
@@ -914,6 +1079,704 @@
     }
     function removeFavoriteWriter(idx) {
       toggleFavoriteWriter(favoriteWriters[idx] || {});
+    }
+
+    // --- Görünür liste: gizlenenler ve (yöneticiyse) çekimden çıkarılanlar süzülür ---
+    function currentRules() {
+      if (ruleCache) return ruleCache;
+      const k = isAdmin() && adminMeta.kaynak ? adminMeta.kaynak : null;
+      const pasif = (k && k.pasif) || {};
+      ruleCache = {
+        pasifKaynak: new Set((pasif.kaynaklar || []).map(p => p && p.key).filter(Boolean)),
+        pasifYazar: new Set((pasif.yazarlar || []).map(p => p && p.anahtar).filter(Boolean))
+      };
+      return ruleCache;
+    }
+    function isArticleVisible(a) {
+      if (!a) return false;
+      if (hiddenRules.size) {
+        if (hiddenRules.has(`y:${favKeyName(a.author)}`)) return false;
+        if (hiddenRules.has(`g:${favKeyName(a.source)}`)) return false;
+      }
+      const r = currentRules();
+      if (r.pasifKaynak.size && r.pasifKaynak.has(sourceKeyOf(a))) return false;
+      if (r.pasifYazar.size && r.pasifYazar.has(`y:${favKeyName(a.author)}`)) return false;
+      return true;
+    }
+    function rebuildArticles() {
+      ruleCache = null;
+      articles = allArticles.filter(isArticleVisible);
+      allArticles.forEach(a => { a.isBookmarked = savedArticles.has(articleUid(a)); });
+      applyReadState();
+    }
+    function findArticle(id) {
+      return articles.find(a => a.id === id)
+        || allArticles.find(a => a.id === id)
+        || [...savedOnlyArticles.values()].find(a => a.id === id)
+        || null;
+    }
+    // Akış ya da Kaydedilen sekmesi açıksa listeyi tazeler
+    function renderCurrentList() {
+      if (currentTab === 'saved') renderArticles(savedViewArticles(), 'Henüz kaydedilen yazı yok. Kartlardaki yer imine dokunarak ekleyebilirsin.');
+      else if (currentTab === 'feed') applyFilters();
+    }
+    // Kurallar ya da sunucudan gelen düzen değişince ekrandaki her şey tazelenir
+    function refreshAfterRuleChange() {
+      rebuildArticles();
+      renderAuthorAvatars();
+      renderCurrentList();
+      if (currentTab === 'favorites') renderFavorites();
+      else if (currentTab === 'settings') renderSettings();
+      else if (currentTab === 'admin') renderAdminView();
+      else if (currentTab === 'discover' && writersLoaded) renderWriters();
+      if (currentReadingArticle && !articleReader.classList.contains('translate-y-full')) {
+        updateReaderBookmarkIcon();
+        updateReaderFavoriteIcon();
+      }
+    }
+
+    // --- Kaydedilenler (yerel kalıcılık + yönetici eşitlemesi) ---
+    function persistSaved() {
+      const list = [...savedArticles.values()].sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0)).slice(0, SAVED_MAX);
+      if (list.length < savedArticles.size) savedArticles = new Map(list.map(s => [s.uid, s]));
+      try { localStorage.setItem(SAVED_KEY, JSON.stringify(list)); }
+      catch (e) {
+        // Kota dolduysa en yeni 30 kayıt dışındakilerin tam metni bırakılır (özet kalır)
+        try { localStorage.setItem(SAVED_KEY, JSON.stringify(list.map((s, i) => (i < 30 ? s : { ...s, fullContent: '' })))); } catch (e2) { /* kota */ }
+      }
+    }
+    function savedSnapshot(art) {
+      return {
+        uid: articleUid(art),
+        title: String(art.title || ''),
+        author: String(art.author || ''),
+        source: String(art.source || ''),
+        sourceKey: sourceKeyOf(art),
+        category: String(art.category || ''),
+        url: String(art.url || ''),
+        date: String(art.date || ''),
+        readTime: String(art.readTime || ''),
+        snippet: String(art.snippet || ''),
+        avatar: String(art.avatar || ''),
+        savedAt: Date.now(),
+        fullContent: String(art.fullContent || '').slice(0, SAVED_TEXT_MAX)
+      };
+    }
+    function setBookmark(art, on) {
+      const uid = articleUid(art);
+      if (!art || !uid) return false;
+      if (on) {
+        savedArticles.set(uid, savedSnapshot(art));
+        queueAdminOp({ tur: 'kayit.ekle', uid });   // özet ve metin gönderim anında kayıttan alınır
+      } else {
+        savedArticles.delete(uid);
+        queueAdminOp({ tur: 'kayit.sil', uid });
+      }
+      persistSaved();
+      allArticles.forEach(a => { if (articleUid(a) === uid) a.isBookmarked = on; });
+      const only = savedOnlyArticles.get(uid);
+      if (only) only.isBookmarked = on;
+      art.isBookmarked = on;
+      return on;
+    }
+    // Kaydedilen sekmesi: en son kaydedilen önce; akışta duran yazı canlı haliyle,
+    // akıştan düşmüş olan (veri 2 günlük) kayıtlı özetinden gösterilir.
+    function savedViewArticles() {
+      return [...savedArticles.values()]
+        .sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
+        .map(s => {
+          const live = allArticles.find(a => articleUid(a) === s.uid);
+          if (live) { live.isBookmarked = true; return live; }
+          let only = savedOnlyArticles.get(s.uid);
+          if (!only) {
+            only = {
+              id: stableNumericId(s.uid), uid: s.uid, sourceKey: s.sourceKey || '',
+              author: s.author || 'Köşe Yazarı', source: s.source || '', category: s.category || 'Gündem',
+              title: s.title, snippet: s.snippet || '', readTime: s.readTime || '', date: s.date || '',
+              url: s.url || '', avatar: s.avatar || initialAvatar(s.author),
+              fullContent: s.fullContent || '', isLive: false, isSavedOnly: true
+            };
+            savedOnlyArticles.set(s.uid, only);
+          }
+          only.isBookmarked = true;
+          only.isRead = readMap.has(s.uid);
+          return only;
+        });
+    }
+    function savedPlaceholderHtml(art) {
+      const note = isAdmin()
+        ? 'Yazının tam metni sunucudan getiriliyor…'
+        : 'Bu yazının tam metni bu cihazda yok; aşağıdaki bağlantıyla orijinal yazıya gidebilirsin.';
+      return `<p>${escapeHtml(art.snippet || '')}</p><p class="text-sm text-stone-400 font-sans">${escapeHtml(note)}</p>`;
+    }
+    // Başka cihazda kaydedilen yazının tam metni istek üzerine sunucudan gelir
+    async function loadSavedContent(art) {
+      if (!isAdmin() || !art || !art.uid) return;
+      const r = await adminRequest('metin', { query: `&uid=${encodeURIComponent(art.uid)}` });
+      const html = r.ok && r.data && typeof r.data.metin === 'string' ? r.data.metin : '';
+      const body = document.getElementById('reader-body');
+      if (!html) {
+        if (currentReadingArticle === art && body) {
+          body.innerHTML = `<p>${escapeHtml(art.snippet || '')}</p><p class="text-sm text-stone-400 font-sans">Tam metin sunucuda bulunamadı; orijinal yazıya gidebilirsin.</p>`;
+        }
+        return;
+      }
+      art.fullContent = html;
+      const snap = savedArticles.get(art.uid);
+      if (snap) { snap.fullContent = html; persistSaved(); }
+      if (currentReadingArticle === art && body) body.innerHTML = html;
+    }
+
+    // --- Gizlenenler (kişisel kural) ---
+    function persistHidden() {
+      const list = [...hiddenRules.entries()].map(([anahtar, v]) => ({ anahtar, ...v }));
+      try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(list)); } catch (e) { /* kota */ }
+    }
+    function hideKey(tur, ad) { return `${tur === 'gazete' ? 'g' : 'y'}:${favKeyName(ad)}`; }
+    function isHidden(tur, ad) { return hiddenRules.has(hideKey(tur, ad)); }
+    function setHidden(tur, ad, on, kaynak = '') {
+      if (!favKeyName(ad)) return false;
+      const anahtar = hideKey(tur, ad);
+      if (on) {
+        const v = { tur: tur === 'gazete' ? 'gazete' : 'yazar', ad: String(ad), kaynak: String(kaynak || ''), t: Date.now() };
+        hiddenRules.set(anahtar, v);
+        queueAdminOp({ tur: 'gizli.ekle', anahtar, veri: { tur: v.tur, ad: v.ad, kaynak: v.kaynak } });
+      } else {
+        hiddenRules.delete(anahtar);
+        queueAdminOp({ tur: 'gizli.sil', anahtar });
+      }
+      persistHidden();
+      refreshAfterRuleChange();
+      return true;
+    }
+    function unhideByKey(anahtar) {
+      const v = hiddenRules.get(anahtar);
+      if (!v) return;
+      hiddenRules.delete(anahtar);
+      queueAdminOp({ tur: 'gizli.sil', anahtar });
+      persistHidden();
+      refreshAfterRuleChange();
+      showToast(`${v.tur === 'gazete' ? v.ad : formatAuthorName(v.ad)} yeniden gösteriliyor`);
+    }
+
+    // --- Yönetici: çevrimiçi eşitleme (Vercel /api/yonetim + Upstash Redis) ---
+    // Ziyaretçiler bu bölümü hiç kullanmaz: giriş yapılmadıkça ağa istek gitmez.
+    // Yönetici girişliyken her değişiklik bir "işlem" olarak kuyruğa girer ve kısa bir
+    // gecikmeyle toplu gönderilir (çevrimdışıyken kuyrukta bekler, bağlantı gelince
+    // gider; aynı öğeye ait eski işlem yenisiyle değiştirilir). Sekmeye dönüşte ve iki
+    // dakikada bir sunucudaki sürüm sayacı yoklanır; başka bir cihaz değişiklik
+    // yaptıysa düzen yeniden çekilir. Çakışmada son yazan kazanır (öğe bazında).
+    function isAdmin() { return Boolean(adminToken); }
+    function persistAdmin() {
+      try {
+        if (adminToken) localStorage.setItem(ADMIN_TOKEN_KEY, adminToken);
+        else localStorage.removeItem(ADMIN_TOKEN_KEY);
+        localStorage.setItem(ADMIN_QUEUE_KEY, JSON.stringify(adminQueue));
+        localStorage.setItem(ADMIN_META_KEY, JSON.stringify(adminMeta));
+      } catch (e) { /* kota */ }
+    }
+    async function adminRequest(islem, { method = 'GET', body, query = '', keepalive = false } = {}) {
+      const headers = {};
+      if (adminToken) headers.Authorization = `Bearer ${adminToken}`;
+      if (body !== undefined) headers['Content-Type'] = 'application/json';
+      let res;
+      try {
+        res = await fetch(`${ADMIN_API}?islem=${encodeURIComponent(islem)}${query}`, {
+          method, headers, cache: 'no-store', keepalive,
+          body: body !== undefined ? JSON.stringify(body) : undefined
+        });
+      } catch (e) {
+        return { ok: false, status: 0, data: null, offline: true };
+      }
+      let data = null;
+      try { data = await res.json(); } catch (e) { data = null; }
+      return { ok: res.ok && Boolean(data) && data.ok !== false, status: res.status, data };
+    }
+    function adminErrorText(r) {
+      if (!r || r.offline || r.status === 0) return 'Sunucuya ulaşılamadı — bağlantını kontrol et.';
+      if (r.data && r.data.hata) return r.data.hata;
+      if (r.status === 404) return 'Yönetim sunucusu bu adreste yok — yalnızca Vercel sitesinde çalışır.';
+      return `Sunucu hatası (HTTP ${r.status}).`;
+    }
+    // Aynı öğeye ait işlemler tek "aile"dir: kuyrukta yalnızca en sonuncusu kalır
+    function opFamilyKey(op) {
+      switch (op && op.tur) {
+        case 'fav.ekle': case 'fav.sil': return `fav|${op.anahtar}`;
+        case 'kayit.ekle': case 'kayit.sil': return `kayit|${op.uid}`;
+        case 'okundu.ekle': case 'okundu.sil': return `okundu|${op.uid}`;
+        case 'ayar.yaz': return `ayar|${op.ad}`;
+        case 'gizli.ekle': case 'gizli.sil': return `gizli|${op.anahtar}`;
+        case 'kaynak.pasif': case 'kaynak.aktif': return `kaynak|${op.anahtar}`;
+        default: return '';
+      }
+    }
+    function queueAdminOp(op) {
+      if (!isAdmin() || !op || !op.tur) return;
+      const fam = opFamilyKey(op);
+      if (fam) adminQueue = adminQueue.filter(o => opFamilyKey(o) !== fam);
+      if (op.tur === 'okundu.temizle') adminQueue = adminQueue.filter(o => o.tur !== 'okundu.ekle' && o.tur !== 'okundu.sil');
+      const rec = { ...op, t: op.t || Date.now() };
+      if (rec.tur === 'kayit.ekle') { delete rec.veri; delete rec.metin; } // gövde kuyrukta tutulmaz (kota)
+      adminQueue.push(rec);
+      persistAdmin();
+      scheduleAdminFlush();
+      renderAdminStatus();
+    }
+    // Kuyruktaki işlemin gönderilecek hali (kayıt özeti ve metni o anki kayıttan alınır)
+    function wireOp(op) {
+      if (op.tur === 'kayit.ekle') {
+        const s = savedArticles.get(op.uid);
+        if (!s) return null;
+        const { fullContent, ...veri } = s;
+        return { tur: op.tur, uid: op.uid, t: op.t, veri, metin: fullContent || '' };
+      }
+      return op;
+    }
+    function scheduleAdminFlush(delay = 700) {
+      if (!isAdmin()) return;
+      clearTimeout(adminFlushTimer);
+      adminFlushTimer = setTimeout(() => { flushAdminQueue(); }, delay);
+    }
+    function scheduleAdminRetry() {
+      clearTimeout(adminRetryTimer);
+      adminRetryMs = Math.min(adminRetryMs ? adminRetryMs * 2 : 5000, 5 * 60 * 1000);
+      adminRetryTimer = setTimeout(() => { if (isAdmin()) flushAdminQueue(); }, adminRetryMs);
+    }
+    function flushAdminQueue() {
+      if (!isAdmin()) return Promise.resolve(false);
+      if (!adminQueue.length) return Promise.resolve(true);
+      if (adminFlushing) return adminFlushing;
+      clearTimeout(adminFlushTimer);
+      adminFlushing = (async () => {
+        adminUi.busy = true;
+        renderAdminStatus();
+        let pullNeeded = false;
+        try {
+          while (isAdmin() && adminQueue.length) {
+            // ≤150 işlem ve ~350 KB'lık parçalar (kaydedilen yazı metinleri büyük olabilir)
+            const batch = [];
+            const wire = [];
+            let size = 0;
+            for (const op of adminQueue) {
+              const w = wireOp(op);
+              const n = w ? JSON.stringify(w).length : 0;
+              if (batch.length && (batch.length >= 150 || size + n > 350000)) break;
+              batch.push(op);
+              if (w) wire.push(w);
+              size += n;
+            }
+            if (!wire.length) { adminQueue = adminQueue.filter(o => !batch.includes(o)); persistAdmin(); continue; }
+            const before = adminMeta.surum || { y: -1, k: -1 };
+            // keepalive (sekme kapanırken de gitsin) en çok 64 KB gövdeye izin verir; Türkçe
+            // karakter UTF-8'de 2 bayt olabildiği için eşik karakter sayısının yarısıdır.
+            const r = await adminRequest('uygula', { method: 'POST', body: { islemler: wire }, keepalive: size < 30000 });
+            if (r.status === 401) { handleAdminAuthLost(r.data); return false; }
+            if (!r.ok) {
+              if (r.status === 400 || r.status === 413) {
+                // Biçim hatası: parti bırakılır ki kuyruk tıkanmasın
+                console.warn('[yönetici] işlem partisi reddedildi:', r.data);
+                adminQueue = adminQueue.filter(o => !batch.includes(o));
+                persistAdmin();
+                continue;
+              }
+              adminUi.error = adminErrorText(r);
+              adminUi.setupMissing = r.status === 503;
+              scheduleAdminRetry();
+              return false;
+            }
+            adminRetryMs = 0;
+            adminUi.error = '';
+            adminUi.setupMissing = false;
+            if (r.data.reddedilen && r.data.reddedilen.length) console.warn('[yönetici] reddedilen işlemler:', r.data.reddedilen);
+            adminQueue = adminQueue.filter(o => !batch.includes(o));
+            const hasK = wire.some(o => /^(kaynak|ek)\./.test(o.tur));
+            const hasY = wire.some(o => !/^(kaynak|ek)\./.test(o.tur));
+            const s = r.data.surum || {};
+            // Sayaç beklenenden fazla arttıysa başka bir cihaz da yazmıştır -> düzeni yeniden çek.
+            // Kaynak eklemelerinde anahtarı sunucu verir; o yüzden de yeniden çekilir.
+            if (before.y < 0 || s.y !== before.y + (hasY ? 1 : 0) || s.k !== before.k + (hasK ? 1 : 0) || hasK) {
+              adminStale = true;
+              pullNeeded = true;
+            }
+            adminMeta.surum = { y: Number(s.y) || 0, k: Number(s.k) || 0 };
+            adminMeta.lastSync = Date.now();
+            persistAdmin();
+          }
+          return true;
+        } finally {
+          adminFlushing = null;
+          adminUi.busy = false;
+          renderAdminStatus();
+          if (pullNeeded && isAdmin()) setTimeout(() => { pullAdminState({ force: true }); }, 0);
+        }
+      })();
+      return adminFlushing;
+    }
+    function pullAdminState({ force = false } = {}) {
+      if (!isAdmin()) return Promise.resolve(false);
+      if (adminPulling) return adminPulling;
+      adminPulling = (async () => {
+        adminUi.busy = true;
+        renderAdminStatus();
+        try {
+          // Önce bekleyen değişiklikler gider: çekilen düzen onları da içersin
+          if (adminQueue.length && !(await flushAdminQueue())) return false;
+          if (!isAdmin()) return false;
+          if (!force && !adminStale && adminMeta.surum && adminMeta.surum.y >= 0) {
+            const v = await adminRequest('surum');
+            if (v.status === 401) { handleAdminAuthLost(v.data); return false; }
+            if (!v.ok) { adminUi.error = adminErrorText(v); adminUi.setupMissing = v.status === 503; return false; }
+            if (v.data.surum.y === adminMeta.surum.y && v.data.surum.k === adminMeta.surum.k) {
+              adminUi.error = '';
+              adminMeta.lastSync = Date.now();
+              persistAdmin();
+              return true;
+            }
+          }
+          const r = await adminRequest('durum');
+          if (r.status === 401) { handleAdminAuthLost(r.data); return false; }
+          if (!r.ok) { adminUi.error = adminErrorText(r); adminUi.setupMissing = r.status === 503; return false; }
+          adminUi.error = '';
+          adminUi.setupMissing = false;
+          applyServerState(r.data);
+          return true;
+        } finally {
+          adminPulling = null;
+          adminUi.busy = false;
+          renderAdminStatus();
+        }
+      })();
+      return adminPulling;
+    }
+    // Sunucudan gelen düzenin üstüne henüz gönderilemeyen yerel işlemler yeniden uygulanır
+    function applyOpLocally(op) {
+      switch (op && op.tur) {
+        case 'fav.ekle':
+          if (op.veri && !favoriteWriters.some(f => favSyncKey(f) === op.anahtar)) {
+            favoriteWriters.push({ name: op.veri.name, source: op.veri.source || '', photo: op.veri.photo || '', url: op.veri.url || '' });
+          }
+          break;
+        case 'fav.sil': favoriteWriters = favoriteWriters.filter(f => favSyncKey(f) !== op.anahtar); break;
+        case 'kayit.sil': savedArticles.delete(op.uid); break;
+        case 'okundu.ekle': readMap.set(op.uid, Number(op.t) || Date.now()); break;
+        case 'okundu.sil': readMap.delete(op.uid); break;
+        case 'okundu.temizle': readMap.clear(); break;
+        case 'ayar.yaz': appSettings[op.ad] = op.deger; break;
+        case 'gizli.ekle':
+          if (op.veri) hiddenRules.set(op.anahtar, { tur: op.veri.tur, ad: op.veri.ad, kaynak: op.veri.kaynak || '', t: op.t || Date.now() });
+          break;
+        case 'gizli.sil': hiddenRules.delete(op.anahtar); break;
+        default: applyKaynakOpLocally(op);
+      }
+    }
+    function normalizeKaynak(k) {
+      const src = k && typeof k === 'object' ? k : {};
+      const pasif = src.pasif && typeof src.pasif === 'object' ? src.pasif : {};
+      return {
+        surum: Number(src.surum) || 0,
+        guncellendi: src.guncellendi || null,
+        pasif: {
+          kaynaklar: Array.isArray(pasif.kaynaklar) ? pasif.kaynaklar.filter(p => p && p.key) : [],
+          yazarlar: Array.isArray(pasif.yazarlar) ? pasif.yazarlar.filter(p => p && p.anahtar) : []
+        },
+        ek: Array.isArray(src.ek) ? src.ek.filter(e => e && e.key && e.feed) : []
+      };
+    }
+    function ensureKaynakMeta() {
+      adminMeta.kaynak = normalizeKaynak(adminMeta.kaynak);
+      return adminMeta.kaynak;
+    }
+    // Kaynak kuralı işlemini yerel listeye uygular (iyimser güncelleme)
+    function applyKaynakOpLocally(op) {
+      if (!op || !/^(kaynak|ek)\./.test(op.tur)) return;
+      const k = ensureKaynakMeta();
+      if (op.tur === 'kaynak.pasif' && op.veri) {
+        if (op.veri.tur === 'kaynak') {
+          k.pasif.kaynaklar = k.pasif.kaynaklar.filter(p => p.key !== op.veri.key);
+          k.pasif.kaynaklar.push({ key: op.veri.key, ad: op.veri.ad, t: op.t || Date.now() });
+        } else {
+          k.pasif.yazarlar = k.pasif.yazarlar.filter(p => p.anahtar !== op.anahtar);
+          k.pasif.yazarlar.push({ anahtar: op.anahtar, ad: op.veri.ad, t: op.t || Date.now() });
+        }
+      } else if (op.tur === 'kaynak.aktif') {
+        k.pasif.kaynaklar = k.pasif.kaynaklar.filter(p => `k:${p.key}` !== op.anahtar);
+        k.pasif.yazarlar = k.pasif.yazarlar.filter(p => p.anahtar !== op.anahtar);
+      } else if (op.tur === 'ek.ekle' && op.veri) {
+        if (!k.ek.some(e => e.feed === op.veri.feed)) {
+          k.ek.push({
+            key: op.geciciKey || `yeni-${op.t}`, name: op.veri.name, author: op.veri.author || op.veri.name,
+            category: op.veri.category || 'Gündem', feed: op.veri.feed, t: op.t || Date.now(), bekliyor: true
+          });
+        }
+      } else if (op.tur === 'ek.sil') {
+        k.ek = k.ek.filter(e => e.key !== op.key);
+        k.pasif.kaynaklar = k.pasif.kaynaklar.filter(p => p.key !== op.key);
+      }
+      ruleCache = null;
+    }
+    function applyServerState(data) {
+      if (!data || !data.kisisel) return;
+      const k = data.kisisel;
+      const prevSaved = savedArticles;
+      favoriteWriters = (Array.isArray(k.fav) ? k.fav : []).filter(f => f && f.name)
+        .map(f => ({ name: String(f.name), source: String(f.source || ''), photo: String(f.photo || ''), url: String(f.url || '') }));
+      savedArticles = new Map();
+      (Array.isArray(k.kayit) ? k.kayit : []).forEach(s => {
+        if (!s || !s.uid || !s.title) return;
+        const old = prevSaved.get(String(s.uid));
+        savedArticles.set(String(s.uid), { ...s, fullContent: (old && old.fullContent) || '' });
+      });
+      // Henüz gönderilemeyen yerel kayıtlar korunur
+      adminQueue.forEach(op => { if (op.tur === 'kayit.ekle' && prevSaved.has(op.uid)) savedArticles.set(op.uid, prevSaved.get(op.uid)); });
+      readMap = new Map((Array.isArray(k.okundu) ? k.okundu : []).filter(r => Array.isArray(r) && r[0]).map(r => [String(r[0]), Number(r[1]) || 0]));
+      hiddenRules = new Map((Array.isArray(k.gizli) ? k.gizli : []).filter(g => g && g.anahtar && g.ad)
+        .map(g => [String(g.anahtar), { tur: g.tur === 'gazete' ? 'gazete' : 'yazar', ad: String(g.ad), kaynak: String(g.kaynak || ''), t: Number(g.t) || 0 }]));
+      const serverSettings = k.ayar && typeof k.ayar === 'object' ? k.ayar : {};
+      ADMIN_SYNC_SETTINGS.forEach(ad => { if (serverSettings[ad] !== undefined) appSettings[ad] = serverSettings[ad]; });
+      adminMeta.kaynak = normalizeKaynak(data.kaynak);
+      adminQueue.forEach(applyOpLocally);
+      adminMeta.surum = { y: Number(data.surum && data.surum.y) || 0, k: Number(data.surum && data.surum.k) || 0 };
+      adminMeta.lastSync = Date.now();
+      adminStale = false;
+      readerFontSize = Number(appSettings.readerFont) || 16;
+      lastSyncedSettings = pickSyncSettings(appSettings);
+      try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); } catch (e) { /* kota */ }
+      saveFavoriteWriters();
+      persistSaved();
+      persistRead();
+      persistHidden();
+      persistAdmin();
+      savedOnlyArticles = new Map();
+      const body = document.getElementById('reader-body');
+      if (body) body.style.fontSize = `${readerFontSize}px`;
+      refreshAfterRuleChange();
+    }
+    function pickSyncSettings(src) {
+      const out = {};
+      ADMIN_SYNC_SETTINGS.forEach(ad => { out[ad] = src[ad]; });
+      return out;
+    }
+    function queueSettingsSync() {
+      if (!isAdmin()) return;
+      const cur = pickSyncSettings(appSettings);
+      ADMIN_SYNC_SETTINGS.forEach(ad => {
+        if (!lastSyncedSettings || lastSyncedSettings[ad] !== cur[ad]) queueAdminOp({ tur: 'ayar.yaz', ad, deger: cur[ad] });
+      });
+      lastSyncedSettings = cur;
+    }
+    async function adminLogin(password) {
+      const sifre = String(password || '');
+      if (!sifre) { adminUi.error = 'Şifreyi yaz.'; renderAdminCard(); return false; }
+      adminUi.busy = true;
+      adminUi.error = '';
+      renderAdminCard();
+      const r = await adminRequest('giris', { method: 'POST', body: { sifre } });
+      if (!r.ok || !r.data || !r.data.token) {
+        adminUi.busy = false;
+        adminUi.error = adminErrorText(r);
+        adminUi.setupMissing = r.status === 503;
+        renderAdminCard();
+        return false;
+      }
+      adminToken = r.data.token;
+      adminMeta = emptyAdminMeta();
+      adminMeta.bitis = r.data.bitis || '';
+      adminQueue = [];
+      adminStale = true;
+      adminUi.setupMissing = false;
+      // Bu cihazdaki düzen sunucudakiyle BİRLEŞTİRİLİR (hiçbir şey silinmez): favoriler,
+      // kaydedilenler, son okunanlar ve gizlenenler sunucuya eklenir.
+      const now = Date.now();
+      favoriteWriters.forEach(f => adminQueue.push({ tur: 'fav.ekle', anahtar: favSyncKey(f), veri: { name: f.name, source: f.source || '', photo: f.photo || '', url: f.url || '' }, t: now }));
+      savedArticles.forEach((s, uid) => adminQueue.push({ tur: 'kayit.ekle', uid, t: s.savedAt || now }));
+      [...readMap.entries()].sort((a, b) => a[1] - b[1]).slice(-1000).forEach(([uid, t]) => adminQueue.push({ tur: 'okundu.ekle', uid, t }));
+      hiddenRules.forEach((v, anahtar) => adminQueue.push({ tur: 'gizli.ekle', anahtar, veri: { tur: v.tur, ad: v.ad, kaynak: v.kaynak || '' }, t: v.t || now }));
+      // Ayarlar: sunucuda hiç kayıt yoksa bu cihazınkiler yüklenir; varsa sunucudaki geçerli olur
+      const ilk = await adminRequest('durum');
+      if (ilk.ok && ilk.data && ilk.data.kisisel && !Object.keys(ilk.data.kisisel.ayar || {}).length) {
+        ADMIN_SYNC_SETTINGS.forEach(ad => { if (appSettings[ad] !== undefined) adminQueue.push({ tur: 'ayar.yaz', ad, deger: appSettings[ad], t: now }); });
+      }
+      persistAdmin();
+      await flushAdminQueue();
+      await pullAdminState({ force: true });
+      adminUi.busy = false;
+      renderAdminCard();
+      if (isAdmin()) showToast('Yönetici girişi yapıldı — düzenin artık her cihazda aynı.');
+      return isAdmin();
+    }
+    async function adminLogout(all = false) {
+      if (!isAdmin()) return false;
+      adminUi.busy = true;
+      renderAdminCard();
+      await flushAdminQueue();
+      if (all && isAdmin()) {
+        const r = await adminRequest('cikis', { method: 'POST', body: { hepsi: true } });
+        if (!r.ok && r.status !== 401) {
+          adminUi.busy = false;
+          adminUi.error = adminErrorText(r);
+          renderAdminCard();
+          return false;
+        }
+      }
+      adminToken = '';
+      adminQueue = [];
+      adminMeta = emptyAdminMeta();
+      adminUi.busy = false;
+      adminUi.error = '';
+      adminStale = false;
+      clearTimeout(adminRetryTimer);
+      clearTimeout(adminFlushTimer);
+      persistAdmin();
+      if (currentTab === 'admin') setTab('settings');
+      refreshAfterRuleChange();
+      renderAdminCard();
+      showToast(all ? 'Tüm cihazlardaki yönetici oturumları kapatıldı.' : 'Yönetici oturumu kapatıldı; bu cihazdaki kopya yerinde kalır.');
+      return true;
+    }
+    function handleAdminAuthLost(data) {
+      adminToken = '';
+      adminQueue = [];
+      adminMeta = emptyAdminMeta();
+      adminUi.busy = false;
+      adminUi.error = (data && data.hata) || 'Oturum kapandı — yeniden giriş yap.';
+      persistAdmin();
+      if (currentTab === 'admin') setTab('settings');
+      refreshAfterRuleChange();
+      renderAdminCard();
+      showToast(adminUi.error);
+    }
+
+    // --- Kaynak kuralları (yalnızca yönetici; kazıyıcı bunları herkes için uygular) ---
+    function isSourcePasif(key) { return Boolean(key) && currentRules().pasifKaynak.has(key); }
+    function isWriterPasif(ad) { return currentRules().pasifYazar.has(`y:${favKeyName(ad)}`); }
+    function setSourcePasif(key, ad, pasif) {
+      if (!isAdmin() || !key) return;
+      const op = pasif
+        ? { tur: 'kaynak.pasif', anahtar: `k:${key}`, veri: { tur: 'kaynak', ad: String(ad || key), key }, t: Date.now() }
+        : { tur: 'kaynak.aktif', anahtar: `k:${key}`, t: Date.now() };
+      applyKaynakOpLocally(op);
+      queueAdminOp(op);
+      refreshAfterRuleChange();
+    }
+    function setWriterPasif(ad, pasif) {
+      const k = favKeyName(ad);
+      if (!isAdmin() || !k) return;
+      const anahtar = `y:${k}`;
+      const op = pasif
+        ? { tur: 'kaynak.pasif', anahtar, veri: { tur: 'yazar', ad: String(ad) }, t: Date.now() }
+        : { tur: 'kaynak.aktif', anahtar, t: Date.now() };
+      applyKaynakOpLocally(op);
+      queueAdminOp(op);
+      refreshAfterRuleChange();
+    }
+    const FEED_CATEGORIES = ['Gündem', 'Ekonomi', 'Teknoloji', 'Kültür-Sanat'];
+    function normalizeFeedInput(raw) {
+      let s = String(raw || '').trim();
+      if (!s) return '';
+      if (!/^https?:\/\//i.test(s)) s = `https://${s}`;
+      try {
+        const u = new URL(s);
+        if (!/^https?:$/.test(u.protocol) || !u.hostname.includes('.')) return '';
+        // YouTube kanal adresi (youtube.com/channel/UC…) doğrudan Atom akışına çevrilir;
+        // @kullanıcı adresleri ve düz site adresleri kazıyıcıda otomatik çözülür.
+        const host = u.hostname.replace(/^(www|m)\./, '');
+        const m = host === 'youtube.com' && u.pathname.match(/^\/channel\/(UC[\w-]{22})/);
+        if (m) return `https://www.youtube.com/feeds/videos.xml?channel_id=${m[1]}`;
+        return u.href;
+      } catch (e) {
+        return '';
+      }
+    }
+    function addFeedSource({ feed, name, author, category }) {
+      if (!isAdmin()) return { ok: false, hata: 'Önce yönetici girişi yap.' };
+      const url = normalizeFeedInput(feed);
+      if (!url) return { ok: false, hata: 'Geçerli bir adres yaz (ör. https://site.com/feed ya da YouTube kanal adresi).' };
+      const ad = String(name || '').trim().slice(0, 80);
+      if (!ad) return { ok: false, hata: 'Kaynağa bir ad ver.' };
+      const k = ensureKaynakMeta();
+      if (k.ek.some(e => e.feed === url)) return { ok: false, hata: 'Bu kaynak zaten takip ediliyor.' };
+      if (k.ek.length >= 40) return { ok: false, hata: 'En çok 40 kaynak eklenebilir.' };
+      const t = Date.now();
+      const op = {
+        tur: 'ek.ekle', t, geciciKey: `yeni-${t}`,
+        veri: { feed: url, name: ad, author: String(author || '').trim().slice(0, 80) || ad, category: FEED_CATEGORIES.includes(category) ? category : 'Gündem' }
+      };
+      applyKaynakOpLocally(op);
+      queueAdminOp(op);
+      refreshAfterRuleChange();
+      return { ok: true };
+    }
+    function removeFeedSource(key) {
+      if (!isAdmin() || !key) return;
+      if (String(key).startsWith('yeni-')) {
+        // Sunucuya henüz gitmedi: kuyruktaki ekleme geri alınır
+        adminQueue = adminQueue.filter(o => !(o.tur === 'ek.ekle' && o.geciciKey === key));
+        const k = ensureKaynakMeta();
+        k.ek = k.ek.filter(e => e.key !== key);
+        ruleCache = null;
+        persistAdmin();
+        refreshAfterRuleChange();
+        return;
+      }
+      const op = { tur: 'ek.sil', key, t: Date.now() };
+      applyKaynakOpLocally(op);
+      queueAdminOp(op);
+      refreshAfterRuleChange();
+    }
+
+    // Kaynak kataloğu: kazıyıcının her çekimde yazdığı data/kaynaklar.json (tüm tanımlı
+    // kaynaklar + uygulanan kurallar + kaynak başına yazı sayısı/durum). Dosya henüz
+    // yoksa gazete dizini ve akıştaki kaynaklardan türetilir.
+    let sourceCatalog = null;
+    let sourceCatalogLoading = null;
+    function loadSourceCatalog() {
+      if (sourceCatalogLoading) return sourceCatalogLoading;
+      sourceCatalogLoading = (async () => {
+        const urls = [
+          'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/kaynaklar.json',
+          'https://cdn.jsdelivr.net/gh/0xinspectorx0/kose@main/data/kaynaklar.json',
+          'data/kaynaklar.json'
+        ];
+        try {
+          const probes = await Promise.all(urls.map(async (u) => {
+            try {
+              const res = await fetch(`${u}?v=${Date.now()}`, { cache: 'no-store' });
+              if (!res.ok) return null;
+              const d = await res.json();
+              return d && Array.isArray(d.katalog) ? d : null;
+            } catch (e) { return null; }
+          }));
+          const good = probes.filter(Boolean).sort((x, y) => new Date(y.guncellendi || 0) - new Date(x.guncellendi || 0));
+          if (good.length) sourceCatalog = good[0];
+        } finally {
+          sourceCatalogLoading = null;
+        }
+        return sourceCatalog;
+      })();
+      return sourceCatalogLoading;
+    }
+    function catalogStatus(key) {
+      if (!sourceCatalog || !Array.isArray(sourceCatalog.katalog)) return null;
+      return sourceCatalog.katalog.find(k => k && k.key === key) || null;
+    }
+    function liveCountsBySource() {
+      const counts = new Map();
+      allArticles.forEach(a => { if (a.isLive) { const key = sourceKeyOf(a); counts.set(key, (counts.get(key) || 0) + 1); } });
+      return counts;
+    }
+    function catalogEntries() {
+      const map = new Map();
+      const add = (key, v) => { if (key && !String(key).startsWith('ek-') && !String(key).startsWith('yeni-') && !map.has(key)) map.set(key, { key, ...v }); };
+      if (sourceCatalog && Array.isArray(sourceCatalog.katalog)) {
+        sourceCatalog.katalog.forEach(k => { if (k && k.key && k.tur !== 'ek') add(k.key, { name: k.name || k.key, tur: k.tur || 'site', category: k.category || '' }); });
+      }
+      if (writersData && Array.isArray(writersData.papers)) writersData.papers.forEach(p => add(p.key, { name: p.name || p.key, tur: 'gazete', category: '' }));
+      allArticles.forEach(a => { if (a.isLive) add(sourceKeyOf(a), { name: a.source, tur: 'site', category: a.category || '' }); });
+      ensureKaynakMeta().pasif.kaynaklar.forEach(p => add(p.key, { name: p.ad || p.key, tur: 'site', category: '' }));
+      const counts = liveCountsBySource();
+      return [...map.values()]
+        .map(e => ({ ...e, yazi: counts.get(e.key) || 0, pasif: isSourcePasif(e.key) }))
+        .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
     }
 
     let readerFontSize = Number(appSettings.readerFont) || 16;
@@ -1321,9 +2184,12 @@
 
     // --- Bottom Tab Router (Akış / Keşfet / Favoriler / Kaydedilen / Ayarlar) ---
     function setTab(tab) {
+      // Yönetim paneli yalnızca yönetici girişiyle açılır (alt menüde Ayarlar seçili kalır)
+      if (tab === 'admin' && !isAdmin()) tab = 'settings';
       currentTab = tab;
+      const navTab = tab === 'admin' ? 'settings' : tab;
       document.querySelectorAll('.nav-btn').forEach(b => {
-        const active = b.getAttribute('data-tab') === tab;
+        const active = b.getAttribute('data-tab') === navTab;
         b.classList.toggle('text-accent', active);
         b.classList.toggle('text-stone-400', !active);
         b.querySelector('span').classList.toggle('font-bold', active);
@@ -1333,7 +2199,8 @@
       const isDiscover = tab === 'discover';
       const isFavorites = tab === 'favorites';
       const isSettings = tab === 'settings';
-      const showFeed = !isDiscover && !isFavorites && !isSettings; // Akış ve Kaydedilen aynı düzeni kullanır
+      const isAdminView = tab === 'admin';
+      const showFeed = !isDiscover && !isFavorites && !isSettings && !isAdminView; // Akış ve Kaydedilen aynı düzeni kullanır
       feedAuthorsSection.classList.toggle('hidden', !showFeed);
       feedCategoriesSection.classList.toggle('hidden', !showFeed);
       syncBannerEl.classList.toggle('hidden', !showFeed);
@@ -1341,9 +2208,18 @@
       writersViewEl.classList.toggle('hidden', !isDiscover);
       favoritesViewEl.classList.toggle('hidden', !isFavorites);
       settingsViewEl.classList.toggle('hidden', !isSettings);
+      const adminViewEl = document.getElementById('admin-view');
+      if (adminViewEl) adminViewEl.classList.toggle('hidden', !isAdminView);
 
       if (isSettings) {
         renderSettings();
+      } else if (isAdminView) {
+        mainScrollEl.scrollTo({ top: 0 });
+        renderAdminView();
+        // Katalog ve gazete dizini gelince panel yeniden çizilir; sunucudaki son kurallar da çekilir
+        loadSourceCatalog().then(() => { if (currentTab === 'admin') renderAdminView(); });
+        if (!writersLoaded) loadWriters().then(() => { if (currentTab === 'admin') renderAdminView(); });
+        pullAdminState();
       } else if (isDiscover) {
         if (!writersLoaded) loadWriters();
         else renderWriters();
@@ -1352,7 +2228,7 @@
         if (!writersLoaded) loadWriters();   // favori portreleri gazete dizininden gelir
         renderFavorites();
       } else if (tab === 'saved') {
-        renderArticles(articles.filter(a => a.isBookmarked));
+        renderCurrentList();
       } else {
         applyFilters();
       }
@@ -1401,7 +2277,7 @@
              onclick="quickOpenByAuthor(this.dataset.name, this.dataset.source)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
           <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${photo}" alt="${escapeHtml(name)}" loading="lazy"
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${escapeHtml(photo)}" alt="${escapeHtml(name)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
           </div>
           <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(name))}</span>
@@ -1444,12 +2320,12 @@
     window.addEventListener('resize', hideAuthorTooltip);
 
     // --- Render Article Cards ---
-    function renderArticles(items) {
+    function renderArticles(items, emptyText = 'Bu kriterde yazı bulunamadı.') {
       if (items.length === 0) {
         articlesListEl.innerHTML = `
           <div class="text-center py-12 text-slate-400">
             <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
-            <p class="text-sm font-medium">Bu kriterde yazı bulunamadı.</p>
+            <p class="text-sm font-medium px-6">${escapeHtml(emptyText)}</p>
           </div>
         `;
         lucide.createIcons();
@@ -1461,35 +2337,36 @@
           <!-- Card Header Info -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2.5">
-              <img src="${art.avatar}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${art.author}">
+              <img src="${escapeHtml(art.avatar)}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${escapeHtml(art.author)}">
               <div>
                 <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${escapeHtml(formatAuthorName(art.author))}</h3>
                 <div class="flex items-center gap-1.5 text-[10px] text-stone-400">
-                  <span class="font-semibold text-stone-600">${art.source}</span>
+                  <span class="font-semibold text-stone-600">${escapeHtml(art.source)}</span>
                   <span>•</span>
-                  <span>${art.date}</span>
+                  <span>${escapeHtml(art.date)}</span>
                 </div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
               ${art.isLive ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>CANLI</span>' : ''}
-              <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${art.category}</span>
+              ${art.isSavedOnly ? '<span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">ARŞİV</span>' : ''}
+              <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${escapeHtml(art.category)}</span>
             </div>
           </div>
 
           <!-- Card Title & Snippet -->
           <h2 class="font-serif font-bold text-base text-ink-900 leading-snug mb-1.5 line-clamp-2">
-            ${art.title}
+            ${escapeHtml(art.title)}
           </h2>
           <p class="text-xs text-stone-500 font-sans leading-relaxed line-clamp-2 mb-3">
-            ${art.snippet}
+            ${escapeHtml(art.snippet)}
           </p>
 
           <!-- Card Footer Action Row -->
           <div class="flex items-center justify-between pt-2.5 border-t border-stone-100 text-[11px] text-stone-400" onclick="event.stopPropagation()">
             <div class="flex items-center gap-1.5 text-stone-500 font-medium">
               <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-              <span>${art.readTime}</span>
+              <span>${escapeHtml(art.readTime)}</span>
             </div>
             
             <div class="flex items-center gap-3">
@@ -1570,7 +2447,7 @@
     // Yazı kartındaki kalp: kartın yazarını favorilere ekler/çıkarır
     function toggleFavoriteFromCard(e, id) {
       e.stopPropagation();
-      const art = articles.find(a => a.id === id);
+      const art = findArticle(id);
       if (!art) return;
       toggleFavoriteWriter({
         name: art.author,
@@ -1580,12 +2457,14 @@
     }
 
     // --- Bookmarking Logic ---
+    // Kaydet/kaldır: artık kalıcı (kose-saved-v1) ve yöneticide her cihaza eşitlenir.
+    // Kaydedilen sekmesindeyken o liste tazelenir (eskiden akışın tamamı çiziliyordu).
     function toggleBookmark(e, id) {
       e.stopPropagation();
-      const item = articles.find(a => a.id === id);
+      const item = findArticle(id);
       if (item) {
-        item.isBookmarked = !item.isBookmarked;
-        applyFilters();
+        setBookmark(item, !item.isBookmarked);
+        renderCurrentList();
         if (currentReadingArticle && currentReadingArticle.id === id) {
           updateReaderBookmarkIcon();
         }
@@ -1613,9 +2492,9 @@
 
     readerBookmarkBtn.addEventListener('click', () => {
       if (currentReadingArticle) {
-        currentReadingArticle.isBookmarked = !currentReadingArticle.isBookmarked;
+        setBookmark(currentReadingArticle, !currentReadingArticle.isBookmarked);
         updateReaderBookmarkIcon();
-        applyFilters();
+        renderCurrentList();
       }
     });
 
@@ -1632,9 +2511,10 @@
 
     // --- Open Reader Full Modal ---
     function openReader(id) {
-      const art = articles.find(a => a.id === id);
+      const art = findArticle(id);
       if (!art) return;
       currentReadingArticle = art;
+      closeReaderMenu();
       markArticleRead(art.id);
       renderAuthorAvatars();
 
@@ -1645,7 +2525,10 @@
       document.getElementById('reader-time').textContent = art.readTime;
       document.getElementById('reader-title').textContent = art.title;
       const readerBodyEl = document.getElementById('reader-body');
-      readerBodyEl.innerHTML = art.fullContent;
+      // Akıştan düşmüş ve tam metni bu cihazda olmayan kayıtlı yazı: özet gösterilir,
+      // yöneticide metin sunucudan getirilir
+      readerBodyEl.innerHTML = art.fullContent || savedPlaceholderHtml(art);
+      if (art.isSavedOnly && !art.fullContent) loadSavedContent(art);
       readerBodyEl.style.fontSize = `${Number(appSettings.readerFont) || 16}px`;
       updateScrollTopBtn();
 
@@ -1696,6 +2579,7 @@
     }
 
     closeReaderBtn.addEventListener('click', () => {
+      closeReaderMenu();
       articleReader.classList.add('translate-y-full');
       updateAudioUI(); // seslendirme sürüyorsa mini oynatıcı görünür, ses kesilmez
     });
@@ -2064,8 +2948,9 @@
 
       if (!ok) {
         // Çevrimdışıysa örnek makaleyi göster
-        if (!articles.find(a => a.id === offlineMockColumn.id)) {
-          articles.unshift(offlineMockColumn);
+        if (!allArticles.find(a => a.id === offlineMockColumn.id)) {
+          allArticles.unshift(offlineMockColumn);
+          rebuildArticles();
           renderAuthorAvatars();
           applyFilters();
         }
@@ -2112,6 +2997,460 @@
     });
     document.getElementById('settings-refresh-btn').addEventListener('click', () => loadDailyFeed(true));
 
+    // --- Bildirim balonu ---
+    let toastTimer = null;
+    function showToast(text, opts) {
+      const { action = '', onAction = null, ms = 4000 } = opts || {};
+      const el = document.getElementById('toast');
+      if (!el) return;
+      document.getElementById('toast-text').textContent = text;
+      const btn = document.getElementById('toast-action');
+      btn.textContent = action;
+      btn.classList.toggle('hidden', !action);
+      btn.onclick = action && onAction ? () => { hideToast(); onAction(); } : null;
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, ms);
+    }
+    function hideToast() {
+      const el = document.getElementById('toast');
+      if (el) el.classList.add('hidden');
+    }
+
+    // --- Yönetici kartı (Ayarlar) ve durum satırı ---
+    function adminStatusText() {
+      if (!isAdmin()) return '';
+      const pending = adminQueue.length;
+      if (adminUi.busy) return 'Eşitleniyor…';
+      if (adminUi.error) return `Eşitlenemedi${pending ? ` — ${pending} değişiklik bekliyor` : ''}`;
+      if (pending) return `${pending} değişiklik gönderilecek…`;
+      return adminMeta.lastSync ? `Eşitlendi · ${formatSyncTime(new Date(adminMeta.lastSync).toISOString())}` : 'Henüz eşitlenmedi';
+    }
+    function renderAdminStatus() {
+      const text = adminStatusText();
+      ['admin-status', 'admin-view-status'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      });
+    }
+    function renderAdminCard() {
+      const card = document.getElementById('admin-card');
+      if (!card) return;
+      const err = adminUi.error ? `<p class="text-[11px] text-red-600 mt-2 leading-relaxed">${escapeHtml(adminUi.error)}</p>` : '';
+      const setup = adminUi.setupMissing
+        ? `<p class="text-[10.5px] text-stone-500 mt-1.5 leading-relaxed">Kurulum: Vercel → proje → <b>Storage</b> → <b>Upstash for Redis</b> (ücretsiz) oluşturup projeye bağla; <b>Settings → Environment Variables</b> bölümüne <b>ADMIN_PASSWORD</b> ekle (en az 8 karakter); ardından <b>Redeploy</b>.</p>`
+        : '';
+      if (!isAdmin()) {
+        card.innerHTML = `
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield" class="w-4 h-4 text-stone-500"></i>
+            <p class="text-xs font-bold text-ink-900">Yönetici girişi</p>
+          </div>
+          <p class="text-[11px] text-stone-500 mt-1 leading-relaxed">Site sahibi giriş yapınca favoriler, kaydedilenler, okundu işaretleri, ayarlar, gizlenenler ve kaynak kuralları çevrimiçi saklanır; her cihazdan aynı düzen görünür. Ziyaretçilerin düzeni kendi tarayıcılarında kalır.</p>
+          <form id="admin-login-form" class="mt-2.5 flex gap-1.5">
+            <input id="admin-password" type="password" autocomplete="current-password" placeholder="Yönetici şifresi" ${adminUi.busy ? 'disabled' : ''}
+              class="flex-1 min-w-0 text-xs px-3 py-2.5 rounded-xl bg-stone-100 text-stone-800 border border-stone-200 focus:outline-none focus:border-accent">
+            <button type="submit" ${adminUi.busy ? 'disabled' : ''} class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-ink-900 text-white hover:bg-ink-700 active:scale-95 transition-all disabled:opacity-60"><i data-lucide="lock" class="w-3.5 h-3.5"></i>${adminUi.busy ? 'Giriliyor…' : 'Giriş'}</button>
+          </form>
+          ${err}${setup}`;
+      } else {
+        card.innerHTML = `
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+            <p class="text-xs font-bold text-ink-900">Yönetici · çevrimiçi eşitleme açık</p>
+          </div>
+          <p id="admin-status" class="text-[11px] text-stone-500 mt-1">${escapeHtml(adminStatusText())}</p>
+          <div class="grid grid-cols-2 gap-1.5 mt-2.5">
+            <button type="button" data-admin-action="panel" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold bg-ink-900 text-white hover:bg-ink-700 active:scale-[0.98] transition-all"><i data-lucide="settings-2" class="w-3.5 h-3.5"></i>Yönetim paneli</button>
+            <button type="button" data-admin-action="sync" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 active:scale-[0.98] transition-all"><i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>Şimdi eşitle</button>
+          </div>
+          <div class="flex items-center justify-between mt-2.5">
+            <button type="button" data-admin-action="logout" class="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 hover:text-accent"><i data-lucide="log-out" class="w-3.5 h-3.5"></i>Çıkış yap</button>
+            <button type="button" data-admin-action="logout-all" class="text-[11px] font-semibold text-stone-400 hover:text-red-600">Tüm cihazlardan çıkış</button>
+          </div>
+          ${err}${setup}`;
+      }
+      lucide.createIcons();
+    }
+
+    // --- Gizlenenler kartı (Ayarlar ve Yönetim paneli) ---
+    function hiddenListHtml() {
+      return [...hiddenRules.entries()]
+        .sort((a, b) => String(a[1].ad).localeCompare(String(b[1].ad), 'tr'))
+        .map(([anahtar, v]) => `
+          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700">
+            ${v.tur === 'gazete' ? '<i data-lucide="newspaper" class="w-3 h-3 text-stone-400"></i>' : '<i data-lucide="eye-off" class="w-3 h-3 text-stone-400"></i>'}
+            ${escapeHtml(v.tur === 'gazete' ? v.ad : formatAuthorName(v.ad))}
+            <button type="button" data-unhide="${escapeHtml(anahtar)}" title="Yeniden göster" aria-label="${escapeHtml(v.ad)} yeniden göster" class="w-5 h-5 rounded-full hover:bg-stone-200 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
+          </span>`).join('');
+    }
+    function renderHiddenCard() {
+      const card = document.getElementById('hidden-card');
+      if (!card) return;
+      card.classList.toggle('hidden', hiddenRules.size === 0);
+      const list = document.getElementById('hidden-list');
+      if (list) list.innerHTML = hiddenListHtml();
+      lucide.createIcons();
+    }
+    document.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest ? e.target.closest('[data-unhide]') : null;
+      if (btn) unhideByKey(btn.dataset.unhide);
+    });
+
+    // --- Yönetim paneli ---
+    // Panel kart başlığı; simge adları sabit yazılır (verify-icons.mjs her adı pakette arar)
+    const ADMIN_CARD_ICONS = {
+      newspaper: '<i data-lucide="newspaper" class="w-4 h-4 text-stone-500"></i>',
+      rss: '<i data-lucide="rss" class="w-4 h-4 text-stone-500"></i>',
+      'user-x': '<i data-lucide="user-x" class="w-4 h-4 text-stone-500"></i>',
+      'eye-off': '<i data-lucide="eye-off" class="w-4 h-4 text-stone-500"></i>',
+      'list-checks': '<i data-lucide="list-checks" class="w-4 h-4 text-stone-500"></i>'
+    };
+    function adminCardHtml(title, icon, body) {
+      return `
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5">
+          <div class="flex items-center gap-2 mb-1">${ADMIN_CARD_ICONS[icon] || ''}<p class="text-xs font-bold text-ink-900">${title}</p></div>
+          ${body}
+        </div>`;
+    }
+    function switchHtml(on, attrs) {
+      return `<button type="button" role="switch" aria-checked="${on}" ${attrs}
+          class="relative flex-shrink-0 w-11 h-6 rounded-full ${on ? 'bg-accent' : 'bg-stone-200'} transition-colors">
+          <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-[18px]' : ''}"></span>
+        </button>`;
+    }
+    function writerSuggestions() {
+      const names = new Map();
+      const add = (n) => { const k = favKeyName(n); if (k && isPersonName(cleanWriterName(n)) && !names.has(k)) names.set(k, formatAuthorName(cleanWriterName(n))); };
+      if (writersData && Array.isArray(writersData.papers)) writersData.papers.forEach(p => cleanWriters(p.writers).forEach(w => add(w.name)));
+      allArticles.forEach(a => { if (a.isLive) add(a.author); });
+      return [...names.values()].sort((a, b) => a.localeCompare(b, 'tr')).slice(0, 3000);
+    }
+    function adminSourceRowsHtml(query) {
+      const q = normalizeTr(query || '');
+      const turAd = { gazete: 'Gazete', site: 'Site', akis: 'Akış' };
+      const rows = catalogEntries().filter(e => !q || normalizeTr(e.name).includes(q) || normalizeTr(e.key).includes(q));
+      return rows.map(e => `
+          <div class="flex items-center justify-between gap-3 py-2.5">
+            <div class="min-w-0">
+              <p class="text-xs font-bold truncate ${e.pasif ? 'text-stone-400 line-through' : 'text-ink-900'}">${escapeHtml(e.name)}</p>
+              <p class="text-[10.5px] text-stone-500 truncate">${escapeHtml(turAd[e.tur] || 'Kaynak')}${e.category ? ` · ${escapeHtml(e.category)}` : ''} · ${e.pasif ? 'pasif — çekilmiyor' : `bugün ${e.yazi} yazı`}</p>
+            </div>
+            ${switchHtml(!e.pasif, `data-source-toggle="${escapeHtml(e.key)}" data-source-name="${escapeHtml(e.name)}" title="${e.pasif ? 'Yeniden çek' : 'Çekimden çıkar (herkes için)'}" aria-label="${escapeHtml(e.name)}"`)}
+          </div>`).join('') || '<p class="text-[11px] text-stone-400 py-3 text-center">Kaynak bulunamadı.</p>';
+    }
+    function adminFeedRowsHtml() {
+      const k = ensureKaynakMeta();
+      const counts = liveCountsBySource();
+      return k.ek.map(e => {
+        const pending = Boolean(e.bekliyor) || String(e.key).startsWith('yeni-');
+        const pasif = isSourcePasif(e.key);
+        const st = catalogStatus(e.key);
+        const n = counts.get(e.key) || 0;
+        let durum;
+        if (pasif) durum = 'pasif — çekilmiyor';
+        else if (pending) durum = 'sunucuya gönderiliyor…';
+        else if (n) durum = `bugün ${n} yazı`;
+        else if (st && st.durum === 'akis-yok') durum = 'akış bulunamadı — adresi kontrol et';
+        else if (st && st.durum === 'erisilemedi') durum = 'son çekimde siteye ulaşılamadı';
+        else if (st && st.durum === 'hata') durum = 'son çekimde akış okunamadı';
+        else if (st && st.durum === 'bos') durum = 'akışta okunabilir yazı bulunamadı';
+        else if (st && st.durum === 'ok') durum = 'son çekimde yeni yazı yoktu';
+        else durum = 'ilk yazılar bir sonraki güncellemede gelir';
+        let host = e.feed;
+        try { host = new URL(e.feed).hostname.replace(/^www\./, ''); } catch (err) { /* ham adres */ }
+        return `
+          <div class="flex items-center justify-between gap-2 py-2.5">
+            <div class="min-w-0">
+              <p class="text-xs font-bold truncate ${pasif ? 'text-stone-400 line-through' : 'text-ink-900'}">${escapeHtml(e.name)}</p>
+              <p class="text-[10.5px] text-stone-500 truncate">${escapeHtml(formatAuthorName(e.author || e.name))} · ${escapeHtml(e.category || 'Gündem')} · ${escapeHtml(host)}</p>
+              <p class="text-[10px] ${n && !pasif ? 'text-emerald-600 font-semibold' : 'text-stone-400'}">${escapeHtml(durum)}</p>
+            </div>
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              ${pending ? '' : switchHtml(!pasif, `data-source-toggle="${escapeHtml(e.key)}" data-source-name="${escapeHtml(e.name)}" title="${pasif ? 'Yeniden çek' : 'Geçici olarak durdur'}" aria-label="${escapeHtml(e.name)}"`)}
+              <button type="button" data-ek-delete="${escapeHtml(e.key)}" data-ek-name="${escapeHtml(e.name)}" title="Kaynağı sil" aria-label="${escapeHtml(e.name)} sil"
+                class="w-8 h-8 rounded-full bg-stone-100 hover:bg-red-50 hover:text-red-600 text-stone-500 flex items-center justify-center active:scale-90 transition-all"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+            </div>
+          </div>`;
+      }).join('') || '<p class="text-[11px] text-stone-400 py-2">Henüz eklediğin kaynak yok.</p>';
+    }
+    function renderAdminView() {
+      const host = document.getElementById('admin-view-body');
+      if (!host) return;
+      renderAdminStatus();
+      if (!isAdmin()) { host.innerHTML = ''; return; }
+      // Yeniden çizimde yazılanlar ve odak korunur
+      const keepIds = ['admin-source-search', 'admin-feed-url', 'admin-feed-name', 'admin-feed-author', 'admin-feed-category', 'admin-writer-input'];
+      const keep = {};
+      keepIds.forEach(id => { const el = document.getElementById(id); if (el) keep[id] = el.value; });
+      const focusedId = document.activeElement && keepIds.includes(document.activeElement.id) ? document.activeElement.id : '';
+      const errEl = document.getElementById('admin-feed-error');
+      const feedError = errEl ? errEl.textContent : '';
+
+      const all = catalogEntries();
+      const pasifCount = all.filter(e => e.pasif).length;
+      const k = ensureKaynakMeta();
+      const inputCls = 'w-full text-xs px-3 py-2.5 rounded-xl bg-stone-100 text-stone-800 border border-stone-200 focus:outline-none focus:border-accent';
+      const pasifWriters = k.pasif.yazarlar.slice()
+        .sort((a, b) => String(a.ad).localeCompare(String(b.ad), 'tr'))
+        .map(p => `
+          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-red-50 text-[11px] font-medium text-red-700">
+            ${escapeHtml(formatAuthorName(p.ad))}
+            <button type="button" data-writer-activate="${escapeHtml(p.ad)}" title="Yeniden çek" aria-label="${escapeHtml(p.ad)} yeniden çek" class="w-5 h-5 rounded-full hover:bg-red-100 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
+          </span>`).join('');
+      const hiddenHtml = hiddenListHtml();
+
+      host.innerHTML = [
+        adminCardHtml(`Kaynaklar <span class="font-semibold text-stone-400">(${all.length}${pasifCount ? ` · ${pasifCount} pasif` : ''})</span>`, 'newspaper', `
+          <p class="text-[11px] text-stone-500 mb-2">Anahtarı kapatılan kaynak çekimden çıkar (herkes için); yeniden açınca kaldığı yerden toplanır.</p>
+          <input id="admin-source-search" type="search" placeholder="Kaynak ara…" class="${inputCls}">
+          <div id="admin-source-rows" class="divide-y divide-stone-100 mt-1">${adminSourceRowsHtml(keep['admin-source-search'] || '')}</div>`),
+        adminCardHtml('Yeni kaynak takip et', 'rss', `
+          <p class="text-[11px] text-stone-500 mb-2.5">RSS/Atom akışı, blog/site adresi ya da YouTube kanal adresi (youtube.com/@ad veya /channel/UC…). Düz site adresinde akış sayfadan otomatik bulunur.</p>
+          <form id="admin-feed-form" class="space-y-1.5" novalidate>
+            <input id="admin-feed-url" type="text" inputmode="url" autocomplete="off" placeholder="https://site.com/feed" class="${inputCls}">
+            <div class="grid grid-cols-2 gap-1.5">
+              <input id="admin-feed-name" type="text" maxlength="80" placeholder="Kaynak adı" class="${inputCls}">
+              <input id="admin-feed-author" type="text" maxlength="80" placeholder="Yazar (isteğe bağlı)" class="${inputCls}">
+            </div>
+            <div class="flex gap-1.5">
+              <select id="admin-feed-category" class="${inputCls} flex-1">${FEED_CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('')}</select>
+              <button type="submit" class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-ink-900 text-white hover:bg-ink-700 active:scale-95 transition-all"><i data-lucide="plus" class="w-3.5 h-3.5"></i>Takibe al</button>
+            </div>
+            <p id="admin-feed-error" class="text-[11px] text-red-600">${escapeHtml(feedError)}</p>
+          </form>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-stone-400 mt-2">Eklediğin kaynaklar (${k.ek.length}/40)</p>
+          <div class="divide-y divide-stone-100">${adminFeedRowsHtml()}</div>`),
+        adminCardHtml('Çekimden çıkarılan yazarlar', 'user-x', `
+          <p class="text-[11px] text-stone-500 mb-2.5">Bu yazarların yazıları hiçbir kaynaktan toplanmaz (herkes için). Okuyucudaki ⋮ menüsünden de eklenir.</p>
+          <form id="admin-writer-form" class="flex gap-1.5">
+            <input id="admin-writer-input" type="text" list="admin-writer-suggest" maxlength="120" autocomplete="off" placeholder="Yazar adı" class="${inputCls} flex-1 min-w-0">
+            <datalist id="admin-writer-suggest">${writerSuggestions().map(n => `<option value="${escapeHtml(n)}"></option>`).join('')}</datalist>
+            <button type="submit" class="flex-shrink-0 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-stone-100 text-stone-700 hover:bg-red-50 hover:text-red-700 active:scale-95 transition-all">Çıkar</button>
+          </form>
+          <div class="flex flex-wrap gap-1.5 mt-2.5">${pasifWriters || '<p class="text-[11px] text-stone-400">Çekimden çıkarılan yazar yok.</p>'}</div>`),
+        adminCardHtml('Gizlediklerim', 'eye-off', `
+          <p class="text-[11px] text-stone-500 mb-2.5">Yalnızca senin akışında gizli (her cihazında); ziyaretçiler görmeye devam eder.</p>
+          <div class="flex flex-wrap gap-1.5">${hiddenHtml || '<p class="text-[11px] text-stone-400">Gizlenen yazar ya da gazete yok.</p>'}</div>`),
+        adminCardHtml('Verilerim', 'list-checks', `
+          <p id="admin-data-counts" class="text-[11px] text-stone-600">${favoriteWriters.length} favori yazar · ${savedArticles.size} kayıtlı yazı · ${readMap.size} okundu işareti · ${hiddenRules.size} gizli</p>
+          <div class="grid grid-cols-2 gap-1.5 mt-2.5">
+            <button type="button" data-admin-action="clear-read" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 active:scale-[0.98] transition-all"><i data-lucide="history" class="w-3.5 h-3.5"></i>Okuma geçmişini sil</button>
+            <button type="button" data-admin-action="clear-saved" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 active:scale-[0.98] transition-all"><i data-lucide="bookmark-x" class="w-3.5 h-3.5"></i>Kaydedilenleri sil</button>
+          </div>
+          <button type="button" data-admin-action="sync" class="mt-1.5 w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold bg-ink-900 text-white hover:bg-ink-700 active:scale-[0.98] transition-all"><i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>Şimdi eşitle</button>`)
+      ].join('');
+
+      keepIds.forEach(id => { const el = document.getElementById(id); if (el && keep[id] !== undefined) el.value = keep[id]; });
+      if (focusedId) { const el = document.getElementById(focusedId); if (el) el.focus(); }
+      lucide.createIcons();
+    }
+
+    // Yönetici düğmeleri (Ayarlar kartı ve panel ortak)
+    function onAdminActionClick(e) {
+      const btn = e.target && e.target.closest ? e.target.closest('[data-admin-action]') : null;
+      if (!btn) return;
+      const act = btn.dataset.adminAction;
+      if (act === 'panel') {
+        setTab('admin');
+      } else if (act === 'sync') {
+        pullAdminState({ force: true }).then(ok => showToast(ok ? 'Eşitlendi' : (adminUi.error || 'Eşitlenemedi')));
+      } else if (act === 'logout') {
+        adminLogout(false);
+      } else if (act === 'logout-all') {
+        if (window.confirm('Tüm cihazlardaki yönetici oturumları kapatılsın mı? (Şifre değişmez; her cihazda yeniden giriş gerekir.)')) adminLogout(true);
+      } else if (act === 'clear-read') {
+        if (!window.confirm('Tüm okundu işaretleri silinsin mi? (Her cihazında)')) return;
+        readMap = new Map();
+        persistRead();
+        queueAdminOp({ tur: 'okundu.temizle' });
+        refreshAfterRuleChange();
+        showToast('Okuma geçmişi silindi');
+      } else if (act === 'clear-saved') {
+        if (!savedArticles.size || !window.confirm(`${savedArticles.size} kayıtlı yazı silinsin mi? (Her cihazında)`)) return;
+        [...savedArticles.keys()].forEach(uid => queueAdminOp({ tur: 'kayit.sil', uid }));
+        savedArticles = new Map();
+        savedOnlyArticles = new Map();
+        persistSaved();
+        refreshAfterRuleChange();
+        showToast('Kaydedilenler silindi');
+      }
+    }
+    const adminCardEl = document.getElementById('admin-card');
+    adminCardEl.addEventListener('click', onAdminActionClick);
+    adminCardEl.addEventListener('submit', (e) => {
+      if (!e.target || e.target.id !== 'admin-login-form') return;
+      e.preventDefault();
+      const input = document.getElementById('admin-password');
+      adminLogin(input ? input.value : '');
+    });
+
+    const adminViewSection = document.getElementById('admin-view');
+    adminViewSection.addEventListener('click', (e) => {
+      if (e.target.closest('#admin-back-btn')) { setTab('settings'); return; }
+      const tgl = e.target.closest('[data-source-toggle]');
+      if (tgl) {
+        const key = tgl.dataset.sourceToggle;
+        const name = tgl.dataset.sourceName || key;
+        const nowPasif = !isSourcePasif(key);
+        setSourcePasif(key, name, nowPasif);
+        if (nowPasif) showToast(`${name} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setSourcePasif(key, name, false) });
+        else showToast(`${name} yeniden çekilecek`);
+        return;
+      }
+      const del = e.target.closest('[data-ek-delete]');
+      if (del) {
+        const name = del.dataset.ekName || 'Kaynak';
+        if (window.confirm(`"${name}" takipten çıkarılıp silinsin mi? Yazıları bir sonraki güncellemede akıştan kalkar.`)) {
+          removeFeedSource(del.dataset.ekDelete);
+          showToast(`${name} silindi`);
+        }
+        return;
+      }
+      const act = e.target.closest('[data-writer-activate]');
+      if (act) {
+        setWriterPasif(act.dataset.writerActivate, false);
+        showToast(`${formatAuthorName(act.dataset.writerActivate)} yeniden çekilecek`);
+        return;
+      }
+      onAdminActionClick(e);
+    });
+    adminViewSection.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+      if (e.target.id === 'admin-feed-form') {
+        const res = addFeedSource({ feed: val('admin-feed-url'), name: val('admin-feed-name'), author: val('admin-feed-author'), category: val('admin-feed-category') });
+        const errEl = document.getElementById('admin-feed-error');
+        if (!res.ok) { if (errEl) errEl.textContent = res.hata; return; }
+        ['admin-feed-url', 'admin-feed-name', 'admin-feed-author'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+        const errEl2 = document.getElementById('admin-feed-error');
+        if (errEl2) errEl2.textContent = '';
+        showToast('Kaynak takibe alındı — ilk yazılar bir sonraki güncellemede (≤40 dk) gelir.');
+      } else if (e.target.id === 'admin-writer-form') {
+        const ad = val('admin-writer-input').trim();
+        if (!isPersonName(cleanWriterName(ad))) { showToast('Geçerli bir yazar adı yaz.'); return; }
+        setWriterPasif(ad, true);
+        const input = document.getElementById('admin-writer-input');
+        if (input) input.value = '';
+        showToast(`${formatAuthorName(ad)} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setWriterPasif(ad, false) });
+      }
+    });
+    adminViewSection.addEventListener('input', (e) => {
+      if (e.target.id !== 'admin-source-search') return;
+      const rows = document.getElementById('admin-source-rows');
+      if (rows) { rows.innerHTML = adminSourceRowsHtml(e.target.value); lucide.createIcons(); }
+    });
+
+    // --- Okuyucudaki ⋮ menüsü: gizle (kişisel) / çekimden çıkar (yönetici, herkes için) ---
+    function closeReaderMenu() {
+      const menu = document.getElementById('reader-more-menu');
+      const btn = document.getElementById('reader-more-btn');
+      if (menu) menu.classList.add('hidden');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+    function renderReaderMenu() {
+      const menu = document.getElementById('reader-more-menu');
+      const art = currentReadingArticle;
+      if (!menu || !art) return;
+      const writer = formatAuthorName(art.author);
+      // Simge adları sabit yazılır (verify-icons.mjs sayfadaki her adı pakette arar)
+      const icons = {
+        'eye': '<i data-lucide="eye" class="w-4 h-4"></i>',
+        'eye-off': '<i data-lucide="eye-off" class="w-4 h-4"></i>',
+        'user-x': '<i data-lucide="user-x" class="w-4 h-4"></i>',
+        'user-check': '<i data-lucide="user-check" class="w-4 h-4"></i>',
+        'circle-pause': '<i data-lucide="circle-pause" class="w-4 h-4"></i>',
+        'circle-play': '<i data-lucide="circle-play" class="w-4 h-4"></i>'
+      };
+      const item = (act, icon, label, sub, danger = false) => `
+        <button type="button" role="menuitem" data-reader-act="${act}" class="w-full text-left px-3.5 py-2 flex items-start gap-2.5 hover:bg-stone-50 active:bg-stone-100 ${danger ? 'text-red-600' : 'text-ink-900'}">
+          <span class="mt-0.5 flex-shrink-0 ${danger ? '' : 'text-stone-500'}">${icons[icon] || ''}</span>
+          <span class="min-w-0"><span class="block text-xs font-semibold truncate">${escapeHtml(label)}</span><span class="block text-[10.5px] text-stone-400">${escapeHtml(sub)}</span></span>
+        </button>`;
+      const parts = [];
+      const writerHidden = isHidden('yazar', art.author);
+      const sourceHidden = isHidden('gazete', art.source);
+      parts.push(item(writerHidden ? 'unhide-writer' : 'hide-writer', writerHidden ? 'eye' : 'eye-off', writerHidden ? `${writer} — göster` : `${writer} — gizle`, 'Yalnızca senin akışında'));
+      if (art.source) parts.push(item(sourceHidden ? 'unhide-source' : 'hide-source', sourceHidden ? 'eye' : 'eye-off', sourceHidden ? `${art.source} — göster` : `${art.source} — gizle`, 'Yalnızca senin akışında'));
+      if (isAdmin()) {
+        const key = sourceKeyOf(art);
+        const writerPasif = isWriterPasif(art.author);
+        const sourcePasif = isSourcePasif(key);
+        parts.push('<div class="my-1 border-t border-stone-100"></div><p class="px-3.5 pt-1 pb-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Çekim · herkes için</p>');
+        parts.push(item(writerPasif ? 'activate-writer' : 'pasif-writer', writerPasif ? 'user-check' : 'user-x',
+          writerPasif ? `${writer} — yeniden çek` : `${writer} — çekimden çıkar`,
+          writerPasif ? 'Yazıları yeniden toplanır' : 'Yazıları artık toplanmaz', !writerPasif));
+        if (key && !String(key).startsWith('ornek')) {
+          parts.push(item(sourcePasif ? 'activate-source' : 'pasif-source', sourcePasif ? 'circle-play' : 'circle-pause',
+            sourcePasif ? `${art.source} — yeniden çek` : `${art.source} — çekimden çıkar`,
+            sourcePasif ? 'Kaynak yeniden taranır' : 'Kaynak artık taranmaz', !sourcePasif));
+        }
+      }
+      menu.innerHTML = parts.join('');
+      lucide.createIcons();
+    }
+    function readerMenuAction(act) {
+      const art = currentReadingArticle;
+      closeReaderMenu();
+      if (!art) return;
+      const writer = formatAuthorName(art.author);
+      const key = sourceKeyOf(art);
+      switch (act) {
+        case 'hide-writer':
+          setHidden('yazar', art.author, true, art.source);
+          showToast(`${writer} gizlendi`, { action: 'Geri al', onAction: () => setHidden('yazar', art.author, false) });
+          break;
+        case 'unhide-writer':
+          setHidden('yazar', art.author, false);
+          showToast(`${writer} yeniden gösteriliyor`);
+          break;
+        case 'hide-source':
+          setHidden('gazete', art.source, true);
+          showToast(`${art.source} gizlendi`, { action: 'Geri al', onAction: () => setHidden('gazete', art.source, false) });
+          break;
+        case 'unhide-source':
+          setHidden('gazete', art.source, false);
+          showToast(`${art.source} yeniden gösteriliyor`);
+          break;
+        case 'pasif-writer':
+          setWriterPasif(art.author, true);
+          showToast(`${writer} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setWriterPasif(art.author, false) });
+          break;
+        case 'activate-writer':
+          setWriterPasif(art.author, false);
+          showToast(`${writer} yeniden çekilecek`);
+          break;
+        case 'pasif-source':
+          setSourcePasif(key, art.source, true);
+          showToast(`${art.source} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setSourcePasif(key, art.source, false) });
+          break;
+        case 'activate-source':
+          setSourcePasif(key, art.source, false);
+          showToast(`${art.source} yeniden çekilecek`);
+          break;
+        default:
+          break;
+      }
+    }
+    const readerMoreBtn = document.getElementById('reader-more-btn');
+    const readerMoreMenu = document.getElementById('reader-more-menu');
+    readerMoreBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!readerMoreMenu.classList.contains('hidden')) { closeReaderMenu(); return; }
+      renderReaderMenu();
+      readerMoreMenu.classList.remove('hidden');
+      readerMoreBtn.setAttribute('aria-expanded', 'true');
+    });
+    readerMoreMenu.addEventListener('click', (e) => {
+      const it = e.target.closest('[data-reader-act]');
+      if (it) readerMenuAction(it.dataset.readerAct);
+    });
+    document.addEventListener('click', (e) => {
+      if (readerMoreMenu.classList.contains('hidden')) return;
+      if (e.target.closest && (e.target.closest('#reader-more-menu') || e.target.closest('#reader-more-btn'))) return;
+      closeReaderMenu();
+    });
+
     // Initialize View — akış doğrudan canlı veriden kurulur
     articlesListEl.innerHTML = `
       <div class="text-center py-14 text-slate-400">
@@ -2125,6 +3464,23 @@
     // arka plandaki gün kontrolü autoDailyCheck, sekmeye dönüş refreshIfStale ile yürür).
     // "Otomatik yenile" ayarı kapalıysa yalnızca elle yenilenir.
     setInterval(() => { if (!document.hidden && appSettings.autoRefresh) loadDailyFeed(false); }, 30 * 60 * 1000);
+
+    // --- Yönetici oturumu: açılışta sunucudaki düzeni çek; sekmeye dönüşte, bağlantı
+    //     gelince ve iki dakikada bir yeniden eşitle; sekme gizlenirken bekleyenleri gönder.
+    //     (Ziyaretçide isAdmin() false: hiçbiri ağa dokunmaz.) ---
+    renderAdminCard();
+    if (isAdmin()) {
+      lastSyncedSettings = pickSyncSettings(appSettings);
+      pullAdminState({ force: true });
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (!isAdmin()) return;
+      if (document.hidden) { if (adminQueue.length) flushAdminQueue(); }
+      else pullAdminState();
+    });
+    window.addEventListener('online', () => { if (isAdmin()) pullAdminState(); });
+    setInterval(() => { if (isAdmin() && !document.hidden) pullAdminState(); }, 2 * 60 * 1000);
+    setInterval(() => { if (isAdmin()) renderAdminStatus(); }, 60 * 1000);
   </script>
 </body>
 </html>
