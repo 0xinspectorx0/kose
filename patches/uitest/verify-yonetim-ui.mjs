@@ -1,7 +1,7 @@
 // Uçtan uca: gerçek index.html jsdom'da açılır; yerel sunucu statik dosyaları,
 // GERÇEK /api/yonetim fonksiyonunu ve Upstash taklidini sunar. Ziyaretçi düzeni,
-// iki yönetici cihazı arasında eşitleme, kaynak kuralları, çevrimdışı kuyruk ve
-// oturum kapatma denetlenir.
+// pasif yazar / Keşfet'ten silme (#14) listelerinin eşitlenmesi, iki yönetici cihazı
+// arası eşitleme, kaynak kuralları, çevrimdışı kuyruk ve oturum kapatma denetlenir.
 // Çalıştırma (jsdom /tmp/uitest altında kurulu olmalı):
 //   cd /tmp/uitest && node /home/user/kose/patches/uitest/verify-yonetim-ui.mjs
 import { readFileSync } from 'node:fs';
@@ -76,6 +76,10 @@ function cihaz(ad, depo = {}) {
     kartlar: () => [...d.querySelectorAll('#articles-list article')],
     kartId: el => Number((el.getAttribute('onclick') || '').match(/openReader\((\d+)\)/)?.[1]),
     sekme: t => d.querySelector(`.nav-btn[data-tab="${t}"]`).click(),
+    eylemler: () => [...d.querySelectorAll('#sheet-actions button[data-act]')].map(b => b.dataset.act),
+    eylem: act => d.querySelector(`#sheet-actions button[data-act="${act}"]`).click(),
+    toast: () => d.getElementById('app-toast').textContent,
+    gonder: id => d.getElementById(id).dispatchEvent(new w.Event('submit', { cancelable: true, bubbles: true })),
     kapat: () => w.close(),
   };
 }
@@ -87,10 +91,11 @@ async function api(islem, { method = 'GET', govde, token } = {}) {
   const r = await fetch(`${s.taban}/api/yonetim?islem=${islem}`, { method, headers, body: govde ? JSON.stringify(govde) : undefined });
   return r.json();
 }
+const bosta = c => until(() => c.ev('adminQueue.length') === 0 && !c.ev('adminUi.busy'), 5000, `${c.ad} kuyruk`);
 
 try {
   // ---------------------------------------------------------------------------
-  console.log('A) Ziyaretçi: kalıcı kaydedilenler, kalıcı okundu, gizleme — ağa istek yok');
+  console.log('A) Ziyaretçi: kalıcı kaydedilenler/okundu, okuyucuda ⋮ (pasife al, Keşfet\'ten sil) — ağa istek yok');
   const v1 = cihaz('ziyaretçi');
   check('canlı yazılar yüklendi (yerel data/daily.json)', await until(() => v1.kartlar().length > 20, 6000, 'kartlar'), `kart: ${v1.kartlar().length}`);
   const ilk = v1.kartlar()[0];
@@ -104,21 +109,27 @@ try {
   const ikinciId = v1.kartId(v1.kartlar()[1]);
   v1.ev(`openReader(${ikinciId})`);
   const ikinciUid = v1.ev(`findArticle(${ikinciId}).uid`);
-  const okunan = JSON.parse(v1.w.localStorage.getItem('kose-read-v2') || '[]');
-  check('okundu kalıcı uid ile yazıldı (kose-read-v2)', okunan.some(r => r[0] === ikinciUid));
-  // Okuyucu ⋮ menüsü: yazarı gizle
+  check('okundu kalıcı uid ile yazıldı (kose-read-v2)', JSON.parse(v1.w.localStorage.getItem('kose-read-v2') || '[]').some(r => r[0] === ikinciUid));
   const yazar = v1.ev(`findArticle(${ikinciId}).author`);
+  const kaynak = v1.ev(`findArticle(${ikinciId}).source`);
   v1.d.getElementById('reader-more-btn').click();
-  const menuMaddeleri = [...v1.d.querySelectorAll('#reader-more-menu [data-reader-act]')].map(b => b.dataset.readerAct);
-  check('ziyaretçi menüsünde yalnızca kişisel gizleme var', menuMaddeleri.join(',') === 'hide-writer,hide-source', menuMaddeleri.join(','));
-  v1.d.querySelector('[data-reader-act="hide-writer"]').click();
+  check('okuyucudaki ⋮ Keşfet\'teki seçenek sayfasını açar', !v1.d.getElementById('action-sheet').classList.contains('hidden')
+    && v1.d.getElementById('sheet-title').textContent === v1.ev(`formatAuthorName(${JSON.stringify(yazar)})`));
+  check('ziyaretçide yönetici satırı (kaynağı çekimden çıkar) yok', JSON.stringify(v1.eylemler()) === JSON.stringify(['open', 'fav', 'passivate', 'hide']), v1.eylemler().join(','));
+  v1.eylem('passivate');
+  check('pasife alındı (#14 listesi, gazetesiyle)', v1.ev(`passiveWriters.length === 1 && passiveWriters[0].source === ${JSON.stringify(kaynak)}`));
+  check('pasif yazarın yazısı akıştan SİLİNMEZ, soluk "PASİF YAZAR" etiketiyle kalır',
+    v1.ev(`articles.some(a => a.id === ${ikinciId})`) && v1.kartlar().some(k => v1.kartId(k) === ikinciId && /PASİF YAZAR/.test(k.textContent)));
+  check('okuyucuda pasif rozeti tazelendi', !v1.d.getElementById('reader-passive-badge').classList.contains('hidden'));
+  check('ziyaretçiye depo JSON\'u hatırlatılır', /JSON'u kopyala/.test(v1.toast()), v1.toast());
+  v1.d.getElementById('reader-more-btn').click();
+  v1.eylem('hide');
+  check('Keşfet listesinden silindi (#14 listesi)', v1.ev(`hiddenWriters.length === 1 && favKeyName(hiddenWriters[0].name) === favKeyName(${JSON.stringify(yazar)})`));
   v1.d.getElementById('close-reader-btn').click();
-  const kalan = v1.ev(`articles.filter(a => favKeyName(a.author) === favKeyName(${JSON.stringify(yazar)})).length`);
-  check(`"${yazar}" akıştan gizlendi`, kalan === 0 && v1.ev('allArticles.length') > v1.ev('articles.length'));
-  check('geri al bildirimi göründü', !v1.d.getElementById('toast').classList.contains('hidden') && v1.d.getElementById('toast-action').textContent === 'Geri al');
   v1.sekme('settings');
-  check('Ayarlar: Gizlenenler kartı görünür', !v1.d.getElementById('hidden-card').classList.contains('hidden') && v1.d.querySelectorAll('#hidden-list [data-unhide]').length === 1);
   check('Ayarlar: yönetici giriş formu', Boolean(v1.d.getElementById('admin-login-form')));
+  check('Ayarlar: pasif depo kartı; "çevrimiçi" notu ziyaretçide gizli', /1 bu cihazda/.test(v1.d.getElementById('passive-repo-meta').textContent)
+    && v1.d.getElementById('passive-online-note').classList.contains('hidden'), v1.d.getElementById('passive-repo-meta').textContent);
   check('ziyaretçi akışında /api/yonetim\'e HİÇ istek yok', apiIstekleri(v1).length === 0, apiIstekleri(v1).join(' | '));
   const depo1 = v1.depo();
   v1.kapat();
@@ -128,12 +139,8 @@ try {
   check('yeniden açılışta aynı yazı aynı sayısal kimliği alır', v2.ev(`findArticle(${ilkId}) && findArticle(${ilkId}).uid`) === ilkUid);
   v2.sekme('saved');
   check('Kaydedilen sekmesi yer imini hatırlıyor', v2.kartlar().length === 1 && v2.kartId(v2.kartlar()[0]) === ilkId);
-  check('okundu işareti yeniden açılışta duruyor', v2.ev(`findArticle(${ikinciId}) ? findArticle(${ikinciId}).isRead : 'gizli'`) !== false);
-  check('gizleme kalıcı', v2.ev(`articles.some(a => favKeyName(a.author) === favKeyName(${JSON.stringify(yazar)}))`) === false);
-  v2.d.querySelector('[data-unhide]') || v2.sekme('settings');
-  v2.sekme('settings');
-  v2.d.querySelector('#hidden-list [data-unhide]').click();
-  check('Gizlenenler kartından yeniden gösterilir', v2.ev(`articles.some(a => favKeyName(a.author) === favKeyName(${JSON.stringify(yazar)}))`) === true);
+  check('okundu işareti yeniden açılışta duruyor', v2.ev(`findArticle(${ikinciId}).isRead`) === true);
+  check('pasif ve Keşfet\'ten silme kalıcı', v2.ev('passiveWriters.length === 1 && hiddenWriters.length === 1'));
   v2.kapat();
 
   // Akıştan düşmüş kayıtlı yazı + XSS denemesi
@@ -154,46 +161,57 @@ try {
   v3.kapat();
 
   // ---------------------------------------------------------------------------
-  console.log('B) Yönetici — cihaz A: giriş, birleştirme, ayar/favori eşitlemesi');
+  console.log('B) Yönetici — cihaz A: giriş, birleştirme (pasif + Keşfet\'ten silinenler dahil), ayar eşitlemesi');
   const A = cihaz('A', depoArsiv);
   await until(() => A.kartlar().length > 20, 6000, 'A kartlar');
   A.kartlar()[3].querySelector('button[onclick^="toggleFavoriteFromCard"]').click();
   A.kartlar()[1].querySelector('button[onclick^="toggleBookmark"]').click(); // canlı bir yazı da kaydedilir
   check('A girişten önce 2 kayıt tutuyor (canlı + arşiv)', A.ev('savedArticles.size') === 2);
   const favYerel = A.ev('favoriteWriters.map(f => f.name)');
+  const p1 = A.ev('articles[6]');
+  A.ev(`setPassiveWriter({ name: ${JSON.stringify(p1.author)}, source: ${JSON.stringify(p1.source)} }, true)`);
+  A.ev(`hideWriter({ name: 'Gizli Yazar', source: 'Hürriyet' })`);
+  A.ev(`hidePaper('sabah', 'Sabah')`);
   A.sekme('settings');
   A.d.getElementById('admin-password').value = 'yanlis-sifre';
-  A.d.getElementById('admin-login-form').dispatchEvent(new A.w.Event('submit', { cancelable: true, bubbles: true }));
-  check('yanlış şifre hata mesajı', await until(() => /Şifre yanlış/.test(A.d.getElementById('admin-card').textContent), 3000, 'hata'), A.d.getElementById('admin-card').textContent.trim().slice(0, 200));
+  A.gonder('admin-login-form');
+  check('yanlış şifre hata mesajı', await until(() => /Şifre yanlış/.test(A.d.getElementById('admin-card').textContent), 3000, 'hata'));
   A.d.getElementById('admin-password').value = SIFRE;
-  A.d.getElementById('admin-login-form').dispatchEvent(new A.w.Event('submit', { cancelable: true, bubbles: true }));
+  A.gonder('admin-login-form');
   check('doğru şifreyle giriş', await until(() => A.ev('isAdmin()') && /eşitleme açık/.test(A.d.getElementById('admin-card').textContent), 5000, 'giriş'));
-  await until(() => A.ev('adminQueue.length') === 0 && !A.ev('adminUi.busy'), 5000, 'A kuyruk');
+  await bosta(A);
   const token = A.w.localStorage.getItem('kose-admin-token');
   let sv = await api('durum', { token });
   check('yerel favori sunucuya birleştirildi', sv.kisisel.fav.length === 1 && sv.kisisel.fav[0].name === favYerel[0], JSON.stringify(sv.kisisel.fav));
-  check('yerel kayıtlar (canlı + arşiv) sunucuya birleştirildi', sv.kisisel.kayit.length === 2 && sv.kisisel.kayit.some(k => k.uid === 'eski-0badc0de'), JSON.stringify(sv.kisisel.kayit.map(k => k.uid)));
-  check('ayarlar ilk girişte sunucuya yüklendi', sv.kisisel.ayar.readerFont === 16 && sv.kisisel.ayar.autoRefresh === true, JSON.stringify(sv.kisisel.ayar));
-  check('cihaza özgü ses ayarı sunucuya gitmedi', !('ttsVoice' in sv.kisisel.ayar));
-  // Ayar değiştir (Büyük punto) ve okundu işareti
+  check('yerel kayıtlar (canlı + arşiv) sunucuya birleştirildi', sv.kisisel.kayit.length === 2 && sv.kisisel.kayit.some(k => k.uid === 'eski-0badc0de'));
+  check('pasif yazar sunucuda (gazetesiyle) — kazıyıcı kural ucundan okur',
+    sv.kaynak.pasif.yazarlar.length === 1 && sv.kaynak.pasif.yazarlar[0].ad === A.ev(`cleanWriterName(${JSON.stringify(p1.author)})`) && sv.kaynak.pasif.yazarlar[0].kaynak === p1.source,
+    JSON.stringify(sv.kaynak.pasif.yazarlar));
+  check('Keşfet\'ten silinen yazar + gazete sunucuda', sv.kisisel.gizli.length === 2
+    && sv.kisisel.gizli.some(g => g.tur === 'gazete' && g.kaynak === 'sabah') && sv.kisisel.gizli.some(g => g.tur === 'yazar' && g.ad === 'Gizli Yazar'), JSON.stringify(sv.kisisel.gizli));
+  check('ayarlar ilk girişte sunucuya yüklendi (karıştır dahil, ses hariç)', sv.kisisel.ayar.readerFont === 16 && sv.kisisel.ayar.shuffle === false && !('ttsVoice' in sv.kisisel.ayar), JSON.stringify(sv.kisisel.ayar));
+  check('Ayarlar: "liste çevrimiçi" notu yöneticide görünür', !A.d.getElementById('passive-online-note').classList.contains('hidden'));
   A.d.querySelector('#settings-font-group button[data-font="19"]').click();
+  A.ev('setShuffle(true)');
   A.sekme('feed');
   const aOkunan = A.kartId(A.kartlar()[5]);
   A.ev(`openReader(${aOkunan})`);
   A.d.getElementById('close-reader-btn').click();
   const aOkunanUid = A.ev(`findArticle(${aOkunan}).uid`);
-  await until(async () => { const x = await api('durum', { token }); return x.kisisel.ayar.readerFont === 19 && x.kisisel.okundu.some(o => o[0] === aOkunanUid); }, 4000, 'ayar+okundu');
+  await until(async () => { const x = await api('durum', { token }); return x.kisisel.ayar.readerFont === 19 && x.kisisel.ayar.shuffle === true && x.kisisel.okundu.some(o => o[0] === aOkunanUid); }, 4000, 'ayar+okundu');
   sv = await api('durum', { token });
-  check('punto değişikliği sunucuda (19)', sv.kisisel.ayar.readerFont === 19);
+  check('punto (19) ve karıştır (açık) sunucuda', sv.kisisel.ayar.readerFont === 19 && sv.kisisel.ayar.shuffle === true, JSON.stringify(sv.kisisel.ayar));
   check('okundu işareti sunucuda', sv.kisisel.okundu.some(o => o[0] === aOkunanUid));
 
-  console.log('C) Yönetici — kaynak kuralları (panel)');
+  console.log('C) Yönetici — kaynak kuralları (panel + seçenek sayfası)');
   A.sekme('settings');
   A.d.querySelector('[data-admin-action="panel"]').click();
   check('yönetim paneli açıldı (Ayarlar sekmesi seçili kalır)', !A.d.getElementById('admin-view').classList.contains('hidden') && A.d.querySelector('.nav-btn[data-tab="settings"]').classList.contains('text-accent'));
   await until(() => A.d.querySelectorAll('#admin-source-rows [data-source-toggle]').length >= 10, 4000, 'kaynak satırları');
   const satirlar = [...A.d.querySelectorAll('#admin-source-rows [data-source-toggle]')];
   check('kaynak listesi (katalog yoksa dizin + akıştan)', satirlar.length >= 15, String(satirlar.length));
+  check('panelde pasif yazar ve Keşfet\'ten silinenler listeleniyor', A.d.querySelectorAll('[data-admin-unpassive]').length === 1
+    && A.d.querySelectorAll('[data-admin-restore-writer]').length === 1 && A.d.querySelectorAll('[data-admin-restore-paper]').length === 1);
   const hedef = satirlar.find(b => A.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(b.dataset.sourceToggle)}).length`) > 0);
   const hedefKey = hedef.dataset.sourceToggle;
   const oncekiSayi = A.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(hedefKey)}).length`);
@@ -202,69 +220,80 @@ try {
   A.d.getElementById('admin-source-search').value = hedef.dataset.sourceName.slice(0, 4);
   A.d.getElementById('admin-source-search').dispatchEvent(new A.w.Event('input', { bubbles: true }));
   check('kaynak araması listeyi süzer', A.d.querySelectorAll('#admin-source-rows [data-source-toggle]').length < satirlar.length);
-  // Yeni kaynak ekle
   A.d.getElementById('admin-feed-url').value = 'ornekblog.com.tr/feed';
   A.d.getElementById('admin-feed-name').value = 'Örnek Blog';
   A.d.getElementById('admin-feed-author').value = 'Ayşe Yazar';
   A.d.getElementById('admin-feed-category').value = 'Ekonomi';
-  A.d.getElementById('admin-feed-form').dispatchEvent(new A.w.Event('submit', { cancelable: true, bubbles: true }));
-  // YouTube kanal adresi doğrudan akışa çevrilir
+  A.gonder('admin-feed-form');
   A.d.getElementById('admin-feed-url').value = 'https://www.youtube.com/channel/UCQmDWRUf_X8BSrrDOSZA-NA';
   A.d.getElementById('admin-feed-name').value = 'Kanal';
-  A.d.getElementById('admin-feed-form').dispatchEvent(new A.w.Event('submit', { cancelable: true, bubbles: true }));
-  // Yazar çekimden çıkar
-  const pasifYazar = A.ev('articles[0].author');
-  A.d.getElementById('admin-writer-input').value = pasifYazar;
-  A.d.getElementById('admin-writer-form').dispatchEvent(new A.w.Event('submit', { cancelable: true, bubbles: true }));
-  await until(async () => { const x = await api('kaynaklar'); return x.ek.length === 2 && x.pasif.yazarlar.length === 1 && x.pasif.kaynaklar.length === 1; }, 5000, 'kaynak kuralları');
+  A.gonder('admin-feed-form');
+  // Panelden pasife alma: öneri listesindeki "Ad · Gazete" biçimi
+  const p2 = A.ev('articles.find(a => a.isLive && !isPassiveWriter(a.author, a.source) && a.author !== "Köşe Yazarı")');
+  A.d.getElementById('admin-writer-input').value = `${A.ev(`formatAuthorName(${JSON.stringify(p2.author)})`)} · ${p2.source}`;
+  A.gonder('admin-writer-form');
+  await until(async () => { const x = await api('kaynaklar'); return x.ek.length === 2 && x.pasif.yazarlar.length === 2 && x.pasif.kaynaklar.length === 1; }, 5000, 'kaynak kuralları');
   let kr = await api('kaynaklar');
-  check('sunucu: kaynak pasif', kr.pasif.kaynaklar.some(p => p.key === hedefKey), JSON.stringify(kr.pasif));
-  check('sunucu: yazar pasif', kr.pasif.yazarlar.length === 1 && kr.pasif.yazarlar[0].anahtar === `y:${A.ev(`favKeyName(${JSON.stringify(pasifYazar)})`)}`);
+  check('sunucu: kaynak pasif', kr.pasif.kaynaklar.some(p => p.key === hedefKey), JSON.stringify(kr.pasif.kaynaklar));
+  check('sunucu: panelden pasife alınan yazar gazetesiyle', kr.pasif.yazarlar.some(y => y.kaynak === p2.source && A.ev(`favKeyName(${JSON.stringify(y.ad)}) === favKeyName(${JSON.stringify(p2.author)})`)), JSON.stringify(kr.pasif.yazarlar));
   check('sunucu: 2 eklenen kaynak (https eklendi, YouTube akışa çevrildi)',
     kr.ek.some(e => e.feed === 'https://ornekblog.com.tr/feed' && e.category === 'Ekonomi' && e.author === 'Ayşe Yazar')
     && kr.ek.some(e => e.feed === 'https://www.youtube.com/feeds/videos.xml?channel_id=UCQmDWRUf_X8BSrrDOSZA-NA'), JSON.stringify(kr.ek));
   await until(() => A.ev('ensureKaynakMeta().ek.every(e => /^ek-/.test(e.key))'), 4000, 'geçici anahtarlar');
   check('panelde geçici anahtarlar sunucu anahtarıyla değişti', A.ev('ensureKaynakMeta().ek.map(e => e.key).join(",")').split(',').every(k => /^ek-[0-9a-f]{8}$/.test(k)));
-  check('pasif yazar yöneticinin akışında görünmez', A.ev(`articles.some(a => favKeyName(a.author) === favKeyName(${JSON.stringify(pasifYazar)}))`) === false);
-  // Eklenen kaynağı sil
+  check('pasif yazarın yazıları akışta kalır (soluk), silinmez', A.ev(`articles.some(a => isPassiveWriter(a.author, a.source) && favKeyName(a.author) === favKeyName(${JSON.stringify(p2.author)}))`));
   const silBtn = [...A.d.querySelectorAll('[data-ek-delete]')].find(b => b.dataset.ekName === 'Kanal');
   silBtn.click();
   await until(async () => (await api('kaynaklar')).ek.length === 1, 4000, 'ek sil');
   kr = await api('kaynaklar');
   check('eklenen kaynak silindi', kr.ek.length === 1 && kr.ek[0].name === 'Örnek Blog');
-  check('herkese açık kaynaklar yanıtı kişisel veri içermez', !JSON.stringify(kr).includes(favYerel[0]));
+  check('herkese açık kaynaklar yanıtı kişisel veri içermez', !JSON.stringify(kr).includes(favYerel[0]) && !JSON.stringify(kr).includes('Gizli Yazar'));
+  // Okuyucudaki ⋮: yöneticide "kaynağı çekimden çıkar" satırı
+  A.sekme('feed');
+  const baskaKart = A.kartlar().find(k => A.ev(`sourceKeyOf(findArticle(${A.kartId(k)})) !== ${JSON.stringify(hedefKey)}`));
+  const baskaKey = A.ev(`sourceKeyOf(findArticle(${A.kartId(baskaKart)}))`);
+  A.ev(`openReader(${A.kartId(baskaKart)})`);
+  A.d.getElementById('reader-more-btn').click();
+  check('yönetici seçenek sayfasında "kaynağı çekimden çıkar" var', A.eylemler().includes('source-off'), A.eylemler().join(','));
+  A.eylem('source-off');
+  check('okuyucudan kaynak çekimden çıkarıldı (yönetici akışından kalktı)', A.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(baskaKey)}).length`) === 0);
+  A.d.getElementById('close-reader-btn').click();
+  await until(async () => (await api('kaynaklar')).pasif.kaynaklar.length === 2, 4000, 'okuyucudan kaynak');
+  check('sunucu: ikinci pasif kaynak', (await api('kaynaklar')).pasif.kaynaklar.some(p => p.key === baskaKey));
 
   console.log('D) Yönetici — cihaz B: aynı düzen, değişiklikler iki yönlü');
   const B = cihaz('B');
   await until(() => B.kartlar().length > 20, 6000, 'B kartlar');
   B.sekme('settings');
   B.d.getElementById('admin-password').value = SIFRE;
-  B.d.getElementById('admin-login-form').dispatchEvent(new B.w.Event('submit', { cancelable: true, bubbles: true }));
+  B.gonder('admin-login-form');
   await until(() => B.ev('isAdmin()') && B.ev('adminMeta.lastSync') > 0 && !B.ev('adminUi.busy'), 5000, 'B giriş');
   check('B: favoriler A ile aynı', JSON.stringify(B.ev('favoriteWriters.map(f => f.name)')) === JSON.stringify(favYerel));
-  check('B: punto ayarı 19 geldi', B.ev('appSettings.readerFont') === 19);
+  check('B: punto 19 ve karıştır açık geldi', B.ev('appSettings.readerFont') === 19 && B.ev('appSettings.shuffle') === true);
   check('B: okundu işareti geldi', B.ev(`readMap.has(${JSON.stringify(aOkunanUid)})`));
   check('B: kaydedilenler geldi (2: canlı + arşiv)', B.ev('savedArticles.size') === 2, String(B.ev('savedArticles.size')));
-  check('B: kaynak kuralı akışa uygulandı', B.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(hedefKey)}).length`) === 0);
-  // B'de arşiv yazısını aç: tam metin sunucudan gelir
+  check('B: pasif yazarlar geldi (gazeteleriyle)', B.ev('passiveWriters.length') === 2 && B.ev(`isPassiveWriter(${JSON.stringify(p1.author)}, ${JSON.stringify(p1.source)})`));
+  check('B: Keşfet\'ten silinenler geldi', B.ev('hiddenWriters.length === 1 && hiddenPapers.length === 1 && isHiddenPaper("sabah")'));
+  check('B: kaynak kuralları akışa uygulandı', B.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(hedefKey)} || sourceKeyOf(a) === ${JSON.stringify(baskaKey)}).length`) === 0);
   B.sekme('saved');
   const bArsiv = B.kartlar().find(k => k.textContent.includes('ARŞİV'));
   check('B: arşiv yazısı listede', Boolean(bArsiv));
   B.ev(`openReader(${B.kartId(bArsiv)})`);
   check('B: arşiv yazısının tam metni sunucudan getirildi', await until(() => B.d.getElementById('reader-body').textContent.includes('Arşivdeki tam metin'), 3000, 'metin'));
   B.d.getElementById('close-reader-btn').click();
-  // A favoriyi kaldırır -> B sekmeye dönünce görür
+  // A: favori kaldır + pasif yazarı aktif et -> B sekmeye dönünce görür
   A.sekme('favorites');
   A.d.querySelector('#favorites-list [data-remove-fav]').click();
-  await until(() => A.ev('adminQueue.length') === 0 && !A.ev('adminUi.busy'), 4000, 'A fav sil');
+  A.ev(`setPassiveWriter({ name: ${JSON.stringify(p1.author)}, source: ${JSON.stringify(p1.source)} }, false)`);
+  await bosta(A);
   B.d.dispatchEvent(new B.w.Event('visibilitychange'));
-  check('B: A\'nın kaldırdığı favori sekmeye dönünce kalktı', await until(() => B.ev('favoriteWriters.length') === 0, 4000, 'B fav'));
-  // B yazar gizler -> A'da da gizlenir
-  const bGizle = B.ev('articles[2].author');
-  B.ev(`setHidden('yazar', ${JSON.stringify(bGizle)}, true)`);
-  await until(() => B.ev('adminQueue.length') === 0 && !B.ev('adminUi.busy'), 4000, 'B gizle');
+  check('B: A\'nın kaldırdığı favori kalktı', await until(() => B.ev('favoriteWriters.length') === 0, 4000, 'B fav'));
+  check('B: A\'nın aktif ettiği yazar artık pasif değil', await until(() => B.ev(`!isPassiveWriter(${JSON.stringify(p1.author)}, ${JSON.stringify(p1.source)})`) && B.ev('passiveWriters.length') === 1, 4000, 'B pasif'));
+  // B: gazeteyi Keşfet'e geri koyar -> A'da da geri gelir
+  B.ev(`restorePaper('sabah')`);
+  await bosta(B);
   A.d.dispatchEvent(new A.w.Event('visibilitychange'));
-  check('A: B\'nin gizlediği yazar A\'da da gizli', await until(() => A.ev(`isHidden('yazar', ${JSON.stringify(bGizle)})`), 4000, 'A gizli'));
+  check('A: B\'nin geri koyduğu gazete A\'da da geri geldi', await until(() => A.ev('!isHiddenPaper("sabah")'), 4000, 'A gazete'));
 
   console.log('E) Çevrimdışı kuyruk ve yeniden deneme');
   s.redis.arizaAyarla(true);
@@ -286,11 +315,11 @@ try {
   B.d.querySelector('[data-admin-action="logout-all"]').click();
   await until(() => !B.ev('isAdmin()'), 4000, 'B çıkış');
   check('B çıkış yaptı; giriş formu geri geldi', Boolean(B.d.getElementById('admin-login-form')));
-  check('B: yerel kopya cihazda kaldı', B.ev('savedArticles.size') >= 2);
+  check('B: yerel kopya cihazda kaldı', B.ev('savedArticles.size') >= 2 && B.ev('passiveWriters.length') === 1);
   A.d.dispatchEvent(new A.w.Event('visibilitychange'));
   check('A: oturumu da düştü (401) ve kibarca çıkış yaptı', await until(() => !A.ev('isAdmin()'), 4000, 'A düştü'));
-  check('A: kullanıcıya sebep gösterildi', /oturum/i.test(A.d.getElementById('toast-text').textContent), A.d.getElementById('toast-text').textContent);
-  check('A: yönetici kuralları (pasif kaynak) artık ziyaretçi gibi uygulanmaz', A.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(hedefKey)}).length`) > 0);
+  check('A: kullanıcıya sebep gösterildi', /oturum/i.test(A.toast()), A.toast());
+  check('A: yönetici kuralları (pasif kaynak) artık uygulanmaz', A.ev(`articles.filter(a => sourceKeyOf(a) === ${JSON.stringify(hedefKey)}).length`) > 0);
 
   console.log('G) Kurulum eksikken giriş');
   delete process.env.ADMIN_PASSWORD;
@@ -298,7 +327,7 @@ try {
   await until(() => C.kartlar().length > 20, 6000, 'C kartlar');
   C.sekme('settings');
   C.d.getElementById('admin-password').value = 'herhangi-bir';
-  C.d.getElementById('admin-login-form').dispatchEvent(new C.w.Event('submit', { cancelable: true, bubbles: true }));
+  C.gonder('admin-login-form');
   check('kurulum eksik mesajı + adımlar', await until(() => /kurulumu eksik/.test(C.d.getElementById('admin-card').textContent) && /Upstash for Redis/.test(C.d.getElementById('admin-card').textContent), 3000, 'kurulum'), C.d.getElementById('admin-card').textContent.trim().slice(0, 240));
   process.env.ADMIN_PASSWORD = SIFRE;
 

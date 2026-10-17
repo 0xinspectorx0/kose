@@ -5,7 +5,8 @@ Yönetici kaynak kuralları — kazıyıcı (fetch_columns.py) ve röle (zamanla
 ======================================================================================
 Site sahibi uygulamadaki Yönetim panelinden çekim listesini yönetir:
   * kaynağı (gazete / site / akış) çekimden çıkarır ya da yeniden açar,
-  * yazarı çekimden çıkarır (hangi kaynaktan gelirse gelsin yazıları alınmaz),
+  * yazarı pasife alır (yazıları güncellenmez: taze çekilmez, son yazısı donar —
+    data/passive-writers.json ile aynı kural; liste elle depoya eklenmeden uygulanır),
   * yeni RSS/Atom/YouTube/site kaynağı ekler veya siler.
 Kurallar Vercel'deki /api/yonetim?islem=kaynaklar ucundan HERKESE AÇIK okunur
 (sır içermez). Bu modül yalnızca standart kütüphaneyi kullanır: rölenin
@@ -130,7 +131,14 @@ def kurallari_dogrula(veri):
         ad = _metin(p.get("ad"), 120)
         anahtar = writer_key(ad)
         if anahtar:
-            out["pasif"]["yazarlar"].append({"ad": ad, "anahtar": f"y:{anahtar}"})
+            # Pasif yazar = "yazıları güncellenmesin" (fetch_columns: taze çekilmez, son yazısı
+            # donar). Gazete verilmişse eşleşme o gazetede olur; profil adresi isteği önler.
+            out["pasif"]["yazarlar"].append({
+                "ad": ad,
+                "anahtar": f"y:{anahtar}",
+                "kaynak": _metin(p.get("kaynak"), 120),
+                "url": guvenli_adres(p.get("url")),
+            })
     gorulen = set()
     for e in veri.get("ek") or []:
         if not isinstance(e, dict):

@@ -20,12 +20,13 @@ const block = (a, b) => {
   if (i < 0 || j < 0) throw new Error(`blok bulunamadı: ${a} (i=${i}, j=${j})`);
   return html.slice(i, j);
 };
-// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, gizlenenler, yönetici oturumu).
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
 // `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
 const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 
 const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
   'applyReadState','markArticleRead','isAuthorFullyRead','quickOpenByAuthor',
@@ -36,8 +37,8 @@ const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWr
 
 const { window } = new JSDOM(html, { runScripts: 'outside-only', url: 'http://localhost/' });
 const doc = window.document;
-// Okuyucu/ayarların çağırdığı yeni arayüz yardımcıları (⋮ menüsü, Gizlenenler, Yönetici kartı, bildirim)
-const uiFns = ['closeReaderMenu', 'renderHiddenCard', 'hiddenListHtml', 'renderAdminCard', 'adminStatusText', 'renderAdminStatus', 'showToast', 'hideToast'];
+// Ayarların çağırdığı yönetici kartı yardımcıları
+const uiFns = ['renderAdminCard', 'adminStatusText', 'renderAdminStatus'];
 const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
@@ -62,7 +63,7 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
 window.localStorage.setItem('kose-favorite-writers', favoriteSeedFromDaily('/home/user/kose/data/daily.json'));
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
 window.mainScrollEl.scrollTo = () => {};
-window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), ...uiFns.map(extract), writersEvents].join('\n'));
+window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), ...uiFns.map(extract), writersEvents].join('\n'));
 // Ana sayfadaki daireler artık yalnızca favori yazarları gösterir: test,
 // günlük akıştaki yazarların tamamını eval'den ÖNCE localStorage üzerinden
 // favori olarak tohumlar (favoriteWriters bu kayıttan okunur).

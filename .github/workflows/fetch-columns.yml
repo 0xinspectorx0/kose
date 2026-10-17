@@ -56,6 +56,9 @@ on:
       - 'scripts/freshness.py'
       - 'scripts/kaynak_kurallari.py'
       - '.github/workflows/fetch-columns.yml'
+      # Pasif yazar listesi güncellenince hemen zorla çekim: yeni liste
+      # (yazıları dondurulacak yazarlar) beklemeden devreye girsin.
+      - 'data/passive-writers.json'
   workflow_dispatch:
     inputs:
       force:

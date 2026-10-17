@@ -21,19 +21,20 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 
-// Okuyucu/ayarların çağırdığı yeni arayüz yardımcıları (⋮ menüsü, Gizlenenler, Yönetici kartı, bildirim)
-const uiFns = ['closeReaderMenu', 'renderHiddenCard', 'hiddenListHtml', 'renderAdminCard', 'adminStatusText', 'renderAdminStatus', 'showToast', 'hideToast'];
+// Ayarların çağırdığı yönetici kartı yardımcıları
+const uiFns = ['renderAdminCard', 'adminStatusText', 'renderAdminStatus'];
 const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
-// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, gizlenenler, yönetici oturumu).
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
 // `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
 const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime',
   'renderAuthorAvatars','renderArticles','applyFilters','filterCategory','loadDailyFeed','applyReadState',
   'markArticleRead','isAuthorFullyRead','writersSummary','filterWriters','buildWriterPopularity','writerScore',
@@ -72,7 +73,7 @@ function boot(preset) {
   window.mainScrollEl.scrollTo = () => {};
   if (preset) window.localStorage.setItem('kose-read-v2', JSON.stringify(preset));
   window.localStorage.setItem('kose-favorite-writers', FAVORITE_SEED);
-  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), ...uiFns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
+  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), ...uiFns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
   return { window, doc };
 }
 

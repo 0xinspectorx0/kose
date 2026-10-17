@@ -20,15 +20,15 @@ const block = (a, b) => {
   if (i < 0 || j < 0) throw new Error(`blok bulunamadı: ${a} (i=${i}, j=${j})`);
   return html.slice(i, j);
 };
-// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, gizlenenler, yönetici oturumu).
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
 // `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
 const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 
-// Okundu yardımcıları: rebuildArticles()/renderAuthorAvatars() bunları çağırır
-const fns = ['applyReadState','markArticleRead','isAuthorFullyRead','toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars',
+const fns = ['toggleFavoriteFromCard','updateReaderFavoriteIcon','saveFavoriteWriters','removeFavoriteWriter','openFavoriteWriterArticles','toggleFavoriteWriter','findFavoriteWriter','isFavoriteWriter','sameSource','favKeyName','deaccentTr','favoriteArticles','findWriterPhoto','renderFavorites','escapeHtml','normalizeTr','formatAuthorName','initialAvatar','mapLiveArticle','formatSyncTime','renderAuthorAvatars','applyReadState','isAuthorFullyRead',
   'renderArticles','applyFilters','filterCategory','loadDailyFeed','writersSummary','filterWriters',
   'buildWriterPopularity','writerScore','cleanWriterName','isPersonName','cleanWriters','renderWriters',
   'togglePaper','paintToggle','renderSettings','saveSettings','showAuthorTooltip','hideAuthorTooltip','setTab'];
@@ -63,7 +63,7 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
   favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
   favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty' };
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
-window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
+window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
 
 const d = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 window.writersData = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));
@@ -122,6 +122,7 @@ console.log('  varsayılana dön:', window.localStorage.getItem('kose-settings')
 console.log('\n[F] KEŞFET');
 window.setTab('discover');
 const rows = [...doc.querySelectorAll('#writers-list > div')];
-console.log('  satır:', rows.length, '| hepsi kapalı:', rows.every(r => r.querySelector('button + div').classList.contains('hidden')), '| meta:', window.writersMetaEl.textContent);
+// Gazete satırı artık [aç/kapa düğmesi + ⋯ düğmesi] şeridi ve çip panelinden oluşur
+console.log('  satır:', rows.length, '| hepsi kapalı:', rows.every(r => r.querySelector('[data-chips-panel]').classList.contains('hidden')), '| meta:', window.writersMetaEl.textContent);
 const names = rows.map(r => r.querySelector('h3').textContent);
 console.log('  alfabetik:', JSON.stringify(names) === JSON.stringify([...names].sort((a, b) => a.localeCompare(b, 'tr'))));

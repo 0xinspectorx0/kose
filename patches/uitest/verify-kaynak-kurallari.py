@@ -80,13 +80,20 @@ check(f"{len(ornekler)} adın hepsinde aynı anahtar", p.returncode == 0 and not
 check("büyük/küçük ve aksan farkı tek anahtar", kk.writer_key("KILIÇ") == kk.writer_key("Kılıç") == "kilic")
 check("İ/I Türkçe kuralıyla", kk.writer_key("İLBER ORTAYLI") == "ilber ortayli")
 check("dizin ekleri atılır", kk.writer_key("İlke Gürsoy 15 Yazı") == "ilke gursoy" and kk.writer_key("Adnan Ekinci | X") == "adnan ekinci")
+# fetch_columns.passive_key (data/passive-writers.json eşleşmesi) aynı Türkçe kurala uymalı:
+# casefold() "İ"yi "i̇" yapıyordu -> "ABDULKADİR SELVİ" ile "Abdulkadir Selvi" eşleşmiyordu
+pk_fark = [n for n in ornekler if "é" not in n and fc.passive_key(kk.temiz_yazar_adi(n)) != kk.writer_key(n)]
+check(f"pasif liste anahtarı (passive_key) {len(ornekler)} adda writer_key ile aynı", not pk_fark, pk_fark[:5])
+check("passive_key: \"PASİF\" == \"Pasif\", \"ABDULKADİR\" == \"Abdulkadir\"",
+      fc.passive_key("PASİF Yazar") == fc.passive_key("Pasif Yazar") and fc.passive_key("ABDULKADİR SELVİ") == fc.passive_key("Abdulkadir Selvi"))
 
 # ---------------------------------------------------------------------------
 print("2) Kuralların doğrulanması")
 ham = {
     "ok": True, "surum": 4, "guncellendi": iso(NOW),
     "pasif": {"kaynaklar": [{"key": "bgazete", "ad": "B Gazete"}, {"key": "Bozuk Anahtar!"}, "x"],
-              "yazarlar": [{"anahtar": "y:pasif yazar", "ad": "PASİF Yazar"}, {"ad": ""}]},
+              "yazarlar": [{"anahtar": "y:pasif yazar|a gazete", "ad": "PASİF Yazar", "kaynak": "A Gazete",
+                            "url": "https://agazete/pasif"}, {"ad": ""}]},
     "ek": [
         {"key": "ek-1234abcd", "name": "Ek Blog", "author": "Ek Yazar", "category": "Ekonomi", "feed": "https://ek.example/blog"},
         {"key": "ek-5678abcd", "name": "Kanal", "author": "", "category": "Magazin", "feed": "https://www.youtube.com/@kanal"},
@@ -99,13 +106,16 @@ ham = {
 }
 kur = kk.kurallari_dogrula(ham)
 check("geçerli pasif kaynak kaldı, bozuklar elendi", [p["key"] for p in kur["pasif"]["kaynaklar"]] == ["bgazete"])
-check("pasif yazar anahtarı addan yeniden hesaplanır", kur["pasif"]["yazarlar"] == [{"ad": "PASİF Yazar", "anahtar": "y:pasif yazar"}])
+check("pasif yazar: anahtar addan yeniden hesaplanır, gazete + profil adresi korunur",
+      kur["pasif"]["yazarlar"] == [{"ad": "PASİF Yazar", "anahtar": "y:pasif yazar", "kaynak": "A Gazete", "url": "https://agazete/pasif"}],
+      kur["pasif"]["yazarlar"])
 check("iç ağ / meta / ftp / biçimsiz / tekrar eklenen kaynaklar elendi", [e["key"] for e in kur["ek"]] == ["ek-1234abcd", "ek-5678abcd"], kur["ek"])
 check("bilinmeyen kategori Gündem, boş yazar = kaynak adı", kur["ek"][1]["category"] == "Gündem" and kur["ek"][1]["author"] == "Kanal")
 check("bozuk girdi boş kurala iner", kk.kurallari_dogrula("bozuk") == kk.bos_kurallar() and kk.kurallari_dogrula({"surum": "x"})["surum"] == 0)
 check("en çok 40 eklenen kaynak", len(kk.kurallari_dogrula({"ek": [
     {"key": f"ek-{i:08x}", "name": f"B{i}", "feed": f"https://b{i}.example/rss"} for i in range(60)]})["ek"]) == 40)
 check("pasif kümeleri", kk.pasif_kaynak_anahtarlari(kur) == {"bgazete"} and kk.pasif_yazar_anahtarlari(kur) == {"pasif yazar"})
+check("iç ağ profil adresi pasif kayıttan atılır", kk.kurallari_dogrula({"pasif": {"yazarlar": [{"ad": "X Y", "url": "http://10.0.0.1/x"}]}})["pasif"]["yazarlar"][0]["url"] == "")
 kur_pasif_ek = kk.kurallari_dogrula({**ham, "pasif": {"kaynaklar": [{"key": "ek-5678abcd"}], "yazarlar": []}})
 check("pasife alınan eklenen kaynak çekilmez", [e["key"] for e in kk.ek_akis_kaynaklari(kur_pasif_ek)] == ["ek-1234abcd"])
 
@@ -229,7 +239,7 @@ check("önceki çekimde çözülen akış tek istekle kullanılır", u == "https
 check("HTML akış sanılmaz", not fc.looks_like_feed("<html><body><rss>") and fc.looks_like_feed("\ufeff<?xml version='1.0'?>\n<feed xmlns='x'>"))
 
 # ---------------------------------------------------------------------------
-print("6) Kazıyıcı uçtan uca (sahte kaynaklarla)")
+print("6) Kazıyıcı uçtan uca (sahte kaynaklarla; pasif yazar = yazıları güncellenmez, son yazısı donar)")
 A = {"key": "agazete", "name": "A Gazete", "category": "Gündem", "mode": "today", "today": "https://gazete-a.example/bugun",
      "roster": None, "article_pattern": r"x", "author_pattern": None}
 B = {"key": "bgazete", "name": "B Gazete", "category": "Gündem", "mode": "today", "today": "https://gazete-b.example/bugun",
@@ -247,7 +257,7 @@ def sahte_kesif(maks, papers=None):
             "total": 2 * len(papers)}
 
 
-def sahte_gazete(paper, maks):
+def sahte_gazete(paper, maks, passive=None):
     taranan_gazeteler.append(paper["key"])
     blocks = [("p", "Gazete köşe yazısının gövdesi otuz karakterden uzun bir paragraf.")]
     simdi = datetime.now(fc.TR_TZ)
@@ -260,6 +270,15 @@ fc.discover_writers = sahte_kesif
 fc.fetch_paper_articles = sahte_gazete
 with tempfile.TemporaryDirectory() as td:
     out, wout, kout = (os.path.join(td, n) for n in ("daily.json", "writers.json", "kaynaklar.json"))
+    # Önceki çekim: pasif yazarın dünkü yazısı (A) ve pasif kaynaktaki (B) bir yazı
+    dun = datetime.now(fc.TR_TZ) - timedelta(hours=20)
+    blk = [("p", "Dünkü köşe yazısının gövdesi otuz karakterden uzun bir paragraf.")]
+    onceki = [fc.build_record("agazete", "A Gazete", "Gündem", "Pasif Yazar", "Pasif yazarın dünkü yazısı",
+                              "https://agazete/dun-pasif", blk, dun),
+              fc.build_record("bgazete", "B Gazete", "Gündem", "Pasif Yazar", "Pasif kaynaktaki dünkü yazı",
+                              "https://bgazete/dun-pasif", blk, dun)]
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"fetchedAt": iso(NOW - timedelta(hours=20)), "date": "x", "articles": onceki}, f)
     argv = sys.argv
     sys.argv = ["fetch_columns.py", "--out", out, "--writers-out", wout, "--kaynaklar-out", kout,
                 "--kurallar-url", f"{TABAN}/ok", "--min-interval-hours", "0", "--require-articles", "1"]
@@ -273,8 +292,13 @@ with tempfile.TemporaryDirectory() as td:
     check("çekim başarılı", rc == 0, rc)
     check("pasif gazete hiç taranmadı (keşif + bugünün yazıları)", taranan_gazeteler == ["agazete"] and kesif_gazeteleri == [["agazete"]],
           (taranan_gazeteler, kesif_gazeteleri))
-    check("pasif yazarın yazısı elendi (büyük/küçük/aksan farkına rağmen)", not any(kk.writer_key(a["author"]) == "pasif yazar" for a in yazilar))
-    check("diğer gazete yazıları duruyor", sum(1 for a in yazilar if a["sourceKey"] == "agazete") == 2)
+    taze_pasif = [a for a in yazilar if kk.writer_key(a["author"]) == "pasif yazar" and not a.get("passive")]
+    donmus = [a for a in yazilar if a.get("passive")]
+    check("pasif yazarın taze yazısı alınmadı (büyük/küçük/aksan farkına rağmen)", not taze_pasif, taze_pasif[:1])
+    check("pasif yazarın dünkü yazısı donmuş olarak devralındı (passive: true)",
+          [a["title"] for a in donmus] == ["Pasif yazarın dünkü yazısı"], [a["title"] for a in donmus])
+    check("pasif KAYNAKTAKİ donmuş yazı devralınmadı (kaynak çekimden çıktı)", not any(a["sourceKey"] == "bgazete" for a in yazilar))
+    check("diğer gazete yazıları duruyor", sum(1 for a in yazilar if a["sourceKey"] == "agazete" and not a.get("passive")) == 2)
     check("her kayıtta sourceKey var", all(a.get("sourceKey") for a in yazilar))
     check("yerleşik akış okundu", any(a["sourceKey"] == "dogrudan" for a in yazilar))
     ek1 = [a for a in yazilar if a["sourceKey"] == "ek-1234abcd"]
@@ -283,15 +307,16 @@ with tempfile.TemporaryDirectory() as td:
     check("eklenen YouTube kanalı okundu", len(ek2) == 1 and ek2[0]["source"] == "Kanal", ek2)
     check("eklenen kaynağın uid'si ek-…-md5 biçiminde", ek1[0]["id"].startswith("ek-1234abcd-"))
     writers = json.load(open(wout, encoding="utf-8"))
-    check("writers.json: pasif gazete ve pasif yazar dizinde yok",
-          [p["key"] for p in writers["papers"]] == ["agazete"] and all(kk.writer_key(w["name"]) != "pasif yazar" for p in writers["papers"] for w in p["writers"]),
-          writers["papers"])
-    check("writers.json: sayılar güncel", writers["papers"][0]["count"] == len(writers["papers"][0]["writers"]))
+    pasif_w = [w for p in writers["papers"] for w in p["writers"] if kk.writer_key(w["name"]) == "pasif yazar"]
+    check("writers.json: pasif gazete dizinde yok", [p["key"] for p in writers["papers"]] == ["agazete"], [p["key"] for p in writers["papers"]])
+    check("writers.json: pasif yazar dizinde kalır, \"passive\": true ile işaretli (uygulama soluk gösterir)",
+          len(pasif_w) == 1 and pasif_w[0].get("passive") is True, pasif_w)
     kat = json.load(open(kout, encoding="utf-8"))
     girdiler = {k["key"]: k for k in kat["katalog"]}
     check("katalog: tüm tanımlı kaynaklar + eklenenler", set(girdiler) == {"agazete", "bgazete", "dogrudan", "ek-1234abcd", "ek-5678abcd"}, sorted(girdiler))
     check("katalog: pasif gazete aktif:false, yazı 0", girdiler["bgazete"]["aktif"] is False and girdiler["bgazete"]["yazi"] == 0)
-    check("katalog: yazı sayıları", girdiler["agazete"]["yazi"] == 2 and girdiler["ek-1234abcd"]["yazi"] == 2)
+    check("katalog: yazı sayıları (donmuş yazı dahil)", girdiler["agazete"]["yazi"] == 3 and girdiler["ek-1234abcd"]["yazi"] == 2,
+          (girdiler["agazete"]["yazi"], girdiler["ek-1234abcd"]["yazi"]))
     check("katalog: eklenen kaynak durumu ve çözülen akış", girdiler["ek-1234abcd"]["durum"] == "ok" and girdiler["ek-1234abcd"]["akis"] == "https://ek.example/blog/feed.xml"
           and girdiler["ek-5678abcd"]["akis"].endswith("channel_id=UCQmDWRUf_X8BSrrDOSZA-NA"))
     check("katalog: kural kaynağı api, sürüm 4, alınma anı yazıldı",
@@ -313,6 +338,10 @@ with tempfile.TemporaryDirectory() as td:
     check("çözülen akışlar katalogdan hatırlandı (blog sayfası yeniden açılmadı)",
           "https://ek.example/blog" not in ISTEKLER and "https://www.youtube.com/@kanal" not in ISTEKLER, ISTEKLER)
     check("katalogda kurallar korunur", kk.pasif_yazar_anahtarlari(kk.kurallari_dogrula(kat2["kurallar"])) == {"pasif yazar"})
+    daily2 = json.load(open(out, encoding="utf-8"))
+    check("uç düşünce de pasif yazar donmuş kalır (önceki kurallardan)",
+          any(a.get("passive") and a["title"] == "Pasif yazarın dünkü yazısı" for a in daily2["articles"])
+          and not any(kk.writer_key(a["author"]) == "pasif yazar" and not a.get("passive") for a in daily2["articles"]))
 
 sunucu.shutdown()
 print(f"\n{GECEN} denetim geçti, {HATA} başarısız")

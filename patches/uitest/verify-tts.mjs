@@ -20,15 +20,16 @@ const block = (a, b) => {
   if (i < 0 || j < 0) throw new Error(`blok bulunamadı: ${a} (i=${i}, j=${j})`);
   return html.slice(i, j);
 };
-// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, gizlenenler, yönetici oturumu).
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
 // `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
 const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
+const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
 
-// Okuyucu/ayarların çağırdığı yeni arayüz yardımcıları (⋮ menüsü, Gizlenenler, Yönetici kartı, bildirim)
-const uiFns = ['closeReaderMenu', 'renderHiddenCard', 'hiddenListHtml', 'renderAdminCard', 'adminStatusText', 'renderAdminStatus', 'showToast', 'hideToast'];
+// Ayarların çağırdığı yönetici kartı yardımcıları
+const uiFns = ['renderAdminCard', 'adminStatusText', 'renderAdminStatus'];
 const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
@@ -90,7 +91,7 @@ function boot(withTts, presetSettings) {
       addEventListener: (t, f) => { (window.__tts.listeners[t] ||= []).push(f); },
     };
   }
-  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, ...fns.map(extract), ...uiFns.map(extract), audioBlock, readerBlock, closeBlock].join('\n'));
+  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), ...uiFns.map(extract), audioBlock, readerBlock, closeBlock].join('\n'));
   return { window, doc, spoken, calls };
 }
 

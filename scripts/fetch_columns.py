@@ -40,6 +40,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from urllib.parse import quote, urljoin, urlparse
@@ -1244,7 +1245,7 @@ def save_writers(writers_data, out_path):
 # ---------------------------------------------------------------------------
 # Günlük makale çekimi
 # ---------------------------------------------------------------------------
-def fetch_paper_articles(paper, max_per_paper):
+def fetch_paper_articles(paper, max_per_paper, passive=None):
     records = []
     mode = paper.get("mode", "today")
 
@@ -1273,6 +1274,10 @@ def fetch_paper_articles(paper, max_per_paper):
         )
         log(f"  {paper['name']}: dizinden {len(author_urls)} yazar bulundu")
         for author_url in author_urls:
+            # Pasif yazarın yazısını hiç indirme (adresi listede tutuluyorsa)
+            if is_passive_url(author_url, passive):
+                log(f"    - pasif yazar atlandı: {author_url}")
+                continue
             ahtml = fetch(author_url)
             if not ahtml:
                 continue
@@ -1368,6 +1373,190 @@ def drop_stale_records(records, max_age_days):
 
 
 # ---------------------------------------------------------------------------
+# Pasif yazarlar (data/passive-writers.json)
+# ---------------------------------------------------------------------------
+# "Bu yazarın yazısı güncellenmesin" isteği burada karşılanır: dosyada adı geçen
+# yazarların yazıları ne çekilir ne de daily.json'a yazılır — yani yazıları
+# donar/güncellenmez. Dosya, uygulamadaki "Pasife al" işaretlerinden üretilir
+# (Ayarlar → "JSON'u kopyala"/"JSON indir") ve depoya eklenir.
+PASSIVE_FILE_DEFAULT = "data/passive-writers.json"
+
+# Karşılaştırma için Türkçe harf katlama: "İ"/"I" -> i, "ş" -> s vb.
+_TR_FOLD = str.maketrans({
+    "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u",
+    "â": "a", "î": "i", "û": "u", "é": "e",
+})
+
+
+def passive_key(value):
+    """Ad/kaynak karşılaştırması için sadeleştirme (büyük-küçük harf ve Türkçe aksan farkı önemsenmez).
+
+    "İ"/"I" küçültmeden ÖNCE Türkçe kuralıyla çevrilir: Python'un casefold()'u "İ"yi
+    "i̇" (i + birleşik nokta U+0307) yapıyor, yani "ABDULKADİR" ile "Abdulkadir" farklı
+    anahtara düşüyor ve pasif yazar eşleşmiyordu.
+    """
+    t = unicodedata.normalize("NFC", str(value or "").strip())
+    t = t.replace("İ", "i").replace("I", "ı").casefold()
+    t = t.replace("\u0307", "").translate(_TR_FOLD)
+    return re.sub(r"\s+", " ", t)
+
+
+def empty_passive():
+    return {"names": set(), "pairs": set(), "bare": set(), "urls": set(), "total": 0}
+
+
+def load_passive_writers(path):
+    """Pasif yazar dosyasını okur -> {names, pairs, bare, urls, total}.
+
+    Beklenen biçim::
+
+        {"writers": [{"name": "Ahmet Hakan", "source": "Hürriyet",
+                      "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/"}]}
+
+    * ``name`` zorunlu, ``source``/``url`` isteğe bağlıdır.
+    * ``source`` verilmişse eşleşme o gazetede olmalı (aynı ad başka gazetede
+      yazıyor olabilir); verilmemişse ad tek başına yeter.
+    * Dosya yoksa/bozuksa boş küme döner: bir yapılandırma hatası yüzünden
+      günlük çekim durmasın (pasif liste devre dışı kalır, o kadar).
+    """
+    data = load_payload(path)
+    empty = empty_passive()
+    if not isinstance(data, dict):
+        return empty
+    entries = data.get("writers")
+    if not isinstance(entries, list):
+        return empty
+    for item in entries:
+        if not isinstance(item, dict):
+            continue
+        raw_name = str(item.get("name") or "").strip()
+        name = clean_author_name(raw_name) or raw_name
+        if not name:
+            continue
+        nk = passive_key(name)
+        empty["names"].add(nk)
+        empty["total"] += 1
+        src = passive_key(item.get("source"))
+        if src:
+            empty["pairs"].add((nk, src))
+        else:
+            empty["bare"].add(nk)
+        url = str(item.get("url") or "").strip().rstrip("/").casefold()
+        if url:
+            empty["urls"].add(url)
+    return empty
+
+
+def add_passive_entries(passive, entries):
+    """Yönetici kural ucundan gelen pasif yazarları (ad, kaynak, url) pasif kümeye ekler.
+
+    data/passive-writers.json'daki kayıtlarla aynı kurallar geçerlidir: kaynak
+    verilmişse eşleşme o gazetede olmalı, verilmemişse ad yeter. Dönüş: eklenen kayıt sayısı.
+    """
+    eklenen = 0
+    for item in entries or []:
+        if not isinstance(item, dict):
+            continue
+        raw_name = str(item.get("ad") or item.get("name") or "").strip()
+        name = clean_author_name(raw_name) or raw_name
+        if not name:
+            continue
+        nk = passive_key(name)
+        passive["names"].add(nk)
+        passive["total"] += 1
+        eklenen += 1
+        src = passive_key(item.get("kaynak") or item.get("source"))
+        if src:
+            passive["pairs"].add((nk, src))
+        else:
+            passive["bare"].add(nk)
+        url = str(item.get("url") or "").strip().rstrip("/").casefold()
+        if url:
+            passive["urls"].add(url)
+    return eklenen
+
+
+def is_passive_author(name, source, passive):
+    """Ad (ve kaynak) pasif listedeyse True."""
+    if not passive or not passive.get("names"):
+        return False
+    nk = passive_key(name)
+    if not nk or nk not in passive["names"]:
+        return False
+    if nk in passive["bare"]:
+        return True
+    return (nk, passive_key(source)) in passive["pairs"]
+
+
+def is_passive_record(rec, passive):
+    return is_passive_author(rec.get("author"), rec.get("source"), passive)
+
+
+def is_passive_url(url, passive):
+    """Yazar profil bağlantısı pasif listedeyse True (yazıyı hiç indirmemek için)."""
+    if not passive or not passive.get("urls"):
+        return False
+    return str(url or "").strip().rstrip("/").casefold() in passive["urls"]
+
+
+def drop_passive_records(records, passive):
+    """Pasif yazarların yazılarını çıktıdan eler: yazıları güncellenmez."""
+    if not passive or not passive.get("names"):
+        return records
+    kept, dropped = [], []
+    for rec in records:
+        (dropped if is_passive_record(rec, passive) else kept).append(rec)
+    for rec in dropped[:10]:
+        log(f"    - pasif yazar, güncellenmedi: [{rec.get('author')}] {rec.get('title', '')[:50]}")
+    if len(dropped) > 10:
+        log(f"    - …ve {len(dropped) - 10} pasif yazı daha")
+    if dropped:
+        log(f">> Pasif yazar listesindeki {len(dropped)} yazı güncellenmedi (çıkarıldı)")
+    return kept
+
+
+def carry_passive_records(previous, passive):
+    """Pasif yazarların SON bilinen yazılarını önceki daily.json'dan devralır.
+
+    "Yazısı güncellenmesin" isteği burada tam karşılığını bulur: pasif yazarın
+    yazısı yeniden ÇEKİLMEZ (ağa hiç gidilmez) ama eldeki son kopyası olduğu
+    gibi korunur — içeriği donar, akıştan aniden kaybolmaz. Kayıtlara
+    ``passive: true`` işareti konur; uygulama bunları soluk "pasif yazar"
+    etiketiyle gösterir. Yaş filtresi bu kayıtlara da uygulanır (2 günden eski
+    donmuş yazılar akıştan düşer), böylece günlük akış bayat görünmez.
+    """
+    if not passive or not passive.get("names"):
+        return []
+    frozen = []
+    for rec in (previous or {}).get("articles") or []:
+        if not isinstance(rec, dict) or not is_passive_record(rec, passive):
+            continue
+        item = copy.deepcopy(rec)
+        item["passive"] = True
+        frozen.append(item)
+    if frozen:
+        log(f">> Pasif yazarların {len(frozen)} son yazısı devralındı (güncellenmeyecek)")
+    return frozen
+
+
+def mark_passive_writers(writers_data, passive):
+    """writers.json'da pasif yazarları 'passive': true ile işaretler (uygulama soluk gösterir).
+
+    Liste dışı kalan yazarlardan eski işaret kaldırılır; böylece dosyadan bir ad
+    çıkarıldığında yazar bir sonraki çekimde yeniden aktif görünür.
+    """
+    marked = 0
+    for paper in writers_data.get("papers") or []:
+        for w in paper.get("writers") or []:
+            if is_passive_author(w.get("name"), paper.get("name"), passive):
+                w["passive"] = True
+                marked += 1
+            else:
+                w.pop("passive", None)
+    return marked
+
+
+# ---------------------------------------------------------------------------
 # Ana akış
 # ---------------------------------------------------------------------------
 def main():
@@ -1385,6 +1574,9 @@ def main():
                     help="Tazelik kısayolunun 'dolu' sayması için gereken en az makale sayısı")
     ap.add_argument("--max-age-days", type=int, default=2,
                     help="Yayım tarihi bu kadar günden eski yazıları çıktıya alma, yani bugün+dün kalır (0 = filtre yok)")
+    ap.add_argument("--passive-file", default=PASSIVE_FILE_DEFAULT,
+                    help="Pasif köşe yazarları listesi; buradaki yazarların yazıları çekilmez/güncellenmez "
+                         "(boş ya da '-' = kapalı)")
     ap.add_argument("--require-articles", type=int, default=20,
                     help="Bugünün verisi bu sayının altında kalırsa çıkış kodu 2 döndür (CI yeniden dener; 0 = kapat)")
     ap.add_argument("--kurallar-url", default=None,
@@ -1395,6 +1587,15 @@ def main():
     args = ap.parse_args()
     kurallar_url = (args.kurallar_url if args.kurallar_url is not None
                     else (os.environ.get("KAYNAK_KURALLARI_URL") or kaynak_kurallari.VARSAYILAN_URL))
+
+    # --- Pasif yazarlar: yazıları hiç çekilmez/güncellenmez ---
+    passive = empty_passive()
+    if args.passive_file and args.passive_file != "-":
+        passive = load_passive_writers(args.passive_file)
+        if passive["total"]:
+            log(f">> Pasif yazarlar: {passive['total']} kayıt ({args.passive_file}) — yazıları güncellenmeyecek")
+        else:
+            log(f">> Pasif yazar listesi boş ({args.passive_file})")
 
     # --- Tazelik kısayolu: bugünün dolu verisi zaten varsa gazetelere dokunma ---
     if not args.discover_only and data_is_fresh(args.out, args.min_interval_hours, args.min_articles):
@@ -1407,16 +1608,18 @@ def main():
     kurallar, kural_kaynagi, kural_notu = kaynak_kurallari.kurallari_yukle(kurallar_url, args.kaynaklar_out)
     log(f">> Kaynak kuralları: {kural_notu}")
     pasif_kaynak = kaynak_kurallari.pasif_kaynak_anahtarlari(kurallar)
-    pasif_yazar = kaynak_kurallari.pasif_yazar_anahtarlari(kurallar)
     aktif_gazeteler = [p for p in NEWSPAPERS if p["key"] not in pasif_kaynak]
     aktif_kisisel = [s for s in PERSONAL_SOURCES if s["key"] not in pasif_kaynak]
     aktif_akislar = [c for c in FEED_SOURCES if c["key"] not in pasif_kaynak]
     ek_kaynaklar = kaynak_kurallari.ek_akis_kaynaklari(kurallar)
     for src in NEWSPAPERS + PERSONAL_SOURCES + FEED_SOURCES:
         if src["key"] in pasif_kaynak:
-            log(f"   - {src['name']}: yönetici çekimden çıkardı (pasif)")
-    for p in kurallar["pasif"]["yazarlar"]:
-        log(f"   - yazar {p['ad']}: yönetici çekimden çıkardı (pasif)")
+            log(f"   - {src['name']}: yönetici çekimden çıkardı (pasif kaynak)")
+    # Yöneticinin pasif yazarları (çevrimiçi liste) depo dosyasındakilerle birleşir:
+    # aynı "yazıları güncellenmesin" kuralı — taze çekilmez, son yazısı donar.
+    api_pasif = add_passive_entries(passive, kurallar["pasif"]["yazarlar"])
+    if api_pasif:
+        log(f">> Pasif yazarlar: yönetici listesinden {api_pasif} kayıt eklendi (toplam {passive['total']})")
 
     # --- Yazar keşfi ---
     log(">> Yazar keşfi (aktif köşe yazarları)")
@@ -1443,6 +1646,7 @@ def main():
 
     if args.discover_only:
         if not keep_existing_writers:
+            mark_passive_writers(writers_data, passive)
             save_writers(writers_data, args.writers_out)
         return 0
 
@@ -1455,7 +1659,7 @@ def main():
     for paper in aktif_gazeteler:
         log(f">> {paper['name']} ({paper['today']})")
         try:
-            paper_records = fetch_paper_articles(paper, args.max_per_paper)
+            paper_records = fetch_paper_articles(paper, args.max_per_paper, passive)
         except Exception as e:
             log(f"    ! {paper['name']} çekilemedi: {type(e).__name__}: {e}")
             paper_records = []
@@ -1500,6 +1704,13 @@ def main():
             log(f"    ! {cfg['name']} okunamadı: {type(e).__name__}: {e}")
             ek_durum[cfg["key"]] = {"durum": "hata"}
 
+    # pasif yazarların yazıları yeniden çekilmesin; son bilinen kopyaları donarak devam etsin
+    records = drop_passive_records(records, passive)
+    fresh_count = len(records)  # yalnızca taze çekilen kayıtlar (donmuşlar hariç)
+    if passive["names"]:
+        records.extend(r for r in carry_passive_records(load_payload(args.out), passive)
+                       if (r.get("sourceKey") or str(r.get("id", "")).rsplit("-", 1)[0]) not in pasif_kaynak)
+
     # dizinlerde kalmış eski yazılar akışı bayat göstermesin
     records = drop_stale_records(records, args.max_age_days)
 
@@ -1507,18 +1718,10 @@ def main():
     # ardından makale sayfalarındaki yazar adlarını keşif listesine işle
     fill_missing_authors(records, writers_data)
     fill_missing_photos(records, writers_data)
-    if pasif_yazar:
-        once = len(records)
-        records = [r for r in records if kaynak_kurallari.writer_key(r.get("author")) not in pasif_yazar]
-        if once != len(records):
-            log(f">> {once - len(records)} yazı pasif yazar kuralıyla elendi")
-        for p in writers_data.get("papers") or []:
-            p["writers"] = [w for w in (p.get("writers") or [])
-                            if kaynak_kurallari.writer_key(w.get("name")) not in pasif_yazar]
-            if "count" in p:
-                p["count"] = len(p["writers"])
-        writers_data["total"] = sum(len(p.get("writers") or []) for p in writers_data.get("papers") or [])
     merge_article_authors(writers_data, records)
+    marked = mark_passive_writers(writers_data, passive)
+    if marked:
+        log(f">> writers.json: {marked} yazar pasif olarak işaretlendi")
     if keep_existing_writers and not records:
         # Keşif de makaleler de boş döndü: dosyaya hiç dokunma (zaman damgası
         # bile yenilenmesin) ki uygulama bayat veriyi taze sanmasın.
@@ -1542,8 +1745,13 @@ def main():
             if not real(old.get("author")) and real(r.get("author")):
                 uniq[seen[key]] = r
 
-    if not uniq:
-        log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")
+    if not uniq or not fresh_count:
+        # Yalnızca donmuş (pasif) kayıtlar kaldıysa da taze veri yok sayılır:
+        # mevcut daily.json korunur, CI koşuyu bir kez daha dener.
+        if uniq:
+            log("UYARI: Taze hiç makale çekilemedi (elde yalnızca pasif/donmuş kayıtlar var) — mevcut daily.json korunuyor.")
+        else:
+            log("UYARI: Hiç makale bulunamadı — mevcut daily.json korunuyor.")
         return 2 if args.require_articles > 0 else 0
 
     now = datetime.now(TR_TZ)

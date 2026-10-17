@@ -133,12 +133,13 @@ try {
           { tur: 'okundu.ekle', uid: 'sozcu-1a2b3c4d' },
           { tur: 'ayar.yaz', ad: 'readerFont', deger: 19 },
           { tur: 'ayar.yaz', ad: 'tooltip', deger: true },
+          { tur: 'ayar.yaz', ad: 'shuffle', deger: true },
           { tur: 'gizli.ekle', anahtar: 'y:yilmaz ozdil', veri: { tur: 'yazar', ad: 'Yılmaz Özdil' } },
           { tur: 'gizli.ekle', anahtar: 'g:sabah', veri: { tur: 'gazete', ad: 'Sabah' } },
         ],
       },
     });
-    check('9 işlem uygulandı, red yok', r.durum === 200 && r.veri.uygulanan === 9 && r.veri.reddedilen.length === 0, JSON.stringify(r.veri));
+    check('10 işlem uygulandı, red yok', r.durum === 200 && r.veri.uygulanan === 10 && r.veri.reddedilen.length === 0, JSON.stringify(r.veri));
     check('kişisel sayaç tek artış (1), kaynak sayacı 0', r.veri.surum.y === 1 && r.veri.surum.k === 0, JSON.stringify(r.veri.surum));
     r = await api('durum', { token });
     const k = r.veri.kisisel;
@@ -147,7 +148,7 @@ try {
     check('kayıt özeti saklandı, denetim karakteri temizlendi', k.kayit.length === 1 && k.kayit[0].title === 'Başlık <b>' && k.kayit[0].uid === 'hurriyet-416eff4a', JSON.stringify(k.kayit));
     check('durum yanıtında tam metin YOK (istek üzerine gelir)', !JSON.stringify(r.veri).includes('Uzun bir köşe'));
     check('okundu listesi [uid, zaman]', k.okundu.length === 2 && k.okundu.every(o => typeof o[1] === 'number' && o[1] > 1.5e12), JSON.stringify(k.okundu));
-    check('ayarlar', k.ayar.readerFont === 19 && k.ayar.tooltip === true, JSON.stringify(k.ayar));
+    check('ayarlar (karıştır dahil)', k.ayar.readerFont === 19 && k.ayar.tooltip === true && k.ayar.shuffle === true, JSON.stringify(k.ayar));
     check('gizlenenler', k.gizli.length === 2 && k.gizli.some(g => g.anahtar === 'g:sabah' && g.tur === 'gazete'), JSON.stringify(k.gizli));
     r = await api('metin', { token, sorgu: '&uid=hurriyet-416eff4a' });
     check('metin uç noktası gövdeyi döndürür', r.veri.metin === metin, JSON.stringify(r.veri));
@@ -205,7 +206,7 @@ try {
       method: 'POST', token, govde: {
         islemler: [
           { tur: 'kaynak.pasif', anahtar: 'k:sabah', veri: { tur: 'kaynak', ad: 'Sabah', key: 'sabah' } },
-          { tur: 'kaynak.pasif', anahtar: 'y:ahmet hakan', veri: { tur: 'yazar', ad: 'Ahmet HAKAN' } },
+          { tur: 'kaynak.pasif', anahtar: 'y:ahmet hakan|hurriyet', veri: { tur: 'yazar', ad: 'Ahmet HAKAN', kaynak: 'Hürriyet', url: 'https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/' } },
           { tur: 'ek.ekle', veri: { name: 'Örnek Blog', author: 'Ayşe Yazar', category: 'Ekonomi', feed: 'https://ornek.blog/feed/' } },
           { tur: 'ek.ekle', veri: { name: 'İç ağ', feed: 'http://127.0.0.1:8080/feed' } },
           { tur: 'ek.ekle', veri: { name: 'Bulut meta', feed: 'http://169.254.169.254/latest' } },
@@ -221,7 +222,8 @@ try {
     r = await api('kaynaklar');
     const kk = r.veri;
     check('herkese açık kaynaklar: pasif kaynak', kk.pasif.kaynaklar.length === 1 && kk.pasif.kaynaklar[0].key === 'sabah', JSON.stringify(kk.pasif));
-    check('herkese açık kaynaklar: pasif yazar', kk.pasif.yazarlar.length === 1 && kk.pasif.yazarlar[0].ad === 'Ahmet HAKAN');
+    check('herkese açık kaynaklar: pasif yazar (gazete + profil adresiyle)', kk.pasif.yazarlar.length === 1 && kk.pasif.yazarlar[0].ad === 'Ahmet HAKAN'
+      && kk.pasif.yazarlar[0].kaynak === 'Hürriyet' && kk.pasif.yazarlar[0].url === 'https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/', JSON.stringify(kk.pasif.yazarlar));
     check('eklenen akışlar (bilinmeyen kategori -> Gündem)', kk.ek.length === 2 && kk.ek[0].name === 'Örnek Blog' && kk.ek[0].category === 'Ekonomi' && kk.ek[1].category === 'Gündem', JSON.stringify(kk.ek));
     check('surum ve guncellendi', kk.surum === 1 && !Number.isNaN(Date.parse(kk.guncellendi)));
     check('herkese açık yanıtta kişisel veri yok', !JSON.stringify(kk).includes('Yılmaz'));

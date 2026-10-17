@@ -39,7 +39,7 @@ const ANAHTAR = {
   ayar: `${ON_EK}y:ayar`,             // HASH  ayar adı -> JSON değer
   gizli: `${ON_EK}y:gizli`,           // HASH  "y:yazar" / "g:gazete" -> {tur, ad, kaynak, t}
   ySurum: `${ON_EK}y:surum`,          // sayaç: kişisel düzen her değiştiğinde +1
-  pasif: `${ON_EK}k:pasif`,           // HASH  "k:kaynak" / "y:yazar" -> {tur, ad, key, t}
+  pasif: `${ON_EK}k:pasif`,           // HASH  "k:kaynak" / "y:yazar|gazete" -> {tur, ad, key | kaynak+url, t}
   ek: `${ON_EK}k:ek`,                 // HASH  key -> eklenen akış {key, name, author, category, feed, t}
   kSurum: `${ON_EK}k:surum`,          // sayaç: kaynak kuralları her değiştiğinde +1
   kZaman: `${ON_EK}k:guncellendi`,    // kaynak kurallarının son değişme anı (ISO)
@@ -71,6 +71,7 @@ const AYARLAR = {
   samples: v => typeof v === 'boolean',
   autoRefresh: v => typeof v === 'boolean',
   ttsRate: v => typeof v === 'number' && Number.isFinite(v) && v >= 0.5 && v <= 2,
+  shuffle: v => typeof v === 'boolean', // karıştırma açık/kapalı (karışık sıra her cihazda ayrı)
 };
 
 class ApiHatasi extends Error {
@@ -343,6 +344,12 @@ function islemiCevir(op) {
         return { hata: 'yazar anahtarı "y:<ad>" biçiminde olmalı' };
       }
       const kayit = { tur: tip, ad, key, t: zaman(op.t) };
+      if (tip === 'yazar') {
+        // Pasif yazar (yazıları güncellenmez): gazete ve profil adresi eşleşmeye yardım eder
+        kayit.kaynak = yazi(veri.kaynak, 120);
+        kayit.url = adres(veri.url);
+        delete kayit.key;
+      }
       return { alan: 'k', hash: 'pasif', komutlar: [['HSET', ANAHTAR.pasif, a, JSON.stringify(kayit)]] };
     }
     case 'kaynak.aktif': {
@@ -407,7 +414,7 @@ function kaynakKurallari(pasifDuz, ekDuz, surum, guncellendi) {
     guncellendi: guncellendi || null,
     pasif: {
       kaynaklar: pasif.filter(p => p.tur === 'kaynak').map(p => ({ key: p.key, ad: p.ad, t: p.t })),
-      yazarlar: pasif.filter(p => p.tur === 'yazar').map(p => ({ anahtar: p.anahtar, ad: p.ad, t: p.t })),
+      yazarlar: pasif.filter(p => p.tur === 'yazar').map(p => ({ anahtar: p.anahtar, ad: p.ad, kaynak: p.kaynak || '', url: p.url || '', t: p.t })),
     },
     ek: ek.sort((a, b) => (a.t || 0) - (b.t || 0)),
   };

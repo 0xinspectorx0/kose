@@ -120,6 +120,96 @@ Rapor "en son yayımlanan yazılar çekilmiş mi?" sorusunu kaynak bazında ceva
     Evrensel               2 |   0 | 2026-10-11 12:00   ← günün yazısı yok
 ```
 
+## Ana ekran: "Karıştır" (favori daireleri + yazı akışı)
+
+Ana ekranda **tek bir karıştırma ayarı** var; üç kontrol de aynı ayarı değiştirir:
+
+| Kontrol | Yeri |
+|---|---|
+| **Karıştır** düğmesi | Kategori satırının (Tümü, Gündem, …) sağında — yalnızca **Akış** sekmesinde görünür |
+| **Karıştır** düğmesi | *Favori Yazarlar* başlığının yanında |
+| **Favori yazarları ve yazıları karıştır** anahtarı | Ayarlar |
+
+Bir düğmeye dokunmak **hem** favori yazar dairelerini **hem** aşağıdaki yazı
+listesini birlikte karıştırır. Sıra kuralları:
+
+1. **Okuduğunuz yazarlar sona geçer.** Bugünkü yazılarının tamamı okunmuş (halkası gri)
+   yazarlar listenin sonunda toplanır; ertesi gün yeni yazı gelince başa döner.
+   Karıştırma yalnızca okunmamış grubun içinde çalışır — bu kural her durumda geçerli.
+2. **Karıştırma açıkken** okunmamış daireler ve yazı listesi kayıtlı karışık sırada
+   çizilir; kapatınca doğal sıraya dönülür (daireler favoriye eklenme sırası, akış
+   verinin geldiği sıra).
+3. **Yeni içerik karışık listede kaybolmaz:** karıştırmadan sonra gelen yeni yazılar
+   akışın **başına**, yeni eklenen favoriler okunmamış grubun **sonuna** eklenir.
+4. **Sıra kalıcı ve kararlıdır.** Karışık sıralar `localStorage`'da saklanır
+   (daireler: `kose-author-shuffle-order`, yazılar: `kose-article-shuffle-order`);
+   veri yenilenince, sekmeye dönünce ya da sayfa yeniden açılınca sıra zıplamaz.
+   Ayar açıkken kayıtlı sıra yoksa (ör. ayar başka bir cihazdan geldiyse) ilk çizimde
+   bir kez üretilir.
+
+Karıştırma kapalıyken de okuduğunuz favoriler her zaman sonda kalır.
+
+
+## Pasif yazarlar (yazısı güncellenmesin) ve Keşfet'ten silme
+
+Keşfet'te her yazarın yanındaki **⋯** düğmesi yazar seçeneklerini açar:
+
+| İşlem | Ne olur | Nerede saklanır |
+|---|---|---|
+| **Pasife al** | Yazar Keşfet'te soluk "pasif" olarak kalır; yazıları **güncellenmez**. Eldeki son yazısı akışta `PASİF YAZAR` etiketiyle donar, tekrar çekilmez | `kose-passive-writers` (localStorage) |
+| **Keşfet listesinden sil** | Yazar Keşfet listesinden tamamen kaldırılır (akıştaki yazıları etkilenmez) | `kose-hidden-writers` |
+| Gazete satırındaki **⋯ → Gazeteyi Keşfet'ten sil** | Gazete ve tüm yazar çipleri listeden kalkar | `kose-hidden-papers` |
+
+Silinen yazarlar ve gazeteler Keşfet'in altındaki **Gizlenenler** kartından, pasif
+yazarlar **Pasif yazarlar** kartından (ya da akıştaki kartın "Aktif et" düğmesinden)
+geri alınır. Pasif yazarın yazısı akışta soluk görünür; okunabilir, kaydedilebilir.
+
+### Yazarın yazısı gerçekten güncellenmesin (kazıyıcı tarafı)
+
+> **Yönetici girişi yaptıysan bu adıma gerek yok:** pasif liste çevrimiçi saklanır ve
+> kazıyıcı her çekimde Vercel'deki kural ucundan okur (dosyadaki kayıtlarla birleştirir);
+> değişiklik en geç ~40 dakikada uygulanır. Ayrıntı: aşağıdaki *Yönetici* bölümü.
+
+Uygulamada işaretlemek cihazla sınırlıdır. Güncellemeyi **kaynağında** durdurmak için
+liste depoya `data/passive-writers.json` olarak eklenir: **Ayarlar → Pasif yazarlar ·
+depo listesi → “JSON'u kopyala”/“JSON indir”**. Dosya depoya girdiğinde:
+
+* `scripts/fetch_columns.py` bu yazarların yazılarını **hiç çekmez** (yazar dizininde
+  profil bağlantısı eşleşirse istek bile yapılmaz),
+* çekim sırasında yakalanan yazılar çıktıya **yazılmaz** (`daily.json`'a girmez),
+* pasif yazarın **son bilinen yazısı dondurulur**: yeniden çekilmez, içeriği değişmez,
+  akışta `passive: true` işaretiyle soluk görünür (2 günden eskiyse normal yaş
+  filtresiyle akıştan düşer),
+* `data/writers.json`'da yazar `"passive": true` ile işaretlenir — uygulama cihazda
+  işaret olmasa da yazarı pasif gösterir,
+* dosya `main`'e işlendiğinde `fetch-columns.yml`'in `push` tetikleyicisi **hemen
+  zorla çekim** başlatır: yeni liste beklemeden devreye girer.
+
+Dosya biçimi (`source`/`url` isteğe bağlıdır; `source` verilirse eşleşme o gazetede
+olmalı — aynı ad başka gazetede yazıyor olabilir):
+
+```json
+{
+  "updatedAt": "2026-10-15T18:20:00.000Z",
+  "writers": [
+    { "name": "Ahmet Hakan", "source": "Hürriyet",
+      "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/" },
+    { "name": "Sadece Isim" }
+  ]
+}
+```
+
+Kazıyıcıyı elle koşarken liste dosyası değiştirilebilir:
+
+```bash
+.venv/bin/python scripts/fetch_columns.py --passive-file data/passive-writers.json
+.venv/bin/python scripts/fetch_columns.py --passive-file -   # pasif listeyi yok say
+```
+
+> Ad karşılaştırması Türkçe duyarlıdır: büyük/küçük harf, aksan ve boşluk farkları
+> önemsenmez (`"AHMET HAKAN"` = `"Ahmet Hakan"`). Dosya bozuksa/eksikse çekim durmaz;
+> o koşu pasif listesiz çalışır.
+
 ## Yönetici: her cihazdan aynı düzen (çevrimiçi eşitleme)
 
 Site sahibi **Ayarlar → Yönetici girişi**'nden şifresiyle girince düzeni çevrimiçi saklanır
@@ -128,22 +218,23 @@ Ziyaretçiler bu sunucuyu hiç kullanmaz: onların düzeni yalnızca kendi taray
 
 | Ne | Kapsam | Nerede yönetilir |
 |---|---|---|
-| Favori yazarlar (ekle / çıkar) | yalnızca yönetici, her cihazında | kart ve okuyucudaki kalp, Favoriler sekmesi |
+| Favori yazarlar (ekle / çıkar) | yalnızca yönetici, her cihazında | kart ve okuyucudaki kalp, Keşfet, Favoriler sekmesi |
 | Kaydedilenler (ekle / sil) — tam metniyle | yalnızca yönetici, her cihazında | yer imi, Kaydedilen sekmesi, Yönetim → Verilerim |
 | Okundu işaretleri | yalnızca yönetici, her cihazında | yazıyı açınca; Yönetim → Okuma geçmişini sil |
-| Ayarlar (punto, balon, örnek yazılar, otomatik yenile, okuma hızı) | yalnızca yönetici, her cihazında | Ayarlar (seslendirme sesi cihaza özgü olduğu için taşınmaz) |
-| Gizlenen yazar / gazete | yalnızca yönetici, her cihazında | okuyucudaki **⋮** menüsü, Ayarlar → Gizlenenler |
-| **Kaynağı çekimden çıkar / yeniden aç** | **herkes** (veri) | Yönetim → Kaynaklar, okuyucu ⋮ menüsü |
-| **Yazarı çekimden çıkar** (hiçbir kaynaktan toplanmaz) | **herkes** (veri) | Yönetim → Çekimden çıkarılan yazarlar, okuyucu ⋮ menüsü |
+| Ayarlar (punto, balon, örnek yazılar, otomatik yenile, okuma hızı, karıştır) | yalnızca yönetici, her cihazında | Ayarlar (seslendirme sesi cihaza özgü olduğu için taşınmaz) |
+| Keşfet'ten silinen yazar / gazete | yalnızca yönetici, her cihazında | Keşfet ve okuyucudaki **⋯**, Keşfet → Gizlenenler, Yönetim paneli |
+| **Pasif yazar** (yazıları güncellenmez, son yazısı donar) | **herkes** (veri) | Keşfet ve okuyucudaki **⋯**, akıştaki "Aktif et", Yönetim paneli |
+| **Kaynağı çekimden çıkar / yeniden aç** (gazete, site, akış) | **herkes** (veri) | Yönetim → Kaynaklar, gazete/yazar **⋯** menüsü (yönetici satırı) |
 | **Yeni kaynak takip et / sil** (RSS, Atom, blog/site, YouTube kanalı) | **herkes** (veri) | Yönetim → Yeni kaynak takip et |
 
 Değişiklikler kısa bir gecikmeyle toplu gönderilir; çevrimdışıyken kuyrukta bekleyip bağlantı
 gelince gider. Diğer cihaz sekmeye dönüşte (ve sayfa açıkken 2 dakikada bir) değişiklikleri çeker.
-Girişte o cihazdaki mevcut düzen sunucudakiyle **birleştirilir** (hiçbir şey silinmez).
+Girişte o cihazdaki mevcut düzen (pasif ve Keşfet'ten silinenler dahil) sunucudakiyle
+**birleştirilir** — hiçbir şey silinmez.
 
 Ziyaretçiler için de iki düzeltme geldi: kaydedilenler artık sayfa yenilenince kaybolmuyor
-(`kose-saved-v1`) ve okundu işaretleri veri güncellenince başka yazılara kaymıyor (kalıcı
-yazı kimliği, `kose-read-v2`). Okuyucudaki ⋮ menüsüyle herkes kendi akışında yazar/gazete gizleyebilir.
+(`kose-saved-v1`; akıştan düşen kayıt **ARŞİV** etiketiyle tam metniyle açılır) ve okundu
+işaretleri veri güncellenince başka yazılara kaymıyor (kalıcı yazı kimliği, `kose-read-v2`).
 
 ### Kurulum (bir kez, ~3 dakika)
 
@@ -161,11 +252,13 @@ Durum denetimi: `https://murekkep.vercel.app/api/yonetim?islem=saglik` → `{"ok
 
 - Kazıyıcı her çekimde kuralları `https://murekkep.vercel.app/api/yonetim?islem=kaynaklar`
   ucundan okur (herkese açık, kişisel veri içermez; adres repo değişkeni `KAYNAK_KURALLARI_URL`
-  ile değiştirilebilir). Pasif kaynaklar taranmaz, pasif yazarların yazıları ve dizin kayıtları
-  elenir, eklenen kaynaklar okunur (`scripts/kaynak_kurallari.py`).
-- Eklenen adres akışa otomatik çözülür: doğrudan RSS/Atom; YouTube kanal sayfası (`@ad` dahil) →
-  kanal akışı; düz site/blog → sayfadaki `<link rel="alternate">` ya da `/feed/`. Çözülen akış
-  hatırlanır.
+  ile değiştirilebilir) — `scripts/kaynak_kurallari.py`:
+  - **pasif kaynak** taranmaz (yazar keşfi dahil); son yazıları akıştan düşer,
+  - **pasif yazarlar** `data/passive-writers.json`'daki kayıtlarla birleşir ve aynı kural
+    uygulanır: taze çekilmez, son yazısı donar (`passive: true`), `writers.json`'da işaretlenir,
+  - **eklenen kaynaklar** okunur; adres akışa otomatik çözülür: doğrudan RSS/Atom; YouTube
+    kanal sayfası (`@ad` dahil) → kanal akışı; düz site/blog → sayfadaki `<link rel="alternate">`
+    ya da `/feed/`. Çözülen akış hatırlanır.
 - Uygulanan kurallar ve kaynak kataloğu `data/kaynaklar.json`'a yazılır (Yönetim paneli kaynak
   listesini ve eklenen kaynağın durumunu buradan gösterir). Uç bir çekimde okunamazsa bu
   dosyadaki son kurallar kullanılır — kurallar bir aksaklıkta kaybolmaz.
@@ -209,6 +302,7 @@ Uygulama statiktir: `index.html` dosyasını açmak yeterlidir.
 .venv/bin/python patches/uitest/verify-pipeline.py   # tazelik politikası, kontrol işi uçtan uca, yaş filtresi, çıkış kodları, cron/push ayarları
 .venv/bin/python patches/uitest/verify-watchdog.py   # verify_daily.py senaryoları + onarma akışı (sahte gh) + gece koruması (sahte date)
 .venv/bin/python patches/uitest/verify-relay.py      # zamanlayıcı: yapı + bekleme kilidi + zincir/test dalı + kaynak kuralı senaryoları (sahte gh)
+.venv/bin/python patches/uitest/verify-passive.py    # pasif yazarlar: dosya okuma, eşleşme, yazı eleme, donmuş son yazı, writers.json işareti
 .venv/bin/python patches/uitest/verify-kaynak-kurallari.py  # yönetici kaynak kuralları: yazar anahtarı (Python==JS), uç/yedek, röle kararı, akış çözümleme, kazıyıcı uçtan uca
 
 # Yönetici API'si — gerçek api/yonetim.js + bellekte Upstash taklidi (bağımlılık yok)
@@ -224,6 +318,9 @@ node verify-tts.mjs        # seslendirme
 node verify-round9.mjs     # Keşfet
 node verify-favorites.mjs  # Favori yazarlar
 node verify-icons.mjs      # lucide simgeleri
+node verify-passive.mjs    # pasif yazarlar + Keşfet'ten silme: ⋯ menüsü, akışta soluk etiket, Gizlenenler, depo JSON çıktısı
+node verify-shuffle.mjs    # ana ekran: "Karıştır" (daireler + yazı akışı), okuduğum favoriler sonda,
+                           # sekme görünürlüğü, karışık sıranın kalıcılığı/kararlılığı
 # uçtan uca (gerçek index.html + yerel sunucu; kendi yerinde çalıştırılır):
-node <repo>/patches/uitest/verify-yonetim-ui.mjs  # ziyaretçi kalıcılığı, iki yönetici cihazı arası eşitleme, kaynak kuralları, çevrimdışı kuyruk, çıkış
+node <repo>/patches/uitest/verify-yonetim-ui.mjs  # ziyaretçi kalıcılığı, iki yönetici cihazı arası eşitleme (pasif/Keşfet dahil), kaynak kuralları, çevrimdışı kuyruk, çıkış
 ```

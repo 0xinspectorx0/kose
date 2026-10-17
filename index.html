@@ -115,7 +115,14 @@
       <section class="pl-5 mb-4" id="feed-authors-section">
         <div class="flex items-center justify-between pr-5 mb-2.5">
           <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Favori Yazarlar</h2>
-          <button type="button" onclick="setTab('discover')" class="flex items-center gap-0.5 text-[11px] text-accent font-semibold cursor-pointer hover:underline active:opacity-70 transition">Yazar Ekle<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>
+          <div class="flex items-center gap-1.5">
+            <!-- Yazarları karıştır: okuduklarınız her zaman sonda kalır -->
+            <button id="shuffle-authors-btn" type="button" aria-pressed="false" title="Yazarları karıştır"
+              class="flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-stone-200/70 text-slate-600 hover:bg-stone-300 active:scale-95 transition-all">
+              <i data-lucide="shuffle" class="w-3.5 h-3.5"></i><span>Karıştır</span>
+            </button>
+            <button type="button" onclick="setTab('discover')" class="flex items-center gap-0.5 text-[11px] text-accent font-semibold cursor-pointer hover:underline active:opacity-70 transition">Yazar Ekle<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>
+          </div>
         </div>
         <div id="authors-avatar-track" class="flex gap-3.5 overflow-x-auto no-scrollbar pr-5 py-1">
           <!-- Dynamic author heads -->
@@ -133,7 +140,8 @@
       </div>
 
       <!-- Category Filter Chips -->
-      <section class="px-5 mb-4 overflow-x-auto no-scrollbar flex gap-2" id="feed-categories-section">
+      <section class="px-5 mb-4 flex items-center gap-2" id="feed-categories-section">
+        <div class="flex-1 flex gap-2 overflow-x-auto no-scrollbar py-0.5">
         <button onclick="filterCategory('Tümü')" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-ink-900 text-white transition-all shadow-sm">
           Tümü
         </button>
@@ -148,6 +156,12 @@
         </button>
         <button onclick="filterCategory('Kültür-Sanat')" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap bg-stone-200/70 text-slate-700 hover:bg-stone-300 transition-all">
           Kültür-Sanat
+        </button>
+        </div>
+        <!-- Karıştır: favori yazarlar + aşağıdaki yazı listesi (başlıktaki düğmeyle aynı ayar) -->
+        <button id="shuffle-feed-btn" type="button" aria-pressed="false" title="Yazıları ve favori yazarları karıştır"
+          class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-stone-200/70 text-slate-600 hover:bg-stone-300 active:scale-90 transition-all">
+          <i data-lucide="shuffle" class="w-4 h-4"></i>
         </button>
       </section>
 
@@ -210,6 +224,9 @@
 
         <!-- Gazete Bazlı Yazar Grupları -->
         <div id="writers-list" class="space-y-3"></div>
+
+        <!-- Pasif Yazarlar & Keşfet'ten Silinenler (yönetim kartları, JS doldurur) -->
+        <div id="writers-manage" class="hidden mt-4 space-y-3"></div>
       </section>
 
       <!-- Favori Yazarlar Görünümü (alt menü: Favoriler) -->
@@ -291,6 +308,15 @@
           </div>
           <div class="p-3.5 flex items-center justify-between gap-3">
             <div class="min-w-0">
+              <p class="text-xs font-bold text-ink-900">Favori yazarları ve yazıları karıştır</p>
+              <p class="text-[11px] text-stone-500 mt-0.5">Ana ekrandaki daireler ve yazı listesi karışık sırada gelsin. Okuduğunuz yazarlar sona, sonradan gelen yazılar başa geçer.</p>
+            </div>
+            <button id="set-shuffle" type="button" role="switch" aria-checked="false" class="set-toggle relative flex-shrink-0 w-11 h-6 rounded-full bg-stone-200 transition-colors">
+              <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"></span>
+            </button>
+          </div>
+          <div class="p-3.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
               <p class="text-xs font-bold text-ink-900">Otomatik yenile</p>
               <p class="text-[11px] text-stone-500 mt-0.5">Sayfa açıkken yeni yazıları yarım saatte bir, sekmeye dönünce hemen kontrol etsin.</p>
             </div>
@@ -300,11 +326,29 @@
           </div>
         </div>
 
-        <!-- Gizlenenler (yalnızca bir şey gizlendiyse görünür) -->
-        <div id="hidden-card" class="hidden bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
-          <p class="text-xs font-bold text-ink-900">Gizlenenler</p>
-          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">Akışında görünmeyen yazar ve gazeteler. Okuyucudaki <span class="font-semibold">⋮</span> menüsünden eklenir; çarpıya dokununca yeniden görünür.</p>
-          <div id="hidden-list" class="flex flex-wrap gap-1.5"></div>
+        <!-- Pasif yazarlar: kazıyıcıya (depo listesine) taşınacak liste -->
+        <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3.5 mb-3">
+          <p class="text-xs font-bold text-ink-900">Pasif yazarlar · depo listesi</p>
+          <p class="text-[11px] text-stone-500 mt-0.5 mb-2.5">
+            Keşfet'te <span class="font-semibold">⋯ → Pasife al</span> ile işaretlediğiniz yazarlar burada toplanır.
+            Listeyi <span class="font-semibold">data/passive-writers.json</span> olarak depoya eklerseniz kazıyıcı
+            bu yazarların yazılarını <span class="font-semibold">hiç çekmez</span> — yani yazıları güncellenmez.
+          </p>
+          <p id="passive-repo-meta" class="text-[11px] font-semibold text-amber-700 mb-2">—</p>
+          <p id="passive-online-note" class="hidden text-[11px] font-semibold text-emerald-700 bg-emerald-50 rounded-xl px-2.5 py-2 mb-2 leading-snug">
+            Yönetici girişi açık: bu liste çevrimiçi saklanıyor ve kazıyıcı doğrudan okuyor — JSON'u depoya eklemen gerekmez.
+          </p>
+          <div class="grid grid-cols-2 gap-1.5">
+            <button id="passive-copy-btn" type="button" class="flex items-center justify-center gap-1.5 text-[11px] font-bold px-3 py-2.5 bg-ink-900 text-white rounded-xl hover:bg-ink-700 active:scale-[0.98] transition-all">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i><span>JSON'u kopyala</span>
+            </button>
+            <button id="passive-download-btn" type="button" class="flex items-center justify-center gap-1.5 text-[11px] font-bold px-3 py-2.5 bg-stone-100 text-stone-700 rounded-xl hover:bg-stone-200 active:scale-[0.98] transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i><span>JSON indir</span>
+            </button>
+          </div>
+          <p id="passive-copy-note" class="hidden text-[10px] font-semibold text-emerald-600 mt-2"></p>
+          <textarea id="passive-export" readonly rows="6" spellcheck="false"
+            class="hidden mt-2 w-full text-[10px] font-mono leading-snug p-2 rounded-xl bg-stone-100 border border-stone-200 text-stone-700 focus:outline-none"></textarea>
         </div>
 
         <!-- Veri durumu -->
@@ -334,9 +378,9 @@
         </div>
         <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Yönetim</h2>
         <p class="text-[11px] text-stone-500 leading-relaxed mt-1 mb-3">
-          <span class="font-semibold text-ink-700">Kaynak kuralları herkes için geçerlidir:</span> çekimden çıkarılan kaynak/yazar artık toplanmaz,
-          eklenen kaynak takibe alınır. Değişiklik en geç ~40 dakikada veriye yansır; senin akışında hemen uygulanır.
-          Favoriler, kaydedilenler ve gizlediklerin yalnızca senindir.
+          <span class="font-semibold text-ink-700">Kaynak kuralları herkes için geçerlidir:</span> çekimden çıkarılan kaynak artık taranmaz,
+          pasif yazarın yazıları güncellenmez (donar), eklenen kaynak takibe alınır. Değişiklik en geç ~40 dakikada veriye
+          yansır; senin akışında hemen uygulanır. Favoriler, kaydedilenler ve Keşfet'ten sildiklerin yalnızca senindir.
         </p>
         <div id="admin-view-body" class="space-y-3"></div>
       </section>
@@ -367,12 +411,9 @@
           <button id="reader-bookmark-btn" class="p-2 rounded-full hover:bg-stone-200/60 text-stone-700">
             <i data-lucide="bookmark" class="w-4 h-4"></i>
           </button>
-          <div class="relative">
-            <button id="reader-more-btn" type="button" title="Diğer işlemler" aria-label="Diğer işlemler" aria-haspopup="menu" aria-expanded="false" class="p-2 -mr-1 rounded-full hover:bg-stone-200/60 text-stone-700">
-              <i data-lucide="ellipsis-vertical" class="w-4 h-4"></i>
-            </button>
-            <div id="reader-more-menu" role="menu" class="hidden absolute right-0 top-10 z-50 w-72 max-w-[85vw] bg-white rounded-2xl shadow-xl border border-stone-200 py-1.5 font-sans"></div>
-          </div>
+          <button id="reader-more-btn" type="button" title="Yazar seçenekleri: pasife al, Keşfet'ten sil…" aria-label="Yazar seçenekleri" class="p-2 -mr-1 rounded-full hover:bg-stone-200/60 text-stone-700">
+            <i data-lucide="ellipsis-vertical" class="w-4 h-4"></i>
+          </button>
         </div>
       </div>
 
@@ -394,6 +435,7 @@
               <span>•</span>
               <span id="reader-time">5 dk okuma</span>
             </div>
+            <span id="reader-passive-badge" class="hidden mt-1"><span class="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full"><i data-lucide="pause" class="w-3 h-3"></i>Pasif yazar · yazıları güncellenmiyor</span></span>
           </div>
         </div>
 
@@ -455,6 +497,29 @@
       </div>
     </section>
 
+    <!-- Seçenek Alt Sayfası (bottom sheet): Keşfet'te yazar/gazete işlemleri -->
+    <div id="action-sheet" class="hidden absolute inset-0 z-50">
+      <div id="action-sheet-backdrop" class="absolute inset-0 bg-ink-900/40"></div>
+      <div id="action-sheet-panel" class="absolute bottom-0 inset-x-0 bg-parchment rounded-t-3xl border-t border-stone-200 shadow-2xl px-4 pt-3.5 pb-5 translate-y-full transition-transform duration-300">
+        <div class="w-10 h-1 rounded-full bg-stone-300 mx-auto mb-3"></div>
+        <div class="flex items-start gap-3 mb-3">
+          <img id="sheet-photo" src="" alt="" class="hidden w-11 h-11 rounded-full object-cover border border-stone-200 bg-white flex-shrink-0">
+          <div class="min-w-0 flex-1">
+            <p id="sheet-title" class="text-sm font-bold text-ink-900 truncate">Yazar</p>
+            <p id="sheet-sub" class="text-[11px] text-stone-500 truncate">Gazete</p>
+          </div>
+          <button id="sheet-close" type="button" aria-label="Kapat" class="w-8 h-8 -mt-1 rounded-full hover:bg-stone-200/70 flex items-center justify-center flex-shrink-0 text-stone-500 active:scale-90 transition-all">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div id="sheet-actions" class="space-y-1.5"></div>
+        <p id="sheet-note" class="hidden text-[10px] text-stone-500 leading-relaxed mt-2.5"></p>
+      </div>
+    </div>
+
+    <!-- Kısa bilgi mesajı (toast) -->
+    <div id="app-toast" class="hidden absolute left-1/2 -translate-x-1/2 bottom-24 z-50 max-w-[85%] bg-ink-900/95 text-white text-[11px] font-semibold px-3.5 py-2 rounded-2xl shadow-lg text-center leading-snug"></div>
+
     <!-- Mini Medya Oynatıcı: seslendirme sürerken alt menünün üstünde ince şerit -->
     <div id="mini-player" class="hidden absolute left-0 right-0 bottom-16 z-30 bg-gradient-to-r from-white/0 via-[#FFF1E1]/95 to-[#FFD3A5]/95 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_14px_rgba(0,0,0,0.06)]">
       <div class="h-0.5 bg-stone-200/60">
@@ -475,12 +540,6 @@
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
-    </div>
-
-    <!-- Bildirim balonu (gizle / geri al / eşitleme bildirimleri) -->
-    <div id="toast" role="status" aria-live="polite" class="hidden absolute left-1/2 -translate-x-1/2 bottom-20 z-[70] w-max max-w-[90%] px-4 py-2.5 rounded-2xl bg-ink-900/95 text-white text-xs font-semibold shadow-lg flex items-center gap-3">
-      <span id="toast-text"></span>
-      <button id="toast-action" type="button" class="hidden flex-shrink-0 text-amber-300 font-bold hover:underline"></button>
     </div>
 
     <!-- Android Bottom Navigation Bar -->
@@ -640,7 +699,7 @@
     // Örnek yazılar (initialArticles) yalnızca canlı veriye ulaşılamazsa
     // gösterilir; normal açılışta akış data/daily.json'dan gelir.
     // allArticles: yüklenen TÜM yazılar; articles: ekranda kullanılan liste =
-    // allArticles − gizlenen yazar/gazeteler − (yöneticiyse) çekimden çıkarılanlar.
+    // allArticles − (yöneticiyse) çekimden çıkarılan kaynaklar.
     // Uygulamanın geri kalanı yalnızca `articles`ı okur; kurallar değişince
     // rebuildArticles() listeyi yeniden süzer.
     let allArticles = [];
@@ -685,22 +744,14 @@
     } catch (e) { savedArticles = new Map(); }
     let savedOnlyArticles = new Map(); // uid -> akışta artık olmayan kayıtlı yazı (özetten kurulur)
 
-    // --- Gizlenenler (kişisel kural): yazar ya da gazete akıştan gizlenir ---
-    // Herkes kendi tarayıcısında kullanabilir; yönetici girişliyse her cihaza taşınır.
-    const HIDDEN_KEY = 'kose-hidden-v1';
-    let hiddenRules = new Map(); // "y:<yazar anahtarı>" | "g:<gazete anahtarı>" -> {tur, ad, kaynak, t}
-    try {
-      const rawHidden = JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]');
-      if (Array.isArray(rawHidden)) rawHidden.forEach(h => { if (h && h.anahtar && h.ad) hiddenRules.set(String(h.anahtar), { tur: h.tur === 'gazete' ? 'gazete' : 'yazar', ad: String(h.ad), kaynak: String(h.kaynak || ''), t: Number(h.t) || 0 }); });
-    } catch (e) { hiddenRules = new Map(); }
-
     // --- Yönetici oturumu (çevrimiçi eşitleme durumu; motor aşağıda "Yönetici:" bölümünde) ---
     const ADMIN_API = '/api/yonetim';
     const ADMIN_TOKEN_KEY = 'kose-admin-token';
     const ADMIN_QUEUE_KEY = 'kose-admin-queue';
     const ADMIN_META_KEY = 'kose-admin-meta';
     // Cihazlar arasında taşınan ayarlar; seslendirme sesi cihaza özgü olduğu için yok
-    const ADMIN_SYNC_SETTINGS = ['readerFont', 'tooltip', 'samples', 'autoRefresh', 'ttsRate'];
+    // (karıştırma AÇIK/KAPALI taşınır; karışık sıranın kendisi her cihazda ayrı üretilir)
+    const ADMIN_SYNC_SETTINGS = ['readerFont', 'tooltip', 'samples', 'autoRefresh', 'ttsRate', 'shuffle'];
     const emptyAdminMeta = () => ({ lastSync: 0, surum: { y: -1, k: -1 }, kaynak: null, bitis: '' });
     let adminToken = '';
     let adminQueue = [];
@@ -755,6 +806,8 @@
         date: a.date || 'Bugün',
         isBookmarked: false,
         isLive: true,
+        // Pasif yazarın donmuş yazısı: kazıyıcı bunu bir daha güncellemez
+        isPassive: a.passive === true,
         url: a.url || '',
         fullContent: a.fullContent || `<p>${plain}</p>`
       };
@@ -911,11 +964,18 @@
 
     // --- Uygulama ayarları (localStorage'da saklanır) ---
     const SETTINGS_KEY = 'kose-settings';
-    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: false, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto' };
+    const DEFAULT_SETTINGS = { readerFont: 16, tooltip: false, samples: true, autoRefresh: true, ttsRate: 1, ttsVoice: 'auto', shuffle: false };
     let appSettings = { ...DEFAULT_SETTINGS };
     try {
-      Object.assign(appSettings, JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'));
+      const stored = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+      Object.assign(appSettings, stored);
+      // Önceki sürümde karıştırma yalnızca favori dairelerine uygulanıyordu
+      // ('shuffleAuthors'); artık tek ayar hem daireleri hem yazı listesini yönetir.
+      if (stored.shuffle === undefined && typeof stored.shuffleAuthors === 'boolean') {
+        appSettings.shuffle = stored.shuffleAuthors;
+      }
     } catch (e) { /* bozuk kayıt -> varsayılanlar */ }
+    delete appSettings.shuffleAuthors;
     function saveSettings() {
       try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(appSettings)); } catch (e) { /* kota */ }
       queueSettingsSync(); // yönetici girişliyse değişen ayarlar diğer cihazlara gider
@@ -939,7 +999,7 @@
       paintToggle(document.getElementById('set-tooltip'), appSettings.tooltip);
       paintToggle(document.getElementById('set-samples'), appSettings.samples);
       paintToggle(document.getElementById('set-autorefresh'), appSettings.autoRefresh);
-      renderHiddenCard();
+      paintShuffleControls();   // "Karıştır" düğmesi + Ayarlar'daki anahtar aynı durumu göstersin
       renderAdminCard();
       const info = document.getElementById('settings-data-info');
       if (info) {
@@ -950,6 +1010,23 @@
           ? `${live.length} canlı yazı · ${new Set(live.map(a => a.source)).size} kaynak · ${new Set(live.map(a => a.author)).size} yazar · ${saved} kayıtlı · ${favs} favori yazar`
           : 'Henüz canlı yazı yüklenmedi.';
       }
+      renderPassiveMeta();
+    }
+
+    // Ayarlar'daki pasif liste özeti + depo çıktısı (liste değiştikçe tazelenir)
+    function renderPassiveMeta() {
+      const passiveMeta = document.getElementById('passive-repo-meta');
+      if (passiveMeta) {
+        const total = passiveWriters.length + repoPassiveWriters.length;
+        passiveMeta.textContent = total
+          ? `${total} pasif yazar · ${repoPassiveWriters.length} depodan · ${passiveWriters.length} bu cihazda`
+          : 'Liste boş — Keşfet\'te bir yazarın ⋯ menüsünden “Pasife al” diyebilirsiniz.';
+      }
+      const passiveArea = document.getElementById('passive-export');
+      if (passiveArea) passiveArea.value = passiveExportJson();
+      // Yönetici girişliyse liste çevrimiçi: JSON'u depoya eklemek gerekmez
+      const onlineNote = document.getElementById('passive-online-note');
+      if (onlineNote) onlineNote.classList.toggle('hidden', !isAdmin());
     }
 
     let currentFilteredCategory = 'Tümü';
@@ -994,7 +1071,8 @@
       // normalizeTr ile tek kaleme iner
       const key = normalizeTr(author);
       const list = articles.filter(a => normalizeTr(a.author) === key);
-      return list.length > 0 && list.every(a => a.isRead);
+      // readMap yedeği: applyReadState() çalışmadan önce sorulsa da doğru cevap
+      return list.length > 0 && list.every(a => a.isRead || readMap.has(articleUid(a)));
     }
     // --- Favori yazarlar: kalpler localStorage'da saklanır (kose-favorite-writers) ---
     // Kayıt biçimi: { name, source, photo, url } — aynı yazarın adı gazete
@@ -1081,27 +1159,433 @@
       toggleFavoriteWriter(favoriteWriters[idx] || {});
     }
 
-    // --- Görünür liste: gizlenenler ve (yöneticiyse) çekimden çıkarılanlar süzülür ---
+    // --- Pasif yazarlar & Keşfet'ten silinenler (localStorage + depo dosyası) ---
+    // "Pasife al": yazar Keşfet'te kalır ama soluk "pasif" olarak işaretlenir ve
+    // yazıları GÜNCELLENMEZ. Liste depoya `data/passive-writers.json` olarak
+    // eklendiğinde kazıyıcı (GitHub Actions) bu yazarın yazılarını hiç çekmez;
+    // eldeki son yazısı donar ve akışta soluk görünür.
+    // "Sil": kayıt Keşfet listesinden tamamen kaldırılır (Gizlenenler'den geri alınır).
+    const PASSIVE_KEY = 'kose-passive-writers';
+    const HIDDEN_WRITERS_KEY = 'kose-hidden-writers';
+    const HIDDEN_PAPERS_KEY = 'kose-hidden-papers';
+    const PASSIVE_URL = 'data/passive-writers.json';
+    let passiveWriters = [];      // bu cihazda pasife alınanlar
+    let repoPassiveWriters = [];  // depodaki listeden gelenler
+    let hiddenWriters = [];       // Keşfet'ten silinen yazarlar
+    let hiddenPapers = [];        // Keşfet'ten silinen gazeteler
+    let manageOpen = { passive: true, hidden: true };
+
+    function readStoredList(key) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+        return Array.isArray(parsed) ? parsed.filter(x => x && (x.name || x.key)) : [];
+      } catch (e) { return []; }
+    }
+    function writeStoredList(key, list) {
+      try { localStorage.setItem(key, JSON.stringify(list.slice(0, 400))); } catch (e) { /* kota */ }
+    }
+    passiveWriters = readStoredList(PASSIVE_KEY);
+    hiddenWriters = readStoredList(HIDDEN_WRITERS_KEY);
+    hiddenPapers = readStoredList(HIDDEN_PAPERS_KEY);
+
+    // Aynı yazar mı? Ad ve (biliniyorsa) gazete birlikte eşleşmeli.
+    function sameWriterEntry(entry, name, source) {
+      return favKeyName(entry && entry.name) === favKeyName(name)
+        && sameSource(entry && entry.source, source);
+    }
+
+    // Yazar pasif mi? Önce bu cihazdaki işaretlere, sonra depo listesine bakılır.
+    function passiveEntry(name, source) {
+      const n = favKeyName(name);
+      if (!n) return null;
+      const local = passiveWriters.find(p => sameWriterEntry(p, name, source));
+      if (local) return { ...local, origin: 'local' };
+      const repo = repoPassiveWriters.find(p => sameWriterEntry(p, name, source));
+      return repo ? { ...repo, origin: 'repo' } : null;
+    }
+    function isPassiveWriter(name, source) { return !!passiveEntry(name, source); }
+
+    function isHiddenWriter(name, source) {
+      const n = favKeyName(name);
+      if (!n) return false;
+      return hiddenWriters.some(h => sameWriterEntry(h, name, source));
+    }
+    function isHiddenPaper(key) { return hiddenPapers.some(p => p.key === key); }
+
+    // Sunucudaki kayıt anahtarları (yönetici eşitlemesi): aynı yazar = aynı anahtar
+    function passiveSyncKey(name, source) { return `y:${favKeyName(name)}|${favKeyName(source || '')}`; }
+    function hiddenWriterSyncKey(name, source) { return `y:${favKeyName(name)}|${favKeyName(source || '')}`; }
+
+    // Pasife al / aktif et (bu cihazdaki liste). Yönetici girişliyse liste çevrimiçidir:
+    // her cihazına ve kazıyıcıya (Vercel'deki kural ucu) gider — JSON'u depoya
+    // elle eklemek gerekmez.
+    function setPassiveWriter(info, passive) {
+      const name = cleanWriterName(info && info.name);
+      if (!isPersonName(name)) return false;
+      const source = (info && info.source) || '';
+      const existing = passiveWriters.find(p => sameWriterEntry(p, name, source));
+      if (passive) {
+        if (!existing) {
+          passiveWriters.push({
+            name,
+            source,
+            url: (info && info.url) || '',
+            at: new Date().toISOString(),
+          });
+        }
+        const rec = existing || passiveWriters[passiveWriters.length - 1];
+        queueAdminOp({ tur: 'kaynak.pasif', anahtar: passiveSyncKey(rec.name, rec.source), veri: { tur: 'yazar', ad: rec.name, kaynak: rec.source || '', url: rec.url || '' } });
+      } else if (existing) {
+        passiveWriters = passiveWriters.filter(p => p !== existing);
+        queueAdminOp({ tur: 'kaynak.aktif', anahtar: passiveSyncKey(existing.name, existing.source) });
+      }
+      writeStoredList(PASSIVE_KEY, passiveWriters);
+      afterWriterStateChange();
+      return !!passive;
+    }
+
+    // Keşfet'ten sil (gizle) / geri getir
+    function hideWriter(info) {
+      const name = cleanWriterName(info && info.name);
+      if (!name) return false;
+      const source = (info && info.source) || '';
+      if (!hiddenWriters.some(h => sameWriterEntry(h, name, source))) {
+        hiddenWriters.push({ name, source, at: new Date().toISOString() });
+        writeStoredList(HIDDEN_WRITERS_KEY, hiddenWriters);
+        queueAdminOp({ tur: 'gizli.ekle', anahtar: hiddenWriterSyncKey(name, source), veri: { tur: 'yazar', ad: name, kaynak: source } });
+      }
+      afterWriterStateChange();
+      return true;
+    }
+    function restoreWriter(name, source) {
+      const removed = hiddenWriters.filter(h => sameWriterEntry(h, name, source));
+      hiddenWriters = hiddenWriters.filter(h => !removed.includes(h));
+      writeStoredList(HIDDEN_WRITERS_KEY, hiddenWriters);
+      removed.forEach(h => queueAdminOp({ tur: 'gizli.sil', anahtar: hiddenWriterSyncKey(h.name, h.source) }));
+      afterWriterStateChange();
+    }
+    function hidePaper(key, name) {
+      if (!key) return false;
+      if (!hiddenPapers.some(p => p.key === key)) {
+        hiddenPapers.push({ key, name: name || key, at: new Date().toISOString() });
+        writeStoredList(HIDDEN_PAPERS_KEY, hiddenPapers);
+        queueAdminOp({ tur: 'gizli.ekle', anahtar: `g:${key}`, veri: { tur: 'gazete', ad: name || key, kaynak: key } });
+      }
+      expandedPapers.delete(key);
+      afterWriterStateChange();
+      return true;
+    }
+    function restorePaper(key) {
+      hiddenPapers = hiddenPapers.filter(p => p.key !== key);
+      writeStoredList(HIDDEN_PAPERS_KEY, hiddenPapers);
+      queueAdminOp({ tur: 'gizli.sil', anahtar: `g:${key}` });
+      afterWriterStateChange();
+    }
+
+    // Depoya eklenecek pasif yazar dosyası (kazıyıcı bu listeyi okur)
+    function buildPassiveConfig() {
+      const writers = [];
+      const seen = new Set();
+      const add = (p) => {
+        const n = favKeyName(p && p.name);
+        if (!n) return;
+        const k = `${n}|${favKeyName(p && p.source)}`;
+        if (seen.has(k)) return;
+        seen.add(k);
+        const entry = { name: p.name };
+        if (p.source) entry.source = p.source;
+        if (p.url) entry.url = p.url;
+        writers.push(entry);
+      };
+      passiveWriters.forEach(add);
+      repoPassiveWriters.forEach(add);
+      return {
+        updatedAt: new Date().toISOString(),
+        note: 'Pasif köşe yazarları: buradaki yazarların yazıları çekilmez, güncellenmez (yazıları donar).',
+        writers,
+      };
+    }
+
+    // Ayarlar'daki "JSON'u kopyala / indir" düğmelerinin ürettiği metin
+    function passiveExportJson() {
+      return `${JSON.stringify(buildPassiveConfig(), null, 2)}\n`;
+    }
+
+    // Pasif/gizli listeler değişti: Keşfet, ana sayfa daireleri ve akış tazelenir
+    function afterWriterStateChange() {
+      renderManageCards();
+      if (writersData) renderWriters();
+      renderAuthorAvatars();
+      if (currentTab === 'favorites') renderFavorites();
+      else if (articles.length) applyFilters();
+      renderPassiveMeta(); // Ayarlar'daki özet/JSON çıktısı (ağır renderSettings'e gerek yok)
+      if (currentTab === 'admin') renderAdminView();
+      // Okuyucu açıksa pasif rozeti de tazelensin (typeof: bu işlev tek başına da çağrılabilir)
+      const readingArt = typeof currentReadingArticle !== 'undefined' ? currentReadingArticle : null;
+      if (readingArt) {
+        const badge = document.getElementById('reader-passive-badge');
+        if (badge) badge.classList.toggle('hidden', !(readingArt.isPassive || isPassiveWriter(readingArt.author, readingArt.source)));
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('app-toast');
+      if (!el || !msg) return;
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 3200);
+    }
+
+    // Depodaki pasif yazar dosyasını üç kaynaktan yokla (diğer verilerle aynı mantık)
+    async function loadPassiveConfig() {
+      try {
+        const sources = [
+          'https://raw.githubusercontent.com/0xinspectorx0/kose/main/data/passive-writers.json',
+          'https://cdn.jsdelivr.net/gh/0xinspectorx0/kose@main/data/passive-writers.json',
+          PASSIVE_URL,
+        ];
+        const probes = await Promise.all(sources.map(async (src) => {
+          try {
+            const res = await fetch(`${src}?v=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) return null;
+            const d = await res.json();
+            return (d && Array.isArray(d.writers)) ? d : null;
+          } catch (e) { return null; }
+        }));
+        const good = probes.filter(Boolean);
+        if (!good.length) return false;
+        const data = good.sort((x, y) => new Date(y.updatedAt || 0) - new Date(x.updatedAt || 0))[0];
+        repoPassiveWriters = data.writers
+          .filter(w => w && w.name)
+          .map(w => ({
+            name: cleanWriterName(w.name) || String(w.name),
+            source: w.source || '',
+            url: w.url || '',
+            origin: 'repo',
+          }));
+        afterWriterStateChange();
+        return true;
+      } catch (e) { return false; }
+    }
+
+    // --- Keşfet: "Pasif yazarlar" ve "Gizlenenler" yönetim kartları ---
+    function renderManageCards() {
+      const wrap = document.getElementById('writers-manage');
+      if (!wrap) return;
+      const totalPassive = passiveWriters.length + repoPassiveWriters.length;
+      const hiddenTotal = hiddenPapers.length + hiddenWriters.length;
+      if (!totalPassive && !hiddenTotal) {
+        wrap.classList.add('hidden');
+        wrap.innerHTML = '';
+        return;
+      }
+      wrap.classList.remove('hidden');
+
+      const passiveRows = [
+        ...passiveWriters.map((p, i) => ({ ...p, idx: i, origin: 'local' })),
+        ...repoPassiveWriters.map(p => ({ ...p, idx: -1, origin: 'repo' })),
+      ].map(p => `
+        <div class="flex items-center gap-2 py-2 border-t border-stone-100 first:border-t-0 first:pt-0">
+          <div class="min-w-0 flex-1">
+            <p class="text-[11.5px] font-semibold text-ink-900 truncate">${escapeHtml(formatAuthorName(p.name))}</p>
+            <p class="text-[10px] text-stone-500 truncate">${escapeHtml(p.source || 'Gazete belirtilmemiş')}${p.origin === 'repo' ? ' · depo listesi' : ' · bu cihaz'}</p>
+          </div>
+          ${p.origin === 'repo'
+            ? `<span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-1 rounded-full flex-shrink-0">depoda</span>`
+            : `<button type="button" data-unpassive="${p.idx}" title="Yazarı yeniden aktif et" class="text-[10.5px] font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1.5 rounded-full flex-shrink-0 active:scale-95 transition-all">Aktif et</button>`}
+        </div>`).join('');
+
+      const hiddenRows = [
+        ...hiddenPapers.map((p, i) => ({ kind: 'paper', idx: i, name: p.name, sub: 'gazete · tüm yazarları gizli' })),
+        ...hiddenWriters.map((h, i) => ({ kind: 'writer', idx: i, name: h.name, sub: h.source || 'Gazete belirtilmemiş' })),
+      ].map(r => `
+        <div class="flex items-center gap-2 py-2 border-t border-stone-100 first:border-t-0 first:pt-0">
+          <div class="min-w-0 flex-1">
+            <p class="text-[11.5px] font-semibold text-ink-900 truncate">${escapeHtml(r.kind === 'paper' ? r.name : formatAuthorName(r.name))}</p>
+            <p class="text-[10px] text-stone-500 truncate">${escapeHtml(r.sub)}</p>
+          </div>
+          <button type="button" ${r.kind === 'paper' ? `data-restore-paper="${r.idx}"` : `data-restore-writer="${r.idx}"`} title="Keşfet listesine geri getir" class="text-[10.5px] font-bold text-ink-800 bg-stone-100 hover:bg-stone-200 px-2.5 py-1.5 rounded-full flex-shrink-0 active:scale-95 transition-all">Geri getir</button>
+        </div>`).join('');
+
+      wrap.innerHTML = `
+        ${totalPassive ? `
+        <div id="passive-card" class="bg-white rounded-2xl border border-amber-200/80 shadow-sm overflow-hidden">
+          <button type="button" id="passive-card-toggle" aria-expanded="${manageOpen.passive ? 'true' : 'false'}" class="w-full flex items-center gap-2 px-3.5 py-3 text-left hover:bg-amber-50/60 transition-colors">
+            <i data-lucide="pause" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
+            <span class="min-w-0 flex-1">
+              <span class="block text-xs font-bold text-ink-900">Pasif yazarlar</span>
+              <span class="block text-[10px] text-stone-500 truncate">${totalPassive} yazar · yazıları güncellenmiyor</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-amber-500 flex-shrink-0 transition-transform duration-200 ${manageOpen.passive ? 'rotate-180' : ''}"></i>
+          </button>
+          <div class="${manageOpen.passive ? 'block' : 'hidden'} px-3.5 pb-2">${passiveRows}</div>
+        </div>` : ''}
+        ${hiddenTotal ? `
+        <div id="hidden-card" class="bg-white rounded-2xl border border-stone-200/80 shadow-sm overflow-hidden">
+          <button type="button" id="hidden-card-toggle" aria-expanded="${manageOpen.hidden ? 'true' : 'false'}" class="w-full flex items-center gap-2 px-3.5 py-3 text-left hover:bg-stone-50 transition-colors">
+            <i data-lucide="eye-off" class="w-4 h-4 text-stone-500 flex-shrink-0"></i>
+            <span class="min-w-0 flex-1">
+              <span class="block text-xs font-bold text-ink-900">Gizlenenler</span>
+              <span class="block text-[10px] text-stone-500 truncate">${hiddenTotal} kayıt Keşfet listesinden silindi</span>
+            </span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 flex-shrink-0 transition-transform duration-200 ${manageOpen.hidden ? 'rotate-180' : ''}"></i>
+          </button>
+          <div class="${manageOpen.hidden ? 'block' : 'hidden'} px-3.5 pb-2">${hiddenRows}</div>
+        </div>` : ''}
+      `;
+      lucide.createIcons();
+    }
+
+    // --- Keşfet: yazar/gazete seçenekleri (⋯) alt sayfası ---
+    let sheetContext = null;
+    const SHEET_TONES = {
+      plain: 'text-ink-800 bg-stone-100 hover:bg-stone-200',
+      ok: 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100',
+      warn: 'text-amber-700 bg-amber-50 hover:bg-amber-100',
+      danger: 'text-accent bg-accent/10 hover:bg-accent/20',
+      muted: 'text-stone-500 bg-stone-100',
+    };
+    function sheetButton(row) {
+      const tone = SHEET_TONES[row.tone || 'plain'] || SHEET_TONES.plain;
+      return `<button type="button" data-act="${row.act}" ${row.disabled ? 'disabled aria-disabled="true"' : ''}
+        class="w-full flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-[12px] font-bold ${tone} ${row.disabled ? 'opacity-70' : 'active:scale-[0.99]'} transition-all">
+        <i data-lucide="${row.icon}" class="w-4 h-4 flex-shrink-0"></i><span class="truncate text-left">${escapeHtml(row.label)}</span>
+      </button>`;
+    }
+
+    // Yönetici: seçenek sayfasında kaynağı (gazete/site) çekimden çıkar / yeniden aç
+    function adminSourceSheetRow(key, ne) {
+      if (!isAdmin() || !key || String(key).startsWith('ornek')) return null;
+      const pasif = isSourcePasif(key);
+      return pasif
+        ? { act: 'source-on', icon: 'circle-play', label: `${ne} yeniden çek (herkes için)`, tone: 'ok' }
+        : { act: 'source-off', icon: 'circle-pause', label: `${ne} çekimden çıkar (herkes için)`, tone: 'warn' };
+    }
+
+    function openWriterSheet(ctx) {
+      if (!ctx) return;
+      sheetContext = ctx;
+      renderActionSheet();
+      const wrap = document.getElementById('action-sheet');
+      if (!wrap) return;
+      wrap.classList.remove('hidden');
+      // panel'i bir sonraki karede kaydır ki geçiş animasyonu görünsün
+      setTimeout(() => {
+        const panel = document.getElementById('action-sheet-panel');
+        if (panel && sheetContext) panel.classList.remove('translate-y-full');
+      }, 0);
+    }
+
+    function closeActionSheet() {
+      const panel = document.getElementById('action-sheet-panel');
+      const wrap = document.getElementById('action-sheet');
+      if (panel) panel.classList.add('translate-y-full');
+      sheetContext = null;
+      if (wrap) setTimeout(() => { if (!sheetContext) wrap.classList.add('hidden'); }, 260);
+    }
+
+    function renderActionSheet() {
+      const ctx = sheetContext;
+      if (!ctx) return;
+      const photoEl = document.getElementById('sheet-photo');
+      const titleEl = document.getElementById('sheet-title');
+      const subEl = document.getElementById('sheet-sub');
+      const actionsEl = document.getElementById('sheet-actions');
+      const noteEl = document.getElementById('sheet-note');
+      if (!actionsEl) return;
+
+      if (ctx.kind === 'paper') {
+        if (titleEl) titleEl.textContent = ctx.name || 'Gazete';
+        if (subEl) subEl.textContent = `${Number(ctx.count) || 0} yazar · Keşfet listesi`;
+        if (photoEl) { photoEl.classList.add('hidden'); photoEl.removeAttribute('src'); }
+        const hidden = isHiddenPaper(ctx.paperKey);
+        const rows = hidden
+          ? [{ act: 'restore-paper', icon: 'undo-2', label: 'Gazeteyi Keşfet listesine geri koy', tone: 'ok' }]
+          : [{ act: 'hide-paper', icon: 'trash-2', label: "Gazeteyi Keşfet'ten sil", tone: 'danger' }];
+        const srcRow = adminSourceSheetRow(ctx.paperKey, 'Gazeteyi');
+        if (srcRow) rows.push(srcRow);
+        actionsEl.innerHTML = rows.map(sheetButton).join('');
+        if (noteEl) {
+          const note = hidden
+            ? 'Bu gazete Keşfet listesinde gizli; yazıları akışta görünmeye devam eder.'
+            : 'Gazete ve tüm yazar çipleri Keşfet listesinden kaldırılır; yazıları akışta kalır, istediğiniz an geri getirebilirsiniz.';
+          noteEl.textContent = note;
+          noteEl.classList.remove('hidden');
+        }
+        lucide.createIcons();
+        return;
+      }
+
+      // yazar
+      const pas = passiveEntry(ctx.name, ctx.source);
+      const fav = isFavoriteWriter(ctx.name, ctx.source);
+      const label = formatAuthorName(ctx.name);
+      if (titleEl) titleEl.textContent = label;
+      if (subEl) subEl.textContent = ctx.source || 'Gazete belirtilmemiş';
+      if (photoEl) {
+        photoEl.classList.remove('hidden');
+        photoEl.onerror = function () { this.onerror = null; this.src = initialAvatar(label); };
+        photoEl.src = ctx.photo || findWriterPhoto(ctx.name) || initialAvatar(label);
+      }
+      const rows = [
+        { act: 'open', icon: 'newspaper', label: 'Yazılarını göster' },
+        { act: 'fav', icon: 'heart', label: fav ? 'Favorilerden çıkar' : 'Favorilere ekle' },
+      ];
+      if (!pas) rows.push({ act: 'passivate', icon: 'pause', label: 'Pasife al (yazıları güncellenmesin)', tone: 'warn' });
+      else if (pas.origin === 'local') rows.push({ act: 'activate', icon: 'play', label: 'Aktif et (yazıları güncellensin)', tone: 'ok' });
+      else rows.push({ act: 'repo', icon: 'database', label: 'Depo listesinde (pasif)', tone: 'muted', disabled: true });
+      if (isHiddenWriter(ctx.name, ctx.source)) {
+        rows.push({ act: 'restore', icon: 'undo-2', label: 'Keşfet listesine geri koy', tone: 'ok' });
+      } else {
+        rows.push({ act: 'hide', icon: 'trash-2', label: "Keşfet listesinden sil", tone: 'danger' });
+      }
+      const srcRow = adminSourceSheetRow(ctx.paperKey, ctx.source ? `${ctx.source} kaynağını` : 'Kaynağı');
+      if (srcRow) rows.push(srcRow);
+      actionsEl.innerHTML = rows.map(sheetButton).join('');
+      if (noteEl) {
+        const note = pas
+          ? (pas.origin === 'repo'
+            ? 'Bu yazar depodaki data/passive-writers.json listesinde. Kaldırmak için dosyayı düzenleyip depoya işleyin.'
+            : (isAdmin()
+              ? 'Pasif yazarın yazıları güncellenmez; eldeki son yazısı akışta soluk görünür. Liste çevrimiçi: kazıyıcı en geç ~40 dakikada uygular.'
+              : 'Pasif yazarın yazıları güncellenmez; eldeki son yazısı akışta soluk görünür.'))
+          : '';
+        noteEl.textContent = note;
+        noteEl.classList.toggle('hidden', !note);
+      }
+      lucide.createIcons();
+    }
+
+    // Akış kartındaki "Aktif et": pasif yazarı yeniden aktifleştirir
+    function reactivatePassiveFromCard(e, id) {
+      if (e && e.stopPropagation) e.stopPropagation();
+      const art = findArticle(id);
+      if (!art) return;
+      const entry = passiveEntry(art.author, art.source);
+      if (entry && entry.origin === 'repo') {
+        showToast('Bu yazar depo listesinde — kaldırmak için data/passive-writers.json düzenlenir.');
+        return;
+      }
+      setPassiveWriter({ name: art.author, source: art.source }, false);
+      showToast(`${formatAuthorName(art.author)} yeniden aktif — yazıları güncellenecek.`);
+    }
+
+    // --- Görünür liste: yöneticinin çekimden çıkardığı kaynaklar süzülür ---
+    // (Pasif YAZARLAR süzülmez: yazıları soluk "pasif" etiketiyle akışta kalır;
+    // kazıyıcı onları güncellemez.)
     function currentRules() {
       if (ruleCache) return ruleCache;
       const k = isAdmin() && adminMeta.kaynak ? adminMeta.kaynak : null;
       const pasif = (k && k.pasif) || {};
-      ruleCache = {
-        pasifKaynak: new Set((pasif.kaynaklar || []).map(p => p && p.key).filter(Boolean)),
-        pasifYazar: new Set((pasif.yazarlar || []).map(p => p && p.anahtar).filter(Boolean))
-      };
+      ruleCache = { pasifKaynak: new Set((pasif.kaynaklar || []).map(p => p && p.key).filter(Boolean)) };
       return ruleCache;
     }
     function isArticleVisible(a) {
       if (!a) return false;
-      if (hiddenRules.size) {
-        if (hiddenRules.has(`y:${favKeyName(a.author)}`)) return false;
-        if (hiddenRules.has(`g:${favKeyName(a.source)}`)) return false;
-      }
       const r = currentRules();
-      if (r.pasifKaynak.size && r.pasifKaynak.has(sourceKeyOf(a))) return false;
-      if (r.pasifYazar.size && r.pasifYazar.has(`y:${favKeyName(a.author)}`)) return false;
-      return true;
+      return !(r.pasifKaynak.size && r.pasifKaynak.has(sourceKeyOf(a)));
     }
     function rebuildArticles() {
       ruleCache = null;
@@ -1129,6 +1613,8 @@
       else if (currentTab === 'settings') renderSettings();
       else if (currentTab === 'admin') renderAdminView();
       else if (currentTab === 'discover' && writersLoaded) renderWriters();
+      renderManageCards();   // Keşfet: pasif yazarlar / Keşfet'ten silinenler kartları
+      renderPassiveMeta();   // Ayarlar: pasif liste özeti
       if (currentReadingArticle && !articleReader.classList.contains('translate-y-full')) {
         updateReaderBookmarkIcon();
         updateReaderFavoriteIcon();
@@ -1225,38 +1711,6 @@
       const snap = savedArticles.get(art.uid);
       if (snap) { snap.fullContent = html; persistSaved(); }
       if (currentReadingArticle === art && body) body.innerHTML = html;
-    }
-
-    // --- Gizlenenler (kişisel kural) ---
-    function persistHidden() {
-      const list = [...hiddenRules.entries()].map(([anahtar, v]) => ({ anahtar, ...v }));
-      try { localStorage.setItem(HIDDEN_KEY, JSON.stringify(list)); } catch (e) { /* kota */ }
-    }
-    function hideKey(tur, ad) { return `${tur === 'gazete' ? 'g' : 'y'}:${favKeyName(ad)}`; }
-    function isHidden(tur, ad) { return hiddenRules.has(hideKey(tur, ad)); }
-    function setHidden(tur, ad, on, kaynak = '') {
-      if (!favKeyName(ad)) return false;
-      const anahtar = hideKey(tur, ad);
-      if (on) {
-        const v = { tur: tur === 'gazete' ? 'gazete' : 'yazar', ad: String(ad), kaynak: String(kaynak || ''), t: Date.now() };
-        hiddenRules.set(anahtar, v);
-        queueAdminOp({ tur: 'gizli.ekle', anahtar, veri: { tur: v.tur, ad: v.ad, kaynak: v.kaynak } });
-      } else {
-        hiddenRules.delete(anahtar);
-        queueAdminOp({ tur: 'gizli.sil', anahtar });
-      }
-      persistHidden();
-      refreshAfterRuleChange();
-      return true;
-    }
-    function unhideByKey(anahtar) {
-      const v = hiddenRules.get(anahtar);
-      if (!v) return;
-      hiddenRules.delete(anahtar);
-      queueAdminOp({ tur: 'gizli.sil', anahtar });
-      persistHidden();
-      refreshAfterRuleChange();
-      showToast(`${v.tur === 'gazete' ? v.ad : formatAuthorName(v.ad)} yeniden gösteriliyor`);
     }
 
     // --- Yönetici: çevrimiçi eşitleme (Vercel /api/yonetim + Upstash Redis) ---
@@ -1463,9 +1917,28 @@
         case 'okundu.temizle': readMap.clear(); break;
         case 'ayar.yaz': appSettings[op.ad] = op.deger; break;
         case 'gizli.ekle':
-          if (op.veri) hiddenRules.set(op.anahtar, { tur: op.veri.tur, ad: op.veri.ad, kaynak: op.veri.kaynak || '', t: op.t || Date.now() });
+          if (op.veri && op.veri.tur === 'gazete') {
+            const key = op.veri.kaynak || String(op.anahtar).slice(2);
+            if (!hiddenPapers.some(p => p.key === key)) hiddenPapers.push({ key, name: op.veri.ad, at: new Date(op.t || Date.now()).toISOString() });
+          } else if (op.veri && !hiddenWriters.some(h => hiddenWriterSyncKey(h.name, h.source) === op.anahtar)) {
+            hiddenWriters.push({ name: op.veri.ad, source: op.veri.kaynak || '', at: new Date(op.t || Date.now()).toISOString() });
+          }
           break;
-        case 'gizli.sil': hiddenRules.delete(op.anahtar); break;
+        case 'gizli.sil':
+          if (String(op.anahtar).startsWith('g:')) hiddenPapers = hiddenPapers.filter(p => `g:${p.key}` !== op.anahtar);
+          else hiddenWriters = hiddenWriters.filter(h => hiddenWriterSyncKey(h.name, h.source) !== op.anahtar);
+          break;
+        case 'kaynak.pasif':
+          if (op.veri && op.veri.tur === 'yazar') {
+            if (!passiveWriters.some(p => passiveSyncKey(p.name, p.source) === op.anahtar)) {
+              passiveWriters.push({ name: op.veri.ad, source: op.veri.kaynak || '', url: op.veri.url || '', at: new Date(op.t || Date.now()).toISOString() });
+            }
+          } else applyKaynakOpLocally(op);
+          break;
+        case 'kaynak.aktif':
+          if (String(op.anahtar).startsWith('y:')) passiveWriters = passiveWriters.filter(p => passiveSyncKey(p.name, p.source) !== op.anahtar);
+          else applyKaynakOpLocally(op);
+          break;
         default: applyKaynakOpLocally(op);
       }
     }
@@ -1529,8 +2002,14 @@
       // Henüz gönderilemeyen yerel kayıtlar korunur
       adminQueue.forEach(op => { if (op.tur === 'kayit.ekle' && prevSaved.has(op.uid)) savedArticles.set(op.uid, prevSaved.get(op.uid)); });
       readMap = new Map((Array.isArray(k.okundu) ? k.okundu : []).filter(r => Array.isArray(r) && r[0]).map(r => [String(r[0]), Number(r[1]) || 0]));
-      hiddenRules = new Map((Array.isArray(k.gizli) ? k.gizli : []).filter(g => g && g.anahtar && g.ad)
-        .map(g => [String(g.anahtar), { tur: g.tur === 'gazete' ? 'gazete' : 'yazar', ad: String(g.ad), kaynak: String(g.kaynak || ''), t: Number(g.t) || 0 }]));
+      // Keşfet'ten silinenler (#14 listeleri): yazarlar ve gazeteler
+      const gizli = (Array.isArray(k.gizli) ? k.gizli : []).filter(g => g && g.anahtar && g.ad);
+      const iso = t => new Date(Number(t) || Date.now()).toISOString();
+      hiddenWriters = gizli.filter(g => g.tur !== 'gazete').map(g => ({ name: String(g.ad), source: String(g.kaynak || ''), at: iso(g.t) }));
+      hiddenPapers = gizli.filter(g => g.tur === 'gazete').map(g => ({ key: String(g.kaynak || String(g.anahtar).slice(2)), name: String(g.ad), at: iso(g.t) }));
+      // Pasif yazarlar (#14 listesi) yöneticide sunucudaki kaynak kurallarından gelir
+      const yazarlar = (data.kaynak && data.kaynak.pasif && Array.isArray(data.kaynak.pasif.yazarlar)) ? data.kaynak.pasif.yazarlar : [];
+      passiveWriters = yazarlar.filter(y => y && y.ad).map(y => ({ name: String(y.ad), source: String(y.kaynak || ''), url: String(y.url || ''), at: iso(y.t) }));
       const serverSettings = k.ayar && typeof k.ayar === 'object' ? k.ayar : {};
       ADMIN_SYNC_SETTINGS.forEach(ad => { if (serverSettings[ad] !== undefined) appSettings[ad] = serverSettings[ad]; });
       adminMeta.kaynak = normalizeKaynak(data.kaynak);
@@ -1544,7 +2023,9 @@
       saveFavoriteWriters();
       persistSaved();
       persistRead();
-      persistHidden();
+      writeStoredList(PASSIVE_KEY, passiveWriters);
+      writeStoredList(HIDDEN_WRITERS_KEY, hiddenWriters);
+      writeStoredList(HIDDEN_PAPERS_KEY, hiddenPapers);
       persistAdmin();
       savedOnlyArticles = new Map();
       const body = document.getElementById('reader-body');
@@ -1590,7 +2071,10 @@
       favoriteWriters.forEach(f => adminQueue.push({ tur: 'fav.ekle', anahtar: favSyncKey(f), veri: { name: f.name, source: f.source || '', photo: f.photo || '', url: f.url || '' }, t: now }));
       savedArticles.forEach((s, uid) => adminQueue.push({ tur: 'kayit.ekle', uid, t: s.savedAt || now }));
       [...readMap.entries()].sort((a, b) => a[1] - b[1]).slice(-1000).forEach(([uid, t]) => adminQueue.push({ tur: 'okundu.ekle', uid, t }));
-      hiddenRules.forEach((v, anahtar) => adminQueue.push({ tur: 'gizli.ekle', anahtar, veri: { tur: v.tur, ad: v.ad, kaynak: v.kaynak || '' }, t: v.t || now }));
+      // Keşfet'ten silinenler ve pasif yazarlar (#14 listeleri) de sunucuya eklenir
+      hiddenWriters.forEach(h => adminQueue.push({ tur: 'gizli.ekle', anahtar: hiddenWriterSyncKey(h.name, h.source), veri: { tur: 'yazar', ad: h.name, kaynak: h.source || '' }, t: now }));
+      hiddenPapers.forEach(g => adminQueue.push({ tur: 'gizli.ekle', anahtar: `g:${g.key}`, veri: { tur: 'gazete', ad: g.name || g.key, kaynak: g.key }, t: now }));
+      passiveWriters.forEach(w => adminQueue.push({ tur: 'kaynak.pasif', anahtar: passiveSyncKey(w.name, w.source), veri: { tur: 'yazar', ad: w.name, kaynak: w.source || '', url: w.url || '' }, t: now }));
       // Ayarlar: sunucuda hiç kayıt yoksa bu cihazınkiler yüklenir; varsa sunucudaki geçerli olur
       const ilk = await adminRequest('durum');
       if (ilk.ok && ilk.data && ilk.data.kisisel && !Object.keys(ilk.data.kisisel.ayar || {}).length) {
@@ -1648,23 +2132,11 @@
 
     // --- Kaynak kuralları (yalnızca yönetici; kazıyıcı bunları herkes için uygular) ---
     function isSourcePasif(key) { return Boolean(key) && currentRules().pasifKaynak.has(key); }
-    function isWriterPasif(ad) { return currentRules().pasifYazar.has(`y:${favKeyName(ad)}`); }
     function setSourcePasif(key, ad, pasif) {
       if (!isAdmin() || !key) return;
       const op = pasif
         ? { tur: 'kaynak.pasif', anahtar: `k:${key}`, veri: { tur: 'kaynak', ad: String(ad || key), key }, t: Date.now() }
         : { tur: 'kaynak.aktif', anahtar: `k:${key}`, t: Date.now() };
-      applyKaynakOpLocally(op);
-      queueAdminOp(op);
-      refreshAfterRuleChange();
-    }
-    function setWriterPasif(ad, pasif) {
-      const k = favKeyName(ad);
-      if (!isAdmin() || !k) return;
-      const anahtar = `y:${k}`;
-      const op = pasif
-        ? { tur: 'kaynak.pasif', anahtar, veri: { tur: 'yazar', ad: String(ad) }, t: Date.now() }
-        : { tur: 'kaynak.aktif', anahtar, t: Date.now() };
       applyKaynakOpLocally(op);
       queueAdminOp(op);
       refreshAfterRuleChange();
@@ -1988,16 +2460,28 @@
       const q = writersSearchInput.value;
       // Gazete başlıkları alfabetik (Türkçe alfabe) sıralanır; çiplerde yalnızca
       // temizlenmiş yazar adı gösterilir.
+      // Keşfet'ten silinen gazeteler ve yazarlar listede gösterilmez
       const groups = filterWriters(writersData.papers, q)
-        .map(p => ({ ...p, writers: cleanWriters(p.writers) }))
+        .filter(p => !isHiddenPaper(p.key))
+        .map(p => ({
+          ...p,
+          writers: cleanWriters(p.writers).filter(w => !isHiddenWriter(w.name, p.name)),
+        }))
         .filter(p => p.writers.length > 0)
         .sort((a, b) => String(a.name).localeCompare(String(b.name), 'tr'));
-      writersMetaEl.textContent = `${groups.length} gazete · ${groups.reduce((n, p) => n + p.writers.length, 0)} yazar`;
+      const hiddenTotal = hiddenWriters.length + hiddenPapers.length;
+      writersMetaEl.textContent = `${groups.length} gazete · ${groups.reduce((n, p) => n + p.writers.length, 0)} yazar`
+        + (hiddenTotal ? ` · ${hiddenTotal} gizli` : '');
+      renderManageCards();
       if (!groups.length) {
+        const hiddenPaperNote = hiddenPapers.length
+          ? ' Keşfet listesinden silinenleri aşağıdaki “Gizlenenler” kartından geri getirebilirsiniz.'
+          : '';
         writersListEl.innerHTML = `
           <div class="text-center py-12 text-slate-400">
             <i data-lucide="file-question" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
-            <p class="text-sm font-medium">Aradığınız yazar bulunamadı.</p>
+            <p class="text-sm font-medium">${hiddenPapers.length ? 'Gösterilecek gazete kalmadı.' : 'Aradığınız yazar bulunamadı.'}</p>
+            ${hiddenPaperNote ? `<p class="text-[11px] mt-1 px-6 leading-relaxed">${hiddenPaperNote.trim()}</p>` : ''}
           </div>
         `;
         lucide.createIcons();
@@ -2013,29 +2497,44 @@
         const chips = ranked.map(w => {
           const name = escapeHtml(w.name);
           const fav = isFavoriteWriter(w.name, p.name);
+          // Depodaki writers.json da pasif yazarı işaretler ("passive": true)
+          const pas = passiveEntry(w.name, p.name) || (w.passive ? { origin: 'repo' } : null);
           const heart = `<i data-lucide="heart" class="w-3 h-3 ${fav ? 'fill-current' : ''}"></i>`;
-          return `<span class="inline-flex items-center gap-0.5 pl-2.5 pr-1 py-1 rounded-full ${fav ? 'bg-accent/10 ring-1 ring-accent/40' : 'bg-stone-100'} transition-colors">
-            <button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" class="text-[11px] font-medium ${fav ? 'text-accent' : 'text-stone-700'} text-left hover:text-accent active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>
+          const chipTone = pas
+            ? 'bg-[#FBF6EE] ring-1 ring-amber-200'
+            : fav ? 'bg-accent/10 ring-1 ring-accent/40' : 'bg-stone-100';
+          const nameTone = pas ? 'text-amber-700/80' : fav ? 'text-accent' : 'text-stone-700';
+          return `<span class="inline-flex items-center gap-0.5 pl-2.5 pr-1 py-1 rounded-full ${chipTone} transition-colors">
+            <button type="button" data-writer="${name}" data-paper="${escapeHtml(p.key)}" data-url="${escapeHtml(w.url)}" title="${pas ? 'Pasif yazar — yazıları güncellenmiyor' : ''}" class="text-[11px] font-medium ${nameTone} text-left hover:text-accent active:scale-95 transition-all">${escapeHtml(formatAuthorName(w.name))}</button>
+            ${pas ? '<span class="text-[8.5px] font-bold uppercase tracking-wide text-amber-600 px-0.5">pasif</span>' : ''}
             <button type="button" data-fav-writer="${name}" data-paper="${escapeHtml(p.key)}" data-paper-name="${escapeHtml(p.name)}" data-url="${escapeHtml(w.url || '')}" data-photo="${escapeHtml(w.photo || '')}" aria-pressed="${fav}" title="${fav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" aria-label="${fav ? 'Favorilerden çıkar' : 'Favorilere ekle'}: ${escapeHtml(formatAuthorName(w.name))}" class="w-5 h-5 flex-shrink-0 rounded-full flex items-center justify-center ${fav ? 'text-accent' : 'text-stone-300 hover:text-accent'} active:scale-90 transition-all">${heart}</button>
+            <button type="button" data-sheet-writer="${name}" data-paper="${escapeHtml(p.key)}" data-paper-name="${escapeHtml(p.name)}" data-url="${escapeHtml(w.url || '')}" data-photo="${escapeHtml(w.photo || '')}" title="Seçenekler: pasife al · sil" aria-label="${escapeHtml(formatAuthorName(w.name))} seçenekleri" class="w-5 h-5 flex-shrink-0 rounded-full flex items-center justify-center ${pas ? 'text-amber-600' : 'text-stone-300'} hover:text-accent active:scale-90 transition-all"><i data-lucide="ellipsis-vertical" class="w-3 h-3"></i></button>
           </span>`;
         }).join('');
         // Arama yapılırken eşleşen gazeteler açık gösterilir, aksi halde kapalı
         const isOpen = searching || expandedPapers.has(p.key);
         return `
           <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm overflow-hidden">
-            <button type="button" onclick="togglePaper('${escapeHtml(p.key)}')" aria-expanded="${isOpen}"
-              class="w-full flex items-center justify-between gap-2 px-3.5 py-3 text-left hover:bg-stone-50 active:bg-stone-100 transition-colors">
-              <span class="flex items-center gap-2 min-w-0">
-                <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
-                <h3 class="text-xs font-bold text-ink-900 truncate">${escapeHtml(p.name)}</h3>
-              </span>
-              <span class="flex items-center gap-2 flex-shrink-0">
-                <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-accent' : ''}"></i>
-              </span>
-            </button>
-            <div class="${isOpen ? 'px-3.5 pb-3.5' : 'hidden'}">
-              <div class="flex flex-wrap gap-1.5 pt-3 border-t border-stone-100 max-h-64 overflow-y-auto">${chips}</div>
+            <div class="flex items-center gap-0.5 pl-2.5 pr-1.5 py-1.5">
+              <button type="button" onclick="togglePaper('${escapeHtml(p.key)}')" aria-expanded="${isOpen}"
+                class="flex-1 flex items-center justify-between gap-2 px-1 py-1.5 text-left rounded-xl hover:bg-stone-50 active:bg-stone-100 transition-colors">
+                <span class="flex items-center gap-2 min-w-0">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                  <h3 class="text-xs font-bold text-ink-900 truncate">${escapeHtml(p.name)}</h3>
+                </span>
+                <span class="flex items-center gap-2 flex-shrink-0">
+                  <span class="text-[10px] font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded-full">${p.writers.length} yazar</span>
+                  <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-200 ${isOpen ? 'rotate-180 text-accent' : ''}"></i>
+                </span>
+              </button>
+              <button type="button" data-sheet-paper="${escapeHtml(p.key)}" data-paper-name="${escapeHtml(p.name)}" data-count="${p.writers.length}"
+                title="Gazete seçenekleri: listeden sil" aria-label="${escapeHtml(p.name)} seçenekleri"
+                class="w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center text-stone-400 hover:text-accent hover:bg-stone-100 active:scale-90 transition-all">
+                <i data-lucide="ellipsis-vertical" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div class="${isOpen ? 'px-3.5 pb-3.5' : 'hidden'}" data-chips-panel>
+              <div data-chips class="flex flex-wrap gap-1.5 pt-3 border-t border-stone-100 max-h-64 overflow-y-auto">${chips}</div>
             </div>
           </div>
         `;
@@ -2072,13 +2571,14 @@
           const count = list.length;
           const photo = fav.photo || findWriterPhoto(name) || (art && art.avatar) || initialAvatar(name);
           const fallback = initialAvatar(name);
+          const pas = isPassiveWriter(name, source);
           const status = articles.length === 0
             ? 'Yazılar yükleniyor…'
             : count > 0
               ? `Bugün ${count} yazı${art ? ` · ${art.category}` : ''}`
               : 'Bugün yeni yazısı yok';
           return `
-            <div class="bg-white rounded-2xl border border-stone-200/80 shadow-sm p-3 flex items-center gap-3">
+            <div class="bg-white rounded-2xl border ${pas ? 'border-amber-200/90 bg-[#FBF6EE]' : 'border-stone-200/80'} shadow-sm p-3 flex items-center gap-3">
               <div class="relative flex-shrink-0 w-[52px] h-[52px] rounded-full p-0.5 bg-gradient-to-tr from-accent via-amber-500 to-orange-400">
                 <img class="w-12 h-12 rounded-full object-cover border-2 border-white bg-white" src="${escapeHtml(photo)}" alt="${escapeHtml(name)}" loading="lazy"
                      onerror="this.onerror=null; this.src='${escapeHtml(fallback)}';">
@@ -2086,7 +2586,7 @@
               <div class="min-w-0 flex-1">
                 <p class="text-[12.5px] font-bold text-ink-900 truncate">${escapeHtml(formatAuthorName(name))}</p>
                 <p class="text-[10.5px] font-semibold text-stone-500 truncate">${escapeHtml(source)}</p>
-                <p class="text-[10px] mt-0.5 ${count > 0 ? 'text-emerald-600 font-semibold' : 'text-stone-400'}">${escapeHtml(status)}</p>
+                <p class="text-[10px] mt-0.5 ${pas ? 'text-amber-700 font-bold' : count > 0 ? 'text-emerald-600 font-semibold' : 'text-stone-400'}">${pas ? 'Pasif yazar · yazıları güncellenmiyor' : escapeHtml(status)}</p>
               </div>
               <div class="flex items-center gap-1 flex-shrink-0">
                 <button type="button" data-open-fav="${idx}" title="Yazılarını aç" aria-label="${escapeHtml(formatAuthorName(name))} yazılarını aç"
@@ -2157,6 +2657,30 @@
     }
 
     writersListEl.addEventListener('click', (e) => {
+      // ⋯ — yazarın seçenekleri (pasife al / sil / favori): alt sayfayı aç
+      const sheetWriterBtn = e.target.closest('button[data-sheet-writer]');
+      if (sheetWriterBtn) {
+        openWriterSheet({
+          kind: 'writer',
+          name: sheetWriterBtn.dataset.sheetWriter,
+          source: sheetWriterBtn.dataset.paperName || '',
+          paperKey: sheetWriterBtn.dataset.paper || '',
+          url: sheetWriterBtn.dataset.url || '',
+          photo: sheetWriterBtn.dataset.photo || ''
+        });
+        return;
+      }
+      // ⋯ — gazete seçenekleri (tüm grubu Keşfet'ten sil)
+      const sheetPaperBtn = e.target.closest('button[data-sheet-paper]');
+      if (sheetPaperBtn) {
+        openWriterSheet({
+          kind: 'paper',
+          paperKey: sheetPaperBtn.dataset.sheetPaper,
+          name: sheetPaperBtn.dataset.paperName || '',
+          count: Number(sheetPaperBtn.dataset.count || 0)
+        });
+        return;
+      }
       // Kalp: yazarı favorilere ekle/çıkar (listenin kendisi taze kalplerle yeniden çizilir)
       const favBtn = e.target.closest('button[data-fav-writer]');
       if (favBtn) {
@@ -2170,6 +2694,110 @@
       }
       const chip = e.target.closest('button[data-writer]');
       if (chip) openWriter(chip.dataset.paper, chip.dataset.writer, chip.dataset.url);
+    });
+
+    // --- Keşfet: seçenek alt sayfası (⋯) ve yönetim kartları olayları ---
+    const sheetActionsEl = document.getElementById('sheet-actions');
+    const sheetCloseBtn = document.getElementById('sheet-close');
+    const sheetBackdropEl = document.getElementById('action-sheet-backdrop');
+    if (sheetCloseBtn) sheetCloseBtn.addEventListener('click', closeActionSheet);
+    if (sheetBackdropEl) sheetBackdropEl.addEventListener('click', closeActionSheet);
+    if (sheetActionsEl) sheetActionsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-act]');
+      if (!btn || btn.disabled || !sheetContext) return;
+      const ctx = sheetContext;
+      const act = btn.dataset.act;
+      const label = formatAuthorName(ctx.name);
+      closeActionSheet();
+
+      // Yönetici: kaynağı çekimden çıkar / yeniden aç (gazete ve yazar sayfasında ortak)
+      if (act === 'source-off' || act === 'source-on') {
+        const srcName = ctx.kind === 'paper' ? (ctx.name || ctx.paperKey) : (ctx.source || ctx.paperKey);
+        setSourcePasif(ctx.paperKey, srcName, act === 'source-off');
+        showToast(act === 'source-off'
+          ? `${srcName} çekimden çıkarıldı (herkes için) — en geç ~40 dakikada akıştan kalkar.`
+          : `${srcName} yeniden çekilecek.`);
+        return;
+      }
+
+      if (ctx.kind === 'paper') {
+        if (act === 'hide-paper') {
+          hidePaper(ctx.paperKey, ctx.name);
+          showToast(`${ctx.name} Keşfet listesinden silindi — “Gizlenenler”den geri alabilirsiniz.`);
+        } else if (act === 'restore-paper') {
+          restorePaper(ctx.paperKey);
+          showToast(`${ctx.name} Keşfet listesine geri geldi.`);
+        }
+        return;
+      }
+
+      if (act === 'open') { closeReaderIfOpen(); openWriter(ctx.paperKey, ctx.name, ctx.url); return; }
+      if (act === 'fav') {
+        toggleFavoriteWriter({ name: ctx.name, source: ctx.source, photo: ctx.photo, url: ctx.url });
+        return;
+      }
+      if (act === 'passivate') {
+        setPassiveWriter(ctx, true);
+        showToast(isAdmin()
+          ? `${label} pasife alındı — liste çevrimiçi; kazıyıcı en geç ~40 dakikada uygular.`
+          : `${label} pasife alındı — yazıları artık güncellenmeyecek. Depoya işlemek için: Ayarlar → JSON'u kopyala.`);
+        return;
+      }
+      if (act === 'activate') {
+        setPassiveWriter(ctx, false);
+        showToast(`${label} yeniden aktif — yazıları güncellenecek.`);
+        return;
+      }
+      if (act === 'hide') {
+        hideWriter(ctx);
+        showToast(`${label} Keşfet listesinden silindi — “Gizlenenler”den geri alabilirsiniz.`);
+        return;
+      }
+      if (act === 'restore') {
+        restoreWriter(ctx.name, ctx.source);
+        showToast(`${label} Keşfet listesine geri geldi.`);
+      }
+    });
+
+    // Yönetim kartları: pasif listesi (aktif et) ve gizlenenler (geri getir)
+    const writersManageEl = document.getElementById('writers-manage');
+    if (writersManageEl) writersManageEl.addEventListener('click', (e) => {
+      if (e.target.closest('#passive-card-toggle')) {
+        manageOpen.passive = !manageOpen.passive;
+        renderManageCards();
+        return;
+      }
+      if (e.target.closest('#hidden-card-toggle')) {
+        manageOpen.hidden = !manageOpen.hidden;
+        renderManageCards();
+        return;
+      }
+      const unpassive = e.target.closest('button[data-unpassive]');
+      if (unpassive) {
+        const entry = passiveWriters[Number(unpassive.dataset.unpassive)];
+        if (entry) {
+          setPassiveWriter(entry, false);
+          showToast(`${formatAuthorName(entry.name)} yeniden aktif — yazıları güncellenecek.`);
+        }
+        return;
+      }
+      const restoreW = e.target.closest('button[data-restore-writer]');
+      if (restoreW) {
+        const entry = hiddenWriters[Number(restoreW.dataset.restoreWriter)];
+        if (entry) {
+          restoreWriter(entry.name, entry.source);
+          showToast(`${formatAuthorName(entry.name)} Keşfet listesine geri geldi.`);
+        }
+        return;
+      }
+      const restoreP = e.target.closest('button[data-restore-paper]');
+      if (restoreP) {
+        const entry = hiddenPapers[Number(restoreP.dataset.restorePaper)];
+        if (entry) {
+          restorePaper(entry.key);
+          showToast(`${entry.name} Keşfet listesine geri geldi.`);
+        }
+      }
     });
 
     writersSearchInput.addEventListener('input', renderWriters);
@@ -2210,6 +2838,7 @@
       settingsViewEl.classList.toggle('hidden', !isSettings);
       const adminViewEl = document.getElementById('admin-view');
       if (adminViewEl) adminViewEl.classList.toggle('hidden', !isAdminView);
+      paintShuffleControls();   // "Karıştır" düğmeleri yalnızca ait oldukları sekmede görünür
 
       if (isSettings) {
         renderSettings();
@@ -2241,9 +2870,170 @@
       return `https://ui-avatars.com/api/?name=${encodeURIComponent(name || 'Yazar')}&background=2E384D&color=fff&size=128&bold=true`;
     }
 
+    // --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---
+    // Tek ayar iki listeyi birlikte karıştırır:
+    //   * Favori yazar daireleri: okunmamışlar kayıtlı karışık sırada, okunanlar sonda.
+    //   * Yazı listesi (Akış/Tümü): kayıtlı karışık sırada.
+    // Karışık sıralar localStorage'da saklanır; böylece her çizimde, veri
+    // yenilenince ya da sekmeye dönünce sıra zıplamaz.
+    const AUTHOR_ORDER_KEY = 'kose-author-shuffle-order';
+    const ARTICLE_ORDER_KEY = 'kose-article-shuffle-order';
+    let authorShuffleOrder = [];
+    let articleShuffleOrder = [];
+
+    function loadOrderList(key) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+        return Array.isArray(parsed) ? parsed.filter(k => typeof k === 'string' && k) : [];
+      } catch (e) { return []; }
+    }
+    function saveOrderList(key, list) {
+      try { localStorage.setItem(key, JSON.stringify((list || []).slice(0, 800))); } catch (e) { /* kota */ }
+    }
+    authorShuffleOrder = loadOrderList(AUTHOR_ORDER_KEY);
+    articleShuffleOrder = loadOrderList(ARTICLE_ORDER_KEY);
+
+    // Favori kaydının sıralama anahtarı (ad + gazete; aksan/büyük harf farkı önemsiz)
+    function favSortKey(fav) {
+      return `${favKeyName(fav && fav.name)}|${favKeyName(fav && fav.source)}`;
+    }
+
+    // Yazının sıralama anahtarı: kalıcı bağlantı (url) — akış her yarım saatte
+    // yenilendiğinde nesne kimlikleri değişse de sıra korunur.
+    function articleSortKey(art) {
+      if (!art) return '';
+      return String(art.url || '') || `${art.source || ''}|${art.author || ''}|${art.title || ''}`;
+    }
+
+    // Fisher-Yates
+    function shuffleArray(list) {
+      const out = (list || []).slice();
+      for (let i = out.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    }
+
+    // "Okuduğum yazar" ölçütü, dairenin halka rengiyle aynı: bugünkü yazılarının
+    // tamamı okunmuşsa (halkası gri) yazar okunmuş sayılır.
+    function isFavoriteAuthorRead(fav) {
+      const art = favoriteArticles(fav)[0] || null;
+      return art ? isAuthorFullyRead(art.author) : false;
+    }
+
+    // Karıştırma açıkken sıra henüz üretilmemişse (ör. ayar veri/favori gelmeden
+    // açıldıysa) burada üretilir; bir kez üretilir ve kalıcı olur.
+    function ensureShuffleOrders() {
+      if (!appSettings.shuffle) return;
+      if (!authorShuffleOrder.length && favoriteWriters.length) {
+        authorShuffleOrder = shuffleArray(favoriteWriters.map(favSortKey));
+        saveOrderList(AUTHOR_ORDER_KEY, authorShuffleOrder);
+      }
+      if (!articleShuffleOrder.length && articles.length) {
+        articleShuffleOrder = shuffleArray(articles.map(articleSortKey));
+        saveOrderList(ARTICLE_ORDER_KEY, articleShuffleOrder);
+      }
+    }
+
+    // Ana ekranda gösterilecek sıra: okunanlar sonda, grup içi sıra korunur
+    function orderedFavoriteWriters() {
+      ensureShuffleOrders();
+      const base = favoriteWriters.slice();
+      let ordered = base;
+      if (appSettings.shuffle && authorShuffleOrder.length) {
+        const rank = new Map();
+        authorShuffleOrder.forEach((key, i) => { if (!rank.has(key)) rank.set(key, i); });
+        // Karışık sırada olmayan (yeni eklenen) favoriler kendi aralarında
+        // favoriye eklenme sırasını korur (sort kararlıdır + yedek ölçüt).
+        ordered = base
+          .map((fav, i) => ({ fav, i, rank: rank.has(favSortKey(fav)) ? rank.get(favSortKey(fav)) : Number.MAX_SAFE_INTEGER }))
+          .sort((a, b) => (a.rank - b.rank) || (a.i - b.i))
+          .map(x => x.fav);
+      }
+      const unread = [], read = [];
+      ordered.forEach(fav => (isFavoriteAuthorRead(fav) ? read : unread).push(fav));
+      return [...unread, ...read];
+    }
+
+    // Yazı akışının sırası: "Karıştır" açıkken kayıtlı karışık sıra uygulanır.
+    // Karışık sırada bulunmayan (sonradan gelen yeni) yazılar BAŞA alınır ki taze
+    // içerik karışık listenin içinde kaybolmasın; kendi aralarında normal
+    // sıralarını korurlar (sort kararlıdır + yedek ölçüt).
+    function orderedArticles(list) {
+      ensureShuffleOrders();
+      const base = Array.isArray(list) ? list.slice() : [];
+      if (!appSettings.shuffle || !articleShuffleOrder.length) return base;
+      const rank = new Map();
+      articleShuffleOrder.forEach((key, i) => { if (!rank.has(key)) rank.set(key, i); });
+      return base
+        .map((art, i) => ({ art, i, rank: rank.has(articleSortKey(art)) ? rank.get(articleSortKey(art)) + 1 : 0 }))
+        .sort((a, b) => (a.rank - b.rank) || (a.i - b.i))
+        .map(x => x.art);
+    }
+
+    // Karıştırmayı aç/kapat: iki liste için yeni sıra üretir, seçimi kalıcı yazar,
+    // daireleri ve yazı akışını yeniden çizer.
+    function setShuffle(on) {
+      appSettings.shuffle = !!on;
+      if (on) {
+        authorShuffleOrder = shuffleArray(favoriteWriters.map(favSortKey));
+        articleShuffleOrder = shuffleArray(articles.map(articleSortKey));
+      } else {
+        authorShuffleOrder = [];
+        articleShuffleOrder = [];
+      }
+      saveOrderList(AUTHOR_ORDER_KEY, authorShuffleOrder);
+      saveOrderList(ARTICLE_ORDER_KEY, articleShuffleOrder);
+      saveSettings();
+      paintShuffleControls();
+      renderAuthorAvatars();
+      if (currentTab === 'feed') applyFilters();   // yazı listesi de yeni sıraya geçsin
+    }
+
+    // İki "Karıştır" düğmesi (favori başlığı + kategori satırı) ve Ayarlar'daki
+    // anahtar aynı durumu gösterir.
+    function paintShuffleControls() {
+      const on = !!appSettings.shuffle;
+      const favLabel = on ? 'Karışık' : 'Karıştır';
+      const hasFav = favoriteWriters.length > 0;
+      const favBtn = document.getElementById('shuffle-authors-btn');
+      if (favBtn) {
+        // Karıştıracak yazar yoksa düğme görünmez (hidden/flex çakışmasın diye inline stil)
+        favBtn.style.display = hasFav ? '' : 'none';
+        favBtn.setAttribute('aria-pressed', String(on));
+        favBtn.title = on
+          ? 'Karıştırma açık — dokununca doğal sıraya döner (yazılar ve yazarlar eski düzeninde)'
+          : 'Favori yazarları ve yazıları karıştır (okuduklarınız sonda kalır)';
+        favBtn.className = `flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full active:scale-95 transition-all ${on
+          ? 'bg-accent text-white hover:bg-accent/85'
+          : 'bg-stone-200/70 text-slate-600 hover:bg-stone-300'}`;
+        const label = favBtn.querySelector('span');
+        if (label) label.textContent = favLabel;
+      }
+      // Kategori satırının ucundaki simge düğmesi: aşağıdaki yazıları (ve daireleri) karıştırır
+      const feedBtn = document.getElementById('shuffle-feed-btn');
+      if (feedBtn) {
+        // Yalnızca Akış'ta: Kaydedilen sekmesi kendi listesini doğal sırada gösterir
+        feedBtn.style.display = (currentTab === 'feed' && articles.length) ? '' : 'none';
+        feedBtn.setAttribute('aria-pressed', String(on));
+        feedBtn.setAttribute('aria-label', on ? 'Karıştırmayı kapat' : 'Yazıları ve favori yazarları karıştır');
+        feedBtn.title = on
+          ? 'Karıştırma açık — dokununca doğal sıraya döner'
+          : 'Yazıları ve favori yazarları karıştır';
+        feedBtn.className = `flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center active:scale-90 transition-all ${on
+          ? 'bg-accent text-white hover:bg-accent/85'
+          : 'bg-stone-200/70 text-slate-600 hover:bg-stone-300'}`;
+      }
+      paintToggle(document.getElementById('set-shuffle'), on);
+    }
+
+    // --- /ANA EKRAN SIRASI ---
+
     // Ana sayfadaki daireler: YALNIZCA favoriye eklenen yazarlar.
     function renderAuthorAvatars() {
       applyReadState();
+      paintShuffleControls();
       if (!favoriteWriters.length) {
         authorsAvatarTrack.innerHTML = `
           <div class="w-full pr-5">
@@ -2261,7 +3051,8 @@
         return;
       }
 
-      authorsAvatarTrack.innerHTML = favoriteWriters.map(fav => {
+      // Sıra: okuduğum yazarlar sonda; "Karıştır" açıksa okunmamışlar karışık sırada
+      authorsAvatarTrack.innerHTML = orderedFavoriteWriters().map(fav => {
         const list = favoriteArticles(fav);
         const art = list[0] || null;
         const source = (art && art.source) || fav.source || '';
@@ -2269,17 +3060,19 @@
         const photo = fav.photo || (art && art.avatar) || initialAvatar(name);
         const fallback = initialAvatar(name);
         const read = art ? isAuthorFullyRead(art.author) : false;
-        const ring = read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
-        const labelColor = read ? 'text-stone-400' : 'text-slate-700';
+        const pas = isPassiveWriter(name, source);
+        const ring = pas ? 'bg-amber-200' : read ? 'bg-stone-300' : 'bg-gradient-to-tr from-accent via-amber-500 to-orange-400';
+        const labelColor = pas ? 'text-amber-700' : read ? 'text-stone-400' : 'text-slate-700';
         return `
-        <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
+        <div class="relative flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
              data-name="${escapeHtml(name)}" data-source="${escapeHtml(source)}" data-photo="${escapeHtml(photo)}" data-fallback="${escapeHtml(fallback)}"
              onclick="quickOpenByAuthor(this.dataset.name, this.dataset.source)"
              onmouseenter="showAuthorTooltip(this)" onmouseleave="hideAuthorTooltip()">
-          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${read ? 'Yazıları okundu' : 'Okunmadı'}">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment" src="${escapeHtml(photo)}" alt="${escapeHtml(name)}" loading="lazy"
+          <div class="w-[68px] h-[68px] rounded-full p-0.5 ${ring} group-hover:scale-105 group-active:scale-95 transition-transform" title="${pas ? 'Pasif yazar — yazıları güncellenmiyor' : read ? 'Yazıları okundu' : 'Okunmadı'}">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-parchment ${pas ? 'opacity-70' : ''}" src="${escapeHtml(photo)}" alt="${escapeHtml(name)}" loading="lazy"
                  onerror="this.onerror=null; this.src=this.parentNode.parentNode.dataset.fallback;">
           </div>
+          ${pas ? '<span class="absolute top-0 right-2.5 w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center ring-2 ring-parchment" title="Pasif yazar"><i data-lucide="pause" class="w-3 h-3"></i></span>' : ''}
           <span class="text-[13px] font-medium ${labelColor} w-[85px] leading-[1.15] text-center line-clamp-2 break-words">${escapeHtml(formatAuthorName(name))}</span>
         </div>
       `;}).join('');
@@ -2332,14 +3125,17 @@
         return;
       }
 
-      articlesListEl.innerHTML = items.map(art => `
-        <article class="bg-white rounded-3xl p-4 shadow-sm border border-stone-200/80 transition-all hover:shadow-md cursor-pointer group" onclick="openReader(${art.id})">
+      articlesListEl.innerHTML = items.map(art => {
+        // Pasif yazarın yazısı güncellenmez; akışta soluk + "PASİF YAZAR" etiketiyle kalır
+        const pas = art.isPassive || isPassiveWriter(art.author, art.source);
+        return `
+        <article class="${pas ? 'bg-[#FBF6EE] border-amber-200/90' : 'bg-white border-stone-200/80'} rounded-3xl p-4 shadow-sm border transition-all hover:shadow-md cursor-pointer group" onclick="openReader(${art.id})">
           <!-- Card Header Info -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2.5">
-              <img src="${escapeHtml(art.avatar)}" class="w-9 h-9 rounded-full object-cover border border-stone-200" alt="${escapeHtml(art.author)}">
+              <img src="${escapeHtml(art.avatar)}" class="w-9 h-9 rounded-full object-cover border border-stone-200 ${pas ? 'opacity-60' : ''}" alt="${escapeHtml(art.author)}">
               <div>
-                <h3 class="text-xs font-bold text-ink-900 group-hover:text-accent transition-colors">${escapeHtml(formatAuthorName(art.author))}</h3>
+                <h3 class="text-xs font-bold ${pas ? 'text-stone-500' : 'text-ink-900'} group-hover:text-accent transition-colors">${escapeHtml(formatAuthorName(art.author))}</h3>
                 <div class="flex items-center gap-1.5 text-[10px] text-stone-400">
                   <span class="font-semibold text-stone-600">${escapeHtml(art.source)}</span>
                   <span>•</span>
@@ -2348,7 +3144,8 @@
               </div>
             </div>
             <div class="flex items-center gap-1.5">
-              ${art.isLive ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>CANLI</span>' : ''}
+              ${pas ? '<span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1" title="Bu yazar pasif — yazıları güncellenmiyor"><i data-lucide="pause" class="w-3 h-3"></i>PASİF YAZAR</span>' : ''}
+              ${art.isLive && !pas ? '<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>CANLI</span>' : ''}
               ${art.isSavedOnly ? '<span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">ARŞİV</span>' : ''}
               <span class="px-2.5 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-semibold rounded-full">${escapeHtml(art.category)}</span>
             </div>
@@ -2370,6 +3167,10 @@
             </div>
             
             <div class="flex items-center gap-3">
+              ${pas ? `<button onclick="reactivatePassiveFromCard(event, ${art.id})" title="Bu yazarı yeniden aktif et" class="p-1.5 rounded-full hover:bg-amber-100 text-amber-700 active:scale-90 transition-transform flex items-center gap-1 text-[11px] font-semibold">
+                <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                <span>Aktif et</span>
+              </button>` : ''}
               <button onclick="toggleAudioPreview(event, ${art.id})" class="p-1.5 rounded-full hover:bg-stone-100 text-stone-600 active:scale-90 transition-transform flex items-center gap-1 text-[11px]">
                 <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
                 <span>Dinle</span>
@@ -2383,7 +3184,8 @@
             </div>
           </div>
         </article>
-      `).join('');
+      `;
+      }).join('');
 
       lucide.createIcons();
     }
@@ -2441,7 +3243,8 @@
         );
       }
 
-      renderArticles(filtered);
+      // "Karıştır" açıksa akış kayıtlı karışık sırada listelenir (yeni yazılar başta)
+      renderArticles(orderedArticles(filtered));
     }
 
     // Yazı kartındaki kalp: kartın yazarını favorilere ekler/çıkarır
@@ -2514,7 +3317,6 @@
       const art = findArticle(id);
       if (!art) return;
       currentReadingArticle = art;
-      closeReaderMenu();
       markArticleRead(art.id);
       renderAuthorAvatars();
 
@@ -2524,6 +3326,8 @@
       document.getElementById('reader-date').textContent = art.date;
       document.getElementById('reader-time').textContent = art.readTime;
       document.getElementById('reader-title').textContent = art.title;
+      const passiveBadge = document.getElementById('reader-passive-badge');
+      if (passiveBadge) passiveBadge.classList.toggle('hidden', !(art.isPassive || isPassiveWriter(art.author, art.source)));
       const readerBodyEl = document.getElementById('reader-body');
       // Akıştan düşmüş ve tam metni bu cihazda olmayan kayıtlı yazı: özet gösterilir,
       // yöneticide metin sunucudan getirilir
@@ -2579,7 +3383,6 @@
     }
 
     closeReaderBtn.addEventListener('click', () => {
-      closeReaderMenu();
       articleReader.classList.add('translate-y-full');
       updateAudioUI(); // seslendirme sürüyorsa mini oynatıcı görünür, ses kesilmez
     });
@@ -2944,6 +3747,7 @@
 
       const ok = await loadDailyFeed(true);
       refreshIcon.classList.remove('rotate-180');
+      loadPassiveConfig(); // depo listesi de tazelenir (yeni pasif yazar eklendiyse hemen görünür)
       if (currentTab === 'discover') loadWriters(true);
 
       if (!ok) {
@@ -2989,33 +3793,78 @@
         renderSettings();
       });
     });
+    // Ana ekran: iki "Karıştır" düğmesi (favori başlığı + kategori satırı) ve
+    // Ayarlar'daki anahtar aynı ayarı değiştirir: yazarlar + yazı listesi karışır.
+    for (const id of ['shuffle-authors-btn', 'shuffle-feed-btn', 'set-shuffle']) {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => setShuffle(!appSettings.shuffle));
+    }
+
     document.getElementById('settings-reset-btn').addEventListener('click', () => {
       appSettings = { ...DEFAULT_SETTINGS };
       readerFontSize = Number(appSettings.readerFont) || 16;
+      authorShuffleOrder = [];
+      articleShuffleOrder = [];
+      saveOrderList(AUTHOR_ORDER_KEY, []);
+      saveOrderList(ARTICLE_ORDER_KEY, []);
       saveSettings();
       renderSettings();
+      renderAuthorAvatars();   // daireler favoriye eklenme sırasına döner
+      if (currentTab === 'feed') applyFilters();   // akış doğal sırasına döner
     });
     document.getElementById('settings-refresh-btn').addEventListener('click', () => loadDailyFeed(true));
 
-    // --- Bildirim balonu ---
-    let toastTimer = null;
-    function showToast(text, opts) {
-      const { action = '', onAction = null, ms = 4000 } = opts || {};
-      const el = document.getElementById('toast');
-      if (!el) return;
-      document.getElementById('toast-text').textContent = text;
-      const btn = document.getElementById('toast-action');
-      btn.textContent = action;
-      btn.classList.toggle('hidden', !action);
-      btn.onclick = action && onAction ? () => { hideToast(); onAction(); } : null;
-      el.classList.remove('hidden');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(hideToast, ms);
+    // --- Pasif yazar listesi: depoya taşımak için kopyala / indir ---
+    const passiveCopyNoteEl = document.getElementById('passive-copy-note');
+    const passiveExportArea = document.getElementById('passive-export');
+    function passiveNote(msg, ok = true) {
+      if (!passiveCopyNoteEl) return;
+      passiveCopyNoteEl.textContent = msg;
+      passiveCopyNoteEl.classList.toggle('text-emerald-600', ok);
+      passiveCopyNoteEl.classList.toggle('text-amber-700', !ok);
+      passiveCopyNoteEl.classList.remove('hidden');
     }
-    function hideToast() {
-      const el = document.getElementById('toast');
-      if (el) el.classList.add('hidden');
-    }
+    const passiveCopyBtn = document.getElementById('passive-copy-btn');
+    if (passiveCopyBtn) passiveCopyBtn.addEventListener('click', async () => {
+      const json = passiveExportJson();
+      if (passiveExportArea) passiveExportArea.value = json;
+      let ok = false;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(json);
+          ok = true;
+        }
+      } catch (e) { ok = false; }
+      if (!ok && passiveExportArea) {
+        // Pano izni yoksa (ya da http'de): metni seçip elle kopyalamaya hazırla
+        passiveExportArea.classList.remove('hidden');
+        try { passiveExportArea.focus(); passiveExportArea.select(); } catch (e) { /* yok */ }
+      }
+      const total = passiveWriters.length + repoPassiveWriters.length;
+      passiveNote(ok
+        ? `${total} kayıt panoya kopyalandı — depoya data/passive-writers.json olarak ekleyin.`
+        : `Panoya kopyalanamadı; aşağıdaki JSON metnini elle kopyalayın (${total} kayıt).`, ok);
+    });
+    const passiveDownloadBtn = document.getElementById('passive-download-btn');
+    if (passiveDownloadBtn) passiveDownloadBtn.addEventListener('click', () => {
+      const json = passiveExportJson();
+      if (passiveExportArea) passiveExportArea.value = json;
+      try {
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'passive-writers.json';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+        passiveNote('passive-writers.json indirildi — depodaki data/ klasörüne ekleyin.');
+      } catch (e) {
+        if (passiveExportArea) passiveExportArea.classList.remove('hidden');
+        passiveNote('İndirme başlatılamadı; aşağıdaki JSON metnini elle kaydedin.', false);
+      }
+    });
 
     // --- Yönetici kartı (Ayarlar) ve durum satırı ---
     function adminStatusText() {
@@ -3073,36 +3922,12 @@
       lucide.createIcons();
     }
 
-    // --- Gizlenenler kartı (Ayarlar ve Yönetim paneli) ---
-    function hiddenListHtml() {
-      return [...hiddenRules.entries()]
-        .sort((a, b) => String(a[1].ad).localeCompare(String(b[1].ad), 'tr'))
-        .map(([anahtar, v]) => `
-          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700">
-            ${v.tur === 'gazete' ? '<i data-lucide="newspaper" class="w-3 h-3 text-stone-400"></i>' : '<i data-lucide="eye-off" class="w-3 h-3 text-stone-400"></i>'}
-            ${escapeHtml(v.tur === 'gazete' ? v.ad : formatAuthorName(v.ad))}
-            <button type="button" data-unhide="${escapeHtml(anahtar)}" title="Yeniden göster" aria-label="${escapeHtml(v.ad)} yeniden göster" class="w-5 h-5 rounded-full hover:bg-stone-200 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
-          </span>`).join('');
-    }
-    function renderHiddenCard() {
-      const card = document.getElementById('hidden-card');
-      if (!card) return;
-      card.classList.toggle('hidden', hiddenRules.size === 0);
-      const list = document.getElementById('hidden-list');
-      if (list) list.innerHTML = hiddenListHtml();
-      lucide.createIcons();
-    }
-    document.addEventListener('click', (e) => {
-      const btn = e.target && e.target.closest ? e.target.closest('[data-unhide]') : null;
-      if (btn) unhideByKey(btn.dataset.unhide);
-    });
-
     // --- Yönetim paneli ---
     // Panel kart başlığı; simge adları sabit yazılır (verify-icons.mjs her adı pakette arar)
     const ADMIN_CARD_ICONS = {
       newspaper: '<i data-lucide="newspaper" class="w-4 h-4 text-stone-500"></i>',
       rss: '<i data-lucide="rss" class="w-4 h-4 text-stone-500"></i>',
-      'user-x': '<i data-lucide="user-x" class="w-4 h-4 text-stone-500"></i>',
+      pause: '<i data-lucide="pause" class="w-4 h-4 text-stone-500"></i>',
       'eye-off': '<i data-lucide="eye-off" class="w-4 h-4 text-stone-500"></i>',
       'list-checks': '<i data-lucide="list-checks" class="w-4 h-4 text-stone-500"></i>'
     };
@@ -3119,11 +3944,16 @@
           <span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-[18px]' : ''}"></span>
         </button>`;
     }
+    // Pasife alma önerileri "Ad · Gazete" biçiminde (pasif kaydı ad + gazete eşleşir)
     function writerSuggestions() {
       const names = new Map();
-      const add = (n) => { const k = favKeyName(n); if (k && isPersonName(cleanWriterName(n)) && !names.has(k)) names.set(k, formatAuthorName(cleanWriterName(n))); };
-      if (writersData && Array.isArray(writersData.papers)) writersData.papers.forEach(p => cleanWriters(p.writers).forEach(w => add(w.name)));
-      allArticles.forEach(a => { if (a.isLive) add(a.author); });
+      const add = (n, src) => {
+        const clean = cleanWriterName(n);
+        const k = `${favKeyName(clean)}|${favKeyName(src)}`;
+        if (isPersonName(clean) && !names.has(k)) names.set(k, src ? `${formatAuthorName(clean)} · ${src}` : formatAuthorName(clean));
+      };
+      if (writersData && Array.isArray(writersData.papers)) writersData.papers.forEach(p => cleanWriters(p.writers).forEach(w => add(w.name, p.name)));
+      allArticles.forEach(a => { if (a.isLive) add(a.author, a.source); });
       return [...names.values()].sort((a, b) => a.localeCompare(b, 'tr')).slice(0, 3000);
     }
     function adminSourceRowsHtml(query) {
@@ -3191,14 +4021,29 @@
       const pasifCount = all.filter(e => e.pasif).length;
       const k = ensureKaynakMeta();
       const inputCls = 'w-full text-xs px-3 py-2.5 rounded-xl bg-stone-100 text-stone-800 border border-stone-200 focus:outline-none focus:border-accent';
-      const pasifWriters = k.pasif.yazarlar.slice()
-        .sort((a, b) => String(a.ad).localeCompare(String(b.ad), 'tr'))
-        .map(p => `
-          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-red-50 text-[11px] font-medium text-red-700">
-            ${escapeHtml(formatAuthorName(p.ad))}
-            <button type="button" data-writer-activate="${escapeHtml(p.ad)}" title="Yeniden çek" aria-label="${escapeHtml(p.ad)} yeniden çek" class="w-5 h-5 rounded-full hover:bg-red-100 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
-          </span>`).join('');
-      const hiddenHtml = hiddenListHtml();
+      const passiveChips = [
+        ...passiveWriters.map((w, i) => `
+          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-amber-50 ring-1 ring-amber-200 text-[11px] font-medium text-amber-800">
+            ${escapeHtml(formatAuthorName(w.name))}${w.source ? `<span class="text-amber-600/70">· ${escapeHtml(w.source)}</span>` : ''}
+            <button type="button" data-admin-unpassive="${i}" title="Aktif et (yazıları güncellensin)" aria-label="${escapeHtml(w.name)} aktif et" class="w-5 h-5 rounded-full hover:bg-amber-100 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
+          </span>`),
+        ...repoPassiveWriters.map(w => `
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-600" title="data/passive-writers.json — dosyadan kaldırılır">
+            ${escapeHtml(formatAuthorName(w.name))}<span class="text-stone-400">· depoda</span>
+          </span>`)
+      ].join('');
+      const hiddenChips = [
+        ...hiddenPapers.map(g => `
+          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700">
+            <i data-lucide="newspaper" class="w-3 h-3 text-stone-400"></i>${escapeHtml(g.name || g.key)}
+            <button type="button" data-admin-restore-paper="${escapeHtml(g.key)}" title="Keşfet listesine geri koy" aria-label="${escapeHtml(g.name || g.key)} geri koy" class="w-5 h-5 rounded-full hover:bg-stone-200 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
+          </span>`),
+        ...hiddenWriters.map((h, i) => `
+          <span class="inline-flex items-center gap-1 pl-2.5 pr-1 py-1 rounded-full bg-stone-100 text-[11px] font-medium text-stone-700">
+            ${escapeHtml(formatAuthorName(h.name))}${h.source ? `<span class="text-stone-400">· ${escapeHtml(h.source)}</span>` : ''}
+            <button type="button" data-admin-restore-writer="${i}" title="Keşfet listesine geri koy" aria-label="${escapeHtml(h.name)} geri koy" class="w-5 h-5 rounded-full hover:bg-stone-200 flex items-center justify-center"><i data-lucide="x" class="w-3 h-3"></i></button>
+          </span>`)
+      ].join('');
 
       host.innerHTML = [
         adminCardHtml(`Kaynaklar <span class="font-semibold text-stone-400">(${all.length}${pasifCount ? ` · ${pasifCount} pasif` : ''})</span>`, 'newspaper', `
@@ -3221,19 +4066,19 @@
           </form>
           <p class="text-[10px] font-bold uppercase tracking-wider text-stone-400 mt-2">Eklediğin kaynaklar (${k.ek.length}/40)</p>
           <div class="divide-y divide-stone-100">${adminFeedRowsHtml()}</div>`),
-        adminCardHtml('Çekimden çıkarılan yazarlar', 'user-x', `
-          <p class="text-[11px] text-stone-500 mb-2.5">Bu yazarların yazıları hiçbir kaynaktan toplanmaz (herkes için). Okuyucudaki ⋮ menüsünden de eklenir.</p>
+        adminCardHtml(`Pasif yazarlar <span class="font-semibold text-stone-400">(${passiveWriters.length + repoPassiveWriters.length})</span>`, 'pause', `
+          <p class="text-[11px] text-stone-500 mb-2.5">Pasif yazarın yazıları güncellenmez (herkes için): kazıyıcı onu hiç çekmez, eldeki son yazısı akışta soluk kalır. Keşfet'te ya da okuyucuda ⋯ menüsünden de eklenir.</p>
           <form id="admin-writer-form" class="flex gap-1.5">
-            <input id="admin-writer-input" type="text" list="admin-writer-suggest" maxlength="120" autocomplete="off" placeholder="Yazar adı" class="${inputCls} flex-1 min-w-0">
+            <input id="admin-writer-input" type="text" list="admin-writer-suggest" maxlength="160" autocomplete="off" placeholder="Yazar adı (· Gazete)" class="${inputCls} flex-1 min-w-0">
             <datalist id="admin-writer-suggest">${writerSuggestions().map(n => `<option value="${escapeHtml(n)}"></option>`).join('')}</datalist>
-            <button type="submit" class="flex-shrink-0 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-stone-100 text-stone-700 hover:bg-red-50 hover:text-red-700 active:scale-95 transition-all">Çıkar</button>
+            <button type="submit" class="flex-shrink-0 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 hover:bg-amber-100 active:scale-95 transition-all">Pasife al</button>
           </form>
-          <div class="flex flex-wrap gap-1.5 mt-2.5">${pasifWriters || '<p class="text-[11px] text-stone-400">Çekimden çıkarılan yazar yok.</p>'}</div>`),
-        adminCardHtml('Gizlediklerim', 'eye-off', `
-          <p class="text-[11px] text-stone-500 mb-2.5">Yalnızca senin akışında gizli (her cihazında); ziyaretçiler görmeye devam eder.</p>
-          <div class="flex flex-wrap gap-1.5">${hiddenHtml || '<p class="text-[11px] text-stone-400">Gizlenen yazar ya da gazete yok.</p>'}</div>`),
+          <div class="flex flex-wrap gap-1.5 mt-2.5">${passiveChips || '<p class="text-[11px] text-stone-400">Pasif yazar yok.</p>'}</div>`),
+        adminCardHtml(`Keşfet'ten silinenler <span class="font-semibold text-stone-400">(${hiddenWriters.length + hiddenPapers.length})</span>`, 'eye-off', `
+          <p class="text-[11px] text-stone-500 mb-2.5">Yalnızca senin Keşfet listende gizli (her cihazında); yazıları akışta görünmeye devam eder. Çarpı geri getirir.</p>
+          <div class="flex flex-wrap gap-1.5">${hiddenChips || '<p class="text-[11px] text-stone-400">Keşfet\'ten silinen yazar ya da gazete yok.</p>'}</div>`),
         adminCardHtml('Verilerim', 'list-checks', `
-          <p id="admin-data-counts" class="text-[11px] text-stone-600">${favoriteWriters.length} favori yazar · ${savedArticles.size} kayıtlı yazı · ${readMap.size} okundu işareti · ${hiddenRules.size} gizli</p>
+          <p id="admin-data-counts" class="text-[11px] text-stone-600">${favoriteWriters.length} favori yazar · ${savedArticles.size} kayıtlı yazı · ${readMap.size} okundu işareti · ${passiveWriters.length} pasif · ${hiddenWriters.length + hiddenPapers.length} Keşfet'ten silinmiş</p>
           <div class="grid grid-cols-2 gap-1.5 mt-2.5">
             <button type="button" data-admin-action="clear-read" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 active:scale-[0.98] transition-all"><i data-lucide="history" class="w-3.5 h-3.5"></i>Okuma geçmişini sil</button>
             <button type="button" data-admin-action="clear-saved" class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-[11px] font-bold bg-stone-100 text-stone-700 hover:bg-stone-200 active:scale-[0.98] transition-all"><i data-lucide="bookmark-x" class="w-3.5 h-3.5"></i>Kaydedilenleri sil</button>
@@ -3294,8 +4139,7 @@
         const name = tgl.dataset.sourceName || key;
         const nowPasif = !isSourcePasif(key);
         setSourcePasif(key, name, nowPasif);
-        if (nowPasif) showToast(`${name} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setSourcePasif(key, name, false) });
-        else showToast(`${name} yeniden çekilecek`);
+        showToast(nowPasif ? `${name} çekimden çıkarıldı (herkes için)` : `${name} yeniden çekilecek`);
         return;
       }
       const del = e.target.closest('[data-ek-delete]');
@@ -3307,10 +4151,29 @@
         }
         return;
       }
-      const act = e.target.closest('[data-writer-activate]');
-      if (act) {
-        setWriterPasif(act.dataset.writerActivate, false);
-        showToast(`${formatAuthorName(act.dataset.writerActivate)} yeniden çekilecek`);
+      const unp = e.target.closest('[data-admin-unpassive]');
+      if (unp) {
+        const entry = passiveWriters[Number(unp.dataset.adminUnpassive)];
+        if (entry) {
+          setPassiveWriter(entry, false);
+          showToast(`${formatAuthorName(entry.name)} yeniden aktif — yazıları güncellenecek.`);
+        }
+        return;
+      }
+      const rw = e.target.closest('[data-admin-restore-writer]');
+      if (rw) {
+        const entry = hiddenWriters[Number(rw.dataset.adminRestoreWriter)];
+        if (entry) {
+          restoreWriter(entry.name, entry.source);
+          showToast(`${formatAuthorName(entry.name)} Keşfet listesine geri geldi.`);
+        }
+        return;
+      }
+      const rp = e.target.closest('[data-admin-restore-paper]');
+      if (rp) {
+        const g = hiddenPapers.find(x => x.key === rp.dataset.adminRestorePaper);
+        restorePaper(rp.dataset.adminRestorePaper);
+        showToast(`${(g && g.name) || rp.dataset.adminRestorePaper} Keşfet listesine geri geldi.`);
         return;
       }
       onAdminActionClick(e);
@@ -3327,12 +4190,14 @@
         if (errEl2) errEl2.textContent = '';
         showToast('Kaynak takibe alındı — ilk yazılar bir sonraki güncellemede (≤40 dk) gelir.');
       } else if (e.target.id === 'admin-writer-form') {
-        const ad = val('admin-writer-input').trim();
-        if (!isPersonName(cleanWriterName(ad))) { showToast('Geçerli bir yazar adı yaz.'); return; }
-        setWriterPasif(ad, true);
+        // "Ad · Gazete" (öneri listesinden) ya da yalnızca ad
+        const [adHam, kaynakHam] = val('admin-writer-input').split(' · ');
+        const ad = cleanWriterName(adHam || '');
+        if (!isPersonName(ad)) { showToast('Geçerli bir yazar adı yaz.'); return; }
+        setPassiveWriter({ name: ad, source: (kaynakHam || '').trim() }, true);
         const input = document.getElementById('admin-writer-input');
         if (input) input.value = '';
-        showToast(`${formatAuthorName(ad)} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setWriterPasif(ad, false) });
+        showToast(`${formatAuthorName(ad)} pasife alındı — yazıları güncellenmeyecek (herkes için).`);
       }
     });
     adminViewSection.addEventListener('input', (e) => {
@@ -3341,114 +4206,25 @@
       if (rows) { rows.innerHTML = adminSourceRowsHtml(e.target.value); lucide.createIcons(); }
     });
 
-    // --- Okuyucudaki ⋮ menüsü: gizle (kişisel) / çekimden çıkar (yönetici, herkes için) ---
-    function closeReaderMenu() {
-      const menu = document.getElementById('reader-more-menu');
-      const btn = document.getElementById('reader-more-btn');
-      if (menu) menu.classList.add('hidden');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
+
+    // --- Okuyucudaki ⋮: Keşfet'teki seçenek sayfası bu yazının yazarıyla açılır
+    //     (favori, pasife al, Keşfet'ten sil; yöneticide kaynağı çekimden çıkar) ---
+    function closeReaderIfOpen() {
+      if (articleReader.classList.contains('translate-y-full')) return;
+      articleReader.classList.add('translate-y-full');
+      updateAudioUI();
     }
-    function renderReaderMenu() {
-      const menu = document.getElementById('reader-more-menu');
+    document.getElementById('reader-more-btn').addEventListener('click', () => {
       const art = currentReadingArticle;
-      if (!menu || !art) return;
-      const writer = formatAuthorName(art.author);
-      // Simge adları sabit yazılır (verify-icons.mjs sayfadaki her adı pakette arar)
-      const icons = {
-        'eye': '<i data-lucide="eye" class="w-4 h-4"></i>',
-        'eye-off': '<i data-lucide="eye-off" class="w-4 h-4"></i>',
-        'user-x': '<i data-lucide="user-x" class="w-4 h-4"></i>',
-        'user-check': '<i data-lucide="user-check" class="w-4 h-4"></i>',
-        'circle-pause': '<i data-lucide="circle-pause" class="w-4 h-4"></i>',
-        'circle-play': '<i data-lucide="circle-play" class="w-4 h-4"></i>'
-      };
-      const item = (act, icon, label, sub, danger = false) => `
-        <button type="button" role="menuitem" data-reader-act="${act}" class="w-full text-left px-3.5 py-2 flex items-start gap-2.5 hover:bg-stone-50 active:bg-stone-100 ${danger ? 'text-red-600' : 'text-ink-900'}">
-          <span class="mt-0.5 flex-shrink-0 ${danger ? '' : 'text-stone-500'}">${icons[icon] || ''}</span>
-          <span class="min-w-0"><span class="block text-xs font-semibold truncate">${escapeHtml(label)}</span><span class="block text-[10.5px] text-stone-400">${escapeHtml(sub)}</span></span>
-        </button>`;
-      const parts = [];
-      const writerHidden = isHidden('yazar', art.author);
-      const sourceHidden = isHidden('gazete', art.source);
-      parts.push(item(writerHidden ? 'unhide-writer' : 'hide-writer', writerHidden ? 'eye' : 'eye-off', writerHidden ? `${writer} — göster` : `${writer} — gizle`, 'Yalnızca senin akışında'));
-      if (art.source) parts.push(item(sourceHidden ? 'unhide-source' : 'hide-source', sourceHidden ? 'eye' : 'eye-off', sourceHidden ? `${art.source} — göster` : `${art.source} — gizle`, 'Yalnızca senin akışında'));
-      if (isAdmin()) {
-        const key = sourceKeyOf(art);
-        const writerPasif = isWriterPasif(art.author);
-        const sourcePasif = isSourcePasif(key);
-        parts.push('<div class="my-1 border-t border-stone-100"></div><p class="px-3.5 pt-1 pb-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Çekim · herkes için</p>');
-        parts.push(item(writerPasif ? 'activate-writer' : 'pasif-writer', writerPasif ? 'user-check' : 'user-x',
-          writerPasif ? `${writer} — yeniden çek` : `${writer} — çekimden çıkar`,
-          writerPasif ? 'Yazıları yeniden toplanır' : 'Yazıları artık toplanmaz', !writerPasif));
-        if (key && !String(key).startsWith('ornek')) {
-          parts.push(item(sourcePasif ? 'activate-source' : 'pasif-source', sourcePasif ? 'circle-play' : 'circle-pause',
-            sourcePasif ? `${art.source} — yeniden çek` : `${art.source} — çekimden çıkar`,
-            sourcePasif ? 'Kaynak yeniden taranır' : 'Kaynak artık taranmaz', !sourcePasif));
-        }
-      }
-      menu.innerHTML = parts.join('');
-      lucide.createIcons();
-    }
-    function readerMenuAction(act) {
-      const art = currentReadingArticle;
-      closeReaderMenu();
       if (!art) return;
-      const writer = formatAuthorName(art.author);
-      const key = sourceKeyOf(art);
-      switch (act) {
-        case 'hide-writer':
-          setHidden('yazar', art.author, true, art.source);
-          showToast(`${writer} gizlendi`, { action: 'Geri al', onAction: () => setHidden('yazar', art.author, false) });
-          break;
-        case 'unhide-writer':
-          setHidden('yazar', art.author, false);
-          showToast(`${writer} yeniden gösteriliyor`);
-          break;
-        case 'hide-source':
-          setHidden('gazete', art.source, true);
-          showToast(`${art.source} gizlendi`, { action: 'Geri al', onAction: () => setHidden('gazete', art.source, false) });
-          break;
-        case 'unhide-source':
-          setHidden('gazete', art.source, false);
-          showToast(`${art.source} yeniden gösteriliyor`);
-          break;
-        case 'pasif-writer':
-          setWriterPasif(art.author, true);
-          showToast(`${writer} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setWriterPasif(art.author, false) });
-          break;
-        case 'activate-writer':
-          setWriterPasif(art.author, false);
-          showToast(`${writer} yeniden çekilecek`);
-          break;
-        case 'pasif-source':
-          setSourcePasif(key, art.source, true);
-          showToast(`${art.source} çekimden çıkarıldı (herkes için)`, { action: 'Geri al', onAction: () => setSourcePasif(key, art.source, false) });
-          break;
-        case 'activate-source':
-          setSourcePasif(key, art.source, false);
-          showToast(`${art.source} yeniden çekilecek`);
-          break;
-        default:
-          break;
-      }
-    }
-    const readerMoreBtn = document.getElementById('reader-more-btn');
-    const readerMoreMenu = document.getElementById('reader-more-menu');
-    readerMoreBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (!readerMoreMenu.classList.contains('hidden')) { closeReaderMenu(); return; }
-      renderReaderMenu();
-      readerMoreMenu.classList.remove('hidden');
-      readerMoreBtn.setAttribute('aria-expanded', 'true');
-    });
-    readerMoreMenu.addEventListener('click', (e) => {
-      const it = e.target.closest('[data-reader-act]');
-      if (it) readerMenuAction(it.dataset.readerAct);
-    });
-    document.addEventListener('click', (e) => {
-      if (readerMoreMenu.classList.contains('hidden')) return;
-      if (e.target.closest && (e.target.closest('#reader-more-menu') || e.target.closest('#reader-more-btn'))) return;
-      closeReaderMenu();
+      openWriterSheet({
+        kind: 'writer',
+        name: art.author,
+        source: art.source || '',
+        paperKey: sourceKeyOf(art),
+        url: '',
+        photo: art.avatar && !String(art.avatar).includes('ui-avatars.com') ? art.avatar : ''
+      });
     });
 
     // Initialize View — akış doğrudan canlı veriden kurulur
@@ -3459,6 +4235,7 @@
       </div>
     `;
     lucide.createIcons();
+    loadPassiveConfig(); // depodaki pasif yazar listesi (data/passive-writers.json) — varsa soluk gösterilir
     loadDailyFeed(false); // günlük canlı akışı çek (örnek yazılar sadece çevrimdışı yedeği)
     // Sekme açıkken yarım saatte bir taze veri yokla (görünür değilken boşuna ağa dokunma;
     // arka plandaki gün kontrolü autoDailyCheck, sekmeye dönüş refreshIfStale ile yürür).
