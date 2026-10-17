@@ -50,6 +50,9 @@ const { window } = new JSDOM(html, { runScripts: 'outside-only', url: 'http://lo
 const doc = window.document;
 const srcConsts = ['DAILY_FEED_URL', 'WRITERS_URL', 'isoDayKey', 'FEED_RECHECK_MS', 'STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
+// `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
+const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Pasif/gizli liste mantığı favori bloğunun içinde yaşıyor (aynı localStorage deseni)
 const passiveBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
@@ -100,11 +103,16 @@ window.mainScrollEl.scrollTo = () => {};
 const daily = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 const writersJson = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));
 // İlk yazıyı "pasif/donmuş" işaretle: kazıyıcı pasif yazarın son yazısını bu işaretle bırakır
-const frozen = JSON.parse(JSON.stringify(daily.articles[0]));
+// Donmuş yazı Hürriyet DIŞINDAN seçilir: aşağıdaki hedef yazar Hürriyet'in ilk çipi.
+// İkisi aynı yazar olursa veriden gelen işaret (passive: true) cihazdaki "Aktif et"ten
+// sonra da (bir sonraki çekime kadar) sürer — doğru davranış, ama test o kartın
+// etiketinin kalktığını bekliyor. (Veri sırası değişince ilk yazı hedef yazar çıkabiliyordu.)
+const frozenIdx = Math.max(0, daily.articles.findIndex(a => a.source !== 'Hürriyet'));
+const frozen = JSON.parse(JSON.stringify(daily.articles[frozenIdx]));
 frozen.passive = true;
-const frozenDaily = { ...daily, articles: [frozen, ...daily.articles.slice(1)] };
+const frozenDaily = { ...daily, articles: daily.articles.map((a, i) => (i === frozenIdx ? frozen : a)) };
 
-window.eval([...srcConsts, settingsBlock, readStateBlock, passiveBlock, shuffleBlock, ...fns.map(extract),
+window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, passiveBlock, shuffleBlock, ...fns.map(extract),
   writersEvents, settingsEvents, readerBlock, audioBlock].join('\n'));
 
 // Çevrimdışı: veriler dosyadan gelir; pasif liste ilk turda BOŞ

@@ -67,11 +67,12 @@ const FAVS = [
   { name: 'Fatih Altı', source: 'Gazete A', photo: '' },
 ];
 const ARTS = FAVS.map((f, i) => ({
-  id: 5000 + i, author: f.name, source: f.source, avatar: '', category: 'Gündem',
+  // uid: verideki kalıcı kimlik (okundu işaretleri buna bağlı: kose-read-v2)
+  id: 5000 + i, uid: `gazetea-${5000 + i}`, author: f.name, source: f.source, avatar: '', category: 'Gündem',
   title: `${f.name} yazısı`, snippet: 'x', readTime: '2 dk', date: 'Bugün',
   isBookmarked: false, isLive: true, url: `https://gazete.test/${5000 + i}`, fullContent: '<p>x</p>',
 }));
-const READ_SEED = [ARTS[1].id, ARTS[4].id];          // Ayşe İki + Ece Beş okundu
+const READ_SEED = [[ARTS[1].uid, 1760000000000], [ARTS[4].uid, 1760000001000]]; // Ayşe İki + Ece Beş okundu ([uid, zaman])
 const READ_NAMES = ['Ayşe İki', 'Ece Beş'];
 
 function boot(extra = {}) {
@@ -79,6 +80,9 @@ function boot(extra = {}) {
   const doc = window.document;
   const srcConsts = ['DAILY_FEED_URL', 'WRITERS_URL', 'isoDayKey', 'FEED_RECHECK_MS', 'STALE_AFTER_HOURS'].map(extractConst);
   const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
+  // Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
+  // `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
+  const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
   const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
   const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
   const shuffleBlock = block('// --- Ana ekran: karıştırma (favori daireler + yazı listesi) ---', '// --- /ANA EKRAN SIRASI ---');
@@ -116,7 +120,7 @@ function boot(extra = {}) {
   for (const [k, id] of Object.entries(domIds)) window[k] = doc.getElementById(id);
   window.Element.prototype.scrollTo = () => {};   // jsdom'da yok; sekme geçişleri bunu kullanır
   window.localStorage.setItem('kose-favorite-writers', JSON.stringify(FAVS));
-  window.localStorage.setItem('kose-read-articles', JSON.stringify(READ_SEED));
+  window.localStorage.setItem('kose-read-v2', JSON.stringify(READ_SEED));
   for (const [k, v] of Object.entries(extra)) window.localStorage.setItem(k, v);
   // let/const bağlamaları ayrı eval çağrıları arasında paylaşılmadığı için, durumu
   // dışarı açan küçük yardımcılar aynı eval bloğunun sonuna eklenir (yalnızca test).
@@ -130,7 +134,7 @@ function boot(extra = {}) {
       setFavs: (list) => { favoriteWriters = list.slice(); saveFavoriteWriters(); renderAuthorAvatars(); },
       renderFeed: () => applyFilters()
     };`;
-  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock,
+  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock,
     ...fns.map(extract), shuffleEvents, harness].join('\n'));
   // Karıştırma her koşumda aynı çıksın: Fisher-Yates'te j=0 (diziyi bir kaydırır)
   window.Math.random = () => 0;

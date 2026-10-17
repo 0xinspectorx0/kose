@@ -20,6 +20,9 @@ from datetime import datetime, timedelta, timezone
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(REPO, "scripts"))
 import fetch_columns as fc  # noqa: E402
+
+# Ağ gerektirmez: yönetici kural ucu (Vercel) testlerde kapalı; katalog geçici klasöre yazılır
+os.environ["KAYNAK_KURALLARI_URL"] = "yok"
 import freshness  # noqa: E402
 
 FAILS = []
@@ -176,7 +179,8 @@ with tempfile.TemporaryDirectory() as td:
     real_fetch = fc.fetch
     fc.fetch = lambda url: None  # tüm kaynaklar erişilemez
     argv = sys.argv
-    sys.argv = ["fetch_columns.py", "--out", out, "--writers-out", wout, "--require-articles", "20"]
+    sys.argv = ["fetch_columns.py", "--out", out, "--writers-out", wout, "--require-articles", "20",
+                "--kaynaklar-out", os.path.join(td, "kaynaklar.json")]
     try:
         rc = fc.main()
     finally:
@@ -199,7 +203,8 @@ with tempfile.TemporaryDirectory() as td:
     real_fetch = fc.fetch
     fc.fetch = lambda url: (calls.append(url), None)[1]
     argv = sys.argv
-    sys.argv = ["fetch_columns.py", "--out", out, "--writers-out", wout]
+    sys.argv = ["fetch_columns.py", "--out", out, "--writers-out", wout,
+                "--kaynaklar-out", os.path.join(td, "kaynaklar.json")]
     try:
         rc = fc.main()
     finally:

@@ -21,11 +21,16 @@ const block = (a, b) => {
   return html.slice(i, j);
 };
 
+// Ayarların çağırdığı yönetici kartı yardımcıları
+const uiFns = ['renderAdminCard', 'adminStatusText', 'renderAdminStatus'];
 const srcConsts = ['DAILY_FEED_URL','WRITERS_URL','isoDayKey','FEED_RECHECK_MS','STALE_AFTER_HOURS'].map(extractConst);
 const settingsBlock = block('const SETTINGS_KEY', "let currentFilteredCategory = 'Tümü';");
 const readerBlock = block('// --- Okuyucu puntosu: A- / A+ ---', '// --- Seslendirme (Web Speech API');
 const audioBlock = block('// --- Seslendirme (Web Speech API', '// --- Canlı Akışı Yenile');
 const writersEvents = block('// Keşfet: yazar adına tıklayınca akışta o yazarın yazıları listelenir', '// --- Bottom Tab Router');
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
+// `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
+const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
@@ -66,9 +71,9 @@ function boot(preset) {
   window.loadWriters = () => {};
   for (const [k, id] of Object.entries(domIds)) window[k] = doc.getElementById(id);
   window.mainScrollEl.scrollTo = () => {};
-  if (preset) window.localStorage.setItem('kose-read-articles', JSON.stringify(preset));
+  if (preset) window.localStorage.setItem('kose-read-v2', JSON.stringify(preset));
   window.localStorage.setItem('kose-favorite-writers', FAVORITE_SEED);
-  window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
+  window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), ...uiFns.map(extract), readerBlock, audioBlock, writersEvents].join('\n'));
   return { window, doc };
 }
 
@@ -136,8 +141,8 @@ window.openReader(two[0].id);
 console.log(`  "${multi}" (${two.length} yazı) 1. okundu -> hâlâ turuncu:`, /from-accent/.test(ringOf(multi)));
 window.openReader(two[1].id);
 console.log(`  2. de okundu -> gri:`, ringOf(multi).includes('bg-stone-300'));
-const savedRead = JSON.parse(window.localStorage.getItem('kose-read-articles'));
-console.log('  localStorage:', savedRead.length, 'yazı ->', savedRead.slice(0, 3).join(', '));
+const savedRead = JSON.parse(window.localStorage.getItem('kose-read-v2')); // [[uid, zaman], ...]
+console.log('  localStorage:', savedRead.length, 'yazı ->', savedRead.slice(0, 3).map(r => r[0]).join(', '));
 
 console.log('\n[3] OKUNDU BİLGİSİ KALICI MI');
 const reborn = boot(savedRead);
@@ -146,7 +151,7 @@ reborn.window.fetch = async () => ({ ok: true, json: async () => d });
 await reborn.window.loadDailyFeed(false);
 const ring2 = a => [...reborn.doc.querySelectorAll('#authors-avatar-track > div')].find(el => normName(el.dataset.name) === normName(a)).querySelector('div').getAttribute('class');
 console.log(`  yeniden açılışta "${single.author}" gri:`, ring2(single.author).includes('bg-stone-300'), `| "${multi}" gri:`, ring2(multi).includes('bg-stone-300'));
-console.log('  okunmamış bir yazar turuncu:', /from-accent/.test(ring2(window.articles.find(a => !savedRead.includes(a.id)).author)));
+console.log('  okunmamış bir yazar turuncu:', /from-accent/.test(ring2(window.articles.find(a => !savedRead.some(r => r[0] === a.uid)).author)));
 
 console.log('\n[4] RENKLER');
 const fab = doc.getElementById('scroll-top-btn').getAttribute('class');

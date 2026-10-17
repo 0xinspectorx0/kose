@@ -166,6 +166,10 @@ geri alınır. Pasif yazarın yazısı akışta soluk görünür; okunabilir, ka
 
 ### Yazarın yazısı gerçekten güncellenmesin (kazıyıcı tarafı)
 
+> **Yönetici girişi yaptıysan bu adıma gerek yok:** pasif liste çevrimiçi saklanır ve
+> kazıyıcı her çekimde Vercel'deki kural ucundan okur (dosyadaki kayıtlarla birleştirir);
+> değişiklik en geç ~40 dakikada uygulanır. Ayrıntı: aşağıdaki *Yönetici* bölümü.
+
 Uygulamada işaretlemek cihazla sınırlıdır. Güncellemeyi **kaynağında** durdurmak için
 liste depoya `data/passive-writers.json` olarak eklenir: **Ayarlar → Pasif yazarlar ·
 depo listesi → “JSON'u kopyala”/“JSON indir”**. Dosya depoya girdiğinde:
@@ -206,6 +210,79 @@ Kazıyıcıyı elle koşarken liste dosyası değiştirilebilir:
 > önemsenmez (`"AHMET HAKAN"` = `"Ahmet Hakan"`). Dosya bozuksa/eksikse çekim durmaz;
 > o koşu pasif listesiz çalışır.
 
+## Yönetici: her cihazdan aynı düzen (çevrimiçi eşitleme)
+
+Site sahibi **Ayarlar → Yönetici girişi**'nden şifresiyle girince düzeni çevrimiçi saklanır
+(Vercel fonksiyonu `api/yonetim.js` + Upstash Redis) ve giriş yaptığı her cihazda aynı görünür.
+Ziyaretçiler bu sunucuyu hiç kullanmaz: onların düzeni yalnızca kendi tarayıcılarında kalır.
+
+| Ne | Kapsam | Nerede yönetilir |
+|---|---|---|
+| Favori yazarlar (ekle / çıkar) | yalnızca yönetici, her cihazında | kart ve okuyucudaki kalp, Keşfet, Favoriler sekmesi |
+| Kaydedilenler (ekle / sil) — tam metniyle | yalnızca yönetici, her cihazında | yer imi, Kaydedilen sekmesi, Yönetim → Verilerim |
+| Okundu işaretleri | yalnızca yönetici, her cihazında | yazıyı açınca; Yönetim → Okuma geçmişini sil |
+| Ayarlar (punto, balon, örnek yazılar, otomatik yenile, okuma hızı, karıştır) | yalnızca yönetici, her cihazında | Ayarlar (seslendirme sesi cihaza özgü olduğu için taşınmaz) |
+| Keşfet'ten silinen yazar / gazete | yalnızca yönetici, her cihazında | Keşfet ve okuyucudaki **⋯**, Keşfet → Gizlenenler, Yönetim paneli |
+| **Pasif yazar** (yazıları güncellenmez, son yazısı donar) | **herkes** (veri) | Keşfet ve okuyucudaki **⋯**, akıştaki "Aktif et", Yönetim paneli |
+| **Kaynağı çekimden çıkar / yeniden aç** (gazete, site, akış) | **herkes** (veri) | Yönetim → Kaynaklar, gazete/yazar **⋯** menüsü (yönetici satırı) |
+| **Yeni kaynak takip et / sil** (RSS, Atom, blog/site, YouTube kanalı) | **herkes** (veri) | Yönetim → Yeni kaynak takip et |
+
+Değişiklikler kısa bir gecikmeyle toplu gönderilir; çevrimdışıyken kuyrukta bekleyip bağlantı
+gelince gider. Diğer cihaz sekmeye dönüşte (ve sayfa açıkken 2 dakikada bir) değişiklikleri çeker.
+Girişte o cihazdaki mevcut düzen (pasif ve Keşfet'ten silinenler dahil) sunucudakiyle
+**birleştirilir** — hiçbir şey silinmez.
+
+Ziyaretçiler için de iki düzeltme geldi: kaydedilenler artık sayfa yenilenince kaybolmuyor
+(`kose-saved-v1`; akıştan düşen kayıt **ARŞİV** etiketiyle tam metniyle açılır) ve okundu
+işaretleri veri güncellenince başka yazılara kaymıyor (kalıcı yazı kimliği, `kose-read-v2`).
+
+### Kurulum (bir kez, ~3 dakika)
+
+1. **Vercel → proje (murekkep) → Storage → Create Database → Upstash for Redis** (ücretsiz plan)
+   → projeye bağla (Production + Preview). Entegrasyon `KV_REST_API_URL` / `KV_REST_API_TOKEN`
+   değişkenlerini kendisi ekler (`UPSTASH_REDIS_REST_URL` / `_TOKEN` adları da kabul edilir).
+2. **Settings → Environment Variables → `ADMIN_PASSWORD`** = en az 8 karakterlik şifre (Production + Preview).
+3. **Deployments → son dağıtım → Redeploy** (ortam değişkenleri yeni dağıtımda geçerli olur).
+4. Sitede **Ayarlar → Yönetici girişi** → şifre.
+
+Durum denetimi: `https://murekkep.vercel.app/api/yonetim?islem=saglik` → `{"ok":true,...}`
+(sır içermez; eksik ayarı adıyla söyler).
+
+### Kaynak kuralları nasıl uygulanır?
+
+- Kazıyıcı her çekimde kuralları `https://murekkep.vercel.app/api/yonetim?islem=kaynaklar`
+  ucundan okur (herkese açık, kişisel veri içermez; adres repo değişkeni `KAYNAK_KURALLARI_URL`
+  ile değiştirilebilir) — `scripts/kaynak_kurallari.py`:
+  - **pasif kaynak** taranmaz (yazar keşfi dahil); son yazıları akıştan düşer,
+  - **pasif yazarlar** `data/passive-writers.json`'daki kayıtlarla birleşir ve aynı kural
+    uygulanır: taze çekilmez, son yazısı donar (`passive: true`), `writers.json`'da işaretlenir,
+  - **eklenen kaynaklar** okunur; adres akışa otomatik çözülür: doğrudan RSS/Atom; YouTube
+    kanal sayfası (`@ad` dahil) → kanal akışı; düz site/blog → sayfadaki `<link rel="alternate">`
+    ya da `/feed/`. Çözülen akış hatırlanır.
+- Uygulanan kurallar ve kaynak kataloğu `data/kaynaklar.json`'a yazılır (Yönetim paneli kaynak
+  listesini ve eklenen kaynağın durumunu buradan gösterir). Uç bir çekimde okunamazsa bu
+  dosyadaki son kurallar kullanılır — kurallar bir aksaklıkta kaybolmaz.
+- Kurallar değişince **röle** (`zamanlayici.yml`) tazelik beklemeden `force=true` ile çekim
+  başlatır: değişiklik en geç ~40 dakikada (röle aralığı + çekim) herkese yansır; yöneticinin
+  akışında hemen uygulanır. Her değişiklik en fazla bir zorla çekim doğurur.
+
+### Güvenlik
+
+- Şifre yalnızca Vercel ortam değişkeninde durur; tarayıcıya 180 gün geçerli, HMAC imzalı bir
+  oturum anahtarı verilir. `ADMIN_PASSWORD` değişince tüm oturumlar düşer; **Tüm cihazlardan
+  çıkış** da aynı işi şifreyi değiştirmeden yapar.
+- Giriş denemesi IP başına 15 dakikada 10 ile sınırlı (IP'ler özetlenerek tutulur); şifre
+  karşılaştırması sabit sürelidir.
+- Tüm girdiler sunucuda doğrulanır (uzunluk, biçim, iç ağ adresleri reddedilir); kart
+  alanları ekrana kaçışlanarak basılır.
+
+### Yerelde deneme (Vercel'siz)
+
+```bash
+node patches/uitest/yonetim-yerel-sunucu.cjs --port 8080 --sifre deneme1234
+# http://localhost:8080 — gerçek api/yonetim.js + bellekte Upstash taklidi
+```
+
 ## Yerelde çalıştırma
 
 ```bash
@@ -224,8 +301,12 @@ Uygulama statiktir: `index.html` dosyasını açmak yeterlidir.
 # 1) Hat (kazıyıcı + workflow) — ağ gerektirmez (yapısal denetimler için: pip install pyyaml)
 .venv/bin/python patches/uitest/verify-pipeline.py   # tazelik politikası, kontrol işi uçtan uca, yaş filtresi, çıkış kodları, cron/push ayarları
 .venv/bin/python patches/uitest/verify-watchdog.py   # verify_daily.py senaryoları + onarma akışı (sahte gh) + gece koruması (sahte date)
-.venv/bin/python patches/uitest/verify-relay.py      # zamanlayıcı: yapı + bekleme kilidi + zincir/test dalı senaryoları (sahte gh)
+.venv/bin/python patches/uitest/verify-relay.py      # zamanlayıcı: yapı + bekleme kilidi + zincir/test dalı + kaynak kuralı senaryoları (sahte gh)
 .venv/bin/python patches/uitest/verify-passive.py    # pasif yazarlar: dosya okuma, eşleşme, yazı eleme, donmuş son yazı, writers.json işareti
+.venv/bin/python patches/uitest/verify-kaynak-kurallari.py  # yönetici kaynak kuralları: yazar anahtarı (Python==JS), uç/yedek, röle kararı, akış çözümleme, kazıyıcı uçtan uca
+
+# Yönetici API'si — gerçek api/yonetim.js + bellekte Upstash taklidi (bağımlılık yok)
+node patches/uitest/verify-yonetim-api.mjs           # giriş/kilit, imzalı oturum, tüm işlemler, sınırlar, kaynak kuralları, tüm cihazlardan çıkış
 
 # 2) Arayüz — jsdom koşumları
 mkdir -p /tmp/uitest && cd /tmp/uitest && npm init -y && npm install jsdom lucide
@@ -240,4 +321,6 @@ node verify-icons.mjs      # lucide simgeleri
 node verify-passive.mjs    # pasif yazarlar + Keşfet'ten silme: ⋯ menüsü, akışta soluk etiket, Gizlenenler, depo JSON çıktısı
 node verify-shuffle.mjs    # ana ekran: "Karıştır" (daireler + yazı akışı), okuduğum favoriler sonda,
                            # sekme görünürlüğü, karışık sıranın kalıcılığı/kararlılığı
+# uçtan uca (gerçek index.html + yerel sunucu; kendi yerinde çalıştırılır):
+node <repo>/patches/uitest/verify-yonetim-ui.mjs  # ziyaretçi kalıcılığı, iki yönetici cihazı arası eşitleme (pasif/Keşfet dahil), kaynak kuralları, çevrimdışı kuyruk, çıkış
 ```

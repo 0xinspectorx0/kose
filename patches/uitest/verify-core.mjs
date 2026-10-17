@@ -20,6 +20,9 @@ const block = (a, b) => {
   if (i < 0 || j < 0) throw new Error(`blok bulunamadı: ${a} (i=${i}, j=${j})`);
   return html.slice(i, j);
 };
+// Kalıcılık/yönetici durum bloğu (allArticles, kaydedilenler, yönetici oturumu).
+// `let articles` çıkarılır: düzenek akışı window.articles üzerinden izler.
+const stateBlock = block('// allArticles: yüklenen TÜM yazılar', '// --- Canlı Günlük Akış').replace('let articles = [];', '');
 const readStateBlock = block('// --- Okundu takibi', 'function applyReadState()');
 // Favori yazarlar: kalp düğmeleri ve Favoriler sekmesi yardımcıları kaynak HTML'den alınır
 const favoritesBlock = block('// --- Favori yazarlar: kalpler localStorage', 'let readerFontSize =');
@@ -60,7 +63,7 @@ const ids = { authorsAvatarTrack:'authors-avatar-track', articlesListEl:'article
   favoritesViewEl:'favorites-view', favoritesListEl:'favorites-list',
   favoritesMetaEl:'favorites-meta', favoritesEmptyEl:'favorites-empty' };
 for (const [k, id] of Object.entries(ids)) window[k] = doc.getElementById(id);
-window.eval([...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
+window.eval([stateBlock, ...srcConsts, settingsBlock, readStateBlock, favoritesBlock, shuffleBlock, ...fns.map(extract), settingsEvents, readerBlock, audioBlock].join('\n'));
 
 const d = JSON.parse(readFileSync('/home/user/kose/data/daily.json', 'utf8'));
 window.writersData = JSON.parse(readFileSync('/home/user/kose/data/writers.json', 'utf8'));

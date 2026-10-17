@@ -4,6 +4,14 @@ name: Köşe Yazılarını Güncelle (Günlük)
 # data/daily.json + data/writers.json olarak main'e commit'ler.
 # Uygulama bu iki dosyayı önce main'den canlı okur.
 #
+# Yönetici kaynak kuralları: kazıyıcı her çekimde uygulamanın Yönetim panelinde
+# tanımlanan kuralları (pasif kaynak/yazar, eklenen RSS/YouTube/site kaynakları)
+# https://murekkep.vercel.app/api/yonetim?islem=kaynaklar ucundan okur (herkese
+# açık, sır yok; adres repo değişkeni KAYNAK_KURALLARI_URL ile değiştirilebilir).
+# Uygulanan kurallar ve kaynak kataloğu data/kaynaklar.json'a yazılır; uç bir
+# çekimde okunamazsa bu dosyadaki son kurallar kullanılır. Kurallar değişince
+# zamanlayici.yml (röle) tazelik beklemeden zorla çekim başlatır.
+#
 # Neden yarım saatte bir yoklama (sabit slotlar yerine)?
 #   GitHub `schedule` tetikleyicisi "en iyi çaba"dır ve bu depoda koşular
 #   planlanan saatten 3-6 SAAT SONRA başlıyor. 13-15 Ekim 2026 gözlemi:
@@ -46,6 +54,7 @@ on:
     paths:
       - 'scripts/fetch_columns.py'
       - 'scripts/freshness.py'
+      - 'scripts/kaynak_kurallari.py'
       - '.github/workflows/fetch-columns.yml'
       # Pasif yazar listesi güncellenince hemen zorla çekim: yeni liste
       # (yazıları dondurulacak yazarlar) beklemeden devreye girsin.
@@ -168,6 +177,8 @@ jobs:
       - name: Köşe yazılarını çek
         env:
           FORCE: ${{ needs.kontrol.outputs.force }}
+          # Boşsa betik varsayılanı kullanır (https://murekkep.vercel.app/api/yonetim?islem=kaynaklar)
+          KAYNAK_KURALLARI_URL: ${{ vars.KAYNAK_KURALLARI_URL }}
         run: |
           # Runner adımı `bash -e` ile çalıştırıyor; betiğin çıkış kodunu kendimiz
           # yönettiğimiz için -e kapatılır (yoksa ilk başarısız çekimde döngü kesilir).
@@ -210,6 +221,9 @@ jobs:
           git config user.name "kose-bot"
           git config user.email "kose-bot@users.noreply.github.com"
           git add data/daily.json data/writers.json
+          # Kaynak kataloğu (yönetici kuralları) yalnızca üretildiyse eklenir: olmayan
+          # bir yol `git add`'e verilirse komut tümden başarısız olur.
+          [ -f data/kaynaklar.json ] && git add data/kaynaklar.json
           if git diff --cached --quiet; then
             echo "Değişiklik yok (veri zaten tazeydi ya da çekim boş döndü) — commit atlanıyor."
             exit 0
@@ -221,6 +235,7 @@ jobs:
           # üretilen bir artefakt olduğu için rebase/merge çatışması hiç yaşanmaz.
           GEN="$(mktemp -d)"
           cp data/daily.json data/writers.json "$GEN"/
+          [ -f data/kaynaklar.json ] && cp data/kaynaklar.json "$GEN"/
 
           for attempt in 1 2 3 4 5; do
             if git push origin "HEAD:$BRANCH"; then
@@ -275,6 +290,10 @@ jobs:
             git reset --hard "origin/$BRANCH"
             cp "$GEN"/daily.json "$GEN"/writers.json data/
             git add data/daily.json data/writers.json
+            if [ -f "$GEN"/kaynaklar.json ]; then
+              cp "$GEN"/kaynaklar.json data/
+              git add data/kaynaklar.json
+            fi
             if git diff --cached --quiet; then
               echo "Uzakla içerik aynılaştı — commit gerekmiyor."
               exit 0
