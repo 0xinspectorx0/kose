@@ -1,0 +1,241 @@
+{
+  "guncellendi": "2026-10-17T06:46:28.552055+00:00",
+  "kurallarAlindi": "2026-10-17T06:39:11.125982+00:00",
+  "kurallarKaynagi": "api",
+  "kurallarSurumu": 0,
+  "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
+  "kurallar": {
+    "surum": 0,
+    "guncellendi": null,
+    "pasif": {
+      "kaynaklar": [],
+      "yazarlar": []
+    },
+    "ek": []
+  },
+  "katalog": [
+    {
+      "key": "hurriyet",
+      "name": "Hürriyet",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 15
+    },
+    {
+      "key": "sozcu",
+      "name": "Sözcü",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 6
+    },
+    {
+      "key": "milliyet",
+      "name": "Milliyet",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 4
+    },
+    {
+      "key": "sabah",
+      "name": "Sabah",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 4
+    },
+    {
+      "key": "cumhuriyet",
+      "name": "Cumhuriyet",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 13
+    },
+    {
+      "key": "yenisafak",
+      "name": "Yeni Şafak",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 20
+    },
+    {
+      "key": "karar",
+      "name": "Karar",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 12
+    },
+    {
+      "key": "birgun",
+      "name": "BirGün",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0
+    },
+    {
+      "key": "haberturk",
+      "name": "Habertürk",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 6
+    },
+    {
+      "key": "aksam",
+      "name": "Akşam",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 4
+    },
+    {
+      "key": "takvim",
+      "name": "Takvim",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 2
+    },
+    {
+      "key": "posta",
+      "name": "Posta",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 7
+    },
+    {
+      "key": "yeniasir",
+      "name": "Yeni Asır",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 1
+    },
+    {
+      "key": "star",
+      "name": "Star",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 11
+    },
+    {
+      "key": "turkiye",
+      "name": "Türkiye Gazetesi",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0
+    },
+    {
+      "key": "yenicag",
+      "name": "Yeniçağ",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0
+    },
+    {
+      "key": "milligazete",
+      "name": "Milli Gazete",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 1
+    },
+    {
+      "key": "t24",
+      "name": "T24",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0
+    },
+    {
+      "key": "duvar",
+      "name": "Gazete Duvar",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0
+    },
+    {
+      "key": "diken",
+      "name": "Diken",
+      "tur": "gazete",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 16
+    },
+    {
+      "key": "altayli",
+      "name": "Fatih Altaylı",
+      "tur": "site",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 2,
+      "author": "Fatih Altaylı"
+    },
+    {
+      "key": "livaneli",
+      "name": "Livaneli.gen.tr",
+      "tur": "site",
+      "category": "Kültür-Sanat",
+      "aktif": true,
+      "yazi": 0,
+      "author": "Zülfü Livaneli"
+    },
+    {
+      "key": "tastekin",
+      "name": "Evrensel",
+      "tur": "site",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0,
+      "author": "Fehim Taştekin"
+    },
+    {
+      "key": "egin",
+      "name": "Oray Eğin",
+      "tur": "site",
+      "category": "Kültür-Sanat",
+      "aktif": true,
+      "yazi": 0,
+      "author": "Oray Eğin"
+    },
+    {
+      "key": "mahfiegilmez",
+      "name": "Kendime Yazılar",
+      "tur": "akis",
+      "category": "Ekonomi",
+      "aktif": true,
+      "yazi": 1,
+      "author": "Mahfi Eğilmez"
+    },
+    {
+      "key": "yetkinreport",
+      "name": "YetkinReport",
+      "tur": "akis",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0,
+      "author": "Murat Yetkin"
+    },
+    {
+      "key": "yilmazozdil",
+      "name": "Yılmaz Özdil",
+      "tur": "akis",
+      "category": "Gündem",
+      "aktif": true,
+      "yazi": 0,
+      "author": "Yılmaz Özdil"
+    }
+  ]
+}

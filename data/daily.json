@@ -1,12 +1,13 @@
 {
-  "fetchedAt": "2026-10-17T05:39:36.772796+00:00",
+  "fetchedAt": "2026-10-17T06:46:28.552055+00:00",
   "date": "2026-10-17",
-  "count": 123,
+  "count": 125,
   "papers": 15,
-  "writers": 1233,
+  "writers": 1234,
   "articles": [
     {
       "id": "hurriyet-f406a37c",
+      "sourceKey": "hurriyet",
       "author": "Ahmet HAKAN",
       "source": "Hürriyet",
       "title": "İnsan olmak ile insan olamamak",
@@ -23,6 +24,7 @@
     },
     {
       "id": "hurriyet-a498d4eb",
+      "sourceKey": "hurriyet",
       "author": "Fatih ÇEKİRGE",
       "source": "Hürriyet",
       "title": "Denizcilerin seçimi mahkemelik oldu",
@@ -39,6 +41,7 @@
     },
     {
       "id": "hurriyet-29b5b9e0",
+      "sourceKey": "hurriyet",
       "author": "Fuat BOL",
       "source": "Hürriyet",
       "title": "Şehirleşmede büyük değişim -1-",
@@ -55,6 +58,7 @@
     },
     {
       "id": "hurriyet-55ae84ff",
+      "sourceKey": "hurriyet",
       "author": "Nuran ÇAKMAKÇI",
       "source": "Hürriyet",
       "title": "Okullarda şiddet 10 adımda nasıl önlenir?",
@@ -71,6 +75,7 @@
     },
     {
       "id": "hurriyet-35fea32b",
+      "sourceKey": "hurriyet",
       "author": "Gökçe Aytulu",
       "source": "Hürriyet",
       "title": "Karadeniz’de kim test ediliyor",
@@ -87,6 +92,7 @@
     },
     {
       "id": "hurriyet-43d4e2ac",
+      "sourceKey": "hurriyet",
       "author": "Serhat DEMİREL",
       "source": "Hürriyet",
       "title": "Büyük köpekler daha hızlı yaşlanıyor",
@@ -103,6 +109,7 @@
     },
     {
       "id": "hurriyet-1e54905a",
+      "sourceKey": "hurriyet",
       "author": "Orkun Ün",
       "source": "Hürriyet",
       "title": "Kim yazdı bu cümleleri acaba",
@@ -119,6 +126,7 @@
     },
     {
       "id": "hurriyet-0e50c888",
+      "sourceKey": "hurriyet",
       "author": "Güzin Abla",
       "source": "Hürriyet",
       "title": "Biraz da yaşlılıktan söz edelim!",
@@ -135,6 +143,7 @@
     },
     {
       "id": "hurriyet-1742ecdb",
+      "sourceKey": "hurriyet",
       "author": "Müge AKGÜN",
       "source": "Hürriyet",
       "title": "BİR KEZ GİDEN BİR DAHA UNUTMAZ",
@@ -151,6 +160,7 @@
     },
     {
       "id": "hurriyet-0c34ee0d",
+      "sourceKey": "hurriyet",
       "author": "Sahrap SOYSAL",
       "source": "Hürriyet",
       "title": "Doyurucu ve sağlıklı",
@@ -167,6 +177,7 @@
     },
     {
       "id": "hurriyet-a9190512",
+      "sourceKey": "hurriyet",
       "author": "Uğur VARDAN",
       "source": "Hürriyet",
       "title": "Sistematik bir soykırımın itirafnamesi",
@@ -183,6 +194,7 @@
     },
     {
       "id": "hurriyet-1236f307",
+      "sourceKey": "hurriyet",
       "author": "Somer Sivrioğlu",
       "source": "Hürriyet",
       "title": "Yeşilçam’ın en güzel kötü adamı",
@@ -199,6 +211,7 @@
     },
     {
       "id": "hurriyet-66ddf4da",
+      "sourceKey": "hurriyet",
       "author": "Dinçer Güner",
       "source": "Hürriyet",
       "title": "Merkür retrosu geliyor! Şüpheyi gerçeğin yerine koymayalım",
@@ -215,6 +228,7 @@
     },
     {
       "id": "hurriyet-b38c5b49",
+      "sourceKey": "hurriyet",
       "author": "Şenol Kalyoncu",
       "source": "Hürriyet",
       "title": "İki kat heyecan iki kat özen",
@@ -231,6 +245,7 @@
     },
     {
       "id": "hurriyet-fbaea8a8",
+      "sourceKey": "hurriyet",
       "author": "Ebru Erke",
       "source": "Hürriyet",
       "title": "Yeniden çırak olmayı göze aldı",
@@ -247,6 +262,7 @@
     },
     {
       "id": "sozcu-08a7d335",
+      "sourceKey": "sozcu",
       "author": "İsmail Saymaz",
       "source": "Sözcü",
       "title": "Cübbeli’nin damadı: Fonda mağdurum",
@@ -263,6 +279,7 @@
     },
     {
       "id": "sozcu-0d02ea0c",
+      "sourceKey": "sozcu",
       "author": "Turan Yücel",
       "source": "Sözcü",
       "title": "Kimi İsTERİM?",
@@ -279,6 +296,7 @@
     },
     {
       "id": "sozcu-4d439a84",
+      "sourceKey": "sozcu",
       "author": "Ozan Bingöl",
       "source": "Sözcü",
       "title": "Kadro istisnai uygulama genel",
@@ -295,6 +313,7 @@
     },
     {
       "id": "sozcu-e4bfbe3d",
+      "sourceKey": "sozcu",
       "author": "Mesut Parlak",
       "source": "Sözcü",
       "title": "Trafik yasası ve 65 yaş",
@@ -311,6 +330,7 @@
     },
     {
       "id": "sozcu-62adf30c",
+      "sourceKey": "sozcu",
       "author": "Mahmut Aydoğmuş",
       "source": "Sözcü",
       "title": "Dünyanın melekleri, Türkiye'nin kaçan fırsatları!",
@@ -327,6 +347,7 @@
     },
     {
       "id": "sozcu-44f6c475",
+      "sourceKey": "sozcu",
       "author": "Ercan Taner",
       "source": "Sözcü",
       "title": "Oh be!",
@@ -343,6 +364,7 @@
     },
     {
       "id": "milliyet-54b22bcc",
+      "sourceKey": "milliyet",
       "author": "Tunca Bengin",
       "source": "Milliyet",
       "title": "Trump’ın en büyük hatası kendisi!..",
@@ -359,6 +381,7 @@
     },
     {
       "id": "milliyet-c0a22955",
+      "sourceKey": "milliyet",
       "author": "Ali Eyüboğlu",
       "source": "Milliyet",
       "title": "Bircan’ın soruları Sultan’ı kızdırdı",
@@ -375,6 +398,7 @@
     },
     {
       "id": "milliyet-a8c4f3a2",
+      "sourceKey": "milliyet",
       "author": "Deniz Kilislioğlu",
       "source": "Milliyet",
       "title": "Husiler: İran’ın mı yoksa Yemen’in hikâyesi mi?",
@@ -391,6 +415,7 @@
     },
     {
       "id": "milliyet-0e65b811",
+      "sourceKey": "milliyet",
       "author": "Sinan Genim",
       "source": "Milliyet",
       "title": "Tezâkir-i Cevdet",
@@ -406,23 +431,8 @@
       "isLive": true
     },
     {
-      "id": "sabah-8e1ebd17",
-      "author": "MELİH ALTINOK",
-      "source": "Sabah",
-      "title": "Ya içindesin çemberin ya da dışında",
-      "url": "https://www.sabah.com.tr/yazarlar/melihaltinok/2026/10/17/ya-icindesin-cemberin-ya-da-disinda",
-      "date": "Bugün 06:58",
-      "publishedAt": "2026-10-17T03:58:26+00:00",
-      "category": "Gündem",
-      "readTime": "2 dk",
-      "snippet": "Ya içindesin çemberin ya da dışında Yüzlere takılan maskelerin, atılan sloganların hiçbir anlamı yok. Önemli olan, alınan pozisyonun son tahlilde kime, nereye hizmet ettiği. Günler…",
-      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ya içindesin çemberin ya da dışında</h3>\n<p>Yüzlere takılan maskelerin, atılan sloganların hiçbir anlamı yok. Önemli olan, alınan pozisyonun son tahlilde kime, nereye hizmet ettiği. Günlerdir üzerinde durduğum Mekke İttifakı tartışmaları bu gerçeğin son örneği. Anlaşma yapılır yapılmaz ittifakı bir açmazda sınamak üzere başlayan Babülmendep'i kapatma girişiminin ve Suudi Arabistan 'a yönelik tacizlerin hedefi ortadayken, Türkiye'nin içinden yükselen yorumlara bakın. İslami hassasiyet kılıfıyla ya da milliyetçilik cilasıyla piyasaya sürülen argümanların tümü, nasıl oluyorsa Türkiye'yi birincil tehdit ilan eden İsrail'in değirmenine su taşıyor . Zira Arap yarımadasındaki nüfuz mücadelesinin tam ortasında kalan Suudi Arabistan dört bir yandan çekiştiriliyor. 7 Ekim öncesi Çin devreye girip Riyad ile Tahran arasında bir ittifaka önayak olmuştu. İsrail ise Suudi Arabistan'ı kendi yanına çekmek için bir kuşak projesini masaya sürdü. Netanyahu'nun Eylül 2023'te BM kürsüsünden gösterdiği \"Yeni Ortadoğu\" haritasının merkezinde Riyad vardı. Hamas'ın 7 Ekim'deki saldırıları işin rengini değiştirdi. Ancak Tel Aviv, İbrahim Anlaşmaları çerçevesinde Suudi Arabistan'ı denkleme sokma hedefinden geri adım atmadı. Çünkü bu hedef, ABD bölgeden çekilirken Suriye'de avantaj kazanan Türkiye'ye karşı Tel Aviv için hayati bir zorunluluktu. İran'ın Hürmüz'ü kapatıp Suudi Arabistan'ın ana gelir kaynağı olan enerji ihracatını sekteye uğratması Riyad'ı baskılar karşısında daha da savunmasız hâle getirdi. Ardından malumunuz, Husiler eliyle yapılan Babülmendep hamlesi geldi. Körfez'de boğazı sıkılan Suudilerin son soluk borusu Kızıldeniz de kapatıldı . Bu girişimler aynı zamanda bölgede hangi ittifaka dahil olacağı merak edilen Irak 'ı da zora soktu. Zaten siyasi istikrarsızlık içinde olan Irak'ın petrol ihracatının sekteye uğraması, son dönemde Ankara 'yla yaptığı anlaşmaların rövanşı olarak algılandı. Elbette İsrail ile Türkiye arasındaki soğuk savaşın tek cephesi körfez değil. Cebelitarık'ın Avrupa yakasını tutan İspanya'da, Gazze konusunda cesurca İsrail karşıtı bir pozisyon alan sosyalist Sanchez'e yönelik taarruz da kavgaya dahil. İspanyol basını dün, Sanchez yönetiminin HÜRJET'in ardından İsrail menşeli bazı savunma sistemlerine alternatif olarak ASELSAN teknolojilerini değerlendirdiğini yazdı. Haberde, ASELSAN'ın Madrid yönetimiyle temaslarını artırdığı belirtildi. Sizce Tel Aviv, Türkiye'nin İspanya ile yakınlaşmasının cevabını hangi ülke üzerinden verecek? Bu konuda somut sinyaller var. Son günlerde Türkiye-Azerbaycan ilişkilerine yönelik, başörtüsü meselesi üzerinden kışkırtılan tartışma da bu mücadelenin bir parçası. Azerbaycan'ın İsrail'le ilişkilerine dair bu köşede çok sert eleştiriler yaptım. Ancak tıpkı Suudi Arabistan gibi, bir tarafından İsrail'in diğer tarafından İran'ın çekiştirdiği Bakü'ye karşı böyle bir süreçte yüklenmenin nereye hizmet ettiğini görecek kadar aklım başımda. Dolayısıyla Mekke İttifakı'yla ilgili yazılarım üzerine Kaşıkçı cinayetini hatırlatanların ajitasyonunu da Tel Aviv'in sesinin aksisedası olarak duyuyorum. Eğer sicillerine, ulusal çıkarları için geliştirdikleri politikalara bakacak olursak Türkiye'nin ilişki kuracağı devlet kalmaz. Evet, bölgeye, dünya siyasetine Ankara merkezli bakıyorum. Peki, gazetecilik ayağına attıkları her okla Türkiye'yi kalbinden vuranlar, düşman başkentlerinden alkış almalarını neyle izah ediyorlar? \"Tesadüfün iğne deliğinden\" nişan alma ustalığını nerede kazanmışlar?</p>\n<p>Sabah.com.tr Uygulamamızı İndirin</p>",
-      "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg",
-      "avatar": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg",
-      "isLive": true
-    },
-    {
       "id": "sabah-4d71baac",
+      "sourceKey": "sabah",
       "author": "SALİH TUNA",
       "source": "Sabah",
       "title": "Siyah bant kırmızı kart",
@@ -438,23 +448,8 @@
       "isLive": true
     },
     {
-      "id": "sabah-8c4de491",
-      "author": "HAŞMET BABAOĞLU",
-      "source": "Sabah",
-      "title": "Haftanın notları: Böyle olmamalıydı...",
-      "url": "https://www.sabah.com.tr/yazarlar/babaoglu/2026/10/17/haftanin-notlari-boyle-olmamaliydi",
-      "date": "Bugün 06:58",
-      "publishedAt": "2026-10-17T03:58:26+00:00",
-      "category": "Gündem",
-      "readTime": "2 dk",
-      "snippet": "Haftanın notları: Böyle olmamalıydı... \" Niye ısrarla İstanbul'a kent diyorsun?\" diye soruyorsunuz bazen... \"Beton kokuyor bu kelime, fazla soğuk ve tarihsiz... İstanbul'a yakışmıy…",
-      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Haftanın notları: Böyle olmamalıydı...</h3>\n<p>\" Niye ısrarla İstanbul'a kent diyorsun?\" diye soruyorsunuz bazen... \"Beton kokuyor bu kelime, fazla soğuk ve tarihsiz... İstanbul'a yakışmıyor\" diyorsunuz... İyi de, Ataşehir'e, Çekmeköy'e, Başakşehir'e, Beylikdüzü'ne İstanbul diyorsak... Hele Bağcılar'ı, Esenyurt'u da sayarsak... Sormalıyız: İstanbul nedir, neyin nesidir? Tarihsel mirastan pay almış, kültürel bakımdan bize \"Hah işte İstanbul!\" dedirten kaç semt kaldı şunun şurasında? *** Böyle olmamalıydı... Büyümek, gelişmek anlamına gelmiyor. Bu dersten kaldık... *** Ağzımızda hep şöyle bir laf var ya: \"Hafta sonu şehirden kaçtım...\" Veya \"Şehirden birkaç saatliğine kaçmak bana iyi gelecek...\" Oysa insan hakiki bir şehirden kaçmaz. Hatta şehre kaçar... Fakat kentte yaşıyorsan kaçarsın işte! Ancak kaçınca biraz olsun rahatlar... Öyle bir yer bulursa tabii... *** Kentten kaçınca da kent peşimizi bırakmıyor ki... Kır diyorsun... Yan yana kahvaltıcılar... Hepsinde market tereyağları ve peynirleri, pakette çikolata kremaları, uyduruk ballar... Hani acele kotarılmış gözleme ve pişiler olmasa... Dekor kabilinden kırık dökük masalar olmasa, kentten dışarı çıktığını fark etmeyeceksin! *** Sel felaketinin ardından TV'lere çıkanlar bağıra çağıra konuşuyorlar: \"Bu şehir Fatih Sultan Mehmed'in emanetidir bize...\" Lacivert lafta üzerimize yok ama o sırada Ayazağa'dan, Kemerburgaz'dan görüntüler geliyor... Şimdi bir şey söylesem, yanlış anlaşılacak... Susuyorum! *** Ne kaybettiğimizi bilelim bari... İstanbul o! Fatih'inden Üsküdar'ına... Beyoğlu'ndan Kanlıca'sına İstanbul... Yaşlılar hatırlayıp anlatsın, eski yazarlar okunsun... Bazen nostalji iyidir. Titreyip kendine getirir insanı... Belki toparlanırız ha! Hiç değilse şehr-i İstanbul'dan kalanlara güç ve şevk ile sahip çıkarız. *** 70'lerde başladı, 90'lardan sonra gemi azıya aldı... Ne mi? Kentleşme iştahı... Üzerinde durmaya değerdir; çünkü kırdan gelenlerde bu iştah daha fazlaydı. Ve ardından kenti iyiden iyiye büyütme sevdası geldi... Eh, sonra da \"Mahalle kültürü bitti, insan değişti\" diye dertlenmenin ne âlemi var! *** Şehir , önce evdir, sonra mahalle ve çarşıdır. Şehrin merkezinde ibadet mekânları (camiler ve külliyeler) yer alır. Kent , konuttur, sonra semtler/ siteler ve AVM'lerdir. Kentin merkezinde iş merkezleri vardır. Bu ölçülere göre bakıp anlayın yeni İstanbul'u...</p>\n<p>Sabah.com.tr Uygulamamızı İndirin</p>",
-      "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png",
-      "avatar": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png",
-      "isLive": true
-    },
-    {
       "id": "sabah-a196a39d",
+      "sourceKey": "sabah",
       "author": "OKAN MÜDERRİSOĞLU",
       "source": "Sabah",
       "title": "Aynada geçirdiğimiz vakit kadar iç muhasebemize vakit ayıramıyoruz!",
@@ -470,7 +465,42 @@
       "isLive": true
     },
     {
+      "id": "sabah-8c4de491",
+      "sourceKey": "sabah",
+      "author": "HAŞMET BABAOĞLU",
+      "source": "Sabah",
+      "title": "Haftanın notları: Böyle olmamalıydı...",
+      "url": "https://www.sabah.com.tr/yazarlar/babaoglu/2026/10/17/haftanin-notlari-boyle-olmamaliydi",
+      "date": "Bugün 06:58",
+      "publishedAt": "2026-10-17T03:58:26+00:00",
+      "category": "Gündem",
+      "readTime": "2 dk",
+      "snippet": "Haftanın notları: Böyle olmamalıydı... \" Niye ısrarla İstanbul'a kent diyorsun?\" diye soruyorsunuz bazen... \"Beton kokuyor bu kelime, fazla soğuk ve tarihsiz... İstanbul'a yakışmıy…",
+      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Haftanın notları: Böyle olmamalıydı...</h3>\n<p>\" Niye ısrarla İstanbul'a kent diyorsun?\" diye soruyorsunuz bazen... \"Beton kokuyor bu kelime, fazla soğuk ve tarihsiz... İstanbul'a yakışmıyor\" diyorsunuz... İyi de, Ataşehir'e, Çekmeköy'e, Başakşehir'e, Beylikdüzü'ne İstanbul diyorsak... Hele Bağcılar'ı, Esenyurt'u da sayarsak... Sormalıyız: İstanbul nedir, neyin nesidir? Tarihsel mirastan pay almış, kültürel bakımdan bize \"Hah işte İstanbul!\" dedirten kaç semt kaldı şunun şurasında? *** Böyle olmamalıydı... Büyümek, gelişmek anlamına gelmiyor. Bu dersten kaldık... *** Ağzımızda hep şöyle bir laf var ya: \"Hafta sonu şehirden kaçtım...\" Veya \"Şehirden birkaç saatliğine kaçmak bana iyi gelecek...\" Oysa insan hakiki bir şehirden kaçmaz. Hatta şehre kaçar... Fakat kentte yaşıyorsan kaçarsın işte! Ancak kaçınca biraz olsun rahatlar... Öyle bir yer bulursa tabii... *** Kentten kaçınca da kent peşimizi bırakmıyor ki... Kır diyorsun... Yan yana kahvaltıcılar... Hepsinde market tereyağları ve peynirleri, pakette çikolata kremaları, uyduruk ballar... Hani acele kotarılmış gözleme ve pişiler olmasa... Dekor kabilinden kırık dökük masalar olmasa, kentten dışarı çıktığını fark etmeyeceksin! *** Sel felaketinin ardından TV'lere çıkanlar bağıra çağıra konuşuyorlar: \"Bu şehir Fatih Sultan Mehmed'in emanetidir bize...\" Lacivert lafta üzerimize yok ama o sırada Ayazağa'dan, Kemerburgaz'dan görüntüler geliyor... Şimdi bir şey söylesem, yanlış anlaşılacak... Susuyorum! *** Ne kaybettiğimizi bilelim bari... İstanbul o! Fatih'inden Üsküdar'ına... Beyoğlu'ndan Kanlıca'sına İstanbul... Yaşlılar hatırlayıp anlatsın, eski yazarlar okunsun... Bazen nostalji iyidir. Titreyip kendine getirir insanı... Belki toparlanırız ha! Hiç değilse şehr-i İstanbul'dan kalanlara güç ve şevk ile sahip çıkarız. *** 70'lerde başladı, 90'lardan sonra gemi azıya aldı... Ne mi? Kentleşme iştahı... Üzerinde durmaya değerdir; çünkü kırdan gelenlerde bu iştah daha fazlaydı. Ve ardından kenti iyiden iyiye büyütme sevdası geldi... Eh, sonra da \"Mahalle kültürü bitti, insan değişti\" diye dertlenmenin ne âlemi var! *** Şehir , önce evdir, sonra mahalle ve çarşıdır. Şehrin merkezinde ibadet mekânları (camiler ve külliyeler) yer alır. Kent , konuttur, sonra semtler/ siteler ve AVM'lerdir. Kentin merkezinde iş merkezleri vardır. Bu ölçülere göre bakıp anlayın yeni İstanbul'u...</p>\n<p>Sabah.com.tr Uygulamamızı İndirin</p>",
+      "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png",
+      "avatar": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png",
+      "isLive": true
+    },
+    {
+      "id": "sabah-8e1ebd17",
+      "sourceKey": "sabah",
+      "author": "MELİH ALTINOK",
+      "source": "Sabah",
+      "title": "Ya içindesin çemberin ya da dışında",
+      "url": "https://www.sabah.com.tr/yazarlar/melihaltinok/2026/10/17/ya-icindesin-cemberin-ya-da-disinda",
+      "date": "Bugün 06:58",
+      "publishedAt": "2026-10-17T03:58:26+00:00",
+      "category": "Gündem",
+      "readTime": "2 dk",
+      "snippet": "Ya içindesin çemberin ya da dışında Yüzlere takılan maskelerin, atılan sloganların hiçbir anlamı yok. Önemli olan, alınan pozisyonun son tahlilde kime, nereye hizmet ettiği. Günler…",
+      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ya içindesin çemberin ya da dışında</h3>\n<p>Yüzlere takılan maskelerin, atılan sloganların hiçbir anlamı yok. Önemli olan, alınan pozisyonun son tahlilde kime, nereye hizmet ettiği. Günlerdir üzerinde durduğum Mekke İttifakı tartışmaları bu gerçeğin son örneği. Anlaşma yapılır yapılmaz ittifakı bir açmazda sınamak üzere başlayan Babülmendep'i kapatma girişiminin ve Suudi Arabistan 'a yönelik tacizlerin hedefi ortadayken, Türkiye'nin içinden yükselen yorumlara bakın. İslami hassasiyet kılıfıyla ya da milliyetçilik cilasıyla piyasaya sürülen argümanların tümü, nasıl oluyorsa Türkiye'yi birincil tehdit ilan eden İsrail'in değirmenine su taşıyor . Zira Arap yarımadasındaki nüfuz mücadelesinin tam ortasında kalan Suudi Arabistan dört bir yandan çekiştiriliyor. 7 Ekim öncesi Çin devreye girip Riyad ile Tahran arasında bir ittifaka önayak olmuştu. İsrail ise Suudi Arabistan'ı kendi yanına çekmek için bir kuşak projesini masaya sürdü. Netanyahu'nun Eylül 2023'te BM kürsüsünden gösterdiği \"Yeni Ortadoğu\" haritasının merkezinde Riyad vardı. Hamas'ın 7 Ekim'deki saldırıları işin rengini değiştirdi. Ancak Tel Aviv, İbrahim Anlaşmaları çerçevesinde Suudi Arabistan'ı denkleme sokma hedefinden geri adım atmadı. Çünkü bu hedef, ABD bölgeden çekilirken Suriye'de avantaj kazanan Türkiye'ye karşı Tel Aviv için hayati bir zorunluluktu. İran'ın Hürmüz'ü kapatıp Suudi Arabistan'ın ana gelir kaynağı olan enerji ihracatını sekteye uğratması Riyad'ı baskılar karşısında daha da savunmasız hâle getirdi. Ardından malumunuz, Husiler eliyle yapılan Babülmendep hamlesi geldi. Körfez'de boğazı sıkılan Suudilerin son soluk borusu Kızıldeniz de kapatıldı . Bu girişimler aynı zamanda bölgede hangi ittifaka dahil olacağı merak edilen Irak 'ı da zora soktu. Zaten siyasi istikrarsızlık içinde olan Irak'ın petrol ihracatının sekteye uğraması, son dönemde Ankara 'yla yaptığı anlaşmaların rövanşı olarak algılandı. Elbette İsrail ile Türkiye arasındaki soğuk savaşın tek cephesi körfez değil. Cebelitarık'ın Avrupa yakasını tutan İspanya'da, Gazze konusunda cesurca İsrail karşıtı bir pozisyon alan sosyalist Sanchez'e yönelik taarruz da kavgaya dahil. İspanyol basını dün, Sanchez yönetiminin HÜRJET'in ardından İsrail menşeli bazı savunma sistemlerine alternatif olarak ASELSAN teknolojilerini değerlendirdiğini yazdı. Haberde, ASELSAN'ın Madrid yönetimiyle temaslarını artırdığı belirtildi. Sizce Tel Aviv, Türkiye'nin İspanya ile yakınlaşmasının cevabını hangi ülke üzerinden verecek? Bu konuda somut sinyaller var. Son günlerde Türkiye-Azerbaycan ilişkilerine yönelik, başörtüsü meselesi üzerinden kışkırtılan tartışma da bu mücadelenin bir parçası. Azerbaycan'ın İsrail'le ilişkilerine dair bu köşede çok sert eleştiriler yaptım. Ancak tıpkı Suudi Arabistan gibi, bir tarafından İsrail'in diğer tarafından İran'ın çekiştirdiği Bakü'ye karşı böyle bir süreçte yüklenmenin nereye hizmet ettiğini görecek kadar aklım başımda. Dolayısıyla Mekke İttifakı'yla ilgili yazılarım üzerine Kaşıkçı cinayetini hatırlatanların ajitasyonunu da Tel Aviv'in sesinin aksisedası olarak duyuyorum. Eğer sicillerine, ulusal çıkarları için geliştirdikleri politikalara bakacak olursak Türkiye'nin ilişki kuracağı devlet kalmaz. Evet, bölgeye, dünya siyasetine Ankara merkezli bakıyorum. Peki, gazetecilik ayağına attıkları her okla Türkiye'yi kalbinden vuranlar, düşman başkentlerinden alkış almalarını neyle izah ediyorlar? \"Tesadüfün iğne deliğinden\" nişan alma ustalığını nerede kazanmışlar?</p>\n<p>Sabah.com.tr Uygulamamızı İndirin</p>",
+      "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg",
+      "avatar": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg",
+      "isLive": true
+    },
+    {
       "id": "cumhuriyet-c1fc0ad1",
+      "sourceKey": "cumhuriyet",
       "author": "Tuğrul Akşar",
       "source": "Cumhuriyet",
       "title": "Tuğrul Akşar yazdı : G.Saray neden iyi oynayıp kazanamıyor?",
@@ -487,6 +517,7 @@
     },
     {
       "id": "cumhuriyet-79a6b85d",
+      "sourceKey": "cumhuriyet",
       "author": "Işık Kansu",
       "source": "Cumhuriyet",
       "title": "Işık Kansu yazdı : Lekelenmeme Hakkına Zarar",
@@ -503,6 +534,7 @@
     },
     {
       "id": "cumhuriyet-fe9cd5d3",
+      "sourceKey": "cumhuriyet",
       "author": "Mustafa Balbay",
       "source": "Cumhuriyet",
       "title": "Mustafa Balbay yazdı : Haberal, bilim, barış!",
@@ -519,6 +551,7 @@
     },
     {
       "id": "cumhuriyet-0141f624",
+      "sourceKey": "cumhuriyet",
       "author": "Miyase İlknur",
       "source": "Cumhuriyet",
       "title": "Miyase İlknur yazdı : Kayyum atanacak yerler",
@@ -535,6 +568,7 @@
     },
     {
       "id": "cumhuriyet-e1b0cf2f",
+      "sourceKey": "cumhuriyet",
       "author": "Örsan K. Öymen",
       "source": "Cumhuriyet",
       "title": "Örsan K. Öymen yazdı : Ekrem İmamoğlu’nun savunması",
@@ -551,6 +585,7 @@
     },
     {
       "id": "cumhuriyet-749927ba",
+      "sourceKey": "cumhuriyet",
       "author": "Mehmet Ali Güller",
       "source": "Cumhuriyet",
       "title": "Mehmet Ali Güller yazdı : İsrail’in yeni güvenlik doktrini",
@@ -567,6 +602,7 @@
     },
     {
       "id": "cumhuriyet-445455a3",
+      "sourceKey": "cumhuriyet",
       "author": "Jale Özgentürk",
       "source": "Cumhuriyet",
       "title": "Jale Özgentürk yazdı : ‘Yabancı yatırımcı Türkiye’den korkuyor’",
@@ -583,6 +619,7 @@
     },
     {
       "id": "cumhuriyet-d3256954",
+      "sourceKey": "cumhuriyet",
       "author": "Öner Yağcı",
       "source": "Cumhuriyet",
       "title": "Öner Yağcı yazdı : Dört büyük aydınımızdan",
@@ -599,6 +636,7 @@
     },
     {
       "id": "cumhuriyet-2c1d0c29",
+      "sourceKey": "cumhuriyet",
       "author": "Eren Aysan",
       "source": "Cumhuriyet",
       "title": "Eren Aysan yazdı : Demokrasinin pazarlık masası",
@@ -615,6 +653,7 @@
     },
     {
       "id": "cumhuriyet-72f2c57c",
+      "sourceKey": "cumhuriyet",
       "author": "Gülengül Altınsay",
       "source": "Cumhuriyet",
       "title": "Gülengül Altınsay yazdı : Acıların icinden",
@@ -631,6 +670,7 @@
     },
     {
       "id": "cumhuriyet-c3dabc71",
+      "sourceKey": "cumhuriyet",
       "author": "Olaylar Ve Görüşler",
       "source": "Cumhuriyet",
       "title": "Olaylar Ve Görüşler yazdı : Hiç olmamış birliktelik... - Erol Ertuğrul",
@@ -647,6 +687,7 @@
     },
     {
       "id": "cumhuriyet-41a5084e",
+      "sourceKey": "cumhuriyet",
       "author": "Olaylar Ve Görüşler",
       "source": "Cumhuriyet",
       "title": "Olaylar Ve Görüşler yazdı : Varlık ve yokluk - Bilin Neyaptı",
@@ -663,6 +704,7 @@
     },
     {
       "id": "cumhuriyet-10b5b9be",
+      "sourceKey": "cumhuriyet",
       "author": "Hilmi Türkay",
       "source": "Cumhuriyet",
       "title": "Hilmi Türkay yazdı : Kartal’ın ‘OH’u",
@@ -679,6 +721,7 @@
     },
     {
       "id": "yenisafak-e934f925",
+      "sourceKey": "yenisafak",
       "author": "İsmail Kılıçarslan",
       "source": "Yeni Şafak",
       "title": "Maslahat, menfaat, mefsedet, mazarrat",
@@ -695,6 +738,7 @@
     },
     {
       "id": "yenisafak-060f86d6",
+      "sourceKey": "yenisafak",
       "author": "Nedret Ersanel",
       "source": "Yeni Şafak",
       "title": "Türkiye’nin ‘küresel yollarını’ kesenler ve işbirlikçileri…",
@@ -711,6 +755,7 @@
     },
     {
       "id": "yenisafak-7155aecb",
+      "sourceKey": "yenisafak",
       "author": "Taha Kılınç",
       "source": "Yeni Şafak",
       "title": "Müftünün makamı",
@@ -727,6 +772,7 @@
     },
     {
       "id": "yenisafak-cff8d43c",
+      "sourceKey": "yenisafak",
       "author": "Yasin Aktay",
       "source": "Yeni Şafak",
       "title": "Türk düşüncesi nerede? Güneş-Dil Teorisi’nin metafizik sularında mı?",
@@ -743,6 +789,7 @@
     },
     {
       "id": "yenisafak-d22cc858",
+      "sourceKey": "yenisafak",
       "author": "Ömer Lekesiz",
       "source": "Yeni Şafak",
       "title": "Süleyman Uludağ: Ayır ki doğru birleştirebilesin",
@@ -759,6 +806,7 @@
     },
     {
       "id": "yenisafak-ec5e66c9",
+      "sourceKey": "yenisafak",
       "author": "Ali Saydam",
       "source": "Yeni Şafak",
       "title": "Fazla palamut dert oldu…",
@@ -775,6 +823,7 @@
     },
     {
       "id": "yenisafak-3d58df83",
+      "sourceKey": "yenisafak",
       "author": "Levent Yılmaz",
       "source": "Yeni Şafak",
       "title": "Gümrük Birliği’ne “Made in EU” tehdidi!",
@@ -791,6 +840,7 @@
     },
     {
       "id": "yenisafak-6f5c9ea8",
+      "sourceKey": "yenisafak",
       "author": "Özgür Bayram Soylu",
       "source": "Yeni Şafak",
       "title": "Allah’a emanet yaşıyoruz",
@@ -807,6 +857,7 @@
     },
     {
       "id": "yenisafak-95ecff75",
+      "sourceKey": "yenisafak",
       "author": "Abdulhamit Güler",
       "source": "Yeni Şafak",
       "title": "Fjord: ‘Kuzey’de muhafazakar olmak ya da medeni dayatma!",
@@ -823,6 +874,7 @@
     },
     {
       "id": "yenisafak-200e160f",
+      "sourceKey": "yenisafak",
       "author": "Serdar Tuncer",
       "source": "Yeni Şafak",
       "title": "İtiraf",
@@ -839,6 +891,7 @@
     },
     {
       "id": "yenisafak-3964f906",
+      "sourceKey": "yenisafak",
       "author": "Yusuf Kaplan",
       "source": "Yeni Şafak",
       "title": "Bir yasak, kendisinin gerekçesi olabilir mi?",
@@ -855,6 +908,7 @@
     },
     {
       "id": "yenisafak-efed1f74",
+      "sourceKey": "yenisafak",
       "author": "Aydın Ünal",
       "source": "Yeni Şafak",
       "title": "Tel Aviv’in dağlarında çiçekler açacak mı?",
@@ -871,6 +925,7 @@
     },
     {
       "id": "yenisafak-311223c4",
+      "sourceKey": "yenisafak",
       "author": "Fatma Barbarosoğlu",
       "source": "Yeni Şafak",
       "title": "Gündelik hayatın sahneleri roman sahneleri ile nasıl buluşur/buluşturulur?",
@@ -887,6 +942,7 @@
     },
     {
       "id": "yenisafak-9c1df23c",
+      "sourceKey": "yenisafak",
       "author": "Ersin Çelik",
       "source": "Yeni Şafak",
       "title": "Sırtlara yük, ayaklara pranga",
@@ -903,6 +959,7 @@
     },
     {
       "id": "yenisafak-4e470f18",
+      "sourceKey": "yenisafak",
       "author": "Yahya Bostan",
       "source": "Yeni Şafak",
       "title": "Bir kırılma yaşanıyor, durdurulmalı!",
@@ -919,6 +976,7 @@
     },
     {
       "id": "yenisafak-ff821760",
+      "sourceKey": "yenisafak",
       "author": "Mehmet Şeker",
       "source": "Yeni Şafak",
       "title": "Rekor yağış, rekor ihmal, rekor zarar",
@@ -935,6 +993,7 @@
     },
     {
       "id": "yenisafak-67b68331",
+      "sourceKey": "yenisafak",
       "author": "Mehmet Akif Soysal",
       "source": "Yeni Şafak",
       "title": "IMF dünyayı yeni bir krize mi hazırlıyor?",
@@ -951,6 +1010,7 @@
     },
     {
       "id": "yenisafak-c41ad59f",
+      "sourceKey": "yenisafak",
       "author": "Ayşe Keşir",
       "source": "Yeni Şafak",
       "title": "Değerler eğitimi ekosistemi",
@@ -967,6 +1027,7 @@
     },
     {
       "id": "yenisafak-d21126f5",
+      "sourceKey": "yenisafak",
       "author": "Mahmut Ay",
       "source": "Yeni Şafak",
       "title": "Selefîlik ile sûfîlik arasındaki gerginliği nasıl hafifletebiliriz? (1)",
@@ -983,6 +1044,7 @@
     },
     {
       "id": "yenisafak-3dcbf75f",
+      "sourceKey": "yenisafak",
       "author": "Ebubekir Sifil",
       "source": "Yeni Şafak",
       "title": "Zeydîlik",
@@ -999,6 +1061,7 @@
     },
     {
       "id": "karar-d511530a",
+      "sourceKey": "karar",
       "author": "İbrahim Kiras",
       "source": "Karar",
       "title": "Erenköy de ‘düşman’ mı oldu şimdi - İbrahim Kiras",
@@ -1015,6 +1078,7 @@
     },
     {
       "id": "karar-dd393f08",
+      "sourceKey": "karar",
       "author": "Mustafa Karaalioğlu",
       "source": "Karar",
       "title": "Tek çıkış yolu, adil siyasi yarış - Mustafa Karaalioğlu",
@@ -1031,6 +1095,7 @@
     },
     {
       "id": "karar-292afce3",
+      "sourceKey": "karar",
       "author": "Akif Beki",
       "source": "Karar",
       "title": "Abdülhamid sansürünün adı da muayeneydi - Akif Beki",
@@ -1047,6 +1112,7 @@
     },
     {
       "id": "karar-e275bc52",
+      "sourceKey": "karar",
       "author": "Ali Bayramoğlu",
       "source": "Karar",
       "title": "Liberale nefret... - Ali Bayramoğlu",
@@ -1062,7 +1128,25 @@
       "isLive": true
     },
     {
+      "id": "karar-5b513933",
+      "sourceKey": "karar",
+      "author": "Yıldıray Oğur",
+      "source": "Karar",
+      "title": "Erişim engeli gelmeden lütfen okuyun Sayın Cumhurbaşkanı - Yıldıray Oğur",
+      "url": "https://www.karar.com/yazarlar/yildiray-ogur/erisim-engeli-gelmeden-lutfen-okuyun-sayin-cumhurbaskani-1609519",
+      "date": "Bugün 09:38",
+      "publishedAt": "2026-10-17T06:38:00+00:00",
+      "category": "Gündem",
+      "readTime": "6 dk",
+      "snippet": "Cumhurbaşkanı Erdoğan, dün fon skandalıyla ilgili konuştu ve şöyle dedi: “17 Eylül’den itibaren attığımız kararlı adımlarla sorunu kontrol altına aldık. Tam yetkiye sahip Fon Koord…",
+      "fullContent": "<p>Cumhurbaşkanı Erdoğan, dün fon skandalıyla ilgili konuştu ve şöyle dedi:</p>\n<p>“17 Eylül’den itibaren attığımız kararlı adımlarla sorunu kontrol altına aldık.</p>\n<p>Tam yetkiye sahip Fon Koordinasyon Kurulumuzu süratle oluşturduk. Tıpkı bir cerrah titizliğiyle operasyonu yürütüyoruz.</p>\n<p>Kararlı, dikkatli ve çok hassas adımlarla meseleyi hakkaniyete en uygun şekilde çözüyoruz. “</p>\n<p>“Toplam fon sayısının yalnızca yüzde 4,6’sında ortaya çıkan bir sorundan yola çıkarak tüm sermaye piyasası araçlarını terörize etmek, Türkiye ekonomisinin altını oymak olur”</p>\n<p>“Kimse kusura bakmasın! Benim esnaf kardeşim helalinden kazanmak için adeta kılı kırk yararken piyasa düzenbazlıklarıyla 3 lirasını sadece 3-5 ayda ona, yirmiye, otuza katlayana asla tolerans göstermeyecek, sağladığı fahiş kazancın bedelini ona mutlaka ödeteceğiz.”</p>\n<p>Bugüne kadar “Cumhurbaşkanı bilmiyor, danışmanları yanlış yönlendiriyor“ türü tesellilere hiç itibar etmedim.</p>\n<p>Ama bu konuşmayı duyunca “acaba“ dedim.</p>\n<p>Bilmeme ihtimalini ortadan kaldırmak için de bu yazıyı yazmaya karar verdim.</p>\n<p>Galiba Cumhurbaşkanımız fon skandalının aslında nasıl bir dolandırıcılık olduğunun tam olarak farkında değil.</p>\n<p>Buna “fon sayısının yüzde 4,6’sında ortaya çıkan bir sorun“ demez, sorunu “bazı insanların borsada üç lirasını otuz lira yaparak fahiş kazanç elde etmesi “ zannetmezdi.</p>\n<p>Hayır sayın Cumhurbaşkanı, keşke sorun bir finansal kriz ya da birilerinin açgözlülüğü olsa.</p>\n<p>Bu planlı, organize bir biçimde ve kamu gücü kullanılarak 500 bin kişinin dolandırılmasıdır.</p>\n<p>Tekrar olacak ama özetle şöyle oldu:</p>\n<p>Tera ve diğer portföy yönetim şirketlerinin fonları bazı şirketlerin hisselerine büyük paralar yatırdı. Hisseler yükseldi, yükseldikçe fonların değeri arttı, fonlar büyüdükçe daha fazla para toplandı.</p>\n<p>Özata Denizcilik’in piyasa değeri 292 milyar liraya, Destek Finans Faktoring’in değeri 538 milyar liraya kadar çıktı. Öyle ki bu iki şirketin değerleri Koç Holding’e, Tüpraş’a, Ford Otosan’a yaklaştı.</p>\n<p>Peki bu hisseler neden yükseldi?</p>\n<p>Çünkü fonlar aynı hisseleri alıp duruyordu. Fonların portföyleri şişiyor, şişen portföyler yeni yatırımcı çekiyordu.</p>\n<p>Bir çeşit saadet zinciri kuruldu.</p>\n<p>Ama saadet zincirlerinin bir özelliği vardır. Herkes aynı anda parasını alamaz.</p>\n<p>İlk çıkanlar kazanır. Son kalanlar faturayı öder.</p>\n<p>İşte Fatma Betül Sayan Kaya gibi haber almış yatırımcılar fonların şişmiş değerleri üzerinden paralarını çekerek çıkabildi.</p>\n<p>Geriye kalan yüz binlerce yatırımcı ise aynı fiyatlardan satılması mümkün olmayan hisselerle baş başa kaldı.</p>\n<p>Yani mesele fahiş kazanç değil.</p>\n<p>Hisselerin değerini yapay biçimde büyüterek başkalarının parasını sisteme çekmek, bazılarına kazanç ve çıkış imkânı sağlarken zararı geride kalanlara bırakmak üzerine kurulu bir dolandırıcılık mekanizması var karşımızda.</p>\n<p>Ve bu mekanizma iki yıldır herkesin gözü önünde çalışıyor.</p>\n<p>O yüzden bu birkaç borsacının işi olamaz.</p>\n<p>SPK müdahale etmeyerek, ruhsatlar dağıtarak buna göz yumdu ya da destek verdi, BDDK banka kurma, varlık yönetimi şirketi kurmak gibi verilmemesi gereken izinleri verdi, Borsa İstanbul yönetimi ise gözünün önündeki bu dolandırıcılığı en iyimser ihtimalle izledi.</p>\n<p>Bu fon şirketlerinin içinde Cumhurbaşkanlığı ve iktidara yakın isimler vardı.</p>\n<p>Cumhurbaşkanı eski ve yeni danışmanları, AK Parti’de milletvekilliği, yöneticilik yapmış isimler, bakan çocukları, bakan yardımcılarının damatları…</p>\n<p>Bu isimler hem bu dolandırıcılığa koruma kalkanı sağladı hem yatırımcı için referans oldu.</p>\n<p>Yetmedi. Meclis’teki komisyonda ortaya çıktı ki kamu da bu dolandırıcılığa finansman destek sağladı.</p>\n<p>TBMM’de Takasbank Genel Müdürü Yunus Arıncı, Tera’nın 21 milyar liralık teminatına karşılık 9 milyar liralık risk bulunduğunu açıkladı.</p>\n<p>Yani değeri şişirilmiş hisseleri satmadan, başka kaynaklardan nakit sağlayarak bazı büyük yatırımcıların sistemden çıkışı finanse edildi.</p>\n<p>Yani Fatma Betül Sayan Kaya ve eşine 2 milyar TL kamu kaynaklarından verildi.</p>\n<p>Hatta muhtemelen İşsizlik Sigortası Fonu’ndan.</p>\n<p>Çünkü İşsizlik Sigortası Fonu’nun 3,8 milyar lirası Takasbank Para Piyasası’nda değerlendiriliyor.</p>\n<p>İşsiz kalan vatandaşların güvencesi olması gereken kamu kaynakları, büyük yatırımcıların fonlardan çıkışını finanse etmekte kullanılmış olabilir.</p>\n<p>Yani karşımızda hem 500 bin kişinin dolandırılması var hem de 80 milyon insanın katkısı olan bir fonla bu dolandırıcılığın finanse edilmesi var.</p>\n<p>Kul hakkı kere kul hakkının yenmesi vakasıyla karşı karşıyayız.</p>\n<p>Kul hakkını girme rekoru bile olabilir bu olay.</p>\n<p>İşte manzara böyleyken buna fonların bir kısmında yaşanan bir sorun demek, meseleyi fahiş kazanç elde eden açgözlüler olarak tarif etmek kimsenin yüreğine su serpmiyor.</p>\n<p>En basit tweetten insanların evi basılırken, bir espriden komedyenler havalimanında ters kelepçeyle yürütülürken 2 milyar TL’lik fon vurgununu bizzat kendi isimleriyle yapmış AK Parti eski Genel Başkan Yardımcısı ve eşinin AK Parti Whatsapp grubundan atılmak dışında bir bedel ödememesi, “evimizin kızı Fatma bile olsa“… denilememesi insanların ağrına gidiyor.</p>\n<p>SPK’nın bile bizzat kendi açıklamasında suçladığı eski başkan İbrahim Ömer Gönül’ün adliyenin bir kapısından girip diğerinden çıkması, hala babasının dokunulmazlık zırhıyla şımarıkça röportajlar vermesi insanları kızdırıyor.</p>\n<p>Bu dolandırıcılığı en azından izleyip, işlerini yapmadıkları kesin olan BDDK, SPK, Borsa İstanbul yöneticilerinden tek bir tanesinin bile koltuğundan olmaması hatta bu isimlerin hala fon krizine çözüm masasında oturmaya devam etmesi sadece bu krizin değil devletin de kötü yönetildiğini gösteriyor.</p>\n<p>Herkes o kadar rahat ki manipüle edilmiş Özata şirketinin tutuklanmış yöneticisinin kayınpederi hala Hazine Bakan Yardımcısı, babası hala BDDK etik kurulu üyesi.</p>\n<p>Neden Tera Portföy’ün Yönetim Kurulu başkanı, daha beş ay öncesine kadar AK Parti Genel Başkan Yardımcısı’nın yanında dolaşan 35 yaşındaki Erdin Özel’di?</p>\n<p>Neden AK Parti’nin kampanyalarını yapan eski yöneticisi Ertan Aydın Tera’da yönetici oldu?</p>\n<p>Eski iki danışmanınızın bu şirkette ne işi vardı? Hala danışmanınız olan bir isim neden kısa süreliğine olsa da Tera’da yöneticilik yaptı?</p>\n<p>Nasıl oluyor da bir bürokratın herhangi bir ailevi zenginliği de olmayan eşi portföy şirketi ortağı olabiliyor?</p>\n<p>Bu sorular cevapsız kaldıkça şüpheler büyüyor.</p>\n<p>Kamuoyu bu isimler ve bağlantılarının üzerine gitmenizi, bu dolandırıcılığın siyaset ve bürokrasi ayaklarını teşhir ve tasviye etmenizi bekliyor.</p>\n<p>Bu olmadıkça da kimse tatmin olmuyor.</p>\n<p>Bu kez sadece muhalifler de değil.</p>\n<p>Sosyal medyada mesajlarınızın altına yazılan yorumları okumadıysanız eski Akıncı şefi Mehmet Güney’in İnsan ve Medeniyet Hareketi’nin, Aziz Mahmud Hüdayi Vakfı’nın açıklamasını muhakkak görmüşsünüzdür.</p>\n<p>Her koşulda iktidarı desteklemiş kesimleri bile ses çıkarmak zorunda bırakan tabandan yükselen rahatsızlık ve basınç.</p>\n<p>Kimseyi ikna etmiyor finansal Susurluk olan bu fon skandalına fon krizi muamelesi yapmak.</p>\n<p>Ve bu kez suçlanacak bir dış güç de yok.</p>\n<p>Bu fonlar Türkiye’de kuruldu. Hisseler Türkiye’de şişirildi. Denetim kurumlarının başında iktidarın atadığı yöneticiler vardı. Şirketlerin çevresinde iktidarla ilişkili insanlar bulunuyordu.</p>\n<p>Çözüm dolandırılanların bir kısmına paralarını iade etmekle mümkün olsaydı keşke.</p>\n<p>Bu skandalla gerektiği biçimde hesaplaşılmadığı her gün Türkiye’nin borsasında milyonlarca insanın birikimleri eriyor, hatta daha kalıcı zararlar da kapıda.</p>\n<p>Uluslararası endeks kuruluşu MSCI, Türkiye’deki koordineli hisse ve fon işlemlerinden duyduğu endişeyle Türk şirketlerinin uluslararası endekslerde yükselmesini dondurdu. Yeni şirketlerin endekslere girişi ve mevcut şirketlerin ağırlıklarını artıracak bazı değişiklikler durduruldu.</p>\n<p>Daha kötüsü, Haziran 2027’ye kadar yeterli ilerleme sağlanmazsa Türkiye’nin gelişmekte olan piyasalar kategorisinden çıkarılması değerlendirilecek.</p>\n<p>Yani dünyanın büyük yatırım fonlarının Türkiye’ye para getirdiği kapılardan biri daralıyor.</p>\n<p>Yarın bazı uluslararası fonlar Türk hisselerini satmak zorunda kalabilir. Türkiye’nin şirketleri daha pahalı finansmanla karşılaşabilir.</p>\n<p>Birkaç bin kişinin servetini büyütmek için kurulan düzenin faturasını bütün Türkiye ödeyebilir.</p>\n<p>Bu yüzden mesele artık yalnızca adalet değil, Türkiye’nin ekonomik geleceği.</p>\n<p>Bu gerçekten de bir beka sorunu.</p>\n<p>Yoksa fonlar tasfiye ediliyor, ödeme takvimleri hazırlanıyor olabilir.</p>\n<p>Ama asıl sorular hâlâ cevapsız.</p>\n<p>Soru soranların bir kısmı hapse atılıyor, bazıları ev hapsine alınıyor daha şanslı olanların hesapları erişime engelleniyor.</p>\n<p>Umarım bu yazı önünüze kadar gelmeyi başarır.</p>\n<p>Çünkü maalesef bu hesaplaşmayı siz yapmadan hiçbir şey kontrol altında değil.</p>\n<p>Bir cerrah titizliğinden söz ediyorsunuz.</p>\n<p>Ama cerrah önce hastalığın nerede olduğunu teşhis eder.</p>\n<p>Herkes sizden neşteri elinize almanızı ve kanserli hücreleri kesip atmanızı bekliyor.</p>\n<p>Bunu ancak siz yapabilirsiniz.</p>\n<p>“Kızım Fatıma da olsa“ demenizi bekliyoruz…</p>",
+      "photo": "https://cdn.karar.com/author/68_b.jpg",
+      "avatar": "https://cdn.karar.com/author/68_b.jpg",
+      "isLive": true
+    },
+    {
       "id": "karar-d11a32f5",
+      "sourceKey": "karar",
       "author": "İsmet Berkan",
       "source": "Karar",
       "title": "İktidar fon soygunu konusunda neden inandırıcı olamıyor? - İsmet Berkan",
@@ -1079,6 +1163,7 @@
     },
     {
       "id": "karar-09299e0d",
+      "sourceKey": "karar",
       "author": "Osman Sert",
       "source": "Karar",
       "title": "Sandığa 18 ay kala yükselen tansiyon - Osman Sert",
@@ -1095,6 +1180,7 @@
     },
     {
       "id": "karar-ff357ca4",
+      "sourceKey": "karar",
       "author": "Gülay Erdemli",
       "source": "Karar",
       "title": "Bir aşıyla bütün kışı atlatmak… - Gülay Erdemli",
@@ -1111,6 +1197,7 @@
     },
     {
       "id": "karar-ad0c29f1",
+      "sourceKey": "karar",
       "author": "Salih Cenap Baydar",
       "source": "Karar",
       "title": "Kitleler altından putlarla nasıl soyulur? - Salih Cenap Baydar",
@@ -1127,6 +1214,7 @@
     },
     {
       "id": "karar-3a37bb18",
+      "sourceKey": "karar",
       "author": "Ömer Erdem",
       "source": "Karar",
       "title": "İstanbul’dan denizin rengini çalmak... - Ömer Erdem",
@@ -1143,6 +1231,7 @@
     },
     {
       "id": "karar-f630e507",
+      "sourceKey": "karar",
       "author": "Semra Alkan",
       "source": "Karar",
       "title": "“Doğurganlık hızının 2,19 düzeyinden 1,42’ye gerilemesi…” - Semra Alkan",
@@ -1159,6 +1248,7 @@
     },
     {
       "id": "karar-d6334dfd",
+      "sourceKey": "karar",
       "author": "Aynur Taş",
       "source": "Karar",
       "title": "İlişkilerde ve iletişimde neden her şey yeniden masaya yatırılıyor? - Aynur Taş",
@@ -1175,6 +1265,7 @@
     },
     {
       "id": "haberturk-d7dbf805",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "İstanbul'un sel belâsı asırlardır Eylül'de ve Ekim'dedir!",
@@ -1191,6 +1282,7 @@
     },
     {
       "id": "haberturk-d6d42f26",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "\"Aşk ve Yaşam\"a yeni yorum",
@@ -1207,6 +1299,7 @@
     },
     {
       "id": "haberturk-2bc8a470",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "Cafer Gatsbyoğlu",
@@ -1223,6 +1316,7 @@
     },
     {
       "id": "haberturk-08d562cf",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "Yabancı otomobil yasak, ya şebeke?",
@@ -1239,6 +1333,7 @@
     },
     {
       "id": "haberturk-cbc647ca",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "Savaş, enflasyon, borç ve seçim: Piyasalar neyi fiyatlıyor?",
@@ -1255,6 +1350,7 @@
     },
     {
       "id": "haberturk-7724d2a8",
+      "sourceKey": "haberturk",
       "author": "Köşe Yazarı",
       "source": "Habertürk",
       "title": "Rum-Yunan hala Enosis peşinde!",
@@ -1271,6 +1367,7 @@
     },
     {
       "id": "aksam-7b9576bc",
+      "sourceKey": "aksam",
       "author": "Yusuf Alabarda",
       "source": "Akşam",
       "title": "Mihraç Ural için hesap vakti",
@@ -1287,22 +1384,24 @@
     },
     {
       "id": "aksam-64709bd5",
+      "sourceKey": "aksam",
       "author": "Prof. Dr. Yaşar Hacısalihoğlu",
       "source": "Akşam",
       "title": "AKŞAM Haberler - Son Dakika Haberleri, Son Dakika Güncel İnternet Haberleri, Gazete Manşetleri",
       "url": "https://www.aksam.com.tr/yazarlar/prof-dr-yasar-hacisalihoglu/istanbul-yuklerini-tasiyamiyor/haber-1706821",
-      "date": "Bugün 08:35",
-      "publishedAt": "2026-10-17T05:35:41.675686+00:00",
+      "date": "Bugün 09:42",
+      "publishedAt": "2026-10-17T06:42:44.476574+00:00",
       "category": "Gündem",
       "readTime": "4 dk",
-      "snippet": "Çiftçi oldu! Çuval çuval satıyor Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı Yürek burkan sözler! Meğer iş bulabilmek için elini saklamış Yıllar sonra gelen itiraf! Dir…",
-      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Çiftçi oldu! Çuval çuval satıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yürek burkan sözler! Meğer iş bulabilmek için elini saklamış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yıllar sonra gelen itiraf! Diriliş Ertuğrul için seçmelere katılmış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Altı Üstü İstanbul'un Emir'i ve Naz'ından kafa karıştıran aşk açıklaması!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Burnundaki tamponla nefes alıyor! Son hali korkuttu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Düz şal yerine desenli şal deneyin: Deneyen farkı görüyor!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Paraf Premium'la hayat size özel!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Devlet Tiyatroları'nda bir ilk: Filistin direnişini konu alan Sumud, yarın AKM'de perde açacak</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ahu Tuğba'nın kızı Anjelik Calvin polisliğe geri dönüyor!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Fenerbahçe'ye kötü haber! Marco Asensio...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Küllerinden doğdu! Herkes Cengiz Ünder'i konuşuyor...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Derbide oynayacak mı? Orkun Kökçü için resmi açıklama</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">FIFA'dan Süper Lig ekibine transfer yasağı!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Fenerbahçe, Alanyaspor karşılaşmasına hazır</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Beşiktaş, evinde Bayern Münih'i devirdi!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Lider olsan nasıl yönetirsin? Parmak şeklini seç ve sonucu öğren</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ne kolajen tozu ne krem! Cildi pürüzsüz yapıp 10 yıl gençleştiren 5 doğal besin</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Yağmurda ilk ne gördünüz? Bastırdığınız duygular ortaya çıkıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Herkes demir ilacı sanıyor! Sütle ve pekmezle ilgili yıllardır doğru bilinen yanlış ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Düz şal yerine desenli şal deneyin: Deneyen farkı görüyor!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resimde ilk arı mı, örümcek mi gördün? Kişilik testi hafızanızdan atamadığınız şeyi söylüyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ayvayı sadece haşlamayın! Fırında bu yöntemle deneyen tarifini soruyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Tığ işi bilenler buna bayılıyor! Tek motifle pembe yelek yapımı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim 2026 burç yorumları: Zodyak kuşağında kilitler açılıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yağmurlu havalarda mutsuz olan 3 burç</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Çiftçi oldu! Çuval çuval satıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yürek burkan sözler! Meğer iş bulabilmek için elini saklamış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yıllar sonra gelen itiraf! Diriliş Ertuğrul için seçmelere katılmış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kızı Sora 1 yaşında! 90'lar konsepti yaptı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Serkan Altunorak aynı anda üç projede...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mesaj taktiği uygulayanlara tepki! 'Ne zavallısın sen'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Altı Üstü İstanbul'un Emir'i ve Naz'ından kafa karıştıran aşk açıklaması!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İflasıyla ilgili yeni gelişme! Avukatından açıklama geldi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Hamilelik açıklaması: Süreç zor geçmedi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mutlu anları fotoğraflarda kaldı! Oğlundan yürek burkan doğum günü paylaşımı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul yüklerini taşıyamıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İyi bantlayın da cereyan yapmasın!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Banyas ve Reyhanlı katliamları neden yapıldı?</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mirziyoyev Türk iş insanlarıyla buluştu: İşbirlikleri gelişiyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Eskişehir'de şüpheli ölüm! Komşusunun evinde yığıldı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul Valiliği'nden sınav kararı: ÖSYM 17-18 Ekim sınavlarının ertelendiğini duyurdu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul'da kara para operasyonu! Murat Ağırel, Ömer Sarıgül ve Aylin Kotil gözaltında</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Destek için NATO'ya başvurdular! Komşudan Türkiye'ye üçlü ittifak teklifi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yunanistan'dan kışkırtıcı hamle! Atina'dan 3 ülkeyle ortak provokasyon</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Netanyahu'ya Türkiye ayarı: Karşındaki gücü hesaba katmıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Şiddetli yağışlar sonrası seferberlik: AFAD koordinasyonunda binlerce personel müdahale ediyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kocaeli merkezli 16 ilde dev sanal kumar operasyonu: 29 şüpheli tutuklandı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Atama bekleyen sağlıkçılara müjde! 31 bin 54 sözleşmeli personel kararı Resmi Gazete'de</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Renault yaptı yapacağını: Faizsiz taksitle Boreal satışı başladı! İşte güncel araç fiyat listesi...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İsrail zulmü sürüyor: Gaz bombasıyla evi yaktılar, söndürülmesine izin vermediler</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Siirt'te gıda zehirlenmesi şüphesiyle hastaneye kaldırılanların sayısı 40'a yükseldi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">12 Ekim'de göreve başlamıştı: Beyaz Saray Sözcüsü Katie Zacharia istifanın eşiğinde</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İzmir merkezli 4 ilde dev yasa dışı bahis operasyonu: 27 tutuklama</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">PAMUKOVA ASLİYE HUKUK MAHKEMESİ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resmen açıklandı: 65 KPSS puanı yetiyor! Memur alımı yapılacak</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kızı Sora 1 yaşında! 90'lar konsepti yaptı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Hamilelik açıklaması: Süreç zor geçmedi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">UDHB KIYI EMNİYETİ GENEL MÜDÜRLÜĞÜ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün altın kaç TL? Gram ile çeyrek altın ne kadar? Güncel altın fiyatları</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mutlu anları fotoğraflarda kaldı! Oğlundan yürek burkan doğum günü paylaşımı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resimde ilk arı mı, örümcek mi gördün? Kişilik testi hafızanızdan atamadığınız şeyi söylüyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Yağmurda ilk ne gördünüz? Bastırdığınız duygular ortaya çıkıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">ŞANLIURFA 9. ASLİYE HUKUK MAHKEMESİ HAKİMLİĞİ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün hangi maçlar var? İşte maç programı...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ajda Pekkan'dan Alpay'a veda: 'Sesin ve şarkıların hep bizimle yaşayacak'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Herkes demir ilacı sanıyor! Sütle ve pekmezle ilgili yıllardır doğru bilinen yanlış ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resimde ilk hangi hayvanı gördün? Kişilik testi sayısal zekan mı, sözel zekan mı üstün söylüyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Real Madrid'e kötü haber! Vinicius'un cezası değişmedi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">DENİZLİ İCRA DAİRESİ MÜDÜRLÜĞÜ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün hava durumu nasıl? İşte İstanbul hava durumu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Skoda yaptı yapacağını: İndirimli araç satışı başladı! Egea'dan bile ucuz Kamiq imkanı...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">FIFA'dan Süper Lig ekibine transfer yasağı!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Fenerbahçe, Alanyaspor karşılaşmasına hazır</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Beşiktaş, evinde Bayern Münih'i devirdi!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Zeka testi: Kurtların arasındaki beyaz kedi nerede? 650 kişi çözmeyi denedi 12'si buldu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Faiz yok: Kredi araştıran baksın! Tam 5 banka duyurdu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Onlar Zodyak'ın güler yüzü! Mutlu ve neşeli 2 burç</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resmen duyuruldu: 60 ve 65 KPSS puanı ile personel alımı yapılacak! Son tarih</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">KuPS - Trabzonspor maçı hangi kanalda? Konferans Ligi TS maçı saat kaçta?</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Lille - Galatasaray maçı hangi kanalda, saat kaçta? GS Şampiyonlar Ligi maçı ne zaman?</h3>\n<p>Gündem, ekonomi, son dakika, spor ve yaşam dünyasındaki önemli gelişmelerden anında haberdar olmak ister misiniz?</p>",
+      "snippet": "Kimsenin yağlı kapısı değilim' Çiftçi oldu! Çuval çuval satıyor Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı Yürek burkan sözler! Meğer iş bulabilmek için elini saklamı…",
+      "fullContent": "<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kimsenin yağlı kapısı değilim'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Çiftçi oldu! Çuval çuval satıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yürek burkan sözler! Meğer iş bulabilmek için elini saklamış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yıllar sonra gelen itiraf! Diriliş Ertuğrul için seçmelere katılmış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Altı Üstü İstanbul'un Emir'i ve Naz'ından kafa karıştıran aşk açıklaması!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Burnundaki tamponla nefes alıyor! Son hali korkuttu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Paraf Premium'la hayat size özel!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Düz şal yerine desenli şal deneyin: Deneyen farkı görüyor!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Devlet Tiyatroları'nda bir ilk: Filistin direnişini konu alan Sumud, yarın AKM'de perde açacak</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Erzurumspor FK'nın konuğu Eyüpspor! İşte muhtemel 11'ler...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Amed Sportif Faaliyetler'in konuğu Konyaspor! İşte muhtemel 11'ler...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Fenerbahçe'ye kötü haber! Marco Asensio...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Küllerinden doğdu! Herkes Cengiz Ünder'i konuşuyor...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Derbide oynayacak mı? Orkun Kökçü için resmi açıklama</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">FIFA'dan Süper Lig ekibine transfer yasağı!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Lider olsan nasıl yönetirsin? Parmak şeklini seç ve sonucu öğren</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ne kolajen tozu ne krem! Cildi pürüzsüz yapıp 10 yıl gençleştiren 5 doğal besin</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Yağmurda ilk ne gördünüz? Bastırdığınız duygular ortaya çıkıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Herkes demir ilacı sanıyor! Sütle ve pekmezle ilgili yıllardır doğru bilinen yanlış ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Düz şal yerine desenli şal deneyin: Deneyen farkı görüyor!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resimde ilk arı mı, örümcek mi gördün? Kişilik testi hafızanızdan atamadığınız şeyi söylüyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ayvayı sadece haşlamayın! Fırında bu yöntemle deneyen tarifini soruyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Tığ işi bilenler buna bayılıyor! Tek motifle pembe yelek yapımı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim 2026 burç yorumları: Zodyak kuşağında kilitler açılıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yağmurlu havalarda mutsuz olan 3 burç</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İçini döktü: Kızdırdıysam çocukluğuma verin</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kimsenin yağlı kapısı değilim'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Partneri hakkında dikkat çeken sözler: Onunla çalışmak...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Çiftçi oldu! Çuval çuval satıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Akasya Durağı'nın Osman Ağa'sının son hali ortaya çıktı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yürek burkan sözler! Meğer iş bulabilmek için elini saklamış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yıllar sonra gelen itiraf! Diriliş Ertuğrul için seçmelere katılmış</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kızı Sora 1 yaşında! 90'lar konsepti yaptı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Serkan Altunorak aynı anda üç projede...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mesaj taktiği uygulayanlara tepki! 'Ne zavallısın sen'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Altı Üstü İstanbul'un Emir'i ve Naz'ından kafa karıştıran aşk açıklaması!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İflasıyla ilgili yeni gelişme! Avukatından açıklama geldi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul yüklerini taşıyamıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İyi bantlayın da cereyan yapmasın!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Banyas ve Reyhanlı katliamları neden yapıldı?</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mirziyoyev Türk iş insanlarıyla buluştu: İşbirlikleri gelişiyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul Valiliği'nden sınav kararı: ÖSYM 17-18 Ekim sınavlarının ertelendiğini duyurdu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Devlet memurlarının fazla mesai ücreti belli oldu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Destek için NATO'ya başvurdular! Komşudan Türkiye'ye üçlü ittifak teklifi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yunanistan'dan kışkırtıcı hamle! Atina'dan 3 ülkeyle ortak provokasyon</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Netanyahu'ya Türkiye ayarı: Karşındaki gücü hesaba katmıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Görevi alır almaz Türkiye mesajı: 4 konuda söz verdi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Şiddetli yağışlar sonrası seferberlik: AFAD koordinasyonunda binlerce personel müdahale ediyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kocaeli merkezli 16 ilde dev sanal kumar operasyonu: 29 şüpheli tutuklandı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Atama bekleyen sağlıkçılara müjde! 31 bin 54 sözleşmeli personel kararı Resmi Gazete'de</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">UDHB KIYI EMNİYETİ GENEL MÜDÜRLÜĞÜ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İstanbul hava durumu! 17 Ekim Cumartesi bugün hava nasıl, kaç derece?</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İsrail zulmü sürüyor: Gaz bombasıyla evi yaktılar, söndürülmesine izin vermediler</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Siirt'te gıda zehirlenmesi şüphesiyle hastaneye kaldırılanların sayısı 40'a yükseldi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">12 Ekim'de göreve başlamıştı: Beyaz Saray Sözcüsü Katie Zacharia istifanın eşiğinde</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İzmir merkezli 4 ilde dev yasa dışı bahis operasyonu: 27 tutuklama</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">PAMUKOVA ASLİYE HUKUK MAHKEMESİ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Zeka testi: Yavru kedi nerede? 872 kişiden 18'i buldu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">İçini döktü: Kızdırdıysam çocukluğuma verin</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Partneri hakkında dikkat çeken sözler: Onunla çalışmak...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">ŞANLIURFA 9. ASLİYE HUKUK MAHKEMESİ HAKİMLİĞİ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Renault yaptı yapacağını: Faizsiz taksitle Boreal satışı başladı! İşte güncel araç fiyat listesi...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kızı Sora 1 yaşında! 90'lar konsepti yaptı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Hamilelik açıklaması: Süreç zor geçmedi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Mutlu anları fotoğraflarda kaldı! Oğlundan yürek burkan doğum günü paylaşımı</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">DENİZLİ İCRA DAİRESİ MÜDÜRLÜĞÜ</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resmen açıklandı: 65 KPSS puanı yetiyor! Memur alımı yapılacak</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resimde ilk arı mı, örümcek mi gördün? Kişilik testi hafızanızdan atamadığınız şeyi söylüyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Kişilik testi: Yağmurda ilk ne gördünüz? Bastırdığınız duygular ortaya çıkıyor</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Ajda Pekkan'dan Alpay'a veda: 'Sesin ve şarkıların hep bizimle yaşayacak'</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Erzurumspor FK'nın konuğu Eyüpspor! İşte muhtemel 11'ler...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Amed Sportif Faaliyetler'in konuğu Konyaspor! İşte muhtemel 11'ler...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün altın kaç TL? Gram ile çeyrek altın ne kadar? Güncel altın fiyatları</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Real Madrid'e kötü haber! Vinicius'un cezası değişmedi</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün hangi maçlar var? İşte maç programı...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">FIFA'dan Süper Lig ekibine transfer yasağı!</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">16 Ekim Cuma: Bugün hava durumu nasıl? İşte İstanbul hava durumu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Skoda yaptı yapacağını: İndirimli araç satışı başladı! Egea'dan bile ucuz Kamiq imkanı...</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Zeka testi: Kurtların arasındaki beyaz kedi nerede? 650 kişi çözmeyi denedi 12'si buldu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Faiz yok: Kredi araştıran baksın! Tam 5 banka duyurdu</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Onlar Zodyak'ın güler yüzü! Mutlu ve neşeli 2 burç</h3>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Resmen duyuruldu: 60 ve 65 KPSS puanı ile personel alımı yapılacak! Son tarih</h3>\n<p>Gündem, ekonomi, son dakika, spor ve yaşam dünyasındaki önemli gelişmelerden anında haberdar olmak ister misiniz?</p>",
       "photo": "https://img3.aksam.com.tr/fotogaleri/yazar/yusuf-alabardaa.jpg",
       "avatar": "https://img3.aksam.com.tr/fotogaleri/yazar/yusuf-alabardaa.jpg",
       "isLive": true
     },
     {
       "id": "aksam-d4ef152f",
+      "sourceKey": "aksam",
       "author": "Hikmet Genç",
       "source": "Akşam",
       "title": "İyi bantlayın da cereyan yapmasın!",
@@ -1319,6 +1418,7 @@
     },
     {
       "id": "aksam-e9231a11",
+      "sourceKey": "aksam",
       "author": "Murat Özer",
       "source": "Akşam",
       "title": "Banyas ve Reyhanlı katliamları neden yapıldı?",
@@ -1335,6 +1435,7 @@
     },
     {
       "id": "takvim-c3e7b261",
+      "sourceKey": "takvim",
       "author": "BÜLENT ERANDAÇ",
       "source": "Takvim",
       "title": "BÜLENT ERANDAÇ - Yapay kriz",
@@ -1351,6 +1452,7 @@
     },
     {
       "id": "takvim-66563a2f",
+      "sourceKey": "takvim",
       "author": "DR. NAFİZ KARAGÖZOĞLU",
       "source": "Takvim",
       "title": "DR. NAFİZ KARAGÖZOĞLU - Safra taşına zeytinyağı",
@@ -1367,6 +1469,7 @@
     },
     {
       "id": "posta-2f9180c8",
+      "sourceKey": "posta",
       "author": "Hakan Çelik",
       "source": "Posta",
       "title": "Türkiye’ye 1.800 uçak neden lazım?",
@@ -1383,6 +1486,7 @@
     },
     {
       "id": "posta-119062ca",
+      "sourceKey": "posta",
       "author": "Bilal Emin Turan",
       "source": "Posta",
       "title": "Paranın adresi TL mevduat",
@@ -1399,6 +1503,7 @@
     },
     {
       "id": "posta-563642cc",
+      "sourceKey": "posta",
       "author": "Ekrem Sarısu",
       "source": "Posta",
       "title": "900 gün daha prim ödemelisiniz",
@@ -1415,6 +1520,7 @@
     },
     {
       "id": "posta-14f8d99c",
+      "sourceKey": "posta",
       "author": "Tamer Heper",
       "source": "Posta",
       "title": "Zararlar nasıl karşılanacak?",
@@ -1431,6 +1537,7 @@
     },
     {
       "id": "posta-d92ab906",
+      "sourceKey": "posta",
       "author": "Filiz Özkol",
       "source": "Posta",
       "title": "17 Ekim 2026 günlük burç yorumları",
@@ -1447,6 +1554,7 @@
     },
     {
       "id": "posta-ed8e9c58",
+      "sourceKey": "posta",
       "author": "Arzu Çekirge Paksoy",
       "source": "Posta",
       "title": "Sürdürülebilir gelecek için",
@@ -1463,6 +1571,7 @@
     },
     {
       "id": "posta-30894090",
+      "sourceKey": "posta",
       "author": "Doç. Dr. Gökçen Erdoğan",
       "source": "Posta",
       "title": "‘Aşk’ın vücuttaki biyolojik süreci",
@@ -1479,6 +1588,7 @@
     },
     {
       "id": "yeniasir-935ad46c",
+      "sourceKey": "yeniasir",
       "author": "Obez dünya için bir umut!",
       "source": "Yeni Asır",
       "title": "Tüm Yazıları - Yeni Asır",
@@ -1495,6 +1605,7 @@
     },
     {
       "id": "star-947ba4e9",
+      "sourceKey": "star",
       "author": "Hüseyin GÜLERCE",
       "source": "Star",
       "title": "Fon krizi, İmamoğlu ve Özel'in kirini temizlemez - Yazarlar - Hüseyin GÜLERCE",
@@ -1511,6 +1622,7 @@
     },
     {
       "id": "star-70bd9b20",
+      "sourceKey": "star",
       "author": "Coşkun BAŞBUĞ",
       "source": "Star",
       "title": "Başaramayacaksınız - Yazarlar - Coşkun BAŞBUĞ",
@@ -1526,7 +1638,25 @@
       "isLive": true
     },
     {
+      "id": "star-94b7fc68",
+      "sourceKey": "star",
+      "author": "Betül Soysal Bozdoğan",
+      "source": "Star",
+      "title": "Türkiye'deki basın ''bağımlı veya bağlı'' değildir - Yazarlar - Betül Soysal Bozdoğan",
+      "url": "https://www.star.com.tr/yazar/turkiyedeki-basin-bagimli-veya-bagli-degildir-yazi-2047084/",
+      "date": "Bugün 09:00",
+      "publishedAt": "2026-10-17T06:00:00+00:00",
+      "category": "Gündem",
+      "readTime": "3 dk",
+      "snippet": "Azerbaycan'da yaşanan başörtüsü yasağına hükümet yetkililerinin şu konjonktürde açıktan yorum yapmamasının ve ilişkileri seyrinde devam ettirmesinin anlamı var. Zira devlet yetkili…",
+      "fullContent": "<p>Azerbaycan'da yaşanan başörtüsü yasağına hükümet yetkililerinin şu konjonktürde açıktan yorum yapmamasının ve ilişkileri seyrinde devam ettirmesinin anlamı var. Zira devlet yetkililerinin böyle bir gündeme konu olmaları, iki devletin arasına mesafe girmesine vesile olurdu. Öncelikli olarak İsrail'in ikinci planda da İran'ın heyecanla beklediği bir sonuç bu.</p>\n<p>Şahsen Azerbaycan'da başörtüsü yasağının icat edilmesini, İsrail ile ilişkili kliklere bağlıyorum. Zaman ayarlı bombayı, iki ülke arasına nifak tohumu olarak koydular. Umarım başarılı olamayacaklardır.</p>\n<p>Diğer taraftan Azerbaycan devlet yönetiminin de süreci daha sağduyulu, daha yapıcı, daha özgürlükçü bir taraftan değerlendirip kendi halkıyla arasını açmaması adına bir kere düşünmesi gerektiğini not ediyorum.</p>\n<p>Çok tabiidir ki; ülkemizde siyasetin refleksi ile vatandaşın, medyanın ve sivil toplumun refleksi her konuda aynı eksene düşmeyebilir.</p>\n<p>Bu durumu otoriter yönetimlerin anlaması güç.</p>\n<p>Türkiye basınında çıkan haberlerin ve eleştirilerin siyaset makamları tarafından yazdırıldığını düşünmek; Türkiye'yi tanımamaktır.</p>\n<p>Türkiye'de iktidar da muhalefet de basın da kendi alanlarında özgür ve bağımsızdır.</p>\n<p>Demokrasimizin geldiği mesafe oldukça güçlüdür.</p>\n<p>Bizde iktidar partisi yüzde 90 ile seçilmiyor. Siyasette sahici bir yarış olduğu gibi basında da oldukça çok sesli ve bağımsız bir pratik söz konusu.</p>\n<p>AZERBAYCAN'DAKİ BAŞÖRTÜSÜ YASAĞININ YANSIMALARI</p>\n<p>Şimdi Azerbaycan'daki başörtüsü yasağının Türkiye'deki sivil toplum ve medyasındaki yansımalarına bir bakalım.</p>\n<p>Sivil toplumda başörtüsü yasağını eleştiren ve çözüm odaklı yaklaşımların devreye girmesini isteyen metinler yayınlandı. Öne çıkan dernekler; ÖNDER İmam Hatipliler Derneği, 28 Şubat Gönüllüleri Platformu, ASKON, MazlumDer, MTTB, Hukukçular Derneği, TİMAV ve Yedi Hilal Derneği. Bu derneklerin çoğu çok köklü ve Türkiye'deki başörtüsü mücadelesinde büyük emeği olan kurumlardır. Dün Türkiye iktidarlarına susmayan ilkeli insanlar bugün de Azerbaycan yönetiminin bu kararına susmadılar.</p>\n<p>Öncelikle sosyal medyada İsrail ve İran odaklı hesapların beşinci kol faaliyetleri çok net ortadadır. Ve bu odaklara bağlı bot hesapların paylaşımları...</p>\n<p>Durumu fırsat bilen FETÖ'cülerin çabaları...</p>\n<p>Türkiye'deki yerli İslamofobik, tengrici ve kafatasçı zihniyetin aktive olması...</p>\n<p>Bu dört grup fitne oluşturmak, konuyu seviyesizleştirmek ve düşmanca duygunları yeşertmek için oldukça uzun mesailer harcamaktalar. Bu odakların farkında olmalı ve yazılanlara ferasetle bakıp fevri çıkışlardan uzak durmalıyız.</p>\n<p>\"TÜRKİYE'DE BASINI SUSTURUN\" DİYEN VARSA!</p>\n<p>Net ifade edeyim burada böyle bir adet ve pratik yoktur.</p>\n<p>Basın mensuplarının yorumları hiçbir ülkede o ülkenin resmi görüşü gibi algılanmaz.</p>\n<p>Mevzu başörtüsü olduğu için; yasak nerede ve hangi ülkede varsa ilkesel olarak şahsen bendeniz karşısında olduğumu ifade etmekteyim. Bu ister Fransa olsun, ister Doğu Türkistan olsun, isterse de Azerbaycan. Hak ve adalet coğrafyaya göre değişen muğlak bir olgu değildir.</p>\n<p>Türkiye'nin merkez medyasında ağırlık kazanan muhafazakar/dindar basın mensuplarının duruşunu, köklerini ve tıynetini bilmeyenler için not düşmek isterim.</p>\n<p>Birincisi; hükümet adına konuşmak gibi bir yetkileri de özellikleri de huyları da yoktur. Bu insanlar, özgür iradeleriyle ve sivil kimlikleriyle kendi adlarına konuşurlar.</p>\n<p>Bu kesim; muhalif kökenden gelmiştir ve kendi zihniyeti iktidar olsa bile objektif ve eleştirel düşünceyi muhafaza etmek gayretinde olmuştur ki; Hakkı-hakikati söylemek gerektiğinde refleks gösterebilsin.</p>\n<p>Bu gazeteciler 90'larda başörtüsü yasaklarında; kadınıyla erkeğiyle, sahada polis copuna muhatap olmuş ve fikri olarak da her açıdan mücadele vermiş ve kişisel hayat hikayelerinde bedel ödemişlerdir, bendeniz de dahil.</p>\n<p>Bu kesim o dönemlerde en ağır şekilde iktidarları eleştirdi.</p>\n<p>Bizden önceki neslimiz de hiçbir iktidarın gölgesinden korkmayarak rejimin yanlışlarını sokak sokak anlattı.</p>\n<p>Ondan önceki neslimiz de CHP'nin tek parti dönemiyle yine karşı karşı gelmiş bir nesildir.</p>\n<p>Ondan önceki de İngilize, Fransıza karşı imkansızlıklar içinde tüfeğiyle, silahı olmayan küreği ile savaşmıştır.</p>\n<p>Şimdi böyle bir koda sahip korkusuz bir kimliği nasıl susturabilirsin ki?</p>\n<p>Bu kitle, kardeş coğrafyadaki başörtüsü yasağını elbette eleştirecek.</p>\n<p>Bu kitle, BM kürsüsünde 76 bin masumun katili konuşurken dinlemeye devam edenlerin yanlış yolda olduğunu elbette söyleyecek.</p>\n<p>Bu kitle İsrail Cumhurbaşkanı'nın şu konjonktürde Azerbaycan'da ağırlanmasından elbette derin üzüntü duyacak.</p>\n<p>Ve tabi ki bu kitle, Azerbaycan'daki gözü yaşlı kız öğrencilerini destekleyecek ve tabi ki o gazilerin açıklamalarına yer verecek, şehit hanımlarının sesine ses olacak.</p>\n<p>Bu kitle unutulmasın ki; Azerbaycanlı kardeşleri için canını verir. Ama bu demek değildir ki; Azerbaycan devletinin her uygulamasını onaylasın.</p>",
+      "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99",
+      "avatar": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99",
+      "isLive": true
+    },
+    {
       "id": "star-b1d0cdbf",
+      "sourceKey": "star",
       "author": "Hasan Hüseyin ÖZ",
       "source": "Star",
       "title": "Paranın kapısını kim tutuyor? - Yazarlar - Hasan Hüseyin ÖZ",
@@ -1543,6 +1673,7 @@
     },
     {
       "id": "star-9727f6f1",
+      "sourceKey": "star",
       "author": "Cüneyd Altıparmak",
       "source": "Star",
       "title": "Yeni anayasanın takvimi, infazın yol haritası - Yazarlar - Cüneyd Altıparmak",
@@ -1559,6 +1690,7 @@
     },
     {
       "id": "star-14fba281",
+      "sourceKey": "star",
       "author": "Levent Ersin Orallı",
       "source": "Star",
       "title": "İstanbul'u yağmur değil, ihmaller boğuyor - Yazarlar - Levent Ersin Orallı",
@@ -1575,6 +1707,7 @@
     },
     {
       "id": "star-3aa526a8",
+      "sourceKey": "star",
       "author": "Yakup KÖSE",
       "source": "Star",
       "title": "Esad'ın köpeği Mihraç Ural yakalandı - Yazarlar - Yakup KÖSE",
@@ -1591,6 +1724,7 @@
     },
     {
       "id": "star-353e0337",
+      "sourceKey": "star",
       "author": "Mustafa SABRİ BEŞER",
       "source": "Star",
       "title": "İlk bakışta bohem, biraz pejmürde… Oysa o bir cerrah! - Yazarlar - Mustafa SABRİ BEŞER",
@@ -1607,6 +1741,7 @@
     },
     {
       "id": "star-30433970",
+      "sourceKey": "star",
       "author": "Esra ELÖNÜ",
       "source": "Star",
       "title": "Cennet hafızın ezberidir - Yazarlar - Esra ELÖNÜ",
@@ -1623,6 +1758,7 @@
     },
     {
       "id": "star-2d57ab3c",
+      "sourceKey": "star",
       "author": "Resul KURT",
       "source": "Star",
       "title": "İşçinin ara dinlenmesi - Yazarlar - Resul KURT",
@@ -1639,6 +1775,7 @@
     },
     {
       "id": "star-1d5d4a14",
+      "sourceKey": "star",
       "author": "Filiz Katman",
       "source": "Star",
       "title": "Hedef nedir? - Yazarlar - Filiz Katman",
@@ -1655,12 +1792,13 @@
     },
     {
       "id": "milligazete-4e712aa0",
+      "sourceKey": "milligazete",
       "author": "Foto Galeri",
       "source": "Milli Gazete",
       "title": "Foto Galeri",
       "url": "https://www.milligazete.com.tr/foto-galeri",
-      "date": "Bugün 08:37",
-      "publishedAt": "2026-10-17T05:37:03.034373+00:00",
+      "date": "Bugün 09:44",
+      "publishedAt": "2026-10-17T06:44:01.065013+00:00",
       "category": "Gündem",
       "readTime": "1 dk",
       "snippet": "Spor haberleri: 16 Ekim Cuma 2026 gazetelerde futbol manşetleri Spor haberleri: 13 Ekim Salı 2026 gazetelerde futbol manşetleri Spor haberleri: 12 Ekim Pazartesi 2026 gazetelerde f…",
@@ -1671,6 +1809,7 @@
     },
     {
       "id": "diken-b8827550",
+      "sourceKey": "diken",
       "author": "Murat Sevinç",
       "source": "Diken",
       "title": "Yeni Partili siyasetçilerin siyah karanfili ve göz bandı neden tepki çekti? - Diken",
@@ -1687,6 +1826,7 @@
     },
     {
       "id": "diken-d64594a5",
+      "sourceKey": "diken",
       "author": "Behzat Şahin",
       "source": "Diken",
       "title": "Burayı atlasaydım, eksik kalırdım - Diken",
@@ -1703,6 +1843,7 @@
     },
     {
       "id": "diken-6bcc6364",
+      "sourceKey": "diken",
       "author": "Zehra Çelenk",
       "source": "Diken",
       "title": "Nobel, Homeros ve aslanın cinsiyeti - Diken",
@@ -1719,6 +1860,7 @@
     },
     {
       "id": "diken-6aa62719",
+      "sourceKey": "diken",
       "author": "Mesude Demir",
       "source": "Diken",
       "title": "Sel suları çekilse de sağlık riski sürüyor - Diken",
@@ -1735,6 +1877,7 @@
     },
     {
       "id": "diken-96598839",
+      "sourceKey": "diken",
       "author": "Fazlı Gök",
       "source": "Diken",
       "title": "Yatırımda haftalık tablo: Borsa yüzde 4,44 düştü - Diken",
@@ -1751,6 +1894,7 @@
     },
     {
       "id": "diken-44735fed",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "HSBC: İkaz Türkiye piyasalarına zaman kazandırdı - Diken",
@@ -1767,6 +1911,7 @@
     },
     {
       "id": "diken-28ee8f91",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "MSCI 'dondurdu', Borsa İstanbul düştü - Diken",
@@ -1783,6 +1928,7 @@
     },
     {
       "id": "diken-ed97e2d1",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "Konut fiyat endeksi bir yılda yüzde 22,3 arttı - Diken",
@@ -1792,13 +1938,14 @@
       "category": "Gündem",
       "readTime": "1 dk",
       "snippet": "Konut Fiyat Endeksi (KFE), eylülde aylık yüzde 1,2, yıllık yüzde 22,3 arttı. KFE, Türkiye’deki konutların ‘kalite etkisinden arındırılmış’ fiyat değişimlerini izlemek amacıyla hesa…",
-      "fullContent": "<p>Konut Fiyat Endeksi (KFE), eylülde aylık yüzde 1,2, yıllık yüzde 22,3 arttı.</p>\n<p>KFE, Türkiye’deki konutların ‘kalite etkisinden arındırılmış’ fiyat değişimlerini izlemek amacıyla hesaplanıyor.</p>\n<p>Merkez Bankası (MB) verilerine göre KFE, eylülde bir önceki aya göre yüzde 1,2 artarak 239,4’a çıktı. Endeks, 2025’in aynı ayına göre yüzde 22,3 arttı. Fakat KFE aynı dönemde reel olarak yüzde 5,7 azaldı, yani yatırımcısına kaybettirdi.</p>\n<p>Öne çıkan diğer veriler şöyle:</p>\n<p>Türkiye İstatistik Kurumu (TÜİK) eylülde satılan konut sayısını 2025’in aynı ayına göre yüzde 9,3’lük düşüşle 142 bin 390 olarak hesaplamıştı.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yeni Kiracı Kira Endeksi bir yılda yüzde 26,6 arttı</h3>\n<p>Yeni Kiracı Kira Endeksi’yse (YKKE) eylül ayında bir önceki aya göre yüzde 2,1 arttı.</p>\n<p>YKKE bir yılda yüzde 26,6 yükselirken reel olarak yüzde 2,4 azaldı.</p>\n<p>YKKE eylülde İstanbul’da yüzde 3,5, Ankara’da yüzde 0,6 ve İzmir’de yüzde 1,1 arttı. Endekste yıllık artışsa İstanbul’da yüzde 35,5, Ankara’da yüzde 25,1 ve İzmir’de yüzde 23,7 arttı.</p>\n<p>İstatistiki Bölge Birimleri Sınıflaması’na göre bölgelerin yıllık yeni kiracı kira endeksi değişimleri incelendiğinde eylülde en yüksek yıllık artış yüzde 35,5’le İstanbul’da. En düşük yıllık artışsa yüzde 18,8’le Edirne, Kırklareli, Tekirdağ bölgesinde.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Osman Kavala 3 bin 272 gündür hapiste</h3>",
+      "fullContent": "<p>Konut Fiyat Endeksi (KFE), eylülde aylık yüzde 1,2, yıllık yüzde 22,3 arttı.</p>\n<p>KFE, Türkiye’deki konutların ‘kalite etkisinden arındırılmış’ fiyat değişimlerini izlemek amacıyla hesaplanıyor.</p>\n<p>Merkez Bankası (MB) verilerine göre KFE, eylülde bir önceki aya göre yüzde 1,2 artarak 239,4’a çıktı. Endeks, 2025’in aynı ayına göre yüzde 22,3 arttı. Fakat KFE aynı dönemde reel olarak yüzde 5,7 azaldı, yani yatırımcısına kaybettirdi.</p>\n<p>Öne çıkan diğer veriler şöyle:</p>\n<p>Türkiye İstatistik Kurumu (TÜİK) eylülde satılan konut sayısını 2025’in aynı ayına göre yüzde 9,3’lük düşüşle 142 bin 390 olarak hesaplamıştı.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Yeni Kiracı Kira Endeksi bir yılda yüzde 26,6 arttı</h3>\n<p>Yeni Kiracı Kira Endeksi’yse (YKKE) eylül ayında bir önceki aya göre yüzde 2,1 arttı.</p>\n<p>YKKE bir yılda yüzde 26,6 yükselirken reel olarak yüzde 2,4 azaldı.</p>\n<p>YKKE eylülde İstanbul’da yüzde 3,5, Ankara’da yüzde 0,6 ve İzmir’de yüzde 1,1 arttı. Endekste yıllık artışsa İstanbul’da yüzde 35,5, Ankara’da yüzde 25,1 ve İzmir’de yüzde 23,7 arttı.</p>\n<p>İstatistiki Bölge Birimleri Sınıflaması’na göre bölgelerin yıllık yeni kiracı kira endeksi değişimleri incelendiğinde eylülde en yüksek yıllık artış yüzde 35,5’le İstanbul’da. En düşük yıllık artışsa yüzde 18,8’le Edirne, Kırklareli, Tekirdağ bölgesinde.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Osman Kavala 3 bin 273 gündür hapiste</h3>",
       "photo": "",
       "avatar": "https://ui-avatars.com/api/?name=Bi%C5%9Far%20Arslan&background=2E384D&color=fff&size=128&bold=true",
       "isLive": true
     },
     {
       "id": "diken-c92a705d",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "Konut satışı bir yılda yüzde 9,3 azaldı - Diken",
@@ -1815,6 +1962,7 @@
     },
     {
       "id": "diken-dc0c6255",
+      "sourceKey": "diken",
       "author": "Cihan Tekin",
       "source": "Diken",
       "title": "Tesla 'uçan otomobil' tanıttı - Diken",
@@ -1831,6 +1979,7 @@
     },
     {
       "id": "diken-1ea708ea",
+      "sourceKey": "diken",
       "author": "Ece Deniz",
       "source": "Diken",
       "title": "'Beyin yiyen amip': Meksika'da altı göl kapatıldı - Diken",
@@ -1847,6 +1996,7 @@
     },
     {
       "id": "diken-e8365def",
+      "sourceKey": "diken",
       "author": "Fazlı Gök",
       "source": "Diken",
       "title": "Trump, idam mahkumu askerin infazını canlı yayınlamaktan vazgeçti - Diken",
@@ -1863,6 +2013,7 @@
     },
     {
       "id": "diken-fcafc3e3",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "Almanya'da bir mahkum e-scooter'la firar etti - Diken",
@@ -1879,6 +2030,7 @@
     },
     {
       "id": "diken-c10da3b2",
+      "sourceKey": "diken",
       "author": "Bişar Arslan",
       "source": "Diken",
       "title": "Alman hükümeti 'şeker vergisi'ni onayladı - Diken",
@@ -1895,6 +2047,7 @@
     },
     {
       "id": "diken-b3adcc8c",
+      "sourceKey": "diken",
       "author": "Fazlı Gök",
       "source": "Diken",
       "title": "BTS, Spotify'da bir yılda 10 milyar dinlenen ilk müzik grubu - Diken",
@@ -1904,13 +2057,14 @@
       "category": "Gündem",
       "readTime": "1 dk",
       "snippet": "Güney Koreli müzik grubu BTS, dijital müzik platformu Spotify’da bir yılda 10 milyar dinlenme barajını aşan ilk müzik grubu oldu. Seul merkezli Yonhap ajansının haberine göre grubu…",
-      "fullContent": "<p>Güney Koreli müzik grubu BTS, dijital müzik platformu Spotify’da bir yılda 10 milyar dinlenme barajını aşan ilk müzik grubu oldu.</p>\n<p>Seul merkezli Yonhap ajansının haberine göre grubun geçen yılki toplam dinlenme sayısı yaklaşık 4,5 milyar seviyesindeydi.</p>\n<p>Grup, Spotify’da bir yılda 10 milyar dinlenme barajını aşarak bu başarıyı elde eden ilk müzik grubu oldu.</p>\n<p>Daha önce Taylor Swift, Ariana Grande ve Bad Bunny gibi solo sanatçılar, 10 milyar dinlenme sınırına ulaşmıştı.</p>\n<p>2013’te çıkan BTS ya da diğer adıyla Bangtan Boys, dünyanın en başarılı K-pop (Güney Kore pop müziği) gruplarından biri olarak gösteriliyor.</p>\n<p>Yedi üyeden oluşan grubun hayranları kendilerini ‘ARMY (ORDU)’ diye isimlendiriyor.</p>\n<p>K-pop türünün küresel ölçekte en büyük temsilcisi olan grup, şarkılarında gençlik, bireysellik, ruh sağlığı, kendini sevme gibi konuları işliyor.</p>\n<p>BTS üyeleri, Amerikan müzik listelerinde zirveye yerleşen ilk Koreli grup olmanın yanısıra UNICEF’le ortaklık kurmak, BM Genel Kurulu’nda konuşma yapmak ve Güney Kore’de Kültürel Liyakat Nişanı kazanan en genç kişiler olmak gibi birçok başarıya da imza attı.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Osman Kavala 3 bin 272 gündür hapiste</h3>",
+      "fullContent": "<p>Güney Koreli müzik grubu BTS, dijital müzik platformu Spotify’da bir yılda 10 milyar dinlenme barajını aşan ilk müzik grubu oldu.</p>\n<p>Seul merkezli Yonhap ajansının haberine göre grubun geçen yılki toplam dinlenme sayısı yaklaşık 4,5 milyar seviyesindeydi.</p>\n<p>Grup, Spotify’da bir yılda 10 milyar dinlenme barajını aşarak bu başarıyı elde eden ilk müzik grubu oldu.</p>\n<p>Daha önce Taylor Swift, Ariana Grande ve Bad Bunny gibi solo sanatçılar, 10 milyar dinlenme sınırına ulaşmıştı.</p>\n<p>2013’te çıkan BTS ya da diğer adıyla Bangtan Boys, dünyanın en başarılı K-pop (Güney Kore pop müziği) gruplarından biri olarak gösteriliyor.</p>\n<p>Yedi üyeden oluşan grubun hayranları kendilerini ‘ARMY (ORDU)’ diye isimlendiriyor.</p>\n<p>K-pop türünün küresel ölçekte en büyük temsilcisi olan grup, şarkılarında gençlik, bireysellik, ruh sağlığı, kendini sevme gibi konuları işliyor.</p>\n<p>BTS üyeleri, Amerikan müzik listelerinde zirveye yerleşen ilk Koreli grup olmanın yanısıra UNICEF’le ortaklık kurmak, BM Genel Kurulu’nda konuşma yapmak ve Güney Kore’de Kültürel Liyakat Nişanı kazanan en genç kişiler olmak gibi birçok başarıya da imza attı.</p>\n<h3 class=\"font-serif font-semibold text-lg text-ink-900 pt-1\">Osman Kavala 3 bin 273 gündür hapiste</h3>",
       "photo": "",
       "avatar": "https://ui-avatars.com/api/?name=Fazl%C4%B1%20G%C3%B6k&background=2E384D&color=fff&size=128&bold=true",
       "isLive": true
     },
     {
       "id": "diken-5b9a010c",
+      "sourceKey": "diken",
       "author": "Ece Deniz",
       "source": "Diken",
       "title": "Emin Alper'e Dünya Sinema Sanatına Üstün Katkı Ödülü - Diken",
@@ -1927,12 +2081,13 @@
     },
     {
       "id": "altayli-28a13761",
+      "sourceKey": "altayli",
       "author": "Fatih Altaylı",
       "source": "Fatih Altaylı",
       "title": "Ağırel niye gözaltında",
       "url": "https://fatihaltayli.com.tr/yazarlar/fatih-altayli/2026-10-16/agirel-niye-gozaltinda",
-      "date": "Bugün 08:39",
-      "publishedAt": "2026-10-17T05:39:16.055304+00:00",
+      "date": "Bugün 09:46",
+      "publishedAt": "2026-10-17T06:46:09.602651+00:00",
       "category": "Gündem",
       "readTime": "1 dk",
       "snippet": "Yapınca oluyor ama yapmıyorlar Bugün yazı yazmayacaktım ama güne yine bir gazetecinin gözaltına alınması ile başlayınca biraz bilgi paylaşmadan duramadım. Zaten ev hapsinde olan Mu…",
@@ -1943,12 +2098,13 @@
     },
     {
       "id": "altayli-abee371f",
+      "sourceKey": "altayli",
       "author": "Fatih Altaylı",
       "source": "Fatih Altaylı",
       "title": "Yapınca oluyor ama yapmıyorlar",
       "url": "https://fatihaltayli.com.tr/yazarlar/fatih-altayli/2026-10-15/yapinca-oluyor-ama-yapmiyorlar",
-      "date": "Bugün 08:39",
-      "publishedAt": "2026-10-17T05:39:17.337037+00:00",
+      "date": "Bugün 09:46",
+      "publishedAt": "2026-10-17T06:46:10.908224+00:00",
       "category": "Gündem",
       "readTime": "7 dk",
       "snippet": "Yapınca oluyor ama yapmıyorlar Mahiroğlu: Açıklansın, dönmezsem şerefsizim Yapınca oluyor ama yapmıyorlar Yapınca oluyor ama yapmıyorlar Mahiroğlu: Açıklansın, dönmezsem şerefsizim…",
@@ -1959,6 +2115,7 @@
     },
     {
       "id": "mahfiegilmez-0762d72b",
+      "sourceKey": "mahfiegilmez",
       "author": "Mahfi Eğilmez",
       "source": "Kendime Yazılar",
       "title": "Gelir Artışını Niçin Hissetmiyoruz?",
