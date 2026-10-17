@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-10-17T11:40:46.969226+00:00",
+  "fetchedAt": "2026-10-17T15:12:50.274423+00:00",
   "date": "2026-10-17",
-  "total": 1236,
+  "total": 1235,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 214,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1220,24 +1220,24 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -5064,6 +5064,16 @@
           "photo": ""
         },
         {
+          "name": "Hristodulidis “anlaştık” diyor! Erhürman",
+          "url": "https://www.milligazete.com.tr/hristodulidis-anlastik-diyor-erhurman-sen-kimin-adina-hangi-yetkiyle-anlastin",
+          "photo": ""
+        },
+        {
+          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
+          "url": "https://www.milligazete.com.tr/cihat-yayci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
+        },
+        {
           "name": "Ölümle Dirilmek",
           "url": "https://www.milligazete.com.tr/olumle-dirilmek",
           "photo": ""
@@ -5142,16 +5152,6 @@
           "name": "Mustafa Uzun",
           "url": "https://www.milligazete.com.tr/mustafa-uzun",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/56386-avatar.jpg"
-        },
-        {
-          "name": "Yolsuzluklar nasıl önlenir?",
-          "url": "https://www.milligazete.com.tr/yolsuzluklar-nasil-onlenir",
-          "photo": ""
-        },
-        {
-          "name": "Adnan Öksüz",
-          "url": "https://www.milligazete.com.tr/adnan-oksuz",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/560-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5239,6 +5239,11 @@
           "photo": ""
         },
         {
+          "name": "Gençlerbirliği - Galatasaray maçı ilk 11'ler belli oldu",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "BES’ten kitlesel çıkış iddiasına DMM’den açıklama geldi",
           "url": "",
           "photo": ""
@@ -5255,11 +5260,6 @@
         },
         {
           "name": "Futbolda makyaj değil, yapısal dönüşüm z amanı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Hoca çaldırdı bir palan Yalan dolan talan fonlan",
           "url": "",
           "photo": ""
         }
@@ -6281,17 +6281,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 6,
       "writers": [
         {
           "name": "Murat Sevinç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
-        },
-        {
-          "name": "Behzat Şahin",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-profil-behzat-500x500.jpeg"
         },
         {
           "name": "Mesude Demir",
