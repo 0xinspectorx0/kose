@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-18T15:19:53.005816+00:00",
+  "fetchedAt": "2026-10-18T18:43:15.124466+00:00",
   "date": "2026-10-18",
-  "total": 1259,
+  "total": 1262,
   "papers": [
     {
       "key": "hurriyet",
@@ -1280,24 +1280,24 @@
           "photo": ""
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "ERHAN AFYONCU",
+          "name": "MAHMUT ÖVÜR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3559,7 +3559,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "YAZARLAR",
+          "name": "Yazar Arşivi",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -5131,7 +5131,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5359,12 +5359,22 @@
           "photo": ""
         },
         {
-          "name": "Ticaret Bakanlığı’ndan Meta ve TikTok’a 24 milyon TL ceza",
+          "name": "Kirli araba cebi yakıyor: 100 kilometrede 1 litre fark",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Vali Gül açıkladı! Pendik ve Ayazağa’da kaç kişi aranıyor?",
+          "name": "Yeşil sahalardan And Dağları'na: Salvia messii bulundu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fonlarda tasfiye süreci: 40,8 milyar TL hesaplara yattı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Piyasada ikinci baskı altın alarmı: Alırken buna dikkat!",
           "url": "",
           "photo": ""
         },
@@ -6391,8 +6401,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 8,
+      "count": 9,
       "writers": [
+        {
+          "name": "Ayhan Tinin",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
+        },
         {
           "name": "C. Hakkı Zariç",
           "url": "",
@@ -6411,12 +6426,12 @@
         {
           "name": "Mehmet Aksel",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155-96x96.png"
         },
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Bişar Arslan",
@@ -6424,12 +6439,12 @@
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
