@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-18T06:39:52.469914+00:00",
-  "kurallarAlindi": "2026-10-18T06:31:27.047805+00:00",
+  "guncellendi": "2026-10-18T08:17:37.413759+00:00",
+  "kurallarAlindi": "2026-10-18T08:09:40.191543+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 11
     },
     {
       "key": "milliyet",
@@ -124,7 +124,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 13
+      "yazi": 14
     },
     {
       "key": "turkiye",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 19
+      "yazi": 18
     },
     {
       "key": "altayli",
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Fehim Taştekin"
     },
     {
@@ -216,7 +216,7 @@
       "tur": "akis",
       "category": "Ekonomi",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Mahfi Eğilmez"
     },
     {
@@ -225,7 +225,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Murat Yetkin"
     },
     {

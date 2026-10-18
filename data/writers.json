@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-18T06:39:52.463054+00:00",
+  "fetchedAt": "2026-10-18T08:17:37.406377+00:00",
   "date": "2026-10-18",
-  "total": 1249,
+  "total": 1257,
   "papers": [
     {
       "key": "hurriyet",
@@ -1048,12 +1048,32 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 5,
+      "count": 11,
       "writers": [
         {
           "name": "Emin Çölaşan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
+        },
+        {
+          "name": "Necati Doğru",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
+        {
+          "name": "Ege Cansen",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
         },
         {
           "name": "İsmail Saymaz",
@@ -1071,9 +1091,19 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/1/onerdoseryazarpng-iE37Ba61eUmpqyfO_xjZKQ.png"
         },
         {
+          "name": "Güney Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
+        },
+        {
           "name": "Naim Babüroğlu",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
+        },
+        {
+          "name": "Ercan Taner",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
         }
       ]
     },
@@ -1245,6 +1275,11 @@
           "photo": ""
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1258,11 +1293,6 @@
           "name": "ERHAN AFYONCU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -4031,7 +4061,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 147,
+      "count": 148,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4709,6 +4739,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
@@ -5091,7 +5126,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5319,6 +5354,21 @@
           "photo": ""
         },
         {
+          "name": "Benzine 4,30 TL indirim beklentisi! İşte güncel fiyatlar",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Meteoroloji’den 17 ile uyarı! Fırtına ve sel riski kapıda",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Çalışan annelere kreş ve emzirme odası zorunluluğu geliyor",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Pendik’te sel dehşeti! Camı kırıp kurtuldu 2 kişi kayıp",
           "url": "",
           "photo": ""
@@ -5330,11 +5380,6 @@
         },
         {
           "name": "Sağ eliyle beşiği sol eliyle dünyayı sallayan hanımlara",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İktidarın imkânı mı, iyiliğin yolculuğu mu?",
           "url": "",
           "photo": ""
         }
@@ -6356,7 +6401,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 4,
       "writers": [
         {
           "name": "Emre Zor",
@@ -6375,11 +6420,6 @@
         },
         {
           "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }
