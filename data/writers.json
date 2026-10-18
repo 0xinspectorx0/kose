@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-18T18:43:15.124466+00:00",
-  "date": "2026-10-18",
-  "total": 1262,
+  "fetchedAt": "2026-10-18T21:20:45.456392+00:00",
+  "date": "2026-10-19",
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 207,
+      "count": 200,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,41 +1007,6 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
-        },
-        {
-          "name": "Fatih ÇEKİRGE",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
-        },
-        {
-          "name": "Doğan HIZLAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/599bce37c9de3d1878bfcb6d.jpg"
-        },
-        {
-          "name": "Yunus Paksoy",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6761a8c54c39255d0d8316c5.jpg"
-        },
-        {
-          "name": "Dr.Furkan Burak",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/68416c61382339c6a0708f65.jpg"
-        },
-        {
-          "name": "Umut Fırat Eroğlu",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63873faa4e3fe1118c7f575d.jpg"
-        },
-        {
-          "name": "Zeynep BİLGEHAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f7f018fbaf4494249c.jpg"
-        },
-        {
-          "name": "Zeynel Balcı",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/591985c32269a229c841711c.jpg"
         }
       ]
     },
@@ -1115,7 +1080,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 21,
+      "count": 17,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1201,26 +1166,6 @@
           "name": "Metin Aktaşoğlu",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
-        },
-        {
-          "name": "Osman Gençer",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/662e6df8400ec10336344b1d.jpg"
-        },
-        {
-          "name": "Çağdaş Ertuna",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f837355428103b0dcdcf3.jpg"
-        },
-        {
-          "name": "Aylin Öney Tan",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5e2301df5542810460b24493.jpg"
-        },
-        {
-          "name": "Dilara Koçak",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5c8bbc2145d2a081948190ab.jpg"
         }
       ]
     },
@@ -1280,6 +1225,11 @@
           "photo": ""
         },
         {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1293,11 +1243,6 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "ERHAN AFYONCU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3742,7 +3687,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 22,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3802,56 +3747,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Coşkundeniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şirin Sever",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mustafa Bakacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Gülderen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Rükzan Sağır",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Yalçınkaya",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -5359,22 +5254,22 @@
           "photo": ""
         },
         {
+          "name": "Urfa'da 8 yaşındaki çocuğa ütüyle işkence: Üç tutuklama",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstinyePark'ta İsrail protestosu: AVM boşaltıldı",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Kirli araba cebi yakıyor: 100 kilometrede 1 litre fark",
           "url": "",
           "photo": ""
         },
         {
           "name": "Yeşil sahalardan And Dağları'na: Salvia messii bulundu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fonlarda tasfiye süreci: 40,8 milyar TL hesaplara yattı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Piyasada ikinci baskı altın alarmı: Alırken buna dikkat!",
           "url": "",
           "photo": ""
         },
@@ -6401,12 +6296,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 9,
+      "count": 10,
       "writers": [
+        {
+          "name": "Psk. Dr. Feyza Bayraktar",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
+        },
         {
           "name": "Ayhan Tinin",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
         },
         {
           "name": "C. Hakkı Zariç",
@@ -6424,17 +6324,17 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251125-mete-hatay-kelle-500x500.jpg"
         },
         {
-          "name": "Mehmet Aksel",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155-96x96.png"
-        },
-        {
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ece Deniz",
           "url": "",
           "photo": ""
         },
