@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-18T11:45:58.012595+00:00",
+  "fetchedAt": "2026-10-18T15:19:53.005816+00:00",
   "date": "2026-10-18",
   "total": 1259,
   "papers": [
@@ -8,16 +8,6 @@
       "name": "Hürriyet",
       "count": 207,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1280,24 +1280,24 @@
           "photo": ""
         },
         {
-          "name": "ERHAN AFYONCU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5131,7 +5131,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5365,11 +5365,6 @@
         },
         {
           "name": "Vali Gül açıkladı! Pendik ve Ayazağa’da kaç kişi aranıyor?",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Prof. Dr. Osman Bektaş'tan Marmara depremi açıklaması",
           "url": "",
           "photo": ""
         },
@@ -6396,22 +6391,27 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 8,
       "writers": [
-        {
-          "name": "Mehmet Aksel",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
-        },
         {
           "name": "C. Hakkı Zariç",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-96x96.jpg"
         },
         {
           "name": "Emre Zor",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-emre-zor-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-emre-zor-kelle-500x500.jpeg"
+        },
+        {
+          "name": "Mete Hatay",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251125-mete-hatay-kelle-500x500.jpg"
+        },
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
         },
         {
           "name": "Mesude Demir",
