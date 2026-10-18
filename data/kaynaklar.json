@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-18T02:14:56.566971+00:00",
-  "kurallarAlindi": "2026-10-18T02:08:02.223930+00:00",
+  "guncellendi": "2026-10-18T03:45:51.705142+00:00",
+  "kurallarAlindi": "2026-10-18T03:38:23.244159+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -52,7 +52,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 10
+      "yazi": 0
     },
     {
       "key": "yenisafak",
@@ -84,7 +84,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 6
+      "yazi": 7
     },
     {
       "key": "aksam",
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Fehim Taştekin"
     },
     {
@@ -216,7 +216,7 @@
       "tur": "akis",
       "category": "Ekonomi",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Mahfi Eğilmez"
     },
     {
