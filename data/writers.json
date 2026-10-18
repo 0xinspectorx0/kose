@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-18T05:16:58.139307+00:00",
+  "fetchedAt": "2026-10-18T06:39:52.463054+00:00",
   "date": "2026-10-18",
-  "total": 1250,
+  "total": 1249,
   "papers": [
     {
       "key": "hurriyet",
@@ -1245,9 +1245,9 @@
           "photo": ""
         },
         {
-          "name": "ERHAN AFYONCU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "MAHMUT ÖVÜR",
@@ -1255,9 +1255,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "ERHAN AFYONCU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -3524,7 +3524,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "Yazar Arşivi",
+          "name": "YAZARLAR",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -4031,7 +4031,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 148,
+      "count": 147,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4744,11 +4744,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Yakup KÖSE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
-        },
-        {
           "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
@@ -5324,6 +5319,11 @@
           "photo": ""
         },
         {
+          "name": "Pendik’te sel dehşeti! Camı kırıp kurtuldu 2 kişi kayıp",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Gençlerbirliği - Galatasaray maçı ilk 11'ler belli oldu",
           "url": "",
           "photo": ""
@@ -5335,11 +5335,6 @@
         },
         {
           "name": "İktidarın imkânı mı, iyiliğin yolculuğu mu?",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Necmettin Erbakan 100 Yaşında; Adil Düzen",
           "url": "",
           "photo": ""
         }
