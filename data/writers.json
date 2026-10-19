@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-19T11:56:04.767135+00:00",
+  "fetchedAt": "2026-10-19T15:26:37.125395+00:00",
   "date": "2026-10-19",
-  "total": 1250,
+  "total": 1252,
   "papers": [
     {
       "key": "hurriyet",
@@ -1078,7 +1078,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 12,
+      "count": 14,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1129,6 +1129,16 @@
           "name": "Mesut Parlak",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
+        },
+        {
+          "name": "İpek Özbey",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
+        },
+        {
+          "name": "Burak Özcan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
         },
         {
           "name": "Ercan Taner",
@@ -5309,17 +5319,17 @@
           "photo": ""
         },
         {
-          "name": "Rumların girne davasında flaş karar! 71 bin Euro iptal oldu",
+          "name": "Emeklilikte büyük tehlike: O kodlar varsa maaş kesilir",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Lille - Galatasaray maçı ertelenecek mi? Fransa'da son durum",
+          "name": "Yemek ihalelerinde şok iddia: 10 şirkete soruşturma",
           "url": "",
           "photo": ""
         },
         {
-          "name": "AKOM tarih verdi! İstanbul’da yağışlar yeniden başlıyor",
+          "name": "Galatasaray-Fenerbahçe derbisinde sürpriz tarih değişikliği",
           "url": "",
           "photo": ""
         }
