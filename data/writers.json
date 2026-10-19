@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-10-19T05:23:01.965722+00:00",
+  "fetchedAt": "2026-10-19T06:54:12.380040+00:00",
   "date": "2026-10-19",
-  "total": 1245,
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 211,
+      "count": 212,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1062,6 +1062,11 @@
           "name": "Ebru Erke",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/84x63/5701682267b0a90bdc503454.jpg"
+        },
+        {
+          "name": "Salim Uzun",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
         }
       ]
     },
@@ -3981,7 +3986,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 148,
+      "count": 147,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4654,6 +4659,11 @@
           "photo": ""
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
@@ -4684,11 +4694,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
         },
         {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
-        },
-        {
           "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
@@ -4697,11 +4702,6 @@
           "name": "Mustafa SABRİ BEŞER",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
-        },
-        {
-          "name": "Betül Soysal Bozdoğan",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
           "name": "Vahdettin İNCE",
@@ -5046,7 +5046,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5280,16 +5280,6 @@
         },
         {
           "name": "Beşiktaş maçı öncesi büyük hezimet: 5 gollü şok yenilgi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Urfa'da 8 yaşındaki çocuğa ütüyle işkence: Üç tutuklama",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İstinyePark'ta İsrail protestosu: AVM boşaltıldı",
           "url": "",
           "photo": ""
         }
