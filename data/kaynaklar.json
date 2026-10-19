@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-19T18:59:56.996886+00:00",
-  "kurallarAlindi": "2026-10-19T18:52:37.497414+00:00",
+  "guncellendi": "2026-10-19T21:30:21.245624+00:00",
+  "kurallarAlindi": "2026-10-19T21:23:23.453906+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 15
+      "yazi": 0
     },
     {
       "key": "sozcu",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 11
+      "yazi": 10
     },
     {
       "key": "sabah",
@@ -68,7 +68,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 11
     },
     {
       "key": "birgun",
@@ -84,7 +84,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 4
+      "yazi": 5
     },
     {
       "key": "aksam",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 9
+      "yazi": 0
     },
     {
       "key": "yeniasir",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 20
+      "yazi": 6
     },
     {
       "key": "altayli",
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Fehim Taştekin"
     },
     {
