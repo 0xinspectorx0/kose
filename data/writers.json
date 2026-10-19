@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-19T08:24:28.101589+00:00",
+  "fetchedAt": "2026-10-19T11:56:04.767135+00:00",
   "date": "2026-10-19",
   "total": 1250,
   "papers": [
@@ -1260,6 +1260,11 @@
           "photo": ""
         },
         {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
@@ -1268,11 +1273,6 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5081,7 +5081,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5132,6 +5132,16 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
+          "url": "https://www.milligazete.com.tr/cihat-yayci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
+        },
+        {
+          "name": "Doç. Dr. Hacı Murat Kumbasar",
+          "url": "https://www.milligazete.com.tr/haci-murat-kumbasar",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/06/doc-dr-haci-murat-kumbasar.png"
         },
         {
           "name": "Selahattin Kaya'ya rahmetle...",
@@ -5212,21 +5222,6 @@
           "name": "Bülent Acun",
           "url": "https://www.milligazete.com.tr/bulent-acun",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/acun-bulent.png"
-        },
-        {
-          "name": "Dr. Abdülaziz Kıranşal",
-          "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
-        },
-        {
-          "name": "Zafer mi, Sefer Yanılgısı mı?",
-          "url": "https://www.milligazete.com.tr/zafer-mi-sefer-yanilgisi-mi",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Biten",
-          "url": "https://www.milligazete.com.tr/mehmet-biten",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5314,7 +5309,17 @@
           "photo": ""
         },
         {
-          "name": "Kocaeli’de sel faciası! Kayıp Doğan Arslan’dan acı haber",
+          "name": "Rumların girne davasında flaş karar! 71 bin Euro iptal oldu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Lille - Galatasaray maçı ertelenecek mi? Fransa'da son durum",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "AKOM tarih verdi! İstanbul’da yağışlar yeniden başlıyor",
           "url": "",
           "photo": ""
         }
@@ -6336,7 +6341,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 10,
+      "count": 9,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6369,22 +6374,17 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
           "name": "Ece Deniz",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }
