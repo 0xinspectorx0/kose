@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-19T15:26:37.125395+00:00",
+  "fetchedAt": "2026-10-19T18:59:56.992778+00:00",
   "date": "2026-10-19",
-  "total": 1252,
+  "total": 1253,
   "papers": [
     {
       "key": "hurriyet",
@@ -1275,14 +1275,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5091,7 +5091,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5319,17 +5319,22 @@
           "photo": ""
         },
         {
+          "name": "Soylu'dan o cemaate gönderme: \"Bu ülkeyi kimse çürütemez\"",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Karaburun'da istifa: Başkan Erdoğan partisinden ayrıldı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Volkswagen'den 660 bin işçiye şok: 2030'a dek zam yok",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Emeklilikte büyük tehlike: O kodlar varsa maaş kesilir",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Yemek ihalelerinde şok iddia: 10 şirkete soruşturma",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Galatasaray-Fenerbahçe derbisinde sürpriz tarih değişikliği",
           "url": "",
           "photo": ""
         }
