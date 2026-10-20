@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-20T15:36:40.751924+00:00",
+  "fetchedAt": "2026-10-20T19:09:08.088885+00:00",
   "date": "2026-10-20",
-  "total": 1252,
+  "total": 1249,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 211,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1068,7 +1068,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 16,
+      "count": 15,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1129,11 +1129,6 @@
           "name": "Burak Özcan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
-        },
-        {
-          "name": "Mahmut Aydoğmuş",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
         },
         {
           "name": "Ercan Taner",
@@ -1240,6 +1235,16 @@
           "photo": ""
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1255,19 +1260,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5334,17 +5329,17 @@
           "photo": ""
         },
         {
-          "name": "TFF resmen duyurdu: A Milli Takım'da Sergen Yalçın",
+          "name": "S&P Global faiz indirimi için tarih verdi: Piyasalar tetikte",
           "url": "",
           "photo": ""
         },
         {
-          "name": "ABD ara seçimlerine doğru: Sandık anketleri ne söylüyor?",
+          "name": "Fransa'da ipler koptu: Cumartesi ordu sokağa iniyor",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Tarihin en iyisi kim? Ballon d'Or için 10 aday açıklandı",
+          "name": "Altında asıl ralli ne zaman? Uzman isim tarih vererek uyardı",
           "url": "",
           "photo": ""
         }
@@ -6366,22 +6361,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 4,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto-96x96.png"
-        },
-        {
-          "name": "Ayhan Tinin",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
           "name": "Bişar Arslan",
