@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-20T02:31:58.682851+00:00",
+  "fetchedAt": "2026-10-20T04:02:17.867558+00:00",
   "date": "2026-10-20",
-  "total": 1228,
+  "total": 1223,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 202,
+      "count": 204,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1017,6 +1017,16 @@
           "name": "Hande FIRAT",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
+        },
+        {
+          "name": "Fulya Soybaş",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
+        },
+        {
+          "name": "Nilgün Tekfidan GÜMÜŞ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65aa40f3eb03f66dff0be4a2.jpg"
         }
       ]
     },
@@ -1190,11 +1200,6 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1203,6 +1208,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -3907,16 +3917,16 @@
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
         },
         {
-          "name": "İmamoğlu’nun siyasi şovu Özel’in patinajı",
+          "name": "Yıldız falınız",
           "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/d53da8/170/170/56/0/350/294?u=https://iysr.tmgrup.com.tr/2024/09/12/1726139911201.png"
+          "photo": "https://iaysr.tmgrup.com.tr/e2d3e7/170/170/110/0/563/453?u=https://iysr.tmgrup.com.tr/2018/09/10/1536568447057.jpg"
         }
       ]
     },
     {
       "key": "star",
       "name": "Star",
-      "count": 147,
+      "count": 140,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4589,11 +4599,6 @@
           "photo": ""
         },
         {
-          "name": "Sibel ERASLAN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
-        },
-        {
           "name": "Selahaddin E. ÇAKIRGİL",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
@@ -4604,19 +4609,9 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
         },
         {
-          "name": "Resul TOSUN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
-        },
-        {
           "name": "Yakup KÖSE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
-        },
-        {
-          "name": "Mustafa SABRİ BEŞER",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
         },
         {
           "name": "M. Yalçın YILMAZ",
@@ -4624,34 +4619,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
-          "name": "Vahdettin İNCE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
-        },
-        {
-          "name": "İbrahim Güneş",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
-        },
-        {
           "name": "Filiz Katman",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
         },
         {
-          "name": "Cengiz ÖZDEMİR",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
-        },
-        {
           "name": "Adil Karaismailoğlu",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
-        },
-        {
-          "name": "Muhammed Ali Uçar",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/203.png?v=1907.99"
         }
       ]
     },
