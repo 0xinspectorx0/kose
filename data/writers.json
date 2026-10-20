@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-20T12:05:46.615223+00:00",
+  "fetchedAt": "2026-10-20T15:36:40.751924+00:00",
   "date": "2026-10-20",
   "total": 1252,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 211,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1049,6 +1049,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Salim Uzun",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
@@ -1063,7 +1068,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 15,
+      "count": 16,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1124,6 +1129,11 @@
           "name": "Burak Özcan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
+        },
+        {
+          "name": "Mahmut Aydoğmuş",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
         },
         {
           "name": "Ercan Taner",
@@ -1230,19 +1240,19 @@
           "photo": ""
         },
         {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
-          "name": "MAHMUT ÖVÜR",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1250,9 +1260,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "MAHMUT ÖVÜR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
           "name": "YAVUZ DONAT",
@@ -5086,7 +5096,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5324,12 +5334,17 @@
           "photo": ""
         },
         {
-          "name": "Sergen Yalçın'dan Berke Özer kararı! Gerekirse özür diler",
+          "name": "TFF resmen duyurdu: A Milli Takım'da Sergen Yalçın",
           "url": "",
           "photo": ""
         },
         {
-          "name": "İstanbul ve Kocaeli’de sel felaketi! Can kaybı 10’a çıktı",
+          "name": "ABD ara seçimlerine doğru: Sandık anketleri ne söylüyor?",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Tarihin en iyisi kim? Ballon d'Or için 10 aday açıklandı",
           "url": "",
           "photo": ""
         }
@@ -6351,32 +6366,22 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 9,
+      "count": 6,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto-96x96.png"
         },
         {
           "name": "Ayhan Tinin",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
-        },
-        {
-          "name": "C. Hakkı Zariç",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
-        },
-        {
-          "name": "Emre Zor",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-emre-zor-kelle-500x500.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
         },
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
           "name": "Bişar Arslan",
@@ -6390,11 +6395,6 @@
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
