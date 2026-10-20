@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-20T05:33:15.210832+00:00",
+  "fetchedAt": "2026-10-20T07:04:14.589313+00:00",
   "date": "2026-10-20",
-  "total": 1245,
+  "total": 1247,
   "papers": [
     {
       "key": "hurriyet",
@@ -1210,9 +1210,19 @@
           "photo": ""
         },
         {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "SALİH TUNA",
@@ -1225,19 +1235,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -4011,7 +4011,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 146,
+      "count": 147,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4689,6 +4689,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/152.png?v=1907.99"
         },
         {
+          "name": "Fadime ÖZKAN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
+        },
+        {
           "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
@@ -5066,7 +5071,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5309,7 +5314,12 @@
           "photo": ""
         },
         {
-          "name": "Ankara'da suç örgütüne darbe: 5 tutuklama",
+          "name": "Milas Belediyesine operasyon! Başkan Fevzi Topuz gözaltında",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Sahte vize vaadine büyük darbe! 60 Kişiye gözaltı hararı",
           "url": "",
           "photo": ""
         }
