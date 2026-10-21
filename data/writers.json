@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-21T08:11:38.956826+00:00",
+  "fetchedAt": "2026-10-21T11:43:34.179189+00:00",
   "date": "2026-10-21",
-  "total": 1240,
+  "total": 1245,
   "papers": [
     {
       "key": "hurriyet",
@@ -1230,19 +1230,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "DİLEK GÜNGÖR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "SALİH TUNA",
@@ -1253,6 +1243,16 @@
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -4001,7 +4001,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 147,
+      "count": 148,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4684,6 +4684,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Mustafa SABRİ BEŞER",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
@@ -5061,7 +5066,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5289,7 +5294,27 @@
           "photo": ""
         },
         {
-          "name": "Kiev'den Washington'a rest: Zelenski Trump'a bayrak açtı",
+          "name": "Erdoğan'dan Özgür Özel'e sert tepki! Hayırdır beyler",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Arıkan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Made in Europe planında Türkiye'ye kapı kapandı mı?",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Getty Images ABD’de İflas başvurusunda bulundu!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Yeni Parti'nin ismi değişecek mi? AYM kararını açıkladı",
           "url": "",
           "photo": ""
         },
@@ -6319,22 +6344,22 @@
       "count": 4,
       "writers": [
         {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
           "name": "Ece Deniz",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
           "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
