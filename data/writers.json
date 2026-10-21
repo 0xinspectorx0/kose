@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-21T06:41:08.797681+00:00",
+  "fetchedAt": "2026-10-21T08:11:38.956826+00:00",
   "date": "2026-10-21",
-  "total": 1226,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
@@ -1063,8 +1063,28 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 14,
       "writers": [
+        {
+          "name": "Emin Çölaşan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
+        },
+        {
+          "name": "Necati Doğru",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
         {
           "name": "İsmail Saymaz",
           "url": "",
@@ -1079,6 +1099,11 @@
           "name": "Turan Yücel",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
+        },
+        {
+          "name": "Ozan Bingöl",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
         },
         {
           "name": "Pınar Turan",
@@ -1101,14 +1126,14 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
         },
         {
+          "name": "Ercan Taner",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
+        },
+        {
           "name": "Sonuç Sürmeli",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
-        },
-        {
-          "name": "Sercan C. Güler",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260420at092526removebgpreviewpng-pkfAAPP-4k27es32T5Aylg.png"
         }
       ]
     },
@@ -1205,9 +1230,9 @@
           "photo": ""
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1215,19 +1240,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "HİLAL KAPLAN",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         }
       ]
     },
@@ -2729,6 +2754,11 @@
           "photo": "https://img.piri.net/piri/upload/3/2023/12/20/c5a2ab23-qtuqxemjeqryt90hmr7.png"
         },
         {
+          "name": "Ömer Çelikbaşlı",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
+        },
+        {
           "name": "Samed Karagöz",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2023/3/22/35e00167-2k1difr1z5lyeqb7cq1ln.png"
@@ -2737,11 +2767,6 @@
           "name": "Yahya Bostan",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2022/10/18/10/29/554x554resized_62bdb-edd4c269yahyabostan.png"
-        },
-        {
-          "name": "Ömer Lekesiz",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_b2544-f76eomerlekesiz2.png"
         },
         {
           "name": "Yusuf Dinç",
@@ -3667,8 +3692,68 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 7,
+      "count": 19,
       "writers": [
+        {
+          "name": "İlke Gürsoy",
+          "url": "https://www.posta.com.tr/yazarlar/ilke-gursoy/",
+          "photo": ""
+        },
+        {
+          "name": "Ayşe Mine Yaman",
+          "url": "https://www.posta.com.tr/yazarlar/ayse-mine-yaman/",
+          "photo": ""
+        },
+        {
+          "name": "Aytül Farquharson",
+          "url": "https://www.posta.com.tr/yazarlar/aytul-farquharson/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Ceyda Şener",
+          "url": "https://www.posta.com.tr/yazarlar/dr-ceyda-sener/",
+          "photo": ""
+        },
+        {
+          "name": "Emre Arslan",
+          "url": "https://www.posta.com.tr/yazarlar/emre-arslan/",
+          "photo": ""
+        },
+        {
+          "name": "Selcen Doğan Ağakay",
+          "url": "https://www.posta.com.tr/yazarlar/selcen-dogan-agakay/",
+          "photo": ""
+        },
+        {
+          "name": "Twitter Köstebeği",
+          "url": "https://www.posta.com.tr/yazarlar/twitter-kostebegi/",
+          "photo": ""
+        },
+        {
+          "name": "Yasemin Altan",
+          "url": "https://www.posta.com.tr/yazarlar/yasemin-altan/",
+          "photo": ""
+        },
+        {
+          "name": "Zeyno Gürses",
+          "url": "https://www.posta.com.tr/yazarlar/zeyno-gurses/",
+          "photo": ""
+        },
+        {
+          "name": "Didem Şarman",
+          "url": "https://www.posta.com.tr/yazarlar/didem-sarman/",
+          "photo": ""
+        },
+        {
+          "name": "Aslı Utkan",
+          "url": "https://www.posta.com.tr/yazarlar/asli-utkan/",
+          "photo": ""
+        },
+        {
+          "name": "Erdoğan Arıpınar",
+          "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
+          "photo": ""
+        },
         {
           "name": "Oral Çalışlar",
           "url": "",
@@ -4976,7 +5061,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5205,21 +5290,6 @@
         },
         {
           "name": "Kiev'den Washington'a rest: Zelenski Trump'a bayrak açtı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "S&P Global faiz indirimi için tarih verdi: Piyasalar tetikte",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fransa'da ipler koptu: Cumartesi ordu sokağa iniyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altında asıl ralli ne zaman? Uzman isim tarih vererek uyardı",
           "url": "",
           "photo": ""
         },
