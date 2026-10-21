@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-21T05:11:05.148135+00:00",
+  "fetchedAt": "2026-10-21T06:41:08.797681+00:00",
   "date": "2026-10-21",
-  "total": 1238,
+  "total": 1226,
   "papers": [
     {
       "key": "hurriyet",
@@ -1205,9 +1205,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1215,19 +1215,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -3667,68 +3667,8 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 19,
+      "count": 7,
       "writers": [
-        {
-          "name": "İlke Gürsoy",
-          "url": "https://www.posta.com.tr/yazarlar/ilke-gursoy/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Mine Yaman",
-          "url": "https://www.posta.com.tr/yazarlar/ayse-mine-yaman/",
-          "photo": ""
-        },
-        {
-          "name": "Aytül Farquharson",
-          "url": "https://www.posta.com.tr/yazarlar/aytul-farquharson/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Ceyda Şener",
-          "url": "https://www.posta.com.tr/yazarlar/dr-ceyda-sener/",
-          "photo": ""
-        },
-        {
-          "name": "Emre Arslan",
-          "url": "https://www.posta.com.tr/yazarlar/emre-arslan/",
-          "photo": ""
-        },
-        {
-          "name": "Selcen Doğan Ağakay",
-          "url": "https://www.posta.com.tr/yazarlar/selcen-dogan-agakay/",
-          "photo": ""
-        },
-        {
-          "name": "Twitter Köstebeği",
-          "url": "https://www.posta.com.tr/yazarlar/twitter-kostebegi/",
-          "photo": ""
-        },
-        {
-          "name": "Yasemin Altan",
-          "url": "https://www.posta.com.tr/yazarlar/yasemin-altan/",
-          "photo": ""
-        },
-        {
-          "name": "Zeyno Gürses",
-          "url": "https://www.posta.com.tr/yazarlar/zeyno-gurses/",
-          "photo": ""
-        },
-        {
-          "name": "Didem Şarman",
-          "url": "https://www.posta.com.tr/yazarlar/didem-sarman/",
-          "photo": ""
-        },
-        {
-          "name": "Aslı Utkan",
-          "url": "https://www.posta.com.tr/yazarlar/asli-utkan/",
-          "photo": ""
-        },
-        {
-          "name": "Erdoğan Arıpınar",
-          "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
         {
           "name": "Oral Çalışlar",
           "url": "",
@@ -4669,6 +4609,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
         },
         {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
+        },
+        {
           "name": "Cüneyd Altıparmak",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
@@ -4682,11 +4627,6 @@
           "name": "Fadime ÖZKAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
           "name": "Resul TOSUN",
