@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-22T11:47:00.775872+00:00",
-  "kurallarAlindi": "2026-10-22T11:38:50.984746+00:00",
+  "guncellendi": "2026-10-22T15:05:55.752703+00:00",
+  "kurallarAlindi": "2026-10-22T14:57:48.581881+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 13
+      "yazi": 12
     },
     {
       "key": "milliyet",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 14
     },
     {
       "key": "altayli",

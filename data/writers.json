@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-22T11:47:00.771463+00:00",
+  "fetchedAt": "2026-10-22T15:05:55.745798+00:00",
   "date": "2026-10-22",
-  "total": 1251,
+  "total": 1255,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1063,7 +1063,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 13,
+      "count": 12,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1119,11 +1119,6 @@
           "name": "Mesut Parlak",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
-        },
-        {
-          "name": "Mahmut Aydoğmuş",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
         },
         {
           "name": "Ercan Taner",
@@ -1230,9 +1225,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "SALİH TUNA",
@@ -1240,14 +1235,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5106,7 +5101,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 52,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5334,7 +5329,27 @@
           "photo": ""
         },
         {
-          "name": "ESAM’dan özelleştirme tepkisi “Halkın mülkü halka gitmeli”",
+          "name": "Aziz Yıldırım işaret etmişti: Oğuz Aydın'a Ada'dan kanca",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İnterneti sarsan PHP açığı: Milyonlarca site tehlikede",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Vizesiz seyahat müjdesi: O mesleğe yeşil pasaport yolda",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Merkez'in kasasında erime: 2,5 milyar dolar buhar oldu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Lütfi Arıboğan hakkında FETÖ iddianamesi mahkemeden geçti!",
           "url": "",
           "photo": ""
         },
@@ -6366,7 +6381,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 6,
       "writers": [
         {
           "name": "Murat Sevinç",
@@ -6374,12 +6389,7 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
         },
         {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
@@ -6389,7 +6399,17 @@
           "photo": ""
         },
         {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
