@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-10-22T15:05:55.745798+00:00",
+  "fetchedAt": "2026-10-22T18:37:23.196597+00:00",
   "date": "2026-10-22",
-  "total": 1255,
+  "total": 1256,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1225,9 +1225,9 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "SALİH TUNA",
@@ -1240,9 +1240,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5101,7 +5101,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 52,
+      "count": 53,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5329,27 +5329,32 @@
           "photo": ""
         },
         {
+          "name": "Tibet 7 büyüklüğünde depremle sallandı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Türkiye ve Kanada'dan imza: 10 milyar dolarlık hedef",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "AYM'de seçim heyecanı: Yeni başkan için süreç resmen başladı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "ABD'den Türkiye ve Libya anlaşması mesajı",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Aziz Yıldırım işaret etmişti: Oğuz Aydın'a Ada'dan kanca",
           "url": "",
           "photo": ""
         },
         {
           "name": "İnterneti sarsan PHP açığı: Milyonlarca site tehlikede",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Vizesiz seyahat müjdesi: O mesleğe yeşil pasaport yolda",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Merkez'in kasasında erime: 2,5 milyar dolar buhar oldu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Lütfi Arıboğan hakkında FETÖ iddianamesi mahkemeden geçti!",
           "url": "",
           "photo": ""
         },
@@ -6384,6 +6389,11 @@
       "count": 6,
       "writers": [
         {
+          "name": "Mustafa Alp Dağıstanlı",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
+        },
+        {
           "name": "Murat Sevinç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
@@ -6400,11 +6410,6 @@
         },
         {
           "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
           "url": "",
           "photo": ""
         },
