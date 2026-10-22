@@ -1,1057 +1,1012 @@
 {
-  "fetchedAt": "2026-10-22T05:32:08.487505+00:00",
+  "fetchedAt": "2026-10-22T07:02:48.981628+00:00",
   "date": "2026-10-22",
-  "total": 1252,
+  "total": 1241,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 209,
+      "count": 200,
       "writers": [
         {
-          "name": "Abdulkadir Özbek",
-          "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
-          "photo": ""
-        },
-        {
-          "name": "Abdulkadir Selvi",
+          "name": "Abdulkadir SELVİ",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-selvi/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5701682267b0a90bdc503454.jpg"
         },
         {
-          "name": "Abdülkadir Küşin",
-          "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-kusin/",
-          "photo": ""
-        },
-        {
-          "name": "Adam Adam",
-          "url": "https://www.hurriyet.com.tr/yazarlar/adam-adam/",
-          "photo": ""
-        },
-        {
-          "name": "Adnan Kaya",
-          "url": "https://www.hurriyet.com.tr/yazarlar/adnan-kaya/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Ağaoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-agaoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-altan/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Arsan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-arsan/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Can",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-can/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Ercanlar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-ercanlar/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Hakan",
+          "name": "Ahmet HAKAN",
           "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-hakan/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59bb9406c9de3d195c654070.jpg"
         },
         {
-          "name": "Ahmet İnsel",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-insel/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Karabıyık",
+          "name": "Ahmet KARABIYIK",
           "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-karabiyik/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/56d566e2c03c0e6678e9234f.jpg"
         },
         {
-          "name": "Ahmet Mümtaz Taylan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-mumtaz-taylan/",
-          "photo": ""
-        },
-        {
-          "name": "Ahmet Turan Altıner",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ahmet-turan-altiner/",
-          "photo": ""
-        },
-        {
-          "name": "Ajda Pekkan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ajda-pekkan/",
-          "photo": ""
-        },
-        {
-          "name": "Akif Beki",
-          "url": "https://www.hurriyet.com.tr/yazarlar/akif-beki/",
-          "photo": ""
-        },
-        {
-          "name": "Alev Akkoyunlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alev-akkoyunlu/",
-          "photo": ""
-        },
-        {
-          "name": "Alışveriş Cadısı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alisveris-cadisi/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Atıf Bir",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-atif-bir/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Can Yaycılı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-can-yaycili/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Ece",
+          "name": "Ali ECE",
           "url": "https://www.hurriyet.com.tr/yazarlar/ali-ece/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Menoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-menoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Miraç Aşık",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-mirac-asik/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Naci Küçük",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-naci-kucuk/",
-          "photo": ""
-        },
-        {
-          "name": "Ali Sarp",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ali-sarp/",
-          "photo": ""
-        },
-        {
-          "name": "Alp Ulagay",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alp-ulagay/",
-          "photo": ""
-        },
-        {
-          "name": "Alparslan Akkuş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alparslan-akkus/",
-          "photo": ""
-        },
-        {
-          "name": "Alper Beyaz",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alper-beyaz/",
-          "photo": ""
-        },
-        {
-          "name": "Alper Dülgerci",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alper-dulgerci/",
-          "photo": ""
-        },
-        {
-          "name": "Alper Hasanoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alper-hasanoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Alper Karaağaç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/alper-karaagac/",
-          "photo": ""
-        },
-        {
-          "name": "Altan Öymen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/altan-oymen/",
-          "photo": ""
-        },
-        {
-          "name": "Altan Tanrıkulu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/altan-tanrikulu/",
-          "photo": ""
-        },
-        {
-          "name": "Anlatanadam",
-          "url": "https://www.hurriyet.com.tr/yazarlar/anlatanadam-yaziyor/",
-          "photo": ""
-        },
-        {
-          "name": "Arda Akın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arda-akin/",
-          "photo": ""
-        },
-        {
-          "name": "Arda Kutsal",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arda-kutsal/",
-          "photo": ""
-        },
-        {
-          "name": "Arda Meriç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arda-meric/",
           "photo": ""
         },
         {
           "name": "Arda Sayıner",
           "url": "https://www.hurriyet.com.tr/yazarlar/arda-sayiner/",
-          "photo": ""
-        },
-        {
-          "name": "Arda Türkmen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arda-turkmen/",
-          "photo": ""
-        },
-        {
-          "name": "Ariana Ferentinou",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ariana-ferentinou/",
-          "photo": ""
-        },
-        {
-          "name": "Arif Dizdaroğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arif-dizdaroglu/",
-          "photo": ""
-        },
-        {
-          "name": "Armağan Çağlayan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/armagan-caglayan/",
-          "photo": ""
-        },
-        {
-          "name": "Arman Kırım",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arman-kirim/",
-          "photo": ""
-        },
-        {
-          "name": "Arzu Akbaş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/",
-          "photo": ""
-        },
-        {
-          "name": "Arzu Çakır Morin",
-          "url": "https://www.hurriyet.com.tr/yazarlar/arzu-cakir-morin/",
-          "photo": ""
-        },
-        {
-          "name": "Aslı Elif Tanuğur Samancı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/asli-elif-tanugur-samanci/",
-          "photo": ""
-        },
-        {
-          "name": "Aslıhan Hopaç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aslihan-hopac/",
-          "photo": ""
-        },
-        {
-          "name": "Ata Nirun",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ata-nirun/",
-          "photo": ""
-        },
-        {
-          "name": "Ateş Bakan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ates-bakan/",
-          "photo": ""
-        },
-        {
-          "name": "Ateş Yalazan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ates-yalazan/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5fa911e37af50711f82b3882.jpg"
         },
         {
           "name": "Ateş Yalazan - Arşiv Balıkçısı",
           "url": "https://www.hurriyet.com.tr/yazarlar/ates-yalazan-arsiv-balikcisi/",
-          "photo": ""
-        },
-        {
-          "name": "Atilla Türker",
-          "url": "https://www.hurriyet.com.tr/yazarlar/atilla-turker/",
-          "photo": ""
-        },
-        {
-          "name": "Ayça Barut",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayca-barut/",
-          "photo": ""
-        },
-        {
-          "name": "Ayça Çizer",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayca-cizer/",
-          "photo": ""
-        },
-        {
-          "name": "Ayçe Bükülmeyen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayce-bukulmeyen/",
-          "photo": ""
-        },
-        {
-          "name": "Aydın Candabak",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aydin-candabak/",
-          "photo": ""
-        },
-        {
-          "name": "Ayfer Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayfer-aydin/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/61978cbc4e3fe11d645154c2.jpg"
         },
         {
           "name": "Aygül Aydın",
           "url": "https://www.hurriyet.com.tr/yazarlar/aygul-aydin/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/62a1eda34e3fe0209c5dfb62.jpg"
         },
         {
-          "name": "Ayhan Sicimoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayhan-sicimoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Aykut Kocaman",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aykut-kocaman/",
-          "photo": ""
-        },
-        {
-          "name": "Aylin Anne",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aylin-anne/",
-          "photo": ""
-        },
-        {
-          "name": "Aylin Livaneli",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aylin-livaneli/",
-          "photo": ""
-        },
-        {
-          "name": "Aynur Tartan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aynur-tartan/",
-          "photo": ""
-        },
-        {
-          "name": "Aysun Kaba",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aysun-kaba/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Aral - Kelebek",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-aral/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Arman",
+          "name": "Ayşe ARMAN",
           "url": "https://www.hurriyet.com.tr/yazarlar/ayse-arman/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf449420cb.jpg"
         },
         {
-          "name": "Ayşe Baykal",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-baykal/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Hür",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-hur/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Okumuş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-okumus/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşe Özek Karasu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-ozek-karasu/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşegül Domaniç Yelçe",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aysegul-domanic-yelce/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşegül Ekinci",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aysegul-ekinci/",
-          "photo": ""
-        },
-        {
-          "name": "Ayşen Gür",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aysen-gur/",
-          "photo": ""
-        },
-        {
-          "name": "Ayten Tutkun",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ayten-tutkun/",
-          "photo": ""
-        },
-        {
-          "name": "Aziz Devrimci",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-devrimci/",
-          "photo": ""
-        },
-        {
-          "name": "Aziz Fidancı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-fidanci/",
-          "photo": ""
-        },
-        {
-          "name": "Aziz Özen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-ozen/",
-          "photo": ""
-        },
-        {
-          "name": "Bağış Erten",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bagis-erten/",
-          "photo": ""
-        },
-        {
-          "name": "Bahar Akıncı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-akinci/",
-          "photo": ""
-        },
-        {
-          "name": "Bahar Akıncı - Kelebek",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-akinci-kelebek/",
-          "photo": ""
-        },
-        {
-          "name": "Bahar Çuhadar",
+          "name": "Bahar ÇUHADAR",
           "url": "https://www.hurriyet.com.tr/yazarlar/bahar-cuhadar/",
-          "photo": ""
-        },
-        {
-          "name": "Bahar Ekinci Akçaoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-ekinci-akcaoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Bahar Korçan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-korcan/",
-          "photo": ""
-        },
-        {
-          "name": "Banu Şen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/banu-sen/",
-          "photo": ""
-        },
-        {
-          "name": "Banu Tuna",
-          "url": "https://www.hurriyet.com.tr/yazarlar/banu-tuna/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c515acb67b0a9009c192dc7.jpg"
         },
         {
           "name": "Banu Yelkovan",
           "url": "https://www.hurriyet.com.tr/yazarlar/banu-yelkovan/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6300e1094e3fe103404811cd.jpg"
         },
         {
           "name": "Barbaros Tapan",
           "url": "https://www.hurriyet.com.tr/yazarlar/barbaros-tapan/",
-          "photo": ""
-        },
-        {
-          "name": "Barçın Yinanç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/barcin-yinanc/",
-          "photo": ""
-        },
-        {
-          "name": "Barış Özkan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/baris-ozkan/",
-          "photo": ""
-        },
-        {
-          "name": "Başak Baksu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/basak-baksu/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5d68f177d3806c0c4c11d2a9.jpg"
         },
         {
           "name": "Başak Dizer",
           "url": "https://www.hurriyet.com.tr/yazarlar/basak-dizer/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf449425a6.jpg"
         },
         {
-          "name": "Bayram Aydın",
+          "name": "Bayram AYDIN",
           "url": "https://www.hurriyet.com.tr/yazarlar/bayram-aydin/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f8f018fbaf449424fa.jpg"
         },
         {
-          "name": "Bekir Coşkun",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bekir-coskun/",
-          "photo": ""
+          "name": "Burak KÜNTAY",
+          "url": "https://www.hurriyet.com.tr/yazarlar/burak-kuntay/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/56ddba4667b0a909409a47e1.jpg"
         },
         {
-          "name": "Belgin Ekmen Yenilmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/belgin-ekmen-yenilmez/",
-          "photo": ""
-        },
-        {
-          "name": "Bengü",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bengu/",
-          "photo": ""
-        },
-        {
-          "name": "Beril Papuççuer Ceylan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/beril-papuccuer-ceylan/",
-          "photo": ""
-        },
-        {
-          "name": "Berkay Ateş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/berkay-ates/",
-          "photo": ""
-        },
-        {
-          "name": "Berrin Yiğit",
-          "url": "https://www.hurriyet.com.tr/yazarlar/berrin-yigit/",
-          "photo": ""
-        },
-        {
-          "name": "Beyza Bilgin",
-          "url": "https://www.hurriyet.com.tr/yazarlar/beyza-bilgin/",
-          "photo": ""
-        },
-        {
-          "name": "Bige Dalkılıç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bige-dalkilic/",
-          "photo": ""
-        },
-        {
-          "name": "Bilge Egemen",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bilge-egemen/",
-          "photo": ""
-        },
-        {
-          "name": "Bilge Kobaş & Can Sucuoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bilge-kobas-can-sucuoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Bilgin Gökberk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bilgin-gokberk/",
-          "photo": ""
-        },
-        {
-          "name": "Binnur Zaimler",
-          "url": "https://www.hurriyet.com.tr/yazarlar/binnur-zaimler/",
-          "photo": ""
-        },
-        {
-          "name": "Birce Bora",
-          "url": "https://www.hurriyet.com.tr/yazarlar/birce-bora/",
-          "photo": ""
-        },
-        {
-          "name": "Buğra Adil Buyrukcu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bugra-adil-buyrukcu/",
-          "photo": ""
-        },
-        {
-          "name": "Buket Bayındır",
-          "url": "https://www.hurriyet.com.tr/yazarlar/buket-bayindir/",
-          "photo": ""
-        },
-        {
-          "name": "Buket Çürük",
-          "url": "https://www.hurriyet.com.tr/yazarlar/buket-curuk/",
-          "photo": ""
-        },
-        {
-          "name": "Burak Akın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burak-akin/",
-          "photo": ""
-        },
-        {
-          "name": "Burak Bekdil",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burak-bekdil/",
-          "photo": ""
-        },
-        {
-          "name": "Burak Kesayak",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burak-kesayak/",
-          "photo": ""
-        },
-        {
-          "name": "Burcu Babaç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burcu-babac/",
-          "photo": ""
-        },
-        {
-          "name": "Burcu Eminoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burcu-eminoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Burhan Uslu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/burhan-uslu/",
-          "photo": ""
-        },
-        {
-          "name": "Buse Akçil",
-          "url": "https://www.hurriyet.com.tr/yazarlar/buse-akcil/",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Boğ",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-bog/",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Düzgit",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-duzgit/",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Katarcı",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-katarci/",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Mumay",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-mumay/",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Yavuz",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-yavuz/",
-          "photo": ""
-        },
-        {
-          "name": "Bünyamin Gezer",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bunyamin-gezer/",
-          "photo": ""
-        },
-        {
-          "name": "Bünyamin Sürmeli",
-          "url": "https://www.hurriyet.com.tr/yazarlar/bunyamin-surmeli/",
-          "photo": ""
-        },
-        {
-          "name": "Büşra Taşpınar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/busra-taspinar/",
-          "photo": ""
-        },
-        {
-          "name": "Can Aydoğmuş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/can-aydogmus",
-          "photo": ""
-        },
-        {
-          "name": "Can Bartu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/can-bartu/",
-          "photo": ""
-        },
-        {
-          "name": "Can Erginkurban",
-          "url": "https://www.hurriyet.com.tr/yazarlar/can-erginkurban/",
-          "photo": ""
-        },
-        {
-          "name": "Can Mumay",
-          "url": "https://www.hurriyet.com.tr/yazarlar/can-mumay/",
-          "photo": ""
-        },
-        {
-          "name": "Cansel Oruç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cansel-oruc/",
-          "photo": ""
-        },
-        {
-          "name": "Cansu Çamlıbel",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cansu-camlibel/",
-          "photo": ""
-        },
-        {
-          "name": "Cansu Özdemir",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cansu-ozdemir/",
-          "photo": ""
-        },
-        {
-          "name": "Celal Demirbilek",
-          "url": "https://www.hurriyet.com.tr/yazarlar/celal-demirbilek/",
-          "photo": ""
-        },
-        {
-          "name": "Celal Özcan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/celal-ozcan/",
-          "photo": ""
-        },
-        {
-          "name": "Cem Erciyes",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cem-erciyes/",
-          "photo": ""
-        },
-        {
-          "name": "Cem Keçe",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cem-kece/",
-          "photo": ""
-        },
-        {
-          "name": "Cem Oğuz",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cem-oguz/",
-          "photo": ""
-        },
-        {
-          "name": "Cem Öztürkler",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cem-ozturkler/",
-          "photo": ""
-        },
-        {
-          "name": "Cemal Erbaş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cemal-erbas/",
-          "photo": ""
-        },
-        {
-          "name": "Cemal Tükel",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cemal-tukel/",
-          "photo": ""
-        },
-        {
-          "name": "Cengiz Aktar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-aktar/",
-          "photo": ""
-        },
-        {
-          "name": "Cengiz Çandar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-candar/",
-          "photo": ""
-        },
-        {
-          "name": "Cengiz Çandar - English",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-candar-english/",
-          "photo": ""
-        },
-        {
-          "name": "Cengiz Özdemir",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-ozdemir/",
-          "photo": ""
-        },
-        {
-          "name": "Cengiz Semercioğlu",
+          "name": "Cengiz SEMERCİOĞLU",
           "url": "https://www.hurriyet.com.tr/yazarlar/cengiz-semercioglu/",
-          "photo": ""
-        },
-        {
-          "name": "Cenker Tezel",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cenker-tezel/",
-          "photo": ""
-        },
-        {
-          "name": "Ceren Arseven",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-arseven/",
-          "photo": ""
-        },
-        {
-          "name": "Ceren Can",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-can/",
-          "photo": ""
-        },
-        {
-          "name": "Ceren Şehirlioğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-sehirlioglu/",
-          "photo": ""
-        },
-        {
-          "name": "Ceylan Sever",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ceylan-sever/",
-          "photo": ""
-        },
-        {
-          "name": "Ceylan Şekerci",
-          "url": "https://www.hurriyet.com.tr/yazarlar/ceylan-sekerci/",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Şensözlü",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cihan-sensozlu/",
-          "photo": ""
-        },
-        {
-          "name": "Civan Er",
-          "url": "https://www.hurriyet.com.tr/yazarlar/civan-er/",
-          "photo": ""
-        },
-        {
-          "name": "Cüneyt Ülsever",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cuneyt-ulsever/",
-          "photo": ""
-        },
-        {
-          "name": "Cüneyt Ülsever - English",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cuneyt-ulsever-english/",
-          "photo": ""
-        },
-        {
-          "name": "Çağlayan Çevik",
-          "url": "https://www.hurriyet.com.tr/yazarlar/caglayan-cevik/",
-          "photo": ""
-        },
-        {
-          "name": "Çağlayan Kent",
-          "url": "https://www.hurriyet.com.tr/yazarlar/caglayan-kent/",
-          "photo": ""
-        },
-        {
-          "name": "Çağrı Develioğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cagri-develioglu/",
-          "photo": ""
-        },
-        {
-          "name": "Çetin Yılmaz",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cetin-yilmaz/",
-          "photo": ""
-        },
-        {
-          "name": "Çiğdem Toker",
-          "url": "https://www.hurriyet.com.tr/yazarlar/cigdem-toker/",
-          "photo": ""
-        },
-        {
-          "name": "Damla Güler",
-          "url": "https://www.hurriyet.com.tr/yazarlar/damla-guler/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf449421ee.jpg"
         },
         {
           "name": "Danilo Zanna",
           "url": "https://www.hurriyet.com.tr/yazarlar/danilo-zanna/",
-          "photo": ""
-        },
-        {
-          "name": "Defne Barak",
-          "url": "https://www.hurriyet.com.tr/yazarlar/defne-barak/",
-          "photo": ""
-        },
-        {
-          "name": "Demet Baykal",
-          "url": "https://www.hurriyet.com.tr/yazarlar/demet-baykal/",
-          "photo": ""
-        },
-        {
-          "name": "Demir Karahan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/demir-karahan/",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Bayramoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-bayramoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Beykont",
-          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-beykont/",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Gök",
-          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-gok/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/611ce86c4e3fe017dcf77f01.jpg"
         },
         {
           "name": "Deniz Gürel",
           "url": "https://www.hurriyet.com.tr/yazarlar/deniz-gurel/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5836dc0b0f254410c4c369e8.jpg"
         },
         {
-          "name": "Deniz Sipahi",
+          "name": "Deniz SİPAHİ",
           "url": "https://www.hurriyet.com.tr/yazarlar/deniz-sipahi/",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Tutkun",
-          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-tutkun/",
-          "photo": ""
-        },
-        {
-          "name": "Deniz Yoldaç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/deniz-yoldac/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58c64c7cc03c0e243c5a2afa.jpg"
         },
         {
           "name": "Deniz Zeyrek",
           "url": "https://www.hurriyet.com.tr/yazarlar/deniz-zeyrek/",
-          "photo": ""
-        },
-        {
-          "name": "Dennis Redmont",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dennis-redmont/",
-          "photo": ""
-        },
-        {
-          "name": "Dermatolog Dr. Neslihan Dolar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dermatolog-dr-neslihan-dolar/",
-          "photo": ""
-        },
-        {
-          "name": "Derya Fidan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/derya-fidan/",
-          "photo": ""
-        },
-        {
-          "name": "Derya Jerdev",
-          "url": "https://www.hurriyet.com.tr/yazarlar/derya-jerdev/",
-          "photo": ""
-        },
-        {
-          "name": "Derya Korkmaz",
-          "url": "https://www.hurriyet.com.tr/yazarlar/derya-korkmaz/",
-          "photo": ""
-        },
-        {
-          "name": "Devrim Mumcuoğulları",
-          "url": "https://www.hurriyet.com.tr/yazarlar/devrim-mumcuogullari/",
-          "photo": ""
-        },
-        {
-          "name": "Devrim Sağıroğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/devrim-sagiroglu/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/586a12d50f254440903a01bc.jpg"
         },
         {
           "name": "Didem Şenol",
           "url": "https://www.hurriyet.com.tr/yazarlar/didem-senol/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/611ce8d04e3fe017dcf77f0e.jpg"
         },
         {
-          "name": "Dilek Avşar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-avsar/",
-          "photo": ""
-        },
-        {
-          "name": "Dilek Çiftçi",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-ciftci/",
-          "photo": ""
-        },
-        {
-          "name": "Dilek Dayınlarlı",
+          "name": "Dilek DAYINLARLI",
           "url": "https://www.hurriyet.com.tr/yazarlar/dilek-dayinlarli/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/599ac72dc03c0e3910cabb31.jpg"
         },
         {
           "name": "Dinçer Güner",
           "url": "https://www.hurriyet.com.tr/yazarlar/dincer-guner/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5fedc0547152d82034479c58.jpg"
         },
         {
-          "name": "Doç. Dr. Gülay Ergin Okay",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulay-ergin-okay/",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. İlker Kahramanoğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-ilker-kahramanoglu/",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Nermin Köşüş",
-          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-nermin-kosus/",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Serkan Özel",
-          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-serkan-ozel/",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Zekayi Kutlubay",
-          "url": "https://www.hurriyet.com.tr/yazarlar/zekayi-kutlubay/",
-          "photo": ""
-        },
-        {
-          "name": "Doç.Dr. Efsun Dindar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/doc-dr-efsun-dindar/",
-          "photo": ""
-        },
-        {
-          "name": "Dodo",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dodo/",
-          "photo": ""
-        },
-        {
-          "name": "Doğa Huriye Özkaya",
-          "url": "https://www.hurriyet.com.tr/yazarlar/doga-huriye-ozkaya/",
-          "photo": ""
-        },
-        {
-          "name": "Doğahan Giritlioğlu",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dogahan-giritlioglu/",
-          "photo": ""
-        },
-        {
-          "name": "Doğan Hakyemez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-hakyemez/",
-          "photo": ""
-        },
-        {
-          "name": "Doğan Hızlan",
+          "name": "Doğan HIZLAN",
           "url": "https://www.hurriyet.com.tr/yazarlar/dogan-hizlan/",
-          "photo": ""
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/599bce37c9de3d1878bfcb6d.jpg"
         },
         {
-          "name": "Doğan Satmış",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-satmis/",
-          "photo": ""
-        },
-        {
-          "name": "Doğan Uluç",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dogan-uluc/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Ecz. Metin Uyar",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
-          "photo": ""
+          "name": "Dr.Başak DEMİRİZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-basak-demiriz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f8f018fbaf44942514.jpg"
         },
         {
           "name": "Dr. Erkan Aydın",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5afbe2845379ff1fbcb70f1d.jpg"
+        },
+        {
+          "name": "Dr.Furkan Burak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-furkan-burak/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/68416c61382339c6a0708f65.jpg"
+        },
+        {
+          "name": "Dr. Gülseren Budayıcıoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-gulseren-budayicioglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/60e8c8654e3fdf15c436ee22.jpg"
+        },
+        {
+          "name": "Ebru Erke",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ebru-erke/",
           "photo": ""
         },
         {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
+          "name": "Ece SÜKAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ece-sukan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf449425c0.jpg"
         },
         {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
+          "name": "Elçin Yahşi",
+          "url": "https://www.hurriyet.com.tr/yazarlar/elcin-yahsi/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e2946b667b0a913f4810c10.jpg"
         },
         {
-          "name": "Hande FIRAT",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
+          "name": "Elif Ergu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/elif-ergu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e557b7867b0a92b50e76fc8.jpg"
+        },
+        {
+          "name": "Elif Zorlu Tapan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/elif-zorlu-tapan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6628b83ead18366012bbe678.jpg"
+        },
+        {
+          "name": "Emre Dorman",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emre-dorman/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/57553df618c77327bc1b127e.jpg"
+        },
+        {
+          "name": "Emre ÖZPEYNİRCİ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emre-ozpeynirci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5922c2487af50749ac5fac8b.jpg"
+        },
+        {
+          "name": "Engin KEHALE",
+          "url": "https://www.hurriyet.com.tr/yazarlar/engin-kehale/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6311a12b7152d803007c4820.jpg"
+        },
+        {
+          "name": "Engin KRATZER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/engin-kratzer/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/60af99564e3fe01b9cd4cb8e.jpg"
+        },
+        {
+          "name": "Erdal SAĞLAM",
+          "url": "https://www.hurriyet.com.tr/yazarlar/erdal-saglam/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/587e1d7d67b0a9301084641b.jpg"
+        },
+        {
+          "name": "Eren ALPHAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/eren-alphan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/57c6b64b18c7731288bb0e13.jpg"
+        },
+        {
+          "name": "Ertuğrul ÖZKÖK",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ertugrul-ozkok/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf449420c6.jpg"
+        },
+        {
+          "name": "Fatih ÇEKİRGE",
+          "url": "https://www.hurriyet.com.tr/yazarlar/fatih-cekirge/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/562608b967b0a92cf88a2fa3.jpg"
+        },
+        {
+          "name": "Fatih Tekeci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/fatih-tekeci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59c794aa7152d831d0fee6e4.jpg"
+        },
+        {
+          "name": "Fikret BİLA",
+          "url": "https://www.hurriyet.com.tr/yazarlar/fikret-bila/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5822f75cc03c0e17a406cb30.jpg"
+        },
+        {
+          "name": "Fırat Aydınus",
+          "url": "https://www.hurriyet.com.tr/yazarlar/firat-aydinus/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/633a85604e3fe10ea8aec13c.jpg"
+        },
+        {
+          "name": "Fuat Akdağ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/fuat-akdag/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ab92ee618c773173409ff0e.jpg"
+        },
+        {
+          "name": "Fuat BOL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/fuat-bol/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e0a0c460f25441618c0ac34.jpg"
         },
         {
           "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
+          "url": "https://www.hurriyet.com.tr/yazarlar/fulya-soybas/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63c4e6bb4e3fe116ec5f319f.jpg"
+        },
+        {
+          "name": "Gila BENMAYOR",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gila-benmayor/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf449420e1.jpg"
+        },
+        {
+          "name": "Gökçe Aytulu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gokce-aytulu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/685255091f20a2984e66017c.jpg"
+        },
+        {
+          "name": "Gökhan KİMSESİZCAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gokhan-kimsesizcan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f8f018fbaf449424bd.jpg"
+        },
+        {
+          "name": "Gonca Vuslateri",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gonca-vuslateri/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59a5500b7152d81598371f03.jpg"
+        },
+        {
+          "name": "Gülben ERGEN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulben-ergen/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/56c3282718c77318d89a8625.jpg"
+        },
+        {
+          "name": "Gülse BİRSEL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulse-birsel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09faf018fbaf449425f7.jpg"
+        },
+        {
+          "name": "Güzin Abla",
+          "url": "https://www.hurriyet.com.tr/yazarlar/guzin-abla/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f3f018fbaf4494213e.jpg"
+        },
+        {
+          "name": "Hakan ÜNSAL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hakan-unsal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf4494244d.jpg"
+        },
+        {
+          "name": "Hamit Altıntop",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hamit-altintop/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/68a9597bf33c4243764027ba.jpg"
+        },
+        {
+          "name": "Hamit HAMUTCU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hamit-hamutcu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/599ac5f5c03c0e3910cabb10.jpg"
+        },
+        {
+          "name": "Hande FIRAT",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hande-firat/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/626380bb4e3fe118d4fa1ba3.jpg"
+        },
+        {
+          "name": "Hürriyet'in Arka Köşesi",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hurriyetin-arka-kosesi/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e0901837152d825c8a1427a.jpg"
+        },
+        {
+          "name": "İhsan Yılmaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ihsan-yilmaz/",
+          "photo": ""
+        },
+        {
+          "name": "İlber Ortaylı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ilber-ortayli/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/56fb8066c03c0e5dc8a52390.jpg"
+        },
+        {
+          "name": "İlker YASİN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ilker-yasin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f3f018fbaf449421d5.jpg"
+        },
+        {
+          "name": "İpek Özbey",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ipek-ozbey/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c481e90c03c0e1198af71a1.jpg"
+        },
+        {
+          "name": "İslam Memiş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/islam-memis/",
+          "photo": ""
+        },
+        {
+          "name": "Jale Özgentürk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/jale-ozgenturk/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/568a5d4818c773300cdd9dad.jpg"
+        },
+        {
+          "name": "Kanat ATKAYA",
+          "url": "https://www.hurriyet.com.tr/yazarlar/kanat-atkaya/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf449420f0.jpg"
+        },
+        {
+          "name": "Kenan BAŞARAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/kenan-basaran/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5818a131c03c0e27304b8e30.jpg"
+        },
+        {
+          "name": "Latif DEMİRCİ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/latif-demirci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e68c9d37af5072dc813d297.jpg"
+        },
+        {
+          "name": "M.Kutlukhan Perker",
+          "url": "https://www.hurriyet.com.tr/yazarlar/m-kutlukhan-perker/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ebd350e2269a2013884a7a5.jpg"
+        },
+        {
+          "name": "Mehmet ARSLAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-arslan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf44942291.jpg"
+        },
+        {
+          "name": "Mehmet Ayan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-ayan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6949585b2425fd04cb2e05ec.jpg"
+        },
+        {
+          "name": "Mehmet İren",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-iren/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e29462267b0a913f4810c02.jpg"
+        },
+        {
+          "name": "Mehmet Muharrem KASAPOĞLU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-muharrem-kasapoglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/68d82454de19472041f5ab3e.jpg"
+        },
+        {
+          "name": "Mehmet SOYSAL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-soysal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c2bc5fec03c0e05a4844032.jpg"
+        },
+        {
+          "name": "Mehmet Y. YILMAZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-y-yilmaz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf4494226f.jpg"
+        },
+        {
+          "name": "Mehmet YAŞİN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-yasin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5aba13d1c03c0e206048e4f8.jpg"
+        },
+        {
+          "name": "Melike Karakartal",
+          "url": "https://www.hurriyet.com.tr/yazarlar/melike-karakartal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5877923d0f25450e10f79c6d.jpg"
+        },
+        {
+          "name": "Melis ALPHAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/melis-alphan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf44942455.jpg"
+        },
+        {
+          "name": "Mert Gökhan KOÇ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mert-gokhan-koc/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a8aa8792269a21b348d295a.jpg"
+        },
+        {
+          "name": "Mete Yarar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mete-yarar/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63d0d03467b0a91a548a8818.jpg"
+        },
+        {
+          "name": "Muammer ELVEREN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/muammer-elveren/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/583c152f0f2544335c833902.jpg"
+        },
+        {
+          "name": "Müge AKGÜN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/muge-akgun/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5735c1e618c7732e687f966a.jpg"
+        },
+        {
+          "name": "Murat Fevzi Tanırlı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/murat-fevzi-tanirli/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/61765dc94e3fe10f20fe0618.jpg"
+        },
+        {
+          "name": "Murat Yetkin",
+          "url": "https://www.hurriyet.com.tr/yazarlar/murat-yetkin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/571532dfc03c0e1a20d6b67d.jpg"
+        },
+        {
+          "name": "Murat Yılmaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/murat-yilmaz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/65ba4d17925150967e8bbdc3.jpg"
+        },
+        {
+          "name": "Mustafa Çulcu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mustafa-culcu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/564af7300f25444040534710.jpg"
+        },
+        {
+          "name": "Naz ERSOY",
+          "url": "https://www.hurriyet.com.tr/yazarlar/naz-ersoy/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6998420feb59fdefaeb2266d.jpg"
+        },
+        {
+          "name": "Nedim GÜRSEL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nedim-gursel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a954704c03c0f2970153f80.jpg"
+        },
+        {
+          "name": "Nedim ŞENER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nedim-sener/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5dfe6f2a2269a2205c12e3b5.jpg"
+        },
+        {
+          "name": "Nil KARAİBRAHİMGİL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nil-karaibrahimgil/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf4494220a.jpg"
+        },
+        {
+          "name": "Nilgün Tekfidan GÜMÜŞ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nilgun-tekfidan-gumus/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/65aa40f3eb03f66dff0be4a2.jpg"
+        },
+        {
+          "name": "Niobe Aslı Temel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/niobe-asli-temel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf44942261.jpg"
         },
         {
           "name": "Noyan Doğan",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
+          "url": "https://www.hurriyet.com.tr/yazarlar/noyan-dogan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f5f018fbaf44942340.jpg"
         },
         {
-          "name": "Savaş ÖZBEY",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
+          "name": "Nuran ÇAKMAKÇI",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nuran-cakmakci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6542467867b0a91628c60c7f.jpg"
         },
         {
-          "name": "Orkun Ün",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63328fae4e3fe019b4db225d.jpg"
+          "name": "Nuray Babacan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/nuray-babacan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e86be437152d80c502f6d79.jpg"
         },
         {
           "name": "Ömür GEDİK",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f4f018fbaf44942219.jpg"
+          "url": "https://www.hurriyet.com.tr/yazarlar/omur-gedik/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf44942219.jpg"
         },
         {
-          "name": "Doğan HIZLAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/599bce37c9de3d1878bfcb6d.jpg"
+          "name": "Ömür Kurt",
+          "url": "https://www.hurriyet.com.tr/yazarlar/omur-kurt/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/657975ef4e3fe01bcce1a524.jpg"
+        },
+        {
+          "name": "Onur BAŞTÜRK",
+          "url": "https://www.hurriyet.com.tr/yazarlar/onur-basturk/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf44942274.jpg"
+        },
+        {
+          "name": "Orkun Ün",
+          "url": "https://www.hurriyet.com.tr/yazarlar/orkun-un/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63328fae4e3fe019b4db225d.jpg"
+        },
+        {
+          "name": "Osman MÜFTÜOĞLU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/osman-muftuoglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/61b9f80e4e3fe00d3cdf234c.jpg"
+        },
+        {
+          "name": "Oya ARMUTÇU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/oya-armutcu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f5f018fbaf449422d4.jpg"
+        },
+        {
+          "name": "Özgür BOLAT",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ozgur-bolat/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a195b00c9de3d1d541f6bd8.jpg"
+        },
+        {
+          "name": "Pucca Günlük",
+          "url": "https://www.hurriyet.com.tr/yazarlar/pucca-gunluk/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf449425b6.jpg"
+        },
+        {
+          "name": "Rauf TAMER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/rauf-tamer/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f5f018fbaf449422aa.jpg"
+        },
+        {
+          "name": "Refika Birgül",
+          "url": "https://www.hurriyet.com.tr/yazarlar/refika-birgul/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf4494246f.jpg"
+        },
+        {
+          "name": "Rüştü Reçber",
+          "url": "https://www.hurriyet.com.tr/yazarlar/rustu-recber/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09fbf018fbaf449426a2.jpg"
+        },
+        {
+          "name": "Saffet Emre TONGUÇ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/saffet-emre-tonguc/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5aba1388c03c0e206048e4ef.jpg"
+        },
+        {
+          "name": "Sahrap SOYSAL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sahrap-soysal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a7d8fb37af5070784a5d789.jpg"
+        },
+        {
+          "name": "Savaş ÖZBEY",
+          "url": "https://www.hurriyet.com.tr/yazarlar/savas-ozbey/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a86c78418c7731c281986fd.jpg"
+        },
+        {
+          "name": "Sayım Çınar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sayim-cinar/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6343ef5b4e3fe00e149fe8db.jpg"
+        },
+        {
+          "name": "Sedat ERGİN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sedat-ergin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5d935342d3806c08fc0f8f1f.jpg"
+        },
+        {
+          "name": "Sefer LEVENT",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sefer-levent/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63bc62884e3fe020fcb82394.jpg"
+        },
+        {
+          "name": "Selçuk ŞİRİN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/selcuk-sirin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/57c7da4c67b0a92790ff452b.jpg"
+        },
+        {
+          "name": "Şenol Kalyoncu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/senol-kalyoncu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/62f0adc40f254435b0cf9da4.jpg"
+        },
+        {
+          "name": "Serhat DEMİREL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serhat-demirel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e18697d7af5070b94b9b97b.jpg"
+        },
+        {
+          "name": "Sevil ERKUŞ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sevil-erkus/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5b07d1a50490c91818141a55.jpg"
+        },
+        {
+          "name": "Sibel Arna",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sibel-arna/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf44942474.jpg"
+        },
+        {
+          "name": "Sina Afra",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sina-afra/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a2cf36267b0a912889f71d6.jpg"
         },
         {
           "name": "Sinem Vural",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5da712a1c03c0e1498be0fd3.jpg"
+          "url": "https://www.hurriyet.com.tr/yazarlar/sinem-vural/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5da712a1c03c0e1498be0fd3.jpg"
+        },
+        {
+          "name": "Somer Sivrioğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/somer-sivrioglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/611ce82f4e3fe017dcf77ef6.jpg"
+        },
+        {
+          "name": "Susan Miller",
+          "url": "https://www.hurriyet.com.tr/yazarlar/susan-miller/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf44942561.jpg"
+        },
+        {
+          "name": "Taha AKYOL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/taha-akyol/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf4494240f.jpg"
+        },
+        {
+          "name": "Tahir KUM",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tahir-kum/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5da6e2be7152d81f1875f7fb.jpg"
+        },
+        {
+          "name": "Tolga AKYILDIZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tolga-akyildiz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ac38b90c9de3d1dc0e32395.jpg"
+        },
+        {
+          "name": "Tolga TANIŞ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tolga-tanis/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/56cac19c18c7732580a6bc62.jpg"
+        },
+        {
+          "name": "Tülay DEMİR",
+          "url": "https://www.hurriyet.com.tr/yazarlar/tulay-demir/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5eaffe227152d813ac78f081.jpg"
+        },
+        {
+          "name": "Ufuk Kaan Karacan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ufuk-kaan-karacan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6a8eee895548acce7124e643.jpg"
+        },
+        {
+          "name": "Uğur CEBECİ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ugur-cebeci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a9fe6170f254433d4b337c2.jpg"
+        },
+        {
+          "name": "Uğur GÜRSES",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ugur-gurses/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5819e633c03c0e3b70656756.jpg"
+        },
+        {
+          "name": "Uğur MELEKE",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ugur-meleke/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/699d9c8d717271c959b2972c.jpg"
+        },
+        {
+          "name": "Uğur VARDAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ugur-vardan/",
+          "photo": ""
+        },
+        {
+          "name": "Umut Fırat Eroğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/umut-firat-eroglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63873faa4e3fe1118c7f575d.jpg"
+        },
+        {
+          "name": "Umut Gökbayrak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/umut-gokbayrak/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/575c084267b0a91eaccecb72.jpg"
+        },
+        {
+          "name": "Ünal Özüak",
+          "url": "https://www.hurriyet.com.tr/yazarlar/unal-ozuak/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f8f018fbaf44942504.jpg"
+        },
+        {
+          "name": "Vahap MUNYAR",
+          "url": "https://www.hurriyet.com.tr/yazarlar/vahap-munyar/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf44942128.jpg"
+        },
+        {
+          "name": "Vedat MİLOR",
+          "url": "https://www.hurriyet.com.tr/yazarlar/vedat-milor/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09fbf018fbaf449426cd.jpg"
+        },
+        {
+          "name": "Verda Özer",
+          "url": "https://www.hurriyet.com.tr/yazarlar/verda-ozer/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/68e36b1d9969a000f87d03bd.jpg"
+        },
+        {
+          "name": "Y.Sinan Tanyıldız",
+          "url": "https://www.hurriyet.com.tr/yazarlar/y-sinan-tanyildiz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f5f018fbaf449422ef.jpg"
+        },
+        {
+          "name": "Yalçın BAYER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yalcin-bayer/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f2f018fbaf44942122.jpg"
+        },
+        {
+          "name": "Yaşar SÖKMENSÜER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yasar-sokmensuer/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/586a596c0f254440903a0904.jpg"
+        },
+        {
+          "name": "Yelda Başaran",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yelda-basaran/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/63729e4018c77338b8a16f3c.jpg"
+        },
+        {
+          "name": "Yonca TOKBAŞ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yonca-tokbas/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f5f018fbaf449422fc.jpg"
+        },
+        {
+          "name": "Yonca TOKBAŞ - Kelebek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yonca-tokbas-kelebek/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf44942439.jpg"
+        },
+        {
+          "name": "Yunus Paksoy",
+          "url": "https://www.hurriyet.com.tr/yazarlar/yunus-paksoy/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6761a8c54c39255d0d8316c5.jpg"
+        },
+        {
+          "name": "Zeynel Balcı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/zeynel-balci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/591985c32269a229c841711c.jpg"
+        },
+        {
+          "name": "Zeynep BİLGEHAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/zeynep-bilgehan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f7f018fbaf4494249c.jpg"
+        },
+        {
+          "name": "AnlatanAdam",
+          "url": "https://www.hurriyet.com.tr/yazarlar/anlatanadam-yaziyor/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5891872667b0a92b54aac0d7.jpg"
+        },
+        {
+          "name": "Ateş BAKAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ates-bakan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf44942577.jpg"
+        },
+        {
+          "name": "Ayhan Sicimoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayhan-sicimoglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5aba15e4c03c0e206048e533.jpg"
+        },
+        {
+          "name": "Ayşe BAYKAL",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ayse-baykal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58329ffec03c0e2edce23f2e.jpg"
+        },
+        {
+          "name": "Ayşegül DOMANİÇ YELÇE",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysegul-domanic-yelce/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f8f018fbaf449424e4.jpg"
+        },
+        {
+          "name": "Aysun KABA",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aysun-kaba/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a8aa8092269a21b348d294e.jpg"
+        },
+        {
+          "name": "Aziz Fidancı",
+          "url": "https://www.hurriyet.com.tr/yazarlar/aziz-fidanci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e6751a60f254426acd23a2f.jpg"
+        },
+        {
+          "name": "Bahar AKINCI - Kelebek",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-akinci-kelebek/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59478f037152d83724a6f620.jpg"
+        },
+        {
+          "name": "Bahar Ekinci Akçaoğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bahar-ekinci-akcaoglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58f0cccfc03c0e25acc6f269.jpg"
+        },
+        {
+          "name": "Bilge KOBAŞ & Can SUCUOĞLU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bilge-kobas-can-sucuoglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ab3afdf7152d8216083ecb9.jpg"
+        },
+        {
+          "name": "Buğra Adil Buyrukcu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bugra-adil-buyrukcu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5f8d7cdb2269a21e50069ef4.jpg"
+        },
+        {
+          "name": "Bülent YAVUZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/bulent-yavuz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5d8e71add3806c0550e195f7.jpg"
+        },
+        {
+          "name": "Can Aydoğmuş",
+          "url": "https://www.hurriyet.com.tr/yazarlar/can-aydogmus",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e4b9f410f2544259c6c086c.jpg"
+        },
+        {
+          "name": "Cansel ORUÇ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cansel-oruc/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a953d592269a330300823d9.jpg"
+        },
+        {
+          "name": "Cansu Çamlıbel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/cansu-camlibel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a153eca18c773232821bcdf.jpg"
+        },
+        {
+          "name": "Ceren Can",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ceren-can/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/6a5f692c7c43e629aa2595f3.jpg"
+        },
+        {
+          "name": "Dilek Avşar",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dilek-avsar/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e8a37c60f25441e4c72505f.jpg"
+        },
+        {
+          "name": "Ebru Doğdu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ebru-dogdu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/62e134692269a23420123242.jpg"
+        },
+        {
+          "name": "Ece Çelik",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ece-celik/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a8591740f25441ee47dde87.jpg"
+        },
+        {
+          "name": "Elif Çongur",
+          "url": "https://www.hurriyet.com.tr/yazarlar/elif-congur/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf449425cb.jpg"
+        },
+        {
+          "name": "Emre KIZILKAYA",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emre-kizilkaya/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ae173630f254319e04f5816.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/erdal-fernergiz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
+          "name": "Erdem Cürgen",
+          "url": "https://www.hurriyet.com.tr/yazarlar/erdem-curgen/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58dbaa017152d83cb4ece964.jpg"
+        },
+        {
+          "name": "Ersu ABLAK",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ersu-ablak/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5aa6784d0f254414d0af3e20.jpg"
+        },
+        {
+          "name": "Ertuğrul GÜNAY",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ertugrul-gunay/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a9546e6c03c0f2970153f7b.jpg"
+        },
+        {
+          "name": "Esra Ezmeci",
+          "url": "https://www.hurriyet.com.tr/yazarlar/esra-ezmeci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5b586ffe0490c82314493701.jpg"
+        },
+        {
+          "name": "Ferhan İSTANBULLU",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ferhan-istanbullu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58777ae418c774177c260b04.jpg"
+        },
+        {
+          "name": "GÜNTEKİN ONAY",
+          "url": "https://www.hurriyet.com.tr/yazarlar/guntekin-onay/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c2dbe55c03c0e26cc435e19.jpg"
+        },
+        {
+          "name": "Hande Can",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hande-can/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/634519f64e3fe026f0d52a80.jpg"
+        },
+        {
+          "name": "Hikmet Demirkol",
+          "url": "https://www.hurriyet.com.tr/yazarlar/hikmet-demirkol/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5e3bd4012269a22a6824e03a.jpg"
+        },
+        {
+          "name": "İbrahim Seten",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ibrahim-seten/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c2dc19ec03c0e26cc435ea8.jpg"
+        },
+        {
+          "name": "İdil YAZAR",
+          "url": "https://www.hurriyet.com.tr/yazarlar/idil-yazar/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/57a8a38b0f25441fb419c54c.jpg"
+        },
+        {
+          "name": "İpek İZCİ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ipek-izci/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/631327dc4e3fe00b3cbb054d.jpg"
+        },
+        {
+          "name": "İpek YEZDANİ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ipek-yezdani/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/567c101367b0a94d60c2d895.jpg"
+        },
+        {
+          "name": "İsmail SARI",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ismail-sari/",
+          "photo": ""
+        },
+        {
+          "name": "Koray Durkal",
+          "url": "https://www.hurriyet.com.tr/yazarlar/koray-durkal/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/58b51c5118c77319b0e612a0.jpg"
+        },
+        {
+          "name": "Mehmet ÖZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-oz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf4494256f.jpg"
+        },
+        {
+          "name": "Mehmet Özdoğan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mehmet-ozdogan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/592447db2269a23ec8675e27.jpg"
+        },
+        {
+          "name": "Meltem Farah Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/meltem-farah-aydin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/65c0f1b653395bdbe99b6f59.jpg"
+        },
+        {
+          "name": "Mesude ERŞAN",
+          "url": "https://www.hurriyet.com.tr/yazarlar/mesude-ersan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f4f018fbaf449421ff.jpg"
+        },
+        {
+          "name": "Murat Güloğlu",
+          "url": "https://www.hurriyet.com.tr/yazarlar/murat-guloglu/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/590b00fec03c0e3c0467c337.jpg"
+        },
+        {
+          "name": "Musa Dede",
+          "url": "https://www.hurriyet.com.tr/yazarlar/musa-dede/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf44942585.jpg"
+        },
+        {
+          "name": "Musa KESLER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/musa-kesler/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5c471ccec03c0e0a6c5c6d06.jpg"
+        },
+        {
+          "name": "Naci Cem Öncel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/naci-cem-oncel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5ea47b50c03c0e0fe4e5e09f.jpg"
+        },
+        {
+          "name": "Naim DİLMENER",
+          "url": "https://www.hurriyet.com.tr/yazarlar/naim-dilmener/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5aa776b6d3806c1138edcc86.jpg"
+        },
+        {
+          "name": "Oğuz Çelikkol",
+          "url": "https://www.hurriyet.com.tr/yazarlar/oguz-celikkol/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5b71944c67b0a90f88b2a438.jpg"
+        },
+        {
+          "name": "Özcan Çıkmaz",
+          "url": "https://www.hurriyet.com.tr/yazarlar/ozcan-cikmaz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59d74f63c9de3d2bac6a83f5.jpg"
+        },
+        {
+          "name": "Rıza Özel",
+          "url": "https://www.hurriyet.com.tr/yazarlar/riza-ozel/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/55ea09f9f018fbaf44942596.jpg"
+        },
+        {
+          "name": "Şahap Bayram TOKGÖZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sahap-bayram-tokgoz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/62136a050f25443018d6f445.jpg"
+        },
+        {
+          "name": "Şahver KAYA",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sahver-kaya/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5cc709cac03c0e31841ac0d1.jpg"
+        },
+        {
+          "name": "Salim Uzun",
+          "url": "https://www.hurriyet.com.tr/yazarlar/salim-uzun/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/66ae57b18d678ec0c61e88ff.jpg"
+        },
+        {
+          "name": "Şehnaz Tanılkan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/sehnaz-tanilkan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/5a28ecc02269a20b5c15bb9f.jpg"
+        },
+        {
+          "name": "Selin Irmak KAÇMAZ",
+          "url": "https://www.hurriyet.com.tr/yazarlar/selin-irmak-kacmaz/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/673c3fd5357c44635abfeaa8.jpg"
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/641470ec2269a249a4551ba8.jpg"
+        },
+        {
+          "name": "Serhat Tekin",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serhat-tekin/",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/70x70/59a59a297152d81598371fc5.jpg"
         }
       ]
     },
@@ -1200,9 +1155,9 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "SALİH TUNA",
@@ -1210,14 +1165,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5076,7 +5031,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 54,
+      "count": 52,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5330,16 +5285,6 @@
         },
         {
           "name": "Bloomberg fon vurgununu yazdı: Yumruklu kavga ve SPK detayı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Esenyurt'ta silahlı dehşet: Kurşun yağdırıp araç gasp etti",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "YENİ Parti'den asgari ücret teklifi: Rakam 45 bin 800 lira",
           "url": "",
           "photo": ""
         },
