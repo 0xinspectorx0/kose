@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-22T08:33:12.578881+00:00",
+  "fetchedAt": "2026-10-22T11:47:00.771463+00:00",
   "date": "2026-10-22",
-  "total": 1252,
+  "total": 1251,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 209,
+      "count": 210,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1052,6 +1052,11 @@
           "name": "Sinem Vural",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5da712a1c03c0e1498be0fd3.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -1225,14 +1230,14 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1240,9 +1245,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5101,7 +5106,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5152,6 +5157,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Ercan Özcan",
+          "url": "https://www.milligazete.com.tr/ercan-ozcan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
         },
         {
           "name": "Dr. Abdülaziz Kıranşal",
@@ -5239,16 +5249,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/56386-avatar.jpg"
         },
         {
-          "name": "Meleklere İman - 1",
-          "url": "https://www.milligazete.com.tr/meleklere-iman-1",
-          "photo": ""
-        },
-        {
-          "name": "Atilla Mehdigil",
-          "url": "https://www.milligazete.com.tr/atilla-mehdigil",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/69667-avatar.jpg"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5334,12 +5334,12 @@
           "photo": ""
         },
         {
-          "name": "Fon soruşturmasında 5 kişi daha gözaltına alındı",
+          "name": "ESAM’dan özelleştirme tepkisi “Halkın mülkü halka gitmeli”",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Vize hayali kuranlar dikkat: Paranızı sokağa atmayın",
+          "name": "“Kayyım”a “kayyım” atamak… Hesap sormadan hatır sormaya…",
           "url": "",
           "photo": ""
         },
@@ -6366,7 +6366,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 5,
       "writers": [
         {
           "name": "Murat Sevinç",
@@ -6390,11 +6390,6 @@
         },
         {
           "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }
