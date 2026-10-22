@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-22T00:58:28.412604+00:00",
-  "kurallarAlindi": "2026-10-22T00:51:10.480803+00:00",
+  "guncellendi": "2026-10-22T02:30:38.389040+00:00",
+  "kurallarAlindi": "2026-10-22T02:23:39.482981+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 10
+      "yazi": 9
     },
     {
       "key": "milliyet",
@@ -234,7 +234,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Yılmaz Özdil"
     }
   ]
