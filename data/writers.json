@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-22T18:37:23.196597+00:00",
-  "date": "2026-10-22",
-  "total": 1256,
+  "fetchedAt": "2026-10-22T21:37:06.492008+00:00",
+  "date": "2026-10-23",
+  "total": 1233,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 200,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1007,56 +1007,6 @@
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
           "photo": ""
-        },
-        {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Hande FIRAT",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
-        },
-        {
-          "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
-        },
-        {
-          "name": "Noyan Doğan",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
-        },
-        {
-          "name": "Savaş ÖZBEY",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
-        },
-        {
-          "name": "Orkun Ün",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63328fae4e3fe019b4db225d.jpg"
-        },
-        {
-          "name": "Ömür GEDİK",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f4f018fbaf44942219.jpg"
-        },
-        {
-          "name": "Doğan HIZLAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/599bce37c9de3d1878bfcb6d.jpg"
-        },
-        {
-          "name": "Sinem Vural",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5da712a1c03c0e1498be0fd3.jpg"
-        },
-        {
-          "name": "Erdal Fernergiz",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -1111,6 +1061,11 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
+          "name": "Turan Yücel",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
+        },
+        {
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
@@ -1119,18 +1074,13 @@
           "name": "Mesut Parlak",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
-        },
-        {
-          "name": "Ercan Taner",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
         }
       ]
     },
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 7,
+      "count": 6,
       "writers": [
         {
           "name": "Tunca Bengin",
@@ -1161,11 +1111,6 @@
           "name": "Çağdaş Ertuna",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f837355428103b0dcdcf3.jpg"
-        },
-        {
-          "name": "Prof. Dr. Mahmut Özer",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6730e323c72706dec4b3bdd3.jpg"
         }
       ]
     },
@@ -1225,11 +1170,6 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1243,6 +1183,11 @@
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3712,7 +3657,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 22,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3772,56 +3717,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Hakan Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bilal Emin Turan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şirin Sever",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mustafa Bakacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Rükzan Sağır",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şoray Uzun",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -5101,7 +4996,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 53,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5329,32 +5224,17 @@
           "photo": ""
         },
         {
+          "name": "Fon soruşturmasında karar çıktı: 12 isme tutuklama",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Tibet 7 büyüklüğünde depremle sallandı",
           "url": "",
           "photo": ""
         },
         {
           "name": "Türkiye ve Kanada'dan imza: 10 milyar dolarlık hedef",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "AYM'de seçim heyecanı: Yeni başkan için süreç resmen başladı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "ABD'den Türkiye ve Libya anlaşması mesajı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Aziz Yıldırım işaret etmişti: Oğuz Aydın'a Ada'dan kanca",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İnterneti sarsan PHP açığı: Milyonlarca site tehlikede",
           "url": "",
           "photo": ""
         },
@@ -6386,7 +6266,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 7,
       "writers": [
         {
           "name": "Mustafa Alp Dağıstanlı",
@@ -6397,6 +6277,11 @@
           "name": "Murat Sevinç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Cihan Tekin",

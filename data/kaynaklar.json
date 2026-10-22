@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-22T18:37:23.204016+00:00",
-  "kurallarAlindi": "2026-10-22T18:28:55.766137+00:00",
+  "guncellendi": "2026-10-22T21:37:06.498615+00:00",
+  "kurallarAlindi": "2026-10-22T21:30:00.734699+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 11
+      "yazi": 0
     },
     {
       "key": "sozcu",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 6
     },
     {
       "key": "sabah",
@@ -68,7 +68,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 15
+      "yazi": 11
     },
     {
       "key": "birgun",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 10
+      "yazi": 0
     },
     {
       "key": "yeniasir",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 14
+      "yazi": 15
     },
     {
       "key": "altayli",
