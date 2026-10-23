@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-23T15:43:08.835836+00:00",
+  "fetchedAt": "2026-10-23T19:14:45.211322+00:00",
   "date": "2026-10-23",
-  "total": 1243,
+  "total": 1241,
   "papers": [
     {
       "key": "hurriyet",
@@ -1048,7 +1048,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 12,
+      "count": 11,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1104,11 +1104,6 @@
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
-        },
-        {
-          "name": "Mesut Parlak",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
         }
       ]
     },
@@ -1210,16 +1205,6 @@
           "photo": ""
         },
         {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
-          "name": "DİLEK GÜNGÖR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
@@ -1230,14 +1215,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "NİHAT HATİPOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "HİLAL KAPLAN",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         }
       ]
     },
@@ -3494,7 +3489,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "YAZARLAR",
+          "name": "Yazar Arşivi",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -5279,22 +5274,22 @@
           "photo": ""
         },
         {
+          "name": "Mekanlarda yeni dönem: Sigara alanları sil baştan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Rojin Kabaiş dosyasında avukatlara soruşturma",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Hayvanlardan insana sıçradı: Fransa'da ölümcül virüs alarmı",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "AKP'den fon skandalı açıklaması: Kim olursa gereği yapılacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Pentagon'dan F-35 imzası! Gözler Trump'ın kararında",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Faiz indirimini bilmişti: O bankadan çarpıcı dolar tahmini",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İstanbul'da sağanak alarmı! Uzman isim saat vererek uyardı",
           "url": "",
           "photo": ""
         },
@@ -6321,17 +6316,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 5,
       "writers": [
         {
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
-        },
-        {
-          "name": "Murat Sevinç",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
         },
         {
           "name": "Mesude Demir",
