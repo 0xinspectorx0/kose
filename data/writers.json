@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-23T12:12:01.499643+00:00",
+  "fetchedAt": "2026-10-23T15:43:08.835836+00:00",
   "date": "2026-10-23",
-  "total": 1244,
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 207,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1210,9 +1210,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1220,14 +1220,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1238,6 +1233,11 @@
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -3494,7 +3494,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "Yazar Arşivi",
+          "name": "YAZARLAR",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -5279,22 +5279,22 @@
           "photo": ""
         },
         {
-          "name": "Kentsel dönüşümde ek ödeme uyarısı! 3 milyon TL'yi buluyor",
+          "name": "AKP'den fon skandalı açıklaması: Kim olursa gereği yapılacak",
           "url": "",
           "photo": ""
         },
         {
-          "name": "İstanbul'da 7 ülkelik diplomasi masası! Gündemde Gazze var",
+          "name": "Pentagon'dan F-35 imzası! Gözler Trump'ın kararında",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Modemlerde 16 yıllık güvenlik açığı! Wi-Fi şifresi korumuyor",
+          "name": "Faiz indirimini bilmişti: O bankadan çarpıcı dolar tahmini",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Zonguldak'ta can pazarı! Olay yerinden ilk görüntüler...",
+          "name": "İstanbul'da sağanak alarmı! Uzman isim saat vererek uyardı",
           "url": "",
           "photo": ""
         },
@@ -6321,12 +6321,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 6,
       "writers": [
         {
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli-96x96.png"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
         },
         {
           "name": "Murat Sevinç",
@@ -6350,11 +6350,6 @@
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
