@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-23T08:40:41.258963+00:00",
+  "fetchedAt": "2026-10-23T12:12:01.499643+00:00",
   "date": "2026-10-23",
-  "total": 1241,
+  "total": 1244,
   "papers": [
     {
       "key": "hurriyet",
@@ -1210,14 +1210,14 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1225,9 +1225,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -4001,7 +4001,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 146,
+      "count": 145,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4699,11 +4699,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
         },
         {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
-        },
-        {
           "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
@@ -5056,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5280,6 +5275,26 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Kentsel dönüşümde ek ödeme uyarısı! 3 milyon TL'yi buluyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul'da 7 ülkelik diplomasi masası! Gündemde Gazze var",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Modemlerde 16 yıllık güvenlik açığı! Wi-Fi şifresi korumuyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Zonguldak'ta can pazarı! Olay yerinden ilk görüntüler...",
           "url": "",
           "photo": ""
         },
@@ -6311,7 +6326,7 @@
         {
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli-96x96.png"
         },
         {
           "name": "Murat Sevinç",
@@ -6324,7 +6339,7 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
@@ -6334,7 +6349,7 @@
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
