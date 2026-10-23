@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-23T04:09:12.250865+00:00",
+  "fetchedAt": "2026-10-23T05:39:51.002091+00:00",
   "date": "2026-10-23",
-  "total": 1235,
+  "total": 1238,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 204,
+      "count": 206,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1027,6 +1027,16 @@
           "name": "Nilgün Tekfidan GÜMÜŞ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65aa40f3eb03f66dff0be4a2.jpg"
+        },
+        {
+          "name": "Savaş ÖZBEY",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
+        },
+        {
+          "name": "Deniz SİPAHİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
         }
       ]
     },
@@ -1117,7 +1127,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 15,
+      "count": 16,
       "writers": [
         {
           "name": "SABAH",
@@ -1170,9 +1180,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1180,19 +1195,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "SALİH TUNA",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "BERCAN TUTAR",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/4f4d40/147/124/0/23/162/160?u=https://isbh.tmgrup.com.tr/sbh/2020/12/31/1609417082683.png"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         }
       ]
     },
@@ -3727,7 +3742,7 @@
         {
           "name": "Tamer Heper",
           "url": "",
-          "photo": "https://image.posta.com.tr/i/posta/75/75x75/622129d2932151d6b46b16ed.jpg"
+          "photo": ""
         },
         {
           "name": "Filiz Özkol",
