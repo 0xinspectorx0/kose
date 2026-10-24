@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-24T08:18:29.963096+00:00",
+  "fetchedAt": "2026-10-24T11:49:41.836056+00:00",
   "date": "2026-10-24",
-  "total": 1238,
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 212,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1157,7 +1157,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 15,
+      "count": 16,
       "writers": [
         {
           "name": "SABAH",
@@ -1220,19 +1220,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
           "name": "BERCAN TUTAR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/4f4d40/147/124/0/23/162/160?u=https://isbh.tmgrup.com.tr/sbh/2020/12/31/1609417082683.png"
+        },
+        {
+          "name": "OSMAN MÜFTÜOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/a41437/147/124/0/0/876/739?u=https://isbh.tmgrup.com.tr/sbh/2026/01/04/1767550178532.jpg"
         }
       ]
     },
@@ -5016,7 +5021,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 54,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5265,6 +5270,21 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Dışişleri Bakanlığı'ndan Yunanistan'a müftülük tepkisi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "AKOM İstanbul için tarih verdi! Sağanak yağış geri dönüyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Canlı bahis soruşturmasında WhatsApp mesajları ortaya çıktı!",
           "url": "",
           "photo": ""
         },
