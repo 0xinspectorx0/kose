@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-24T11:49:41.836056+00:00",
+  "fetchedAt": "2026-10-24T15:20:19.440689+00:00",
   "date": "2026-10-24",
-  "total": 1242,
+  "total": 1235,
   "papers": [
     {
       "key": "hurriyet",
@@ -1210,11 +1210,6 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1223,6 +1218,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -4654,14 +4654,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Betül Soysal Bozdoğan",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
-        },
-        {
           "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
+        },
+        {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
           "name": "Hasan Hüseyin ÖZ",
@@ -5021,7 +5021,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 54,
+      "count": 53,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5274,22 +5274,17 @@
           "photo": ""
         },
         {
+          "name": "SGK'dan emeklilik hesabını değiştirecek karar! 1 gün detayı",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Dışişleri Bakanlığı'ndan Yunanistan'a müftülük tepkisi",
           "url": "",
           "photo": ""
         },
         {
           "name": "AKOM İstanbul için tarih verdi! Sağanak yağış geri dönüyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Canlı bahis soruşturmasında WhatsApp mesajları ortaya çıktı!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altın fiyatları bugün ne kadar? Gram ve çeyrek altın kaç TL?",
           "url": "",
           "photo": ""
         }
@@ -6311,42 +6306,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 1,
       "writers": [
         {
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ece Deniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
         }
       ]
     }
