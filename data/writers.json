@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-24T18:51:33.610471+00:00",
-  "date": "2026-10-24",
-  "total": 1235,
+  "fetchedAt": "2026-10-24T21:21:51.464571+00:00",
+  "date": "2026-10-25",
+  "total": 1215,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 212,
+      "count": 200,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,73 +1007,13 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
-        },
-        {
-          "name": "Fatih ÇEKİRGE",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
-        },
-        {
-          "name": "Fuat BOL",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5e0a0c460f25441618c0ac34.jpg"
-        },
-        {
-          "name": "Nuran ÇAKMAKÇI",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6542467867b0a91628c60c7f.jpg"
-        },
-        {
-          "name": "Gökçe Aytulu",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/685255091f20a2984e66017c.jpg"
-        },
-        {
-          "name": "Serhat DEMİREL",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5e18697d7af5070b94b9b97b.jpg"
-        },
-        {
-          "name": "Orkun Ün",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63328fae4e3fe019b4db225d.jpg"
-        },
-        {
-          "name": "Güzin Abla",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f3f018fbaf4494213e.jpg"
-        },
-        {
-          "name": "Müge AKGÜN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5735c1e618c7732e687f966a.jpg"
-        },
-        {
-          "name": "Sahrap SOYSAL",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a7d8fb37af5070784a5d789.jpg"
-        },
-        {
-          "name": "Uğur VARDAN",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6adbb6aab363221ca20529fc.jpg"
-        },
-        {
-          "name": "Ebru Erke",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6adbc787b363221ca2052aa4.jpg"
-        },
-        {
-          "name": "Salim Uzun",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
         }
       ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 8,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1109,11 +1049,6 @@
           "name": "Naim Babüroğlu",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
-        },
-        {
-          "name": "Turan Yücel",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
         },
         {
           "name": "Ozan Bingöl",
@@ -1210,24 +1145,24 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3672,7 +3607,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 18,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3732,36 +3667,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Hakan Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Gülderen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -6306,14 +6211,8 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 1,
-      "writers": [
-        {
-          "name": "Mustafa Alp Dağıstanlı",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
-        }
-      ]
+      "count": 0,
+      "writers": []
     }
   ]
 }
