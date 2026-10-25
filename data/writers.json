@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-25T08:26:35.109404+00:00",
+  "fetchedAt": "2026-10-25T11:57:26.926007+00:00",
   "date": "2026-10-25",
-  "total": 1255,
+  "total": 1258,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 209,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1110,7 +1110,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 17,
+      "count": 18,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1136,6 +1136,11 @@
           "name": "Güldener Sonumut",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/600c5e825542850c385ff9d4.jpg"
+        },
+        {
+          "name": "Metin Aktaşoğlu",
+          "url": "",
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
         },
         {
           "name": "Prof. Dr. Nuran Yıldız",
@@ -3780,6 +3785,11 @@
           "photo": ""
         },
         {
+          "name": "Filiz Özkol",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Mehmet Coşkundeniz",
           "url": "",
           "photo": ""
@@ -3801,11 +3811,6 @@
         },
         {
           "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
           "url": "",
           "photo": ""
         },
@@ -5149,6 +5154,21 @@
           "photo": ""
         },
         {
+          "name": "Jön Türklük ve İttihatçılık Ayrımı",
+          "url": "https://www.milligazete.com.tr/jon-turkluk-ve-ittihatcilik-ayrimi",
+          "photo": ""
+        },
+        {
+          "name": "Fahrettin Gün",
+          "url": "https://www.milligazete.com.tr/fahrettin-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
+        },
+        {
+          "name": "Mustafa Kaya",
+          "url": "https://www.milligazete.com.tr/mustafa-kaya",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/643-avatar.jpg"
+        },
+        {
           "name": "Sünnet Muhasebesi",
           "url": "https://www.milligazete.com.tr/sunnet-muhasebesi-2",
           "photo": ""
@@ -5189,11 +5209,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/639-avatar.jpg"
         },
         {
-          "name": "Mustafa Kaya",
-          "url": "https://www.milligazete.com.tr/mustafa-kaya",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/643-avatar.jpg"
-        },
-        {
           "name": "Küresel zalim düzen ve Adil Düzen kurmak",
           "url": "https://www.milligazete.com.tr/kuresel-zalim-duzen-ve-adil-duzen-kurmak-2",
           "photo": ""
@@ -5217,16 +5232,6 @@
           "name": "Şaban Turhal",
           "url": "https://www.milligazete.com.tr/saban-turhal",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Jön Türklük ve İttihatçılık Ayrımı",
-          "url": "https://www.milligazete.com.tr/jon-turkluk-ve-ittihatcilik-ayrimi",
-          "photo": ""
-        },
-        {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
         },
         {
           "name": "Adalet, tevhid iledir",
@@ -5344,17 +5349,17 @@
           "photo": ""
         },
         {
+          "name": "Ankara'da katliam gibi kaza: 3 ölü, 4 yaralı",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "SGK'dan emeklilik hesabını değiştirecek karar! 1 gün detayı",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Dışişleri Bakanlığı'ndan Yunanistan'a müftülük tepkisi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "AKOM İstanbul için tarih verdi! Sağanak yağış geri dönüyor",
+          "name": "Hugo’nun Sefiller’inden Macron’a, Fransa’da Neler Değişti?",
           "url": "",
           "photo": ""
         }
@@ -6376,8 +6381,18 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 9,
       "writers": [
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+        },
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
         {
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
@@ -6404,12 +6419,12 @@
           "photo": ""
         },
         {
-          "name": "Emre Zor",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         }
