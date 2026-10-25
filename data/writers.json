@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-25T11:57:26.926007+00:00",
+  "fetchedAt": "2026-10-25T15:28:21.407036+00:00",
   "date": "2026-10-25",
-  "total": 1258,
+  "total": 1259,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 209,
+      "count": 210,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1052,6 +1052,11 @@
           "name": "Deniz SİPAHİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -3549,7 +3554,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "YAZARLAR",
+          "name": "Yazar Arşivi",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -5154,6 +5159,26 @@
           "photo": ""
         },
         {
+          "name": "Berat Albayrak’ı kim eleştirebilir ki?",
+          "url": "https://www.milligazete.com.tr/berat-albayraki-kim-elestirebilir-ki",
+          "photo": ""
+        },
+        {
+          "name": "Ercan Özcan",
+          "url": "https://www.milligazete.com.tr/ercan-ozcan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
+        },
+        {
+          "name": "Seksenlerin tebessümü; Bakiye Marangoz…",
+          "url": "https://www.milligazete.com.tr/seksenlerin-tebessumu-bakiye-marangoz",
+          "photo": ""
+        },
+        {
+          "name": "Mine Alpay Gün",
+          "url": "https://www.milligazete.com.tr/mine-alpay-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
+        },
+        {
           "name": "Jön Türklük ve İttihatçılık Ayrımı",
           "url": "https://www.milligazete.com.tr/jon-turkluk-ve-ittihatcilik-ayrimi",
           "photo": ""
@@ -5187,16 +5212,6 @@
           "name": "Mehmet Biten",
           "url": "https://www.milligazete.com.tr/mehmet-biten",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
-        },
-        {
-          "name": "Seksenlerin tebessümü; Bakiye Marangoz…",
-          "url": "https://www.milligazete.com.tr/seksenlerin-tebessumu-bakiye-marangoz",
-          "photo": ""
-        },
-        {
-          "name": "Mine Alpay Gün",
-          "url": "https://www.milligazete.com.tr/mine-alpay-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
         },
         {
           "name": "Kurumsal Kötülüğün Atık İnsanları",
@@ -5252,16 +5267,6 @@
           "name": "Cafer Keklikçi",
           "url": "https://www.milligazete.com.tr/cafer-keklikci",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/576-avatar.jpg"
-        },
-        {
-          "name": "Cahiliye düzeni",
-          "url": "https://www.milligazete.com.tr/cahiliye-duzeni",
-          "photo": ""
-        },
-        {
-          "name": "İsmail Hakkı Akkiraz",
-          "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/618-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5349,12 +5354,12 @@
           "photo": ""
         },
         {
-          "name": "Ankara'da katliam gibi kaza: 3 ölü, 4 yaralı",
+          "name": "Fon vurgununda flaş gelişme: Üst düzey gözaltılar!",
           "url": "",
           "photo": ""
         },
         {
-          "name": "SGK'dan emeklilik hesabını değiştirecek karar! 1 gün detayı",
+          "name": "Ankara'da katliam gibi kaza: 3 ölü, 4 yaralı",
           "url": "",
           "photo": ""
         },
@@ -6384,6 +6389,11 @@
       "count": 9,
       "writers": [
         {
+          "name": "Mustafa Alp Dağıstanlı",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
+        },
+        {
           "name": "C. Hakkı Zariç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
@@ -6392,11 +6402,6 @@
           "name": "Mehmet Aksel",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
-        },
-        {
-          "name": "Mustafa Alp Dağıstanlı",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
         },
         {
           "name": "Mesude Demir",
