@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-26T15:35:23.328973+00:00",
-  "kurallarAlindi": "2026-10-26T15:27:33.529123+00:00",
+  "guncellendi": "2026-10-26T19:07:05.559535+00:00",
+  "kurallarAlindi": "2026-10-26T18:58:55.865729+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 13
     },
     {
       "key": "milliyet",
