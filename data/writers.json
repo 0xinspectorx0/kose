@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-26T08:32:47.591349+00:00",
+  "fetchedAt": "2026-10-26T12:03:43.633681+00:00",
   "date": "2026-10-26",
-  "total": 1250,
+  "total": 1252,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 211,
+      "count": 212,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1059,6 +1059,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6ade71ccaa7d7bef19762bd6.jpg"
         },
         {
+          "name": "İpek İZCİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/631327dc4e3fe00b3cbb054d.jpg"
+        },
+        {
           "name": "Salim Uzun",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
@@ -1068,7 +1073,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 10,
+      "count": 12,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1114,6 +1119,16 @@
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
+        },
+        {
+          "name": "Mesut Parlak",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
+        },
+        {
+          "name": "İpek Özbey",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
         },
         {
           "name": "YÖN/Fikret Bila",
@@ -5299,12 +5314,12 @@
           "photo": ""
         },
         {
-          "name": "Sosyal medyada 15 yaş sınırı başlıyor! Ailelere kritik uyarı",
+          "name": "Gürsel Tekin'den Özgür Özel'e CHP'ye dönüş için özür şartı",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Ticaret Bakanlığı duyurdu! Ünlü markanın ürünü toplatılıyor",
+          "name": "AKOM İstanbul için saat verdi! Fırtına ve sağanak geliyor",
           "url": "",
           "photo": ""
         },
@@ -6331,7 +6346,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 11,
+      "count": 10,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6362,11 +6377,6 @@
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
         },
         {
           "name": "Emre Zor",
