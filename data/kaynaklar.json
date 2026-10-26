@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-26T19:07:05.559535+00:00",
-  "kurallarAlindi": "2026-10-26T18:58:55.865729+00:00",
+  "guncellendi": "2026-10-26T21:36:52.405705+00:00",
+  "kurallarAlindi": "2026-10-26T21:29:40.666133+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 14
+      "yazi": 0
     },
     {
       "key": "sozcu",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 11
+      "yazi": 9
     },
     {
       "key": "sabah",
@@ -84,7 +84,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 5
     },
     {
       "key": "aksam",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 0
     },
     {
       "key": "yeniasir",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 20
+      "yazi": 21
     },
     {
       "key": "altayli",
@@ -180,7 +180,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 2,
+      "yazi": 1,
       "author": "Fatih Altaylı"
     },
     {
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Fehim Taştekin"
     },
     {
