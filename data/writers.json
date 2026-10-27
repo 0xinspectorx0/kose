@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-27T08:40:35.908043+00:00",
+  "fetchedAt": "2026-10-27T12:12:25.668821+00:00",
   "date": "2026-10-27",
-  "total": 1255,
+  "total": 1254,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 208,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1230,19 +1230,14 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1250,14 +1245,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -1736,7 +1736,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 210,
+      "count": 211,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2754,6 +2754,11 @@
           "photo": "https://img.piri.net/piri/upload/3/2023/2/14/ec3ba5bb-z1u297ohxu942gf8zbo8n.png"
         },
         {
+          "name": "Ömer Çelikbaşlı",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
+        },
+        {
           "name": "Serdar Tuncer",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2025/10/13/ca86ab64-b3agfrwlcd7l4lekdc6utc.webp"
@@ -3541,8 +3546,14 @@
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "Yazar Arşivi",
+          "url": "https://www.haberturk.com/htyazarlar/arsiv",
+          "photo": ""
+        }
+      ]
     },
     {
       "key": "aksam",
@@ -5090,7 +5101,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5141,6 +5152,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
+          "url": "https://www.milligazete.com.tr/cihat-yayci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
         },
         {
           "name": "Mutlu azınlık, mutsuz çoğunluk…",
@@ -5241,16 +5257,6 @@
           "name": "Reşat Nuri Erol",
           "url": "https://www.milligazete.com.tr/resat-nuri-erol",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
-        },
-        {
-          "name": "Mekke Ortak Savunma Anlaşması",
-          "url": "https://www.milligazete.com.tr/mekke-ortak-savunma-anlasmasi",
-          "photo": ""
-        },
-        {
-          "name": "Siyami Akyel",
-          "url": "https://www.milligazete.com.tr/siyami-akyel",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/670-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -6355,7 +6361,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 11,
+      "count": 9,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6371,16 +6377,6 @@
           "name": "Mustafa Alp Dağıstanlı",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mustafa-alp-dagistanli.png"
-        },
-        {
-          "name": "C. Hakkı Zariç",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
-        },
-        {
-          "name": "Mehmet Aksel",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
         },
         {
           "name": "Mesude Demir",
