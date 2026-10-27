@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-27T07:09:55.017789+00:00",
+  "fetchedAt": "2026-10-27T08:40:35.908043+00:00",
   "date": "2026-10-27",
-  "total": 1247,
+  "total": 1255,
   "papers": [
     {
       "key": "hurriyet",
@@ -1053,17 +1053,37 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 12,
+      "count": 17,
       "writers": [
+        {
+          "name": "Emin Çölaşan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
+        },
         {
           "name": "Necati Doğru",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
         },
         {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
+        {
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
+        },
+        {
+          "name": "Güney Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
         },
         {
           "name": "Naim Babüroğlu",
@@ -1109,6 +1129,11 @@
           "name": "Mahmut Aydoğmuş",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/7/muratpng-u62_UQ8rxkqTciuyduAHRw.png"
+        },
+        {
+          "name": "Ercan Taner",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
         },
         {
           "name": "Sonuç Sürmeli",
@@ -1205,14 +1230,9 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1220,19 +1240,24 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3516,14 +3541,8 @@
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 1,
-      "writers": [
-        {
-          "name": "Yazar Arşivi",
-          "url": "https://www.haberturk.com/htyazarlar/arsiv",
-          "photo": ""
-        }
-      ]
+      "count": 0,
+      "writers": []
     },
     {
       "key": "aksam",
@@ -5071,7 +5090,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5315,16 +5334,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Meteoroloji'den birçok ile sağanak ve fırtına uyarısı!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Antalya'da hortum! Kepez'de 4 işçi hayatını kaybetti",
           "url": "",
           "photo": ""
         }
@@ -6346,7 +6355,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 11,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6372,6 +6381,36 @@
           "name": "Mehmet Aksel",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Ece Deniz",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
         }
       ]
     }
