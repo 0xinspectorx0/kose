@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-27T15:43:34.824971+00:00",
+  "fetchedAt": "2026-10-27T19:14:08.751048+00:00",
   "date": "2026-10-27",
   "total": 1253,
   "papers": [
@@ -1230,9 +1230,9 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1255,9 +1255,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5101,7 +5101,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5340,6 +5340,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İsmail Kartal istifa mı etti? Fenerbahçe'de son dakika",
           "url": "",
           "photo": ""
         },
@@ -6366,22 +6371,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 6,
       "writers": [
         {
-          "name": "Psk. Dr. Feyza Bayraktar",
+          "name": "Murat Sevinç",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
-        },
-        {
-          "name": "Ayhan Tinin",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
         },
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Ayşegül Kasap",
