@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-10-28T06:48:41.016621+00:00",
+  "fetchedAt": "2026-10-28T08:18:38.233230+00:00",
   "date": "2026-10-28",
-  "total": 1246,
+  "total": 1252,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 212,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1073,8 +1073,28 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 14,
       "writers": [
+        {
+          "name": "Emin Çölaşan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
+        {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
+        },
+        {
+          "name": "Necati Doğru",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
+        },
+        {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
         {
           "name": "İsmail Saymaz",
           "url": "",
@@ -1089,6 +1109,11 @@
           "name": "Turan Yücel",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
+        },
+        {
+          "name": "Ozan Bingöl",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
         },
         {
           "name": "Mesut Parlak",
@@ -1225,14 +1250,9 @@
           "photo": ""
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1240,14 +1260,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -5066,7 +5091,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5300,6 +5325,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Dana sucukta domuz eti çıktı! Bakanlık o markayı ifşa etti",
           "url": "",
           "photo": ""
         },
