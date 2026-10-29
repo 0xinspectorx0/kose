@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-29T03:53:50.291312+00:00",
-  "kurallarAlindi": "2026-10-29T03:46:33.382331+00:00",
+  "guncellendi": "2026-10-29T05:24:43.103602+00:00",
+  "kurallarAlindi": "2026-10-29T05:17:09.688519+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 4
+      "yazi": 9
     },
     {
       "key": "sozcu",
@@ -52,7 +52,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0
+      "yazi": 14
     },
     {
       "key": "yenisafak",
@@ -100,7 +100,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 4
     },
     {
       "key": "posta",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0
+      "yazi": 9
     },
     {
       "key": "yeniasir",
@@ -116,7 +116,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1
+      "yazi": 0
     },
     {
       "key": "star",
@@ -124,7 +124,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 11
+      "yazi": 12
     },
     {
       "key": "turkiye",
