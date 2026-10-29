@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T05:24:43.099148+00:00",
+  "fetchedAt": "2026-10-29T06:54:56.547840+00:00",
   "date": "2026-10-29",
   "total": 1240,
   "papers": [
@@ -8,16 +8,6 @@
       "name": "Hürriyet",
       "count": 208,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1053,7 +1053,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 5,
+      "count": 4,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1074,11 +1074,6 @@
           "name": "Ozan Bingöl",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/1/ozanbingolpng-kTEKO0DOt0mn7lD0ELvFBA.png"
-        },
-        {
-          "name": "Sonuç Sürmeli",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
         }
       ]
     },
@@ -1180,6 +1175,11 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
@@ -1188,11 +1188,6 @@
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5026,7 +5021,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5259,17 +5254,22 @@
           "photo": ""
         },
         {
+          "name": "Cumhurbaşkanı Erdoğan'dan 29 Ekim mesajı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İspanya'da tren faciası: 68 kişinin ölümünde telsiz şüphesi",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "TÜRKiYE CUMHURiYETi 103 YAŞINDA",
           "url": "",
           "photo": ""
         },
         {
           "name": "Fed faiz kararı belli oldu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Nafaka düzenlemesinde yeni dönem! Erdoğan'dan talimat geldi",
           "url": "",
           "photo": ""
         }
