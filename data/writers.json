@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T11:56:38.146190+00:00",
+  "fetchedAt": "2026-10-29T15:28:11.857684+00:00",
   "date": "2026-10-29",
   "total": 1243,
   "papers": [
@@ -1210,9 +1210,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "SALİH TUNA",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1220,9 +1220,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "SALİH TUNA",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5289,12 +5289,12 @@
           "photo": ""
         },
         {
-          "name": "Sinem Dedetaş hakkında tahliye kararı! Ev hapsi uygulanacak",
+          "name": "Aliyev Türkiye'ye gelecek mi? İşte kararı ve nedeni",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Erbakan Hoca’mız 100 yaşında: Ömrünü Hak’ka adayan lider",
+          "name": "Erbakan hocadan doğum günü ile alakalı gülümseten espiri!",
           "url": "",
           "photo": ""
         }
@@ -6319,6 +6319,11 @@
       "count": 7,
       "writers": [
         {
+          "name": "Behzat Şahin",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-profil-behzat-500x500.jpeg"
+        },
+        {
           "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
@@ -6340,11 +6345,6 @@
         },
         {
           "name": "Ece Deniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ayşegül Kasap",
           "url": "",
           "photo": ""
         },
