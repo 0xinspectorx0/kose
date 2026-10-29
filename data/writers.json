@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T08:25:28.125435+00:00",
+  "fetchedAt": "2026-10-29T11:56:38.146190+00:00",
   "date": "2026-10-29",
   "total": 1243,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 209,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1215,14 +1215,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5056,7 +5056,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5289,7 +5289,12 @@
           "photo": ""
         },
         {
-          "name": "Cumhurbaşkanı Erdoğan'dan 29 Ekim mesajı",
+          "name": "Sinem Dedetaş hakkında tahliye kararı! Ev hapsi uygulanacak",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Erbakan Hoca’mız 100 yaşında: Ömrünü Hak’ka adayan lider",
           "url": "",
           "photo": ""
         }
@@ -6311,12 +6316,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 8,
+      "count": 7,
       "writers": [
         {
           "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
         },
         {
           "name": "Murat Sevinç",
@@ -6345,11 +6350,6 @@
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         }
