@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-10-29T06:54:56.547840+00:00",
+  "fetchedAt": "2026-10-29T08:25:28.125435+00:00",
   "date": "2026-10-29",
-  "total": 1240,
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1047,14 +1047,24 @@
           "name": "Sinem Vural",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5da712a1c03c0e1498be0fd3.jpg"
+        },
+        {
+          "name": "Salim Uzun",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
         }
       ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 4,
+      "count": 10,
       "writers": [
+        {
+          "name": "Emin Çölaşan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
+        },
         {
           "name": "Rahmi Turan",
           "url": "",
@@ -1066,9 +1076,34 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
         },
         {
+          "name": "Saygı Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
+        {
+          "name": "Ege Cansen",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
+        },
+        {
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
+        },
+        {
+          "name": "Yekta Güngör Özden",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yektagungorozdenpng-zP0TsX7F3Ee0UR1N0FEZlg.png"
+        },
+        {
+          "name": "Güney Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
+        },
+        {
+          "name": "Naim Babüroğlu",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
           "name": "Ozan Bingöl",
@@ -1180,14 +1215,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5021,7 +5056,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5255,21 +5290,6 @@
         },
         {
           "name": "Cumhurbaşkanı Erdoğan'dan 29 Ekim mesajı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İspanya'da tren faciası: 68 kişinin ölümünde telsiz şüphesi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "TÜRKiYE CUMHURiYETi 103 YAŞINDA",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fed faiz kararı belli oldu",
           "url": "",
           "photo": ""
         }
@@ -6291,12 +6311,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 9,
+      "count": 8,
       "writers": [
         {
           "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle-96x96.jpeg"
         },
         {
           "name": "Murat Sevinç",
@@ -6307,11 +6327,6 @@
           "name": "Zehra Çelenk",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Fazlı Gök",
@@ -6329,12 +6344,12 @@
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         }
