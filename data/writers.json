@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-10-30T18:55:27.845737+00:00",
-  "date": "2026-10-30",
+  "fetchedAt": "2026-10-30T21:07:39.325373+00:00",
+  "date": "2026-10-31",
   "total": 1241,
   "papers": [
     {
@@ -8,16 +8,6 @@
       "name": "Hürriyet",
       "count": 207,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1115,7 +1115,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 10,
+      "count": 9,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1161,11 +1161,6 @@
           "name": "Şükrü Andaç",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5e86ea2955427f16ec5c3e96.jpg"
-        },
-        {
-          "name": "Osman Gençer",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/662e6df8400ec10336344b1d.jpg"
         }
       ]
     },
@@ -1225,19 +1220,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
-          "name": "NİHAT HATİPOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1248,6 +1233,16 @@
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -5036,7 +5031,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 52,
+      "count": 53,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5275,6 +5270,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bakırköy Belediyesi soruşturmasında 40 tutuklama talebi!",
           "url": "",
           "photo": ""
         },

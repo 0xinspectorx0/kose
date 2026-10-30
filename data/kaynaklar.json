@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-30T18:55:27.852349+00:00",
-  "kurallarAlindi": "2026-10-30T18:47:31.980294+00:00",
+  "guncellendi": "2026-10-30T21:07:39.331908+00:00",
+  "kurallarAlindi": "2026-10-30T21:00:23.860897+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 10
+      "yazi": 9
     },
     {
       "key": "sabah",
@@ -225,7 +225,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 2,
+      "yazi": 1,
       "author": "Murat Yetkin"
     },
     {
