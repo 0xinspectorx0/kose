@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-10-30T05:32:03.704498+00:00",
+  "fetchedAt": "2026-10-30T07:02:40.730058+00:00",
   "date": "2026-10-30",
-  "total": 1239,
+  "total": 1238,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 206,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1220,14 +1220,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
@@ -1235,9 +1235,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -3986,7 +3986,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 145,
+      "count": 144,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4689,11 +4689,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
-          "name": "Betül Soysal Bozdoğan",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
-        },
-        {
           "name": "Hasan Hüseyin ÖZ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
@@ -5279,7 +5274,7 @@
           "photo": ""
         },
         {
-          "name": "Aliyev Türkiye'ye gelecek mi? İşte kararı ve nedeni",
+          "name": "Dervişoğlu'ndan Bahçeli açıklaması! İzaha muhtaç durum yok",
           "url": "",
           "photo": ""
         },
