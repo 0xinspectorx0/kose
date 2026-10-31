@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-10-31T15:13:00.601265+00:00",
-  "kurallarAlindi": "2026-10-31T15:05:35.767665+00:00",
+  "guncellendi": "2026-10-31T18:44:35.552249+00:00",
+  "kurallarAlindi": "2026-10-31T18:36:39.260618+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 11
     },
     {
       "key": "milliyet",
@@ -180,7 +180,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 2,
       "author": "Fatih Altaylı"
     },
     {

@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-10-31T15:13:00.594363+00:00",
+  "fetchedAt": "2026-10-31T18:44:35.546801+00:00",
   "date": "2026-10-31",
-  "total": 1237,
+  "total": 1236,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 209,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1058,7 +1058,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 12,
+      "count": 11,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1094,11 +1094,6 @@
           "name": "Naim Babüroğlu",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
-        },
-        {
-          "name": "Turan Yücel",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
         },
         {
           "name": "Ozan Bingöl",
@@ -1215,11 +1210,6 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
@@ -1233,6 +1223,11 @@
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         }
       ]
     },
