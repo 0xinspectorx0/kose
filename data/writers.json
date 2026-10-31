@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-10-31T00:38:32.107877+00:00",
+  "fetchedAt": "2026-10-31T02:09:01.841355+00:00",
   "date": "2026-10-31",
-  "total": 1229,
+  "total": 1092,
   "papers": [
     {
       "key": "hurriyet",
@@ -1026,6 +1026,11 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/emincolasanpng-g2FMYWpR4k6cahY2kIUr6Q.png"
         },
         {
+          "name": "Rahmi Turan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
+        },
+        {
           "name": "Necati Doğru",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
@@ -1036,24 +1041,14 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
         },
         {
-          "name": "Ege Cansen",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
-        },
-        {
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
         },
         {
-          "name": "Yekta Güngör Özden",
+          "name": "Sultan Uçar",
           "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yektagungorozdenpng-zP0TsX7F3Ee0UR1N0FEZlg.png"
-        },
-        {
-          "name": "Güney Öztürk",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/sultanucarpng-wVZpU-tLykKwKruMjrWSWw.png"
         },
         {
           "name": "Naim Babüroğlu",
@@ -1079,6 +1074,11 @@
           "name": "YÖN/Fikret Bila",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/10/fikretbilapng-t7ZO6lQfWEG6_7KHaY45Wg.png"
+        },
+        {
+          "name": "Ercan Taner",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
         }
       ]
     },
@@ -1190,14 +1190,14 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
@@ -1210,9 +1210,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -1691,7 +1691,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 207,
+      "count": 208,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2694,6 +2694,36 @@
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
         },
         {
+          "name": "Nedret Ersanel",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_08e0c-12b7nedretersanel2.png"
+        },
+        {
+          "name": "Taha Kılınç",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2017/06/14/02/26/554x554resized_75d1b-234e5aedddd.png"
+        },
+        {
+          "name": "Yasin Aktay",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/08/resized_a3775-85d5yasinaktay2.png"
+        },
+        {
+          "name": "Ömer Lekesiz",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_b2544-f76eomerlekesiz2.png"
+        },
+        {
+          "name": "Özgür Bayram Soylu",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2023/12/20/c5a2ab23-qtuqxemjeqryt90hmr7.png"
+        },
+        {
+          "name": "Serdar Tuncer",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2025/10/13/ca86ab64-b3agfrwlcd7l4lekdc6utc.webp"
+        },
+        {
           "name": "Yusuf Kaplan",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_f3f84-f848yusufkaplan2.png"
@@ -2702,773 +2732,73 @@
           "name": "Yahya Bostan",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2022/10/18/10/29/554x554resized_62bdb-edd4c269yahyabostan.png"
-        },
-        {
-          "name": "Süleyman Seyfi Öğün",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_97e03-c366suleymanseyfiogun2.png"
-        },
-        {
-          "name": "Ömer Lekesiz",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_b2544-f76eomerlekesiz2.png"
-        },
-        {
-          "name": "Turgay Yerlikaya",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2023/12/22/4a0d0fab-hq6srm2rco6ulq8u8g62nr.png"
-        },
-        {
-          "name": "Selçuk Türkyılmaz",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/32f8d50f-qjjjvvo963gm6ge2kuxmif.png"
-        },
-        {
-          "name": "Nur Özkan Erbay",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2026/4/16/d8c9666d-7pzrya452efa6fpyi14gko.webp"
         }
       ]
     },
     {
       "key": "karar",
       "name": "Karar",
-      "count": 147,
+      "count": 12,
       "writers": [
         {
           "name": "İbrahim Kiras",
-          "url": "https://www.karar.com/yazarlar/ibrahim-kiras",
-          "photo": "https://cdn.karar.com/author/22_s.jpg"
-        },
-        {
-          "name": "Taha Akyol",
-          "url": "https://www.karar.com/yazarlar/taha-akyol",
-          "photo": "https://cdn.karar.com/author/86_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/22_b.jpg"
         },
         {
           "name": "Mustafa Karaalioğlu",
-          "url": "https://www.karar.com/yazarlar/mustafa-karaalioglu",
-          "photo": "https://cdn.karar.com/author/1_s.jpg"
-        },
-        {
-          "name": "Ahmet Taşgetiren",
-          "url": "https://www.karar.com/yazarlar/ahmet-tasgetiren",
-          "photo": "https://cdn.karar.com/author/83_s.jpg"
-        },
-        {
-          "name": "Fehmi Koru",
-          "url": "https://www.karar.com/yazarlar/fehmi-koru",
-          "photo": "https://cdn.karar.com/author/333_s.jpg"
-        },
-        {
-          "name": "Mehmet Ocaktan",
-          "url": "https://www.karar.com/yazarlar/mehmet-ocaktan",
-          "photo": "https://cdn.karar.com/author/2_s.jpg"
-        },
-        {
-          "name": "Yusuf Ziya Cömert",
-          "url": "https://www.karar.com/yazarlar/yusuf-ziya-comert",
-          "photo": "https://cdn.karar.com/author/3_s.jpg"
-        },
-        {
-          "name": "Hakan Albayrak",
-          "url": "https://www.karar.com/yazarlar/hakan-albayrak",
-          "photo": "https://cdn.karar.com/author/19_s.jpg"
-        },
-        {
-          "name": "Elif Çakır",
-          "url": "https://www.karar.com/yazarlar/elif-cakir",
-          "photo": "https://cdn.karar.com/author/6_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/1_b.jpg"
         },
         {
           "name": "Akif Beki",
-          "url": "https://www.karar.com/yazarlar/akif-beki",
-          "photo": "https://cdn.karar.com/author/69_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/69_b.jpg"
         },
         {
           "name": "Ali Bayramoğlu",
-          "url": "https://www.karar.com/yazarlar/ali-bayramoglu",
-          "photo": "https://cdn.karar.com/author/73_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/73_b.jpg"
         },
         {
           "name": "Yıldıray Oğur",
-          "url": "https://www.karar.com/yazarlar/yildiray-ogur",
-          "photo": "https://cdn.karar.com/author/68_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/68_b.jpg"
         },
         {
           "name": "İsmet Berkan",
-          "url": "https://www.karar.com/yazarlar/ismet-berkan",
-          "photo": "https://cdn.karar.com/author/234_s.jpg"
-        },
-        {
-          "name": "İskender Öksüz",
-          "url": "https://www.karar.com/yazarlar/iskender-oksuz",
-          "photo": "https://cdn.karar.com/author/95_s.jpg"
-        },
-        {
-          "name": "Carl Bildt",
-          "url": "https://www.karar.com/yazarlar/carl-bildt",
-          "photo": "https://cdn.karar.com/author/362_s.jpg"
-        },
-        {
-          "name": "Sigmar Gabriel",
-          "url": "https://www.karar.com/yazarlar/sigmar-gabriel",
-          "photo": "https://cdn.karar.com/author/375_s.jpg"
-        },
-        {
-          "name": "Mark Leonard",
-          "url": "https://www.karar.com/yazarlar/mark-leonard",
-          "photo": "https://cdn.karar.com/author/380_s.jpg"
-        },
-        {
-          "name": "Muhammad Al Jasser",
-          "url": "https://www.karar.com/yazarlar/muhammad-al-jasser",
-          "photo": "https://cdn.karar.com/author/527_s.jpg"
-        },
-        {
-          "name": "Anne O. Krueger",
-          "url": "https://www.karar.com/yazarlar/anne-o-krueger",
-          "photo": "https://cdn.karar.com/author/529_s.jpg"
-        },
-        {
-          "name": "Josep Borrell",
-          "url": "https://www.karar.com/yazarlar/josep-borrell",
-          "photo": "https://cdn.karar.com/author/530_s.jpg"
-        },
-        {
-          "name": "Joschka Fischer",
-          "url": "https://www.karar.com/yazarlar/joschka-fischer",
-          "photo": "https://cdn.karar.com/author/531_s.jpg"
-        },
-        {
-          "name": "Emmanuel Guerin",
-          "url": "https://www.karar.com/yazarlar/emmanuel-guerin",
-          "photo": "https://cdn.karar.com/author/534_s.jpg"
-        },
-        {
-          "name": "Ilona Sologoub",
-          "url": "https://www.karar.com/yazarlar/ilona-sologoub",
-          "photo": "https://cdn.karar.com/author/542_s.jpg"
-        },
-        {
-          "name": "Agnia Grigas",
-          "url": "https://www.karar.com/yazarlar/agnia-grigas",
-          "photo": "https://cdn.karar.com/author/556_s.jpg"
-        },
-        {
-          "name": "Jan-Werner Mueller",
-          "url": "https://www.karar.com/yazarlar/jan-werner-mueller1",
-          "photo": "https://cdn.karar.com/author/558_s.jpg"
-        },
-        {
-          "name": "Jonathan Levy",
-          "url": "https://www.karar.com/yazarlar/jonathan-levy1",
-          "photo": "https://cdn.karar.com/author/560_s.jpg"
-        },
-        {
-          "name": "Helmut Anheier",
-          "url": "https://www.karar.com/yazarlar/helmut-anheier",
-          "photo": "https://cdn.karar.com/author/557_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/234_b.jpg"
         },
         {
           "name": "İbrahim Kahveci",
-          "url": "https://www.karar.com/yazarlar/ibrahim-kahveci",
-          "photo": "https://cdn.karar.com/author/20_s.jpg"
-        },
-        {
-          "name": "Anders Åslund",
-          "url": "https://www.karar.com/yazarlar/anders-aslund",
-          "photo": "https://cdn.karar.com/author/540_s.jpg"
-        },
-        {
-          "name": "Hakan Temiztürk",
-          "url": "https://www.karar.com/yazarlar/prof-dr-hakan-temizturk1",
-          "photo": "https://cdn.karar.com/author/539_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/20_b.jpg"
         },
         {
           "name": "Osman Sert",
-          "url": "https://www.karar.com/yazarlar/osman-sert1",
-          "photo": "https://cdn.karar.com/author/238_s.jpg"
-        },
-        {
-          "name": "Mehmet Ali Verçin",
-          "url": "https://www.karar.com/yazarlar/mehmet-ali-vercin",
-          "photo": "https://cdn.karar.com/author/91_s.jpg"
-        },
-        {
-          "name": "Mensur Akgün",
-          "url": "https://www.karar.com/yazarlar/mensur-akgun",
-          "photo": "https://cdn.karar.com/author/7_s.jpg"
-        },
-        {
-          "name": "Mustafa Çağrıcı",
-          "url": "https://www.karar.com/yazarlar/mustafa-cagrici",
-          "photo": "https://cdn.karar.com/author/5_s.jpg"
-        },
-        {
-          "name": "Taner Ay",
-          "url": "https://www.karar.com/yazarlar/taneray1",
-          "photo": "https://cdn.karar.com/author/327_s.jpg"
-        },
-        {
-          "name": "Mikdat Karaalioğlu",
-          "url": "https://www.karar.com/yazarlar/mikdat-karaalioglu",
-          "photo": "https://cdn.karar.com/author/70_s.jpg"
-        },
-        {
-          "name": "Ulvi Saran",
-          "url": "https://www.karar.com/yazarlar/ulvi-saran",
-          "photo": "https://cdn.karar.com/author/348_s.jpg"
-        },
-        {
-          "name": "A. Yağmur Tunalı",
-          "url": "https://www.karar.com/yazarlar/yagmur-tunali",
-          "photo": "https://cdn.karar.com/author/335_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/238_b.jpg"
         },
         {
           "name": "Gülay Erdemli",
-          "url": "https://www.karar.com/yazarlar/gulay-erdemli",
-          "photo": "https://cdn.karar.com/author/229_s.jpg"
-        },
-        {
-          "name": "Figen Çalıkuşu",
-          "url": "https://www.karar.com/yazarlar/figen-calikusu",
-          "photo": "https://cdn.karar.com/author/226_s.jpg"
-        },
-        {
-          "name": "Eyüp Sabri Demirci",
-          "url": "https://www.karar.com/yazarlar/eyup-sabri-demirci",
-          "photo": "https://cdn.karar.com/author/255_s.jpg"
-        },
-        {
-          "name": "Alaattin Karaca",
-          "url": "https://www.karar.com/yazarlar/alaattin-karaca",
-          "photo": "https://cdn.karar.com/author/16_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/229_b.jpg"
         },
         {
           "name": "Salih Cenap Baydar",
-          "url": "https://www.karar.com/yazarlar/salih-cenap-baydar",
-          "photo": "https://cdn.karar.com/author/81_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/81_b.jpg"
         },
         {
           "name": "Ömer Erdem",
-          "url": "https://www.karar.com/yazarlar/omer-erdem",
-          "photo": "https://cdn.karar.com/author/64_s.jpg"
-        },
-        {
-          "name": "Levent Işık",
-          "url": "https://www.karar.com/yazarlar/levent-isik",
-          "photo": "https://cdn.karar.com/author/536_s.jpg"
-        },
-        {
-          "name": "Şenol Kaluç",
-          "url": "https://www.karar.com/yazarlar/senol-kaluc",
-          "photo": "https://cdn.karar.com/author/9_s.jpg"
-        },
-        {
-          "name": "Semra Alkan",
-          "url": "https://www.karar.com/yazarlar/semra-alkan",
-          "photo": "https://cdn.karar.com/author/94_s.jpg"
-        },
-        {
-          "name": "Bekir Fuat",
-          "url": "https://www.karar.com/yazarlar/bekir-fuat",
-          "photo": "https://cdn.karar.com/author/55_s.jpg"
-        },
-        {
-          "name": "Şule Demirtaş",
-          "url": "https://www.karar.com/yazarlar/sule-demirtas",
-          "photo": "https://cdn.karar.com/author/287_s.jpg"
-        },
-        {
-          "name": "Raşit Yıldırım",
-          "url": "https://www.karar.com/yazarlar/rasit-yildirim",
-          "photo": "https://cdn.karar.com/author/266_s.jpg"
-        },
-        {
-          "name": "Ali Barskanmay",
-          "url": "https://www.karar.com/yazarlar/ali-barskanmay",
-          "photo": "https://cdn.karar.com/author/78_s.jpg"
-        },
-        {
-          "name": "Enes Batman",
-          "url": "https://www.karar.com/yazarlar/enes-batman",
-          "photo": "https://cdn.karar.com/author/90_s.jpg"
-        },
-        {
-          "name": "Sacide Özlem",
-          "url": "https://www.karar.com/yazarlar/sacide-ozlem",
-          "photo": "https://cdn.karar.com/author/313_s.jpg"
-        },
-        {
-          "name": "Gamze Demirel",
-          "url": "https://www.karar.com/yazarlar/gamze-demirel",
-          "photo": "https://cdn.karar.com/author/301_s.jpg"
-        },
-        {
-          "name": "Ziyahan Albeniz",
-          "url": "https://www.karar.com/yazarlar/ziyahan-albeniz",
-          "photo": "https://cdn.karar.com/author/76_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/64_b.jpg"
         },
         {
           "name": "Aynur Taş",
-          "url": "https://www.karar.com/yazarlar/aynur-tas",
-          "photo": "https://cdn.karar.com/author/420_s.jpg"
-        },
-        {
-          "name": "Gülşen Yeşilyurt",
-          "url": "https://www.karar.com/yazarlar/gulsen-yesilyurt",
-          "photo": "https://cdn.karar.com/author/302_s.jpg"
-        },
-        {
-          "name": "Kerime Yıldız",
-          "url": "https://www.karar.com/yazarlar/kerime-yildiz",
-          "photo": "https://cdn.karar.com/author/347_s.jpg"
-        },
-        {
-          "name": "Anadolu Aydınlı",
-          "url": "https://www.karar.com/yazarlar/anadolu-aydinli",
-          "photo": "https://cdn.karar.com/author/275_s.jpg"
-        },
-        {
-          "name": "Zeynep Delav",
-          "url": "https://www.karar.com/yazarlar/zeynepdelav",
-          "photo": "https://cdn.karar.com/author/510_s.jpg"
-        },
-        {
-          "name": "Bülent Tuncay",
-          "url": "https://www.karar.com/yazarlar/bulent-tuncay",
-          "photo": "https://cdn.karar.com/author/21_s.jpg"
-        },
-        {
-          "name": "Veysel Taşkın",
-          "url": "https://www.karar.com/yazarlar/veysel-taskin",
-          "photo": "https://cdn.karar.com/author/264_s.jpg"
-        },
-        {
-          "name": "Gökhan Aktürk",
-          "url": "https://www.karar.com/yazarlar/gokhan-akturk",
-          "photo": "https://cdn.karar.com/author/88_s.jpg"
-        },
-        {
-          "name": "Salome Mikadze",
-          "url": "https://www.karar.com/yazarlar/salome-mikadze",
-          "photo": "https://cdn.karar.com/author/394_s.jpg"
-        },
-        {
-          "name": "Kian Tajbakhsh",
-          "url": "https://www.karar.com/yazarlar/kian-tajbakhsh",
-          "photo": "https://cdn.karar.com/author/405_s.jpg"
-        },
-        {
-          "name": "Bartosz M. Rydlinski",
-          "url": "https://www.karar.com/yazarlar/bartosz-m-rydlinski",
-          "photo": "https://cdn.karar.com/author/364_s.jpg"
-        },
-        {
-          "name": "Nancy Qian",
-          "url": "https://www.karar.com/yazarlar/nancy-qian",
-          "photo": "https://cdn.karar.com/author/378_s.jpg"
-        },
-        {
-          "name": "Anna Husarska",
-          "url": "https://www.karar.com/yazarlar/anna-husarska",
-          "photo": "https://cdn.karar.com/author/421_s.jpg"
-        },
-        {
-          "name": "Dalia Ghanem",
-          "url": "https://www.karar.com/yazarlar/dalia-ghanem",
-          "photo": "https://cdn.karar.com/author/437_s.jpg"
-        },
-        {
-          "name": "Cristina Ramirez",
-          "url": "https://www.karar.com/yazarlar/cristina-ramirez",
-          "photo": "https://cdn.karar.com/author/463_s.jpg"
-        },
-        {
-          "name": "Jim O’Neill",
-          "url": "https://www.karar.com/yazarlar/jim-oneill",
-          "photo": "https://cdn.karar.com/author/363_s.jpg"
-        },
-        {
-          "name": "Vali Nasr",
-          "url": "https://www.karar.com/yazarlar/vali-nasr",
-          "photo": "https://cdn.karar.com/author/467_s.jpg"
-        },
-        {
-          "name": "Djavad Salehi-Isfahani",
-          "url": "https://www.karar.com/yazarlar/djavad-salehi",
-          "photo": "https://cdn.karar.com/author/401_s.jpg"
-        },
-        {
-          "name": "Pinelopi Koujianou Goldberg",
-          "url": "https://www.karar.com/yazarlar/pinelopi-koujianou-goldberg",
-          "photo": "https://cdn.karar.com/author/396_s.jpg"
-        },
-        {
-          "name": "Eric A. Baldwin",
-          "url": "https://www.karar.com/yazarlar/eric-a-baldwin",
-          "photo": "https://cdn.karar.com/author/484_s.jpg"
-        },
-        {
-          "name": "Marco Buti",
-          "url": "https://www.karar.com/yazarlar/marco-buti",
-          "photo": "https://cdn.karar.com/author/480_s.jpg"
-        },
-        {
-          "name": "Reed Galen",
-          "url": "https://www.karar.com/yazarlar/reed-galen",
-          "photo": "https://cdn.karar.com/author/371_s.jpg"
-        },
-        {
-          "name": "Diane Coyle",
-          "url": "https://www.karar.com/yazarlar/diane-coyle",
-          "photo": "https://cdn.karar.com/author/404_s.jpg"
-        },
-        {
-          "name": "Kenneth Rogoff",
-          "url": "https://www.karar.com/yazarlar/kenneth-rogoff",
-          "photo": "https://cdn.karar.com/author/376_s.jpg"
-        },
-        {
-          "name": "Nina L. Khrushcheva",
-          "url": "https://www.karar.com/yazarlar/nina-l-khrushcheva",
-          "photo": "https://cdn.karar.com/author/470_s.jpg"
-        },
-        {
-          "name": "Helen Clark",
-          "url": "https://www.karar.com/yazarlar/helen-clark",
-          "photo": "https://cdn.karar.com/author/499_s.jpg"
-        },
-        {
-          "name": "Binaifer Nowrojee",
-          "url": "https://www.karar.com/yazarlar/binaifer-nowrojee",
-          "photo": "https://cdn.karar.com/author/414_s.jpg"
-        },
-        {
-          "name": "Kori Schake",
-          "url": "https://www.karar.com/yazarlar/kori-schake",
-          "photo": "https://cdn.karar.com/author/448_s.jpg"
-        },
-        {
-          "name": "Rakesh Mohan",
-          "url": "https://www.karar.com/yazarlar/rakesh-mohan",
-          "photo": "https://cdn.karar.com/author/452_s.jpg"
-        },
-        {
-          "name": "Nicu Popescu",
-          "url": "https://www.karar.com/yazarlar/nicu-popescu",
-          "photo": "https://cdn.karar.com/author/497_s.jpg"
-        },
-        {
-          "name": "Sam Chetwin George",
-          "url": "https://www.karar.com/yazarlar/sam-chetwin-george",
-          "photo": "https://cdn.karar.com/author/507_s.jpg"
-        },
-        {
-          "name": "Janak Raj",
-          "url": "https://www.karar.com/yazarlar/janak-raj",
-          "photo": "https://cdn.karar.com/author/453_s.jpg"
-        },
-        {
-          "name": "Pegah Banihashemi",
-          "url": "https://www.karar.com/yazarlar/pegah-banihashemi",
-          "photo": "https://cdn.karar.com/author/476_s.jpg"
-        },
-        {
-          "name": "Daniel Sleat",
-          "url": "https://www.karar.com/yazarlar/daniel-sleat",
-          "photo": "https://cdn.karar.com/author/508_s.jpg"
-        },
-        {
-          "name": "Huang Yiping",
-          "url": "https://www.karar.com/yazarlar/huang-yiping",
-          "photo": "https://cdn.karar.com/author/379_s.jpg"
-        },
-        {
-          "name": "Carla Norrlöf",
-          "url": "https://www.karar.com/yazarlar/carla-norrlof",
-          "photo": "https://cdn.karar.com/author/466_s.jpg"
-        },
-        {
-          "name": "Inna Bondarenko",
-          "url": "https://www.karar.com/yazarlar/inna-bondarenko",
-          "photo": "https://cdn.karar.com/author/509_s.jpg"
-        },
-        {
-          "name": "Robert Skidelsky",
-          "url": "https://www.karar.com/yazarlar/robert-skidelsky2",
-          "photo": "https://cdn.karar.com/author/381_s.jpg"
-        },
-        {
-          "name": "Barak Barfi",
-          "url": "https://www.karar.com/yazarlar/barak-barfi",
-          "photo": "https://cdn.karar.com/author/389_s.jpg"
-        },
-        {
-          "name": "Zselyke Csaky",
-          "url": "https://www.karar.com/yazarlar/zselyke-csaky",
-          "photo": "https://cdn.karar.com/author/492_s.jpg"
-        },
-        {
-          "name": "Roger Myerson",
-          "url": "https://www.karar.com/yazarlar/roger-myerson",
-          "photo": "https://cdn.karar.com/author/512_s.jpg"
-        },
-        {
-          "name": "Simon Johnson",
-          "url": "https://www.karar.com/yazarlar/simon-johnson",
-          "photo": "https://cdn.karar.com/author/377_s.jpg"
-        },
-        {
-          "name": "Federico Fubini",
-          "url": "https://www.karar.com/yazarlar/federico-fubini",
-          "photo": "https://cdn.karar.com/author/399_s.jpg"
-        },
-        {
-          "name": "Gomez Agou",
-          "url": "https://www.karar.com/yazarlar/gomez-agou",
-          "photo": "https://cdn.karar.com/author/514_s.jpg"
-        },
-        {
-          "name": "Eyck Freymann",
-          "url": "https://www.karar.com/yazarlar/eyck-freymann",
-          "photo": "https://cdn.karar.com/author/515_s.jpg"
-        },
-        {
-          "name": "Joseph E. Stiglitz",
-          "url": "https://www.karar.com/yazarlar/joseph-e-stiglitz",
-          "photo": "https://cdn.karar.com/author/370_s.jpg"
-        },
-        {
-          "name": "Stephen Holmes",
-          "url": "https://www.karar.com/yazarlar/stephen-holmes",
-          "photo": "https://cdn.karar.com/author/478_s.jpg"
-        },
-        {
-          "name": "Prof. Kenneth Rogoff",
-          "url": "https://www.karar.com/yazarlar/prof-kenneth-rogoff",
-          "photo": "https://cdn.karar.com/author/464_s.jpg"
-        },
-        {
-          "name": "Aziz Huq",
-          "url": "https://www.karar.com/yazarlar/aziz-huq",
-          "photo": "https://cdn.karar.com/author/503_s.jpg"
-        },
-        {
-          "name": "Angela Huyue Zhang",
-          "url": "https://www.karar.com/yazarlar/angela-huyue-zhang",
-          "photo": "https://cdn.karar.com/author/391_s.jpg"
-        },
-        {
-          "name": "Samuel Charap",
-          "url": "https://www.karar.com/yazarlar/samuel-charap",
-          "photo": "https://cdn.karar.com/author/397_s.jpg"
-        },
-        {
-          "name": "Lütfü Şehsuvaroğlu",
-          "url": "https://www.karar.com/yazarlar/lutfu-sehsuvaroglu",
-          "photo": "https://cdn.karar.com/author/456_s.jpg"
-        },
-        {
-          "name": "Alberto Alemanno",
-          "url": "https://www.karar.com/yazarlar/alberto-alemanno",
-          "photo": "https://cdn.karar.com/author/469_s.jpg"
-        },
-        {
-          "name": "László Bruszt",
-          "url": "https://www.karar.com/yazarlar/laszlo-bruszt",
-          "photo": "https://cdn.karar.com/author/504_s.jpg"
-        },
-        {
-          "name": "Ana Palacio",
-          "url": "https://www.karar.com/yazarlar/ana-palacio",
-          "photo": "https://cdn.karar.com/author/520_s.jpg"
-        },
-        {
-          "name": "Joseph S. Nye",
-          "url": "https://www.karar.com/yazarlar/joseph-s-nye",
-          "photo": "https://cdn.karar.com/author/369_s.jpg"
-        },
-        {
-          "name": "Fabrizio Tassinari",
-          "url": "https://www.karar.com/yazarlar/fabrizio-tassinari",
-          "photo": "https://cdn.karar.com/author/522_s.jpg"
-        },
-        {
-          "name": "Sergei Guriev",
-          "url": "https://www.karar.com/yazarlar/sergei-guriev",
-          "photo": "https://cdn.karar.com/author/524_s.jpg"
-        },
-        {
-          "name": "Jamal Ibrahim Haidar",
-          "url": "https://www.karar.com/yazarlar/jamal-ibrahim-haidar",
-          "photo": "https://cdn.karar.com/author/525_s.jpg"
-        },
-        {
-          "name": "Don Aviv",
-          "url": "https://www.karar.com/yazarlar/don-aviv",
-          "photo": "https://cdn.karar.com/author/521_s.jpg"
-        },
-        {
-          "name": "Esra Cömert",
-          "url": "https://www.karar.com/yazarlar/esra-comert",
-          "photo": "https://cdn.karar.com/author/559_s.jpg"
-        },
-        {
-          "name": "İlker Yıldız",
-          "url": "https://www.karar.com/yazarlar/ilker-yildiz",
-          "photo": "https://cdn.karar.com/author/312_s.jpg"
-        },
-        {
-          "name": "Beşir Ayvazoğlu",
-          "url": "https://www.karar.com/yazarlar/besir-ayvazoglu",
-          "photo": "https://cdn.karar.com/author/17_s.jpg"
-        },
-        {
-          "name": "Mustafa Öztürk",
-          "url": "https://www.karar.com/yazarlar/mustafa-ozturk",
-          "photo": "https://cdn.karar.com/author/8_s.jpg"
-        },
-        {
-          "name": "Lütfü Şahsuvaroğlu",
-          "url": "https://www.karar.com/yazarlar/lutfu-sahsuvaroglu",
-          "photo": "https://cdn.karar.com/author/92_s.jpg"
-        },
-        {
-          "name": "Zafer Acar",
-          "url": "https://www.karar.com/yazarlar/zafer-acar",
-          "photo": "https://cdn.karar.com/author/75_s.jpg"
-        },
-        {
-          "name": "Uğur Emek",
-          "url": "https://www.karar.com/yazarlar/ugur-emek",
-          "photo": "https://cdn.karar.com/author/235_s.jpg"
-        },
-        {
-          "name": "Osman Çakmakçı",
-          "url": "https://www.karar.com/yazarlar/osman-cakmakci",
-          "photo": "https://cdn.karar.com/author/241_s.jpg"
-        },
-        {
-          "name": "Mustafa Morgil",
-          "url": "https://www.karar.com/yazarlar/mustafa-morgil",
-          "photo": "https://cdn.karar.com/author/32_s.jpg"
-        },
-        {
-          "name": "Zaki Laïdi",
-          "url": "https://www.karar.com/yazarlar/zaki-laidi",
-          "photo": "https://cdn.karar.com/author/412_s.jpg"
-        },
-        {
-          "name": "Mehmet Atalay",
-          "url": "https://www.karar.com/yazarlar/mehmet-atalay",
-          "photo": "https://cdn.karar.com/author/98_s.jpg"
-        },
-        {
-          "name": "Hasan Kösebalaban",
-          "url": "https://www.karar.com/yazarlar/hasan-kosebalaban",
-          "photo": "https://cdn.karar.com/author/97_s.jpg"
-        },
-        {
-          "name": "Muhsin Mete",
-          "url": "https://www.karar.com/yazarlar/muhsin-mete",
-          "photo": "https://cdn.karar.com/author/77_s.jpg"
-        },
-        {
-          "name": "Mevlana İdris",
-          "url": "https://www.karar.com/yazarlar/mevlana-idris",
-          "photo": "https://cdn.karar.com/author/23_s.jpg"
-        },
-        {
-          "name": "Selim Yıldırım",
-          "url": "https://www.karar.com/yazarlar/selim-yildirim",
-          "photo": "https://cdn.karar.com/author/87_s.jpg"
-        },
-        {
-          "name": "Asım Gültekin",
-          "url": "https://www.karar.com/yazarlar/asim-gultekin",
-          "photo": "https://cdn.karar.com/author/66_s.jpg"
-        },
-        {
-          "name": "Yıldız Ramazanoğlu",
-          "url": "https://www.karar.com/yazarlar/yildiz-ramazanoglu",
-          "photo": "https://cdn.karar.com/author/4_s.jpg"
-        },
-        {
-          "name": "Ahmet Altay",
-          "url": "https://www.karar.com/yazarlar/ahmet-altay",
-          "photo": "https://cdn.karar.com/author/72_s.jpg"
-        },
-        {
-          "name": "D. Mehmet Doğan",
-          "url": "https://www.karar.com/yazarlar/d-mehmet-dogan",
-          "photo": "https://cdn.karar.com/author/80_s.jpg"
-        },
-        {
-          "name": "Galip Dalay",
-          "url": "https://www.karar.com/yazarlar/galip-dalay",
-          "photo": "https://cdn.karar.com/author/15_s.jpg"
-        },
-        {
-          "name": "Hakan Erdem",
-          "url": "https://www.karar.com/yazarlar/hakan-erdem",
-          "photo": "https://cdn.karar.com/author/52_s.jpg"
-        },
-        {
-          "name": "Hüseyin Hatemi",
-          "url": "https://www.karar.com/yazarlar/huseyin-hatemi",
-          "photo": "https://cdn.karar.com/author/93_s.jpg"
-        },
-        {
-          "name": "KALP DİLİYLE",
-          "url": "https://www.karar.com/yazarlar/kalp-diliyle",
-          "photo": "https://cdn.karar.com/author/89_s.jpg"
-        },
-        {
-          "name": "Ahmet Ertuğrul Akyol",
-          "url": "https://www.karar.com/yazarlar/ahmet-ertugrul-akyol",
-          "photo": "https://cdn.karar.com/author/96_s.jpg"
-        },
-        {
-          "name": "Mete Yarar",
-          "url": "https://www.karar.com/yazarlar/mete-yarar",
-          "photo": "https://cdn.karar.com/author/14_s.jpg"
-        },
-        {
-          "name": "Oğuz Demir",
-          "url": "https://www.karar.com/yazarlar/oguz-demir",
-          "photo": "https://cdn.karar.com/author/239_s.jpg"
-        },
-        {
-          "name": "Oğulcan Çoksayar",
-          "url": "https://www.karar.com/yazarlar/ogulcan-coksayar",
-          "photo": "https://cdn.karar.com/author/340_s.jpg"
-        },
-        {
-          "name": "Burcu Öğretmen",
-          "url": "https://www.karar.com/yazarlar/burcu-ogretmen",
-          "photo": "https://cdn.karar.com/author/61_s.jpg"
-        },
-        {
-          "name": "Burak Köse",
-          "url": "https://www.karar.com/yazarlar/burak-kose",
-          "photo": "https://cdn.karar.com/author/85_s.jpg"
-        },
-        {
-          "name": "Emir Ekşioğlu",
-          "url": "https://www.karar.com/yazarlar/emir-eksioglu",
-          "photo": "https://cdn.karar.com/author/79_s.jpg"
-        },
-        {
-          "name": "Melikşah Aydın",
-          "url": "https://www.karar.com/yazarlar/meliksah-aydin1",
-          "photo": "https://cdn.karar.com/author/547_s.jpg"
-        },
-        {
-          "name": "Janis Emmanouilidis",
-          "url": "https://www.karar.com/yazarlar/janis-emmanouilidis",
-          "photo": "https://cdn.karar.com/author/550_s.jpg"
+          "url": "",
+          "photo": "https://cdn.karar.com/author/420_b.jpg"
         }
       ]
     },
@@ -3719,7 +3049,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 39,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3915,11 +3245,6 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
-        },
-        {
-          "name": "Cumhuriyet’in 103. yılında dünyaya mesajlar",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/d53da8/170/170/56/0/350/294?u=https://iysr.tmgrup.com.tr/2024/09/12/1726139911201.png"
         }
       ]
     },
@@ -4971,7 +4296,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 53,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5024,6 +4349,66 @@
           "photo": ""
         },
         {
+          "name": "Emekliler Masalı",
+          "url": "https://www.milligazete.com.tr/emekliler-masali",
+          "photo": ""
+        },
+        {
+          "name": "Cafer Keklikçi",
+          "url": "https://www.milligazete.com.tr/cafer-keklikci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/576-avatar.jpg"
+        },
+        {
+          "name": "İslam’dan batıla koşmak",
+          "url": "https://www.milligazete.com.tr/islamdan-batila-kosmak",
+          "photo": ""
+        },
+        {
+          "name": "İsmail Hakkı Akkiraz",
+          "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/618-avatar.jpg"
+        },
+        {
+          "name": "Necati Tuncer",
+          "url": "https://www.milligazete.com.tr/necati-tuncer",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/649-avatar.jpg"
+        },
+        {
+          "name": "Reşat Nuri Erol",
+          "url": "https://www.milligazete.com.tr/resat-nuri-erol",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
+        },
+        {
+          "name": "Amsterdam notları",
+          "url": "https://www.milligazete.com.tr/amsterdam-notlari",
+          "photo": ""
+        },
+        {
+          "name": "Şakir Tarım",
+          "url": "https://www.milligazete.com.tr/sakir-tarim",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/667-avatar.jpg"
+        },
+        {
+          "name": "Düdüğü kim çalardı?",
+          "url": "https://www.milligazete.com.tr/dudugu-kim-calardi",
+          "photo": ""
+        },
+        {
+          "name": "Zeki Ceyhan",
+          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
+        },
+        {
+          "name": "Şaban Turhal",
+          "url": "https://www.milligazete.com.tr/saban-turhal",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
+        },
+        {
+          "name": "Fahrettin Gün",
+          "url": "https://www.milligazete.com.tr/fahrettin-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
+        },
+        {
           "name": "Emekliler için tek adım yeterli!",
           "url": "https://www.milligazete.com.tr/emekliler-icin-tek-adim-yeterli",
           "photo": ""
@@ -5049,11 +4434,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/658-avatar.jpg"
         },
         {
-          "name": "Reşat Nuri Erol",
-          "url": "https://www.milligazete.com.tr/resat-nuri-erol",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
-        },
-        {
           "name": "Kademeli emeklilik ne zaman çözülecek?",
           "url": "https://www.milligazete.com.tr/kademeli-emeklilik-ne-zaman-cozulecek",
           "photo": ""
@@ -5062,71 +4442,6 @@
           "name": "Siyami Akyel",
           "url": "https://www.milligazete.com.tr/siyami-akyel",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/670-avatar.jpg"
-        },
-        {
-          "name": "Böylesi görülmedi!",
-          "url": "https://www.milligazete.com.tr/boylesi-gorulmedi-5",
-          "photo": ""
-        },
-        {
-          "name": "Zeki Ceyhan",
-          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
-        },
-        {
-          "name": "Şaban Turhal",
-          "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Ölçüsüzlüğe mahkûm olma",
-          "url": "https://www.milligazete.com.tr/olcusuzluge-mahkum-olma",
-          "photo": ""
-        },
-        {
-          "name": "Ömer Arif",
-          "url": "https://www.milligazete.com.tr/omer-arif",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
-        },
-        {
-          "name": "İslam’ın en büyük düşmanı umutsuzluk!",
-          "url": "https://www.milligazete.com.tr/islamin-en-buyuk-dusmani-umutsuzluk",
-          "photo": ""
-        },
-        {
-          "name": "Nureddin Yıldız",
-          "url": "https://www.milligazete.com.tr/nureddin-yildiz",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/nuredddin-yildiz-foto.png"
-        },
-        {
-          "name": "Müslümanca duruş ilkelerimiz",
-          "url": "https://www.milligazete.com.tr/muslumanca-durus-ilkelerimiz-6",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Abdülaziz Kıranşal",
-          "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
-        },
-        {
-          "name": "Dünyada Güzel Şeyler de Oluyor",
-          "url": "https://www.milligazete.com.tr/dunyada-guzel-seyler-de-oluyor",
-          "photo": ""
-        },
-        {
-          "name": "Abdussamet Karataş",
-          "url": "https://www.milligazete.com.tr/abdussamet-karatas",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/3426-avatar.jpg"
-        },
-        {
-          "name": "Hazırlanın! Sıra bize geliyor!",
-          "url": "https://www.milligazete.com.tr/hazirlanin-sira-bize-geliyor",
-          "photo": ""
-        },
-        {
-          "name": "İbrahim Halil Yetim",
-          "url": "https://www.milligazete.com.tr/ibrahim-halil-yetim",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/19420-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5234,7 +4549,7 @@
           "photo": ""
         },
         {
-          "name": "Evlenmek, Müslümanlara kesin surette emredilmiştir",
+          "name": "‘’Bir muhalif yel eser, savurur harman gibi’’",
           "url": "",
           "photo": ""
         }
