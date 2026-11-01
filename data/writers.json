@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-01T08:19:18.516805+00:00",
+  "fetchedAt": "2026-11-01T15:35:27.394309+00:00",
   "date": "2026-11-01",
-  "total": 1256,
+  "total": 1259,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1044,6 +1044,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/68416c61382339c6a0708f65.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Salim Uzun",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
@@ -1120,7 +1125,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 18,
+      "count": 19,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1146,6 +1151,11 @@
           "name": "Güldener Sonumut",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/600c5e825542850c385ff9d4.jpg"
+        },
+        {
+          "name": "Metin Aktaşoğlu",
+          "url": "",
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
         },
         {
           "name": "Prof. Dr. Nuran Yıldız",
@@ -1270,6 +1280,11 @@
           "photo": ""
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1278,11 +1293,6 @@
           "name": "ERHAN AFYONCU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5344,27 +5354,27 @@
           "photo": ""
         },
         {
-          "name": "İstanbul'da yollar kapatıldı! İşte alternatif güzergâhlar",
+          "name": "Zelenskiy",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Erman Toroğlu canlı yayında Sözcü TV'den istifa etti!",
+          "name": "Galatasaray'da Metin Öztürk istifa etti! Saldırı iddiası",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Akaryakıta dev zam kapıda! Motorin 100 lirayı aşabilir",
+          "name": "Sosyal medyada 15 yaş sınırı başladı! Bakan Göktaş açıkladı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul barajlarında son durum! İki barajda su alarmı",
           "url": "",
           "photo": ""
         },
         {
           "name": "Evlerinizi bir savaş meydanına çevirmeyin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İsrail’de sandıktan hangi mesajlar çıktı?",
           "url": "",
           "photo": ""
         }
@@ -6386,7 +6396,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 7,
       "writers": [
         {
           "name": "C. Hakkı Zariç",
@@ -6394,9 +6404,14 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
         },
         {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
+        {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Cihan Tekin",
