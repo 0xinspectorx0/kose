@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-01T06:48:15.665897+00:00",
+  "fetchedAt": "2026-11-01T08:19:18.516805+00:00",
   "date": "2026-11-01",
-  "total": 1254,
+  "total": 1256,
   "papers": [
     {
       "key": "hurriyet",
@@ -1270,9 +1270,9 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "ERHAN AFYONCU",
@@ -1280,9 +1280,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5116,7 +5116,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5340,6 +5340,16 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul'da yollar kapatıldı! İşte alternatif güzergâhlar",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Erman Toroğlu canlı yayında Sözcü TV'den istifa etti!",
           "url": "",
           "photo": ""
         },
@@ -6389,6 +6399,11 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Ayşegül Kasap",
           "url": "",
           "photo": ""
@@ -6400,11 +6415,6 @@
         },
         {
           "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }
