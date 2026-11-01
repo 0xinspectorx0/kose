@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-01T02:13:26.299599+00:00",
+  "fetchedAt": "2026-11-01T03:47:09.760103+00:00",
   "date": "2026-11-01",
-  "total": 1219,
+  "total": 1226,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 200,
+      "count": 204,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,6 +1007,26 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
+        },
+        {
+          "name": "Fatih ÇEKİRGE",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
+        },
+        {
+          "name": "Yunus Paksoy",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6761a8c54c39255d0d8316c5.jpg"
+        },
+        {
+          "name": "Dr.Furkan Burak",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/68416c61382339c6a0708f65.jpg"
+        },
+        {
+          "name": "Salim Uzun",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
         }
       ]
     },
@@ -1170,14 +1190,14 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -3461,8 +3481,14 @@
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "Yazar Arşivi",
+          "url": "https://www.haberturk.com/htyazarlar/arsiv",
+          "photo": ""
+        }
+      ]
     },
     {
       "key": "aksam",
@@ -6210,8 +6236,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 6,
       "writers": [
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+        },
         {
           "name": "Mesude Demir",
           "url": "",
@@ -6224,6 +6255,11 @@
         },
         {
           "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         },
