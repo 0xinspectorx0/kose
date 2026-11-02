@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-02T11:41:34.502525+00:00",
+  "fetchedAt": "2026-11-02T15:12:28.057966+00:00",
   "date": "2026-11-02",
-  "total": 1251,
+  "total": 1254,
   "papers": [
     {
       "key": "hurriyet",
@@ -1260,14 +1260,14 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1751,7 +1751,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2792,6 +2792,11 @@
           "name": "Yusuf Dinç",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2023/2/14/ec3ba5bb-z1u297ohxu942gf8zbo8n.png"
+        },
+        {
+          "name": "Selman Ağrıkan",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         }
       ]
     },
@@ -5091,7 +5096,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5142,6 +5147,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Doç. Dr. Harun Bekiroğlu",
+          "url": "https://www.milligazete.com.tr/harun-bekiroglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70311-avatar.jpg"
         },
         {
           "name": "Mustafa Uzun",
@@ -5222,16 +5232,6 @@
           "name": "İsmail Müftüoğlu",
           "url": "https://www.milligazete.com.tr/ismail-muftuoglu",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/51782-avatar.jpg"
-        },
-        {
-          "name": "Tespitte hata olmasın",
-          "url": "https://www.milligazete.com.tr/tespitte-hata-olmasin",
-          "photo": ""
-        },
-        {
-          "name": "Bülent Acun",
-          "url": "https://www.milligazete.com.tr/bulent-acun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/acun-bulent.png"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5315,6 +5315,21 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Selçuk Bayraktar'dan fon çıkışı! Ahlaksızca kazanç tepkisi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Özgür Özel hakkında yeni soruşturma! Fezleke hazırlığı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Çip hisselerinde tarihi düşüş! Yapay zeka endişesi büyüyor",
           "url": "",
           "photo": ""
         },
