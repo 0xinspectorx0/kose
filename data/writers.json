@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-02T08:09:49.668212+00:00",
+  "fetchedAt": "2026-11-02T11:41:34.502525+00:00",
   "date": "2026-11-02",
-  "total": 1250,
+  "total": 1251,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 211,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1057,13 +1057,18 @@
           "name": "Ebru Erke",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6ae7bd70c44e39ea4136a5d1.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 13,
+      "count": 15,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1116,9 +1121,19 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
         },
         {
+          "name": "İpek Özbey",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
+        },
+        {
           "name": "YÖN/Fikret Bila",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/10/fikretbilapng-t7ZO6lQfWEG6_7KHaY45Wg.png"
+        },
+        {
+          "name": "Burak Özcan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
         },
         {
           "name": "Ercan Taner",
@@ -1245,11 +1260,6 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1258,6 +1268,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -3824,7 +3839,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 41,
+      "count": 40,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -4025,11 +4040,6 @@
           "name": "Başkan çözemezse sıkıntı yaşar",
           "url": "",
           "photo": "https://iaysr.tmgrup.com.tr/412b1b/170/170/0/5/212/217?u=https://iysr.tmgrup.com.tr/2023/05/09/1683636255915.png"
-        },
-        {
-          "name": "Göztepe’ye özgüven kazandırdı",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/4c71a4/170/170/0/34/375/410?u=https://iysr.tmgrup.com.tr/2024/08/06/1722952204183.png"
         }
       ]
     },
@@ -5081,7 +5091,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5132,6 +5142,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Mustafa Uzun",
+          "url": "https://www.milligazete.com.tr/mustafa-uzun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/56386-avatar.jpg"
         },
         {
           "name": "Doç. Dr. Hacı Murat Kumbasar",
@@ -5219,16 +5234,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/acun-bulent.png"
         },
         {
-          "name": "“Oğlumun Tabutuna Sarılabilir Miyim?”",
-          "url": "https://www.milligazete.com.tr/oglumun-tabutuna-sarilabilir-miyim",
-          "photo": ""
-        },
-        {
-          "name": "Furkan Ali Çiftçioğlu",
-          "url": "https://www.milligazete.com.tr/furkan-ali-ciftcioglu",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/06/ekran-goruntusu-2026-06-08-081046.png"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5314,12 +5319,12 @@
           "photo": ""
         },
         {
-          "name": "Otogaza 9 liralık zam bekleniyor! LPG fiyatı 50 TL'yi aşacak",
+          "name": "Bahçeli il olacak 19 ilçeyi açıkladı!",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Eğitimde ruh ve irfan arayışı: Kalıptan kalbe!",
+          "name": "Karayoluyla Umre Seyahati ve Bütün Maliyetler",
           "url": "",
           "photo": ""
         }
@@ -6351,12 +6356,12 @@
         {
           "name": "Ayhan Tinin",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
         },
         {
           "name": "C. Hakkı Zariç",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-96x96.jpg"
         },
         {
           "name": "Mehmet Aksel",
@@ -6369,7 +6374,7 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
@@ -6379,7 +6384,7 @@
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
