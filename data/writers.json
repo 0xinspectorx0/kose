@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-02T15:12:28.057966+00:00",
+  "fetchedAt": "2026-11-02T18:44:35.250498+00:00",
   "date": "2026-11-02",
-  "total": 1254,
+  "total": 1257,
   "papers": [
     {
       "key": "hurriyet",
@@ -1260,6 +1260,11 @@
           "photo": ""
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
@@ -1268,11 +1273,6 @@
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -2784,9 +2784,9 @@
           "photo": "https://img.piri.net/piri/upload/3/2024/2/1/32f8d50f-qjjjvvo963gm6ge2kuxmif.png"
         },
         {
-          "name": "Yaşar Süngü",
+          "name": "Ömer Çelikbaşlı",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/11/25/resized_306f3-d6d4b525yasarsungu2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Yusuf Dinç",
@@ -5096,7 +5096,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 52,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5319,6 +5319,26 @@
           "photo": ""
         },
         {
+          "name": "Avrupa'da marketlere siber saldırı şüphesi! 3 ülke alarmda",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fransa'da liselerde eylem dalgası! 41 okul kuşatıldı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altın için cuma uyarısı! İslam Memiş'ten 140 dolar tahmini",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Sarıgül soruşturmasında 4 kişiye tutuklama talep edildi!",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Selçuk Bayraktar'dan fon çıkışı! Ahlaksızca kazanç tepkisi",
           "url": "",
           "photo": ""
@@ -5330,11 +5350,6 @@
         },
         {
           "name": "Çip hisselerinde tarihi düşüş! Yapay zeka endişesi büyüyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bahçeli il olacak 19 ilçeyi açıkladı!",
           "url": "",
           "photo": ""
         },
