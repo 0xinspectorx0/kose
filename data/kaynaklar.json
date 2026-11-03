@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-03T06:37:10.961177+00:00",
-  "kurallarAlindi": "2026-11-03T06:29:59.337304+00:00",
+  "guncellendi": "2026-11-03T07:48:44.981310+00:00",
+  "kurallarAlindi": "2026-11-03T07:41:48.024880+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -44,7 +44,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 8
     },
     {
       "key": "cumhuriyet",
