@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-04T15:29:30.262683+00:00",
+  "fetchedAt": "2026-11-04T19:01:03.797240+00:00",
   "date": "2026-11-04",
-  "total": 1238,
+  "total": 1241,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1006,6 +996,16 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -5046,7 +5046,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5274,12 +5274,17 @@
           "photo": ""
         },
         {
-          "name": "Yasa dışı bahis operasyonlarında 5 bin 949 tutuklama!",
+          "name": "Fenerbahçe-Liverpool maçı Canlı Anlatım 1-1",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Murat Ağırel ve İsmail Saymaz'a 14 yıl 10 ay hapis istemi",
+          "name": "Meteoroloji 19 il için alarm verdi! Sel ve hortum uyarısı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Yasa dışı bahis operasyonlarında 5 bin 949 tutuklama!",
           "url": "",
           "photo": ""
         },
@@ -6306,8 +6311,18 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 6,
       "writers": [
+        {
+          "name": "Zehra Çelenk",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto-96x96.jpeg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
         {
           "name": "Emre Zor",
           "url": "",
