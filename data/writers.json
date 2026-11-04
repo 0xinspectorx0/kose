@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-04T08:26:48.591715+00:00",
+  "fetchedAt": "2026-11-04T11:58:38.614201+00:00",
   "date": "2026-11-04",
-  "total": 1240,
+  "total": 1238,
   "papers": [
     {
       "key": "hurriyet",
@@ -1063,7 +1063,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 12,
+      "count": 10,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1109,16 +1109,6 @@
           "name": "Pınar Turan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2023/12/pinarturanpng-6G8eLeRSPEuUZRAs9utOGA.png"
-        },
-        {
-          "name": "İpek Özbey",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
-        },
-        {
-          "name": "Burak Özcan",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
         },
         {
           "name": "Ercan Taner",
@@ -1215,6 +1205,11 @@
           "photo": ""
         },
         {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
@@ -1223,11 +1218,6 @@
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -5289,7 +5279,7 @@
           "photo": ""
         },
         {
-          "name": "Mahmut Arıkan",
+          "name": "Türkiye nüfusu 86",
           "url": "",
           "photo": ""
         },
@@ -6324,12 +6314,12 @@
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Ayşegül Kasap",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Ayşegül Kasap",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
