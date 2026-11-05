@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-05T01:02:50.370943+00:00",
+  "fetchedAt": "2026-11-05T02:20:59.229005+00:00",
   "date": "2026-11-05",
-  "total": 1018,
+  "total": 1227,
   "papers": [
     {
       "key": "hurriyet",
@@ -1023,7 +1023,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 8,
+      "count": 11,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1046,14 +1046,29 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
         },
         {
+          "name": "Ege Cansen",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
+        },
+        {
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
         },
         {
+          "name": "Yekta Güngör Özden",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yektagungorozdenpng-zP0TsX7F3Ee0UR1N0FEZlg.png"
+        },
+        {
           "name": "Güney Öztürk",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
+        },
+        {
+          "name": "Naim Babüroğlu",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
           "name": "Mesut Parlak",
@@ -1160,14 +1175,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -1641,7 +1656,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 206,
+      "count": 211,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2642,6 +2657,31 @@
           "name": "Müfit Yüksel",
           "url": "https://www.yenisafak.com/yazarlar/mufit-yuksel",
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
+        },
+        {
+          "name": "Süleyman Seyfi Öğün",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_97e03-c366suleymanseyfiogun2.png"
+        },
+        {
+          "name": "Ömer Lekesiz",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/07/resized_b2544-f76eomerlekesiz2.png"
+        },
+        {
+          "name": "Turgay Yerlikaya",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2023/12/22/4a0d0fab-hq6srm2rco6ulq8u8g62nr.png"
+        },
+        {
+          "name": "Selçuk Türkyılmaz",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/32f8d50f-qjjjvvo963gm6ge2kuxmif.png"
+        },
+        {
+          "name": "Nur Özkan Erbay",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2026/4/16/d8c9666d-7pzrya452efa6fpyi14gko.webp"
         },
         {
           "name": "Nedret Ersanel",
@@ -4941,7 +4981,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -4994,6 +5034,76 @@
           "photo": ""
         },
         {
+          "name": "Kedinin kokmuş ciğeri olmasın",
+          "url": "https://www.milligazete.com.tr/kedinin-kokmus-cigeri-olmasin",
+          "photo": ""
+        },
+        {
+          "name": "Mahmut Toptaş",
+          "url": "https://www.milligazete.com.tr/mahmut-toptas",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/626-avatar.jpg"
+        },
+        {
+          "name": "En genç şampiyon: Kimi Antonelli",
+          "url": "https://www.milligazete.com.tr/en-genc-sampiyon-kimi-antonelli",
+          "photo": ""
+        },
+        {
+          "name": "Mehmet Biten",
+          "url": "https://www.milligazete.com.tr/mehmet-biten",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
+        },
+        {
+          "name": "Reşat Nuri Erol",
+          "url": "https://www.milligazete.com.tr/resat-nuri-erol",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
+        },
+        {
+          "name": "Kriz yaşanır mıydı?",
+          "url": "https://www.milligazete.com.tr/kriz-yasanir-miydi",
+          "photo": ""
+        },
+        {
+          "name": "Zeki Ceyhan",
+          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
+        },
+        {
+          "name": "Sandıktan Filistin’in ahı çıktı",
+          "url": "https://www.milligazete.com.tr/sandiktan-filistinin-ahi-cikti",
+          "photo": ""
+        },
+        {
+          "name": "Abdussamet Karataş",
+          "url": "https://www.milligazete.com.tr/abdussamet-karatas",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/3426-avatar.jpg"
+        },
+        {
+          "name": "İsmail Müftüoğlu",
+          "url": "https://www.milligazete.com.tr/ismail-muftuoglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/51782-avatar.jpg"
+        },
+        {
+          "name": "Prof. Dr. Abdullah Aydın",
+          "url": "https://www.milligazete.com.tr/abdullah-aydin",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70279-avatar.jpg"
+        },
+        {
+          "name": "Kassam’ın takım yıldızları serisi (I)",
+          "url": "https://www.milligazete.com.tr/kassamin-takim-yildizlari-serisi-i",
+          "photo": ""
+        },
+        {
+          "name": "Doç. Dr. Harun Bekiroğlu",
+          "url": "https://www.milligazete.com.tr/harun-bekiroglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70311-avatar.jpg"
+        },
+        {
+          "name": "Şaban Turhal",
+          "url": "https://www.milligazete.com.tr/saban-turhal",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
+        },
+        {
           "name": "Fücur",
           "url": "https://www.milligazete.com.tr/fucur",
           "photo": ""
@@ -5014,74 +5124,9 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/619-avatar.jpg"
         },
         {
-          "name": "Mahmut Toptaş",
-          "url": "https://www.milligazete.com.tr/mahmut-toptas",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/626-avatar.jpg"
-        },
-        {
-          "name": "Reşat Nuri Erol",
-          "url": "https://www.milligazete.com.tr/resat-nuri-erol",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
-        },
-        {
-          "name": "Erdoğan sonrası kavgası!",
-          "url": "https://www.milligazete.com.tr/erdogan-sonrasi-kavgasi",
-          "photo": ""
-        },
-        {
-          "name": "Zeki Ceyhan",
-          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
-        },
-        {
           "name": "Atilla Mehdigil",
           "url": "https://www.milligazete.com.tr/atilla-mehdigil",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/69667-avatar.jpg"
-        },
-        {
-          "name": "Şaban Turhal",
-          "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Filistin-Suriye Cephesi",
-          "url": "https://www.milligazete.com.tr/filistin-suriye-cephesi-fevzi-pasanin-m-kemal-pasayi-kursuna-dizilmekten-kurtarmasi",
-          "photo": ""
-        },
-        {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
-        },
-        {
-          "name": "Ercan Özcan",
-          "url": "https://www.milligazete.com.tr/ercan-ozcan",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
-        },
-        {
-          "name": "Fondan ötesi",
-          "url": "https://www.milligazete.com.tr/fondan-otesi",
-          "photo": ""
-        },
-        {
-          "name": "Burak Kıllıoğlu",
-          "url": "https://www.milligazete.com.tr/burak-killioglu",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/574-avatar.jpg"
-        },
-        {
-          "name": "Asrın apoleti",
-          "url": "https://www.milligazete.com.tr/asrin-apoleti",
-          "photo": ""
-        },
-        {
-          "name": "İshak Koç",
-          "url": "https://www.milligazete.com.tr/ishak-koc",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/615-avatar.jpg"
-        },
-        {
-          "name": "Mehmet Biten",
-          "url": "https://www.milligazete.com.tr/mehmet-biten",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5174,7 +5219,7 @@
           "photo": ""
         },
         {
-          "name": "Rabbimizin rahmet kapısı kıyamete kadar açıktır",
+          "name": "Adil bir dünya; hakkı üstün tutarak kurulur",
           "url": "",
           "photo": ""
         }
@@ -5183,8 +5228,1009 @@
     {
       "key": "t24",
       "name": "T24",
-      "count": 0,
-      "writers": []
+      "count": 200,
+      "writers": [
+        {
+          "name": "Adalet Çavdar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/adalet-cavdar",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/05/1557500994318-adalet-cavdar.jpg"
+        },
+        {
+          "name": "Adnan Ekinci",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/adnan-ekinci",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/08/1565272784006-4.jpg"
+        },
+        {
+          "name": "Ahmet Altan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ahmet-altan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ahmet-altan.jpg"
+        },
+        {
+          "name": "Ahmet Sever",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ahmet-sever",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ahmet-sever.jpg"
+        },
+        {
+          "name": "Ahmet Tulgar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ahmet-tulgar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ahmet-tulgar.jpg"
+        },
+        {
+          "name": "Ahmet Utlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ahmet-utlu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ahmet-utlu.jpg"
+        },
+        {
+          "name": "Alaaddin Dinçer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/alaaddin-dincer",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/01/1579957276158-dincer.jpg"
+        },
+        {
+          "name": "Ali Servet Etkin",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ali-servet-etkin",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ali-servet-etkin.jpg"
+        },
+        {
+          "name": "Ali Yurttagül",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ali-yurttagul",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ali-yurttagul.jpg"
+        },
+        {
+          "name": "Alper Görmüş",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/alper-gormus",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/alper-gormus.jpg"
+        },
+        {
+          "name": "Altan Öymen",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/altan-oymen",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/05/1589717546755-altan-oymen.jpg"
+        },
+        {
+          "name": "Anıl Özgüç",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/anil-ozguc",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/11/1573834557049-anil-ozguc.jpeg"
+        },
+        {
+          "name": "Aram Ekin Duran",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aram-ekin-duran",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/aram-ekin-duran_784310353.jpg"
+        },
+        {
+          "name": "Aris Nalcı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aris-nalci",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/aris-nalci.jpg"
+        },
+        {
+          "name": "Aslı Öktener",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/asli-oktener-kose",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/asli-oktener-kose_225710086.jpg"
+        },
+        {
+          "name": "Aslı Tunç",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/asli-tunc",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/asli-tunc.jpg"
+        },
+        {
+          "name": "Ayça Abakan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ayca-abakan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/10/1665849829452-whats-app-image-2022-10-15-at-18.53"
+        },
+        {
+          "name": "Aydın Ayaydın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aydin-ayaydin",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/05/1620652790758-4-mtwnwx-o-400-x-400.jpg"
+        },
+        {
+          "name": "Aydın Engin",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aydin-engin",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/aydin-engin_826220570.jpg"
+        },
+        {
+          "name": "Ayfer G. Cambier",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ayfer-g-cambier",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/02/1582725387834-whats-app-image-2020-02-26-at-16.56"
+        },
+        {
+          "name": "Aylin Kaplan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aylin-kaplan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2025/05/1746168879604-aylin-kaplan.png"
+        },
+        {
+          "name": "Ayşe Alan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ayse-alan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ayse-alan.jpg"
+        },
+        {
+          "name": "Ayşe Cemal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ayse-cemal",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/05/1715854151944-ayse-cemal.jpeg"
+        },
+        {
+          "name": "Ayşe Minaz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ayse-minaz",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/05/1557498118132-profil-foto.jpg"
+        },
+        {
+          "name": "Aytaç Tereci",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aytac-tereci",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/aytac-tereci.jpg"
+        },
+        {
+          "name": "Aytun Aktan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/aytun-aktan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/aytun-aktan.jpg"
+        },
+        {
+          "name": "Baran Alp Uncu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/baran-alp-uncu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/baran-alp-uncu.jpg"
+        },
+        {
+          "name": "Barbaros Şansal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/barbaros-sansal",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/barbaros-sansal.jpg"
+        },
+        {
+          "name": "Barış Soydan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/baris-soydan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/baris-soydan_134671524.jpg"
+        },
+        {
+          "name": "Baskın Oran",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/baskin-oran",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/baskin-oran_713268513.jpg"
+        },
+        {
+          "name": "Bejan Matur",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/bejan-matur",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586523932893-bejan.jpg"
+        },
+        {
+          "name": "Berkhan Günaydın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/berkhan-gunaydin",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586003685595-berkhan-gunaydin.jpg"
+        },
+        {
+          "name": "Berna Abik",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/berna-abik",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/02/1708271451272-berna.jpg"
+        },
+        {
+          "name": "Bilgehan Uçak",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/bilgehan-ucak",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/07/1596217508256-image.jpg"
+        },
+        {
+          "name": "Buket Şengül",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/buket-sengul",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/05/1556977858230-buket-sengul.jpg"
+        },
+        {
+          "name": "Bülent Şık",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/bulent-sik",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/bulent-sik.jpg"
+        },
+        {
+          "name": "Bülent Vardar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/bulent-vardar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/bulent-vardar.jpg"
+        },
+        {
+          "name": "Burak Cop",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/burak-cop",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/burak-cop.jpg"
+        },
+        {
+          "name": "Burçin Akgün Ünaldı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/burcin-akgun-unaldi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/burcin-akgun-unaldi.jpg"
+        },
+        {
+          "name": "Çağnur Öztürk",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cagnur-ozturk",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cagnur-ozturk_897213699.jpg"
+        },
+        {
+          "name": "Caz ve Dahası",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/caz-ve-dahasi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/caz-ve-dahasi_526216240.jpg"
+        },
+        {
+          "name": "Celal Başlangıç",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/celal-baslangic",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/celal-baslangic.jpg"
+        },
+        {
+          "name": "Celal Özcan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/celal-ozcan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/celal-ozcan.jpg"
+        },
+        {
+          "name": "Cem Dizdar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cem-dizdar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cem-dizdar.png"
+        },
+        {
+          "name": "Cem Özgüzel",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cem-ozguzel",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/04/1619552016472-cem.jpg"
+        },
+        {
+          "name": "Cem Ülker",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cem-ulker",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/06/1592669524919-cem-ulker.JPG"
+        },
+        {
+          "name": "Cemre Baytok",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cemre-baytok",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1584192176855-cemre-baytok.jpg"
+        },
+        {
+          "name": "Cengiz Çandar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cengiz-candar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cengiz-candar.jpg"
+        },
+        {
+          "name": "Cengiz Çiftçi",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cengiz-ciftci",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cengiz-ciftci.jpg"
+        },
+        {
+          "name": "Cengiz Özdemir",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cengiz-ozdemir",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cengiz-ozdemir.jpg"
+        },
+        {
+          "name": "Ceren Sözeri",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ceren-sozeri",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cerensozeri.jpg"
+        },
+        {
+          "name": "Çetin Çeko",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cetin-ceko",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cetin-ceko_557830344.jpg"
+        },
+        {
+          "name": "Ceyda Karan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hudut-ihlali",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/hudut-ihlali.jpg"
+        },
+        {
+          "name": "Ceyhan Suvari",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ceyhan-suvari",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/07/1563024221324-ceyhan-suvari-gorsel.jpg"
+        },
+        {
+          "name": "Chris Stephenson",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/chris-stephenson",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/chris-stephenson_511395210.jpg"
+        },
+        {
+          "name": "Çiğdem Anad",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cigdem-anad",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cigdem-anad.png"
+        },
+        {
+          "name": "Çiğdem Öztabak",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cigdem-oztabak",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/02/1580739024678-498-c-6-d-5-c-002-b-4-bdd-9-c-29-6375-baf-159-bc.jpg"
+        },
+        {
+          "name": "Cihan Tuğal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/cihan-tugal",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/cihan-tugal.jpg"
+        },
+        {
+          "name": "Damla Yur",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/damla-yur",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1583586823036-damla-yur.jpg"
+        },
+        {
+          "name": "Defne Seheryıldızı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/defne-seheryildizi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/defne-seheryildizi_070903350.jpg"
+        },
+        {
+          "name": "Demet Cengiz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/demet-cengiz",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/06/1656071576836-demet-cengiz.jpg"
+        },
+        {
+          "name": "Deniz Bağrıaçık",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/deniz-bagriacik-dunya",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/deniz-bagriacik-dunya.jpg"
+        },
+        {
+          "name": "Deniz Can",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/denizcan-b",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/07/1625753097946-8-d-002942-a-810432-ba-04-b-6-dc-6429-d-50-ef.jpg"
+        },
+        {
+          "name": "Dilara Gürcü",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/dilara-gurcu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/dilara-gurcu.jpg"
+        },
+        {
+          "name": "Ebru Akdağ",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ebru-akdag",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1584716436567-ebru-akdag.jpg"
+        },
+        {
+          "name": "Eda Ayaydın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/eda-ayaydin",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/08/1659804617192-eda-ayaydin.JPG"
+        },
+        {
+          "name": "Elif Kork",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/elif-kork",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1585412463248-elif-kork.jpg"
+        },
+        {
+          "name": "Eliza Doolittle",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/eliza-doolittle",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/eliza-doolittle.png"
+        },
+        {
+          "name": "Emek Karakılıç",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/emek-karakilic",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586622808132-emek-karakilic.JPG"
+        },
+        {
+          "name": "Emrah Akın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/emrah-akin",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/11/1667494167998-emrah-akin-1.JPG"
+        },
+        {
+          "name": "Emre Çalışkan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/emre-caliskan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/emre-caliskan.jpg"
+        },
+        {
+          "name": "Emre Metin Bilginer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/emre-metin-bilginer",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/10/1601912123714-emre-metin-bilginer.jpg"
+        },
+        {
+          "name": "Emre Tansu Keten",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/emre-tansu-keten-sosyal-medya",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/emre-tansu-keten-sosyal-medya.jpg"
+        },
+        {
+          "name": "Engin Biçer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/engin-bicer",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/engin-bicer.jpg"
+        },
+        {
+          "name": "Engin Çelebi Seyahatnamesinden",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/engin-celebi-seyahatnamesinden",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/engin-celebi-seyahatnamesinden.jpg"
+        },
+        {
+          "name": "Engin Turhan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/engin-turhan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586001676572-engin-turhan.jpg"
+        },
+        {
+          "name": "Enis Erdem Aydın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/enis-erdem-aydin",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1584218822333-aydin.jpg"
+        },
+        {
+          "name": "Erdal Güven",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erdal-guven",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erdal-guven.jpg"
+        },
+        {
+          "name": "Erdoğan Aydın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erdogan-aydin",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erdogan-aydin.jpg"
+        },
+        {
+          "name": "Erel Eryürek",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erel-eryurek",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erel-eryurek.jpg"
+        },
+        {
+          "name": "Eren Alkan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/eren-alkan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1585320772543-eren-alkan.jpg"
+        },
+        {
+          "name": "Eren Topçu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/eren-topcu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/eren-topcu_101409546.jpg"
+        },
+        {
+          "name": "Erkan Saka",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erkan-saka",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erkan-saka.jpg"
+        },
+        {
+          "name": "Erol Anar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erol-anar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erol-anar.jpg"
+        },
+        {
+          "name": "Erol Katırcıoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/erol-katircioglu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/erol-katircioglu.jpg"
+        },
+        {
+          "name": "Ersan Şen",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ersan-sen",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ersan-sen.jpg"
+        },
+        {
+          "name": "Esmer Erdem",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/esmer-erdem",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/04/1651350798753-ekran-resmi-2022-04-30-23.31"
+        },
+        {
+          "name": "Esra Yalazan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/esra-yalazan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/esra-yalazan_858445046.jpg"
+        },
+        {
+          "name": "Esra Yalçınalp",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/esra-yalcinalp",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/esra-yalcinalp_173830033.jpg"
+        },
+        {
+          "name": "Evren M. Dinçer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/evren-m-dincer",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/05/1590761887598-evren-dincer.jpg"
+        },
+        {
+          "name": "Ex Libris",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ex-libris",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/exlibris.jpg"
+        },
+        {
+          "name": "Ezgi Gizem Gülümser",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ezgi-gizem-gulumser",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/09/1568387390644-ezgi-gizem.png"
+        },
+        {
+          "name": "Fatih Türkmenoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/fatih-turkmenoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/06/1655555324146-fatih-turkmenoglu.jpeg"
+        },
+        {
+          "name": "Fatma Fulya Tepe",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/fatma-fulya-tepe",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/07/1722002479401-ekran-resmi-2024-07-26-16.00"
+        },
+        {
+          "name": "Fehmi Gürdallı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/fehmi-gurdalli",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/fehmi-gurdalli.jpg"
+        },
+        {
+          "name": "Fikret Bila",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/fikret-bila",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/01/1579102343356-bila.jpg"
+        },
+        {
+          "name": "Fréderike Geerdink",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/frederike-geerdink",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/frederike-geerdink.jpg"
+        },
+        {
+          "name": "Fuat Torun",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/fuat-torun",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586001532347-fuat-torun.jpg"
+        },
+        {
+          "name": "Giray Kömürcü",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/giray-komurcu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586524101822-giray-komurcu.jpg"
+        },
+        {
+          "name": "Gizem Sevinç Selvi",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gizem-sevinc-selvi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/gizem-sevinc-selvi.jpg"
+        },
+        {
+          "name": "Gökhan Çetinsaya",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gokhan-cetinsaya",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/12/1576865534219-gokhan-cetinsaya.png"
+        },
+        {
+          "name": "Göksel Aymaz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/goksel-aymaz-pazar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/goksel-aymaz-pazar_825764374.jpg"
+        },
+        {
+          "name": "Göksun Gökçe Göndermez",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/goksun-gokce-gondermez",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/02/1644339153950-goksun-gokce-gondermez.jpg"
+        },
+        {
+          "name": "Gönenç Gürkaynak",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gonenc-gurkaynak",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/gonenc-gurkaynak_352701204.jpg"
+        },
+        {
+          "name": "Gönül Tol",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gonul-tol",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/gonul-tol.jpg"
+        },
+        {
+          "name": "Gülay Kayacan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gulay-kayacan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1585319374812-gulay-kayacan-foto.jpg"
+        },
+        {
+          "name": "Gülengül Altınsay",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gulengul-altinsay",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/gulengul-altinsay.jpg"
+        },
+        {
+          "name": "Gülfem Saydan Sanver",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/dr-gulfem-saydan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/dr-gulfem-saydan.jpg"
+        },
+        {
+          "name": "Gülüstü Salur",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gulustu-salur",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1584989363169-dr-gulustu-salur-thmb.jpg"
+        },
+        {
+          "name": "Gürsel Köksal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/gursel-koksal",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/gursel-koksal.jpg"
+        },
+        {
+          "name": "H. Bader Arslan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/h-bader-arslan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/h-bader-arslan.jpg"
+        },
+        {
+          "name": "Hakan Bakırezer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hakan-bakirezer",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586006700120-hakan-bakirezer.jpg"
+        },
+        {
+          "name": "Halûk Uluhan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/haluk-uluhan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/05/1622110388170-photo-2021-05-27-12-15-52.jpg"
+        },
+        {
+          "name": "Hasan Kanbolat",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hasan-kanbolat",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/hasan-kanbolat.jpg"
+        },
+        {
+          "name": "Hasan Yazıcı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hasan-yazici",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586105649153-hasan-yazici-medya-tanitim.png"
+        },
+        {
+          "name": "Hazal Özvarış",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hazal-ozvaris",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/03/1711633389188-hazal-ozvaris.jpg"
+        },
+        {
+          "name": "Hikmet Can Koyuncuoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hikmet-can-koyuncuoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/10/1633186778585-yeni-yazar.jpg"
+        },
+        {
+          "name": "Hilal Bebek",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hilal-bebek",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/hilal-bebek.jpg"
+        },
+        {
+          "name": "Hülya Gülbahar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/hulya-gulbahar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/hulya-gulbahar_735842635.jpg"
+        },
+        {
+          "name": "Ilgaz Çınar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ilgaz-cinar",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/08/1724770954899-img-20240421-180436-005.jpg"
+        },
+        {
+          "name": "İlkan Akgül",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ilkan-akgul",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586609546654-ilhan-akgul.jpeg"
+        },
+        {
+          "name": "İlke Şanlıer Yüksel",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ilke-sanlier-yuksel",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/02/1612618526381-ilke.jpg"
+        },
+        {
+          "name": "Işık Cansu Canayak",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/isik-cansu-canayak",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/05/1590173433094-isik-cansu-canayak.jpg"
+        },
+        {
+          "name": "İskender Paydaş",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/iskender-paydas",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/iskender-paydas.jpg"
+        },
+        {
+          "name": "İstanbul Müzik Festivali",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/istanbul-muzik-festivali",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/istanbul-muzik-festivali.jpg"
+        },
+        {
+          "name": "Justin Marcus",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/justin-marcus",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586007773886-justin-marcus.jpg"
+        },
+        {
+          "name": "Karel Valansi",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/karel-valansi",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/01/1548527367950-untitled-1.jpg"
+        },
+        {
+          "name": "Kendine Ait Bir Köşe",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kendine-ait-bir-kose",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1583588856729-amnesty.jpeg"
+        },
+        {
+          "name": "Kerem Altan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kerem-altan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/keremaltan.jpg"
+        },
+        {
+          "name": "Kevork Altınkaya",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kevork-altinkaya",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2024/05/1716316390455-whats-app-image-2024-05-21-at-21.32"
+        },
+        {
+          "name": "KKTC seçimleri",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kktc-secimleri",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/kktc-secimleri.jpg"
+        },
+        {
+          "name": "Kolaj",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kolaj",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/kolaj.jpg"
+        },
+        {
+          "name": "Kumru Sis Eren",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/kumru-sis-eren",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/kumru-sis-eren_507421782.jpg"
+        },
+        {
+          "name": "Levent Kurnaz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/levent-kurnaz",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/09/1663836314679-levent-kurnaz.jpg"
+        },
+        {
+          "name": "Levent Yılmaz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/levent-yilmaz",
+          "photo": ""
+        },
+        {
+          "name": "Lian Penso Benbasat",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/lian-penso-benbasat",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/06/1591376087705-new-project-9.jpg"
+        },
+        {
+          "name": "M. K. Perker",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/m-k-perker",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/12/1607330065725-m.K"
+        },
+        {
+          "name": "M. Melih Güneş",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/m-melih-gunes",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/m-melih-gunes.jpg"
+        },
+        {
+          "name": "Maya Arakon",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/maya-arakon",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/maya-arakon.jpg"
+        },
+        {
+          "name": "Mehmet Önal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mehmet-onal",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/01/1642189768672-mehmet-onal.jpg"
+        },
+        {
+          "name": "Mehmet Tezkan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mehmet-tezkan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/07/1563804333639-untitled-2.jpg"
+        },
+        {
+          "name": "Mehmet Yakın",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mehmet-yakin",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/mehmet-yakin_952861508.jpg"
+        },
+        {
+          "name": "Melek Ulagay",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/melek-ulagay",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/07/1593626465566-melek-ulagay.jpg"
+        },
+        {
+          "name": "Melih Şabanoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/melih-sabanoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/08/1659637444763-whats-app-image-2022-08-04-at-21.20"
+        },
+        {
+          "name": "Melike Eğilmezler Boylan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/melike-egilmezler-boylan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/09/1664201229993-859-b-76-e-7-9546-4043-990-a-cb-654-bd-618-bf.jpg"
+        },
+        {
+          "name": "Melike Karakartal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/melike-karakartal",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/01/1610902402981-melike-imza.jpg"
+        },
+        {
+          "name": "Memetcan Demiray",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/memetcan-demiray",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/memetcan-demiray.jpg"
+        },
+        {
+          "name": "Mesude Atay",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mesude-atay",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/06/1560620949996-mesude-atay.jpg"
+        },
+        {
+          "name": "Mete Büyük",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mete-buyuk",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/mete-buyuk.jpg"
+        },
+        {
+          "name": "Mete Çubukçu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mete-cubukcu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/metecubukcu.jpg"
+        },
+        {
+          "name": "Metin Duyar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/metin-duyar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/metin-duyar.png"
+        },
+        {
+          "name": "Metin Gürcan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/metin-gurcan",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/metin-gurcan.jpg"
+        },
+        {
+          "name": "Metin Kaan Kurtuluş",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/metin-kaan-kurtulus",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1585341999524-98266-f-42-f-847-4-f-50-8-b-53-000655706-b-3-e.jpg"
+        },
+        {
+          "name": "Metin Münir",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/metin-munir",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/metin-munir_858435269.jpg"
+        },
+        {
+          "name": "Meyda Yeğenoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/meyda-yegenoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/meyda-yegenoglu.jpg"
+        },
+        {
+          "name": "Mine Gencel Bek",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mine-gencel-bek",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/mine-gencel-bek.jpg"
+        },
+        {
+          "name": "Mirgün Cabas",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mirgun-cabas",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/02/1550002645533-mirgun-cabas.jpg"
+        },
+        {
+          "name": "Misal Adnan Yıldız",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/misal-adnan-yildiz",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/misal-adnan-yildiz_568265835.jpg"
+        },
+        {
+          "name": "Murat Aksoy",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/murat-aksoy",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/murat-aksoy.jpg"
+        },
+        {
+          "name": "Murat Çakır",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/murat-cakir",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/murat-cakir.jpg"
+        },
+        {
+          "name": "Murat Paker",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/murat-paker",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/murat-paker.jpg"
+        },
+        {
+          "name": "Mustafa Alp Dağıstanlı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mustafa-alp-dagistanli",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/mustafa-alp-dagistanli.jpg"
+        },
+        {
+          "name": "Mustafa Cihan Camcı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mustafa-cihan-camci",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/05/1588580453189-f-8-c-27643-e-1-d-6-40-b-8-9805-00-d-29697-a-3-a-8.jpg"
+        },
+        {
+          "name": "Mustafa Durmuş",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mustafa-durmus",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586286347139-mustafa-durmus.jpg"
+        },
+        {
+          "name": "Mustafa Kavgacı",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/mustafa-kavgaci",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2019/04/1554538298777-4343434.jpg"
+        },
+        {
+          "name": "Nataşa Mektupları",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/natasa-mektuplari",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/natasa-mektuplari.jpg"
+        },
+        {
+          "name": "Nazım Tural",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nazim-tural",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nazim-tural.jpg"
+        },
+        {
+          "name": "Neslihan Sabuncu Marcus",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/neslihan-sabuncu-marcus",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1587141946399-neslihan-sabuncu-marcus.jpg"
+        },
+        {
+          "name": "Nihat Kentel",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nihat-kentel",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nihat-kentel_622274681.jpg"
+        },
+        {
+          "name": "Nil Aldemir",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nil-aldemir",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nil-aldemir_145702297.jpg"
+        },
+        {
+          "name": "Nil Mutluer",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nil-mutluer",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nil-mutluer.jpg"
+        },
+        {
+          "name": "Nilüfer Göle",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nilufer-gole",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/prof-nilufer-gole.jpg"
+        },
+        {
+          "name": "Nora Tataryan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nora-tataryan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/03/1583521832265-nora-tataryan.jpg"
+        },
+        {
+          "name": "Nur Kıpçak",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nur-kipcak",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2023/02/1675753157434-nur-resim.png"
+        },
+        {
+          "name": "Nuray Mert",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nuray-mert",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nuray-mert.jpg"
+        },
+        {
+          "name": "Nurcan Baysal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nurcan-baysal",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/nurcan-baysal.jpg"
+        },
+        {
+          "name": "Nurseren Tor",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/nurseren-tor",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/06/1624634939774-nurseren-tor.jpg"
+        },
+        {
+          "name": "Ogan Yumlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ogan-yumlu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1586033554467-ogan.jpg"
+        },
+        {
+          "name": "Ömer Laçiner",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/omer-laciner",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/omer-laciner.jpg"
+        },
+        {
+          "name": "Ömer Taşpınar",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/omer-taspinar",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/omer-taspinar.jpg"
+        },
+        {
+          "name": "Önay Yılmaz",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/onay-yilmaz",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/onay-yilmaz.png"
+        },
+        {
+          "name": "Orhan Alkaya",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/orhan-alkaya",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/orhan-alkaya.jpg"
+        },
+        {
+          "name": "Orhan Tekelioğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/orhan-tekelioglu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/06/1593265826218-orhan-tekelioglu.jpg"
+        },
+        {
+          "name": "Örsan K. Öymen",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/orsan-k-oymen",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/orsan-k-oymen.png"
+        },
+        {
+          "name": "Osman Elbek",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/osman-elbek",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/osman-elbek.jpg"
+        },
+        {
+          "name": "Özge Mumcu Aybars",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ozge-mumcu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2025/09/1757705727088-6-f-9-b-18-f-8-e-7-f-9-4-eb-5-84-dd-a-974993916-af.jpeg"
+        },
+        {
+          "name": "Özgün Keleşoğlu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ozgun-kelesoglu",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ozgun-kelesoglu.jpg"
+        },
+        {
+          "name": "Özgür Öztürk",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ozgur-ozturk",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ozgur-ozturk.jpg"
+        },
+        {
+          "name": "Özlem Yalım",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ozlem-yalim-tasarim",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ozlem-yalim-tasarim.jpg"
+        },
+        {
+          "name": "Özüm Ceren İlhan",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ozum-ceren-ilhan",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/05/1620387726923-ozum-t-24-fotograf.png"
+        },
+        {
+          "name": "Parlamento Kulisi",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/parlamento-kulisi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/hulya-karabagli.jpg"
+        },
+        {
+          "name": "Perihan Mağden",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/perihan-magden",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2022/07/1656772218449-perihan-magden-940956978.jpeg"
+        },
+        {
+          "name": "Pınar Doğu",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/pinar-dogu",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2021/01/1612022137296-pinar-dogu.jpg"
+        },
+        {
+          "name": "Pınar Okyay",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/pinar-okyay",
+          "photo": "https://media-cdn.t24.com.tr/media/library/2020/04/1587225402671-pinar-okyay.jpg"
+        },
+        {
+          "name": "Pınar Tremblay",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/pinar-tremblay",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/pinar-tremblay_516264353.jpg"
+        },
+        {
+          "name": "Raffi A. Hermonn",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/raffi-a-hermonn",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/raffi-a-hermonn.jpg"
+        },
+        {
+          "name": "Ragıp Ertuğrul",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/ragip-ertugrul",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/ragip-ertugrul.png"
+        },
+        {
+          "name": "Rengin Soysal",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/rengin-soysal",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/rengin-soysal.jpg"
+        },
+        {
+          "name": "Reyan Tuvi",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/reyan-tuvi",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/reyan-tuvi.jpg"
+        },
+        {
+          "name": "Robert Schild",
+          "url": "https://prodaws26.t24.com.tr/yazarlar/robert-schild",
+          "photo": "https://media-cdn.t24.com.tr/media/authors/page/robertschild.jpg"
+        }
+      ]
     },
     {
       "key": "duvar",
