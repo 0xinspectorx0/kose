@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-05T15:07:41.603404+00:00",
+  "fetchedAt": "2026-11-05T18:38:36.049396+00:00",
   "date": "2026-11-05",
-  "total": 1251,
+  "total": 1249,
   "papers": [
     {
       "key": "hurriyet",
@@ -1058,7 +1058,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 10,
+      "count": 9,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1069,11 +1069,6 @@
           "name": "Rahmi Turan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/rahmituranpng-FJbtC1s5HUS2XzjpYerfcA.png"
-        },
-        {
-          "name": "Necati Doğru",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/necatidogrupng-j0O70nJfJk_M7IZfgRVAjg.png"
         },
         {
           "name": "Saygı Öztürk",
@@ -1220,24 +1215,24 @@
           "photo": ""
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "MAHMUT ÖVÜR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5096,7 +5091,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5325,11 +5320,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bahçelievler'deki göçükte acı haber! 1 işçi vefat etti",
           "url": "",
           "photo": ""
         },
