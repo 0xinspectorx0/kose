@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-05T05:04:28.764835+00:00",
+  "fetchedAt": "2026-11-05T06:34:53.268454+00:00",
   "date": "2026-11-05",
   "total": 1250,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 209,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -996,16 +1006,6 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -6361,7 +6361,7 @@
         {
           "name": "Zehra Çelenk",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
         },
         {
           "name": "Mesude Demir",
