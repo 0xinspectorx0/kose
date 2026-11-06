@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-06T06:41:38.376137+00:00",
-  "kurallarAlindi": "2026-11-06T06:34:21.318971+00:00",
+  "guncellendi": "2026-11-06T08:12:32.331514+00:00",
+  "kurallarAlindi": "2026-11-06T08:04:52.061069+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -52,7 +52,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 14
+      "yazi": 15
     },
     {
       "key": "yenisafak",
@@ -234,7 +234,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Yılmaz Özdil"
     }
   ]
