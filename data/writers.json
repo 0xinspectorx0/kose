@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-06T08:12:32.324782+00:00",
+  "fetchedAt": "2026-11-06T11:34:35.457202+00:00",
   "date": "2026-11-06",
-  "total": 1240,
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 207,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1024,9 +1024,9 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6aed0187c44e39ea4136be0b.jpg"
         },
         {
-          "name": "Fulya Soybaş",
+          "name": "ABDULKADİR SELVİ",
           "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
+          "photo": "https://image.hurimg.com/i/hurriyet/90/84x63/5701682267b0a90bdc503454.jpg"
         },
         {
           "name": "Nilgün Tekfidan GÜMÜŞ",
@@ -1042,6 +1042,16 @@
           "name": "Deniz SİPAHİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
+          "name": "İpek İZCİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/631327dc4e3fe00b3cbb054d.jpg"
         }
       ]
     },
@@ -1215,14 +1225,14 @@
           "photo": ""
         },
         {
-          "name": "NİHAT HATİPOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
           "name": "YAVUZ DONAT",
@@ -5046,7 +5056,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5270,6 +5280,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "BDDK",
           "url": "",
           "photo": ""
         },
@@ -6306,7 +6321,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 5,
       "writers": [
         {
           "name": "Zehra Çelenk",
@@ -6330,11 +6345,6 @@
         },
         {
           "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
