@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-07T08:19:30.216719+00:00",
+  "fetchedAt": "2026-11-07T11:50:50.676834+00:00",
   "date": "2026-11-07",
-  "total": 1235,
+  "total": 1232,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1205,11 +1205,6 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
@@ -1218,6 +1213,11 @@
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -4639,14 +4639,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Betül Soysal Bozdoğan",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
-        },
-        {
           "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
+        },
+        {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
           "name": "Hasan Hüseyin ÖZ",
@@ -5011,7 +5011,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5062,6 +5062,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Alim Haşimoğlu",
+          "url": "https://www.milligazete.com.tr/alim-hasimoglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/05/alim.jpg"
         },
         {
           "name": "Çürümüşlük Kokusu",
@@ -5154,16 +5159,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/670-avatar.jpg"
         },
         {
-          "name": "Usule göre davet",
-          "url": "https://www.milligazete.com.tr/usule-gore-davet",
-          "photo": ""
-        },
-        {
-          "name": "Ömer Arif",
-          "url": "https://www.milligazete.com.tr/omer-arif",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5249,17 +5244,7 @@
           "photo": ""
         },
         {
-          "name": "Hisseli tapuda AYM kararı! 9 ay sonra kurallar değişiyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İslam Memiş'ten altın ve gümüş uyarısı! Sıra onlara geliyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Muhalefetin varlığı gazete manşetlerinden belli olur",
+          "name": "Fon soruşturmasında 4 eski SPK yöneticisi daha tutuklandı",
           "url": "",
           "photo": ""
         }
@@ -6294,17 +6279,17 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
