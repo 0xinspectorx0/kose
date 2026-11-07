@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-07T02:17:52.488018+00:00",
+  "fetchedAt": "2026-11-07T03:47:48.072241+00:00",
   "date": "2026-11-07",
-  "total": 1227,
+  "total": 1228,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 201,
+      "count": 203,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1009,6 +1009,16 @@
           "photo": ""
         },
         {
+          "name": "Fatih ÇEKİRGE",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
+        },
+        {
+          "name": "Nuran ÇAKMAKÇI",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6542467867b0a91628c60c7f.jpg"
+        },
+        {
           "name": "Gökçe Aytulu",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/685255091f20a2984e66017c.jpg"
@@ -1170,9 +1180,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "NİHAT HATİPOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1180,9 +1190,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "NİHAT HATİPOĞLU",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "PROF. DR. OSMAN MÜFTÜOĞLU",
@@ -3704,7 +3714,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 39,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3900,11 +3910,6 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
-        },
-        {
-          "name": "İntikam soğuk yemek",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/e2d3e7/170/170/110/0/563/453?u=https://iysr.tmgrup.com.tr/2018/09/10/1536568447057.jpg"
         }
       ]
     },
