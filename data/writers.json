@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-08T06:45:10.693610+00:00",
+  "fetchedAt": "2026-11-08T07:57:03.414678+00:00",
   "date": "2026-11-08",
-  "total": 1254,
+  "total": 1255,
   "papers": [
     {
       "key": "hurriyet",
@@ -1265,14 +1265,14 @@
           "photo": ""
         },
         {
-          "name": "ERHAN AFYONCU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5126,7 +5126,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5186,7 +5186,7 @@
         {
           "name": "Dr. Abdülaziz Kıranşal",
           "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/556-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
         },
         {
           "name": "Kaçış Nereye, Çıkış Yolu Neresi? (1)",
@@ -5196,7 +5196,7 @@
         {
           "name": "Mehmet Biten",
           "url": "https://www.milligazete.com.tr/mehmet-biten",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/628-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
         },
         {
           "name": "Hudâvendigâr’ın savaş ve sanat sevdası",
@@ -5206,12 +5206,12 @@
         {
           "name": "Mine Alpay Gün",
           "url": "https://www.milligazete.com.tr/mine-alpay-gun",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
         },
         {
           "name": "Muhammet Esiroğlu",
           "url": "https://www.milligazete.com.tr/muhammet-esiroglu",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/639-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/639-avatar.jpg"
         },
         {
           "name": "Amerika'da Mavi Deprem: Sandıktan Savaşa",
@@ -5221,27 +5221,27 @@
         {
           "name": "Mustafa Kaya",
           "url": "https://www.milligazete.com.tr/mustafa-kaya",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/643-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/643-avatar.jpg"
         },
         {
           "name": "Reşat Nuri Erol",
           "url": "https://www.milligazete.com.tr/resat-nuri-erol",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/664-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
         },
         {
           "name": "Şaban Turhal",
           "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/71410-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
         },
         {
           "name": "Fahrettin Gün",
           "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
         },
         {
           "name": "Alim Haşimoğlu",
           "url": "https://www.milligazete.com.tr/alim-hasimoglu",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/uploads/2026/05/alim.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/05/alim.jpg"
         },
         {
           "name": "Çürümüşlük Kokusu",
@@ -5251,7 +5251,7 @@
         {
           "name": "Cafer Keklikçi",
           "url": "https://www.milligazete.com.tr/cafer-keklikci",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/576-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/576-avatar.jpg"
         },
         {
           "name": "Şuurlu Müslüman ve Millî görüş",
@@ -5261,12 +5261,12 @@
         {
           "name": "İsmail Hakkı Akkiraz",
           "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/618-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/618-avatar.jpg"
         },
         {
           "name": "Necati Tuncer",
           "url": "https://www.milligazete.com.tr/necati-tuncer",
-          "photo": "https://milligazetecomtr.teimg.com/milligazete-com-tr/authors/649-avatar.jpg"
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/649-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5350,6 +5350,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Netanyahu'ya ağır darbe! Hükümet kurma görevi Eisenkot'a",
           "url": "",
           "photo": ""
         },
@@ -6399,12 +6404,12 @@
           "photo": ""
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Emre Zor",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }

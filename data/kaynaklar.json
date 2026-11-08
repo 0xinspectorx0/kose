@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-08T06:45:10.700815+00:00",
-  "kurallarAlindi": "2026-11-08T06:36:48.000521+00:00",
+  "guncellendi": "2026-11-08T07:57:03.420291+00:00",
+  "kurallarAlindi": "2026-11-08T07:48:52.968752+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -84,7 +84,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 7
+      "yazi": 6
     },
     {
       "key": "aksam",
