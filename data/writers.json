@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-08T07:57:03.414678+00:00",
+  "fetchedAt": "2026-11-08T11:27:47.083210+00:00",
   "date": "2026-11-08",
-  "total": 1255,
+  "total": 1260,
   "papers": [
     {
       "key": "hurriyet",
@@ -1265,14 +1265,14 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "ERHAN AFYONCU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5126,7 +5126,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5354,12 +5354,27 @@
           "photo": ""
         },
         {
-          "name": "Netanyahu'ya ağır darbe! Hükümet kurma görevi Eisenkot'a",
+          "name": "Meclis’te haftanın gündemi yoğun... Dört bakanlığın bütçesi",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Fon soruşturmasında 4 eski SPK yöneticisi daha tutuklandı",
+          "name": "Emekli zammında Ankara kulisi! İsa Karakaş tarih verdi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "AKOM İstanbul için tarih verdi! Kuvvetli yağış geri geliyor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Almanya'da film gibi firar! Türk baron scooterla kaçtı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altın fiyatlarında son durum! 8 Kasım güncel fiyatları...",
           "url": "",
           "photo": ""
         }
@@ -6381,8 +6396,18 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 8,
       "writers": [
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
+        },
         {
           "name": "Sevgi Uçan Çubukçu",
           "url": "",
