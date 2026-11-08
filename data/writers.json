@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-08T14:59:02.528541+00:00",
+  "fetchedAt": "2026-11-08T18:30:18.727210+00:00",
   "date": "2026-11-08",
-  "total": 1259,
+  "total": 1257,
   "papers": [
     {
       "key": "hurriyet",
@@ -2756,42 +2756,42 @@
         {
           "name": "Yusuf Kaplan",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Yaşar Süngü",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Yusuf Dinç",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Nedret Ersanel",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Taha Kılınç",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Yasin Aktay",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Özgür Bayram Soylu",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Serdar Tuncer",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2019/01/08/02/33/554x554resized_ecdc3-343306a2111.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         }
       ]
     },
@@ -5126,7 +5126,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5177,6 +5177,16 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Atmosfer Emanettir",
+          "url": "https://www.milligazete.com.tr/atmosfer-emanettir-savas-istisna-degil-antalyadan-umut-verecek-bir-durustluk-beklentisi",
+          "photo": ""
+        },
+        {
+          "name": "Abdullah Demir",
+          "url": "https://www.milligazete.com.tr/abdullah-demir",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/1473-avatar.jpg"
         },
         {
           "name": "Ruhsuz Dindarlık",
@@ -5262,11 +5272,6 @@
           "name": "İsmail Hakkı Akkiraz",
           "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/618-avatar.jpg"
-        },
-        {
-          "name": "Necati Tuncer",
-          "url": "https://www.milligazete.com.tr/necati-tuncer",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/649-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5355,21 +5360,6 @@
         },
         {
           "name": "Yeşil pasaportta kapsam genişliyor mu? 10 meslek için teklif",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fenerbahçe Çorum'a gol yağdırdı!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Gökyüzünde Dron otoyolları dönemi başlıyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Meclis’te haftanın gündemi yoğun... Dört bakanlığın bütçesi",
           "url": "",
           "photo": ""
         }
@@ -6394,6 +6384,11 @@
       "count": 8,
       "writers": [
         {
+          "name": "Psk. Dr. Feyza Bayraktar",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
+        },
+        {
           "name": "Mehmet Aksel",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
@@ -6419,17 +6414,12 @@
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
         {
           "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         }
