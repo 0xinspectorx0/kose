@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-08T11:27:47.083210+00:00",
+  "fetchedAt": "2026-11-08T14:59:02.528541+00:00",
   "date": "2026-11-08",
-  "total": 1260,
+  "total": 1259,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1047,13 +1047,18 @@
           "name": "Serkan Kızılbayır",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/61b390a8c03c0e1c9c95e8b1.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 11,
+      "count": 10,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1099,11 +1104,6 @@
           "name": "Naim Babüroğlu",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
-        },
-        {
-          "name": "Mesut Parlak",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
         },
         {
           "name": "Ercan Taner",
@@ -5126,7 +5126,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5354,27 +5354,22 @@
           "photo": ""
         },
         {
+          "name": "Yeşil pasaportta kapsam genişliyor mu? 10 meslek için teklif",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fenerbahçe Çorum'a gol yağdırdı!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Gökyüzünde Dron otoyolları dönemi başlıyor",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Meclis’te haftanın gündemi yoğun... Dört bakanlığın bütçesi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emekli zammında Ankara kulisi! İsa Karakaş tarih verdi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "AKOM İstanbul için tarih verdi! Kuvvetli yağış geri geliyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Almanya'da film gibi firar! Türk baron scooterla kaçtı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altın fiyatlarında son durum! 8 Kasım güncel fiyatları...",
           "url": "",
           "photo": ""
         }
