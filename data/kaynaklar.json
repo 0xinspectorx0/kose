@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-08T05:25:57.727080+00:00",
-  "kurallarAlindi": "2026-11-08T05:18:14.110056+00:00",
+  "guncellendi": "2026-11-08T06:45:10.700815+00:00",
+  "kurallarAlindi": "2026-11-08T06:36:48.000521+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Fehim Taştekin"
     },
     {
