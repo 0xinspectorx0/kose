@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-07T21:23:00.938808+00:00",
-  "kurallarAlindi": "2026-11-07T21:15:51.890950+00:00",
+  "guncellendi": "2026-11-08T00:32:02.202763+00:00",
+  "kurallarAlindi": "2026-11-08T00:24:30.925609+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0
+      "yazi": 3
     },
     {
       "key": "sozcu",
@@ -68,7 +68,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 13
+      "yazi": 14
     },
     {
       "key": "birgun",
@@ -225,7 +225,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Murat Yetkin"
     },
     {
@@ -234,7 +234,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Yılmaz Özdil"
     }
   ]
