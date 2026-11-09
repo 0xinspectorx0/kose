@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-09T19:15:35.715846+00:00",
-  "date": "2026-11-09",
-  "total": 1254,
+  "fetchedAt": "2026-11-09T21:08:17.050960+00:00",
+  "date": "2026-11-10",
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 211,
+      "count": 200,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,61 +1007,6 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
-        },
-        {
-          "name": "Fatih ÇEKİRGE",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
-        },
-        {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Nedim ŞENER",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
-        },
-        {
-          "name": "İhsan Yılmaz",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6af0ede2c44e39ea4136c8b0.jpg"
-        },
-        {
-          "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
-        },
-        {
-          "name": "Nuran ÇAKMAKÇI",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6542467867b0a91628c60c7f.jpg"
-        },
-        {
-          "name": "Oya ARMUTÇU",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf449422d4.jpg"
-        },
-        {
-          "name": "Noyan Doğan",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
-        },
-        {
-          "name": "Sayım Çınar",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6343ef5b4e3fe00e149fe8db.jpg"
-        },
-        {
-          "name": "Murat Yılmaz",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65ba4d17925150967e8bbdc3.jpg"
-        },
-        {
-          "name": "Dr.Furkan Burak",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/68416c61382339c6a0708f65.jpg"
         }
       ]
     },
@@ -1150,7 +1095,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 10,
+      "count": 9,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1196,11 +1141,6 @@
           "name": "Asu Maro",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6638cc791751aa014a9fc050.jpg"
-        },
-        {
-          "name": "Prof. Dr. Mahmut Özer",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6730e323c72706dec4b3bdd3.jpg"
         }
       ]
     },
@@ -1260,14 +1200,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -5111,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5344,7 +5284,12 @@
           "photo": ""
         },
         {
-          "name": "Çember daralıyor! Sarıgül hakkında hazırlanan fezleke",
+          "name": "İstanbul'a lodos geliyor! Sıcaklık 22 dereceye çıkacak",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Tim Cook",
           "url": "",
           "photo": ""
         }
