@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-09T08:33:32.757777+00:00",
+  "fetchedAt": "2026-11-09T12:04:20.796939+00:00",
   "date": "2026-11-09",
-  "total": 1252,
+  "total": 1253,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 211,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1255,6 +1255,11 @@
           "photo": ""
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
@@ -1263,11 +1268,6 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -2793,7 +2793,7 @@
     {
       "key": "karar",
       "name": "Karar",
-      "count": 148,
+      "count": 149,
       "writers": [
         {
           "name": "İbrahim Kiras",
@@ -2929,6 +2929,11 @@
           "name": "John Palfrey",
           "url": "https://www.karar.com/yazarlar/john-palfrey",
           "photo": "https://cdn.karar.com/author/562_s.jpg"
+        },
+        {
+          "name": "Peter Thomson",
+          "url": "https://www.karar.com/yazarlar/peter-thomson",
+          "photo": "https://cdn.karar.com/author/563_s.jpg"
         },
         {
           "name": "Helmut Anheier",
@@ -5144,6 +5149,11 @@
           "photo": ""
         },
         {
+          "name": "Doç. Dr. Hacı Murat Kumbasar",
+          "url": "https://www.milligazete.com.tr/haci-murat-kumbasar",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/06/doc-dr-haci-murat-kumbasar.png"
+        },
+        {
           "name": "Süfûlu Terakki Sanmak!",
           "url": "https://www.milligazete.com.tr/sufulu-terakki-sanmak",
           "photo": ""
@@ -5234,16 +5244,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/acun-bulent.png"
         },
         {
-          "name": "Atmosfer Emanettir",
-          "url": "https://www.milligazete.com.tr/atmosfer-emanettir-savas-istisna-degil-antalyadan-umut-verecek-bir-durustluk-beklentisi",
-          "photo": ""
-        },
-        {
-          "name": "Abdullah Demir",
-          "url": "https://www.milligazete.com.tr/abdullah-demir",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/1473-avatar.jpg"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5329,12 +5329,17 @@
           "photo": ""
         },
         {
-          "name": "İşgalci kuşattı",
+          "name": "Dünyayı kirletenlerler Antalya’da “iklim” buluşmasında",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Beşiktaş'ta Talisca bombası! Fenerbahçe'yi kızdıracak iddia",
+          "name": "İzmir'de çelik fabrikasında patlama: Ölü ve yaralılar var",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İşgalci kuşattı",
           "url": "",
           "photo": ""
         }
