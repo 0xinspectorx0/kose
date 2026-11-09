@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-09T15:35:38.090648+00:00",
+  "fetchedAt": "2026-11-09T19:15:35.715846+00:00",
   "date": "2026-11-09",
-  "total": 1248,
+  "total": 1254,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 211,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1260,14 +1260,14 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -5111,7 +5111,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5344,17 +5344,7 @@
           "photo": ""
         },
         {
-          "name": "Adana'da korkutan deprem: AFAD açıkladı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Öyle bir ekonomik yapı ki... Yine faizciler “kazandı (!)”",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Dünyayı kirletenlerler Antalya’da “iklim” buluşmasında",
+          "name": "Çember daralıyor! Sarıgül hakkında hazırlanan fezleke",
           "url": "",
           "photo": ""
         }
@@ -6376,8 +6366,49 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 0,
-      "writers": []
+      "count": 8,
+      "writers": [
+        {
+          "name": "Psk. Dr. Feyza Bayraktar",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
+        },
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155-96x96.png"
+        },
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-96x96.jpg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        }
+      ]
     }
   ]
 }
