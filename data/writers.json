@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-08T21:29:51.177870+00:00",
+  "fetchedAt": "2026-11-09T01:00:54.596055+00:00",
   "date": "2026-11-09",
-  "total": 1232,
+  "total": 1229,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 201,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Erdal Fernergiz",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
@@ -1200,14 +1200,14 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "ERHAN AFYONCU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -1686,7 +1686,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 208,
+      "count": 203,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2700,31 +2700,6 @@
         },
         {
           "name": "Yusuf Dinç",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
-        },
-        {
-          "name": "Nedret Ersanel",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
-        },
-        {
-          "name": "Taha Kılınç",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
-        },
-        {
-          "name": "Yasin Aktay",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
-        },
-        {
-          "name": "Özgür Bayram Soylu",
-          "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
-        },
-        {
-          "name": "Serdar Tuncer",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         }
@@ -4629,34 +4604,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
         },
         {
-          "name": "Resul TOSUN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
-        },
-        {
-          "name": "Vahdettin İNCE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
-        },
-        {
-          "name": "İbrahim Güneş",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
-        },
-        {
-          "name": "Cengiz ÖZDEMİR",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
-        },
-        {
-          "name": "Muhammed Ali Uçar",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/203.png?v=1907.99"
-        },
-        {
           "name": "Hüseyin GÜLERCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
+        },
+        {
+          "name": "Resul TOSUN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
         },
         {
           "name": "Coşkun BAŞBUĞ",
@@ -4669,9 +4624,19 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
+          "name": "Vahdettin İNCE",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
+        },
+        {
           "name": "Hasan Hüseyin ÖZ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
+        },
+        {
+          "name": "İbrahim Güneş",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
         },
         {
           "name": "Cüneyd Altıparmak",
@@ -4679,9 +4644,19 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
         },
         {
+          "name": "Cengiz ÖZDEMİR",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
+        },
+        {
           "name": "Levent Ersin Orallı",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/198.png?v=1907.99"
+        },
+        {
+          "name": "Muhammed Ali Uçar",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/203.png?v=1907.99"
         }
       ]
     },
@@ -5006,7 +4981,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5235,6 +5210,16 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İki ilimizde eğitime 1 gün ara verildi!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Galatasaray efsanesi Cevad Prekazi 69 yaşında vefat etti",
           "url": "",
           "photo": ""
         }
