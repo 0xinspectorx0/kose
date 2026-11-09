@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T07:03:12.824988+00:00",
+  "fetchedAt": "2026-11-09T08:33:32.757777+00:00",
   "date": "2026-11-09",
   "total": 1252,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 211,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -996,16 +1006,6 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -2784,7 +2784,7 @@
           "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
         },
         {
-          "name": "Yusuf Dinç",
+          "name": "Ömer Çelikbaşlı",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
         }
@@ -5329,12 +5329,12 @@
           "photo": ""
         },
         {
-          "name": "İki ilimizde eğitime 1 gün ara verildi!",
+          "name": "İşgalci kuşattı",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Galatasaray efsanesi Cevad Prekazi 69 yaşında vefat etti",
+          "name": "Beşiktaş'ta Talisca bombası! Fenerbahçe'yi kızdıracak iddia",
           "url": "",
           "photo": ""
         }
@@ -6379,11 +6379,6 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
           "name": "Fazlı Gök",
           "url": "",
           "photo": ""
@@ -6395,6 +6390,11 @@
         },
         {
           "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         }
