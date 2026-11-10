@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-09T21:08:17.050960+00:00",
+  "fetchedAt": "2026-11-10T00:16:23.679923+00:00",
   "date": "2026-11-10",
-  "total": 1243,
+  "total": 1235,
   "papers": [
     {
       "key": "hurriyet",
@@ -1013,7 +1013,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 15,
+      "count": 16,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1054,6 +1054,11 @@
           "name": "Naim Babüroğlu",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
+        },
+        {
+          "name": "Turan Yücel",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
         },
         {
           "name": "Mesut Parlak",
@@ -1200,6 +1205,11 @@
           "photo": ""
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
@@ -1208,11 +1218,6 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -3682,7 +3687,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 21,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3742,51 +3747,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Gülderen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Can Kantar",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Banu Şen",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Sadık Gültekin’Le Doğru Tercih",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "A. Yavuz Kocaömer",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Şoray Uzun",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Uzman Diyetisyen Yasemin Cantimur",
-          "url": "",
           "photo": ""
         }
       ]
@@ -4674,9 +4634,19 @@
           "photo": ""
         },
         {
+          "name": "Sibel ERASLAN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
+        },
+        {
           "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
+        },
+        {
+          "name": "Resul TOSUN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
         },
         {
           "name": "Yakup KÖSE",
@@ -4689,26 +4659,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
-          "name": "Filiz Katman",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
-        },
-        {
-          "name": "Adil Karaismailoğlu",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
-        },
-        {
-          "name": "Sibel ERASLAN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
-        },
-        {
-          "name": "Resul TOSUN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
-        },
-        {
           "name": "Vahdettin İNCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
@@ -4719,9 +4669,19 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
         },
         {
+          "name": "Filiz Katman",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
+        },
+        {
           "name": "Cengiz ÖZDEMİR",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
+        },
+        {
+          "name": "Adil Karaismailoğlu",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
         },
         {
           "name": "Muhammed Ali Uçar",
@@ -5284,12 +5244,12 @@
           "photo": ""
         },
         {
-          "name": "İstanbul'a lodos geliyor! Sıcaklık 22 dereceye çıkacak",
+          "name": "Kasım 2026 gökyüzü takvimi belli oldu! Meteor yağmuru",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Tim Cook",
+          "name": "İstanbul'a lodos geliyor! Sıcaklık 22 dereceye çıkacak",
           "url": "",
           "photo": ""
         }

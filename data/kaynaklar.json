@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-09T21:08:17.056663+00:00",
-  "kurallarAlindi": "2026-11-09T21:00:38.839840+00:00",
+  "guncellendi": "2026-11-10T00:16:23.684088+00:00",
+  "kurallarAlindi": "2026-11-10T00:09:16.729721+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -28,7 +28,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 15
+      "yazi": 16
     },
     {
       "key": "milliyet",
@@ -68,7 +68,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 10
+      "yazi": 9
     },
     {
       "key": "birgun",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 9
+      "yazi": 0
     },
     {
       "key": "yeniasir",
@@ -198,7 +198,7 @@
       "tur": "site",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Fehim Taştekin"
     },
     {
