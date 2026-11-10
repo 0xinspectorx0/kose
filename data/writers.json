@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-10T02:16:42.034722+00:00",
+  "fetchedAt": "2026-11-10T03:32:05.687931+00:00",
   "date": "2026-11-10",
-  "total": 1236,
+  "total": 1237,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 200,
+      "count": 202,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1007,13 +997,33 @@
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
           "photo": ""
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
+          "name": "Abdulkadir SELVİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
+        },
+        {
+          "name": "Hande FIRAT",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
         }
       ]
     },
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 16,
+      "count": 15,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1039,11 +1049,6 @@
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
-        },
-        {
-          "name": "Öner Döşer",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/1/onerdoseryazarpng-iE37Ba61eUmpqyfO_xjZKQ.png"
         },
         {
           "name": "Güney Öztürk",
@@ -1205,11 +1210,6 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
@@ -1218,6 +1218,11 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "ÖZLEM DOĞANER",
