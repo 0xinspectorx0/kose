@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-10T14:52:04.713834+00:00",
+  "fetchedAt": "2026-11-10T18:22:46.605696+00:00",
   "date": "2026-11-10",
   "total": 1245,
   "papers": [
@@ -1235,14 +1235,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -6344,17 +6344,17 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
         },
         {
-          "name": "Psk. Dr. Feyza Bayraktar",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
-        },
-        {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Ayşegül Kasap",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
