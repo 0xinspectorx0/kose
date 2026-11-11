@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-11T06:56:14.747276+00:00",
+  "fetchedAt": "2026-11-11T08:27:22.911410+00:00",
   "date": "2026-11-11",
-  "total": 1239,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1006,6 +996,16 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -5051,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5280,6 +5280,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "BDDK Başkanı Şahap Kavcıoğlu istifa etti! İlk açıklama geldi",
           "url": "",
           "photo": ""
         }
