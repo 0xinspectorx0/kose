@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-11T05:25:59.830719+00:00",
+  "fetchedAt": "2026-11-11T06:56:14.747276+00:00",
   "date": "2026-11-11",
-  "total": 1243,
+  "total": 1239,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1063,7 +1063,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 13,
+      "count": 12,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1124,11 +1124,6 @@
           "name": "Ercan Taner",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
-        },
-        {
-          "name": "Sonuç Sürmeli",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
         }
       ]
     },
@@ -4001,7 +3996,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 148,
+      "count": 146,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4709,19 +4704,9 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/37.png?v=1907.99"
         },
         {
-          "name": "Halime KÖKCE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
-        },
-        {
           "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
-        },
-        {
-          "name": "M. Yalçın YILMAZ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
           "name": "Resul KURT",
@@ -5066,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5295,11 +5280,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Adana'da deprem! AFAD büyüklüğünü ve merkez üssünü açıkladı",
           "url": "",
           "photo": ""
         }
