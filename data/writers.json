@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-12T08:43:32.315043+00:00",
+  "fetchedAt": "2026-11-12T12:15:19.917271+00:00",
   "date": "2026-11-12",
-  "total": 1246,
+  "total": 1248,
   "papers": [
     {
       "key": "hurriyet",
@@ -1220,11 +1220,6 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1238,6 +1233,11 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         }
       ]
     },
@@ -5081,7 +5081,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 49,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5319,7 +5319,12 @@
           "photo": ""
         },
         {
-          "name": "Bakan Şimşek duyurdu! 4 bankayla 5",
+          "name": "Doğal gaz ithalatı ve üretimi düştü! EPDK verileri açıklandı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cumhurbaşkanı Erdoğan Pezeşkiyan ile Antalya'da görüştü",
           "url": "",
           "photo": ""
         }
@@ -6341,22 +6346,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 6,
       "writers": [
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
         {
           "name": "Arda Ekşigil",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/03/cropped-2025-03-28-arda-eksigil-kelle-75x75.jpg"
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
         },
         {
           "name": "Cihan Tekin",
@@ -6364,7 +6364,17 @@
           "photo": ""
         },
         {
-          "name": "Emre Zor",
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ayşegül Kasap",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
