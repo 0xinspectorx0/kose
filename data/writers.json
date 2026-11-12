@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-12T04:12:43.249202+00:00",
+  "fetchedAt": "2026-11-12T05:43:04.087038+00:00",
   "date": "2026-11-12",
-  "total": 1245,
+  "total": 1246,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1027,6 +1027,11 @@
           "name": "Uğur CEBECİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a9fe6170f254433d4b337c2.jpg"
+        },
+        {
+          "name": "Savaş ÖZBEY",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
         },
         {
           "name": "Orkun Ün",
@@ -6344,12 +6349,12 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/03/cropped-2025-03-28-arda-eksigil-kelle-75x75.jpg"
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         },
