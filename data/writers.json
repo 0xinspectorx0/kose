@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-12T01:10:57.901500+00:00",
+  "fetchedAt": "2026-11-12T02:41:47.734578+00:00",
   "date": "2026-11-12",
-  "total": 1224,
+  "total": 1228,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 204,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1033,7 +1033,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 12,
       "writers": [
         {
           "name": "Emin Çölaşan",
@@ -1056,9 +1056,24 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
         },
         {
+          "name": "Ege Cansen",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/egecansenpng-zU2G_3psQ0eCCgvNBP4ZkQ.png"
+        },
+        {
           "name": "İsmail Saymaz",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
+        },
+        {
+          "name": "Yekta Güngör Özden",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/yektagungorozdenpng-zP0TsX7F3Ee0UR1N0FEZlg.png"
+        },
+        {
+          "name": "Güney Öztürk",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/11/guneyozturkfotopng-3QTgvCSH3EeZRs79DQyJfg.png"
         },
         {
           "name": "Naim Babüroğlu",
@@ -1170,9 +1185,9 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1180,9 +1195,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "SALİH TUNA",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -4976,7 +4991,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5029,6 +5044,81 @@
           "photo": ""
         },
         {
+          "name": "Namazla direnenler",
+          "url": "https://www.milligazete.com.tr/namazla-direnenler-4",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Abdülaziz Kıranşal",
+          "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
+        },
+        {
+          "name": "''Aaaah'' deme, ''Allaaaah'' de",
+          "url": "https://www.milligazete.com.tr/aaaah-deme-allaaaah-de",
+          "photo": ""
+        },
+        {
+          "name": "Mahmut Toptaş",
+          "url": "https://www.milligazete.com.tr/mahmut-toptas",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/626-avatar.jpg"
+        },
+        {
+          "name": "Bir efsane: Cevat Prekazi",
+          "url": "https://www.milligazete.com.tr/bir-efsane-cevat-prekazi",
+          "photo": ""
+        },
+        {
+          "name": "Mehmet Biten",
+          "url": "https://www.milligazete.com.tr/mehmet-biten",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
+        },
+        {
+          "name": "Komplo kimin eseri?",
+          "url": "https://www.milligazete.com.tr/komplo-kimin-eseri",
+          "photo": ""
+        },
+        {
+          "name": "Zeki Ceyhan",
+          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
+        },
+        {
+          "name": "Sahayı yöneten masayı da yönetiyor",
+          "url": "https://www.milligazete.com.tr/sahayi-yoneten-masayi-da-yonetiyor",
+          "photo": ""
+        },
+        {
+          "name": "Abdussamet Karataş",
+          "url": "https://www.milligazete.com.tr/abdussamet-karatas",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/3426-avatar.jpg"
+        },
+        {
+          "name": "Çocuk şarkısı",
+          "url": "https://www.milligazete.com.tr/cocuk-sarkisi",
+          "photo": ""
+        },
+        {
+          "name": "İbrahim Halil Yetim",
+          "url": "https://www.milligazete.com.tr/ibrahim-halil-yetim",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/19420-avatar.jpg"
+        },
+        {
+          "name": "İsmail Müftüoğlu",
+          "url": "https://www.milligazete.com.tr/ismail-muftuoglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/51782-avatar.jpg"
+        },
+        {
+          "name": "Doç. Dr. Harun Bekiroğlu",
+          "url": "https://www.milligazete.com.tr/harun-bekiroglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70311-avatar.jpg"
+        },
+        {
+          "name": "Şaban Turhal",
+          "url": "https://www.milligazete.com.tr/saban-turhal",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
+        },
+        {
           "name": "Ercan Özcan",
           "url": "https://www.milligazete.com.tr/ercan-ozcan",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
@@ -5052,71 +5142,6 @@
           "name": "İsmail Kıllıoğlu",
           "url": "https://www.milligazete.com.tr/ismail-killioglu",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/619-avatar.jpg"
-        },
-        {
-          "name": "Kara Kış",
-          "url": "https://www.milligazete.com.tr/kara-kis-yoksulun-basina-kara-kar-yagdiriyor",
-          "photo": ""
-        },
-        {
-          "name": "İsrafil Bayrakçı",
-          "url": "https://www.milligazete.com.tr/israfil-bayrakci",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/621-avatar.jpg"
-        },
-        {
-          "name": "Cahil kim?",
-          "url": "https://www.milligazete.com.tr/cahil-kim",
-          "photo": ""
-        },
-        {
-          "name": "Mahmut Toptaş",
-          "url": "https://www.milligazete.com.tr/mahmut-toptas",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/626-avatar.jpg"
-        },
-        {
-          "name": "Reşat Nuri Erol",
-          "url": "https://www.milligazete.com.tr/resat-nuri-erol",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
-        },
-        {
-          "name": "Cevabı bulunamayan sorular!",
-          "url": "https://www.milligazete.com.tr/cevabi-bulunamayan-sorular",
-          "photo": ""
-        },
-        {
-          "name": "Zeki Ceyhan",
-          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
-        },
-        {
-          "name": "Prof. Dr. Abdullah Aydın",
-          "url": "https://www.milligazete.com.tr/abdullah-aydin",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70279-avatar.jpg"
-        },
-        {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
-        },
-        {
-          "name": "Atilla Mehdigil",
-          "url": "https://www.milligazete.com.tr/atilla-mehdigil",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/69667-avatar.jpg"
-        },
-        {
-          "name": "Şaban Turhal",
-          "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Vurgun mu komplo mu?",
-          "url": "https://www.milligazete.com.tr/vurgun-mu-komplo-mu",
-          "photo": ""
-        },
-        {
-          "name": "Burak Kıllıoğlu",
-          "url": "https://www.milligazete.com.tr/burak-killioglu",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/574-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5200,11 +5225,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Millî Gazete’nin tutumu ve AK Parti’deki büyük rahatsızlık!",
           "url": "",
           "photo": ""
         }
