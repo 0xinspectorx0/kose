@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-13T14:59:55.140047+00:00",
+  "fetchedAt": "2026-11-13T18:19:25.969198+00:00",
   "date": "2026-11-13",
-  "total": 1242,
+  "total": 1237,
   "papers": [
     {
       "key": "hurriyet",
@@ -1215,19 +1215,9 @@
           "photo": ""
         },
         {
-          "name": "DİLEK GÜNGÖR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1238,6 +1228,16 @@
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -2721,27 +2721,27 @@
         {
           "name": "Yahya Bostan",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Süleyman Seyfi Öğün",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Turgay Yerlikaya",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Selçuk Türkyılmaz",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         },
         {
           "name": "Nur Özkan Erbay",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/05/554x554resized_c535d-a8088cf2mustafa.png"
         }
       ]
     },
@@ -6321,34 +6321,8 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
-      "writers": [
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
-          "name": "Ayşegül Kasap",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Erdal Güven",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        }
-      ]
+      "count": 0,
+      "writers": []
     }
   ]
 }
