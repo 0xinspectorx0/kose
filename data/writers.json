@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-13T08:16:53.001059+00:00",
+  "fetchedAt": "2026-11-13T11:48:06.893185+00:00",
   "date": "2026-11-13",
-  "total": 1244,
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1047,6 +1047,11 @@
           "name": "Deniz SİPAHİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -1205,14 +1210,9 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1225,9 +1225,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
-          "name": "DİLEK GÜNGÖR",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -5056,7 +5061,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5109,6 +5114,21 @@
           "photo": ""
         },
         {
+          "name": "Aile ve toplumun ıslahı",
+          "url": "https://www.milligazete.com.tr/aile-ve-toplumun-islahi",
+          "photo": ""
+        },
+        {
+          "name": "Ömer Arif",
+          "url": "https://www.milligazete.com.tr/omer-arif",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
+        },
+        {
+          "name": "Prof. Dr. Vasfi Aşur Ebu Zeyd",
+          "url": "https://www.milligazete.com.tr/vasfi-asur-ebu-zeyd",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71695-avatar.jpg"
+        },
+        {
           "name": "Salih insanlarla dost olalım",
           "url": "https://www.milligazete.com.tr/salih-insanlarla-dost-olalim",
           "photo": ""
@@ -5142,21 +5162,6 @@
           "name": "Şaban Turhal",
           "url": "https://www.milligazete.com.tr/saban-turhal",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Prof. Dr. Vasfi Aşur Ebu Zeyd",
-          "url": "https://www.milligazete.com.tr/vasfi-asur-ebu-zeyd",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71695-avatar.jpg"
-        },
-        {
-          "name": "Aile ve toplumun ıslahı",
-          "url": "https://www.milligazete.com.tr/aile-ve-toplumun-islahi",
-          "photo": ""
-        },
-        {
-          "name": "Ömer Arif",
-          "url": "https://www.milligazete.com.tr/omer-arif",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
         },
         {
           "name": "Korkunun ecele faydası var!",
@@ -5290,21 +5295,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fon ödemelerinde ikinci aşama! Gözler bugünkü toplantıda",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Benzine indirim geldi! Motorinde 4 TL'lik düşüş bekleniyor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Hayrettin Karaman'ın ''Müçtehitlik'' serüveni",
           "url": "",
           "photo": ""
         }
@@ -6336,7 +6326,12 @@
         {
           "name": "Arda Ekşigil",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/03/cropped-2025-03-28-arda-eksigil-kelle-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/03/cropped-2025-03-28-arda-eksigil-kelle-75x75.jpg"
+        },
+        {
+          "name": "Ayşegül Kasap",
+          "url": "",
+          "photo": ""
         },
         {
           "name": "Cihan Tekin",
@@ -6344,17 +6339,12 @@
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Erdal Güven",
           "url": "",
           "photo": ""
         },
         {
           "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         }
