@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-13T02:14:31.674092+00:00",
+  "fetchedAt": "2026-11-13T03:45:20.575091+00:00",
   "date": "2026-11-13",
-  "total": 1226,
+  "total": 1229,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 202,
+      "count": 205,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1009,9 +1009,24 @@
           "photo": ""
         },
         {
+          "name": "Abdulkadir SELVİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
+        },
+        {
+          "name": "Nedim ŞENER",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
+        },
+        {
           "name": "İhsan Yılmaz",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6af63c81c813a6f07cce7add.jpg"
+        },
+        {
+          "name": "Fulya Soybaş",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
         },
         {
           "name": "Deniz SİPAHİ",
@@ -1185,6 +1200,11 @@
           "photo": ""
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
@@ -1198,11 +1218,6 @@
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         }
       ]
     },

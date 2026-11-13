@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-13T02:14:31.679519+00:00",
-  "kurallarAlindi": "2026-11-13T02:07:29.766661+00:00",
+  "guncellendi": "2026-11-13T03:45:20.584817+00:00",
+  "kurallarAlindi": "2026-11-13T03:38:01.175988+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 3
+      "yazi": 6
     },
     {
       "key": "sozcu",
