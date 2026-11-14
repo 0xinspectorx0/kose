@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-14T02:22:20.927676+00:00",
+  "fetchedAt": "2026-11-14T03:52:28.574777+00:00",
   "date": "2026-11-14",
-  "total": 1219,
+  "total": 1220,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 201,
+      "count": 202,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1009,6 +1009,11 @@
           "photo": ""
         },
         {
+          "name": "Fatih ÇEKİRGE",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
+        },
+        {
           "name": "Gökçe Aytulu",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/685255091f20a2984e66017c.jpg"
@@ -1160,9 +1165,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1170,19 +1175,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
