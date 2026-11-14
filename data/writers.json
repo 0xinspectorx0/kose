@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-14T15:26:51.300372+00:00",
+  "fetchedAt": "2026-11-14T18:58:02.815790+00:00",
   "date": "2026-11-14",
-  "total": 1232,
+  "total": 1231,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 209,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1009,11 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Fatih ÇEKİRGE",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
-        },
-        {
           "name": "Gökçe Aytulu",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/685255091f20a2984e66017c.jpg"
@@ -1063,7 +1058,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 9,
+      "count": 8,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1091,11 +1086,6 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
-          "name": "Turan Yücel",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
-        },
-        {
           "name": "Mesut Parlak",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/mesutparlakpng-ycCySPd93UyqZiiXRkLiYA.png"
@@ -1115,7 +1105,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 6,
+      "count": 7,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1141,6 +1131,11 @@
           "name": "Deniz Kilislioğlu",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f2fb5fa55428720cc56ab59.jpg"
+        },
+        {
+          "name": "Metin Aktaşoğlu",
+          "url": "",
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
         },
         {
           "name": "Sinan Genim",
@@ -1205,6 +1200,11 @@
           "photo": ""
         },
         {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1213,11 +1213,6 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
