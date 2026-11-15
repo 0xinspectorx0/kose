@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-15T04:00:18.757485+00:00",
-  "kurallarAlindi": "2026-11-15T03:52:43.788095+00:00",
+  "guncellendi": "2026-11-15T05:31:37.601664+00:00",
+  "kurallarAlindi": "2026-11-15T05:23:07.089896+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 3
+      "yazi": 9
     },
     {
       "key": "sozcu",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 3
+      "yazi": 18
     },
     {
       "key": "sabah",
@@ -44,7 +44,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 6
     },
     {
       "key": "cumhuriyet",
@@ -84,7 +84,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 7
     },
     {
       "key": "aksam",
@@ -92,7 +92,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 6
     },
     {
       "key": "takvim",
@@ -100,7 +100,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 2
+      "yazi": 5
     },
     {
       "key": "posta",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0
+      "yazi": 8
     },
     {
       "key": "yeniasir",
@@ -124,7 +124,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 12
     },
     {
       "key": "turkiye",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 15
+      "yazi": 16
     },
     {
       "key": "altayli",
