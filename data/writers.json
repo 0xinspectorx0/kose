@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-15T08:31:12.646841+00:00",
+  "fetchedAt": "2026-11-15T12:02:49.431752+00:00",
   "date": "2026-11-15",
-  "total": 1243,
+  "total": 1252,
   "papers": [
     {
       "key": "hurriyet",
@@ -1245,14 +1245,14 @@
           "photo": ""
         },
         {
+          "name": "ERHAN AFYONCU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+        },
+        {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1260,9 +1260,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "ERHAN AFYONCU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -6351,8 +6351,54 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 0,
-      "writers": []
+      "count": 9,
+      "writers": [
+        {
+          "name": "Zehra Çelenk",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
+        },
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
+        {
+          "name": "C. Hakkı Zariç",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-96x96.jpg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ayşegül Kasap",
+          "url": "",
+          "photo": ""
+        }
+      ]
     }
   ]
 }
