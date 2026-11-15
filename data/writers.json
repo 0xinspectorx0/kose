@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-14T21:28:03.512364+00:00",
+  "fetchedAt": "2026-11-15T00:59:08.017363+00:00",
   "date": "2026-11-15",
   "total": 1215,
   "papers": [
@@ -8,16 +8,6 @@
       "name": "Hürriyet",
       "count": 201,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,9 +999,19 @@
           "photo": ""
         },
         {
-          "name": "Erdal Fernergiz",
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
+          "name": "Zeynep BİLGEHAN",
           "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f7f018fbaf4494249c.jpg"
         }
       ]
     },
@@ -1150,24 +1150,24 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -3674,7 +3674,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 39,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3870,11 +3870,6 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
-        },
-        {
-          "name": "Bomba yok korku var",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/fdd12b/170/170/0/33/889/922?u=https://iysr.tmgrup.com.tr/2026/09/01/1788263627676.jpg"
         }
       ]
     },
@@ -4559,26 +4554,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Coşkun BAŞBUĞ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
-        },
-        {
-          "name": "Hasan Hüseyin ÖZ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
-        },
-        {
-          "name": "Cüneyd Altıparmak",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
-        },
-        {
-          "name": "Levent Ersin Orallı",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/198.png?v=1907.99"
-        },
-        {
           "name": "Yakup KÖSE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
@@ -4599,9 +4574,29 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
         },
         {
+          "name": "Coşkun BAŞBUĞ",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
+        },
+        {
+          "name": "Hasan Hüseyin ÖZ",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
+        },
+        {
+          "name": "Cüneyd Altıparmak",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
+        },
+        {
           "name": "Filiz Katman",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
+        },
+        {
+          "name": "Levent Ersin Orallı",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/198.png?v=1907.99"
         }
       ]
     },
@@ -6186,12 +6181,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 6,
       "writers": [
         {
           "name": "Zehra Çelenk",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto-96x96.jpeg"
         },
         {
           "name": "Bişar Arslan",
@@ -6205,6 +6200,11 @@
         },
         {
           "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ayşegül Kasap",
           "url": "",
           "photo": ""
         },
