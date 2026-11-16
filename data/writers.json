@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-16T05:42:00.343776+00:00",
+  "fetchedAt": "2026-11-16T07:08:47.056280+00:00",
   "date": "2026-11-16",
-  "total": 1253,
+  "total": 1255,
   "papers": [
     {
       "key": "hurriyet",
@@ -1068,7 +1068,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 10,
+      "count": 12,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1111,6 +1111,11 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2024/10/sosyalmedyapng-HI03TVABiUu_QkWa3y4OqA.png"
         },
         {
+          "name": "İpek Özbey",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
+        },
+        {
           "name": "YÖN/Fikret Bila",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/10/fikretbilapng-t7ZO6lQfWEG6_7KHaY45Wg.png"
@@ -1119,6 +1124,11 @@
           "name": "Ercan Taner",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ercantanerpng-0BigTX5KDEesYdSYO0M58w.png"
+        },
+        {
+          "name": "Sonuç Sürmeli",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
         }
       ]
     },
@@ -1240,14 +1250,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5229,6 +5239,11 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70311-avatar.jpg"
         },
         {
+          "name": "Şaban Turhal",
+          "url": "https://www.milligazete.com.tr/saban-turhal",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
+        },
+        {
           "name": "Selam verenin boynu ağrımaz",
           "url": "https://www.milligazete.com.tr/selam-verenin-boynu-agrimaz",
           "photo": ""
@@ -5242,11 +5257,6 @@
           "name": "Ercan Özcan",
           "url": "https://www.milligazete.com.tr/ercan-ozcan",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
-        },
-        {
-          "name": "Dr. Abdülaziz Kıranşal",
-          "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
