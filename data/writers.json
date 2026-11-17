@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-16T21:08:26.289754+00:00",
+  "fetchedAt": "2026-11-17T00:39:06.368233+00:00",
   "date": "2026-11-17",
-  "total": 1238,
+  "total": 1242,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 200,
+      "count": 204,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,14 +1009,24 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
+          "name": "Abdulkadir SELVİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
         },
         {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
+          "name": "Hande FIRAT",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
+        },
+        {
+          "name": "Fulya Soybaş",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
+        },
+        {
+          "name": "Doğan HIZLAN",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/599bce37c9de3d1878bfcb6d.jpg"
         }
       ]
     },
@@ -1195,14 +1215,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -4644,9 +4664,24 @@
           "photo": ""
         },
         {
+          "name": "Sibel ERASLAN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
+        },
+        {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
+        },
+        {
+          "name": "Resul TOSUN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
         },
         {
           "name": "Yakup KÖSE",
@@ -4659,31 +4694,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
-          "name": "Filiz Katman",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
-        },
-        {
-          "name": "Adil Karaismailoğlu",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
-        },
-        {
-          "name": "Sibel ERASLAN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
-        },
-        {
-          "name": "Resul TOSUN",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
-        },
-        {
           "name": "Vahdettin İNCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/189.png?v=1907.99"
@@ -4694,9 +4704,19 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
         },
         {
+          "name": "Filiz Katman",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
+        },
+        {
           "name": "Cengiz ÖZDEMİR",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/202.png?v=1907.99"
+        },
+        {
+          "name": "Adil Karaismailoğlu",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/200.png?v=1907.99"
         },
         {
           "name": "Muhammed Ali Uçar",
