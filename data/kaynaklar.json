@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-17T15:14:18.997953+00:00",
-  "kurallarAlindi": "2026-11-17T15:06:31.087563+00:00",
+  "guncellendi": "2026-11-17T18:33:38.389040+00:00",
+  "kurallarAlindi": "2026-11-17T18:25:47.800670+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 16
+      "yazi": 1
     },
     {
       "key": "altayli",
