@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-17T11:42:44.695825+00:00",
+  "fetchedAt": "2026-11-17T15:14:18.990956+00:00",
   "date": "2026-11-17",
-  "total": 1248,
+  "total": 1249,
   "papers": [
     {
       "key": "hurriyet",
@@ -1235,14 +1235,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -5096,7 +5096,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5335,16 +5335,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Millî Gazete’den Basın İlan Kurumu’na ziyaret",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Sözcü TV'ye kayyım kararını sordular! Bahçeli adres gösterdi",
           "url": "",
           "photo": ""
         }
@@ -6366,7 +6356,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 2,
+      "count": 5,
       "writers": [
         {
           "name": "Ayhan Tinin",
@@ -6377,6 +6367,21 @@
           "name": "Psk. Dr. Feyza Bayraktar",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto-96x96.png"
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
         }
       ]
     }
