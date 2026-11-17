@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-17T06:40:55.716904+00:00",
+  "fetchedAt": "2026-11-17T08:11:12.924825+00:00",
   "date": "2026-11-17",
-  "total": 1246,
+  "total": 1247,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 209,
+      "count": 211,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1029,9 +1029,19 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65aa40f3eb03f66dff0be4a2.jpg"
         },
         {
+          "name": "Savaş ÖZBEY",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
+        },
+        {
           "name": "Orkun Ün",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63328fae4e3fe019b4db225d.jpg"
+        },
+        {
+          "name": "Ömür GEDİK",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f4f018fbaf44942219.jpg"
         },
         {
           "name": "Doğan HIZLAN",
@@ -1225,11 +1235,6 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
@@ -1238,6 +1243,11 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -6346,7 +6356,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 3,
       "writers": [
         {
           "name": "Ayhan Tinin",
@@ -6362,11 +6372,6 @@
           "name": "Zehra Çelenk",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
-        },
-        {
-          "name": "Mehmet Aksel",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
         }
       ]
     }
