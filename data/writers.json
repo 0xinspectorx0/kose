@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-18T06:48:37.256154+00:00",
+  "fetchedAt": "2026-11-18T08:19:12.799132+00:00",
   "date": "2026-11-18",
-  "total": 1237,
+  "total": 1241,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 211,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1054,6 +1054,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6761a8c54c39255d0d8316c5.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Süheyla Buyrukçu",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/62ee14b418c7732134b06d20.jpg"
@@ -1190,24 +1195,24 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -5036,7 +5041,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5087,6 +5092,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Atilla Mehdigil",
+          "url": "https://www.milligazete.com.tr/atilla-mehdigil",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/69667-avatar.jpg"
         },
         {
           "name": "Gordiyon Düğümü: Bağ ve Kılıç!",
@@ -5184,11 +5194,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
         },
         {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5274,7 +5279,17 @@
           "photo": ""
         },
         {
-          "name": "İran'dan Kuveyt'teki ABD üssüne İHA saldırısı",
+          "name": "Altın fiyatlarında sert düşüş!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Mahmut Arıkan, Grup Toplantısı'nda konuştu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Yüce Allah’ın varlığına nasıl iman ederiz? - 2",
           "url": "",
           "photo": ""
         },
@@ -6301,8 +6316,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 5,
       "writers": [
+        {
+          "name": "Diken",
+          "url": "",
+          "photo": ""
+        },
         {
           "name": "Bişar Arslan",
           "url": "",
