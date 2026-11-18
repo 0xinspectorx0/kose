@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-18T08:19:12.799132+00:00",
+  "fetchedAt": "2026-11-18T11:50:28.753115+00:00",
   "date": "2026-11-18",
   "total": 1241,
   "papers": [
@@ -1195,16 +1195,6 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
@@ -1213,6 +1203,16 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -3986,7 +3986,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 146,
+      "count": 147,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4669,6 +4669,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Mustafa SABRİ BEŞER",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
@@ -5041,7 +5046,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5092,6 +5097,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Ercan Özcan",
+          "url": "https://www.milligazete.com.tr/ercan-ozcan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
         },
         {
           "name": "Atilla Mehdigil",
@@ -5184,16 +5194,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/70311-avatar.jpg"
         },
         {
-          "name": "Sayın Bahçeli",
-          "url": "https://www.milligazete.com.tr/sayin-bahceli-gazetecilere-konusmalarina-dikkat-etmelerini-soylemek-tehdit-degil-mi",
-          "photo": ""
-        },
-        {
-          "name": "Şaban Turhal",
-          "url": "https://www.milligazete.com.tr/saban-turhal",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5279,22 +5279,22 @@
           "photo": ""
         },
         {
-          "name": "Altın fiyatlarında sert düşüş!",
+          "name": "Kınamalar işgalciyi durdurmuyor",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Mahmut Arıkan, Grup Toplantısı'nda konuştu",
+          "name": "İstanbul'da fırtına uyarısı! AKOM saat vererek açıkladı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Murat Ülker ile ablası arasında geçen ilginç diyalog!",
           "url": "",
           "photo": ""
         },
         {
           "name": "Yüce Allah’ın varlığına nasıl iman ederiz? - 2",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bir toplumda düzen, huzur ve barış nasıl sağlanır?",
           "url": "",
           "photo": ""
         }

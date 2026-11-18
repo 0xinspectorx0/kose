@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-18T08:19:12.804631+00:00",
-  "kurallarAlindi": "2026-11-18T08:12:04.164274+00:00",
+  "guncellendi": "2026-11-18T11:50:28.759857+00:00",
+  "kurallarAlindi": "2026-11-18T11:43:12.740845+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -124,7 +124,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 13
     },
     {
       "key": "turkiye",
@@ -225,7 +225,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Murat Yetkin"
     },
     {
