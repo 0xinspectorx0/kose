@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-18T05:19:35.651696+00:00",
+  "fetchedAt": "2026-11-18T06:48:37.256154+00:00",
   "date": "2026-11-18",
-  "total": 1234,
+  "total": 1237,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 210,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1039,6 +1039,16 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a9fe6170f254433d4b337c2.jpg"
         },
         {
+          "name": "Savaş ÖZBEY",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
+        },
+        {
+          "name": "Elif Zorlu Tapan",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6628b83ead18366012bbe678.jpg"
+        },
+        {
           "name": "Yunus Paksoy",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6761a8c54c39255d0d8316c5.jpg"
@@ -1053,7 +1063,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 8,
+      "count": 7,
       "writers": [
         {
           "name": "Rahmi Turan",
@@ -1064,6 +1074,11 @@
           "name": "Saygı Öztürk",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/saygiozturkpng-lG7DyZ9jn06qWcoe4-tmMw.png"
+        },
+        {
+          "name": "İsmail Saymaz",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/development/uploads/images/2023/10/ismailsaymazpng-nhoZRyhdGEKuJZNsw0xr1Q.png"
         },
         {
           "name": "Güney Öztürk",
@@ -1081,19 +1096,9 @@
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2023/12/pinarturanpng-6G8eLeRSPEuUZRAs9utOGA.png"
         },
         {
-          "name": "İpek Özbey",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
-        },
-        {
           "name": "Burak Özcan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
-        },
-        {
-          "name": "Sonuç Sürmeli",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
         }
       ]
     },
@@ -1190,6 +1195,11 @@
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1198,11 +1208,6 @@
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -3648,14 +3653,14 @@
       "count": 3,
       "writers": [
         {
-          "name": "BEKİR HAZAR",
-          "url": "",
-          "photo": "https://iatkv.tmgrup.com.tr/18724e/1200/675/0/0/1920/1080?u=https://itkv.tmgrup.com.tr/2026/11/10/1794328345129.jpg"
-        },
-        {
           "name": "FARUK ERDEM",
           "url": "",
           "photo": "https://iatkv.tmgrup.com.tr/73ff60/1200/675/0/0/1672/941?u=https://itkv.tmgrup.com.tr/2026/11/10/1794328768574.jpg"
+        },
+        {
+          "name": "BEKİR HAZAR",
+          "url": "",
+          "photo": "https://iatkv.tmgrup.com.tr/18724e/1200/675/0/0/1920/1080?u=https://itkv.tmgrup.com.tr/2026/11/10/1794328345129.jpg"
         },
         {
           "name": "HAKKI YALÇIN",
@@ -3976,7 +3981,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 144,
+      "count": 146,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4649,6 +4654,11 @@
           "photo": ""
         },
         {
+          "name": "Sibel ERASLAN",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
+        },
+        {
           "name": "Hüseyin GÜLERCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
@@ -4662,6 +4672,11 @@
           "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
+        },
+        {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
           "name": "Cüneyd Altıparmak",
@@ -5259,7 +5274,7 @@
           "photo": ""
         },
         {
-          "name": "Van'da korkutan deprem: AFAD ilk açıklama geldi!",
+          "name": "İran'dan Kuveyt'teki ABD üssüne İHA saldırısı",
           "url": "",
           "photo": ""
         },
