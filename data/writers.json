@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-19T02:25:21.894919+00:00",
+  "fetchedAt": "2026-11-19T03:55:21.693198+00:00",
   "date": "2026-11-19",
-  "total": 1215,
+  "total": 1218,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 200,
+      "count": 203,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,6 +1007,21 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
+        },
+        {
+          "name": "Abdulkadir SELVİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
+        },
+        {
+          "name": "Hande FIRAT",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/626380bb4e3fe118d4fa1ba3.jpg"
+        },
+        {
+          "name": "Noyan Doğan",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
         }
       ]
     },
@@ -1104,24 +1119,24 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -3856,9 +3871,9 @@
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
         },
         {
-          "name": "Ahtapot gökyüzüne çıktı akıllar karıştı",
+          "name": "Polonya’da neler oluyor?",
           "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/fdd12b/170/170/0/33/889/922?u=https://iysr.tmgrup.com.tr/2026/09/01/1788263627676.jpg"
+          "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
         }
       ]
     },
