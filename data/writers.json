@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-19T12:00:09.634191+00:00",
+  "fetchedAt": "2026-11-19T15:30:02.859342+00:00",
   "date": "2026-11-19",
-  "total": 1232,
+  "total": 1237,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 206,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1006,6 +996,16 @@
         {
           "name": "Dr. Ecz. Metin Uyar",
           "url": "https://www.hurriyet.com.tr/yazarlar/dr-ecz-metin-uyar/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
         },
         {
@@ -5020,7 +5020,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 45,
+      "count": 50,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5234,6 +5234,31 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Türkiye'de deprem tehlikesi en yüksek 5 şehir belli oldu!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Schengen vizesinde yeni dönem! Türkiye'nin talepleri masada",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fon mağdurları SPK önünde! Anapara ve enflasyon farkı talebi",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İsrail ve Yunanistan aynı havada",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Trump",
           "url": "",
           "photo": ""
         },
