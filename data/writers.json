@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-19T08:28:17.790000+00:00",
+  "fetchedAt": "2026-11-19T12:00:09.634191+00:00",
   "date": "2026-11-19",
   "total": 1232,
   "papers": [
@@ -6268,14 +6268,14 @@
       "count": 6,
       "writers": [
         {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
           "name": "Diken",
           "url": "",
           "photo": ""
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Bişar Arslan",
@@ -6288,12 +6288,12 @@
           "photo": ""
         },
         {
-          "name": "Emre Zor",
+          "name": "Ayşegül Kasap",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         }
