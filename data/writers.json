@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-19T06:57:28.106425+00:00",
+  "fetchedAt": "2026-11-19T08:28:17.790000+00:00",
   "date": "2026-11-19",
-  "total": 1233,
+  "total": 1232,
   "papers": [
     {
       "key": "hurriyet",
@@ -1144,9 +1144,9 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -1154,9 +1154,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "SALİH TUNA",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5020,7 +5020,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 45,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5234,11 +5234,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "ÖSYM duyurdu: 2026 KPSS Ortaöğretim sonuçları açıklandı!",
           "url": "",
           "photo": ""
         },
