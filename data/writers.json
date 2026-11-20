@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T15:37:09.315970+00:00",
+  "fetchedAt": "2026-11-20T19:07:58.351560+00:00",
   "date": "2026-11-20",
   "total": 1224,
   "papers": [
@@ -1145,6 +1145,16 @@
           "photo": ""
         },
         {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "DİLEK GÜNGÖR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
@@ -1153,16 +1163,6 @@
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
-        },
-        {
-          "name": "DİLEK GÜNGÖR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
-        },
-        {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -4971,7 +4971,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5022,6 +5022,16 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Bir Gün Babam İşten Gelecek",
+          "url": "https://www.milligazete.com.tr/bir-gun-babam-isten-gelecek",
+          "photo": ""
+        },
+        {
+          "name": "Furkan Ali Çiftçioğlu",
+          "url": "https://www.milligazete.com.tr/furkan-ali-ciftcioglu",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/06/ekran-goruntusu-2026-06-08-081046.png"
         },
         {
           "name": "Adnan Öksüz",
@@ -5102,11 +5112,6 @@
           "name": "Dr. Abdülaziz Kıranşal",
           "url": "https://www.milligazete.com.tr/abdulaziz-kiransal",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
-        },
-        {
-          "name": "Abdussamet Karataş",
-          "url": "https://www.milligazete.com.tr/abdussamet-karatas",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/3426-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5190,16 +5195,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Lufthansa'da işten çıkarma kararı! Bin kişi işsiz kalacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "ABD Senatosu İran savaşını durduracak tasarıyı reddetti!",
           "url": "",
           "photo": ""
         },
@@ -6226,8 +6221,13 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 6,
+      "count": 7,
       "writers": [
+        {
+          "name": "Zehra Çelenk",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
+        },
         {
           "name": "Diken",
           "url": "",
@@ -6239,17 +6239,17 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
           "url": "",
           "photo": ""
         },
