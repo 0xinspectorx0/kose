@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-20T07:04:08.634153+00:00",
+  "fetchedAt": "2026-11-20T08:34:19.539819+00:00",
   "date": "2026-11-20",
-  "total": 1224,
+  "total": 1223,
   "papers": [
     {
       "key": "hurriyet",
@@ -1145,24 +1145,24 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "DİLEK GÜNGÖR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -4599,6 +4599,11 @@
           "photo": ""
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Yakup KÖSE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
@@ -4617,11 +4622,6 @@
           "name": "Filiz Katman",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
           "name": "M. Yalçın YILMAZ",
@@ -4971,7 +4971,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5195,11 +5195,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Depoyu dolduracaklar dikkat! Benzine indirim bekleniyor",
           "url": "",
           "photo": ""
         },
