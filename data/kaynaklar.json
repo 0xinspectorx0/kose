@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-20T05:33:39.912617+00:00",
-  "kurallarAlindi": "2026-11-20T05:26:26.518260+00:00",
+  "guncellendi": "2026-11-20T07:04:08.639513+00:00",
+  "kurallarAlindi": "2026-11-20T06:57:00.381445+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -124,7 +124,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 11
+      "yazi": 10
     },
     {
       "key": "turkiye",
@@ -216,7 +216,7 @@
       "tur": "akis",
       "category": "Ekonomi",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 0,
       "author": "Mahfi Eğilmez"
     },
     {
