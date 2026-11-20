@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-20T04:02:46.519752+00:00",
+  "fetchedAt": "2026-11-20T05:33:39.908172+00:00",
   "date": "2026-11-20",
-  "total": 1213,
+  "total": 1224,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 204,
+      "count": 207,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1014,9 +1014,9 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
         },
         {
-          "name": "ABDULKADİR SELVİ",
+          "name": "Nedim ŞENER",
           "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/84x63/5701682267b0a90bdc503454.jpg"
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
         },
         {
           "name": "Hande FIRAT",
@@ -1027,6 +1027,21 @@
           "name": "Nuran ÇAKMAKÇI",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6542467867b0a91628c60c7f.jpg"
+        },
+        {
+          "name": "Nilgün Tekfidan GÜMÜŞ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65aa40f3eb03f66dff0be4a2.jpg"
+        },
+        {
+          "name": "Savaş ÖZBEY",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5a86c78418c7731c281986fd.jpg"
+        },
+        {
+          "name": "Deniz SİPAHİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
         }
       ]
     },
@@ -1045,44 +1060,39 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 6,
+      "count": 5,
       "writers": [
         {
-          "name": "Tunca Bengin",
+          "name": "Özay Şendir",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f850755428103b0dcdd1d.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f84d355428103b0dcdd14.jpg"
         },
         {
-          "name": "Melih Aşık",
+          "name": "Abbas Güçlü",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f849655428103b0dcdd0b.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f856155428103b0dcdd2c.jpg"
         },
         {
-          "name": "Hakkı Öcal",
+          "name": "Abdullah Karakuş",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f848555428103b0dcdd08.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f857355428103b0dcdd2f.jpg"
         },
         {
-          "name": "Ali Eyüboğlu",
+          "name": "Atilay Kandemir",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f859355428103b0dcdd35.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f2956d95542811db0e213d9.jpg"
         },
         {
-          "name": "Eren Aka",
+          "name": "Mehmet Tez",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/65bbce76d34b720acaced473.jpg"
-        },
-        {
-          "name": "Çağdaş Ertuna",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f837355428103b0dcdcf3.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6523df0186b2442ca816e997.jpg"
         }
       ]
     },
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 15,
+      "count": 14,
       "writers": [
         {
           "name": "SABAH",
@@ -1135,14 +1145,14 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "DİLEK GÜNGÖR",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+          "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "SALİH TUNA",
+          "name": "NİHAT HATİPOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1150,14 +1160,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "ÖZLEM DOĞANER",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/e007b9/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2023/06/01/1685615314516.jpg"
-        },
-        {
-          "name": "BERCAN TUTAR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/4f4d40/147/124/0/23/162/160?u=https://isbh.tmgrup.com.tr/sbh/2020/12/31/1609417082683.png"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         }
       ]
     },
@@ -3456,23 +3461,28 @@
       "count": 25,
       "writers": [
         {
-          "name": "Hikmet Genç",
-          "url": "https://www.aksam.com.tr/yazarlar/hikmet-genc/",
+          "name": "Hüseyin Besli",
+          "url": "https://www.aksam.com.tr/yazarlar/huseyin-besli/",
           "photo": ""
         },
         {
-          "name": "Taceddin Kutay",
-          "url": "https://www.aksam.com.tr/yazarlar/taceddin-kutay/",
+          "name": "Kurtuluş Tayiz",
+          "url": "https://www.aksam.com.tr/yazarlar/kurtulus-tayiz/",
           "photo": ""
         },
         {
-          "name": "Oğuzhan Bilgin",
-          "url": "https://www.aksam.com.tr/yazarlar/oguzhan-bilgin/",
+          "name": "Barış Kocaoğlu",
+          "url": "https://www.aksam.com.tr/yazarlar/baris-kocaoglu/",
           "photo": ""
         },
         {
-          "name": "Bedir Acar",
-          "url": "https://www.aksam.com.tr/yazarlar/bedir-acar/",
+          "name": "Dr. Eray Güçlüer",
+          "url": "https://www.aksam.com.tr/yazarlar/dr-eray-gucluer-gazete/",
+          "photo": ""
+        },
+        {
+          "name": "Tarkan Zengin",
+          "url": "https://www.aksam.com.tr/yazarlar/tarkan-zengin/",
           "photo": ""
         },
         {
@@ -3511,18 +3521,13 @@
           "photo": ""
         },
         {
-          "name": "Hüseyin Besli",
-          "url": "https://www.aksam.com.tr/yazarlar/huseyin-besli/",
-          "photo": ""
-        },
-        {
           "name": "Prof. Dr. Yaşar Hacısalihoğlu",
           "url": "https://www.aksam.com.tr/yazarlar/prof-dr-yasar-hacisalihoglu/",
           "photo": ""
         },
         {
-          "name": "Kurtuluş Tayiz",
-          "url": "https://www.aksam.com.tr/yazarlar/kurtulus-tayiz/",
+          "name": "Hikmet Genç",
+          "url": "https://www.aksam.com.tr/yazarlar/hikmet-genc/",
           "photo": ""
         },
         {
@@ -3531,8 +3536,13 @@
           "photo": ""
         },
         {
-          "name": "Barış Kocaoğlu",
-          "url": "https://www.aksam.com.tr/yazarlar/baris-kocaoglu/",
+          "name": "Oğuzhan Bilgin",
+          "url": "https://www.aksam.com.tr/yazarlar/oguzhan-bilgin/",
+          "photo": ""
+        },
+        {
+          "name": "Taceddin Kutay",
+          "url": "https://www.aksam.com.tr/yazarlar/taceddin-kutay/",
           "photo": ""
         },
         {
@@ -3561,13 +3571,8 @@
           "photo": ""
         },
         {
-          "name": "Dr. Eray Güçlüer",
-          "url": "https://www.aksam.com.tr/yazarlar/dr-eray-gucluer-gazete/",
-          "photo": ""
-        },
-        {
-          "name": "Tarkan Zengin",
-          "url": "https://www.aksam.com.tr/yazarlar/tarkan-zengin/",
+          "name": "Bedir Acar",
+          "url": "https://www.aksam.com.tr/yazarlar/bedir-acar/",
           "photo": ""
         },
         {
@@ -3607,7 +3612,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 12,
+      "count": 20,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3667,6 +3672,46 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
+          "photo": ""
+        },
+        {
+          "name": "Oral Çalışlar",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Mehmet Coşkundeniz",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Murat Çelik",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bilal Emin Turan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Ekrem Sarısu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Tamer Heper",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Filiz Özkol",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Doç. Dr. Gökçen Erdoğan",
+          "url": "",
           "photo": ""
         }
       ]
@@ -3881,7 +3926,7 @@
     {
       "key": "star",
       "name": "Star",
-      "count": 142,
+      "count": 145,
       "writers": [
         {
           "name": "Abdelbari ATWAN",
@@ -4554,9 +4599,24 @@
           "photo": ""
         },
         {
-          "name": "Sibel ERASLAN",
+          "name": "Yakup KÖSE",
           "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
+        },
+        {
+          "name": "Mustafa SABRİ BEŞER",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
+        },
+        {
+          "name": "Resul KURT",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
+        },
+        {
+          "name": "Filiz Katman",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
         },
         {
           "name": "Selahaddin E. ÇAKIRGİL",
@@ -4916,7 +4976,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5140,11 +5200,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Türkiye'de deprem tehlikesi en yüksek 5 şehir belli oldu!",
           "url": "",
           "photo": ""
         },
