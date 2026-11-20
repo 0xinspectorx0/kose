@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-20T08:34:19.539819+00:00",
+  "fetchedAt": "2026-11-20T12:05:50.338564+00:00",
   "date": "2026-11-20",
   "total": 1223,
   "papers": [
@@ -1155,14 +1155,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "NİHAT HATİPOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/762661/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856765083.jpg"
         }
       ]
     },
@@ -5064,6 +5064,11 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
         },
         {
+          "name": "Siyami Akyel",
+          "url": "https://www.milligazete.com.tr/siyami-akyel",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/670-avatar.jpg"
+        },
+        {
           "name": "Hazmedilemeyen yenilgi!",
           "url": "https://www.milligazete.com.tr/hazmedilemeyen-yenilgi",
           "photo": ""
@@ -5102,16 +5107,6 @@
           "name": "Abdussamet Karataş",
           "url": "https://www.milligazete.com.tr/abdussamet-karatas",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/3426-avatar.jpg"
-        },
-        {
-          "name": "Takvim Yaprağı – 19.11.2026 / Perşembe",
-          "url": "https://www.milligazete.com.tr/takvim-yapragi-19112026-persembe",
-          "photo": ""
-        },
-        {
-          "name": "İbrahim Halil Yetim",
-          "url": "https://www.milligazete.com.tr/ibrahim-halil-yetim",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/19420-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5195,6 +5190,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Türkiye'nin risk primi yeniden yükseldi! 250 baz puanı aştı",
           "url": "",
           "photo": ""
         },
@@ -6231,15 +6231,15 @@
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
-          "name": "Cihan Tekin",
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Bişar Arslan",
+          "name": "Cihan Tekin",
           "url": "",
           "photo": ""
         },
