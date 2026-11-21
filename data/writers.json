@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-21T11:43:29.450648+00:00",
+  "fetchedAt": "2026-11-21T15:14:30.017241+00:00",
   "date": "2026-11-21",
-  "total": 1234,
+  "total": 1238,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 212,
+      "count": 213,
       "writers": [
         {
           "name": "Emir Topuk",
@@ -1059,6 +1059,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/61b390a8c03c0e1c9c95e8b1.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Şevval Şener",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6a97de930d14c98c5cd1b1a0.jpg"
@@ -1073,14 +1078,8 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 1,
-      "writers": [
-        {
-          "name": "Turan Yücel",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/8d275ead97154ded991d6991c1bc8ef1removebgpreviewpng-M4zXj0z0pEyXNlsENqp4tg.png"
-        }
-      ]
+      "count": 0,
+      "writers": []
     },
     {
       "key": "milliyet",
@@ -1170,11 +1169,6 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
@@ -1188,6 +1182,11 @@
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -4634,14 +4633,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Betül Soysal Bozdoğan",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
-        },
-        {
           "name": "Coşkun BAŞBUĞ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
+        },
+        {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
         },
         {
           "name": "Hasan Hüseyin ÖZ",
@@ -5006,7 +5005,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 51,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5240,6 +5239,21 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Galatasaray, Samsunspor'u 2-1 yendi! 42 maçlık rekor kırıldı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altında sert düşüş! Uzman isimden pazartesi için uyarısı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Fenerbahçe'de Asensio sürprizi! Dönüş tarihi değişebilir",
           "url": "",
           "photo": ""
         },
@@ -6266,7 +6280,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 8,
+      "count": 9,
       "writers": [
         {
           "name": "Sevgi Uçan Çubukçu",
@@ -6282,6 +6296,11 @@
           "name": "Zehra Çelenk",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Bişar Arslan",
