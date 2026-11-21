@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-21T15:14:30.017241+00:00",
+  "fetchedAt": "2026-11-21T18:45:44.141000+00:00",
   "date": "2026-11-21",
-  "total": 1238,
+  "total": 1239,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 213,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1169,11 +1169,6 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1187,6 +1182,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -4633,14 +4633,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Coşkun BAŞBUĞ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
-        },
-        {
           "name": "Betül Soysal Bozdoğan",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
+        },
+        {
+          "name": "Coşkun BAŞBUĞ",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
         },
         {
           "name": "Hasan Hüseyin ÖZ",
@@ -5005,7 +5005,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 51,
+      "count": 52,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5243,7 +5243,17 @@
           "photo": ""
         },
         {
+          "name": "Canlı: Saadet Partisi Büyük İstanbul Buluşması Başladı!",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Galatasaray, Samsunspor'u 2-1 yendi! 42 maçlık rekor kırıldı",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "İstanbul için yeni metro müjdesi: Günler sonra başlayacak",
           "url": "",
           "photo": ""
         },
@@ -5254,11 +5264,6 @@
         },
         {
           "name": "Fenerbahçe'de Asensio sürprizi! Dönüş tarihi değişebilir",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İmzalar atıldı",
           "url": "",
           "photo": ""
         }
