@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-21T08:12:38.416066+00:00",
+  "fetchedAt": "2026-11-21T11:43:29.450648+00:00",
   "date": "2026-11-21",
-  "total": 1232,
+  "total": 1234,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 211,
+      "count": 212,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1057,6 +1057,11 @@
           "name": "Serkan Kızılbayır",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/61b390a8c03c0e1c9c95e8b1.jpg"
+        },
+        {
+          "name": "Şevval Şener",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6a97de930d14c98c5cd1b1a0.jpg"
         },
         {
           "name": "Salim Uzun",
@@ -1112,7 +1117,7 @@
     {
       "key": "sabah",
       "name": "Sabah",
-      "count": 15,
+      "count": 16,
       "writers": [
         {
           "name": "SABAH",
@@ -1165,6 +1170,16 @@
           "photo": ""
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
@@ -1175,19 +1190,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "BERCAN TUTAR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/4f4d40/147/124/0/23/162/160?u=https://isbh.tmgrup.com.tr/sbh/2020/12/31/1609417082683.png"
+        },
+        {
+          "name": "OSMAN MÜFTÜOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/a41437/147/124/0/0/876/739?u=https://isbh.tmgrup.com.tr/sbh/2026/01/04/1767550178532.jpg"
         }
       ]
     },
@@ -3476,8 +3486,14 @@
     {
       "key": "haberturk",
       "name": "Habertürk",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "Yazar Arşivi",
+          "url": "https://www.haberturk.com/htyazarlar/arsiv",
+          "photo": ""
+        }
+      ]
     },
     {
       "key": "aksam",
@@ -4990,7 +5006,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 49,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5043,7 +5059,7 @@
           "photo": ""
         },
         {
-          "name": "Üç işgalci",
+          "name": "Üç İşgalci",
           "url": "https://www.milligazete.com.tr/uc-isgalci",
           "photo": ""
         },
@@ -5228,12 +5244,7 @@
           "photo": ""
         },
         {
-          "name": "İBB'den öğrencilere ulaşım desteği! Her biniş 1 TL olacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fon soruşturmasında 108 kişi için mal varlığı takibi",
+          "name": "İmzalar atıldı",
           "url": "",
           "photo": ""
         }
