@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-22T14:52:20.828105+00:00",
+  "fetchedAt": "2026-11-22T18:23:17.926369+00:00",
   "date": "2026-11-22",
-  "total": 1250,
+  "total": 1249,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 206,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1214,14 +1214,14 @@
           "photo": ""
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "ERHAN AFYONCU",
@@ -1705,7 +1705,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2710,42 +2710,47 @@
         {
           "name": "Yusuf Kaplan",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Yaşar Süngü",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Yusuf Dinç",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
+        },
+        {
+          "name": "Selman Ağrıkan",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
         },
         {
           "name": "Nedret Ersanel",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Taha Kılınç",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Yasin Aktay",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Özgür Bayram Soylu",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         },
         {
           "name": "Serdar Tuncer",
           "url": "",
-          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/10/554x554resized_f3fe3-84cf5056selman.png"
         }
       ]
     },
@@ -4011,14 +4016,14 @@
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
         },
         {
-          "name": "İklimle mücadele edecek",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/4c71a4/170/170/0/34/375/410?u=https://iysr.tmgrup.com.tr/2024/08/06/1722952204183.png"
-        },
-        {
           "name": "COP31 Antalya’da Türkiye imzası",
           "url": "",
           "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
+        },
+        {
+          "name": "İklimle mücadele edecek",
+          "url": "",
+          "photo": "https://iaysr.tmgrup.com.tr/4c71a4/170/170/0/34/375/410?u=https://iysr.tmgrup.com.tr/2024/08/06/1722952204183.png"
         }
       ]
     },
@@ -5085,7 +5090,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 44,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5138,6 +5143,11 @@
           "photo": ""
         },
         {
+          "name": "Fahrettin Gün",
+          "url": "https://www.milligazete.com.tr/fahrettin-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
+        },
+        {
           "name": "Mehmet Biten",
           "url": "https://www.milligazete.com.tr/mehmet-biten",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/628-avatar.jpg"
@@ -5181,11 +5191,6 @@
           "name": "Şaban Turhal",
           "url": "https://www.milligazete.com.tr/saban-turhal",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
-        },
-        {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
         },
         {
           "name": "Üç İşgalci",
@@ -5304,16 +5309,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Küçükçekmece'de korkutan yangın! Ölü ve yaralılar var",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Galatasaray, Samsunspor'u 2-1 yendi! 42 maçlık rekor kırıldı",
           "url": "",
           "photo": ""
         }
@@ -6338,6 +6333,11 @@
       "count": 10,
       "writers": [
         {
+          "name": "Ayhan Tinin",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
+        },
+        {
           "name": "C. Hakkı Zariç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-WhatsApp-Image-2025-11-12-at-14.55.58-500x500.jpg"
@@ -6356,11 +6356,6 @@
           "name": "Murat Sevinç",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2023/10/cropped-Murat-sevinc-renkli.jpg"
-        },
-        {
-          "name": "Zehra Çelenk",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-11-zehra-celenk-foto.jpeg"
         },
         {
           "name": "Mesude Demir",
