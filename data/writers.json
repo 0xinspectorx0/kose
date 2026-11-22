@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-22T05:19:18.764213+00:00",
+  "fetchedAt": "2026-11-22T06:38:34.877913+00:00",
   "date": "2026-11-22",
-  "total": 1249,
+  "total": 1250,
   "papers": [
     {
       "key": "hurriyet",
@@ -4688,6 +4688,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Resul TOSUN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/154.png?v=1907.99"
@@ -4716,11 +4721,6 @@
           "name": "Hüseyin GÜLERCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
           "name": "Coşkun BAŞBUĞ",
@@ -6335,12 +6335,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 9,
+      "count": 10,
       "writers": [
+        {
+          "name": "Mehmet Aksel",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+        },
         {
           "name": "Sevgi Uçan Çubukçu",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/11/cropped-20261105-sevgi-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/11/cropped-20261105-sevgi-kelle.jpeg"
         },
         {
           "name": "Murat Sevinç",
