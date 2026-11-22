@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-22T11:21:22.942110+00:00",
+  "fetchedAt": "2026-11-22T14:52:20.828105+00:00",
   "date": "2026-11-22",
-  "total": 1251,
+  "total": 1250,
   "papers": [
     {
       "key": "hurriyet",
@@ -1049,7 +1049,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 20,
+      "count": 21,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1075,6 +1075,11 @@
           "name": "Güldener Sonumut",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/600c5e825542850c385ff9d4.jpg"
+        },
+        {
+          "name": "Metin Aktaşoğlu",
+          "url": "",
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
         },
         {
           "name": "Mehmet Çelik",
@@ -1209,9 +1214,9 @@
           "photo": ""
         },
         {
-          "name": "ERHAN AFYONCU",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1219,9 +1224,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "ERHAN AFYONCU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+          "photo": "https://iasbh.tmgrup.com.tr/6a24aa/147/124/0/17/162/154?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856303107.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -1700,7 +1705,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 207,
+      "count": 208,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2703,6 +2708,11 @@
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
         },
         {
+          "name": "Yusuf Kaplan",
+          "url": "",
+          "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
+        },
+        {
           "name": "Yaşar Süngü",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2015/06/06/resized_3ffb3-8c15ismailkilicarslan2.png"
@@ -3513,7 +3523,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "YAZARLAR",
+          "name": "Yazar Arşivi",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -3803,7 +3813,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 41,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -4004,6 +4014,11 @@
           "name": "İklimle mücadele edecek",
           "url": "",
           "photo": "https://iaysr.tmgrup.com.tr/4c71a4/170/170/0/34/375/410?u=https://iysr.tmgrup.com.tr/2024/08/06/1722952204183.png"
+        },
+        {
+          "name": "COP31 Antalya’da Türkiye imzası",
+          "url": "",
+          "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
         }
       ]
     },
@@ -5070,7 +5085,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 50,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5138,6 +5153,11 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/yazar-ikon.jpg"
         },
         {
+          "name": "Ercan Özcan",
+          "url": "https://www.milligazete.com.tr/ercan-ozcan",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/ercan-ozcan08-1.png"
+        },
+        {
           "name": "Hayal ve imkân",
           "url": "https://www.milligazete.com.tr/hayal-ve-imkan",
           "photo": ""
@@ -5201,16 +5221,6 @@
           "name": "Şakir Tarım",
           "url": "https://www.milligazete.com.tr/sakir-tarim",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/667-avatar.jpg"
-        },
-        {
-          "name": "Nasıl fondaş oldular?",
-          "url": "https://www.milligazete.com.tr/nasil-fondas-oldular",
-          "photo": ""
-        },
-        {
-          "name": "Zeki Ceyhan",
-          "url": "https://www.milligazete.com.tr/zeki-ceyhan",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/682-avatar.jpg"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5304,21 +5314,6 @@
         },
         {
           "name": "Galatasaray, Samsunspor'u 2-1 yendi! 42 maçlık rekor kırıldı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İstanbul için yeni metro müjdesi: Günler sonra başlayacak",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altında sert düşüş! Uzman isimden pazartesi için uyarısı",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fenerbahçe'de Asensio sürprizi! Dönüş tarihi değişebilir",
           "url": "",
           "photo": ""
         }
