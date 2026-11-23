@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-23T06:56:09.257423+00:00",
+  "fetchedAt": "2026-11-23T08:26:59.021665+00:00",
   "date": "2026-11-23",
-  "total": 1243,
+  "total": 1244,
   "papers": [
     {
       "key": "hurriyet",
@@ -1068,8 +1068,14 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 0,
-      "writers": []
+      "count": 1,
+      "writers": [
+        {
+          "name": "Sonuç Sürmeli",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
+        }
+      ]
     },
     {
       "key": "milliyet",
@@ -5045,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5096,6 +5102,11 @@
           "name": "Resmi İlanlar",
           "url": "https://www.milligazete.com.tr/resmi-ilanlar",
           "photo": ""
+        },
+        {
+          "name": "Doç. Dr. Hacı Murat Kumbasar",
+          "url": "https://www.milligazete.com.tr/haci-murat-kumbasar",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/06/doc-dr-haci-murat-kumbasar.png"
         },
         {
           "name": "Cellâdın İnsafına Bırakılmayan Merhamet!",
@@ -5188,11 +5199,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/11/ai-dikmen.png"
         },
         {
-          "name": "Fahrettin Gün",
-          "url": "https://www.milligazete.com.tr/fahrettin-gun",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5274,6 +5280,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altında 3 bin dolar uyarısı! Uzman isim yeni dip bekliyor",
           "url": "",
           "photo": ""
         }
@@ -6295,7 +6306,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 11,
+      "count": 10,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6318,19 +6329,14 @@
           "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
         },
         {
-          "name": "Sevgi Uçan Çubukçu",
+          "name": "Diken",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/11/cropped-20261105-sevgi-kelle.jpeg"
+          "photo": ""
         },
         {
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
         },
         {
           "name": "Bişar Arslan",
