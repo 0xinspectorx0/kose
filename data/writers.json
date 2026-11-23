@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-23T05:25:34.858697+00:00",
+  "fetchedAt": "2026-11-23T06:56:09.257423+00:00",
   "date": "2026-11-23",
-  "total": 1242,
+  "total": 1243,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 211,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1054,6 +1054,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65ba4d17925150967e8bbdc3.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Salim Uzun",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
@@ -1179,14 +1184,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -4658,6 +4663,11 @@
           "photo": ""
         },
         {
+          "name": "Selahaddin E. ÇAKIRGİL",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
+        },
+        {
           "name": "Halime KÖKCE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
@@ -4686,11 +4696,6 @@
           "name": "Sibel ERASLAN",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/23.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
           "name": "Resul TOSUN",
@@ -5040,7 +5045,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5269,11 +5274,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Süper Lig puan durumu belli oldu! Derbi öncesi Galatasaray",
           "url": "",
           "photo": ""
         }
@@ -6295,7 +6295,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 10,
+      "count": 11,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6326,6 +6326,11 @@
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Diken",
+          "url": "",
+          "photo": ""
         },
         {
           "name": "Bişar Arslan",
