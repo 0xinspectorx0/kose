@@ -1,13 +1,23 @@
 {
-  "fetchedAt": "2026-11-23T11:57:48.387273+00:00",
+  "fetchedAt": "2026-11-23T15:29:04.623892+00:00",
   "date": "2026-11-23",
-  "total": 1246,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 211,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1068,12 +1068,17 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 2,
+      "count": 3,
       "writers": [
         {
           "name": "İpek Özbey",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
+        },
+        {
+          "name": "Burak Özcan",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
         },
         {
           "name": "Sonuç Sürmeli",
@@ -5056,7 +5061,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5289,12 +5294,7 @@
           "photo": ""
         },
         {
-          "name": "Sarıyer'deki kayıp aslan için soruşturma! Sahibi kim?",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Altın fiyatları yeniden yükselişe geçti!",
+          "name": "İETT otobüslerinde renk değişiyor! Yeni renk belli oldu",
           "url": "",
           "photo": ""
         }
@@ -6316,7 +6316,7 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 10,
+      "count": 4,
       "writers": [
         {
           "name": "Psk. Dr. Feyza Bayraktar",
@@ -6337,36 +6337,6 @@
           "name": "Mehmet Aksel",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155-96x96.png"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
         }
       ]
     }
