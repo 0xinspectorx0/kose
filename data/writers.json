@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-23T08:26:59.021665+00:00",
+  "fetchedAt": "2026-11-23T11:57:48.387273+00:00",
   "date": "2026-11-23",
-  "total": 1244,
+  "total": 1246,
   "papers": [
     {
       "key": "hurriyet",
@@ -1068,8 +1068,13 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 1,
+      "count": 2,
       "writers": [
+        {
+          "name": "İpek Özbey",
+          "url": "",
+          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
+        },
         {
           "name": "Sonuç Sürmeli",
           "url": "",
@@ -1190,14 +1195,14 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -2681,42 +2686,42 @@
         {
           "name": "Yusuf Kaplan",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Süleyman Seyfi Öğün",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Ömer Türker",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Yasin Aktay",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Turgay Yerlikaya",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
           "name": "Selçuk Türkyılmaz",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         },
         {
-          "name": "Yaşar Süngü",
+          "name": "Ömer Çelikbaşlı",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
         },
         {
           "name": "Yusuf Dinç",
           "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2024/2/1/a11b5e4a-xhzdgrkkvq8ycvvkj26l79.png"
+          "photo": "https://img.piri.net/resim/imagecrop/2022/02/04/08/07/554x554resized_1d1de-68e30b86omer.png"
         }
       ]
     },
@@ -5051,7 +5056,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5194,9 +5199,9 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
         },
         {
-          "name": "Ali Dikmen",
-          "url": "https://www.milligazete.com.tr/ali-dikmen",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/11/ai-dikmen.png"
+          "name": "Fahrettin Gün",
+          "url": "https://www.milligazete.com.tr/fahrettin-gun",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2026/10/fahrettin-gun4dsu.png"
         },
         {
           "name": "Nöbetçi Eczaneler",
@@ -5284,7 +5289,12 @@
           "photo": ""
         },
         {
-          "name": "Altında 3 bin dolar uyarısı! Uzman isim yeni dip bekliyor",
+          "name": "Sarıyer'deki kayıp aslan için soruşturma! Sahibi kim?",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Altın fiyatları yeniden yükselişe geçti!",
           "url": "",
           "photo": ""
         }
@@ -6326,7 +6336,7 @@
         {
           "name": "Mehmet Aksel",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155.png"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2020/12/cropped-mehmet-aksel-imza-e1619506759155-96x96.png"
         },
         {
           "name": "Diken",
