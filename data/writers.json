@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-23T02:24:52.640212+00:00",
+  "fetchedAt": "2026-11-23T03:54:49.395205+00:00",
   "date": "2026-11-23",
-  "total": 1231,
+  "total": 1222,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 202,
+      "count": 206,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1009,6 +1009,21 @@
           "photo": ""
         },
         {
+          "name": "Abdulkadir SELVİ",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
+        },
+        {
+          "name": "Nedim ŞENER",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
+        },
+        {
+          "name": "İhsan Yılmaz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6b035c05c757abf6569392e1.jpg"
+        },
+        {
           "name": "Fulya Soybaş",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
@@ -1017,6 +1032,11 @@
           "name": "Noyan Doğan",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/55ea09f5f018fbaf44942340.jpg"
+        },
+        {
+          "name": "Salim Uzun",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
         }
       ]
     },
@@ -1029,7 +1049,7 @@
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 16,
+      "count": 3,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1037,79 +1057,14 @@
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f84d355428103b0dcdd14.jpg"
         },
         {
-          "name": "Abbas Güçlü",
+          "name": "Tunca Bengin",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f856155428103b0dcdd2c.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f850755428103b0dcdd1d.jpg"
         },
         {
-          "name": "Zeynep Aktaş",
+          "name": "Levent Köprülü",
           "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f855155428103b0dcdd29.jpg"
-        },
-        {
-          "name": "Ali Eyüboğlu",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5f5f859355428103b0dcdd35.jpg"
-        },
-        {
-          "name": "Güldener Sonumut",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/600c5e825542850c385ff9d4.jpg"
-        },
-        {
-          "name": "Metin Aktaşoğlu",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6937e464e1251585a934c899.jpg"
-        },
-        {
-          "name": "Mehmet Çelik",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6250470a86b24a1aac973d85.jpg"
-        },
-        {
-          "name": "Doç. Dr. Efe Sıvış",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6b01c3cdc00aca18cb4af531.jpg"
-        },
-        {
-          "name": "Belma Akçura",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/662e6d8c400ec10336344b1a.jpg"
-        },
-        {
-          "name": "Prof. Dr. Barış Erdoğan",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/691b0966d24a59675f7dbd26.jpg"
-        },
-        {
-          "name": "Prof. Dr. Nuran Yıldız",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/69be70a2c202702b6e295ec4.jpg"
-        },
-        {
-          "name": "Patrick Özdemiroğlu",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/67f7efb9e24ef2ba86bb6998.jpg"
-        },
-        {
-          "name": "Hasan Mert Kaya",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/67d04f168376c6574dcdb820.jpg"
-        },
-        {
-          "name": "Zeynep İşman",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/693c6943e1251585a934dd79.jpg"
-        },
-        {
-          "name": "Filiz Aygündüz",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5e8b71ae5542820618fc3c72.jpg"
-        },
-        {
-          "name": "Mehmet Tez",
-          "url": "",
-          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/6523df0186b2442ca816e997.jpg"
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5c8bbc3345d2a0819481957d.jpg"
         }
       ]
     },
