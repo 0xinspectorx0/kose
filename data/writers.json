@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-24T12:05:51.255476+00:00",
+  "fetchedAt": "2026-11-24T15:36:38.957638+00:00",
   "date": "2026-11-24",
-  "total": 1242,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
@@ -1049,14 +1049,14 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
         },
         {
-          "name": "İlker Topdemir",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6b03f1e29a30875a04579001.jpg"
-        },
-        {
           "name": "Ebru Doğdu",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/62e134692269a23420123242.jpg"
+        },
+        {
+          "name": "İlker Topdemir",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/6b03f1e29a30875a04579001.jpg"
         }
       ]
     },
@@ -1170,19 +1170,14 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
-          "name": "MAHMUT ÖVÜR",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "SALİH TUNA",
@@ -1193,6 +1188,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5051,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5274,22 +5274,12 @@
           "photo": ""
         },
         {
+          "name": "Irak'ta askeri hareketlilik! Tüm birliklere aynı emir gitti",
+          "url": "",
+          "photo": ""
+        },
+        {
           "name": "Özel",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Beşiktaş-Hapoel Beer Sheva maçının hakemi belli oldu!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fatma Betül Sayan Kaya ev hapsi şartıyla tahliye edildi",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "İklim zirvesinde ‘cinsiyet’ başlığı: Bu ne iştir?",
           "url": "",
           "photo": ""
         }
@@ -6321,10 +6311,20 @@
         {
           "name": "Ayhan Tinin",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-96x96.jpeg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
+        },
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
           "name": "Diken",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
@@ -6335,16 +6335,6 @@
         },
         {
           "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
           "url": "",
           "photo": ""
         }
