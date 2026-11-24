@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-24T15:36:38.957638+00:00",
+  "fetchedAt": "2026-11-24T19:08:26.631131+00:00",
   "date": "2026-11-24",
   "total": 1240,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 210,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1170,19 +1170,14 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
-        },
-        {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
           "name": "HAŞMET BABAOĞLU",
@@ -1193,6 +1188,11 @@
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b95cff/147/124/0/20/162/157?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242595996.png"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/572e0f/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242808969.png"
         },
         {
           "name": "BERCAN TUTAR",
@@ -5051,7 +5051,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5274,12 +5274,22 @@
           "photo": ""
         },
         {
-          "name": "Irak'ta askeri hareketlilik! Tüm birliklere aynı emir gitti",
+          "name": "Bu pankart sana gelsin İsrail!",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Özel",
+          "name": "Galatasaray - Aston Villa maçı canlı anlatım 0-0",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "MSB duyurdu: Eskişehir’de askeri helikopter düştü",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "AK Parti'de üst düzey istifa: Hayati Yazıcı görevi bıraktı",
           "url": "",
           "photo": ""
         }
@@ -6301,18 +6311,8 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 5,
       "writers": [
-        {
-          "name": "Psk. Dr. Feyza Bayraktar",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/08/cropped-2024-08-12-feyza-bayraktar-foto.png"
-        },
-        {
-          "name": "Ayhan Tinin",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/11/cropped-20251114-ayhan-tinin-kelle-500x500.jpeg"
-        },
         {
           "name": "Mesude Demir",
           "url": "",
