@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-24T19:08:26.631131+00:00",
-  "date": "2026-11-24",
-  "total": 1240,
+  "fetchedAt": "2026-11-24T21:09:16.849241+00:00",
+  "date": "2026-11-25",
+  "total": 1233,
   "papers": [
     {
       "key": "hurriyet",
@@ -1170,11 +1170,6 @@
           "photo": ""
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
@@ -1183,6 +1178,11 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/3da344/147/124/0/13/162/150?u=https://isbh.tmgrup.com.tr/sbh/2020/12/29/1609242839723.png"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "MAHMUT ÖVÜR",
@@ -3682,7 +3682,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 20,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3742,46 +3742,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Hakan Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Oral Çalışlar",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Coşkundeniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -5274,12 +5234,12 @@
           "photo": ""
         },
         {
-          "name": "Bu pankart sana gelsin İsrail!",
+          "name": "Muğla depremi sonrası Prof. Sözbilir'den önemli açıklama",
           "url": "",
           "photo": ""
         },
         {
-          "name": "Galatasaray - Aston Villa maçı canlı anlatım 0-0",
+          "name": "Bu pankart sana gelsin İsrail!",
           "url": "",
           "photo": ""
         },
@@ -6311,12 +6271,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 5,
+      "count": 6,
       "writers": [
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Diken",
@@ -6335,6 +6295,11 @@
         },
         {
           "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         }
