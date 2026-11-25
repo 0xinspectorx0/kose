@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-25T08:12:36.812248+00:00",
+  "fetchedAt": "2026-11-25T11:43:38.367712+00:00",
   "date": "2026-11-25",
-  "total": 1230,
+  "total": 1231,
   "papers": [
     {
       "key": "hurriyet",
@@ -1063,13 +1063,8 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 2,
+      "count": 1,
       "writers": [
-        {
-          "name": "İpek Özbey",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2025/10/agsrbhnnmjtrewqrfgdegfvdbgpng-Bd9CyYA1Z0eKPL5YM9rDdw.png"
-        },
         {
           "name": "Burak Özcan",
           "url": "",
@@ -1165,9 +1160,9 @@
           "photo": ""
         },
         {
-          "name": "HİLAL KAPLAN",
+          "name": "SALİH TUNA",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1180,14 +1175,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         },
         {
+          "name": "HİLAL KAPLAN",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
-        },
-        {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -5021,7 +5016,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 45,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5244,7 +5239,12 @@
           "photo": ""
         },
         {
-          "name": "Mahmut Arıkan, Grup Toplantısı'nda konuştu",
+          "name": "Fon mağdurlarına yeni ödeme tarihi! 27 Kasım açıklaması",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "DEM Parti İmralı Heyeti Bakan Akın Gürlek ile görüştü",
           "url": "",
           "photo": ""
         }
@@ -6266,12 +6266,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 4,
+      "count": 5,
       "writers": [
         {
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Diken",
+          "url": "",
+          "photo": ""
         },
         {
           "name": "Cihan Tekin",
