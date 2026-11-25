@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-25T06:41:35.249333+00:00",
+  "fetchedAt": "2026-11-25T08:12:36.812248+00:00",
   "date": "2026-11-25",
-  "total": 1229,
+  "total": 1230,
   "papers": [
     {
       "key": "hurriyet",
@@ -1063,7 +1063,7 @@
     {
       "key": "sozcu",
       "name": "Sözcü",
-      "count": 3,
+      "count": 2,
       "writers": [
         {
           "name": "İpek Özbey",
@@ -1074,18 +1074,13 @@
           "name": "Burak Özcan",
           "url": "",
           "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/4/whatsappimage20260422at120733removebgpreviewpng-hwgTC_8OnkeDv-Ar_acSuA.png"
-        },
-        {
-          "name": "Sonuç Sürmeli",
-          "url": "",
-          "photo": "https://sozcu01.sozcucdn.com/sozcu/production/uploads/images/2026/8/2b9dd3e8adb84af0af74bffcd61b63bdremovebgpreviewpng-pKso34h19065RvnkvAW_KQ.png"
         }
       ]
     },
     {
       "key": "milliyet",
       "name": "Milliyet",
-      "count": 4,
+      "count": 5,
       "writers": [
         {
           "name": "Özay Şendir",
@@ -1106,6 +1101,11 @@
           "name": "Dilara Koçak",
           "url": "",
           "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5c8bbc2145d2a081948190ab.jpg"
+        },
+        {
+          "name": "Cansen Erdoğan (Avukat – Yazar)",
+          "url": "",
+          "photo": "https://image.milimaj.com/i/milliyet/75/120x120/5fbf94e455427e136868be48.jpg"
         }
       ]
     },
@@ -1165,9 +1165,9 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1175,19 +1175,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         }
       ]
     },
@@ -5021,7 +5021,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 44,
+      "count": 45,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5240,6 +5240,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Mahmut Arıkan, Grup Toplantısı'nda konuştu",
           "url": "",
           "photo": ""
         }
