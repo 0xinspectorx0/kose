@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-25T05:10:34.115110+00:00",
+  "fetchedAt": "2026-11-25T06:41:35.249333+00:00",
   "date": "2026-11-25",
-  "total": 1226,
+  "total": 1229,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 210,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Fatih ÇEKİRGE",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/562608b967b0a92cf88a2fa3.jpg"
@@ -1165,9 +1165,9 @@
           "photo": ""
         },
         {
-          "name": "YAVUZ DONAT",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
         },
         {
           "name": "DİLEK GÜNGÖR",
@@ -1175,19 +1175,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/fef349/147/124/0/24/162/161?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579856150693.jpg"
         },
         {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53f92e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857286155.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
+          "name": "HİLAL KAPLAN",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/66881e/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/09/12/1599937703420.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/2d68de/147/124/0/25/162/161?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774439281.jpg"
+        },
+        {
+          "name": "YAVUZ DONAT",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/6c36c5/147/124/0/0/162/137?u=https://isbh.tmgrup.com.tr/sbh/2020/01/24/1579857470778.jpg"
         }
       ]
     },
@@ -2664,11 +2664,6 @@
           "photo": "https://img.piri.net/mnresize/120/-/resim/imagecrop/2015/06/07/resized_6501c-9e38mufityuksel2.png"
         },
         {
-          "name": "Yahya Bostan",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2023/3/22/35e00167-2k1difr1z5lyeqb7cq1ln.png"
-        },
-        {
           "name": "Nedret Ersanel",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2023/3/22/35e00167-2k1difr1z5lyeqb7cq1ln.png"
@@ -2697,6 +2692,11 @@
           "name": "Samed Karagöz",
           "url": "",
           "photo": "https://img.piri.net/resim/imagecrop/2017/06/14/02/26/554x554resized_75d1b-234e5aedddd.png"
+        },
+        {
+          "name": "Yahya Bostan",
+          "url": "",
+          "photo": "https://img.piri.net/piri/upload/3/2023/3/22/35e00167-2k1difr1z5lyeqb7cq1ln.png"
         },
         {
           "name": "Ömer Lekesiz",
@@ -4659,6 +4659,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
         },
         {
+          "name": "Betül Soysal Bozdoğan",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
+        },
+        {
           "name": "Cüneyd Altıparmak",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/193.png?v=1907.99"
@@ -4667,11 +4672,6 @@
           "name": "Nuh ALBAYRAK",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/152.png?v=1907.99"
-        },
-        {
-          "name": "Selahaddin E. ÇAKIRGİL",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
           "name": "Resul TOSUN",
@@ -5021,7 +5021,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 45,
+      "count": 44,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5240,11 +5240,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Muğla depremi sonrası Prof. Sözbilir'den önemli açıklama",
           "url": "",
           "photo": ""
         }
@@ -6266,8 +6261,29 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 0,
-      "writers": []
+      "count": 4,
+      "writers": [
+        {
+          "name": "Mesude Demir",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Cihan Tekin",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Emre Zor",
+          "url": "",
+          "photo": ""
+        }
+      ]
     }
   ]
 }
