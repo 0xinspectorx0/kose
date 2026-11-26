@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-26T08:20:32.721429+00:00",
+  "fetchedAt": "2026-11-26T11:51:34.201108+00:00",
   "date": "2026-11-26",
-  "total": 1247,
+  "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
@@ -1169,6 +1169,11 @@
           "photo": ""
         },
         {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
+        },
+        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
@@ -1187,11 +1192,6 @@
           "name": "HAŞMET BABAOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
-        },
-        {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -3803,7 +3803,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 42,
+      "count": 41,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3926,6 +3926,11 @@
           "photo": "https://iaysr.tmgrup.com.tr/f85f6f/170/170/0/0/170/170?u=https://iysr.tmgrup.com.tr/2018/02/06/1517926347226.png"
         },
         {
+          "name": "ZAFER ÖZCİVAN",
+          "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zafer-ozcivan",
+          "photo": ""
+        },
+        {
           "name": "ZÜMRÜT YILMAZ",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zumrut-yilmaz",
           "photo": "https://iaysr.tmgrup.com.tr/1d55f6/170/170/0/11/434/445?u=https://iysr.tmgrup.com.tr/2022/01/12/1641980424581.png"
@@ -4004,16 +4009,6 @@
           "name": "Özgür Özel",
           "url": "",
           "photo": "https://iaysr.tmgrup.com.tr/d53da8/170/170/56/0/350/294?u=https://iysr.tmgrup.com.tr/2024/09/12/1726139911201.png"
-        },
-        {
-          "name": "Hürmüz Boğazı krizinin ağır faturası",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
-        },
-        {
-          "name": "Atıktan ekonomiye 365 milyarlık katkı",
-          "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
         }
       ]
     },
@@ -5075,7 +5070,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5303,7 +5298,12 @@
           "photo": ""
         },
         {
-          "name": "Devlet Bahçeli ile DEM Parti İmralı Heyeti görüşecek!",
+          "name": "Beşiktaş-Galatasaray derbisinin hakemi belli oldu!",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Arda Turan'dan Kante ve Vedat Muriqi açıklaması",
           "url": "",
           "photo": ""
         },
@@ -6330,47 +6330,12 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 8,
+      "count": 1,
       "writers": [
         {
           "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ayşegül Kasap",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
-          "url": "",
-          "photo": ""
         }
       ]
     }
