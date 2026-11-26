@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-26T05:20:19.615516+00:00",
+  "fetchedAt": "2026-11-26T06:50:06.824814+00:00",
   "date": "2026-11-26",
   "total": 1245,
   "papers": [
@@ -8,6 +8,16 @@
       "name": "Hürriyet",
       "count": 208,
       "writers": [
+        {
+          "name": "Emir Topuk",
+          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
+          "photo": ""
+        },
+        {
+          "name": "Serenad Altan",
+          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
+          "photo": ""
+        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -999,16 +1009,6 @@
           "photo": ""
         },
         {
-          "name": "Dr. Erkan Aydın",
-          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
-          "photo": ""
-        },
-        {
-          "name": "Dr. Gülden Dönmez",
-          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
-          "photo": ""
-        },
-        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1174,6 +1174,11 @@
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
         },
         {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
+        },
+        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
@@ -1187,11 +1192,6 @@
           "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
-        },
-        {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -3803,7 +3803,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 40,
+      "count": 41,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -3999,6 +3999,11 @@
           "name": "ZEKİ HOZER",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zeki-hozer",
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
+        },
+        {
+          "name": "Atıktan ekonomiye 365 milyarlık katkı",
+          "url": "",
+          "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
         },
         {
           "name": "Romanya ile ilişkilerin 148.yılı.",
@@ -5065,7 +5070,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5289,11 +5294,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Asgari ücret",
           "url": "",
           "photo": ""
         },
