@@ -1,23 +1,13 @@
 {
-  "fetchedAt": "2026-11-26T06:50:06.824814+00:00",
+  "fetchedAt": "2026-11-26T08:20:32.721429+00:00",
   "date": "2026-11-26",
-  "total": 1245,
+  "total": 1247,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
       "count": 208,
       "writers": [
-        {
-          "name": "Emir Topuk",
-          "url": "https://www.hurriyet.com.tr/yazarlar/emir-topuk/",
-          "photo": ""
-        },
-        {
-          "name": "Serenad Altan",
-          "url": "https://www.hurriyet.com.tr/yazarlar/serenad-altan/",
-          "photo": ""
-        },
         {
           "name": "Abdulkadir Özbek",
           "url": "https://www.hurriyet.com.tr/yazarlar/abdulkadir-ozbek/",
@@ -1009,6 +999,16 @@
           "photo": ""
         },
         {
+          "name": "Dr. Erkan Aydın",
+          "url": "https://www.hurriyet.com.tr/yazarlar/dr-erkan-aydin/",
+          "photo": ""
+        },
+        {
+          "name": "Dr. Gülden Dönmez",
+          "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
+          "photo": ""
+        },
+        {
           "name": "Abdulkadir SELVİ",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
@@ -1174,11 +1174,6 @@
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
@@ -1187,6 +1182,11 @@
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
+        },
+        {
+          "name": "HAŞMET BABAOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -3803,7 +3803,7 @@
     {
       "key": "yeniasir",
       "name": "Yeni Asır",
-      "count": 41,
+      "count": 42,
       "writers": [
         {
           "name": "BİLAL DOĞAN",
@@ -4001,14 +4001,19 @@
           "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
         },
         {
-          "name": "Atıktan ekonomiye 365 milyarlık katkı",
+          "name": "Özgür Özel",
+          "url": "",
+          "photo": "https://iaysr.tmgrup.com.tr/d53da8/170/170/56/0/350/294?u=https://iysr.tmgrup.com.tr/2024/09/12/1726139911201.png"
+        },
+        {
+          "name": "Hürmüz Boğazı krizinin ağır faturası",
           "url": "",
           "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
         },
         {
-          "name": "Romanya ile ilişkilerin 148.yılı.",
+          "name": "Atıktan ekonomiye 365 milyarlık katkı",
           "url": "",
-          "photo": "https://iaysr.tmgrup.com.tr/435464/170/170/0/0/500/499?u=https://iysr.tmgrup.com.tr/2020/01/04/1578146593504.png"
+          "photo": "https://iaysr.tmgrup.com.tr/c4eb6f/170/170/0/0/400/400?u=https://iysr.tmgrup.com.tr/2018/02/26/1519636562590.png"
         }
       ]
     },
@@ -5070,7 +5075,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5294,6 +5299,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Devlet Bahçeli ile DEM Parti İmralı Heyeti görüşecek!",
           "url": "",
           "photo": ""
         },
