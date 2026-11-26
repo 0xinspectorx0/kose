@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-26T11:51:34.201108+00:00",
+  "fetchedAt": "2026-11-26T15:23:20.246962+00:00",
   "date": "2026-11-26",
   "total": 1240,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 208,
+      "count": 209,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1047,6 +1047,11 @@
           "name": "Ebru Erke",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/770x0/6b07601d9a30875a0457a75f.jpg"
+        },
+        {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
         }
       ]
     },
@@ -1169,9 +1174,9 @@
           "photo": ""
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
+          "name": "HAŞMET BABAOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
         },
         {
           "name": "MAHMUT ÖVÜR",
@@ -1179,19 +1184,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
         },
         {
-          "name": "SALİH TUNA",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
-        },
-        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
         },
         {
-          "name": "HAŞMET BABAOĞLU",
+          "name": "OKAN MÜDERRİSOĞLU",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/b0ed20/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/c4df96a6-54c5-4770-80d0-7e78a0c5cdee.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
+        },
+        {
+          "name": "SALİH TUNA",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
         },
         {
           "name": "ÖZLEM DOĞANER",
@@ -5070,7 +5075,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 47,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5298,12 +5303,7 @@
           "photo": ""
         },
         {
-          "name": "Beşiktaş-Galatasaray derbisinin hakemi belli oldu!",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Arda Turan'dan Kante ve Vedat Muriqi açıklaması",
+          "name": "Eren Kaşıkçı neden öldü? Otopsi raporunda yeni bulgular",
           "url": "",
           "photo": ""
         },
