@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-26T00:47:52.888311+00:00",
-  "kurallarAlindi": "2026-11-26T00:40:57.342605+00:00",
+  "guncellendi": "2026-11-26T02:18:52.131735+00:00",
+  "kurallarAlindi": "2026-11-26T02:11:17.942795+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -52,7 +52,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 15
     },
     {
       "key": "yenisafak",
@@ -60,7 +60,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 20
+      "yazi": 19
     },
     {
       "key": "karar",
