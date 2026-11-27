@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T15:30:07.384754+00:00",
+  "fetchedAt": "2026-11-27T19:01:39.224151+00:00",
   "date": "2026-11-27",
   "total": 1230,
   "papers": [
@@ -1134,14 +1134,14 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
+        },
+        {
+          "name": "HİLAL KAPLAN",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/65b786/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774467225.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
@@ -1149,14 +1149,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/c3171c/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/11/11/1668163320494.jpg"
         },
         {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
-        },
-        {
-          "name": "HİLAL KAPLAN",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/65b786/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774467225.jpg"
         }
       ]
     },
