@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-27T19:01:39.224151+00:00",
-  "date": "2026-11-27",
-  "total": 1230,
+  "fetchedAt": "2026-11-27T21:31:48.718790+00:00",
+  "date": "2026-11-28",
+  "total": 1216,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 205,
+      "count": 200,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1007,31 +1007,6 @@
           "name": "Dr. Gülden Dönmez",
           "url": "https://www.hurriyet.com.tr/yazarlar/gulden-donmez/",
           "photo": ""
-        },
-        {
-          "name": "Abdulkadir SELVİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5701682267b0a90bdc503454.jpg"
-        },
-        {
-          "name": "Nedim ŞENER",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5dfe6f2a2269a2205c12e3b5.jpg"
-        },
-        {
-          "name": "Fulya Soybaş",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/63c4e6bb4e3fe116ec5f319f.jpg"
-        },
-        {
-          "name": "Nilgün Tekfidan GÜMÜŞ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/65aa40f3eb03f66dff0be4a2.jpg"
-        },
-        {
-          "name": "Deniz SİPAHİ",
-          "url": "",
-          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/58c64c7cc03c0e243c5a2afa.jpg"
         }
       ]
     },
@@ -1134,19 +1109,9 @@
           "photo": ""
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
-        },
-        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/65b786/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774467225.jpg"
-        },
-        {
-          "name": "NİHAT HATİPOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/c3171c/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/11/11/1668163320494.jpg"
         },
         {
           "name": "MELİH ALTINOK",
@@ -1154,9 +1119,19 @@
           "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
         },
         {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
+        },
+        {
           "name": "YAVUZ DONAT",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/c3171c/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/11/11/1668163320494.jpg"
         }
       ]
     },
@@ -3626,7 +3601,7 @@
     {
       "key": "posta",
       "name": "Posta",
-      "count": 19,
+      "count": 12,
       "writers": [
         {
           "name": "İlke Gürsoy",
@@ -3686,41 +3661,6 @@
         {
           "name": "Erdoğan Arıpınar",
           "url": "https://www.posta.com.tr/yazarlar/erdogan-aripinar/",
-          "photo": ""
-        },
-        {
-          "name": "Oral Çalışlar",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Mehmet Coşkundeniz",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Murat Çelik",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Ekrem Sarısu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Tamer Heper",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Filiz Özkol",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Doç. Dr. Gökçen Erdoğan",
-          "url": "",
           "photo": ""
         }
       ]
@@ -4995,7 +4935,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 48,
+      "count": 46,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5219,16 +5159,6 @@
         },
         {
           "name": "Video Galeri",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "TFF açıkladı! Süper Lig yayın ihalesinin tarihi belli oldu",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Vergi borçlarında gecikme zammı ve tecil faizi düşürüldü",
           "url": "",
           "photo": ""
         },
@@ -6258,11 +6188,6 @@
       "count": 6,
       "writers": [
         {
-          "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
-        },
-        {
           "name": "Diken",
           "url": "",
           "photo": ""
@@ -6271,6 +6196,11 @@
           "name": "Mesude Demir",
           "url": "",
           "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+        },
+        {
+          "name": "Fazlı Gök",
+          "url": "",
+          "photo": ""
         },
         {
           "name": "Cihan Tekin",
@@ -6283,7 +6213,7 @@
           "photo": ""
         },
         {
-          "name": "Fazlı Gök",
+          "name": "Emre Zor",
           "url": "",
           "photo": ""
         }
