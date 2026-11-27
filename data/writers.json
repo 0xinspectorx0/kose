@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T06:57:05.721746+00:00",
+  "fetchedAt": "2026-11-27T08:28:05.888123+00:00",
   "date": "2026-11-27",
   "total": 1229,
   "papers": [
@@ -5048,6 +5048,11 @@
           "photo": ""
         },
         {
+          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
+          "url": "https://www.milligazete.com.tr/cihat-yayci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
+        },
+        {
           "name": "Çalışmanın ve helal kazancın önemi",
           "url": "https://www.milligazete.com.tr/calismanin-ve-helal-kazancin-onemi",
           "photo": ""
@@ -5133,16 +5138,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/556-avatar.jpg"
         },
         {
-          "name": "Ağabey diyor ki aldanmayalım barİ",
-          "url": "https://www.milligazete.com.tr/agabey-diyor-ki-aldanmayalim-bari",
-          "photo": ""
-        },
-        {
-          "name": "İsmail Müftüoğlu",
-          "url": "https://www.milligazete.com.tr/ismail-muftuoglu",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/51782-avatar.jpg"
-        },
-        {
           "name": "Nöbetçi Eczaneler",
           "url": "https://www.milligazete.com.tr/istanbul-nobetci-eczaneler",
           "photo": ""
@@ -5224,6 +5219,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bingazi saldırısının arkasında Yunanistan mı var?",
           "url": "",
           "photo": ""
         }

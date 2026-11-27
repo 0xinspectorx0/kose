@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-27T06:57:05.727496+00:00",
-  "kurallarAlindi": "2026-11-27T06:50:05.357860+00:00",
+  "guncellendi": "2026-11-27T08:28:05.894692+00:00",
+  "kurallarAlindi": "2026-11-27T08:20:29.130087+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -52,7 +52,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 12
+      "yazi": 13
     },
     {
       "key": "yenisafak",
@@ -216,7 +216,7 @@
       "tur": "akis",
       "category": "Ekonomi",
       "aktif": true,
-      "yazi": 1,
+      "yazi": 2,
       "author": "Mahfi Eğilmez"
     },
     {
@@ -234,7 +234,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Yılmaz Özdil"
     }
   ]
