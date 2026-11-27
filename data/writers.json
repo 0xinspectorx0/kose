@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-27T08:28:05.888123+00:00",
+  "fetchedAt": "2026-11-27T11:58:09.113073+00:00",
   "date": "2026-11-27",
-  "total": 1229,
+  "total": 1224,
   "papers": [
     {
       "key": "hurriyet",
@@ -1134,9 +1134,9 @@
           "photo": ""
         },
         {
-          "name": "MAHMUT ÖVÜR",
+          "name": "YAVUZ DONAT",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
         },
         {
           "name": "NİHAT HATİPOĞLU",
@@ -1149,14 +1149,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
         },
         {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
+        },
+        {
           "name": "HİLAL KAPLAN",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/65b786/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774467225.jpg"
-        },
-        {
-          "name": "YAVUZ DONAT",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
         }
       ]
     },
@@ -4995,7 +4995,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 46,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5048,6 +5048,21 @@
           "photo": ""
         },
         {
+          "name": "Hesap kolay değil",
+          "url": "https://www.milligazete.com.tr/hesap-kolay-degil",
+          "photo": ""
+        },
+        {
+          "name": "Ömer Arif",
+          "url": "https://www.milligazete.com.tr/omer-arif",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
+        },
+        {
+          "name": "Nureddin Yıldız",
+          "url": "https://www.milligazete.com.tr/nureddin-yildiz",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/nuredddin-yildiz-foto.png"
+        },
+        {
           "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
           "url": "https://www.milligazete.com.tr/cihat-yayci",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
@@ -5083,16 +5098,6 @@
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/71410-avatar.jpg"
         },
         {
-          "name": "Hesap kolay değil",
-          "url": "https://www.milligazete.com.tr/hesap-kolay-degil",
-          "photo": ""
-        },
-        {
-          "name": "Ömer Arif",
-          "url": "https://www.milligazete.com.tr/omer-arif",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/omer-arif-1.png"
-        },
-        {
           "name": "Sıra iade-i itibara mı geliyor?",
           "url": "https://www.milligazete.com.tr/sira-iade-i-itibara-mi-geliyor",
           "photo": ""
@@ -5116,11 +5121,6 @@
           "name": "Reşat Nuri Erol",
           "url": "https://www.milligazete.com.tr/resat-nuri-erol",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/664-avatar.jpg"
-        },
-        {
-          "name": "Nureddin Yıldız",
-          "url": "https://www.milligazete.com.tr/nureddin-yildiz",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/uploads/2025/11/nuredddin-yildiz-foto.png"
         },
         {
           "name": "Ercan Özcan",
@@ -5219,6 +5219,16 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "TFF açıkladı! Süper Lig yayın ihalesinin tarihi belli oldu",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Vergi borçlarında gecikme zammı ve tecil faizi düşürüldü",
           "url": "",
           "photo": ""
         },
@@ -6245,44 +6255,8 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
-      "writers": [
-        {
-          "name": "Prof. Dr. Yasemin Giritli İnceoğlu",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/04/cropped-20260417-yasemin-inceoglu-kelle.jpeg"
-        },
-        {
-          "name": "Mesude Demir",
-          "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
-        },
-        {
-          "name": "Diken",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Fazlı Gök",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Emre Zor",
-          "url": "",
-          "photo": ""
-        }
-      ]
+      "count": 0,
+      "writers": []
     }
   ]
 }
