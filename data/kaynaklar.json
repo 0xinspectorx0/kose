@@ -1,6 +1,6 @@
 {
-  "guncellendi": "2026-11-27T03:56:23.236516+00:00",
-  "kurallarAlindi": "2026-11-27T03:49:10.726916+00:00",
+  "guncellendi": "2026-11-27T05:27:00.629835+00:00",
+  "kurallarAlindi": "2026-11-27T05:19:32.153417+00:00",
   "kurallarKaynagi": "api",
   "kurallarSurumu": 0,
   "kurallarNotu": "yönetici kuralları alındı (sürüm 0): 0 pasif kaynak, 0 pasif yazar, 0 eklenen kaynak",
@@ -20,7 +20,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 6
+      "yazi": 7
     },
     {
       "key": "sozcu",
@@ -36,7 +36,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 8
+      "yazi": 6
     },
     {
       "key": "sabah",
@@ -44,7 +44,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 9
+      "yazi": 5
     },
     {
       "key": "cumhuriyet",
@@ -92,7 +92,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 5
+      "yazi": 6
     },
     {
       "key": "takvim",
@@ -100,7 +100,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 4
+      "yazi": 7
     },
     {
       "key": "posta",
@@ -108,7 +108,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0
+      "yazi": 7
     },
     {
       "key": "yeniasir",
@@ -172,7 +172,7 @@
       "tur": "gazete",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 17
+      "yazi": 1
     },
     {
       "key": "altayli",
@@ -234,7 +234,7 @@
       "tur": "akis",
       "category": "Gündem",
       "aktif": true,
-      "yazi": 0,
+      "yazi": 1,
       "author": "Yılmaz Özdil"
     }
   ]
