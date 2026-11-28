@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-28T08:35:28.890293+00:00",
+  "fetchedAt": "2026-11-28T12:06:51.270701+00:00",
   "date": "2026-11-28",
-  "total": 1234,
+  "total": 1235,
   "papers": [
     {
       "key": "hurriyet",
@@ -1159,11 +1159,6 @@
           "photo": ""
         },
         {
-          "name": "MAHMUT ÖVÜR",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
@@ -1172,6 +1167,11 @@
           "name": "MELİH ALTINOK",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
+        },
+        {
+          "name": "MAHMUT ÖVÜR",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
         },
         {
           "name": "OKAN MÜDERRİSOĞLU",
@@ -3868,7 +3868,7 @@
         {
           "name": "ZAFER ÖZCİVAN",
           "url": "https://www.yeniasir.com.tr/yazar-tum-yazilar/zafer-ozcivan",
-          "photo": ""
+          "photo": "https://iaysr.tmgrup.com.tr/e02959/170/170/35/0/651/617?u=https://iysr.tmgrup.com.tr/2026/11/28/1795856798969.jpg"
         },
         {
           "name": "ZÜMRÜT YILMAZ",
@@ -4633,14 +4633,14 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/163.png?v=1907.99"
         },
         {
-          "name": "Coşkun BAŞBUĞ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
-        },
-        {
           "name": "Betül Soysal Bozdoğan",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/201.png?v=1907.99"
+        },
+        {
+          "name": "Coşkun BAŞBUĞ",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/187.png?v=1907.99"
         },
         {
           "name": "Hasan Hüseyin ÖZ",
@@ -5010,7 +5010,7 @@
     {
       "key": "milligazete",
       "name": "Milli Gazete",
-      "count": 47,
+      "count": 48,
       "writers": [
         {
           "name": "Foto Galeri",
@@ -5063,6 +5063,11 @@
           "photo": ""
         },
         {
+          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
+          "url": "https://www.milligazete.com.tr/cihat-yayci",
+          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
+        },
+        {
           "name": "Rakamlarla büyütmüşler çocuklarını",
           "url": "https://www.milligazete.com.tr/rakamlarla-buyutmusler-cocuklarini",
           "photo": ""
@@ -5091,11 +5096,6 @@
           "name": "İsmail Hakkı Akkiraz",
           "url": "https://www.milligazete.com.tr/ismail-hakki-akkiraz",
           "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/618-avatar.jpg"
-        },
-        {
-          "name": "Müstafi Tümamiral Prof. Dr. Cihat Yaycı",
-          "url": "https://www.milligazete.com.tr/cihat-yayci",
-          "photo": "https://milligazetecomtr.teimg.com/crop/200x200/milligazete-com-tr/authors/75399-avatar.jpg"
         },
         {
           "name": "Aslan Aramak",
@@ -5244,6 +5244,11 @@
         },
         {
           "name": "Video Galeri",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Kara Papaz 30 Kasım’da Fener’de neyin masasını kuruyor?",
           "url": "",
           "photo": ""
         }
@@ -6275,10 +6280,15 @@
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
         },
         {
           "name": "Diken",
+          "url": "",
+          "photo": ""
+        },
+        {
+          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
@@ -6289,11 +6299,6 @@
         },
         {
           "name": "Cihan Tekin",
-          "url": "",
-          "photo": ""
-        },
-        {
-          "name": "Bişar Arslan",
           "url": "",
           "photo": ""
         },
