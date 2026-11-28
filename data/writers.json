@@ -1,7 +1,7 @@
 {
-  "fetchedAt": "2026-11-27T21:31:48.718790+00:00",
+  "fetchedAt": "2026-11-28T01:02:50.943710+00:00",
   "date": "2026-11-28",
-  "total": 1216,
+  "total": 1213,
   "papers": [
     {
       "key": "hurriyet",
@@ -1114,14 +1114,14 @@
           "photo": "https://iasbh.tmgrup.com.tr/65b786/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2021/04/07/1617774467225.jpg"
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
+        },
+        {
+          "name": "NİHAT HATİPOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/c3171c/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/11/11/1668163320494.jpg"
         },
         {
           "name": "YAVUZ DONAT",
@@ -1129,9 +1129,9 @@
           "photo": "https://iasbh.tmgrup.com.tr/53c721/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2016/02/16/500x250/b28c1f2b-3bb8-4e03-9184-953a3d35a4e3.jpg"
         },
         {
-          "name": "NİHAT HATİPOĞLU",
+          "name": "MELİH ALTINOK",
           "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/c3171c/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/11/11/1668163320494.jpg"
+          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
         }
       ]
     },
@@ -1605,7 +1605,7 @@
     {
       "key": "yenisafak",
       "name": "Yeni Şafak",
-      "count": 205,
+      "count": 202,
       "writers": [
         {
           "name": "Bugün Yazanlar",
@@ -2616,21 +2616,6 @@
           "name": "Yahya Bostan",
           "url": "",
           "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
-        },
-        {
-          "name": "Turgay Yerlikaya",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
-        },
-        {
-          "name": "Selçuk Türkyılmaz",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
-        },
-        {
-          "name": "Nur Özkan Erbay",
-          "url": "",
-          "photo": "https://img.piri.net/piri/upload/3/2025/7/3/1d2011cd-9w8i0ridzrsrg4kikiochh.png"
         }
       ]
     },
@@ -3418,7 +3403,7 @@
       "count": 1,
       "writers": [
         {
-          "name": "Yazar Arşivi",
+          "name": "YAZARLAR",
           "url": "https://www.haberturk.com/htyazarlar/arsiv",
           "photo": ""
         }
@@ -4558,6 +4543,11 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/162.png?v=1907.99"
         },
         {
+          "name": "Halime KÖKCE",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
+        },
+        {
           "name": "Yakup KÖSE",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/161.png?v=1907.99"
@@ -4566,6 +4556,11 @@
           "name": "Mustafa SABRİ BEŞER",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/185.png?v=1907.99"
+        },
+        {
+          "name": "M. Yalçın YILMAZ",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
         },
         {
           "name": "Esra ELÖNÜ",
@@ -4578,21 +4573,6 @@
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/38.png?v=1907.99"
         },
         {
-          "name": "Filiz Katman",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
-        },
-        {
-          "name": "Halime KÖKCE",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/108.png?v=1907.99"
-        },
-        {
-          "name": "M. Yalçın YILMAZ",
-          "url": "",
-          "photo": "https://www.star.com.tr/_imgs/yazarlar2/186.png?v=1907.99"
-        },
-        {
           "name": "Hasan Hüseyin ÖZ",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/190.png?v=1907.99"
@@ -4601,6 +4581,11 @@
           "name": "İbrahim Güneş",
           "url": "",
           "photo": "https://www.star.com.tr/_imgs/yazarlar2/192.png?v=1907.99"
+        },
+        {
+          "name": "Filiz Katman",
+          "url": "",
+          "photo": "https://www.star.com.tr/_imgs/yazarlar2/194.png?v=1907.99"
         },
         {
           "name": "Faik Tanrıkulu",
