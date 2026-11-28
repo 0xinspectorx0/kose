@@ -1,12 +1,12 @@
 {
-  "fetchedAt": "2026-11-28T05:34:59.131036+00:00",
+  "fetchedAt": "2026-11-28T07:04:49.848373+00:00",
   "date": "2026-11-28",
-  "total": 1231,
+  "total": 1233,
   "papers": [
     {
       "key": "hurriyet",
       "name": "Hürriyet",
-      "count": 210,
+      "count": 211,
       "writers": [
         {
           "name": "Abdulkadir Özbek",
@@ -1054,6 +1054,11 @@
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/611ce82f4e3fe017dcf77ef6.jpg"
         },
         {
+          "name": "Erdal Fernergiz",
+          "url": "",
+          "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/5b9f69cd18c7730244347c25.jpg"
+        },
+        {
           "name": "Salim Uzun",
           "url": "",
           "photo": "https://image.hurimg.com/i/hurriyet/90/140x140/66ae57b18d678ec0c61e88ff.jpg"
@@ -1154,24 +1159,24 @@
           "photo": ""
         },
         {
-          "name": "MELİH ALTINOK",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
-        },
-        {
           "name": "MAHMUT ÖVÜR",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/cb8b06/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2023/07/12/1689163960549.jpg"
         },
         {
-          "name": "OKAN MÜDERRİSOĞLU",
-          "url": "",
-          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
-        },
-        {
           "name": "SALİH TUNA",
           "url": "",
           "photo": "https://iasbh.tmgrup.com.tr/5eee78/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2017/06/28/500x250/1498650245078.jpg"
+        },
+        {
+          "name": "MELİH ALTINOK",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/dce6cd/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/04/14/1649938838202.jpg"
+        },
+        {
+          "name": "OKAN MÜDERRİSOĞLU",
+          "url": "",
+          "photo": "https://iasbh.tmgrup.com.tr/1ec198/1200/675/0/0/500/250?u=https://isbh.tmgrup.com.tr/sbh/2022/12/08/1670520880841.jpg"
         },
         {
           "name": "BERCAN TUTAR",
@@ -6255,12 +6260,17 @@
     {
       "key": "diken",
       "name": "Diken",
-      "count": 7,
+      "count": 8,
       "writers": [
+        {
+          "name": "Sevgi Uçan Çubukçu",
+          "url": "",
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2026/11/cropped-20261105-sevgi-kelle.jpeg"
+        },
         {
           "name": "Mesude Demir",
           "url": "",
-          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-75x75.jpg"
+          "photo": "https://www.diken.com.tr/wp-content/uploads/2025/10/cropped-kelle-mesude-demir-96x96.jpg"
         },
         {
           "name": "Diken",
